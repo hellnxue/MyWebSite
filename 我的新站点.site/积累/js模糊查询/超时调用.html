@@ -70,33 +70,19 @@
 </div>
 
 <!--[if (gte IE 9)|!(IE)]><!--> 
-<script type="text/javascript"  src="assets/js/pin.js"></script>
+ 
 <script src=" assets/js/jquery.min.js"></script> 
 <script src=" assets/js/int.web.js"></script> 
 <script src="assets/js/amazeui.js"></script> 
-<script src="assets/js/int.pageajax.js"></script>
-<script src="assets/js/jquery.transit.js"></script> 
-<script src="assets/js/int.com.js" type="text/javascript"></script>
-<script src="assets/js/int.datecur.js" type="text/javascript"></script>
-<script type="text/javascript"  src="assets/js/jquery.dialog.js"></script>
-<script type="text/javascript"  src="assets/js/jquery.bgiframe.min.js"></script>
 <script type="text/javascript">
 
-function errorCodeTip(msg){
-	 $("#sendcaptcha").closest("li").next("span").html("").remove();
-	 $("#sendcaptcha").closest("li").after("<span style='color:red'>"+msg+"！"+"</span>");
-}
+ 
 $(function() {
 
-	var codeCheck="${codeTip}";
-	console.log("codeCheck=="+"${codeCheck}");
-	if(codeCheck=="false"){
-		errorCodeTip("验证码输入错误");
-	}
-
-	var timerc1=0; //全局时间变量（秒数）
+ 
+/**============================间接调用方法一 star  倒计时===========================================*/
+	/*var timerc1=0; //全局时间变量（秒数）
 	var times;
-	
 	function add1(){ //加时函数
 		if(timerc1 > 0){ //如果不到1秒
 		    --timerc1; //时间变量自减1
@@ -111,40 +97,79 @@ $(function() {
 		 }
 	};
 		
-	/**
-	 * 获取验证码（个人）
-	 * 
-	 */
+	 
+	 //获取验证码 
 	 $("#sendcaptcha").on("click",function(){
-		 timerc1=60;//时间初始化
+	 
+	 
+		 //timerc1=60;//时间初始化
+		  timerc1=5;
 		 times=setInterval(add1,1000);
-  	   /*   $.getJSON("${ctx}/hrhelper-platform/anon/sendCertifyMessage.e", {
-  			
-		}, function (data) {
-			if (data == true){
-				timerc1=60;
-				$("#sendcaptcha").hide().siblings('.Time').show();
-			    setTimeout(timer_add1);				
-			}else{
-				alert(data.code);	     
-			}
-		});	  */ 
-	}); 
-	/*$("#submit").on("click",function(){	
-		var messagecode=$("#messagecode").val();
-		var isempty=false;
-		if(messagecode!==""){//验证是否为空
-			isempty=true;
-		}
-		
-		if(!isempty ){
-			errorCodeTip("请填写验证码");
-			return false;
-		}
+		 
+		 
+ 
+	}); */
 	
-		return true;
-		
-	});*/
+/**============================间接调用方法一 end===========================================*/
+
+/**============================间接调用方法二 star 正计时===========================================*/
+/*   var times;
+   var timeGobal=0;
+   var timeMax=5;
+   function add2(){
+      
+      timeGobal++;
+	  if(timeGobal!=timeMax){
+	     $("#sendcaptcha").hide().siblings('.Time').show();
+		    $(".Time #time_sub").html(parseInt(timeGobal)); //写入分秒数
+	  }else{
+	   $("#sendcaptcha").show().siblings('span.Time').hide();
+	    clearInterval(times);
+	  }
+   
+   }
+
+  $("#sendcaptcha").on("click",function(){
+	 
+	 
+		 //timerc1=60;//时间初始化
+		 times=setInterval(add2,1000);
+		 
+		 
+ 
+	}); */
+/**============================间接调用方法二 end 正计时===========================================*/
+
+
+/**============================超时调用方法三 倒计时  最佳实现 ===========================================*/
+   
+   var timeGobal=0;
+   
+   function add3(){
+
+	  if(timeGobal>0){
+	     timeGobal--;
+	  	 $("#sendcaptcha").hide().siblings('.Time').show();
+		 $(".Time #time_sub").html(parseInt(timeGobal)); //写入分秒数
+	     setTimeout(add3,1000);
+	  }else{
+	      $("#sendcaptcha").show().siblings('span.Time').hide();
+	  
+	  }
+   
+   }
+
+  $("#sendcaptcha").on("click",function(){
+	 
+	 
+		 timeGobal=5;//时间初始化
+		 setTimeout(add3,1000);
+		 
+		 
+ 
+	}); 
+/**============================间接调用方法三 end 倒计时===========================================*/
+ 
 });
 </script>
 </body>
