@@ -1,0 +1,184 @@
+@charset "utf-8";
+/* CSS Document */
+#wrapper > .tabs-panels {
+  position: absolute;
+  top: 36px;
+  bottom: 0;
+  left: 40px;
+  right: 40px;
+}
+#wrapper {
+  position:absolute;
+    top: 66px;
+    bottom: 0;
+  width:100%;
+  z-index: 10;
+  overflow:hidden;
+}
+
+/* Ash@140213[Position] */
+#wrapper i.myicon-rightbar,
+#wrapper i.myicon-filestar {
+  position: fixed;
+    left: 10px;
+    top: 200px;
+    z-index: 1;
+}
+
+#wrapper i.myicon-filestar {
+  left: auto;
+  right: 10px;
+}
+
+#leftbar, #rightbar {
+  position:absolute;
+  top:0;
+  background:#363636;
+  width:300px;
+  display:none;
+}
+#leftbar {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  bottom: 0;
+  overflow: hidden;
+  margin-top: 68px;
+  z-index: 9;
+}
+
+#leftbar .pin-wrapper,
+#leftbar .leftbar,
+#leftMeunTabCont {
+  height: auto !important;
+  overflow: hidden;
+  position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+}
+
+#leftMeunTabCont {
+  overflow-y: auto;
+  top: 36px;
+}
+
+#rightbar {
+  right:0px;
+  top: 0px;
+  margin-top: 68px;
+  z-index: 21;
+  color:#CCCCCC;
+}
+#rightbar {
+  right:0;
+}
+.left {
+  margin-left:300px;
+  margin-right:-300px;
+}
+
+.right {
+  margin-right:300px;
+  margin-left:-300px;
+}
+
+/* [Ash@140218] */
+.left #mytabs > .tabs-panels > .panel {
+  margin-right: 300px;
+}
+
+.right #mytabs > .tabs-panels > .panel {
+  margin-left: 300px;
+}
+
+/* [Ash@140213]Homepage widget fix */
+.span4 {
+  float: left;
+  min-height: 400px;
+  padding-right: 1%;
+  width: 32%;
+}
+
+@media (max-width: 1024px) {
+  .span4 {
+    width: 49%;
+  }
+}
+
+@media (max-width: 768px) {
+  .span4 {
+    width: 99%;
+  }
+}
+
+.span4.last {
+  padding-right:0;
+}
+.clearall {
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px;
+  padding: 0px;
+  clear: both;
+  height: 0px;
+  width: 100%;
+}
+.left_bg {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 2;
+  background-color: #363636;
+  display:none;
+}
+.right_bg {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 20;
+  background-color: #363636;
+  display:none;
+  right:0px;
+}
+.main_bg {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  background-color: #FFF;
+  min-height:100%;
+  filter:alpha(opacity:35);  opacity:0.35;
+}
+.myloading {
+  text-align: center;
+  padding-top: 200px;
+  height: 100%;
+  width: 100%;
+  position:absolute;
+  z-index:100000;
+  left:0;
+  top:0;
+  background-image: url(../images/tab_bg.png);
+  display: none;
+}
+
+/* Ash@140213[text-center] */
+.footer {
+  background: url(images/tab_bg.png);
+  color: #DDD;
+  height: 34px;
+  line-height: 34px;
+  overflow: hidden;
+  padding: 0 !important;
+  position:absolute;
+    left: 0px;
+    bottom: 0px;
+  text-align: center;
+  width: 100%;
+}
+
+.footer .pull-right a {
+  vertical-align: middle;
+}

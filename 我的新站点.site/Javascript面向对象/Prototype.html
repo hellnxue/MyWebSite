@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>Prototype</title>
+<script type="text/javascript">
+  /*
+    定义一个对象
+ */
+ function MyObject(name,size){
+    this.name=name;
+	this.size=size;
+ }
+    //给对象用prototype扩展属性
+	MyObject.prototype.color = "red";
+	//给对象用prototype扩展方法
+	MyObject.prototype.tellColor = function(){
+	
+		  return "color of "+this.name+" is "+this.color;
+	}
+	
+ var myobj1 = new MyObject("tiddles", "7.5 meters");
+
+function tests(){
+  alert(myobj1.tellColor);
+   alert(myobj1.tellColor());
+  if(myobj1.tellColor){
+      document.getElementById("test").innerHTML += myobj1.tellColor()+"<br /><br />";
+  }
+ 
+
+}
+   
+
+</script>
+</head>
+
+<body>
+<div id="test"></div><input type="button" value="测试" onclick="tests()"/>
+</body>
+</html>

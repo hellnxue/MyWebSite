@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style type="text/css">
+           .divFrame{width:260px;border:solid 1px #666;font-size:10pt}
+           .divTitle{background-color:#eee;padding:5px}
+           .divContent{padding:8px;font-size:9pt}
+           .divTip{width:244px;border:solid 1px #666;padding:8px;font-size:9pt;margin-top:5px;display:block}
+           .txtCss{border:solid 1px #ccc}
+           .divBtn{padding-top:5px}
+           .divBtn .btnCss{border:solid 1px #535353;width:60px}
+    </style>
+
+<script language="javascript" type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+       $("#btnSubmit").click(function(){
+	      
+	       var name=$("#Text1").val();
+		   var sex=$("#Radio1").is(":checked")?"男":"女";
+		   var c=$("#Checkbox1").is(":checked")?"已婚":"未婚";
+		    alert("name    "+name)
+			   alert("sex    "+sex)
+			     alert("c    "+c)
+		   var html=name+sex+c;
+		   alert(html);
+		   $("#divTip").html(html);
+	   });
+   
+   });
+</script>
+</head>
+
+<body>
+<div class="divFrame">
+    <div class="divTitle">请输入如下信息</div>
+    <div class="divContent">
+        姓名：<input id="Text1" type="text" class="txtCss"/><br />
+        性别：<input id="Radio1" name="rdoSex" type="radio" value="男" />男
+              <input id="Radio2" name="rdoSex" type="radio" value="女" />女<br />
+        婚否：<input id="Checkbox1" type="checkbox"  />
+        <div class="divBtn"><input id="btnSubmit" type="button" value="提 交" class="btnCss" /></div>
+    </div>
+</div>
+<div id="divTip" class="divTip"></div>
+
+</body>
+</html>

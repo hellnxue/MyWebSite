@@ -1,0 +1,286 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>易找伴 HI,找最全最准确的信息</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="css/rlt-yx.css" rel="stylesheet" type="text/css">
+<script src="js/jquery.min.js" type="text/javascript"></script>
+<script src="js/int.com.js" type="text/javascript"></script>
+<script src="js/jquery.flexslider-min.js" type="text/javascript"></script>
+<script src="js/jquery.dialog.js" type="text/javascript"></script>
+<script src="js/int.web.js" type="text/javascript"></script>
+<script type="text/javascript"  src="js/jquery.bgiframe.min.js"></script>
+<script type="text/javascript"  src="js/jquery.validator.js"></script>
+</head>
+
+<body style="background:#f2f2f2;">
+<div class="header reg_header">
+  <div class="header_top">
+    <div class="wrap">
+      <div class="top_sub fr">
+        <ul>
+          <li><a href="">登陆</a></li>
+          <li><a href="">会员注册</a></li>
+          <li><a href="">[退出]</a></li>
+          <li><a href="">会员中心</a></li>
+          <li><a href="">购物指南</a></li>
+          <li><a href="">关于我们</a></li>
+          <li><a href="">客服热线 <span>4009217700</span></a></li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="header_center wrap">
+    <div class="logo fl"> <a href="/"><img src="images/loginlogo.png"></a><span class="logo_txt">欢迎注册</span></div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--注册-->
+<div class="reg_box">
+  <div class="reg_tab"><span class="fr">我已经注册，现在就<a href="">登录</a></span><span class="tit tab_tags"><A class="cur">企业HR</A><a>供应商</a></span></div>
+  <div class="reg_cont tab_cont">
+    <div class="">
+      <form method="post" enctype="multipart/form-data">
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>用户名：</label>
+          <div class="mkinput"><span>
+            <input type="text" class="inputtip" placeholder="用户名" reg="[^ \f\n\r\t\v]" tip="用户名不能为空" ok-tip="你输入的用户名正确"><span class="form-tip error-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>请设置密码：</label>
+          <div class="mkinput"><span>
+            <input type="password" class="inputtip data-passwd" id="data-reg-pass">
+            <span class="form-tip"></span>
+            <p><span class="grade_box" id="mimaqiangdu">安全程度： <em class="color1">弱</em><em class="color2">中</em><em class="color3">强</em></span></p>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>请确认密码：</label>
+          <div class="mkinput"><span>
+            <input type="password" class="inputtip data-passwd-queren" tip="请输入密码" ok-tip="您输入的确认密码正确"><span class="form-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>手机/邮箱：</label>
+          <div class="mkinput"><span>
+            <input type="text" class="inputtip" placeholder="邮箱/手机" reg="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*|^13(\d{9})$|^15(\d{9})$|^18(\d{9})$" tip="邮箱/手机格式错误" ok-tip="输入正确"><span class="form-tip error-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>验证码：</label>
+          <div class="mkinput"><span>
+            <input type="text" class="inputtip w120" placeholder="">
+            </span>
+            <button class="but-gray" id="bootbox-regular">发送验证码到邮箱/手机</button>
+          </div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label></label>
+          <span>
+          <input type="checkbox">
+          我已同意并阅读<a href="" class="colorblue">《第一人力服务协议》</a></span></div>
+        <div class="regmkbox clearfixed">
+          <label></label>
+          <input name="提交" type="submit" class="login_bgn" value="立即登录">
+        </div>
+      </form>
+      
+	  <script type="text/javascript">
+      var isExtendsValidate = true;	//如果要试用扩展表单验证的话，该属性一定要申明
+      function extendsValidate(){	//函数名称，固定写法
+	      if( $('.data-passwd').val()==''){
+              $('.data-passwd').validate_callback("密码不能为空！","failed");	//此处是官方提供的API，效果则是当匹配不成功，pwd2表单 显示红色标注，并且TIP显示为"密
+		  
+              return false;
+		  }
+          
+      }
+      
+      </script>
+    </div>
+    <div class="none">
+      <form>
+        <p class="tags_tit">账号信息</p>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>用户名：</label>
+          <div class="mkinput"><span>
+            <input type="text" class="inputtip" placeholder="用户名" reg="[^ \f\n\r\t\v]" tip="用户名不能为空" ok-tip="用户名输入正确"><span class="form-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>请设置密码：</label>
+          <div class="mkinput"><span>
+            <input type="password" class="inputtip data-passwd" placeholder="" reg="^\w{6,20}$" tip="密码6-20个字符" ok-tip="正确的密码"><span class="form-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>请确认密码：</label>
+          <div class="mkinput"><span>
+            <input type="password" class="inputtip data-passwd-queren" reg="^\w{6,20}$" tip="密码为6-20个字符，请确认两次密码输入相同" ok-tip="正确的确认密码"><span class="form-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <p class="tags_tit">联系人信息</p>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>姓名：</label>
+          <div class="mkinput"><span>
+            <input type="text" class="inputtip" placeholder="姓名" reg="[^ \f\n\r\t\v]" tip="姓名不能为空" ok-tip="姓名输入正确"><span class="form-tip error-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>联系方式：</label>
+          <div class="mkinput"><span>
+            <input type="text" class="inputtip" placeholder="联系方式" reg="[^ \f\n\r\t\v]" tip="联系方式不能为空" ok-tip="联系方式输入正确"><span class="form-tip error-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>电子邮箱：</label>
+          <div class="mkinput"><span>
+            <input type="text" class="inputtip" placeholder="电子邮箱" reg="\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" tip="电子邮箱格式错误" ok-tip="电子邮箱输入正确"><span class="form-tip error-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <p class="tags_tit">公司信息</p>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>服务类别：</label>
+          <div class="mkinput select_mk"><span>
+            <input type="checkbox">
+            人力外包服务商 </span> <span>
+            <input type="checkbox">
+            福利商城供应商 </span></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>公司名称：</label>
+          <div class="mkinput"><span>
+            <input type="text" class="inputtip" placeholder="公司名称" reg="[^ \f\n\r\t\v]" tip="公司名称不能为空" ok-tip="公司名称输入正确"><span class="form-tip error-tip"></span>
+            </span><i class="cleaript"></i></div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label><em class="red">*</em>所在地：</label>
+          <div class="mkinput">
+            <select class="form-control box-xs-12">
+              <option value="">选择城市</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+            </select>
+            <select class="form-control box-xs-12">
+              <option value="">选择地区</option>
+              <option value="AL">Alabama</option>
+              <option value="AK">Alaska</option>
+              <option value="AZ">Arizona</option>
+              <option value="AR">Arkansas</option>
+              <option value="CA">California</option>
+              <option value="CO">Colorado</option>
+              <option value="CT">Connecticut</option>
+              <option value="DE">Delaware</option>
+              <option value="FL">Florida</option>
+              <option value="GA">Georgia</option>
+              <option value="HI">Hawaii</option>
+              <option value="ID">Idaho</option>
+              <option value="IL">Illinois</option>
+              <option value="IN">Indiana</option>
+              <option value="IA">Iowa</option>
+              <option value="KS">Kansas</option>
+              <option value="KY">Kentucky</option>
+            </select>
+          </div>
+        </div>
+        <div class="regmkbox clearfixed">
+          <label></label>
+          <span>
+          <input type="checkbox">
+          &nbsp;&nbsp;我已同意并阅读<a href="" class="colorblue">《第一人力服务协议》</a></span></div>
+        <div class="regmkbox clearfixed">
+          <label></label>
+          <input type="button" class="login_bgn" value="立即登录">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <div class="footer_top">
+    <div class="wrap">
+      <div class="fot_link fl">
+        <dl>
+          <dt>新手指南</dt>
+          <dd><a href="">企业用户注册</a></dd>
+          <dd><a href="">商户注册</a></dd>
+          <dd><a href="">会员等级</a></dd>
+          <dd><a href="">金币说明</a></dd>
+        </dl>
+        <dl>
+          <dt>购物指南</dt>
+          <dd><a href="">免费注册</a></dd>
+          <dd><a href="">常见问题</a></dd>
+          <dd><a href="">联系客服</a></dd>
+        </dl>
+        <dl>
+          <dt>支付方式</dt>
+          <dd><a href="">通联支付</a></dd>
+          <dd><a href="">银行支付</a></dd>
+        </dl>
+        <dl>
+          <dt>商家服务</dt>
+          <dd><a href="">商家入驻</a></dd>
+          <dd><a href="">商家中心</a></dd>
+          <dd><a href="">商家规则</a></dd>
+        </dl>
+        <dl>
+          <dt>售后服务</dt>
+          <dd><a href="">关于发票</a></dd>
+          <dd><a href="">退化货须知</a></dd>
+          <dd><a href="">售后政策</a></dd>
+        </dl>
+        <dl>
+          <dt>购物保障</dt>
+          <dd><a href="">正品保证</a></dd>
+          <dd><a href="">注册协议</a></dd>
+          <dd><a href="">隐私保护</a></dd>
+          <dd><a href="">免责声明</a></dd>
+        </dl>
+        <div class="clear"></div>
+      </div>
+      <div class="fot_wx fr">
+        <p class="fr">24小时服务热线<br>
+          <span class="blue">4009217700</span><br>
+          <a href=""><img src="images/sinaico.jpg"></a></p>
+        <p><img src="images/wx.jpg"></p>
+        <p style="padding-left:10px;"><strong>官方微信二维码</strong></p>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+  <div class="footer_copy">
+    <p align="center">沪ICP备13044278号|合字B1.B2-20130004|营业执照|互联网信息服务资格证|互联网交易服务资格证</p>
+    <p align="center">Copyright© 1智阳科技 2007-2015，All Rights Reserved</p>
+  </div>
+</div>
+<div class="youce">
+  <ul>
+    <li><a class="yc1" href="javascript:window.external.AddFavorite(location.href,document.title);"></a><!--加入收藏--></li>
+    <li><a class="yc2" target="_blank" title="在线咨询" href="http://wpa.qq.com/msgrd?v=3&amp;uin=1050442258
+&amp;site=qq&amp;menu=yes"></a><!--咨询--></li>
+    <li><a title="扫描微信" class="yc3" href="#"></a><!--反馈--></li>
+    <li><a title="返回顶部" class="yc4" href="javascript:void(0)" id="gotop" style="display: none;"></a><!--置顶--></li>
+  </ul>
+</div>
+</body>
+</html>

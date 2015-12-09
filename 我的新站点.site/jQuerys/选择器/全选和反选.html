@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+//点击全选复选框处理结果
+ $(":checkbox[name=alls]").click(function(){
+	 //alert($(this).attr("checked"));//输出checked
+	 //alert($(this).prop("checked"));//输出boolean类型
+	 
+	 /*
+	    //this为DOM对像,$(this)为jquery对象 
+	 */
+     if($(this).prop("checked")){
+	    $(":checkbox[name=instr]").each(function(){this.checked=true});  
+	 }else{
+	 	$(":checkbox[name=instr]").each(function(){$(this).attr("checked",false)});
+	 }
+   
+ });
+ //点击子复选框对全选复选框的处理结果
+ $(":checkbox[name=instr]").click(function(){
+    var a1=$(":checked[name=instr]").length;//获得选中的长度
+	var a2=$(":checkbox[name=instr]").length;//获得复选框组的总长度
+	//alert(a1);
+	if(a1==a2){
+	  $(":checkbox[name=alls]").attr("checked",true);
+	  
+	}else{
+	  $(":checkbox[name=alls]").removeAttr("checked");
+	}
+ 
+ });
+
+})
+
+</script>
+</head>
+
+<body>
+<h3>全选:<input type="checkbox" name="alls"/><br/></h3>
+<input type="checkbox"  name="instr" value="apple" />apple<br/>
+<input type="checkbox"  name="instr" value="banana" />banana<br/>
+<input type="checkbox"  name="instr" value="orange" />orange<br/>
+<input type="checkbox"  name="instr" value="tomato" />tomato<br/>
+<input type="checkbox"  name="instr" value="garlic" />garlic
+</body>
+</html>

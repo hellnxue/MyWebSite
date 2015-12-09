@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>面向对象基础</title>
+ <script language="javascript">
+   //定义Person类
+   function Person(){
+       //私有成员
+       var name = null;
+	   var age = null;
+	   var sex = null;
+	   var height = null;
+	   /*function setName(pName){
+	   	 name = pName;
+	   }
+	   function getName(){
+	   	  return name;
+	   }*/
+	   /*this.setName = function(pName){
+	   	 this.name = pName;
+	   };
+	   this.getName = function(){
+	   	 return this.name;
+	   };
+	   */
+	   this.setHeight = function(pHeight){
+	   	 height = pHeight;
+	   };
+	   this.getHeight = function(){
+	   	  return height;
+	   };
+      
+   };
+   //增加静态成员
+   Person.info="这是一个静态属性";
+   Person.getInstance = function(pName,pAge,pSex,pHeight){
+      var p = new Person();
+	  p.setName(pName);
+	  p.setHeight(pHeight);
+	  return p;
+   };
+   //使用prototype
+   Person.prototype.setName = function(pName){
+   	 this.name = pName;
+   };
+   Person.prototype.getName = function(){
+   	 return this.name;
+   };
+   Person.prototype.toString = function(){
+   	 var personStr = "姓名："+this.getName()+"身高"+this.getHeight();
+	 return personStr;
+   }
+   //测试
+   function init(){
+   	   //var p = new Person();//创建Person类对象
+	   //p.setName("张三");
+	   //var p = Person.getInstance("张三",20,"男",178.5);
+	   //alert(p.getName()+" "+p.getHeight());
+	   //alert(p["getName"]()+" "+p["getHeight"]());
+	   //alert(Person.info);
+	   //var now = new Date();
+	   //alert(now.getYear());
+	   /*var a = new Array();
+	   a[0] = 10;
+	   a[1] = 20;
+	   a.push(30);//数组中添加数据
+	   alert(a[2]);*/
+	   //使用prototype
+	   var p = new Person();
+	   p.setName("张三");
+	   p.setHeight(178.5);
+	   //alert(p.getName());
+	   alert(p.toString());
+   }
+ </script>
+</head>
+
+<body onload="init();">
+</body>
+</html>

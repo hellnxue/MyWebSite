@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript"> 
+function check() {
+ var num="(25[0-5]|2[0-4]\\d|[0-1]\\d{2}|[1-9]?\\d)" 
+ var reg = new RegExp("^"+num+"\\."+num+"\\."+num+"\\."+num+"$"); 
+ alert(reg.test(t1.value)) } 
+
+
+function test(){
+
+   var addr=document.getElementById("t2").value;
+   var reg = new RegExp("^[0-9]*$");
+   alert("验证"+addr);
+   var part_addr=addr.split(".");
+   if(part_addr.length!=4){
+        alert("长度不对");
+        return false;
+   }else{
+     
+	  for(var i=0;i<part_addr.length;i++){
+	    //alert(part_addr[i]);
+	     if(reg.test(part_addr[i])){
+		    //alert("是数字的啦");
+		    if(parseInt(part_addr[i])<0||parseInt(part_addr[i])>255){
+			   alert("数字长度必须大于0小于255");
+			   return false;
+			}
+		 }else{
+		    alert("格式不正确，必须填写数字");
+		    return false;
+		 }
+	  }
+	  alert("填写正确");
+      return true;
+   
+   }
+  
+}
+
+function check(){
+  var reg = new RegExp("^[0-9]*$"); 
+  alert(reg);
+   if(reg.test(10)){
+      alert("是数字");
+   }else{
+       alert("不是数字");
+   }
+}
+
+function testpoint(){
+  var str="helloword";
+  var str=document.getElementById("t3").value;
+ 
+  if(str.indexOf(".")==-1){
+     alert("缺少.");
+  }
+}
+
+
+
+ </script>
+</head>
+
+<body>
+
+<input type="text" value="10.0.0.218" id="t1"> <input type="button" value="数字验证"  onclick="check()"> <br/>
+<input type="text" value="10.0.0.218" id="t2"> <input type="button" value="IP地址验证"  onclick="test()"><br/>
+
+<input type="text" value="10.0.0.218" id="t3"> <input type="button" value="验证小数点"  onclick="testpoint()"><br/>
+ 
+
+</body>
+
+
+</html>

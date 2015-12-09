@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jquery.autocomplete.js"></script>
+<link type="text/css"  rel="stylesheet" href="jquery.autocomplete.css"/>
+<script type="text/javascript">
+var cities = [
+	"Aberdeen", "Ada", "Adamsville", "Addyston", "Adelphi", "Adena", "Adrian", "Akron",
+	"Albany", "Alexandria", "Alger", "Alledonia", "Alliance", "Alpha", "Alvada",
+	"Alvordton", "Amanda", "Amelia", "Amesville", "Amherst", "Amlin", "Amsden",
+	"Amsterdam", "Andover", "Anna", "Ansonia", "Antwerp", "Apple Creek", "Arcadia",
+	"Arcanum", "Archbold", "Arlington", "Ashland", "Ashley", "Ashtabula", "Ashville",
+	"Athens", "Attica", "Atwater", "Augusta", "Aurora", "Austinburg", "Ava", "Avon",
+	"Avon Lake", "Bainbridge", "Bakersville", "Baltic", "Baltimore", "Bannock",
+	"Barberton", "Barlow", "Barnesville", "Bartlett", "Barton", "Bascom", "Batavia",
+	"Bath", "Bay Village", "Beach City", "Beachwood", "Beallsville", "Beaver",
+	"Beaverdam", "Bedford", "Bellaire", "Bellbrook", "Belle Center", "Belle Valley",
+	"Bellefontaine", "Bellevue", "Bellville", "Belmont", "Belmore", "Beloit", "Belpre",
+	"Benton Ridge", "Bentonville", "Berea", "Bergholz", "Berkey", "Berlin",
+	"Berlin Center", "Berlin Heights", "Bethel", "Bethesda", "Bettsville", "Beverly"];
+	
+   $(function(){
+     //var str=window.prompt("plase input you name:","What's your name?");
+	 //if(str){
+	 //   alert("Welcome "+str);
+	// }
+     
+      $("#cname").autocomplete(cities,{minChars:0,autoFill:true}).search(function(){alert("heheh");});
+   
+   
+      
+   })
+
+</script>
+</head>
+
+<body>
+城市名称：
+<input type="text" name="cname" id="cname"/>
+</body>
+</html>

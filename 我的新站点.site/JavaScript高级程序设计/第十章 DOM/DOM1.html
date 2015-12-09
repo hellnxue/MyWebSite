@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html  >
+<head>
+<meta charset=gb2312 />
+<title>Node</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script>
+  //公共的输出方法
+  function cslog(name,value){
+    if(arguments.length==2){
+	   console.log(name+"="+value);
+	}else{
+	   console.log(name);
+	}
+	
+   
+  }
+
+  function tNode(){
+     var dom=$("#idiv");
+	 cslog("dom[0].nodeType ",dom[0].nodeType);//1 表明该元素的节点类型是元素
+	 cslog("dom[0].nodeName",dom[0].nodeName);//div 元素名称
+	 cslog("dom[0].nodeValue",dom[0].nodeValue);//null 元素的值都为null
+	 
+	 
+	 
+	 
+  
+  }
+
+  function testNode(){
+     var ul=$("#ulul")[0];
+	 cslog("hasChildNodes()",ul.hasChildNodes());
+	 var cn=ul.childNodes;
+	 cslog("ul",ul.nodeName);
+	 cslog("cn.length",cn.length)
+	 cslog("ul.childNodes[0]",ul.childNodes[0].parentNode.nodeName);
+	 cslog("ul.childNodes[1]",ul.childNodes[1].parentNode.nodeName);
+	 cslog("ul.childNodes[2]",ul.childNodes[2].parentNode.nodeName);
+	 cslog("ul.childNodes[3]",ul.childNodes[3].parentNode.nodeName);
+	 cslog("ul.childNodes[4]",ul.childNodes[4].parentNode.nodeName);
+	 cslog("ul.childNodes[5]",ul.childNodes[5].parentNode.nodeName);
+	 cslog("ul.childNodes[6]",ul.childNodes[6].parentNode.nodeName);
+	
+	 cslog("ul.firstChild===cn[0]",ul.firstChild===cn[0]);
+	  cslog("ul.lastChild===cn[cn.length-1]",ul.lastChild===cn[cn.length-1]);
+	 cslog("ul.lastChild.nodeName",ul.lastChild.nodeName);
+	  cslog("ul.parentNode.nodeName",ul.parentNode.nodeName);
+	  
+	
+	 }
+ 
+ function testNode2(){
+     var div=$("#divdiv")[0];
+	  cslog("hasChildNodes",div.hasChildNodes());
+	  cslog("div.firstChild)",div.firstChild.nodeName);
+	  cslog("div.firstChild)",div.childNodes.length);//3  ??为啥是个3奥
+	   cslog("div.childNodes[0].nodeName",div.childNodes[0].nodeValue);//#text  nodeValue为空为啥啊
+	    cslog("div.childNodes[1].nodeName)",div.childNodes[1].nodeName);//DIV
+		 alert("div.childNodes[2].nodeName",div.childNodes[2].nodeValue);//#text
+		 
+		 cslog("ownerDocument",div.ownerDocument.nodeName);
+	cslog("========================================================");
+	
+	var pp=$("#pp")[0];
+	div.appendChild(pp);
+	 cslog("div.firstChild)",div.firstChild.nodeName);
+	 cslog("div.firstChild)",div.childNodes.length);
+	 div.appendChild(div.firstChild);//???
+ }
+ 
+ function testNode3(){
+    var node=$("#node")[0];
+	cslog(node.firstChild.nodeValue);
+ 
+ }
+ 
+ function testNode4(){
+    var url1=document.URL;
+	cslog("document.URL",url1 );//获得当前页面的地址栏的URL，同location的toString():location.href
+	var url2=location.toString();
+	cslog("location.toString",url2);
+	
+	var dtitle=document.title;//取得页面title的引用
+	cslog("title",dtitle);
+	dtitle="document节点";//如此修改不行滴
+	document.title="document的节点类型";//这么改才行啊
+	
+	var referrer=document.referrer;//取得来源页面的URL
+	cslog("referrer",referrer);
+	
+	var domain=document.domain;//取得页面域名 类似BOM的hostname  ：取得不带端口号的服务器名称
+	cslog("domain",domain);
+	
+	//-----------查找元素
+	var elt=document.getElementById("elemt");
+	var jlt=$("#elemt");
+	cslog("elt",elt);//null
+	cslog("jlt",jlt);//[object Object]
+	
+	var elv=document.getElementById("elt1");
+	cslog("elv",elv.firstChild.nodeValue);//取得普通元素包含的文本节点 hello1  DOM会取重复id的第一个位置的id
+	
+	var eltv=document.getElementById("eltv");//取得表指定的单值
+	cslog("eltv",eltv.value);
+	
+	var eltvs=document.getElementById("eltvs");//取得表指定的单值
+	cslog("eltvs",eltv.nodeName);//input  因为表单的name与普通元素的id一致
+	
+ }
+ 
+ 
+ 
+</script>
+</head>
+
+<body>
+
+<input type="button" value="测试childNode" onClick="testNode()"/>
+<ul id="ulul">
+  <li>sdf</li>
+   <li>asdf</li>
+    <li>asdfs</li>
+</ul><br>
+<input type="button" value="测试childNode2" onClick="testNode2()"/><br>
+<p id="pp">yes</p><br>
+
+<div id="divdiv">
+  <div>hello,sir</div>
+</div><br>
+<input type="button" value="测试childNode3" onClick="testNode3()"/><br><br>
+<br>
+-----------------------------document-------------------------------------------------------<br>
+
+<input type="button" value="测试document节点" onClick="testNode4()"/><br><br>
+
+
+<div id="node">nodenode</div><br>
+
+<p id="elt1">hello1</p>
+<p id="elt1">hello2</p>
+<input type="text" name="eltvs" value="hello3" id="eltv"/>
+<div id="eltvs">id与某个表单的name一样</div>
+<br>
+
+
+
+
+<input type="button" value="document节点" onClick="testNode5()"/><br>
+
+<script>
+      var dos=document.getElementById("idiv");
+  	  //console.log("dos=="+dos);
+	  var html=document.documentElement;
+	  cslog(html.nodeName);
+	  
+	  var bodyi=document.body;
+	  cslog(bodyi.nodeName);
+
+</script>
+</body>
+</html>

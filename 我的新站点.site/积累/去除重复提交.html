@@ -1,0 +1,62 @@
+<!DOCTYPE html  >
+<html  >
+<head>
+<meta charset=gb2312 />
+<title>无标题文档</title>
+<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<script>
+$(function(){
+   //-----------------取消事件绑定，防止事件重复------------------------------
+   $("#test").click(function(){
+      
+	  console.log("提交");
+	  
+	 // $(this).unbind("click");//方法一 取消对button元素的绑定
+      $(this).off();           //方法二
+   });
+   
+   //-------------------给元素绑定事件过滤-------------------------------------
+   $("body").on("click","p",function(){
+     console.log("给元素p绑定click事件");
+   });
+   
+   
+	//-------------------表单提交------------------------------------------------
+	
+  // $("form").on("submit",false);//取消类型为submit的按钮的提交功能
+   
+   //方法一  表单类型为submit的提交
+   //点击submit按钮提交表单时，return true会继续走提交，return false会阻止表单提交
+   $("#sub").on("click",function(){
+     alert("return false");
+     // $("#test").submit();
+	 return false;
+   
+   });
+   
+   //方法二  表单类型为buttong的提交
+   $("#but").on("click",function(){
+    // document.getElementById("forms").submit(); //原生js的DOM提交
+    $("form").submit(); //jQuery的submit（）事件
+	 
+   
+   });
+  //-------------------------------------------------------------------
+});
+
+
+</script>
+</head>
+
+<body>
+<input type="button" value="提交" id="test"/><br>
+<p id="pp" >事件绑定</p><br>
+<form action="child.html" method="get" id="forms">
+ name:<input type="text"   /><br>
+  <input type="submit" value="表单提交" id="sub"/><br>
+
+  <input type="button" value="普通表单" id="but"/>
+</form>
+
+</body>
+</html>

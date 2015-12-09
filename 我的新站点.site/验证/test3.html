@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta name="robots" content="all" />
+<meta name="author" content="http://blog.sina.com.cn/u/2766733967" />
+<meta name="description" content="JS限制textarea输入框输入字数" />
+<title>JS限制textarea输入框输入字数</title>
+
+</head>
+<body>
+<table width="400" border="0" cellspacing="0" cellpadding="0">
+<tr valign="middle" bgcolor="#F3F3F3">
+<td height="26" valign="top" align="left">
+  <textarea name="个人介绍" cols="50" rows="6" class="bot" id="youbian" onkeyup="checkLength(this);">aa</textarea>
+  <br>
+  限制字数显示剩余字数，最大长度: 10
+还剩: <span id="chLeft">10</span><br>
+</td>
+</tr>
+<script type="text/javascript">
+function checkLength(which) {
+var maxChars = 10;//设置字数限制
+if (which.value.length > maxChars)
+alert("不能超过10字");
+which.value = which.value.substring(0,maxChars);//超过字数不能再继续输入
+var curr = maxChars - which.value.length;
+document.getElementById("chLeft").innerHTML = curr.toString();
+}
+</script>
+</table>
+</body></html>

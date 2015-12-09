@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+//jQuery的$(function)是在页面加载完成后执行脚本
+ $(function(){
+    var p1=document.getElementById("pp");
+    console.log(p1);
+ });
+  var p=document.getElementById("pp");
+  console.log("获得DOM对象==="+p );//null  页面还未加载时，这个脚本先执行，得不到页面元素，So.....
+</script>
+<title>无标题文档</title>
+
+</head>
+
+<body>
+<p id="pp">test p</p>
+<input type="button" value="body的按钮事件" id="bd" onclick="test();"/><br />
+
+</body>
+<script type="text/javascript">
+  var p=document.getElementById("pp");//将脚本放在body下是为了在页面加载后执行脚本，才能取得DOM对象
+  console.log(p.nodeType);
+  console.log(p.nodeName);
+  
+  function test(){
+    console.log(123);
+  }
+</script>
+</html>

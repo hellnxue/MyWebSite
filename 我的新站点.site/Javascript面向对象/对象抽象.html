@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript">
+  /*
+    定义一个对象
+ */
+function Shape(){}
+
+/*
+在JavaScript中，抽象方法是没有被定义、但却被this指针直接引用的方法。  
+*/
+Shape.prototype.drawShap = function(){		
+	this.draw();
+}
+
+
+function Circle(){}					//创建圆形类
+function Square(){}					//创建正方形类
+
+
+ for(var i in Shape.prototype){
+    Circle.prototype[i]=Shape.prototype[i];
+	Square.prototype[i]=Shape.prototype[i];
+ }
+
+Circle.prototype.draw=function(){
+ alert(" Circle draw");
+}
+Square.prototype.draw=function(){
+ alert(" Square draw");
+}
+
+function tests(){
+   var shap1=new Circle();
+   shap1.drawShap();
+   
+   var shap2=new Square();
+   shap2.drawShap();
+   
+   
+ 
+
+}
+   
+
+</script>
+</head>
+
+<body>
+<div id="test"></div><input type="button" value="测试" onclick="tests()"/>
+</body>
+</html>

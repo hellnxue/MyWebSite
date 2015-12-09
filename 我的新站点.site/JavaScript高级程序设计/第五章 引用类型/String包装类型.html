@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+function test1(){
+  var aa="hello world";
+  var bb=" hello world ";
+    var cc="HELLO world";
+ 
+  console.log("aa.substr(-3)="+aa.substr(-3));
+  console.log("aa.substring(4,-3)="+aa.substring(4,-3));
+  
+  console.log(aa.length);
+   console.log(bb.length);
+   console.log(bb.trim().length);
+   
+     console.log("toLowerCase()="+cc.toLowerCase());
+	  console.log("toUpperCase()="+cc.toUpperCase());
+	  console.log("toLocaleLowerCase()="+cc.toLocaleLowerCase());
+	   console.log("toLocaleUpperCase()="+cc.toLocaleUpperCase());
+	   
+	   var array=[1,2];
+	   var ay=1;
+	   console.log(Array.isArray(array));
+	   console.log(Array.isArray(ay));
+	 //  var x=undefined===null;
+	   var x=undefined==null;
+	   console.log("x="+x);
+	 
+	
+	  if(Boolean(undefined)){
+	     console.log("Boolean(undefined)="+Boolean(undefined));
+	  }
+	  
+	  if(undefined){
+	    console.log("if(undefined)");
+	  }
+	  
+	  if(!undefined){
+	    console.log("if(!undefined)");
+	  }
+   
+	  if(!Boolean(undefined)){
+	     console.log("if(!Boolean(undefined))="+!Boolean(undefined));
+	  }
+	  
+	  console.log(Boolean(""));
+}
+
+function test2(){
+  var aa="hello world";
+  var a1=aa[1];
+  var a2=aa.charAt(1);
+  var a3=aa.charCodeAt(1);
+  var a4=aa.concat("!");
+  console.log("aa[1]="+a1);//字符串类型可以直接像数组一样根据索引取字符
+   console.log("aa.charAt(1)="+a2);//输出指定位置的字符
+	console.log("aa.charCodeAt(1)="+a3);//输出指定字符的字符编码
+	  console.log("aa.concat(\"!\")="+a4);//拼接字符，跟+号类作用一样
+
+}
+
+function substring1(){
+  var cname="hello world";
+  var result=cname.substring(0,3);//substring取得两个指定下标之间的字符
+  console.log("test substring=="+result);//hel
+  
+  var resultsub=cname.substr(0,3);//substr取得从start下标开始的指定长度的字符
+  console.log("test substr=="+resultsub);//hel
+  
+  console.log("刘雪萍".substring(3));
+}
+
+
+//测试break 
+function testbreak(){
+  var num=0;
+  
+  for(var i=0;i<5;i++){
+  
+    for(var j=0;j<5;j++){
+	
+	  console.log("i===="+i);
+	  
+	  if(i==3){
+	    break;// break是跳出它所在的当前循环，继续执行循环后的代码，如果它被多层循环包含，会继续执行外层循环
+	  }
+	  num++;
+	}
+	
+  }
+  
+  console.log(num);//结果为20，当i为3时，用break跳出了里层的for循环（var=j的）,继续执行最外层循环，总共执行4次外层循环，每次外层循环都包含有5次内层循环，4*5=20
+}
+
+function testlablebreak(){
+   var num=0;
+  cases:
+  for(var i=0;i<5;i++){
+  
+    for(var j=0;j<5;j++){
+	
+	  console.log("i===="+i);
+	  
+	  if(i==3){
+	    break cases;//跳出有cases标记的那个for循环
+	  }
+	  num++;
+	}
+	
+  }
+  
+  console.log(num);//15
+  
+  
+}
+</script>
+</head>
+
+<body style="width:">
+<input type="button" value="测试1" onClick="test1()"/></br>
+<input type="button" value="测试2" onClick="test2()"/></br>
+<input type="button" value="截取substring()" onClick="substring1()"/></br>
+
+<input type="button" value="跳出当前for循环-break" onClick="testbreak()"/></br>
+
+<input type="button" value="跳出最外层循环-lable break" onClick="testlablebreak()"/></br>
+</body>
+</html>

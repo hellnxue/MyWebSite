@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		function autoHeight(){
+			var hash = location.hash;
+			var height = hash.split('=')[1];
+			parent.parent.ajustHeight(height);
+		}
+		window.onload = function(){
+			autoHeight();
+			if('onhashchange' in window) {
+				window.onhashchange = autoHeight;
+			} else {
+				setInterval(autoHeight, 200);
+			}
+		}
+		
+	</script>
+</body>
+</html>

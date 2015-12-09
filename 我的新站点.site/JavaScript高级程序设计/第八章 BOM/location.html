@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html >
+<head>
+  
+<title>无标题文档</title>
+<script src="../../js/jquery-1.8.2.min.js"></script>
+<script>
+$(function(){
+    $("#test1").on("click",function(){
+      location.search="?q=hello";  //修改当前的URL为带有"?q=hello"的
+  
+    });
+	
+	$("#test2").on("click",function(){
+      location.replace("www.baidu.com");  //跳转url，不能返回
+  
+    });
+		$("#test3").on("click",function(){
+      //location.reload();  //跳转url，不能返回
+	  location.reload(true);
+	  console.log("hello");
+  
+    });
+});
+ 
+</script>
+</head>
+
+<body>
+<h1>jack</h1>
+<input type="button"   value="测试search" id="test1"/><br/>
+ <input type="button"   value="测试replace" id="test2"/><br/>
+  <input type="button"   value="测试reload" id="test3"/><br/>
+</body>
+</html>

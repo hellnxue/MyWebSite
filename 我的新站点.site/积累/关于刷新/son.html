@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" >
+   var value=window.dialogArguments;
+   alert(value);
+   window.returnValue="pig";
+   
+  function test(){
+      reload.click();
+  }
+</script>
+</head>
+
+<body>
+<base target="_self">
+<a id="reload" href="son.html" style="display:none">lala</a>
+
+<input type="button" value="刷新本页面-不好用哎" onclick="test();"/>
+
+
+hehe
+</body>
+</html>

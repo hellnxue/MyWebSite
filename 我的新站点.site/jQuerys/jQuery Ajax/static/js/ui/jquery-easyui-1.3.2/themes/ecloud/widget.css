@@ -1,0 +1,109 @@
+@charset "utf-8";
+/* CSS Document */
+
+.box {
+	border-radius:5px;
+	background:#fff;
+	margin-bottom:20px;
+	box-shadow:0 0 5px #aaa;
+	overflow:hidden;
+}
+.box .heading {
+	height:50px;
+	line-height:50px;
+	border-bottom:2px solid #ff0013;
+	padding:0 10px;
+	font-size:16px;
+	overflow:hidden;
+	color: #888888;
+}
+.box .heading.onselect {
+	color: #FFF;
+	background-image: url(../images/frame/widgets_tit_bg.jpg);
+	background-repeat: no-repeat;
+	background-position: right center;
+	background-color: #C91E25;
+}
+.box .heading i {
+	vertical-align:middle;
+	margin-right:5px;
+}
+.box .heading .pull-right a {
+	margin-top:15px;
+	margin-left:10px;
+}
+.sponsordata {
+	display:none;
+}
+.boostdate {
+	position: absolute;
+	height: 50%;
+	width: 32.6%;
+	display:none;
+	border-radius:5px;
+	background:#fff;
+	box-shadow:0 0 5px #aaa;
+}
+.todo-list_before {
+	width: 100%;
+	position: absolute;
+	height: 250px;
+	background-image: url(../images/blank.png);
+	z-index: 100;
+}
+.todo-list_num {
+	font-size: 170px;
+	line-height: 240px;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align:center;
+	color:#D83625;
+	width: 360px;
+	margin-right: auto;
+	margin-left: auto;
+	position: relative;
+}
+.todo-list_before_info {
+	font-size: 16px;
+	color: #6F6F6F;
+	position: absolute;
+	line-height: normal;
+	font-family: "微软雅黑";
+	text-align: left;
+}
+.todo-list_before_info01 {
+	left: -30px;
+	top: 20px;
+}
+.todo-list_before_info02 {
+	right: -30px;
+	bottom: 10px;
+}
+.box .heading .pull-right .todo-icon {
+	font-size: 24px;
+	padding-right: 10px;
+	padding-left: 10px;
+	color:#D83625;
+	border-right-width: 1px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #F2F1F0;
+	border-left-color: #F2F1F0;
+	display:none;
+	margin:0px;
+	text-align: center;
+	float: left;
+}
+.box .containing {
+	min-height:250px;
+}
+.box .footing {
+	text-align:center;
+}
+#wrapper .box .tabs-panels {
+	padding:  0px;
+	height:208px!important;
+}
+#wrapper .box .tabs-panels-big {
+	height:546px!important;
+}

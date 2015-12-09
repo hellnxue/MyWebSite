@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.2/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.2/themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui-1.4.2/demo.css">
+	<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.4.2/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.4.2/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui-1.4.2/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript">
+
+	   $(function(){
+	     
+		  //on绑定指定事件
+		  $("#btnAlert").on("click",function(){
+		     $.messager.alert("测试",typeof true,"question");
+		     $("#btnAlert").off("click");  //off移除用on绑定的指定事件
+		  });
+		  
+		  
+		   $("#btnprogress").on("click",function(){
+			 $.messager.progress({title:"显示进度窗口",msg:"Plase wating......",text:"呵呵",interval:1000});
+		    
+		  });
+		    $("#btnShow").on("click",function(){
+			 $.messager.show({title:"右下角有提示",msg:"消息在5秒后自动关闭......",timeout:5000,showType:'slide'
+});
+		    
+		  });
+
+
+	   })
+	   
+	
+	</script>
+</head>
+
+<body>
+<input type="button" id="btnAlert" value="messager-alert"/><br/>
+<input type="button" id="btnprogress" value="messager-progress"/><br/>
+<input type="button" id="btnShow" value="messager-show"/><br/>
+
+</body>
+</html>

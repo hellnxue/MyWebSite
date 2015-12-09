@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+function factorial(num){
+  if(num<=1){
+     return num;
+  }else{
+     return (num*arguments.callee(num-1));
+  }
+
+}
+
+//命名函数表达式（有名字的匿名函数，这么说好别扭......理解万岁）
+var factorial1=(function f(num){
+  if(num<=1){
+     return num;
+  }else{
+     return (num*f(num-1));
+  }
+
+});
+  function test1(){
+    console.log(factorial(4));
+	var factorialNew=factorial;
+	factorial=null;
+	console.log(factorialNew(4));
+	
+	console.log(factorial1(4));
+  }
+  //---------------------私有变量-------------------------------
+  function myObject(){
+    var privateVariable=10;
+	
+	function privateFunction(){
+	  return false;
+	
+	}
+	//特权方法，是一个闭包
+	this.publicMethod=function (){
+	  return privateFunction() ;
+	
+	}
+	
+	this.setMethod=function(value){
+	   privateVariable=value;
+	}
+	
+	this.getMethod=function(value){
+	  return privateVariable;
+	}
+  }
+  function test2(){
+    var m1=new myObject();
+	var m2=new myObject();
+    //console.log(m1.publicMethod());
+	
+	console.log(m1.getMethod());
+	m1.setMethod(30);
+	
+	console.log(m2.getMethod());
+	console.log(m1.getMethod());
+  
+  }
+  
+  //----------------静态私有变量--------------------------------------
+  (function(){
+     var name="";
+	 var age=10;
+	 
+	 Person=function(value,age){
+	  name=value;
+	  this.age=age;
+	 };
+     
+	 Person.prototype.getName=function(){
+	   return name;
+	 };
+	 Person.prototype.setName=function(value){
+	   name=value;
+	 };
+  
+  })();
+  
+  function test3(){
+    var p=new Person("小新",20);
+	console.log(p.age);
+	
+	var p1=new Person("小新",30);
+	console.log(p1.age);
+    
+  }
+  
+  
+  //------------------私有静态变量-------------------------
+  var JSClass = (function() {
+    var privateStaticVariable = "私有静态变量";
+    var privateStaticMethod = function() {
+        console.log("调用私有静态方法");
+    };
+    return function() {
+        this.test1 = function() {
+            return privateStaticVariable;
+        }
+        this.test2 = function(obj) {
+            privateStaticVariable = obj;
+        }
+        this.test3 = function() {
+            privateStaticMethod();
+        }
+    };
+})();
+
+function test4(){
+    var testObject1 = new JSClass();
+	var testObject2 = new JSClass();
+	
+	console.log(testObject1.test1());
+	
+	testObject1.test2("改变的私有静态变量");
+	
+	console.log(testObject2.test1());
+	
+	testObject2.test3();
+
+}
+function hello(num){
+  console.log(num);
+}
+function test5(){
+  hello();
+}
+</script>
+</head>
+
+<body>
+<input type="button"  name="d1" id="d1" value="递归" onclick="test1()"/></br>
+
+<input type="button"  name="d1" id="d1" value="私有变量" onclick="test2()"/></br>
+
+<input type="button"  name="d1" id="d1" value="静态私有变量" onclick="test3()"/></br>
+<input type="button"  name="d1" id="d1" value="静态私有变量" onclick="test4()"/></br>
+
+
+
+<input type="button"  name="d1" id="d1" value="测试" onclick="test5()"/></br>
+</body>
+</html>

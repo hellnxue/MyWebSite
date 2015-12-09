@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+	<link rel="stylesheet" type="text/css" href="../../themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="../../themes/icon.css">
+	<link rel="stylesheet" type="text/css" href="../demo.css">
+	<script type="text/javascript" src="../../jquery.min.js"></script>
+	<script type="text/javascript" src="../../jquery.easyui.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+	   $('#dg').treegrid({ 
+	    title:"Folder Browser",   
+		url: 'treegrid_data1.json',
+		method: 'get',
+		rownumbers: true,
+		idField: 'id',
+		treeField: 'name',  
+		columns:[[      
+			{field:'name',title:'Persons',width:220},    
+			{field:'size',title:'Begin Date',width:100,align:'right'},    
+			{field:'date',title:'End Date',width:150}    
+		]]    
+}); 
+	})
+	 
+	
+	</script>
+</head>
+
+<body>
+<table id="dg" style="width:700px;height:250px"></table> 
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+      $("#btn1").click(function (){
+	    
+	     $("li:nth-child(2)").css({"color":"blue","font-size":"40px"})
+	  });
+	  $("#btn11").click(function(){
+	     $("li:nth-child(3)").prev().css("background","pink");
+	  });
+	   $("#btn111").click(function(){
+	     $("p").prev().css("background","pink");
+	  });
+	   $("#btn1111").click(function(){
+	     $("p").prev("#prev").css("background","red");
+	  });
+       $("#btn2").click(function(){
+	     $("li:first-child").css({"color":"blue","font-size":"30px"});
+	  })
+	   $("#btn3").click(function(){
+	     $("li:last-child").css({"color":"blue","font-size":"30px"});
+	  })
+	   $("#btn4").click(function(){
+	     $("li:only-child").css({"color":"blue","font-size":"30px"});
+	  })
+	  
+	  
+	   $("#btn11").click(function(){
+	  
+	     $("#form1 input:checked").css({"border":"solid"});
+	  })
+	   $("#btn12").click(function(){
+	  
+	     $("#form1 ul li:gt(3):not(:last)").hide();
+		 
+	  })
+	  
+	   $("#btn33").click(function(){
+	        //$("#ttid div").css({"color":"blue","font-size":"30px"})//显示div中的所有span
+			 $("#ttid > div").css({"color":"blue","font-size":"30px"})//显示#ttid下的所有子元素div
+		  // $("#ttid>div:first").css({"color":"blue","font-size":"30px"});//匹配div下的直接子元素'呵呵'
+	      //$("#ttid").next().css({"color":"blue","font-size":"30px"});//类似于 $("#ttid+div")  是取得选择元素的紧临的下一个兄弟元素
+		  // $("#ttid").nextAll().css({"color":"blue","font-size":"30px"});//匹配#ttid后的所有兄弟元素div  $("#ttid~div")
+		   //$("#ttid").siblings().css({"color":"blue","font-size":"30px"});//匹配#ttid的前后所有相邻元素
+		    //$("#ttid").siblings("div").css({"color":"blue","font-size":"30px"});//匹配#ttid的前后所有相邻的div元素
+		 
+	  })
+   });
+  
+</script>
+</head>
+
+<body>
+<ul>
+   <li>item-1</li>
+   <li>item-2</li>
+   <li>item-3</li>
+   <li>item-4</li>
+</ul><br/>
+<div>prev()的用法:</div><br/>
+  <p>Hello</p>
+  <div id="prev">Hello Again</div>
+  <p class="prev">And Again</p>
+  <div>And Again too.</div> 
+  <br/>
+<ul>
+   <li>item-21</li>
+   <li>item-22</li>
+   <li>item-23</li>
+   <li>item-24</li>
+</ul>
+<ul>
+   <li>item-33</li>
+</ul>
+<input type="button" value="获取li的第二个元素"  id="btn1"/>
+<input type="button" value="获取li的第三个元素的前一个元素"  id="btn11"/>
+<input type="button" value="获得元素P前面的一个紧邻元素"  id="btn111"/>
+<input type="button" value="获得元素P前面的,id为prev的紧邻元素"  id="btn1111"/>
+<input type="button" value="获取li的第一个元素"  id="btn2"/>
+<input type="button" value="获取li的最后一个元素"  id="btn3"/>
+<input type="button" value="获取仅有一个li的元素"  id="btn4"/>
+
+<hr/>
+表单元素属性过滤
+<form id="form1">
+  <input type="checkbox" value="1" checked="checked" />选中的<br/>
+  <input type="checkbox" value="0"  />未选中的<br/>
+  <ul id="tu">
+     <li>English</li>
+      <li>中文</li>
+	   <li>化学</li>
+	    <li>物理</li>
+		 <li>政治</li>
+		  <li>地理</li>
+		   <li>数学</li>
+  </ul>
+  <input type="button" value="获取选中的复选框元素"  id="btn11"/>
+    <input type="button" value="将大于3的元素并且不是最后一个li的元素值隐藏"  id="btn12"/>
+</form>
+<hr/>
+层次选择器
+<div id="left">left</div>
+
+<div id="ttid" style="border:dotted red">
+    <div style="border:dashed black;background-color:pink;">呵呵1<div style="border:dashed yellow;;background-color:yellow;">哈哈2</div></div>
+	 <div>哈哈3</div>
+</div>
+<div id="thid">
+   right_1
+</div>
+<div id="thhd">
+   right_2
+</div>
+ <input type="button" value="层次选择器"  id="btn33"/>
+</body>
+</html>

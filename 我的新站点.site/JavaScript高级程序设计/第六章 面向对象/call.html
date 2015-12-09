@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+function Class1(){
+    this.name = 'class1';//添加name值
+    this.showTxt = function(){console.log(this.name)}
+}
+function Class2(){
+    this.name = 'class2';
+}
+
+function test1(){
+    var class2 = new Class2();
+	Class1.call(class2);//call会把函数Class1的内容传到函数Class2的实例中去，会覆盖同名的属性值
+	console.log(class2.showTxt);//function(){alert(this.name)}
+	class2.showTxt();//class1
+	
+	console.log(class2.name);
+}
+
+
+
+
+function Class11(){
+    this.showTxt = function(){console.log(this.name)};
+	this.age=10;
+}
+function Class22(){
+    this.name = 'class21111';
+}
+
+
+function test2(){
+ 
+  Class11.call(Class22);
+  console.log(Class22.showTxt);//function(){alert(this.name)}
+  Class22.showTxt();//undefined
+  console.log(Class22.age);
+ 
+  
+}
+</script>
+</head>
+
+<body>
+<input type="button"  name="d1" id="d1" value="测试call" onclick="test1()"/></br>
+<input type="button"  name="d1" id="d1" value="测试call" onclick="test2()"/></br>
+
+</body>
+</html>

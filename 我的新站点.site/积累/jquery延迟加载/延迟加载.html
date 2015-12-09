@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<title>无标题文档</title>
+<script type="text/javascript">
+var flag=true;
+$(function(){
+     
+ 	 //延迟加载
+  	 $(window).scroll(function() {
+  	      
+  	        var  scrollTop = $(window).scrollTop(); //滚动条距离顶部的高度
+  	        var  scrollHeight = $(document).height(); //当前页面的总高度
+  	        var  windowHeight = $(window).height(); //当前可视的页面高度
+  	        if ((scrollTop + windowHeight >= scrollHeight)) { //距离顶部+当前高度 >=文档总高度 即代表滑动到底部
+  	        		
+  	           if(flag){
+  	        	 setTimeout("ajaxRed()",1000);
+  	        	 flag=false;
+  	           }
+  	        	
+  	        }
+  	    }); 
+
+});
+    
+function ajaxRed(){
+flag=true;
+  $("#test").append("<div style='color:blue'>welcome to china!</div>");
+}
+</script>
+<head>
+<body>
+<div id="test">
+   <span>hello helln</span><br/>
+<span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/>
+</div>
+</body>
+</html>

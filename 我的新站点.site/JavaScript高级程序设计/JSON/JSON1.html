@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+function test1(){
+   var obj={
+     name:"helln",
+	 age:20
+   };
+   var objText=JSON.stringify(obj);//将对象转成json
+   console.log(objText);
+   var jsonObject=JSON.parse(objText);
+   console.log(jsonObject);        //将json转成对象
+   
+   var json1={"name":"hell","age":10};
+   console.log(eval("json1"));
+   
+   
+   
+
+}
+
+//将json的字符串解析成json数据格式的两种方式
+function test2(){
+  console.log(eval("{}"));
+  console.log(eval("({\"name\":1})"));
+  
+  var json='{"name":"CJ","age":18}';
+  data =(new Function("","return "+json))(); 
+  console.log(data)
+}
+
+</script>
+</head>
+
+<body>
+<input type="button"  name="d1" id="d1" value="json" onclick="test1()"/></br>
+<input type="button"  name="d1" id="d1" value="测试eval" onclick="test2()"/></br>
+</body>
+</html>

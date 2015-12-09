@@ -1,0 +1,118 @@
+.white{ color: #fff!important;}
+.bgc{ background-color: #B0C5D6;}
+.ml20{ margin-left:20px;}
+.border_reaius{ border-radius: 2px}
+.content{ height: 100%;background-color: rgba(255,255,255,0.7); position: relative;z-index: 1; padding-bottom: 30px;}
+ .content .con_left{ height: 100%;float: none;width: auto;background-color: rgba(255,255,255,0);}
+.cont_header{ height: 306px; width: 1200px; background:  url(../images/index_pic/center_xin.jpg) center no-repeat;}
+.cont_head_l{width:210px; height: 306px; margin-left: 50px;padding : 15px 0; box-sizing:border-box; }
+
+.cont_head_l .logo_wall li{ float: left;margin-right: 5px;margin-top: 5px;}
+.logo_wall li a{display: inline-block; width: 65px; height: 65px; border-radius: 50%; background:  url(../images/Infor_img/infor_HROFirst_pic_03.png) -81px -4px  no-repeat;}
+.logo_wall li a:hover{ background-position: -8px -4px;}
+
+/* logo_wall 对应显示区域 */
+.show_mode{color: #7691A6; width:500px; height: 280px; background-color: #fff; border-radius: 3px; box-shadow:0 0 1px #eee;position: absolute;top: 20px; left: 300px; }
+.arrow_white{ width: 20px ;height: 20px; border-radius: 1px 90px 0 0 ; background-color: #fff;transform:rotate(45deg); -moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);-o-transform:rotate(45deg);position: absolute;top: 25px; left: -10px; box-shadow: 0 1px 0 #e4e4e4; }
+.show_h_l{ display: inline-block;  width: 47px; height: 47px; background:  url(../images/Infor_img/infor_HROFirst_pic_06.png) 0 0 no-repeat; margin:30px 20px 20px 30px;}
+.line{ width: 441px; height: 1px; background-color: #F4F5e9; margin:0 auto;}
+.show_h_r{display: inline-block;    height:50px; position: relative;left: 0; top: -20px;}
+.h_r_cont_top{font-size: 16px;  font-weight:normal;color:#7691A6;   }
+.h_r_cont_bottom{font-size: 14px; font-weight:normal;color: #7691A6;margin-top: 15px;}
+ 
+.show_bottom{ width: 441px; margin:0 auto;}
+.show_bot_top{ margin-top: 20px; }
+.show_bot_top span{ padding:3px 5px;font-size: 14px;}
+
+.show_bot_top .question{ font-size: 15px; }
+.show_bot_bot{ font-size: 15px;padding:20px 0 0;}
+/* 下面是热门推荐——链接CSS */
+.hot_link {width: 1075px;  margin:0 auto; margin-top:30px;color: #B0C6D4; height: 57px;background-color: #fff; padding-left: 40px;}
+.hot_link h2{color: #B2C5D6;font-size: 20px;line-height: 40px; }
+.hot_link li{padding-top: 10px; float: left; margin-right: 29px;}
+
+.hot_link li a,.hot_link  .more_hot{font-size: 17px; text-align: center; height: 25px; line-height: 40px; color: #B0C6D4;}
+
+.hot_link  .more_hot{ margin-top:-10px;height: 47px; color: #fff; font-size: 20px; padding:5px 8px;  float: left; background-color: #EB8A84;margin-left: 23px;}
+ .no_margin_r{margin-right: 0!important;}
+
+.conten_news{ margin:0 auto;width: 1115px; height: 1400px;  }
+.cont_news_l{margin-right:12px;  }
+.cont_news_l,.cont_news_r{width: 742px; height: 100%;  float: left; margin-top: 12px; }
+.cont_news_r{ width: 360px; height: 100%; }
+
+.cont_news_l_1,.cont_news_l_2{ width: 742px; height: 260px; background-color: #fff; }
+.cont_news_l_2{ margin-top: 20px;}
+
+.news_r_1{ width: 360px; height: auto; padding:10px 0 40px; background-color: #fff;}
+.news_r_2{ width: 360px;  margin-top: 15px; background-color: #fff;}
+
+/* 内容模块开始 */
+.news_l_mode dt{margin:18px;}
+.news_l_mode dt,.news_l_mode dd{ float: left; }
+.news_l_mode dd{ margin-left: 3px;}
+.news_l_mode dd h3{ font-size: 27px; font-weight: normal;}
+ 
+.news_l_mode .dd_one{ margin-top: 25px;}
+.news_l_mode .dd_two{ margin-top: 10px;}
+
+.dd_two ol li{float: left;margin-right: 20px;}
+.dd_two .people{ width: 14px; height: 13px; display: inline-block;background: url(../images/Infor_img/icon-w12px.png) 0 0 no-repeat;}
+
+.dd_two li span{ color: #04A9D6; font-size: 13px;}
+
+.dd_two .time{ background-position: 0 -12px;}
+.dd_two .file{ background-position: 0 -24px;}
+.dd_two .comment{ background-position: 0 -36px;}
+
+.dd_three{ width:470px; height: 70px; font-size: 16px;color: #2D3E50; letter-spacing: 1px; margin-top: 25px; line-height: 24px;  overflow: hidden; }
+.dd_four { width: 470px;}
+.all_artical{ width:106px; height: 43px; background-color: #B8CAEE; margin-top: 17px; float:right; font-size: 20px; color: #fff; font-weight: 600; text-align: center; line-height: 40px; cursor: pointer;}
+.go_top{ right: 74px;}
+.news_r_1  .list_one{  margin-top: 15px;}
+.news_r_1 h2{ width: 330px; height: 20px; border-left: 5px solid #2D6193; margin-left: 15px; font-size: 19px; color: #2D6193;text-indent: 20px; line-height: 20px;}
+.news_r_1 li a{ font-size:16px; color: #333;}
+li .hot_math_01{width: 27px; height: 14px; display:inline-block; background:   url(../images/Infor_img/math_03.png) -3px -1px no-repeat;  margin-left: 15px;}
+.dotted{ width:335px; height: 1px; border-bottom: 1px dashed #ccc; margin:10px auto; }
+
+.hide_toogle{ margin-left: 45px; margin-top: 6px;display: block;}
+li .text{ line-height: 27px; height: 50px; overflow: hidden; width:272px;  color: #999; font-size: 12px;}
+
+.list_two  .hot_math_01{ background-position: -4px   -19px  ;}
+.list_three  .hot_math_01{ background-position: -4px   -37px  ;}
+.list_four  .hot_math_01{ background-position: -4px   -56px  ;}
+.list_five  .hot_math_01{ background-position: -4px   -74px  ;}
+.list_six  .hot_math_01{ background-position: -4px   -93px  ;}
+.list_seven  .hot_math_01{ background-position: -4px   -112px  ;}
+.list_eight  .hot_math_01{ background-position: -4px   -130px  ;}
+.list_nine  .hot_math_01{ background-position: -4px   -146px  ;}
+.list_ten  .hot_math_01{ background-position: -4px   -162px  ;}
+.look_more{ width: 330px; height: 22px; line-height: 50px;font-size: 14px; text-align: right; }
+.list_six .look_more a{ font-size: 14px;  color: #2C6090; }
+.cont_news_r .news_r_2{ padding-bottom: 26px;}
+
+.math_btn{margin-top: 25px; margin-left:200px;width: 800px; height:60px;  }
+
+.math_btn li,.math_btn li a{ float: left;}
+
+.math_btn button{ width: 86px; height: 38px;background-color: #C9C9C9; border:0;}
+
+.left_arr button{ margin-right:25px; }
+.right_arr button{ margin-left:10px; }
+.left_arr button p,.right_arr button p{display: block; width: 11px; height: 20px;  background:  url(../images/Infor_img/arrow_blue_grey.jpg) 0 0 no-repeat; margin:0 auto; }
+.left_arr .btn_arrow_l_2{ background-color: #B8CAEE;}
+.left_arr .btn_arrow_l_2 p{ background-position: -25px 0; }
+
+.right_arr button p{ background-position: -13px 0;}
+.right_arr .disable_btn_r p{ background-position: -14px 0;}
+.right_arr .btn_arrow_r_1{ background-color: #B8CAEE;}
+.right_arr .btn_arrow_r_1 p{ background-position: -40px 0;}
+.table_math_a a{ color: #BAC9F0; margin-right: 15px; font-size: 20px; padding:0 10px; height: 30px; line-height: 39px;}
+.table_math_a .cur_click{ color: #ABABAD;}
+.cursor{ cursor: pointer;}
+
+.changeColor{ color:#fff !important;}
+
+
+
+

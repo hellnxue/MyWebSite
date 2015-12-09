@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript">
+
+   var name="hello window";//全局变量name
+ 
+  function bibao1(){
+    //var name="hello world";
+	return function(){
+	  return name;
+	}
+  }
+  
+  
+  //测试闭包中的this
+  function bibao2(){
+    var name="hello world";
+	return function(){
+	  return this.name;
+	}
+  }
+  
+  var age=200;
+  var Objects={
+     age:100,
+	 
+	 getAge1:function(){
+	 
+	  return this.age;
+	   
+	 },
+	 getAge2:function(){
+	 
+	   var age2=this.age;
+	   
+	   return function(){
+	     return  age2;
+	   }
+	 },
+	 getAge3:function(){
+         age=301;
+	   return function(){
+	     return  this.age;;
+	   }
+	 },
+	 getAge4:function(){
+        var tempage=this; 
+	   return function(){
+	     return  tempage.age;
+	   }
+	 }  
+  }
+  
+  function test1(){
+    var tempFunction=bibao1();
+	console.log(tempFunction());
+	
+	var tempFunction2=bibao2();
+	console.log(tempFunction2());//结果为“hellowindow”,因为闭包中的this和参数arguments的搜索范围在该闭包函数tempFunction2中，不会搜索包含函数中的作用域中的它们，如果是变量引用，在该闭包函数没有的情况下会继续往上搜索。??？
+	 
+	 
+	 console.log("age1.........");
+	 console.log(Objects.getAge1());
+	 console.log("age2.........");
+	 console.log(Objects.getAge2()());
+	 console.log("age3.........");
+	 console.log(Objects.getAge3()());
+	  console.log("age4.........");
+	 console.log(Objects.getAge4()());
+	
+  }
+  
+  //-----------------闭包中的变量引用-----------------------
+  function a(){
+    var i=0;
+	return function(){
+	  return ++i;
+	}
+  }
+  
+  function test2(){
+    var b=a();
+  
+    console.log(b());  //1   闭包引用的变量资源在内存中不会被释放，因此，多次调用b(),i会执行多次++
+    console.log(b());   //2
+	 console.log(b());   //3
+	  console.log(b());   //4
+	
+  }
+  
+  //-------------------模块块级作用域----------------------
+  (function(){
+    var say="hello kitty!";
+    getSay=function(){
+	  console.log(say);
+	}
+	
+	var i=0;
+	
+	getI=function(){
+	  return ++i;
+	}
+  
+  })()
+ 
+ function test22(){
+  
+   (function(){
+      for(var i=0;i<2;i++){
+   
+     }
+   })()
+   
+  // console.log(i);
+   
+   getSay();
+   
+   console.log(getI());
+   console.log(getI());
+   console.log(getI());
+   
+ }
+ 
+ //--------------------闭包中的变量引用-------------------------
+ var testQuick=(function(){
+   return "quick run!";
+ })();
+ 
+ function f(x) {
+	var a = 0;
+	a++;
+	x++;
+	var inner = function() {
+	return a + x;
+	}
+	return inner;
+} 
+ function test33(){
+   console.log(testQuick);
+   console.log(f(1)());
+ }
+ 
+ 
+ 
+ //--------------------------闭包中的变量引用2-????????????????//----------------------------
+ var result=[];
+function foo(){
+    var i= 0;
+    for (;i<3;i=i+1){
+        result[i]=function(){
+		    var j=i;//把索引赋值给一个变量
+            return function(){
+                console.log(++j );
+            };
+        }();
+    }
+};
+foo();
+
+//--------------------测试this----------------------------------------------
+function test4(){
+  result[0]();//多次执行test4（）后的结果是1,2,3,4..........
+  
+  //result[1]();
+  
+ 
+}
+var temp1=102;
+function hi(){
+  var temp1=101;
+  console.log(this.temp1);
+}
+
+
+//----------------测试this-----------------------------------------------------
+var temptt="hello window";
+var objects={
+   //temptt:"hello world",
+   tempF:function(){
+     console.log(this.temptt);//输出undefined，this代表作用域是objects的
+   }
+}
+//测试对象中的this
+function test5(){
+  hi();
+  objects.tempF();
+}
+
+  
+function t11(){
+  
+  
+      var i=0;
+	  return  function(){
+	    return ++i;
+	  }
+  
+}
+
+function test6(){
+  var t=t11();
+
+  console.log(t());
+  console.log(t());
+}
+</script>
+</head>
+
+<body>
+<input type="button"  name="d1" id="d1" value="测试闭包中的this" onclick="test1()"/></br>
+<input type="button"  name="d1" id="d1" value="测试闭包中的变量" onclick="test2()"/></br>
+<input type="button"  name="d1" id="d1" value="模块块级作用域" onclick="test22()"/></br>
+
+<input type="button"  name="d1" id="d1" value="闭包中的变量引用" onclick="test33()"/></br>
+<input type="button"  name="d1" id="d1" value="闭包中的变量引用2" onclick="test4()"/></br>
+<input type="button"  name="d1" id="d1" value="测试this" onclick="test5()"/></br>
+<input type="button"  name="d1" id="d1" value="测试闭包" onclick="test6()"/></br>
+
+</body>
+</html>

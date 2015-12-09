@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+   var person={
+       "first name":"helln",
+	   age:10
+   };
+   
+   function testObj(){
+     console.log(person.age);
+	 //特殊属性的访问形式
+	 console.log(person["first name"]);
+	 person["sex"]="男";//对象增加新的属性&值的另一种方式  同 person.sex="男"
+	 //遍历对象值
+	 $.each(person,function(a,b){
+	   console.log(a+"="+b);
+	 });
+   }
+   
+   function testArr(){
+     var color=["red","blue","black"];
+	 //按照索引访问数组值
+     console.log(color[0]);
+	 
+	 //修改数组值
+	 color[1]="pinck";
+	 console.log(color[1]);
+	 console.log("添加数组值之前的length= "+color.length);
+	 
+	 //添加数组的值
+	 color[3]="yellow";
+	 console.log("添加完一个值后的length= "+color.length);
+	 
+	 //设置数组的length来减少数组的长度
+	 color.length=1;
+	 console.log("color.length=1后的color[0] "+color[0]);
+	 console.log("color.length=1后的color[1] "+color[1]);
+	
+   }
+   function gobals(){
+	  return this;
+	}
+   function testMath(){
+    
+    console.log(Math.max(1,2,53));
+	console.log(Math.min(1,2,53));
+	var ct="red,black,pinck,blue";
+	console.log(ct.split(/[^\,]+/));//?    ["", ",", ",", ",", ""]
+	
+	var mharr=[2,4,1,56,22,1];
+	console.log("求数组中的最大值："+Math.max.apply(Math,mharr));
+	console.log("求数组中的最小值："+Math.min.apply(Math,mharr));
+	//console.log("gobals="+gobals);
+   
+   }
+   
+</script>
+</head>
+
+<body>
+<input type="button" value="测试Object" onClick="testObj()"/></br>
+<input type="button" value="测试Array" onClick="testArr()"/></br>
+<input type="button" value="测试Array" onClick="testType()"/></br>
+<input type="button" value="测试Math" onClick="testMath()"/></br>
+<em>hello world!</em>
+</body>
+</html>

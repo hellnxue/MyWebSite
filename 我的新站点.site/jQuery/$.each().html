@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      
+   });
+  
+ 
+function obj(){
+
+var data= 
+{ 
+root: 
+[ 
+{name:'1',value:'0'}, 
+{name:'6101',value:'北京市'}, 
+{name:'6102',value:'天津市'}, 
+{name:'6103',value:'上海市'}, 
+{name:'6104',value:'重庆市'}, 
+{name:'6105',value:'渭南市'}, 
+{name:'6106',value:'延安市'}, 
+{name:'6107',value:'汉中市'}, 
+{name:'6108',value:'榆林市'}, 
+{name:'6109',value:'安康市'}, 
+{name:'6110',value:'商洛市'} 
+]
+}; 
+
+var dataObj=eval(data);//转换为json对象 
+	// alert(eval(data));
+	 //alert(eval("{}"));//return undefined
+	 //alert(eval("({})"));//return object[object]
+	 console.log("dataObj==="+dataObj.toString());
+	console.log(dataObj.root.length);//输出root的子对象数量 
+	$.each(dataObj.root,function(i,n){
+	    console.log(i+" "+n.name);//i是数字，n是root里的子对象
+		//alert("this--:"+this);  此this会输出root的子对象object
+	});
+	
+	$.each( { name: "John", lang: "JS" }, function(i, n){//i是name n是lang
+       console.log( "Name: " + i + ", Value: " + n );
+	   //this可以输出key/value中的value
+	   //alert("this:"+this);
+   }); 
+ 
+}
+
+/*
+ $.each返回第一个参数，即迭代对象
+*/
+function arry(){
+   var obj={name:"helln",sex:"10"};
+   
+   var y= $.each(obj,function(name,value){//操作对象时，参数为key/value的形式
+	  alert(name+" "+value);
+   });
+   alert("y="+y);
+   
+   var x=$.each( ['a','b','c'], function(i, n){//操作数组时，参数i是索引，n是对应的数组值
+     // alert( "Item #" + i + ": " + n );
+	  alert(i+"   "+this);
+  });
+  
+  alert("x="+x);
+}
+
+function arrys(){
+var x=jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
+    $('body').append(name.toLowerCase()+'</br>')
+});
+
+alert(x); 
+}
+
+
+//复杂的json对象
+var json={
+    "employeeId": 138243, 
+    "employeeName": "曾令坤", 
+    "salaryYm": "201506", 
+    "amountSb": 0, 
+    "amountSbCompany": 0, 
+    "fields": {
+        "amountSalary": {
+            "name": "应发工资", 
+            "value": 0
+        }, 
+        "sal004": {
+            "name": "加班费", 
+            "value": 0
+        }, 
+        "sal015": {
+            "name": "个人基本医疗保险2%", 
+            "value": 0
+        }, 
+        "sal005": {
+            "name": "早夜餐补助", 
+            "value": 0
+        }, 
+        "sal016": {
+            "name": "个人失业保险1%", 
+            "value": 0
+        }, 
+        "sal002": {
+            "name": "岗位工资", 
+            "value": 0
+        }, 
+        "sal013": {
+            "name": "收入合计", 
+            "value": 0
+        }, 
+        "sal003": {
+            "name": "绩效工资", 
+            "value": 0
+        }, 
+        "sal014": {
+            "name": "个人基本养老保险8%", 
+            "value": 0
+        }, 
+        "sal011": {
+            "name": "绩效考核", 
+            "value": 0
+        }, 
+        "sal001": {
+            "name": "编号"
+        }, 
+        "sal012": {
+            "name": "考勤扣款", 
+            "value": 0
+        }, 
+        "empName": {
+            "name": "姓名"
+        }, 
+        "amountSalaried": {
+            "name": "实发工资", 
+            "value": 0
+        }, 
+        "sal010": {
+            "name": "额右旗补贴", 
+            "value": 0
+        }, 
+        "sal008": {
+            "name": "取暖物业补贴", 
+            "value": 0
+        }, 
+        "sal009": {
+            "name": "补发工资", 
+            "value": 0
+        }, 
+        "sal006": {
+            "name": "伙食补贴", 
+            "value": 0
+        }, 
+        "sal017": {
+            "name": "大额医疗个人部分", 
+            "value": 0
+        }, 
+        "amountTax": {
+            "name": "代扣所得税", 
+            "value": 0
+        }, 
+        "sal007": {
+            "name": "通信补贴", 
+            "value": 0
+        }
+    }, 
+    "baseSalary": 3533.89, 
+    "amountSalary": 7067.78, 
+    "amountTax": 3533.89, 
+    "amountSalaried": 6762.25
+};
+
+var json2={
+    "employeeId": 154490, 
+    "employeeName": "袁晗信", 
+    "salaryYm": "201508", 
+    "amountSb": 0, 
+    "amountSbCompany": 0, 
+    "fields": [
+        {
+            "num": 0, 
+            "name": "公司名称", 
+            "value": "昊基人力资源服务（北京）有限公司"
+        }, 
+        {
+            "num": 1, 
+            "name": "工资月份", 
+            "value": "2015-08-31"
+        }, 
+        {
+            "num": 2, 
+            "name": "部门", 
+            "value": "唐家岭分拨中心"
+        }, 
+        {
+            "num": 5, 
+            "name": "姓名", 
+            "value": "袁晗信"
+        }, 
+        {
+            "num": 6, 
+            "name": "证件号码", 
+            "value": "360428198808106219.00"
+        }, 
+        {
+            "num": 18, 
+            "name": "基本工资", 
+            "value": "890.00"
+        }, 
+        {
+            "num": 22, 
+            "name": "加班费", 
+            "value": "210.00"
+        }, 
+        {
+            "num": 22, 
+            "name": "缺勤扣款", 
+            "value": ".00"
+        }, 
+        {
+            "num": 25, 
+            "name": "工龄补贴", 
+            "value": ".00"
+        }, 
+        {
+            "num": 26, 
+            "name": "餐费补贴", 
+            "value": "360.00"
+        }, 
+        {
+            "num": 27, 
+            "name": "全勤奖", 
+            "value": "50.00"
+        }, 
+        {
+            "num": 39, 
+            "name": "其它补贴", 
+            "value": "1290.00"
+        }, 
+        {
+            "num": 44, 
+            "name": "绩效奖励", 
+            "value": "2241.12"
+        }, 
+        {
+            "num": 52, 
+            "name": "其它奖励", 
+            "value": "2241.12"
+        }, 
+        {
+            "num": 58, 
+            "name": "补款合计", 
+            "value": ".00"
+        }, 
+        {
+            "num": 61, 
+            "name": "应发工资合计", 
+            "value": "4631.12"
+        }, 
+        {
+            "num": 62, 
+            "name": "社保扣款（个人）", 
+            "value": ".00"
+        }, 
+        {
+            "num": 64, 
+            "name": "公积金扣款（个人）", 
+            "value": ".00"
+        }, 
+        {
+            "num": 71, 
+            "name": "扣税额/工资税", 
+            "value": "33.93"
+        }, 
+        {
+            "num": 73, 
+            "name": "应发工资", 
+            "value": "4597.19"
+        }, 
+        {
+            "num": 74, 
+            "name": "其它应扣款", 
+            "value": ".00"
+        }, 
+        {
+            "num": 78, 
+            "name": "爱心基金", 
+            "value": "1.00"
+        }, 
+        {
+            "num": 79, 
+            "name": "实发工资", 
+            "value": "4596.19"
+        }
+    ], 
+    "baseSalary": 4597.19, 
+    "amountSalary": 9194.38, 
+    "amountTax": 4631.12, 
+    "amountSalaried": 9193.38
+};
+
+
+function testJson1(){
+console.log(Boolean(undefined+""));
+
+  var variableObj=json1.fields;//可变字段
+  console.log(variableObj.length);
+            $.each(variableObj,function(i,vObj1){
+			
+			  console.log("vObj1.name==="+vObj1.name);
+			   console.log("vObj1.value==="+vObj1.value);
+            	
+				 if(vObj1.value!==undefined){
+            		$("#salaryList").append('<li><a><span class="am-fr font01">'+vObj1.value+'</span>'+vObj1.name+'</a></li>');
+            	  }
+            	
+            });
+
+
+}
+function testJson(){
+
+
+  var variableArry=json2.fields;//可变字段
+  console.log(variableArry.length);
+  variableArry.forEach(function(item,index,array){
+      if(item.value!==undefined){
+		$("#salaryList").append('<li><a><span class="am-fr font01">'+item.value+'</span>'+item.name+'</a></li>');
+	  }
+  
+  });
+
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="测试对象" onclick="obj()"/><br/>
+<input type="button" value="测试数组" onclick="arry()"/><br/>
+<input type="button" value="测试$.each" onclick="arrys()"/><br/>
+
+<input type="button" value="测试json" onclick="testJson()"/><br/>
+
+    <ul class="am-list" id="salaryList">
+      <li><a><span class="am-fr" id="basicSalary">&nbsp;</span>基本工资</a></li>
+      <li><a><span class="am-fr" id="allSalary">&nbsp;</span>应发合计</a></li>
+      <li><a><span class="am-fr" id="pSafe">&nbsp;</span>保险个人缴纳合计</a></li>
+      <li><a><span class="am-fr" id="safeCompany">&nbsp;</span>保险单位合计</a></li>
+      <li><a><span class="am-fr" id="pTax">&nbsp;</span>个人所得税</a></li>
+      <li><a><span class="am-fr font01" id="actual">&nbsp;</span>实发工资</a></li>
+    </ul>
+
+</body>
+</html>

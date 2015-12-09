@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+   $("#t2").on("click",function(){
+     /* $("#dt").data("hello");
+	  
+	  alert(  $("#dt").data("hello"));
+	  
+      $("#dt").data("hello","value-world")
+	  alert("$('#dt').data('hello')："+$("#dt").data("hello"));
+	  alert("$('#dt').data()："+$("#dt").data().hello);*/
+	  
+	  var a=$("div").data("title","testValue");
+	  alert($("div").data("title"));
+	  
+   })
+
+})
+   
+
+
+</script>
+</head>
+
+<body>
+<form name="myForm">
+  <div id="dt" title="测试data">test data value</div>
+  <input type="button" value="测试" id="t2" onclick="t()"/>
+</form>
+</body>
+</html>

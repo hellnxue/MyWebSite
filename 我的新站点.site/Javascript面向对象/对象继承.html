@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript">
+  /*
+    定义一个对象
+ */
+function Mammal(){							//哺乳动物类定义
+	this.name = "Mammal";						//添加name成员属性
+}
+Mammal.prototype.eat = function(){	//添加eat成员方法
+	alert(this.name + " is eating!");
+};
+Mammal.prototype.sound = function(){	//加sound成员方法
+	alert(this.name + " is sounding.....");
+}; 
+
+//定义另一个对象
+function Cat(){
+   this.name="cat";
+}
+//用prototype实现两个对象之间的继承关系	
+ //Cat.prototype=Mammal.prototype;
+
+//复制一份父类的prototype对象成员集合给子类，子类重写父类的方法时才不会影响父类 
+ for(var i in Mammal.prototype){
+    Cat.prototype[i]=Mammal.prototype[i];
+ }
+//Cat重写父类的sound方法
+Cat.prototype.sound=function(){
+ alert(this.name + " is maoing.....");
+}
+
+function tests(){
+   var cat=new Cat();
+   cat.eat();
+   cat.sound();
+   
+   var mal=new Mammal();
+   mal.sound();
+ 
+
+}
+   
+
+</script>
+</head>
+
+<body>
+<div id="test"></div><input type="button" value="测试" onclick="tests()"/>
+</body>
+</html>

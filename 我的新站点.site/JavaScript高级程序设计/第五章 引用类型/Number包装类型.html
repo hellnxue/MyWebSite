@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<title>无标题文档</title>
+<script type="text/javascript">
+function test1(){
+  var num=10;
+  var num1=10.09;
+  var n1=num.toFixed(2);//toFixed(n) 指定数值后跟几位小数,会四舍五入
+  var n2=num.toFixed(1);
+  var n3=num1.toFixed(1);
+  console.log("toFixed2="+typeof(num));
+   console.log("toFixed1="+n2)
+    console.log("toFixed3="+n3)
+	
+	
+  var nu=99;
+  console.log("toPrecision(1)="+nu.toPrecision(1));
+  console.log("toPrecision(2)="+nu.toPrecision(2));
+  console.log("toPrecision(3)="+nu.toPrecision(3))
+   
+}
+
+function test2(){
+  var aa="hello world";
+  var a1=aa[1];
+  var a2=aa.charAt(1);
+  var a3=aa.charCodeAt(1);
+  var a4=aa.concat("!");
+  console.log("aa[1]="+a1);//字符串类型可以直接像数组一样根据索引取字符
+   console.log("aa.charAt(1)="+a2);//输出指定位置的字符
+	console.log("aa.charCodeAt(1)="+a3);//输出指定字符的字符编码
+	  console.log("aa.concat(\"!\")="+a4);//拼接字符，跟+号类作用一样
+	  
+	  console.log($("#pp").css("display"));
+
+}
+
+function test3(){
+  console.log("random="+Math.random());
+  
+  var n=Math.floor(Math.random()*10+1);//取1-10之间的随机的一个数字
+   console.log("取1到10的随机值="+n);
+    var nn=Math.floor(Math.random()*9+2);//取2-10之间的随机的一个数字
+   console.log("取2到10的随机值="+nn);
+   
+   var numbers=getDistrictnum(10,3);
+   console.log("取得区间中的随机值="+numbers);
+   
+   var colors=["red","blue","black","white","pinck"];
+   var color=colors[getDistrictnum(colors.length-1,0)];
+   console.log("随机取得的数组值="+color);
+}
+
+//获得指定区间的随机一个值
+function getDistrictnum(uppervalue,lowervalue){
+   var total=uppervalue-lowervalue+1;
+   var number=Math.floor(Math.random()*total+lowervalue);
+   return number;
+}
+</script>
+</head>
+
+<body>
+<div id="pp" style="display:block">hello</div>
+<input type="button" value="测试Number" onClick="test1()"/></br>
+<input type="button" value="测试String" onClick="test2()"/></br>
+<input type="button" value="测试Number2" onClick="test3()"/></br>
+</body>
+</html>

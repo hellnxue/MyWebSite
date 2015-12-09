@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+
+<body>
+<script language='javascript'>
+
+function xczs_onkeyup() {
+      document.form1.xczs.value = 70 - document.form1.sms_meno.value.length;
+      if (document.form1.xczs.value < 0) {
+        document.form1.xczs.value = 0;
+       }   
+      if (document.form1.xczs.value < 20) {
+        document.form1.xczs.style.color = 'red';
+      }
+        else {
+        document.form1.xczs.style.color = 'black';
+       }       
+      }
+
+      function xczs_onkeypress() {
+       if (document.form1.xczs.value <= 0) {
+       event.returnValue = false;
+       }    
+
+       }
+
+      function xczs_onpaste() {
+       if (document.form1.xczs.value <= 0) {
+       event.returnValue = false;
+       return;
+      }
+       else {    
+      xczs_onkeyup();
+      }    
+       }
+      </script>
+<form name="form1">
+<td id=bgbody>
+
+      <textarea name=sms_meno class=mytextarea cols=48 rows=4 id="aa"
+       onkeypress='return xczs_onkeypress()'
+       onpaste='return xczs_onpaste()' onkeyup='return xczs_onkeyup()'></textarea>
+      还剩余：<input name='xczs'
+       style='text-align: center;BORDER-RIGHT: medium none; BORDER-TOP: medium none; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none; BACKGROUND-COLOR: #FFFFFF'
+       value='70' size='2' maxlength='2' readonly='0'>字
+     </td>
+</form>
+</body>
+</html>

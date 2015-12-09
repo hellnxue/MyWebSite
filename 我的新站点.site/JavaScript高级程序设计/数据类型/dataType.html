@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>数据类型</title>
+<!--不能这样写，必须有</script>结尾元素标签<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"/> -->
+
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+<script type="text/javascript">
+$(function(){
+  $("#t1").on("click",function(){
+  var message;
+  alert(message);
+  alert("typeof message："+typeof message);//未初始化和未声明的变量都是undefined
+ // alert(message1);//message1未定义，直接使用会报错,用typeof判断
+  if(!typeof (message1)){
+     alert(message1);
+  }
+ 
+
+  });
+   $("#t2").on("click",function(){
+   "use strict"//严格模式，不能定义eval或arguments的变量名，这两个是关键字，不被script所解析
+    //var arguments="hello";
+    //alert(arguments);
+ 
+
+  });
+   $("#t3").on("click",function(){
+  
+     var message1;
+	 var message2={};
+	 var message3=null;
+    alert("typeof null:"+typeof (null));
+	alert("message1:"+typeof message1);
+	alert("message2:"+typeof message2);
+	alert("message3:"+typeof message3);
+ 
+
+  });
+  $("#t4").on("click",function(){
+  console.log("Boolean undefined:"+Boolean(undefined));
+    console.log("Boolean(null):"+Boolean(null));
+    console.log("Boolean('abc'):"+Boolean("abc"));
+	 console.log("Boolean(''):"+Boolean(""));
+	  console.log("Boolean(0):"+Boolean(0));
+	    console.log("Boolean(1):"+Boolean(1));
+    console.log("typeof true:"+typeof (true));
+	console.log("typeof True:"+typeof True);
+	
+	
+	if(Boolean(undefined)){
+	  console.log("11111111");
+	}else{
+	  console.log("222222222");
+	}
+ 
+
+  });
+   $("#t5").on("click",function(){
+  
+     var num=10;
+	 num=+num;
+	 //num=num+25;
+	alert("num"+num);
+
+ 
+
+  });
+    $("#t6").on("click",function(){
+     var a=testReturn();
+	 console.log(a);
+    
+	console.log("Number(\"011\")="+Number("011"));
+	console.log("Number(\"1.1\")="+Number("1.1"));
+	console.log("parseInt(\"1.1\")="+parseInt("1.1"));
+	
+	var x=0.1+0.2;
+	console.log("x="+x);
+ 
+
+  });
+   $("#t7").on("click",function(){
+     //testFunction("hello ","world");
+    testFunction("hello ");
+	
+ 
+
+  });
+   $("#t8").on("click",function(){
+     //testFunction("hello ","world");
+	 var temp=false;//如果为true会报错。逻辑与有短路功能，只要前面是false不会走第二个判断
+     alert(temp&&temp1);
+  });
+   $("#t9").on("click",function(){
+     //testFunction("hello ","world");
+	 var temp=true;//如果为false会报错。逻辑或有短路功能，只要前面是true不会走第二个判断
+     alert(temp||temp1);
+	 var a=""||true; //true
+	  var b=""||"hehe"; //hehe
+	   var c=false||"hehe";//hehe
+	   var d="haha"||"hehe";//haha
+	   var e=null||123;//123
+	   var h;//声明了变量，但未赋值的情况，h的值为undefined
+	   var f=h||123;//123
+	  alert("null||123="+f);
+	 
+  });
+  
+     $("#t10").on("click",function(){
+     //testFunction("hello ","world");
+	 /*
+	  虽然Number(null)的结果是0，但是相等不不相等在比较null和undefined的时候不会对其转换类型，null==0为false
+	 */
+	  alert("Number(null)"+Number(null));//0
+	  alert(undefined==0);//fasle
+	  alert(null==0);//fasle  
+	  alert(true==55);//false,因为布尔值true会转换成相应的数值1
+	  alert("55"==55);//true，字符串值"55"会转换成数值55
+	  alert("55"===55);//false,字符串"55"不会转换类型，两个不同类型的值比较结果为false
+  });
+    $("#t11").on("click",function(){
+      console.log(parseInt("10"));
+	   console.log(parseInt("-11"));
+	   console.log(parseInt("NaN"));
+	   console.log(typeof (parseInt("NaN")));
+	   
+	   console.log((parseInt("NaN"))==(parseInt("NaN")));
+	
+  });
+  
+   $("#t12").on("click",function(){
+      console.log("typeof null="+typeof null);
+	  console.log("typeof String(undefined)="+typeof String(undefined));
+	  //console.log("hello \nworld");
+	   console.log("typeof function="+typeof testReturn);
+	  console.log("typeof Date="+typeof Date);
+	  console.log("typeof Array="+typeof Array);
+  });
+  
+})
+function testReturn(){
+  return;
+  alert("hehe");
+};
+function testFunction(a,b){
+ alert("a+b="+a+b);
+   alert("arguments.length="+arguments.length);
+  alert("arguments[0]="+arguments[0]);
+  alert("arguments[1]="+arguments[1]);
+  
+}
+ 
+</script>
+
+</head>
+
+<body>
+<input type="button" id="t1" value="测试undifined"/><br/>
+<input type="button" id="t2" value="测试严格模式下的变量"/><br/>
+<input type="button" id="t3" value="测试null"/><br/>
+<input type="button" id="t4" value="测试Boolean"/><br/>
+<input type="button" id="t5" value="测试加操作"/><br/>
+<input type="button" id="t6" value="测试Number()"/><br/>
+<input type="button" id="t7" value="测试函数参数"/><br/>
+<input type="button" id="t8" value="逻辑与&&"/><br/>
+<input type="button" id="t9" value="逻辑或||"/><br/>
+<input type="button" id="t10" value="相等==和全等==="/><br/>
+<input type="button" id="t11" value="测试parseInt"/><br/>
+<input type="button" id="t12" value="测试typeof"/><br/>
+ 
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+
+//验证数字（只能是数字,可以有小数）
+  function test(which){
+      var str=which.value.split(".");
+	   alert(str.length);
+	   if(str.length>3||str.length==3){
+	      alert("格式不正确");
+		  which.value="";//清空内容
+		  return false;
+	   }
+	   for(var i=0;i<str.length;i++){
+	       if(/^\d+$/.test(str[i])==false){
+	          alert(str[i]+"只能填数字！");
+	          which.value="";//清空内容
+			  return false;
+	       }
+	   }
+  }
+</script>
+</head>
+
+<body>
+<input type="text" name="integer" value="" id="dd"  onblur="test(this)" />
+</body>
+</html>

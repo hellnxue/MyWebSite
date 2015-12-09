@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+  $(function (){
+      var i=0;
+     $("body,div,#bthShow").click(function(event){
+	     i++;
+	     $("#bth2").show().html("hello world").append("<div>执行次数<b>"+i+"</b></div>");
+		 event.stopPropagation();
+	 })
+	 $("#tbind").bind({
+	   focus:function(){
+	     alert("活的焦点啦");
+	   },
+	    change:function(){
+		   alert("改变事件");
+		}
+	})
+	$("#tm,span").click(function(e){
+	  alert($(this).text());
+	   e.stopPropagation();
+	});
+	
+	$("img").toggle(function(){
+	   $(this).attr("src","toggle1.png")
+	},function(){
+	   $(this).attr("src","toggle2.jpg")
+	},function(){
+	   $(this).attr("src","toggle3.jpeg")
+	});
+	
+	$("#tone").one("click",function(e){
+	  alert($(this).val());
+	   
+	});
+	$("#fb").focus(function(){
+	   alert("hello");
+	})
+     $("#fb").blur(function(){
+	   alert("byebye");
+	})
+  })
+  
+</script>
+</head>
+
+<body>
+<div>
+  <input id="bthShow" type="button" value="冒泡事件"/>
+
+</div><br/>
+<div id="bth2"></div>
+
+</br>
+<hr />
+映射绑定法
+<input type="text" id="tbind" value="" />
+<br/>
+<div id="tm"><span>测试冒泡click事件</span></div>
+
+<br/>
+切换事件
+<div><img/></div>
+<br/>
+<hr />
+one方法测试
+<input type="button" id="tone" value="只执行一次的one方法" />
+<br/>
+活的焦点和失去焦点
+<input type="text" id="fb"  />
+</body>
+</html>

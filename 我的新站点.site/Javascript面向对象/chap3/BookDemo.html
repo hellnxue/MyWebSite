@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>类的创建和引用对象</title>
+<link href="common.css" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	/*定义Book类*/
+	 function Book(){
+	    //私有属性
+	    var prodId = null; //商品编号
+		var prodType = null; //商品类型
+		var prodName = null; //商品名称
+		var prodPrice = null; //商品价格
+		var prodCount = null;//商品数量
+		var authors = null;//书籍作者
+		//公有方法
+		//seter
+		this.setProdId = function(pId){
+			prodId = pId;
+		};
+		this.setProdType = function(pType){
+			prodType = pType;
+		};
+		this.setProdName = function(pName){
+			prodName = pName;
+		};
+		this.setProdPrice = function(pPrice){
+			prodPrice = pPrice;
+		};
+		this.setProdCount = function(pCount){
+			prodCount = pCount;
+		};
+		this.setAuthors = function(pAuthors){
+			authors = pAuthors;
+		};
+		//geter
+		this.getProdId = function(){
+			return prodId;
+		};
+		this.getProdName = function(){
+			return prodName;
+		};
+		this.getProdPrice = function(){
+			return prodPrice;
+		};
+		this.getProdType = function(){
+			return prodType;
+		};
+		this.getProdCount = function(){
+			return prodCount;
+		};
+		this.getAuthors = function(){
+			return authors;
+		};
+		
+	};//类定义结束
+	
+	
+	/*原型对象prototype创建类
+	 function Book(){};// 使用空构造类型定义Person类
+	 Book.prototype={  //使用无类型对象指定prototype的值
+	     setProdId :function(pId){
+			this.prodId = pId;
+		},
+		setProdType:function(pType){
+			this.prodType = pType;
+		},
+		setProdName :function(pName){
+			this.prodName = pName;
+		},
+		setProdPrice :function(pPrice){
+			this.prodPrice = pPrice;
+		},
+		setProdCount :function(pCount){
+			this.prodCount = pCount;
+		},
+		setAuthors :function(pAuthors){
+			this.authors = pAuthors;
+		},
+		getProdId :function(){
+			return this.prodId;
+		},
+		getProdName:function(){
+			return prodName;
+		},
+		getProdPrice:function(){
+			return prodPrice;
+		},
+		getProdType :function(){
+			return prodType;
+		},
+		getProdCount:function(){
+			return prodCount;
+		},
+		getAuthors:function(){
+			return authors;
+		}
+	     
+	 };
+	
+    */
+	//类的静态方法，创建实例对象
+	Book.getInstance = function(pId,pType,pName,pPrice,pCount,pAuthors){
+	    var book = new Book();
+		book.setProdId(pId);
+		book.setProdType(pType);
+		book.setProdName(pName);
+		book.setProdPrice(pPrice);
+		book.setProdCount(pCount);
+		book.setAuthors(pAuthors);
+		return book;
+		
+	};
+	/*创建书籍集合*/
+	var bookArr = new Array(
+		   Book.getInstance("001","计算机","Java",60.5,100,"埃克尔"),
+		   Book.getInstance("002","计算机","JavaScript",40,40,"埃里森"),
+		   Book.getInstance("003","文学","三国演义",80,120,"罗贯中"),
+		   Book.getInstance("004","文学","水浒传",78,100,"施耐庵"),
+		   Book.getInstance("005","文学","射雕英雄传",50,30,"金庸"),
+		   Book.getInstance("006","计算机","AJAX",40,10,"谷歌")
+		  
+	);
+	
+	function createBook(){
+		alert("asdfa");
+		alert(bookArr[0].toString());
+		
+	}
+	/*添加toString方法*/
+	Book.prototype.toString = function(){
+		var bookStr="<div id=\"bookDiv\">"
+		+ this.getProdName()+"&nbsp;&nbsp;"
+		+this.getProdPrice()+"&nbsp;&nbsp;"
+		+this.getProdCount()+"&nbsp;&nbsp;"
+		+this.getAuthors()+"<p>"
+		+"</div>";
+		return bookStr;
+	};
+    var dataList =[];    //保存查询结果   
+	function showBooks(){
+		 var booksDivHTML = "";
+		 for(var i in dataList){
+			booksDivHTML += dataList[i].toString();	
+	}
+	document.getElementById("contentDiv").innerHTML = booksDivHTML;
+  }
+  /*显示所有数据*/
+  function showAllBooks(){
+  	 dataList = bookArr;
+	 showBooks();
+  }
+  /*查询数据*/
+  function serchBooks(){
+  	 var title = document.getElementById("txt_keywords").value;//获取值
+	 dataList = query(title);//根据类别和查询字符串查找数组数据
+	 if(dataList.length > 0){		
+		alert("查询到符合条件数据一共有" + dataList.length + "条！");
+	 }else{
+		alert("没有符合条件的数据！");
+	 }
+	 showBooks();
+ 
+  }
+  /*匹配查询字符串*/
+  function query(title){
+  	var result = [];
+	for(var i in bookArr){
+		if(title == ""){//选择数据				
+				result.push(bookArr[i]);
+		}else{		
+		    //查找子字符串，书名的一部分
+			if(bookArr[i].getProdName()
+				.toLowerCase().indexOf(title.toLowerCase()) != -1){
+				result.push(bookArr[i]);
+			}
+		}
+	}
+	return result;
+  }
+</script>
+</head>
+<body>
+<div id="continerDiv">
+   <div id="buttonDiv">
+  
+	  <input type="button" name="simple" value="简单创建对象"  onclick="showAllBooks();"/>
+	  <input type="button" name="prototype " value="原型创建对象" />
+	  <label>
+	  <input type="button" name="Submit" value="测试" onclick="createBook();"/>
+	  </label>
+      <label>
+      <input name="txt_keywords" type="text" id="txt_keywords" />
+      </label>
+      <label>
+      <input type="button" name="Submit2" value="查询"  onclick="serchBooks();"/>
+      </label>
+  
+  </div>
+   <div id="contentDiv"></div>
+</div>
+ 
+
+</body>
+</html>

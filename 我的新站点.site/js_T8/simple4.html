@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script src="jquery-1.3.1.min.js"></script>
+<script language="javascript">
+   function imgin(){
+   	$('#gl').slideDown(3000);
+   }
+   function imgout(){
+   	$('#gl').slideUp(2000);
+   }
+</script>
+<style>
+ #gl{ display:none;}
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <label>
+  <input type="button" name="Submit" value="淡入"  onmouseover="imgin();"/>
+  <input type="button" name="Submit2" value="淡出"  onclick="imgout();"/>
+  </label>
+</form>
+
+<div id="gl"><img src="imgs/gl.jpg" width="1024" height="685" /></div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+.news_l_mode dd{ width: 100%;}
+.dd_two{ display: block;}
+.news_l_mode dt, .news_l_mode dd{float: none;}
+.cont_news_l_1, .cont_news_l_2{width:680px;  padding:5px 30px 0;}
+.conten_news{ height: 1581px; margin-top: 30px;}
+.all_artical{ height: 28px; line-height: 28px; font-size: 17px;margin-top: -4px;}
+
+.dd_two ol li{ margin-top: 20px;}
+.dd_three{ height: 117px;}
+.dd_three div{ padding:20px 0 0 0;}
+/* 下面是帮助模块的样式 */
+.help_mode{ height: 137px; width: 739px;}
+
+.search{ height: 55px; background-color: #879ED2;}
+.flow_path{ height: 80px;  }
+.search_l,.search_r{float: left; width: 364px; height: 55px;}
+.search_r{ position: relative; }
+.search_l h3{ color: #fff;height: 55px; line-height: 55px; padding-left: 35px; font-size: 18px;}
+.search_box{ border:0;   font-size: 18px; border-radius: 5px; font-family: "微软雅黑"; height: 30px; padding:7px 37px 7px 15px; float: right; margin-top: 7px; width: 134px; background-color: #EFF3F6;}
+.sub_up{ width: 37px; height: 41px; border:0; font-size: 0; cursor: pointer;  background:#EFF3F6 url(../images/search_03.png)  center no-repeat; position: absolute; right: 0; top: 7px; border-radius: 0 5px 5px 0;}
+
+.flow_path .register_flow{ margin-top: 20px; float: left; margin-right: 15px;}
+.register_flow a{float: left; padding:10px 15px;border:1px solid #879ED2; color: #879ED2; border-radius: 10px; font-weight: 600;
+font-size: 17px;  }
+
+.register_flow a.cur_bgc{ background-color: #879ED2; color: #fff;}
+
+
+
+
+
+
+
+
+
+
+
+
+

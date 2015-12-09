@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+
+  //验证汉字
+  function tests(which){
+     var charts=which.value;
+     //alert(/[\u4e00-\u9fa5]/.test(which.value) );
+     //alert(which.value.length);
+	 for(var i=0;i<charts.length;i++){
+	    //alert("截取之后的"+charts.substr(charts.length-(charts.length-i),1));
+		 if(/[\u4e00-\u9fa5]/.test(charts.substr(charts.length-(charts.length-i),1))==false){
+	     alert("只能输入汉字!");
+		 which.value="";
+		 return false;
+	 }
+	 }
+	
+  }
+</script>
+</head>
+
+<body>
+<input type="text" name="integer" value="" id="dd"  onblur="tests(this)" />
+</body>
+</html>

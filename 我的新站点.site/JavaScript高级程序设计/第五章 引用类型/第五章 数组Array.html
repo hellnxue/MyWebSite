@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../pin.js"></script>
+<script type="text/javascript">
+//比较方法
+function campare1(v1,v2){
+  if(v1>v2){
+  	return -1;
+  }else if(v1<v2){
+    return 1;
+  }else{
+    return 0;
+  }
+}
+//比较数值数组特用
+function campare2(v1,v2){
+  return v1-v2;
+}
+$(function(){
+
+var pinyin = codefans_net_CC2PY("刘雪萍").toUpperCase();
+console.log("汉字转为拼音=="+pinyin);
+console.log("Default User转为拼音=="+codefans_net_CC2PY("Default User").toUpperCase());
+console.log(codefans_net_CC2PY("DEFAULT USER"));
+
+console.log("Default User"==="Default User");
+
+$("#ta1").on("click",function(){
+     var colors=["red","black"];
+	var cl= colors.push("blue");
+	console.log(cl);
+	console.log(colors);
+	
+	//取得最后添加的一项
+	var lc=colors.pop();
+	console.log(lc);
+	console.log(colors);
+  });
+  
+$("#ta2").on("click",function(){
+     var colors=["red","black"];
+	var cl= colors.push("blue");
+	console.log(cl);
+	console.log(colors);
+	
+	//取得第一项
+	var lc=colors.shift();//获得最前端的一项并删除
+	console.log(lc);
+	console.log(colors);
+	
+	var lu=colors.unshift("pinck");//在最前端添加一项
+	console.log(lu);
+	console.log(colors);
+	
+	var ll=colors.pop();//获得最后一项并删除
+	console.log(ll);
+	console.log(colors);
+	
+  });
+  $("#ta3").on("click",function(){
+     var colors=[0,1,5,10,15];
+	colors.sort();
+	console.log(colors);
+  });
+  
+   $("#ta4").on("click",function(){
+     var colors=[0,1,5,10,15];
+	colors.sort(campare1);
+	console.log(colors);
+	colors.sort(campare2);
+	console.log(colors);
+  });
+  
+   
+    $("#ta5").on("click",function(){
+	
+	
+	
+     var name="蜡笔小新";
+	 console.log(name.substr(1,1));
+	 console.log(name.length);
+	 var xx=subName1(name);
+	 //console.log("hello"+xx.length);
+	  //console.log("hello "+xx[2]);
+	  console.log(xx);
+	  
+	   console.log( marry2());
+	   
+	  // x3()
+	  
+	  x4();
+  });
+  
+  
+    $("#ta6").on("click",function(){
+	
+	  $("#pp").append("<h2>hello world!</h2>").append("<span>helln</span>");;
+	
+    
+  });
+  
+   $("#ta66").on("click",function(){
+	
+	  var x="hello worldddddddddddddddd".append("<span>helln</span>");
+	  $("#ttt").append(x);
+	
+    
+  });
+  
+  $("#ta7").on("click",function(){
+	
+	 //handleEnglish();
+	//marry2();
+	console.log(marry3());
+    
+  });
+  
+  $("#ta9").on("click",function(){
+    $("#af").after("Hello World!");
+  
+  });
+  
+   $("#ta10").on("click",function(){
+    $("#bf").before("Hello World!");
+  
+  });
+  
+    $("#ta11").on("click",function(){
+    $("<span>Hello helln</span>").appendTo("#ppt");
+  
+  });
+   $("#ta12").on("click",function(){
+    $("#ety").empty();
+  
+  });
+  
+  
+  
+   $("#ta13").on("click",function(){
+       var markerArr = [  
+				{ title: "名称：上海火车站", point: "121.462056,31.25592", address: "上海市火车站", tel: "12306" },  
+				{ title: "名称：世纪大道", point: "121.533435,31.23485", address: "上海市世界大道", tel: "18500000000" },  
+				{ title: "名称：普陀区新村路423弄绿地商务广场1号楼409室", point: "121.433945,31.27221", address: "上海市普陀区新村路423弄绿地商务广场1号楼", tel: "18500000000" }
+				
+			]; 
+			
+			var i=0;
+		markerArr.forEach(function(item,index,array){
+		  i++;
+		  item.point=i;
+		
+		});	
+		console.log("item.point==="+markerArr[0].point);	
+  
+  });
+  
+   $("#ta15").on("click",function(){
+       var orgArr = ["1","3","2","5","6"];
+	   var orgid="5";
+	   var result= orgArr.some(function(item,index,arrar){
+		   console.log("item="+item);
+		   return item==orgid;
+		});
+		console.log("result==="+result);	
+  
+  });
+  
+   $("#ta115").on("click",function(){
+       var orgArr = ["1","3","2","5","6"];
+	  orgArr.forEach(function(item,index,array){
+	     var x=10;
+	  });
+		console.log("result==="+x);	//for循环中的变量有作用域
+  
+  });
+  
+});
+ //循环截取单个字符，并转换成拼音格式的,并放入数组中
+ function subName(name){
+     var zmArray=new Array();
+     var nl=name.length;
+	 if(nl>0){
+	   for(var i=0;i<nl;i++){
+	     var tempName=name.substr(i,1);
+		  //console.log(i);
+		  //console.log(codefans_net_CC2PY(tempName).toUpperCase());
+		  var tempSingle=codefans_net_CC2PY(tempName).toUpperCase();
+		  zmArray.push(tempSingle.substr(0,1));
+		 // console.log(zmArray[0]);
+	   }
+	   return zmArray;
+	 }
+ } 
+//循环截取单个字符，并转换成拼音格式的,并放入数组中
+ function subName1(name){
+     var zmArray="";
+     var nl=name.length;
+	 if(nl>0){
+	   for(var i=0;i<nl;i++){
+	     var tempName=name.substr(i,1);
+		  //console.log(i);
+		  //console.log(codefans_net_CC2PY(tempName).toUpperCase());
+		  var tempSingle=codefans_net_CC2PY(tempName).toUpperCase();
+		  zmArray+=tempSingle.substr(0,1);
+		 // console.log(zmArray[0]);
+	   }
+	   return zmArray;
+	 }
+ } 
+ 
+  //根据字母取出汉字
+ function marry1(){
+    var zmGroup1="LX";
+	
+	var  tempName1="刘雪轩".substr(0,zmGroup1.length);
+	var endName="刘雪轩".substring(tempName1.length);
+	
+	console.log("tempName1======"+tempName1);
+	console.log("endName======"+endName);
+	
+	var returnName=tempName1+endName;
+	//console.log("returnName="+returnName);
+	
+	return returnName;
+ }
+ 
+ 
+  //输入全拼拼音时全拼拼音顺序匹配出汉字     liuxue  匹配 刘雪
+ function marry2(){
+    // var inputVal="LIUxue".toUpperCase();//输入的值
+	//var inputVal="LIUXUEPING";//输入的值
+	//var tempName="刘雪萍";
+	
+	var inputVal="default user".toUpperCase();
+	var tempName="Default User".toUpperCase();
+	var tempNameLength=tempName.length;
+	console.log("inputVal=========="+inputVal);
+	//console.log("tempNameLength=========="+tempNameLength);
+	
+	for(var i=0;i<tempNameLength;i++){
+	  
+	   var subSingleName=tempName.substr(0,i+1);
+	   console.log("subSingleName=="+subSingleName);
+	   //如果真实名字全是英文，不需要转成全拼，不然会出错
+	   var tempsubSingleName=subSingleName;
+	   
+	   if(!checkIsZimu(tempName)){
+	       tempsubSingleName=codefans_net_CC2PY(subSingleName).toUpperCase();
+	   }
+	   
+	    console.log("tempsubSingleName=="+tempsubSingleName);
+	   if(tempsubSingleName===inputVal){
+	      console.log("oh    yes  you are smart");
+		  var resultName=subSingleName;
+		  break;
+	   }
+	}
+	
+	console.log(resultName);
+	return resultName;
+	
+ }
+ 
+ 
+ 
+ 
+ 
+ //根据字母取出汉字
+ function marry1(){
+    var zmGroup1="LX";
+	
+	var  tempName1="刘雪轩".substr(0,zmGroup1.length);
+	var endName="刘雪轩".substring(tempName1.length);
+	
+	console.log("tempName1======"+tempName1);
+	console.log("endName======"+endName);
+	
+	var returnName=tempName1+endName;
+	//console.log("returnName="+returnName);
+	
+	return returnName;
+ }
+ 
+ 
+  //输入全拼拼音时全拼拼音顺序匹配出汉字     liuxue  匹配 刘雪
+ function marry3(){
+ 
+    /**
+	  输入汉字全拼的情况下
+	**/
+     var inputVal="LIUxue".toUpperCase();//输入的值
+	//var inputVal="LIUXUEPING";//输入的值
+	var tempName="刘雪萍";
+	
+   /**
+	  真实名字若是纯英文，输入英文的情况下
+	**/
+	//var inputVal="defa".toUpperCase();
+	//var tempName="Default User".toUpperCase();
+	var tempNameLength=tempName.length;
+	
+	//根据真实名字是英文还是中文判断操作方法，英文直接截取，中文需要根据单个汉字逐个循环后拼成的拼音全拼操作
+	if(checkIsZimu(tempName)){
+	    var rname=tempName.substring(0,inputVal.length);
+		return rname;
+	}
+	
+	for(var i=0;i<tempNameLength;i++){
+	  
+	   var subSingleName=tempName.substr(0,i+1);
+	   //console.log("subSingleName=="+subSingleName);
+	   //如果真实名字全是英文，不需要转成全拼，不然会出错
+	   if(codefans_net_CC2PY(subSingleName).toUpperCase()===inputVal){
+	      console.log("oh    yes  you are smart");
+		  var resultName=subSingleName;
+		  break;
+	   }
+	}
+	
+	console.log(resultName);
+	return resultName;
+	
+ }
+ 
+ function x3(){
+    var a="刘雪萍";
+	var b="刘雪";
+	var c=a.substring(b.length);
+	console.log(c);
+ 
+ }
+ //顺序匹配字符时用indexOf会出错，替代方法如下
+ function x4(){
+    var a="zcc";
+	var b="cc";
+	var c=a.substr(0,b.length);
+	console.log("hhhhhhhhhhhhhhhhh=== "+c);
+ }
+ 
+ /**
+	      正则 判断是否是字母
+	 **/
+	function checkIsZimu(str) {
+		//如果值为空，通过校验
+		if (str === " "||str === "") {
+			return false;
+		}
+		var pattern = /^[a-zA-Z ]*$/gi;
+		if (pattern.test(str)) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+	
+	//处理拼接html
+	function handleEnglish(){
+	  var tempval1="Default User";
+	  var tempval2="Default User";
+	  var li='<li onclick="hh(\''+tempval1+'\')">hello world</li>';
+	  $("#hleh ul").append(li);
+	}
+	
+	function hh(vl){
+	  console.log("result==="+vl);
+	};
+</script>
+</head>
+
+
+
+
+<body>
+<input type="button" id="ta1" value="测试栈"/></br>
+<input type="button" id="ta2" value="测试队列"/></br>
+<input type="button" id="ta3" value="数组排序"/></br>
+<input type="button" id="ta4" value="数组排序campare"/></br>
+<input type="button" id="ta5" value="汉字分解"/></br>
+
+<input type="button" id="ta66" value="拼接测试"/></br>
+
+test append():</br>
+<p id="pp" style="color:pink;"><span>I would like to say:</span> </p>
+
+<input type="button" id="ta6" value="append-内部插入"/></br>
+
+test appendTo():</br>
+<p id="ppt" style="color:pink;">I would like to say: </p>
+
+<input type="button" id="ta11" value="appendTo-内部插入"/></br>
+
+test after():</br>
+<p id="af" style="color:pink;">I would like to say: </p>
+
+</br>
+<input type="button" id="ta9" value="after-外部插入"/></br>
+
+
+test before():</br>
+<p id="bf" style="color:pink;">I would like to say: </p>
+
+</br>
+<input type="button" id="ta10" value="befor-外部插入"/></br>
+
+
+test empty():</br>
+<p id="ety" style="color:pink;"><span>I would like to say:</span> </p>
+
+</br>
+<input type="button" id="ta12" value="empty-清空"/></br>
+<input type="button" id="ta7" value="拼接测试"/></br>
+<input type="button" id="ta8" value="截取"/></br>
+<div id="hleh"><ul></ul></div>
+
+
+</br>
+<input type="button" id="ta13" value="befor-外部插入"/></br>
+
+<div id="ttt"></div>
+
+
+</br>
+<input type="button" id="ta15" value="测试some函数"/></br>
+<input type="button" id="ta115" value="测试for循环中的作用域"/></br>
+</body>
+</html>

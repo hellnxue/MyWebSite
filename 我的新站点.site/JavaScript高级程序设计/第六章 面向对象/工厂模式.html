@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+
+//创建对象--工厂模式
+function Person(name,age){
+   var o=new Object();
+   o.name=name;
+   o.age=age;
+   o.say=function(){
+     console.log("hello "+this.name);
+   }
+   return o;
+}
+
+
+//创建对象--构造函数模式
+function Persons(name,age){
+    
+   this.name=name;
+   this.age=age;
+   this.say=function(){
+     console.log("hello "+this.name);
+   }
+    
+}
+
+　function Cat(name,color){
+
+　　　　return {
+
+　　　　　　name:name,
+
+　　　　　　color:color
+
+　　　　}
+
+　　} 
+
+$(function(){
+	$("#d1").on("click",function(){
+	 
+	  var person1=Person("helln",10);
+	  console.log(person1.name);
+	  person1.say();
+	  var person2=Person("tom",20);
+	  console.log(person2.name);
+	  person2.say();
+	  
+	});
+
+ 
+	$("#d3").on("click",function(){
+	 
+	  　var cat1 = Cat("大毛","黄色");
+
+　	  　var cat2 = Cat("二毛","黑色");
+
+		console.log(cat1 instanceof Cat);
+		
+	 
+	  
+	});
+
+});
+function testtype(){
+ var person1=Person("小新",10);//工厂模式创建的对象不能成为一种特定类型的对象，构造函数实例化创建的对象可以
+ 
+ var persons=new Persons("实例小新",10);
+ 
+ console.log("工厂模式创建的对象="+person1 instanceof Person);
+
+ console.log("构造函数创建的对象="+persons instanceof Persons);
+ 
+ console.log(Persons.prototype);
+}
+</script>
+</head>
+
+<body>
+<input type="button"  name="d1" id="d1" value="工厂模式"/></br>
+<input type="button"  name="d2" id="d2" value="构造函数模式"/></br>
+<input type="button"  name="d2" id="d4" value="测试创建的对象的类型" onClick="testtype()"/></br>
+
+<input type="button"  name="d2" id="d3" value="1111111111111111"/></br>
+</body>
+</html>

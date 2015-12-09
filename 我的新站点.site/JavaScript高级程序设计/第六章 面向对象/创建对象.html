@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+  
+var a=function(){
+//empty
+}
+
+a.prototype.var1=[1,2,3];
+
+var b=new a();
+b.var1.push(4);
+
+var c=new a();
+console.log(c.var1.join(","))
+
+console.log(c.hasOwnProperty("var1"));
+
+
+//-----------------------原型对象----------------------------
+function Person(){
+
+}
+
+
+function test1(){
+   
+   Person.prototype.name="Nigola";
+   
+   var p1=new Person();
+   console.log(p1.constructor);
+   console.log(p1.constructor==Person);//constructor为原型对象的属性，指向构造函数指针Person
+   console.log(Person.prototype.isPrototypeOf(p1));//原型对象与实例对象之间的关系，说明实例对象的Prototype属性指向原型对象
+   console.log(Object.getPrototypeOf(p1));//Object.getPrototypeOf()取得指定对象的原型对象
+   console.log(Object.getPrototypeOf(p1)==Person.prototype);
+   console.log(Object.getPrototypeOf(p1).name);
+   
+   var p2=new Person();
+   
+   p1.name="tom";
+   p1.getName=function(){
+     return "hello";
+   }
+   
+   console.log("p1.name="+p1.name);//实例中添加的属性名称若与原型对象的属性名称相同，前者会覆盖后者 tom
+   console.log("Object.getPrototypeOf(p1).name="+Object.getPrototypeOf(p1).name);//取得对象p1原型对象中的name,即Nigola
+   console.log("p2.name="+p2.name);//另一个实例对象访问的仍然是原型对象中的值，Nigola
+   
+   console.log("p1.hasOwnProperty(\"name\")="+ p1.hasOwnProperty("name"));//hasOwnPropertype()方法检测一个属性是否存在与实例或原型中
+   console.log("delete p1.name");
+   delete p1.name;//delete删除实例中的属性，恢复访问原型对象的属性，即Nigola
+   console.log("p1.name="+p1.name);
+   
+   console.log("p1.hasOwnProperty(\"name\")="+p1.hasOwnProperty("name"));
+   
+   console.log("p1.hasOwnProperty(\"constructor\")="+p1.hasOwnProperty("constructor"));
+   console.log("Object.getPrototypeOf(p1).hasOwnProperty(\"constructor\")="+Object.getPrototypeOf(p1).hasOwnProperty("constructor"));
+   
+   console.log("p1.hasOwnProperty(\"getName\")="+p1.hasOwnProperty("getName"));
+	
+   console.log("Person.prototype.hasOwnProperty(\"name\")="+Person.prototype.hasOwnProperty("name"));
+}
+
+function Person1(){
+
+}
+function test2(){
+
+   //简单的原型语法，但会重写原型对象，导致constructor不在指向构造函数的指针，指向了Object
+   Person1.prototype={
+     constructor:Person1,//重新指定constructor的指向
+     name:"Nigola",
+	 age:70
+   };
+   
+   var friend=new Person1(); 
+   console.log(friend.constructor);
+   console.log(friend.constructor==Person1);
+   
+   console.log(Date.parse("2015-09-17T09:29:20.6877003+08:00"));
+   
+   
+}
+//-----------------------原型对象----------------------------
+
+//-----------------------原型继承----------------------------
+function SuperType(){
+    this.property="father";
+}
+
+SuperType.prototype.getSuperValue=function(){
+  return this.property;
+}
+
+function SubType(){
+  this.subproperty="sun";
+}
+
+SubType.prototype=new SuperType();
+
+SubType.prototype.getSubValue=function(){
+  return this.subproperty;
+}
+
+
+
+
+function test3(){
+
+var subtype=new SubType();
+
+console.log(subtype.getSuperValue());
+
+console.log(Object.getPrototypeOf(subtype));//获得实例对应的原型,该实例的原型是父类的构造函数中的属性与父类的原型属性（或方法），还有该实例本身原型属性（或方法）的组合
+
+ 
+}
+
+//-----------------------构造函数继承----------------------------
+
+function SuperType1(arguement){
+  this.color=["red","black","blue"];
+  this.age=arguement;
+}
+
+SuperType1.prototype.name="Hall";
+
+
+function SubType1(){
+  SuperType1.call(this,"Jack");
+}
+
+function test4(){
+  var instance=new SubType1();
+  console.log(instance.color);
+  console.log(instance.name);
+  console.log(instance.age);
+  
+  console.log("获得实例的原型");
+  console.log(Object.getPrototypeOf(instance));//该实例的原型与父类的原型没有任何关系，子类的构造函数只是借用了父类构造函数里的属性或方法
+  
+}
+//-----------------------构造函数&原型继承----------------------------Person.prototype.hasOwnProperty("name")
+
+function SuperType11(name){
+  this.color=["red","black","blue"];
+  this.name=name;
+}
+
+SuperType11.prototype.sayName=function(){
+   console.log("父类原型属性name==="+this.name);
+};
+
+
+function SubType11(name,age){
+  SuperType11.call(this,name);
+  this.age=age;
+}
+
+SubType11.prototype=new SuperType11();
+
+SubType11.prototype.sayAge=function(){
+  console.log("子类的原型属性age=="+this.age);
+
+}
+
+function test5(){
+  var instance1=new SubType11("helln",20);
+  instance1.color.push("pinck");
+  console.log(instance1.color);
+  instance1.sayName();
+
+  var instance2=new SubType11("ailike",10);
+   
+  console.log(instance2.color);
+  instance2.sayName();
+  
+  console.log("age="+instance2.age);
+  
+  console.log("SubType11.prototype.hasOwnProperty(\"color\")="+SubType11.prototype.hasOwnProperty("color"));//SubType11的原型等于SuperType11的实例，所以，那么属于SubType11的原型属性，只不过后来color的值在对象实例化的时候被构造函数继承法给覆盖掉了
+  console.log("SubType11.prototype.hasOwnProperty(\"name\")="+SubType11.prototype.hasOwnProperty("name"));//true
+  console.log("SuperType11.prototype.hasOwnProperty(\"name\")="+SuperType11.prototype.hasOwnProperty("name"));//false  name是SuperType11的实例属性
+  console.log("instance1.hasOwnProperty(\"name\")="+instance1.hasOwnProperty("name"));
+  console.log("SubType11.prototype.hasOwnProperty(\"sayName\")="+SubType11.prototype.hasOwnProperty("sayName"));
+  console.log("SubType11.prototype.hasOwnProperty(\"age\")="+SubType11.prototype.hasOwnProperty("age"));
+  console.log("instance1.hasOwnProperty(\"age\")="+instance1.hasOwnProperty("age"));
+  
+  console.log("获得instance1的实例的原型对象");
+  console.log(Object.getPrototypeOf(instance1));//
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Hh(){
+  console.log("Hh="+this);
+}
+function test55(){
+  //console.log(this);
+  var instance=new Hh();
+}
+
+</script>
+</head>
+
+<body>
+<input type="button"  name="d1" id="d1" value="测试原型对象1" onclick="test1()"/></br>
+<input type="button"  name="d1" id="d1" value="测试原型对象2" onclick="test2()"/></br>
+
+
+<input type="button"  name="d1" id="d1" value="原型继承" onclick="test3()"/></br>
+
+<input type="button"  name="d1" id="d1" value="构造函数继承" onclick="test4()"/></br>
+
+<input type="button"  name="d1" id="d1" value="构造函数&原型继承" onclick="test5()"/></br>
+<input type="button"  name="d1" id="d1" value="tt" onclick="test55()"/></br>
+
+</body>
+</html>

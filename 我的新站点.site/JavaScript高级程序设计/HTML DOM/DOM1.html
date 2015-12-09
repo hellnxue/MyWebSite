@@ -1,0 +1,83 @@
+<!DOCTYPE html  >
+<html >
+<head>
+<meta charset=gb2312 />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function(){
+      //alert("hehe");
+	  $("#dj").click(function(){
+	    var t=document.getElementById("dj");
+	    //document.write("<h2>"+t.value+"</h2>");
+	    
+	    alert(t.type);
+	  
+	  });
+	  
+	  //HTML DOM表单类型type
+	   $("#dx").on("focus",function(){
+	      var t=document.getElementById("dx");
+	    //document.write("<h2>"+t.value+"</h2>");
+	    
+	    alert(t.type);
+	   });
+	   //HTML DOM设置表单为只读
+	    $("#dq").on("focus",function(){
+	      var t=document.getElementById("dq").readOnly=true;//也可以直接写在input里readOnly="true"
+	
+	   });
+	   
+	    $("#qq").on("click",function(){
+		  alert(isNaN(10));
+	      var a=10;
+		   alert("a="+typeof(a));
+		  var b=a.toString();
+		  alert("a.toString()="+typeof(b));
+		  var c=10;
+		  alert("10.toString()="+c.toString(2));
+		  
+		  var d;
+		   alert("String(undifined)="+String(d));
+		   
+		   var e=null;
+		    alert("String(null)="+String(e));
+			
+			alert(Number.MIN_VALUE);
+	
+	   })
+	 
+   });
+   
+   function testNode(){
+       var node=$("#node")[0];
+	   var node1=document.getElementById("node");
+	  console.log(node1.childNodes[2].nodeValue);
+   }
+   
+   function testAmaze(){
+     //$("#amaze").append("jjjjjjjjjjjjjjj");
+	 $("#amaze").next("span").css("color","red");
+   }
+   </script>
+</head>
+
+<body>
+<input type="button" value="表单类型" id="dj"/></br>
+<input type="text" value="点我啊，嘿嘿" id="dx" /></br>
+<input type="text" value="点我变只读" id="dq" /></br>
+<input type="button" value="toString测试" id="qq"/></br>
+
+<input type="button" value="Node测试" id="nodes"  onclick="testNode()" /></br>
+
+<div id="node">
+  <div>node1</div>
+  <div>node2</div>
+  <div>node3</div>
+</div><br>
+
+<input type="button" value="amaze" id="nodes"  onclick="testAmaze()" /></br>
+
+<input type="text" id="amaze" /><span>hahahahaha</span>
+</body>
+</html>

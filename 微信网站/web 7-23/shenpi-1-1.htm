@@ -1,0 +1,119 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Hello Amaze UI</title>
+
+<!-- Set render engine for 360 browser -->
+<meta name="renderer" content="webkit">
+
+<!-- No Baidu Siteapp-->
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<link rel="icon" type="image/png" href="assets/i/favicon.png">
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+<link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+
+<!-- Tile icon for Win8 (144x144 + tile color) -->
+<meta name="msapplication-TileImage" content="assets/i/app-icon72x72@2x.png">
+<meta name="msapplication-TileColor" content="#0e90d2">
+<link rel="stylesheet" href="assets/css/amazeui.min.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+<header class="am-header am-header-default am-no-layout" data-am-widget="header">
+  <div class="am-titlebar-left"> <a class="bak_ico" title="返回" href="javascript:history.go(-1)"><em></em></a> </div>
+  <h1 class="am-header-title">审批详情</h1>
+  <div class="am-titlebar-right"> <a title="" class="home_ico" href="index.html"><em></em></a> </div>
+</header>
+<div class="sp_info">
+  <h2>付款申请信息</h2>
+  <div class="info infos">
+    <p><span class="m_l"><em>申请人</em>张佳丽</span><span class="m_s"><em>申请金额</em>9999.00</span></p>
+    <p><span class="m_l"><em>类别</em>工资</span><span class="m_s"><em>付款账户</em>招行湖南路支行</span></p>
+  </div>
+</div>
+<div class="sp_info sp_s">
+  <h2><a class="am-fr"></a>账单明细</h2>
+  <div class="info_li">
+    <ul class="am-list am-cf">
+      <li><a href="shenpi-1-1-1.htm"><span class="am-fr">无锡外服<em></em></span>雇主</a></li>
+      <li><a href="shenpi-1-1-1.htm"><span class="am-fr">无锡外服<em></em></span>雇主</a></li>
+      <li><a href="shenpi-1-1-1.htm"><span class="am-fr">无锡外服<em></em></span>雇主</a></li>
+      <li><a href="shenpi-1-1-1.htm"><span class="am-fr">无锡外服<em></em></span>雇主</a></li>
+      <li><a href="shenpi-1-1-1.htm"><span class="am-fr">无锡外服<em></em></span>雇主</a></li>
+    </ul>
+  </div>
+</div>
+<div class="sp_info sp_n">
+  <h2><a class="am-fr"></a>备注</h2>
+  <div class="info_area">
+    <p>具体的审批备注内容，具体的审批备注内容。具体的审批备注内容，具体的审批备注内容。具体的审批备注内容，具体的审批备注内容。
+      具体的审批备注内容，具体的审批备注内容。具体的审批备注内容，具体的审批备注内容。具体的审批备注内容，具体的审批备注内容。</p>
+  </div>
+</div>
+<div class="sp_info">
+  <h2>审批意见</h2>
+  <div class="info_sp">
+    <p>已同意</p>
+  </div>
+</div>
+<div class="btns am-g"><a class="am-btn am-btn-primary am-radius am-u-sm-8 blue_btn" id="doc-confirm-toggle">同 意</a> <a class="am-btn am-btn-danger am-radius am-u-sm-3 red_btn">拒 绝</a></div>
+<div id="" class="am-navbar am-cf am-navbar-default am-no-layout" data-am-widget="navbar">
+  <ul class="am-navbar-nav am-cf am-avg-sm-4 fot_bg">
+    <li class="footer01"> <a href="index.htm"> <span class="am-footer-ico"></span> <span class="am-navbar-label">首页</span> </a> </li>
+    <li class="footer02"> <a href="qiandao.htm"> <span class="am-footer-ico"></span> <span class="am-navbar-label">移动签到</span> </a> </li>
+    <li class="footer03"> <a href="msg.htm"> <span class="am-footer-ico"></span> <span class="am-navbar-label">消息</span> </a> </li>
+    <li class="footer04"> <a href="vip.htm"> <span class="am-footer-ico"></span> <span class="am-navbar-label">我的</span> </a> </li>
+  </ul>
+</div>
+<div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+  <div class="am-modal-dialog">
+    <div class="am-modal-tit">
+     您确定同意该付款项目的审批？
+    </div>
+      <div class="btns am-g">
+      <a class="am-btn am-btn-primary am-radius am-u-sm-5 am-modal-btn blue_btn" data-am-modal-cancel>确 定</a> 
+      <a class="am-btn am-btn-danger am-radius am-u-sm-5 am-modal-btn red_btn" data-am-modal-confirm>撤 销</a>
+      </div>
+  </div>
+</div>
+<!--[if (gte IE 9)|!(IE)]><!--> 
+<script src="assets/js/jquery.min.js"></script> 
+<script src="assets/js/amazeui.js"></script> 
+<script src="assets/js/int.web.js"></script> 
+<!--<![endif]--> 
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<![endif]--> 
+<!--在这里编写你的代码-->
+<script type="text/javascript">
+$(function() {
+  $('#doc-modal-list').find('.am-icon-close').add('#doc-confirm-toggle').
+    on('click', function() {
+      $('#my-confirm').modal({
+        relatedTarget: this,
+        onConfirm: function(options) {
+          var $link = $(this.relatedTarget).prev('a');
+        },
+        // closeOnConfirm: false,
+        onCancel: function() {
+        }
+      });
+    });
+});
+</script>
+</body>
+</html>

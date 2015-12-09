@@ -1,0 +1,80 @@
+thisPage.pc=function(f,id,row){
+	_().pageClick({
+		window:"#window",
+		row:row,
+		dg:id,
+		url:thisPage.urlH+"project/cfg/del.e",
+		type:f
+	});
+};
+thisPage.pageClick=function(f,id){
+	thisPage.pc(f,id);
+};
+thisPage.tabOperation=function(field, row,eth,e){
+	var f;
+	if(eth==="编辑"){
+		f="edi";
+	}else if(eth==="删除"){
+		f="del";
+	}
+	thisPage.pc(f,"#dg",row);
+};
+thisPage.init=function(){
+_("#sform").form({
+	title:'项目管理',
+	window:false,
+	columns:[{
+field:'项目编码',name:"projectCode",type:'text'},
+{field:'项目名称',name:"projectName",type:'text'}
+	],
+	button:[{
+		field:"查询",
+		check:false,
+		onclick:function(){
+			$("#dg").datagrid("load");
+		}
+	},{
+		field:"重置",
+		check:false,
+		onclick:function(){
+			_("sform").form("clear");
+		}
+	}]
+});
+	
+_('dg').datagrid({
+	url:thisPage.urlH+"project/cfg/sel.e",
+	columns:[[
+		{title:'项目编码',field:'projectCode',width:80,hfield:'projectId'},
+		{title:'备注',field:'projectDesc',width:80},
+		{title:'项目名称',field:'projectName',width:80},
+		{title:'地址',field:'projectUrl',width:80},
+		{title:'模板',field:'projectTemplate',width:80}
+	]],
+	onBeforeLoad:function(param){
+		var serForm=_("sform").form("serialize");
+		$.extend(param,serForm);
+	},
+	dtoolbar:["add","edi","del","out"],
+	DbInfo:true
+});
+
+_("#window").form({
+	title:'操作',
+	action:thisPage.urlH+"project/cfg/sub.e",
+	columnsNun:1,
+	columns:[
+{name:"projectId",type:"hidden"},
+{field:'项目编码',name:"projectCode",type:'text',cfunc:[{'fun':'isNotEmpty','msg':'是必选项目'}]},
+{field:'项目名称',name:"projectName",type:'text',cfunc:[{'fun':'isNotEmpty','msg':'是必选项目'}]},
+{field:'地址',name:"projectUrl",type:'text',cfunc:[{'fun':'isNotEmpty','msg':'是必选项目'}]},
+{field:'模板',name:"projectTemplate",type:'text'},
+{field:'备注',name:"projectDesc",type:'text'}
+	]
+});
+
+$(window).resize(function(){  
+	$("#dg").datagrid("resize");
+	$("#sform").panel("resize");
+});
+};

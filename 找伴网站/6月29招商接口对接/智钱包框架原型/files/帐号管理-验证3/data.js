@@ -1,0 +1,225 @@
+﻿$axure.loadCurrentPage({
+  "url":"帐号管理-验证3.html",
+  "generationDate":new Date(1435069089805.41),
+  "isCanvasEnabled":false,
+  "variables":["OnLoadVariable"],
+  "page":{
+    "packageId":"c32228c3d6844c98975cedb105777775",
+    "type":"Axure:Page",
+    "name":"帐号管理-验证3",
+    "notes":{
+},
+    "style":{
+      "baseStyle":"627587b6038d43cca051c114ac41ad32",
+      "pageAlignment":"near",
+      "fill":{
+        "fillType":"solid",
+        "color":0xFFFFFFFF},
+      "image":null,
+      "imageHorizontalAlignment":"near",
+      "imageVerticalAlignment":"near",
+      "imageRepeat":"auto",
+      "favicon":null,
+      "sketchFactor":"0",
+      "colorStyle":"appliedColor",
+      "fontName":"应用字体",
+      "borderWidth":"0"},
+    "adaptiveStyles":{
+},
+    "interactionMap":{
+},
+    "diagram":{
+      "objects":[{
+          "id":"7e4e4ea9a9a8403d8702ff0dfb479fcc",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "size":{
+              "width":1400,
+              "height":1392}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"79864bd9df70473f923b5099132f9039",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "size":{
+                  "width":1400,
+                  "height":1392}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/帐号管理-待验证/u0.jpg"}},
+{
+          "id":"546756cd740148a29b4d8d1278327bf4",
+          "label":"",
+          "type":"buttonShape",
+          "styleType":"buttonShape",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":370,
+              "y":162},
+            "size":{
+              "width":930,
+              "height":798},
+            "borderFill":{
+              "fillType":"solid",
+              "color":0xFFFFFFFF}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"94fbce2e8fe441ba9312df3eebbaa45a",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":370,
+                  "y":162},
+                "size":{
+                  "width":930,
+                  "height":798},
+                "borderFill":{
+                  "fillType":"solid",
+                  "color":0xFFFFFFFF}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/帐号管理-待验证/u2.png"}},
+{
+          "id":"b92c2868555c4c53815616268dc45669",
+          "label":"",
+          "type":"imageBox",
+          "styleType":"imageBox",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":375,
+              "y":199},
+            "size":{
+              "width":904,
+              "height":322}},
+          "adaptiveStyles":{
+},
+          "objects":[{
+              "id":"5226c8b5b9d34ebc9f31acc883d827a1",
+              "label":"",
+              "isContained":true,
+              "type":"richTextPanel",
+              "styleType":"paragraph",
+              "visible":true,
+              "style":{
+                "location":{
+                  "x":375,
+                  "y":199},
+                "size":{
+                  "width":904,
+                  "height":322}},
+              "adaptiveStyles":{
+}}],
+          "images":{
+            "normal~":"images/帐号管理-验证3/u4.png"}},
+{
+          "id":"293a485103574955add7239b93ca8af3",
+          "label":"",
+          "type":"dynamicPanel",
+          "styleType":"dynamicPanel",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":800,
+              "y":477},
+            "size":{
+              "width":60,
+              "height":20}},
+          "adaptiveStyles":{
+},
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"在 当前窗口 打开 帐号管理",
+                      "target":{
+                        "targetType":"page",
+                        "url":"帐号管理.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "scrollbars":"none",
+          "fitToContent":false,
+          "propagate":false,
+          "diagrams":[{
+              "id":"a8210dfc6e1841b0ad50171969b486d8",
+              "label":"State1",
+              "type":"Axure:PanelDiagram",
+              "objects":[]}]},
+{
+          "id":"508a098b00ae4275b030705e7d083aa2",
+          "label":"",
+          "type":"dynamicPanel",
+          "styleType":"dynamicPanel",
+          "visible":true,
+          "style":{
+            "location":{
+              "x":1190,
+              "y":82},
+            "size":{
+              "width":110,
+              "height":30}},
+          "adaptiveStyles":{
+},
+          "interactionMap":{
+            "onClick":{
+              "description":"OnClick",
+              "cases":[{
+                  "description":"用例 1",
+                  "isNewIfGroup":false,
+                  "actions":[{
+                      "action":"linkWindow",
+                      "description":"在 当前窗口 打开 Home",
+                      "target":{
+                        "targetType":"page",
+                        "url":"home.html",
+                        "includeVariables":true},
+                      "linkType":"current"}]}]}},
+          "tabbable":true,
+          "scrollbars":"none",
+          "fitToContent":false,
+          "propagate":false,
+          "diagrams":[{
+              "id":"e9b78d2b869b42028a295a2c19d1ae5e",
+              "label":"State1",
+              "type":"Axure:PanelDiagram",
+              "objects":[]}]}]}},
+  "masters":{
+},
+  "objectPaths":{
+    "7e4e4ea9a9a8403d8702ff0dfb479fcc":{
+      "scriptId":"u0"},
+    "79864bd9df70473f923b5099132f9039":{
+      "scriptId":"u1"},
+    "546756cd740148a29b4d8d1278327bf4":{
+      "scriptId":"u2"},
+    "94fbce2e8fe441ba9312df3eebbaa45a":{
+      "scriptId":"u3"},
+    "b92c2868555c4c53815616268dc45669":{
+      "scriptId":"u4"},
+    "5226c8b5b9d34ebc9f31acc883d827a1":{
+      "scriptId":"u5"},
+    "293a485103574955add7239b93ca8af3":{
+      "scriptId":"u6"},
+    "508a098b00ae4275b030705e7d083aa2":{
+      "scriptId":"u7"}}});

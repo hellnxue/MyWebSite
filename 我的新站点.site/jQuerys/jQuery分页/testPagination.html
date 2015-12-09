@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>测试jquery分页</title>
+<link rel="stylesheet" href="pagination.css" />
+        <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="jquery.pagination.js"></script>
+		<script type="text/javascript">
+		  $(function(){
+		    $('#result ul:eq(5)').css("color","red");
+		    var sum=$("#result ul").length;
+			alert(sum);
+			$("#pageDiv").pagination(sum,{
+			    callback: isCallback, //PageCallback() 为翻页调用次函数。 
+				prev_text: "上一页", 
+				next_text: "下一页", 
+				items_per_page:1, //每页显示的条目数量
+				num_edge_entries: 2, //两侧首尾分页条目数 
+				num_display_entries: 2, //连续分页主体部分分页条目数 
+
+			  
+			});
+		  
+		  
+		  
+		  });
+		  
+		  function isCallback(page_index,jp){
+		      
+		      var newc=$("#result ul:eq("+page_index+")").clone();
+			  $("#pageContent").empty().append(newc);
+			  return false;
+		  }
+		
+		</script>
+</head>
+
+<body>
+<div id="content">
+   <ul style="list-style:none;">
+      <li>
+	  <span>姓名</span>
+	   <span>性别</span>
+	    <span>年龄</span>    
+	  </li>
+   </ul>
+  
+   <div id="pageContent" >正在加载数据
+    
+      
+   </div>
+   </div>
+  <div id="result" style="display:none">
+     <ul>
+      <li>
+	  <span>tom</span>
+	   <span>男</span>
+	    <span>20</span>    
+	  </li>
+      <li>
+	  <span>jack1</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	   </ul>
+	    <ul>
+	   <li>
+	  <span>jack2</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	   <li>
+	  <span>jack3</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	  </ul>
+	  <ul>
+	   <li>
+	  <span>jack4</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	   <li>
+	  <span>jac5k</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	  </ul>
+	   <ul>
+	  <li>
+	  <span>jacegtk</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	  <li>
+	  <span>jaertretrec5k</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	  </ul>
+	  <ul>
+	  <li>
+	  <span>jac35k</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	  <li>
+	  <span>jafgfgc5k</span>
+	   <span>男</span>
+	    <span>21</span>    
+	  </li>
+	  </ul>
+	
+</div> 
+
+<br/>
+<div id="pageDiv" class="pagination"></div>
+</body>
+</html>

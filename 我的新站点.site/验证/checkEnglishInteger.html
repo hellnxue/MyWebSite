@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+
+  //验证字母和数字，没有下划线（
+  function tests(which){
+	var charts=which.value;
+    for(var i=0;i<charts.length;i++){
+	 if(/[a-zA-Z0-9]/.test(charts.substr(charts.length-(charts.length-i),1))==false){
+	   alert("格式不正确"+charts[i]);
+	   which.value="";
+	   return false;
+	   }
+	 }
+  }
+  /**
+  另一种：允许字母或者字母和数字的组合，不能全是数字，不能有特殊字符 
+  */
+  function test(which){
+	var charts=which.value;
+   
+	  if(/^[0-9]+$/.test(charts)){
+	      alert("不能全是数字");
+	  }else if(/^[a-zA-Z0-9]+$/.test(charts)==false){
+	  	 alert("格式不正确");
+	  }
+	 
+	 
+  }
+  /**
+     '*'匹配它前面的一个字符0次或多次 heo,helo,hello,helllo
+  */
+  function tests(which){
+	  var charts=which.value;
+	  alert(/hel*o/.test(charts));
+	 
+  }
+  /**
+     '.'匹配任意字符(可以多个字符)，可以匹配空格，如下...73,匹配的有12373，qqq73，sfhsjf73等
+  */
+    function test1(which){
+	  var charts=which.value;
+	  alert(/.73./.test(charts));
+	 
+  }
+  /**
+    ^以匹配的字符开头，^...x86*代表可以以任意字符为首
+  */
+    function test2(which){
+	  var charts=which.value;
+	  alert(/^...x86*/.test(charts));
+	 
+  }
+  /**
+    +匹配它前面的一个字符1次或多次
+  */
+    function test3(which){
+	  var charts=which.value;
+	  alert(/he+l/.test(charts));
+	 
+  }
+   /**
+    
+  */
+    function test4(which){
+	  var charts=which.value;
+	 // alert(/^[A-Za-z0-9]+$/.test(charts));
+	 //alert(/^[0-9]+$/.test(charts));
+	  
+	  /** alert(/^[abc][A-C]$/.test(charts));
+	   alert(/[abc][A-C]/.test(charts));**/
+	   
+	   /** alert(/[abc]/.test(charts));
+	    alert(/^[abc]+$/.test(charts));
+		**/
+	  //alert(/[a-z0-9]/.test(charts));
+	 if(/^[0-9]+$/.test(charts)){
+	      alert("不能全是数字");
+	  }else if(/^[\u4E00-\u9FA5a-zA-Z0-9]+$/.test(charts)==false){
+	  	 alert("格式不正确");
+	  }
+	 
+  }
+</script>
+</head>
+
+<body>
+<input type="text" name="integer" value="" id="dd"  onblur="test(this)" /><br />
+*<input type="text" name="ss" value="" id="ss"  onblur="tests(this)" /><br />
++<input type="text" name="ss" value="" id="ss"  onblur="test3(this)" /><br />
+.<input type="text" name="ss" value="" id="ss"  onblur="test1(this)" /><br />
+^<input type="text" name="ss" value="" id="ss"  onblur="test2(this)" /><br />
+[]<input type="text" name="ss" value="" id="ss"  onblur="test4(this)" /><br />
+</body>
+</html>

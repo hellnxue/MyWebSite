@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>面向对象基础</title>
+<script language="javascript">
+  //定义Person类
+   function Person(){ 
+       
+      /*私有成员
+	  var name = null;
+	  var age = null;
+	  function setName(pName){
+	  	 name = pName;
+	  }
+	  function getName(){
+	  	return name;
+	  }
+	  */
+	  /*私有成员*/
+	  //var name = null;
+	  //var age = null;
+	  //公有成员
+	  this.height = 178.5;
+	  /*this.setName = function(pName){
+	  	name = pName
+	  };
+	  this.getName = function(){
+	  	return name;
+	  };*/
+	  
+   }
+  //prototype
+  /*Person.prototype.setName =function(pName){
+     this.name = pName;
+  }
+  Person.prototype.getName = function(){
+  	return this.name;
+  }
+  Person.prototype.sex = null;
+  */
+  Person.prototype={
+      setName:function(pName){
+	     this.name = pName;
+	  },
+	  getName:function(){
+	  	 return this.name;
+	  }
+  };
+  
+   //test
+   function init(){
+   	  var p = new Person();//创建一个Person类的对象
+	  p.setName("张三");
+	  alert(p.getName());
+   }
+</script>
+</head>
+
+<body onload="init();">
+</body>
+</html>

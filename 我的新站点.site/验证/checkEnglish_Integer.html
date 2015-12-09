@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+
+  //验证字母和数字，有一个下划线
+  function tests(which){
+	var charts=which.value;
+	var chartGroup=which.value.split("_");
+	if(chartGroup[0]==""||chartGroup[1]==""){
+	    alert("格式不正确1"+chartGroup[0]);
+		which.value="";
+		return false;
+	}else if(chartGroup.length>=3){
+	   alert("有多余的下划线！");
+	   which.value="";
+	   return false;
+	}else{
+	   for(var i=0;i<charts.length;i++){
+	    if(/[a-zA-Z_0-9]/.test(charts.substr(charts.length-(charts.length-i),1))==false){
+	   alert("格式不正确"+charts[i]);
+	   which.value="";
+	   return false;
+	   }
+	 }
+	}
+   
+  }
+</script>
+</head>
+
+<body>
+<input type="text" name="integer" value="" id="dd"  onblur="tests(this)" />
+</body>
+</html>

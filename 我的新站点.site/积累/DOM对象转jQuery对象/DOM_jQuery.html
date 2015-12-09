@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+ 
+  $(function(){
+     alert( "浏览器版本号："+$.browser.version );
+	 $("#tt").on("click",function(){
+	   
+	     var domVb=document.getElementById("name");
+		 //document.getElementById("test").innerHTML=domVb.value;
+		 
+		 document.getElementById("test").innerHTML=$(domVb).val();//DOM转jquery
+		 
+		 var jqueryVb=$("#tt")[0].value;//jquery转DOM  同$("#tt").get(0)
+		 
+		 console.log("jquery转DOM="+jqueryVb);
+	 
+	 })
+  })
+</script>
+</head>
+
+<body>
+<input type="text" name="name" id="name"/><br/>
+<div id="test" style="color:pink;"></div><br/>
+<input type="button" value="DOM转jQuery" id="tt"/>
+</body>
+</html>

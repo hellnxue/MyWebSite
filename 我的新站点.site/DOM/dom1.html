@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+
+</head>
+
+<body>
+<div id="hr">hhh</div>
+<div id="hh">dddddd</div>
+<script type="text/javascript">
+  var s=document.getElementById("hh");
+ // alert(s.innerHTML);
+  s.innerHTML="lalalalal";
+  //alert(s.nodeName);//nodeName 标签名称
+  //alert(s.firstChild.nodeValue);
+  
+  var names=document.getElementsByTagName("div");
+  //alert(names[0].innerHTML);
+  //创建一个新的节点
+  var node=document.createElement("p");
+  var value=document.createTextNode("is new node");
+  node.appendChild(value);
+  var elements=document.getElementById("hr");
+  elements.appendChild(node);
+  
+  document.getElementById("hr").style.backgroundColor="blue";
+  function toupper(){
+     var input=document.getElementsByTagName("input");
+	 input[0].value=input[0].value.toUpperCase();//转为大写字母
+	 //alert(this.value);
+  }
+  function newdoc(){
+     var doc=document.open("text/html","replace");
+	 var txt="<html><body>hello helln</body></html>";
+	 doc.write(txt);
+	 doc.close();
+	 
+  }
+</script>
+
+<input type="text" name="fname" id="fname" onchange="toupper(this)"/><br/>
+<input type="button" name="doc" id="doc" onclick="newdoc()" value="打开一个文档"/><br/>
+<table width="349" height="155" border="1" align="center">
+<tr  ><td width="121" rowspan="3" colspan="2">我的名字叫中国kaka我国kaka 测试 努力 测试</td>
+
+<td width="147">小猪加油</td>
+</tr>
+<tr>
+
+<td>不放弃</td></tr>
+<tr  >
+
+<td width="147" height="81" align="center" valign="middle">水平垂直居中</td>
+</tr>
+</table>
+</body>
+</html>

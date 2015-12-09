@@ -1,0 +1,67 @@
+/* 注册部分的样式 */
+.content{  height: 550px;}
+.right_bottom{padding-top: 30px;}
+
+.login_con{ width: 400px; height: 430px;  margin:50px auto 0;}
+.login_ul {position: relative;}
+.login_ul li{float: left;  position: relative;}
+.login_con span{ text-align: right; padding-right: 10px; margin-top: 10px; line-height: 27px; float: left; width:70px; font-size: 14px;  }
+.login_con span em{ font-style: normal;  color: #CF002B;}
+.login_con  input{ padding-left:5px;float: left; color: #A5ADAF; font-size: 18px; border:0; width: 312px; height: 35px; margin:5px 0 ; border: 1px solid #A5ADAF; po}
+
+.login_ul .li_one{ width: 400px; height: 30px; padding-top: 20px; }
+.welcom{text-indent: 80px; width: 200px;  font-size: 24px; font-weight: normal;}
+.welcom,.login_now{ float: left; color: #B6B2AB;text-align: left;}
+.login_now{text-align: right; width: 200px; font-size: 16px; padding-top: 10px;  }
+.login_now a{ color: #427ED9; font-size: 16px; font-weight: 600;}
+.li_two{ margin-top: 20px;}
+.li_eight {height: 30px; width: 400px; position: relative;}
+.li_eight i{ height:35px; padding:0 10px 0 7px;  line-height: 30px; position: absolute; top: 6px; left: 81px; font-style: normal; background-color: #EDEDEB; font-size:18px; color:  #A5ADAF; }
+.li_eight input{  padding-left: 55px; width: 262px;}
+.li_nine{ margin-top: 30px; margin-left: 80px;  width: 400px; height: 35px;}
+.li_nine input{ border:0; margin-top: 8px; width: 15px; height: 15px;  color: red;}
+.li_nine p{ float: left; line-height: 3px; padding-left: 10px; width: 160px;}
+.li_nine  span{ float: none; color: red; }
+.btn_register{  height: 50px; }
+.btn_register button{color: #fff; font-size: 20px; text-align: center; font-family: "微软雅黑"; height: 45px;  border:0; width:300px; background-color: #81CF56;margin-left: 80px;}
+
+/* 登录部分的样式 */
+.login_con .login_ul .btn_login{ margin-top: 30px;}
+
+.login_con .login_ul .emailmsg{/* display: none;  */height: 24px; line-height: 24px; font-size: 12px; margin-left: -100px; background-color: rgba(0,0,0,0.5); color: #fff;  border-radius: 5px; top: -29px; right: -7px; position: absolute;z-index: 2; width:auto; white-space: nowrap;}
+.login_con .login_ul .span_arrow{padding:0; position: absolute; width: 0; height: 0; border-width: 9px 7px 0;  border-style: solid;
+ border-color: rgba(0,0,0,0.5) transparent transparent transparent; top: 14px; right: 16px;}
+.margin-left_woring_2{ margin-left: -95px!important;}
+.margin-left_woring{ top: 14px; }
+.login_con .login_ul .checktip_pw2,.login_con .login_ul .checktip_pw1{
+	background-color:rgba(0,0,0,0.5);
+	 
+	line-height:24px;
+	height:20px;
+	border-radius: 5px;
+	display: none;
+	width: 140px;
+	color:#fff;
+	padding:3px 6px;
+	font-size:12px;
+	position: absolute;
+	top:-31px;
+	right: -7px;
+	
+
+}
+
+.login_ul .UserNmae{ padding-left: 55px; width: 262px;}
+.login_ul .PassW_pic,.login_ul .UserN_pic{ position: absolute; left: 82px;top: 6px; width:50px; height: 35px;    
+	background:  url(../images/loginname.png)  15px 7px no-repeat;}
+.login_ul .PassW_pic{background:  url(../images/loginpassword.png) 15px 7px no-repeat;  }
+.login_con .login_ul .arr_margin_left{ top: 16px;}
+.login_ul .get_code,.login_ul .Time{ background-color: #007BDB;border:0; color: #fff!important; width: 93px;font-size:14px; text-align: center; line-height: 10px;   margin-top: 21px; margin-left: 5px; cursor: pointer;   padding:0;}
+.login_ul .Time{ background-color: #D6D6D6; line-height: 30px; width: 110px; padding:2px 3px;  height: 31px;}
+.login_ul  .last_check_code{ width: 191px; margin-left: 80px;margin-top: 20px;  padding-left: 5px;}
+/* 下面是为样式函数单独拿出来后修改的部分 */
+/* .login_con  .login_ul .span_arrow_style{ top: -5px; right: 9px;} */
+.emailmsg .error_pic_span{ margin-top:7px;width: 20px; height: 22px; float: right;  background:  url(../images/error.jpg) 0 0 no-repeat;}
+
+ .login_ul .emailmsg2{width: 20px; height: 22px; position: absolute; top: 0; right: 0; background:  url(../images/right.jpg) 0 0 no-repeat; margin: 14px 2px 0 0;}
+

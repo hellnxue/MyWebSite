@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<link href="../css/jquery-ui-new/jquery-ui.css" rel="stylesheet">
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript"  src="../js/jquery-ui-new/jquery-ui.js"></script>
+<script type="text/javascript">
+  function test(content){
+      
+     $("#dialog-form").dialog( {
+		autoOpen : true,
+		height : 150,
+		width : 300,
+		modal : true,
+	    resizable : true,
+		buttons:{
+		  "确定":function(){
+				 $("#spnName").html("");
+				 $(this).dialog("close");
+			 },
+		   "取消":function(){
+				 $(this).dialog("close");
+		   }
+		
+		},
+		open:function(){//设置dialog打开时里面显示的值
+			$(this).html("");
+			$(this).html("<p>"+content+"</p>");
+		
+		}
+	});
+  }
+
+</script>
+</head>
+
+<body>
+<div id='dialog-form'></div>
+<input type="button" value="test" onclick="test('hello')"/>
+</body>
+</html>

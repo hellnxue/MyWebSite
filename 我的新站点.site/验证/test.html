@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" > 
+<head> 
+<title>判断输入的字数</title> 
+<script type="text/javascript"><!-- 
+function Checkval() 
+{ 
+var s=document.getElementById("Text1").value; 
+var n=0; 
+for(var i=0;i<s.length;i++) 
+{ 
+//charCodeAt()可以返回指定位置的unicode编码,这个返回值是0-65535之间的整数 
+if(s.charCodeAt(i)<128) 
+{ 
+n++; 
+} 
+else 
+{ 
+n+=3; 
+} 
+} 
+alert(n); 
+} 
+// --></script> 
+</head> 
+<body> 
+<input id="Text1" type="text" onblur="Checkval()" /> 
+</body> 
+</html>

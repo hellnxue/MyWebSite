@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+ function num(num1,num2){
+   return num1+num2;
+ }
+ var num=function(num1,num2){
+   return num1+num2;
+ }
+ var num1=num;
+ num=null;
+
+$(function(){
+$("#f1").on("click",function(){
+   //console.log(num(1,2));
+   console.log(num1(1,2));
+  
+})
+//console.log(num2()); 会报错，原因是num2是函数表达式，还未被初始化
+var num2=function(){
+   return "hello world！";
+}
+ console.log(num2());
+ console.log("调用函数num3()=="+num3());
+  console.log("取函数指针，但不调用num3=="+num3);
+ //函数声明
+ function num3(){
+   return "hello world1!";
+ }
+});
+</script>
+</head>
+
+<body>
+<input type="button"  name="f1" id="f1" value="测试function"/></br>
+</body>
+</html>

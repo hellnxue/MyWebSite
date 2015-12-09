@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+  $("#reg1").on("click",function(){
+  console.log(1111);
+  var pt1=/[bc]at/i;
+  console.log("pt1=="+pt1.test("ca1t,bast,tat"));
+  
+  var pt2=/.{4}/;
+  var str1="201507";
+  console.log(pt2.test(str1));
+  
+  //测试捕获组
+  var str2=str1.replace(/(.{2})/g, '$1-');
+  var str3=str1.replace(/(.{3})/g, '$1-');
+  var str4=str1.replace(/(.{4})/g, '$1-');
+  var str5=str1.replace(/(.{4})(.{2})/g, '$2-');
+  var str6=str1.replace(/(.{5})(.{2})/g, '$2-');
+  console.log("str1=="+str1);
+  console.log("str2=="+str2);
+  console.log("str3=="+str3);
+  console.log("str4=="+str4);
+  console.log("str5=="+str5);//07-（按顺序捕获，(.{4})匹配了2015，剩下的(.{2})去匹配07）
+  console.log("str6=="+str6);//201507（(.{5})匹配20150，剩下的7用(.{2})捕获组去匹配时，不够数，因此'$2-'代表一个空值，即不匹配）
+});
+});
+
+</script>
+</head>
+
+<body>
+<input type="button" id="reg1" value="测试标志"/><br />
+
+</body>
+</html>

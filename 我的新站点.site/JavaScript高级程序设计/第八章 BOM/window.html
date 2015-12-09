@@ -1,0 +1,80 @@
+<!DOCTYPE html >
+<html >
+<head>
+  
+<title>无标题文档</title>
+<script src="../../js/jquery-1.8.2.min.js"></script>
+<script>
+
+
+var color="red";
+window.age=28;
+
+
+//尝试访问未声明的变量在访问该页面时js脚本就会报错，可以通过window.tt查询某个变量是否存在
+//var t1=variable;
+var t2=window.variable;
+
+function test1(){
+  delete window.color;
+  console.log(window.color);//在全局环境中声明的变量虽然会归为window属性，但是不能用delete删除，因为这时的window的Configurable的属性是false
+  
+  delete window.age;
+  console.log(window.age);//用window定义的属性可以用delete删除
+  
+  
+  console.log(window.variable);//undefined
+}
+
+function test2(){
+  //window.moveBy(0,100);
+ // window.resizeTo(100,50);
+ // console.log(window.resizeTo(100,50));
+ var wroxwin=window.open("topFrame.html","hello","height:100,width:100,top:10,left:10,resiable=ye");
+window.find( );
+   
+}
+
+function test3(){
+//setTimeout为超时调用，只在指定的时间过后执行一次
+ var t=setTimeout(function(){
+  alert("1 second");
+},1000); 
+  clearTimeout(t);//取消超时调用
+}
+
+var i=0;
+var t;
+function testSetTimeout(){
+  console.log(11111);
+  $("#testst").val(++i);
+  t=setTimeout(function(){
+     testSetTimeout();
+  },1000);
+}
+
+function stopTimeout(){
+  //clearTimeout(t);
+  clearTimeout(function(){
+    t
+  });
+}
+function sub(){
+  var cname="刘雪萍";
+  console.log(cname.substring(0,1));
+  console.log(cname.substring( 1));
+}
+</script>
+</head>
+
+<body>
+<h1>jack</h1>
+<input type="button" onClick="test1()" value="测试window全局变量"/><br/>
+<input type="button" onClick="test2()" value="测试框架"/><br/>
+<a href="www.baidu.com" target="topFrame">hello world</a>
+<br/>
+ <input type="button" onClick="testSetTimeout()" value="超时调用"/><br/>
+ <input type="text" value="" id="testst" onClick="stopTimeout()"/>
+ <input type="button" onClick="sub()" value="substring"/><br/>
+</body>
+</html>

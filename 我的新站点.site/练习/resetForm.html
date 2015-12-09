@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/jquery.form.js"></script>
+<script type="text/javascript">
+
+function submits(){
+  //alert("刷新啦");
+ $("#form1").resetForm();//清空表单
+
+  //alert("刷新完成");
+}
+</script>
+</head>
+
+<body>
+<form id="form1">
+    <input type="text" name="name" id="name"/><br/>
+    <input type="text" name="id" id="pwd"/>
+    <input type="button" name="submitButton" id="submitLink" value="提交" onclick="submits()"/> 
+</form>
+</body>
+</html>

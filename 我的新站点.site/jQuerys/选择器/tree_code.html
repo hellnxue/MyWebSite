@@ -1,0 +1,155 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+<!--
+body{
+	font-size:16px;
+	background-color: #FFF;
+}
+img{
+	width:24px;
+	height:24px;
+}
+
+ul li{
+	list-style:inside;
+	margin-left:20px;
+	list-style:none;
+}
+
+#tips {
+	position:absolute;
+	z-index:1;
+	border:1px solid #cccccc;
+	background-color:#FFC;
+	display:none;
+	font-size:14px;
+}
+ul{
+	cursor:pointer;
+}
+
+.limouseover{
+	color:#900;
+	border-bottom:1px dotted #900
+
+}
+-->
+</style>
+
+<title>JQUERY树状菜单</title>
+<script src="jquery-1.3.1.min.js"></script>
+<script language="javascript">
+$(
+	function(){
+		$('ul > label').bind('click' ,
+			function(){
+				if($(this).parent().find("div").css("display") == "block"){
+					$(this).parent().find("div").fadeOut('200');
+					$(this).parent().find("img[name=onoff]").attr("src","close.gif");
+				}
+				else{
+					$(this).parent().find("div").fadeIn('200');
+					$(this).parent().find("img[name=onoff]").attr("src","open.gif");
+				}
+			}
+		);
+	}
+)
+
+$(
+	function(){
+		$('#openclose').bind('click',
+			 function(){
+				if($("ul>div").css("display") == "block"){
+					$("ul>div").fadeOut(300);
+					$("img[name=onoff]").attr("src","close.gif");
+				}
+				else{
+					$("ul>div").fadeIn(300);
+					$("img[name=onoff]").attr("src","open.gif");
+				}	
+			}
+		);
+	}
+)
+
+$(
+	function(){
+		$('#horder').bind('click',
+			function(){
+				$('li').css('float',"left");
+			}
+		);
+		
+		$('#vorder').bind('click',
+			function(){				
+				$('li').css('float',"none");
+			}
+		)
+	}
+)
+$(
+	function(){
+		$('li>label').bind('mouseover',
+			function(event){
+				$('#tips').css(
+					//显示tips层时为防止内容被鼠标指针挡住，所以在当前鼠标
+					//坐标上增加一点位移
+					{'left':event.pageX +15, 'top':event.pageY + 10}
+				);
+				$('#tips').show(500);
+				$('#tips').text('点击这里查看关于' + $(this).text() + '的信息');
+			}
+		);
+		$('li>label').bind('mouseout',
+			function(event){
+				$('#tips').hide();
+			}
+		);		
+
+	}
+)
+$(
+	function(){
+		$('li > label').bind('mouseover',
+			function(){
+				$(this).addClass('limouseover');
+			}
+		);
+		
+		$('li > label').bind('mouseout',
+			function(){
+				$(this).removeClass('limouseover');
+			}
+		);		
+	}
+)
+</script>
+</head>
+<body>
+<div id="tips"></div>
+<p>
+<input type="button" name="openclose" id="openclose" value="展开/折叠"/>
+<input type="button" name="horder" id="horder" value="横向排列"/>
+<input type="button" name="vorder" id="vorder" value="纵向排列"/>
+</p>
+	<ul><img name="onoff" src="open.gif"/><label name="itemname">&nbsp;国际动态</label>
+    	<div name="container">
+              <li><img src="item.gif"/><label>国内新闻</label></img></li>
+              <li><img src="item.gif"/><label>国际新闻</label></img></li>
+		</div>
+   	</ul><br/>
+	<ul><img  name="onoff" src="open.gif"/><label name="itemname">&nbsp;产品展示</label>
+		<div name="container" >
+	        <li><img src="item.gif"/><label>阿迪达斯</label></img></li>
+  			<li><img src="item.gif"/><label>NIKE</label></img></li>
+        	<li><img src="item.gif"/><label>匡威</label></img></li>
+            <li><img src="item.gif"/><label>AddNice</label></img></li>
+            <li><img src="item.gif"/><label>李宁</label></img></li>            
+            <li><img src="item.gif"/><label>Lee</label></img></li>
+        </div>
+	</ul>
+</body>
+</html>

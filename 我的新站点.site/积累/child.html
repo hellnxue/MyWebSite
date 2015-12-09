@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+</head>
+<script src="../js/jquery-1.7.2.min.js" type="text/javascript"></script>
+<script language="javascript">
+
+function aa(){
+	
+	//在弹出窗口给页面赋值
+	$("#n",window.dialogArguments.document).val("yes or no");
+	window.returnValue="result";
+	}
+function test(){
+  location.replace("去除重复提交.html");
+  
+}
+</script>
+</HEAD>
+<BODY onload="aa()">
+  <input type="button" value="取消" onclick="window.close();"/>
+  
+  <br />
+  <input type="button" value="测试replace" onclick="test();"/>
+  
+</BODY>
+
+</HTML>

@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>类的创建和引用对象</title>
+<link href="common.css" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	/*定义Person类*/
+	/*function Person(){
+	    //私有属性
+	    var name = null;
+		var sex = null;
+		var age = null;
+		var height = null;
+		//公有方法
+		this.setName= function(pName){                   
+			this.name = pName;
+		};
+		this.getName = function(){
+			return this.name;
+		};
+		this.setSex = function(pSex){
+			this.sex = pSex;
+		};
+		this.getSex = function(){
+			return this.sex;
+		};
+		this.setAge = function(pAge){
+			this.age = pAge;
+		};
+		this.getAge = function(){
+			return this.age;
+		};
+		this.setHeight = function(pHeight){
+			this.height = pHeight;
+		};
+		this.getHeight = function(){
+			return this.height;
+		};
+	};
+	*/
+	 //类定义结束
+	//原型对象prototype创建类
+	 function Person(){};// 使用空构造类型定义Person类
+	 Person.prototype={  //使用无类型对象指定prototype的值
+	     setName:function(pName){
+		 	this.name=pName;
+		 },    
+		 setSex:function(pSex){
+		 	this.sex = pSex;
+		 },
+		 setAge:function(pAge){
+		 	this.age = pAge;
+		 },
+		 setHeight:function(pHeight){
+		 	this.height = pHeight;
+		 },
+		 getName:function(){
+		 	return this.name;
+		 },
+		 getSex:function(){
+		 	return this.sex;
+		 },
+		 getAge:function(){
+		 	return this.age;
+		 },
+		 getHeight:function(){
+		 	return this.height;
+		 }	
+	 };
+	
+    
+	//类的静态方法，创建实例对象
+	Person.getInstance = function(pName,pSex,pAge,pHeight){
+	    var p = new Person();
+		p.setName(pName);
+		p.setSex(pSex);
+		p.setAge(pAge);
+		p.setHeight(pHeight);
+		return p;
+		
+	};
+	/*创建人集合*/
+	var personArr = new Array(
+	       //person1
+		   Person.getInstance("郭靖","男",30,1.80),
+		   Person.getInstance("黄蓉","女",20,1.60),
+		   Person.getInstance("杨过","男",24,1.80),
+		   Person.getInstance("小龙女","女",18,1.60)
+	
+	);
+	function createPerson(){
+		
+		alert(personArr[0].toString());
+		
+	}
+	/*利用prototype动态添加toString方法*/
+	Person.prototype.toString = function(){
+		var personStr="<div id=\"personDiv\">"
+		+ this.getName()+"&nbsp;&nbsp;"
+		+this.getSex()+"&nbsp;&nbsp;"
+		+this.getAge()+"&nbsp;&nbsp;"
+		+this.getHeight()+"<p>"
+		+"</div>";
+		return personStr;
+	};
+    var dataList =[];    //保存查询结果   
+	function showPersons(){
+		 var personsDivHTML = "";
+		 for(var i in dataList){
+			personsDivHTML += dataList[i].toString();	
+	}
+	document.getElementById("contentDiv").innerHTML = personsDivHTML;
+  }
+  /*显示所有数据*/
+  function showAllPersons(){
+  	 dataList = personArr;
+	 showPersons();
+  }
+  /*查询数据*/
+  function serchPersons(){
+  	 var title = document.getElementById("txt_keywords").value;//获取值
+	 
+	 dataList = query(title);//根据类别和查询字符串查找数组数据
+	
+	 if(dataList.length > 0){		
+		alert("查询到符合条件数据一共有" + dataList.length + "条！");
+	 }else{
+		alert("没有符合条件的数据！");
+	 }
+	 showPersons();
+ 
+  }
+  /*匹配查询字符串*/
+  function query(title){
+  	var result = [];
+	for(var i in personArr){
+		if(title == ""){//选择数据				
+				result.push(personArr[i]);
+		}else{		
+		    //查找子字符串，人名的一部分
+			if(personArr[i].getName()
+				.toLowerCase().indexOf(title.toLowerCase()) != -1){
+				result.push(personArr[i]);
+			}
+		}
+	}
+	return result;
+  }
+</script>
+</head>
+<body>
+<div id="continerDiv">
+   <div id="buttonDiv">
+  
+	  <input type="button" name="simple" value="简单创建对象"  onclick="showAllPersons();"/>
+	  <input type="button" name="prototype " value="原型创建对象" onclick="showAllPersons();"/>
+	  <label>
+	  <input type="button" name="Submit" value="测试" onclick="createPerson();"/>
+	  </label>
+      <label>
+      <input name="txt_keywords" type="text" id="txt_keywords" />
+      </label>
+      <label>
+      <input type="button" name="Submit2" value="查询"  onclick="serchPersons();"/>
+      </label>
+  
+  </div>
+   <div id="contentDiv"></div>
+</div>
+ 
+
+</body>
+</html>
