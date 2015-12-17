@@ -177,11 +177,12 @@ $(function() {
 		//console.log(validity.field.value);
 		//console.log(validity.valid);
 		//console.log($field.val());
-		console.log(validity.field.placeholder);  //html5自带验证
-		console.log($field.data('validationMessage'));//自定义提示
+		//console.log(validity.field.placeholder);  //html5自带验证
+		//console.log($field.data('validationMessage'));//自定义提示
 		 
 		 //验证不通过时
 		if(!validity.valid){
+		   console.log("oooooooooooooo");
 		  //$("input + span").hide();
 		  // $("#"+validity.field.id).next("span").html("").remove();
 		   $field.next("span").html("").remove();

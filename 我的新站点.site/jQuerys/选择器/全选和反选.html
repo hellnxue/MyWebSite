@@ -35,7 +35,35 @@ $(function(){
 	}
  
  });
+ 
+ /*parent与closest的区别*/
+ $("#test").on("click",function(){
+ 
+	//console.log($(this).closest("div").html());//输出div包含的html元素代码
+	//console.log($(this).parent("span").html());
+	//console.log($(this).parent("div").html());//null  
+	//console.log($(this).parent("#testPC").html());//null  parent()只会搜索到直接父元素便终止搜索，而closet()会继续向上递归搜索，知道搜到为止
+	//console.log($(this).closest("#testPC").html());//输出div包含的html元素代码
+ 	$(this).closest(".testpp").css("color","red");//closet（）会以自身为开始进行递归搜索，如果自身符合要查找的选择器，那选择的就是自身元素了，可是帮助文档上说这个方法会过时，那为啥AmazeUI的表单验证会用到这个方法呢？
+	
+ });
+ 
+ $(".hehe").css("color","red");
+ $(".hehe").on("click",function(){
+    console.log("hehe");
+ 
+ });
 
+
+$("#tc").on("click",function(){
+  $("#hihi").after($(".hehe").clone(true));
+
+ });
+ 
+ $("#tcc").on("click",function(){
+  $("#kiki").after($("#ll").clone().addClass("hhhh"));
+
+ });
 })
 
 </script>
@@ -47,6 +75,34 @@ $(function(){
 <input type="checkbox"  name="instr" value="banana" />banana<br/>
 <input type="checkbox"  name="instr" value="orange" />orange<br/>
 <input type="checkbox"  name="instr" value="tomato" />tomato<br/>
-<input type="checkbox"  name="instr" value="garlic" />garlic
+<input type="checkbox"  name="instr" value="garlic" />garlic<br />
+
+
+ <div id="testPC" class="testpp">
+    <span >
+	<input type="button" value="parent()与closet()的区别" id="test" class="testpp"/>
+    </span>
+ </div>
+ <br />
+<p>------------------clone(true)方法复制的时候，带有事件-----------------------------</p>
+<div class="hehe">
+   hello1
+</div><br />
+
+<div class="hehe">
+   hello2
+</div><br />
+<input type="button" value="测试clone" id="tc"/><br />
+
+
+<div  id="hihi">
+hihi
+</div>
+<p>------------------clone的基础上再动态对复制后的元素进行相关操作（添加一个class属性值），不会影响原始的元素-----------------------------</p>
+<div  id="kiki">
+   <span id="ll">hello world</span>
+</div><br />
+<input type="button" value="对克隆后的副本添加操作" id="tcc"/>
+
 </body>
 </html>
