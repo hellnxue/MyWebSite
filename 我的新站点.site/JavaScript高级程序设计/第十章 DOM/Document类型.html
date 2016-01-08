@@ -1,0 +1,101 @@
+<!DOCTYPE html  >
+<html >
+<head>
+<meta charset=gb2312 />
+<title>document类型</title>
+<script>
+ 
+  //公共的输出方法
+  function cl(name,value){
+    if(arguments.length==2){
+	   console.log(name+"="+value);
+	}else{
+	   console.log(name);
+	}
+	
+   
+  }
+
+
+function docChildNodes(){
+   var html=document.documentElement;//获得对html的引用
+   cl(html.nodeName);
+   cl(html);
+   
+   var bodys=document.body;
+   cl(bodys.nodeName);
+   cl(bodys);
+
+}
+
+function docInfo(){
+  var title=document.title;
+  cl("title",title);
+  setTimeout(function(){
+     document.title="hello helln";//直接用上面的title变量赋值的语句没效果，title=""不知道为啥
+  },2000);
+
+}
+//查找元素
+function selectdoc(){
+  var spans=document.getElementsByTagName("SPAN");//根据元素标签名获得一组元素集合
+  cl(spans[0]);
+  cl(spans.item(0));
+  cl(spans["s11"]);//s11是元素中的name属性的值
+  cl(spans.namedItem("s11"));//通过对元素name值得访问获得一组元素中指定的元素
+  
+  var allNodes=document.getElementsByTagName("*");//获得整个文档的元素
+  cl(allNodes[0]);
+  cl(allNodes[1]);
+
+}
+
+
+function htmlCollections(){
+  var a=document.anchors;//获得当前文档中所有a标签中带有name的a标签
+  cl(a.length);
+  cl(a[1]);
+  
+  var href=document.links;//获得当前文档中所有a标签中的带有href属性的a标签的引用
+  cl(href[0]);
+}
+
+function testWrite(){
+   document.write("<strong>当页面加载完后输出的内容</strong>");//会覆盖掉整个页面的内容
+
+}
+
+function testOpen(){
+  document.open("DOM1.html");
+
+}
+function testWrite1(){
+   document.write("<script src=\"file.js\"><\/script>");
+
+}
+</script>
+</head>
+
+<body ><!--onLoad="testWrite()"-->
+<input type="button" value="文档的子节点" onclick="docChildNodes()"/><br />
+<input type="button" value="文档文档信息" onclick="docInfo()"/><br />
+<span  id="s1" name="s11">hello1</span>
+<span id="s2">hello1</span>
+<span id="s3">hello1</span><br>
+
+<input type="button" value="查找元素" onclick="selectdoc()"/><br />
+<a >a标签1</a><br>
+<a  name="a2">a标签2</a><br>
+<a  name="a3">a标签3</a><br>
+<a  name="a4" href="www.baidu.com">a标签4</a><br>
+<input type="button" value="查找元素" onclick="htmlCollections()"/><br />
+
+<input type="button" value="open" onclick="testOpen()"/><br />
+<input type="button" value="testWriteForJS" onclick="testWrite1()"/><br />
+<script>
+//页面加载的时候将外部js包含到当前页面当中
+document.write("<script src=\"file.js\"><\/script>");
+
+</script>
+</body>
+</html>

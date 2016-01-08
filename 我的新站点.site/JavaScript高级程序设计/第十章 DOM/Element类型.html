@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html  >
+<head>
+<meta charset=gb2312 />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+<script>
+  function htmlTest(ths){
+  
+      var div=document.getElementById("myDiv");
+	  console.log(div.id+"\n"+div.className+"\n "+div.title+"\n "+div.lang+"\n "+div.dir);//HTML元素中的五个标准特性(属性)
+	  console.log(div.align);//具体的html元素中的其他属性也可以用这种方式取得
+	  console.log("div.style=="+div.style);//输出一个对象
+	  console.log("div.getAttribute(\"style\")=="+div.getAttribute("style"));//输出style的值。用getAttribute取得元素特性与直接点的形式来取的区别
+  	   console.log("---------------------------------取得自定义特性的时候。。。---------------------------------------------------------");
+	  console.log(div.getAttribute("my_special_attribute"));//取得自定义的特性值  不区分大小写
+	  console.log(div.my_special_attribute);//直接用DOM取得自定义的特性是不行的啦，嘻嘻
+	  
+	  console.log(div.getAttribute("class")==div.className);//用getAttribute获得元素中的class属性的值与直接用DOM对象取得它的值得取法不同，因为class是关键字，So......
+	  
+	  console.log("----------------------------------取得事件的时候。。。。。--------------------------------------------------------");
+	  console.log(div.onclick);
+	  console.log("div.onclick=="+div.onclick);//js函数，若未在元素中使用onclick，此刻返回null
+	  console.log("div.getAttribute(\"onclick\")=="+div.getAttribute("onclick"));
+	  console.log(ths.type+"\n"+ths.onclick);
+	  
+	  console.log("----------------------------------设置属性的时候。。。。。--------------------------------------------------------");
+	  div.myColor="gree";//NO
+	  div.setAttribute("myColor","new color");//That's right.属性名会全部转为小写的
+	  
+	  div.removeAttribute("my_special_attribute");//删除自定义属性包括值和本身
+	  
+	  
+	  
+  }
+  
+  function He(element){
+    console.error("test test");
+	console.info("test test");
+	console.warn("test test");
+    console.log(element.onclick);
+	
+	//遍历div元素的所有属性特性
+	var arry=new Array(),
+	     attrName,
+		 attrValue,
+		 i,
+		 len;
+		 
+     for(i=0,len=element.attributes.length;i<len;i++){
+	   
+	    attrName=element.attributes[i].nodeName;
+		attrValue=element.attributes[i].nodeValue;
+		arry.push(attrName+":"+attrValue);
+	 
+	 }
+	 console.log(arry.join("\n"));
+  }
+
+  function attributeTest(){
+    var div=$("#myDiv").get(0);
+	console.log(div.attributes.getNamedItem("id").nodeValue+"\n sample-->"+div.attributes["id"].nodeValue);
+	div.attributes["style"].nodeValue="color:black";
+	
+	//删除属性节点  同div.removeAttribute("onClick")
+	div.attributes.removeNamedItem("onClick");
+	
+	
+  
+  }
+  
+  function createElementss(element){
+     var span=document.createElement("span");
+	 span.style="color:pink";
+	 
+	 var text=document.createTextNode("hello world");
+	 span.appendChild(text);
+	 document.body.appendChild(span);
+  
+  }
+  
+  //element为this 代表当前的DOM对象，与DOM对象一样的用法
+  function kanElementss(element){
+    console.log(element.value);
+	var ul=document.getElementById("ulul");
+	for(var i=0;i<ul.childNodes.length;i++){
+	   if(ul.childNodes[i].nodeType==1){
+	     console.log(ul.childNodes[i].childNodes[0].nodeName+"="+ul.childNodes[i].childNodes[0].nodeValue);
+	   }
+	}
+	
+  }
+</script>
+
+</head>
+
+<body>
+<!--html元素-->
+<div id="myDiv" class="myClass" title="try..." lang="en" dir="ltr" align="center" style="color:red;" my_special_attribute="hello world" onClick="He(this)">This's div html.</div><br />
+<input type="button" value="测试html属性"  onclick="htmlTest(this);"/><br>
+
+<input type="button" value="测试attributes"  onclick="attributeTest(this);"/><br>
+
+<input type="button" value="创建元素"  onclick="createElementss(this);"/><br>
+
+<ul id="ulul"><li>sdf</li><li>asdf</li><li>asdfs</li></ul>
+<br>
+<input type="button" value="遍历DOM"  onclick="kanElementss(this);"/><br>
+
+ 
+</body>
+</html>

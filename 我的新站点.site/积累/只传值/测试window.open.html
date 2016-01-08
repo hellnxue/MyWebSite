@@ -1,0 +1,65 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta   charset="gb2312" />
+<title>无标题文档</title>
+<script src="../../js/jquery-1.8.2.min.js"></script>
+<script>
+//以post方式提交数据
+function openPostWindow(url, name, data1, data2){
+    var tempForm = document.createElement("form");
+    tempForm.id = "tempForm1";
+    tempForm.method = "post";
+    tempForm.action = url;
+    tempForm.target=name;
+    var hideInput1 = document.createElement("input");
+    hideInput1.type = "text";
+    hideInput1.name="xtid";
+    hideInput1.value = data1;
+    var hideInput2 = document.createElement("input");
+    hideInput2.type = "text";
+    hideInput2.name="xtmc";
+    hideInput2.value = data2;
+    tempForm.appendChild(hideInput1);
+    tempForm.appendChild(hideInput2);
+    if(document.all){
+        tempForm.attachEvent("onsubmit",function(){});        //IE
+    }else{
+        var subObj = tempForm.addEventListener("submit",function(){},false);    //firefox
+    }
+    document.body.appendChild(tempForm);
+    if(document.all){
+        tempForm.fireEvent("onsubmit");
+    }else{
+        tempForm.dispatchEvent(new Event("submit"));
+    }
+    tempForm.submit();
+    document.body.removeChild(tempForm);
+}
+ 
+
+ 
+function openWindow(name)
+{
+ // window.open('about:blank',name,'height=400, width=400, top=0, left=0, toolbar=yes, menubar=yes, scrollbars=yes, resizable=yes,location=yes, status=yes');
+ openPostWindow("testOpen.html","hello helln","hihi","helloworld");
+} 
+
+//上传文件在只有文件选择按钮的情况下的自动提交方式
+function ho(){
+  console.log($("#fil").val());
+  $("#myform").submit();
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="测试open传参数" id="openbtn" onclick="openWindow('hihi')"/><br>
+<!--请求的链接是用的 A 标签，A上同时写了href和onclick事件。对于链接 A 标签而言，当用户鼠标单击的时候，A对象被触发时会首先去执行onclick部分，然后是href。-->
+<a href="testOpen.html" onClick="alert('hello sir!')">hello world</a><br>
+<a href="javascript:alert('hello sir!')" >hello world</a><br>
+<form method="post" action="testOpen.html" id="myform">
+<input type="file" name="hh" id="fil" onChange="ho()"/>
+</form>
+</body>
+</html>

@@ -58,6 +58,29 @@
    
    }
    
+   function getObjectlength(){
+     var objt={
+	   name:"ok",
+	   age:10,
+	   like:"eat"
+	 };
+	 var num=0;
+	 for(var key in objt){
+	    num++;
+	 }
+	 console.log("对象成员个数=="+num+"\n"+objt);
+	 
+	 
+	  var c={
+		     name:"ok",
+			 age:10,
+			 hello:"hehe"
+		   };
+		   
+		console.log(c);
+   
+   }
+   
 </script>
 </head>
 
@@ -66,6 +89,9 @@
 <input type="button" value="测试Array" onClick="testArr()"/></br>
 <input type="button" value="测试Array" onClick="testType()"/></br>
 <input type="button" value="测试Math" onClick="testMath()"/></br>
+
+
+<input type="button" value="获得一个对象中成员的个数" onClick="getObjectlength()"/></br>
 <em>hello world!</em>
 </body>
 </html>

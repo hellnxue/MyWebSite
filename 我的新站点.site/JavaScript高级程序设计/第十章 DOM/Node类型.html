@@ -11,6 +11,12 @@
  });
   var p=document.getElementById("pp");
   console.log("获得DOM对象==="+p );//null  页面还未加载时，这个脚本先执行，得不到页面元素，So.....
+  
+  function test1(){
+    var d=document.querySelector("#myDiv");
+	console.log(d.nodeName);
+  
+  }
 </script>
 <title>无标题文档</title>
 
@@ -19,6 +25,10 @@
 <body>
 <p id="pp">test p</p>
 <input type="button" value="body的按钮事件" id="bd" onclick="test();"/><br />
+
+<div id="myDiv">querySelector</div><br />
+<input type="button" value="querySelector" id="bq" onclick="test1();"/><br />
+
 
 </body>
 <script type="text/javascript">
@@ -29,5 +39,7 @@
   function test(){
     console.log(123);
   }
+  
+  
 </script>
 </html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta "charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script>
+  $(function(){
+    $("#btnsplice").on("click",function(){
+	  var array=["red","blue","green"];
+	  var a=array.splice(0,1);//从指定位置删除n个项
+	  console.log(array+" \n 删除的项="+a);//bule,green   red  
+	  
+	  var b=array.splice(1,0,"yellow","pink");//从指定位置向数组的中部插入任意项，
+	  
+	   console.log(array);//blue,yellow,pink,green 
+	   
+	   var c=array.splice(1,1,"black");  
+	   console.log(array.join("/"));
+	
+	});
+  
+   $("#btnces").on("click",function(){
+	  var array=["red","blue","green"];
+	  var a="";
+	 array.forEach(function(item,index,array){
+	   a="llllllllllllll";
+	 
+	 });
+	 console.log(a);
+	
+	});
+  })
+</script>
+</head>
+
+<body>
+<p>--------------Array类型的splice方法------------</p><br />
+<input type="button" value="splice操作数组" id="btnsplice"/><br>
+<input type="button" value="ces" id="btnces"/><br>
+</body>
+</html>

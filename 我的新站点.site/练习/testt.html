@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
+<script src="../js/jquery-1.8.2.min.js"/></script>
 <script type="text/javascript">
 
 confirm("确定！");
@@ -10,12 +11,34 @@ function test(){
    var radioValue=(radio1.checked)?'男':'女';
    alert(radioValue);
 }
-   
+  function tests(){
+     var a=3;
+	 
+	/* $("#test1 option").each(function(){
+	    if(this.value==a){
+		  this.selected="selected";
+		}
+	 
+	 });*/
+	 
+	 $("#test1").val(a);
+	 
+	 
+  } 
 </script>
 </head>
 
 <body>
 <input type="radio" id="radio1" name="radios" value="0"  onclick="test()"/>男
 <input type="radio" id="radio2" name="radios" value="1" />女
+
+<br />
+
+<select id="test1">
+  <option value="2">222</option>
+   <option value="3">333</option>
+</select><br />
+
+<input type="button" id="testbtn" value="test" onclick="tests()"/>
 </body>
 </html>
