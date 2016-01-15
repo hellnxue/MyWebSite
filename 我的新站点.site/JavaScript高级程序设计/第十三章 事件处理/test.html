@@ -1,0 +1,25 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset= "gb2312" />
+<title>无标题文档</title>
+
+</head>
+
+<body>
+<div id="qst">hello</div>
+<input type="button" id="btnevent"    value="测试事件"/><br>
+<script>
+  var tevent=document.querySelector("#btnevent");
+  tevent.onclick=function(event){
+    console.log(event.type);
+  }
+  
+ /* function test(){
+    
+	 console.log(document.querySelector("#qst"));
+  
+  }*/
+</script>
+</body>
+</html>

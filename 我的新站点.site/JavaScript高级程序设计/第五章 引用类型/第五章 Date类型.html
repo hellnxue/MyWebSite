@@ -28,11 +28,14 @@ $("#d3").on("click",function(){
    console.log( "default222 ="+date.getMonth());
    
    console.log(getHandleDate(Date.parse("2015-09-17T09:29:20.6877003+08:00")));
+   
+    console.log(getHandleDate(438710400000));
+	 
   
 });
 
 });
-//根据时间的毫秒值处理时间获得年月日
+//时间格式化------根据时间的毫秒值处理时间获得年月日
 function getHandleDate(ms){
    var date=new Date(ms);
    var month=Number(date.getMonth()+1)+"";

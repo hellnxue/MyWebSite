@@ -212,22 +212,29 @@ $("#tc").on("click",function(){
 	  
 	  $("#nextbtn").on("click",function(){
 	  
-	    //$("#tnext").next("p").css("color","red");//获得与$("#tnext")紧邻的同辈节点对象
-		$("#tnext").nextAll("p").css("color","red");
+	    $("#tnext").next("p").css("color","red");//获得与$("#tnext")紧邻的同辈节点对象
+		//$("#tnext").nextAll("p").css("color","red");
 	  
 	  });
 	  
 	   $("#tids").on("click",function(){
 	  
-	    //$("#tnext").next("p").css("color","red");//获得与$("#tnext")紧邻的同辈节点对象
-		console.log($("#tids").text());
+	    
+		$(this).css("color","yellow");
 	  
 	  });
 	  
 	   $("#openbtn").on("click",function(){
 	  
-	   window.open("tree.html");
+	      window.open("tree.html");//打开一个链接
 	  
+	  });
+	   $("#selectbtn").on("click",function(){
+	  
+	     $("p.ts ").css("color","pink");
+	  	  $("p.ts ").addClass("open");
+		  
+		  
 	  });
 	
 })
@@ -360,14 +367,18 @@ hihi
 <p id="tnext1">Hello</p><p>Hello Again</p><div><p>这是不会变红的，与p不是同辈元素</p><span>And Again</span></div>
 
 <input type="button" value="测试next" id="nextbtn"/><br />
-
+<p>------------------id为多个的p元素，测试结果选择的是第一个-----------------------------</p>
 <div>
   <p id="tids">hello helln</p>
   <p id="tids">hello world</p>
 </div><br>
-<input type="button" value="测试多个id" id="tidsbtn"/><br />
+ 
 
 <input type="button" value="open" id="openbtn"/><br />
+ 
+<p>------------------选择指定样式或指定id的p元素<-----------------------------</p>
+<p class="ts">hello helln sssssssssssss</p>
+<input type="button" value="测试选择" id="selectbtn"/><br />
 
 
 </body>

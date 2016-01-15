@@ -5,6 +5,8 @@
 <title>无标题文档</title>
 <script src="../../js/jquery-1.8.2.min.js"></script>
 <script>
+
+ 
 //以post方式提交数据
 function openPostWindow(url, name, data1, data2){
     var tempForm = document.createElement("form");
@@ -48,18 +50,21 @@ function openWindow(name)
 //上传文件在只有文件选择按钮的情况下的自动提交方式
 function ho(){
   console.log($("#fil").val());
-  $("#myform").submit();
+ // $("#myform").submit();
 }
+
+
 </script>
 </head>
 
 <body>
-<input type="button" value="测试open传参数" id="openbtn" onclick="openWindow('hihi')"/><br>
+<input type="button" value="测试open传参数" id="openbtn" onClick="openWindow('hihi')"/><br>
 <!--请求的链接是用的 A 标签，A上同时写了href和onclick事件。对于链接 A 标签而言，当用户鼠标单击的时候，A对象被触发时会首先去执行onclick部分，然后是href。-->
 <a href="testOpen.html" onClick="alert('hello sir!')">hello world</a><br>
 <a href="javascript:alert('hello sir!')" >hello world</a><br>
 <form method="post" action="testOpen.html" id="myform">
-<input type="file" name="hh" id="fil" onChange="ho()"/>
+<input type="file" name="hh" id="fil"  onChange="ho()"/><br>
+ 
 </form>
 </body>
 </html>

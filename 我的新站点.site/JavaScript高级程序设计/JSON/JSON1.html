@@ -10,10 +10,10 @@ function test1(){
      name:"helln",
 	 age:20
    };
-   var objText=JSON.stringify(obj);//将对象转成json
+   var objText=JSON.stringify(obj);//将javascript对象转成json
    console.log(objText);
    var jsonObject=JSON.parse(objText);
-   console.log(jsonObject);        //将json转成对象
+   console.log(jsonObject);        //将json解析成javascript对象
    
    var json1={"name":"hell","age":10};
    console.log(eval("json1"));
@@ -25,11 +25,13 @@ function test1(){
 
 //将json的字符串解析成json数据格式的两种方式
 function test2(){
-  console.log(eval("{}"));
+  
+   console.log(eval("{}"));//undefined   ？？？？？？？？？？？？？
+   console.log(eval("({})"));//object{}
   console.log(eval("({\"name\":1})"));
   
   var json='{"name":"CJ","age":18}';
-  data =(new Function("","return "+json))(); 
+  data =(new Function("","return "+json))(); //???????
   console.log(data)
 }
 

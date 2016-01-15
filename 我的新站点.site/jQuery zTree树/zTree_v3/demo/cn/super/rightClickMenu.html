@@ -47,6 +47,7 @@
   	 	];
 
 		function OnRightClick(event, treeId, treeNode) {
+		    console.log(event.target.tagName);
 			if (!treeNode && event.target.tagName.toLowerCase() != "button" && $(event.target).parents("a").length == 0) {
 				zTree.cancelSelectedNode();
 				showRMenu("root", event.clientX, event.clientY);
@@ -157,11 +158,11 @@ div#rMenu ul li{
 </div>
 <div id="rMenu">
 	<ul>
-		<li id="m_add" onclick="addTreeNode();">增加节点</li>
-		<li id="m_del" onclick="removeTreeNode();">删除节点</li>
-		<li id="m_check" onclick="checkTreeNode(true);">Check节点</li>
-		<li id="m_unCheck" onclick="checkTreeNode(false);">unCheck节点</li>
-		<li id="m_reset" onclick="resetTree();">恢复zTree</li>
+		<li id="m_add" onClick="addTreeNode();">增加节点</li>
+		<li id="m_del" onClick="removeTreeNode();">删除节点</li>
+		<li id="m_check" onClick="checkTreeNode(true);">Check节点</li>
+		<li id="m_unCheck" onClick="checkTreeNode(false);">unCheck节点</li>
+		<li id="m_reset" onClick="resetTree();">恢复zTree</li>
 	</ul>
 </div>
 </BODY>

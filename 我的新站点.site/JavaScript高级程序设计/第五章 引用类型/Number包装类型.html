@@ -60,6 +60,23 @@ function getDistrictnum(uppervalue,lowervalue){
    var number=Math.floor(Math.random()*total+lowervalue);
    return number;
 }
+
+function test4(){
+/*console.log("1000">2000);
+ console.log(parseInt(10.01));
+  var s=10.00+10.00;
+  console.log(s);
+  console.log(parseFloat("10.00"));
+  console.log(parseFloat(10.00));
+   console.log(parseFloat(10.01));
+   
+	console.log(parseFloat("1000")*parseFloat("0.44"));
+	console.log(parseFloat(""));
+	console.log(312+190.92);// 502.91999999999996*/
+	
+	var indMoney=parseFloat("2858")*parseFloat(0.08);//½ÉÄÉ½ð¶î(Ôª)	¸öÈË
+	console.log(indMoney.toFixed(2));
+}
 </script>
 </head>
 
@@ -68,5 +85,6 @@ function getDistrictnum(uppervalue,lowervalue){
 <input type="button" value="²âÊÔNumber" onClick="test1()"/></br>
 <input type="button" value="²âÊÔString" onClick="test2()"/></br>
 <input type="button" value="²âÊÔNumber2" onClick="test3()"/></br>
+<input type="button" value="Êý×Ö²âÊÔ" onClick="test4()"/></br>
 </body>
 </html>
