@@ -52,7 +52,7 @@
 				zTree.cancelSelectedNode();
 				showRMenu("root", event.clientX, event.clientY);
 			} else if (treeNode && !treeNode.noR) {
-				zTree.selectNode(treeNode);
+				//zTree.selectNode(treeNode);//会随着滑块的位置改变而跳动，隐藏即可
 				showRMenu("node", event.clientX, event.clientY);
 			}
 		}

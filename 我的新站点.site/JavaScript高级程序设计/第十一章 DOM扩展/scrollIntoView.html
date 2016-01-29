@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script>
+$(function(){
+    $("#tp1")[0].focus();
+	  console.log( document.activeElement);
+
+})
+function tests(){
+  //$("#tp")[0].scrollIntoView(true);//在浏览器有滚动条而元素$("#tp")的div没有出现在视野范围内时，scrollIntoView()方法会将之显示在视口中，如果该元素本身就在视口中，则不会有效果
+   
+   
+   /*document.getElementById("tbtn").blur();
+ 
+   var x=document.getElementById("tp1");
+   x.focus();//为啥给不是button的元素设置获得焦点，不管用呢，奇怪
+   
+   console.log( document.activeElement);//body  获得文档中获得了焦点的元素DOM对象*/
+  
+   var button=document.getElementById("tpbtn");
+   button.focus();
+   console.log( document.activeElement); 
+   
+}
+
+function goForward(){
+     console.log("hehe");
+     window.history.forward("测试.html");
+  }
+</script>
+</head>
+
+<body>
+
+ <input type="button" id="tbtn" value="scrollIntoView方法测试" onclick="tests()"/>
+  <div id="test">
+   <span>hello helln</span><br/>
+<span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/>
+</div>
+	<p style="color:pink">非视口元素</p>
+   <p id="tp"><h3>hello world</h3></p>
+   <p id="tp1"> hello world </p>
+   <input type="button" id="tpbtn" value="本在滚动条滚动到底部时才出现的按钮奥"/><br />
+
+   <input type="button" value="Forward" onclick="goForward()" />
+
+</body>
+</html>

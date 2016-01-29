@@ -3,25 +3,68 @@
 <head>
 <metacharset="gb2312" />
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+<title>无标题文档</title>
 <script type="text/javascript">
  
  $(function(){
     
  });
  
+ function test2(){
+    var div=document.getElementsByClassName("myClass myClass2");
+	console.log(div);
+	console.log(div[0].firstChild.nodeValue);
+ }
+ 
+ function test3(){
+   var html=$("#tinhl")[0].innerHTML;//获取子树的html
+   console.log(html);
+   $("#tinhl")[0].innerHTML="<div>hello world</div>";//设置新的html替换原来的子DOM树
+     console.log($("#tinhl")[0].innerHTML);
+	 
+	 $("#tinhl")[0].innerHTML="hello&welcome,<b>\"reader\"!</b>";//设置新的html
+	 console.log($("#tinhl")[0].innerHTML);//结果为 hello&amp;welcome,<b>"reader"!</b>
+	 
+	 console.log($("#tinhl2")[0].innerHTML);
+	 
+	  $("#tinhl")[0].innerHTML="_<script defer>alert(123);<\/script>";
+	  $("#tinhl")[0].innerHTML="<style type=\"text/css\">body {background-color:red;}<\/style>";//innerHTML支持插入<style>元素（是指可以通过这个元素渲染页面）
+	  
+	  $("#table").innerHTML="hello table";//table标签不支持innerHTML的哎
+ }
+ 
 </script>
-<title>无标题文档</title>
-
 </head>
 
 <body>
+<p id="scroll">hello world</p>
 <p id="pp">test p</p>
-<input type="button" value="body的按钮事件" id="bd" onclick="test();"/><br />
+<input type="button" value="body的按钮事件" id="bd" onClick="test();"/><br />
 
 <div id="myDiv">querySelector</div><br />
-<input type="button" value="querySelector" id="bq" onclick="test1();"/><br />
+<input type="button" value="querySelector" id="bq" onClick="test1();"/><br />
 
 
+<div class="myClass1">getElementsByClassName1</div><br />
+<div class="myClass2">getElementsByClassName1</div><br />
+<input type="button" value="querySelector" id="bq" onClick="test2();"/><br />
+
+<p>innerHTML</p>
+<div id="tinhl"><span>hello sir</span></div><br><br>
+<div id="tinhl2">hello&welcome,"reader"!</div>
+<input type="button" value="innerHTML测试" id="tinhlbtn" onClick="test3();"/><br />
+<table id="table">
+  <tr>
+    <td>hello</td>
+  </tr>
+</table>
+
+<script>
+  $("#scroll")[0].scrollIntoView(false);
+
+</script>
+ 
 </body>
  
 </html>

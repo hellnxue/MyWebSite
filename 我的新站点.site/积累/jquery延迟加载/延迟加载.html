@@ -25,10 +25,13 @@ $(function(){
   	    }); 
 
 });
-    
+var i=0; 
 function ajaxRed(){
-flag=true;
-  $("#test").append("<div style='color:blue'>welcome to china!</div>");
+  flag=true;
+  i++;
+  $("#test").append("<div style='color:blue'>welcome to china!"+i+"</div>");
+  
+  //$("#test div").last().get(0).scrollIntoView();//让最后添加的div一直出现的可视范围内，会导致append方法一直执行
 }
 </script>
 <head>
