@@ -12,15 +12,15 @@
  });
  
  function test2(){
-    var div=document.getElementsByClassName("myClass myClass2");
+    var div=document.getElementsByClassName("myClass myClass2");//这个方法不能同时选取多个class哎
 	console.log(div);
 	console.log(div[0].firstChild.nodeValue);
  }
  
  function test3(){
-   var html=$("#tinhl")[0].innerHTML;//获取子树的html
-   console.log(html);
-   $("#tinhl")[0].innerHTML="<div>hello world</div>";//设置新的html替换原来的子DOM树
+     var html=$("#tinhl")[0].innerHTML;//获取子树的html
+     console.log(html);
+     $("#tinhl")[0].innerHTML="<div>hello world</div>";//设置新的html替换原来的子DOM树
      console.log($("#tinhl")[0].innerHTML);
 	 
 	 $("#tinhl")[0].innerHTML="hello&welcome,<b>\"reader\"!</b>";//设置新的html
@@ -28,11 +28,54 @@
 	 
 	 console.log($("#tinhl2")[0].innerHTML);
 	 
-	  $("#tinhl")[0].innerHTML="_<script defer>alert(123);<\/script>";
+	  $("#tinhl")[0].innerHTML="_<script defer>alert(123);<\/script>";//用innerHTML设置script脚本没作用效果
 	  $("#tinhl")[0].innerHTML="<style type=\"text/css\">body {background-color:red;}<\/style>";//innerHTML支持插入<style>元素（是指可以通过这个元素渲染页面）
 	  
 	  $("#table").innerHTML="hello table";//table标签不支持innerHTML的哎
  }
+ 
+ function test4(){
+   var html=$("#outt")[0].outerHTML;//返回调用元素本身以及子元素的html
+   $("#inputs").html(html);
+   
+   $("#outt")[0].outerHTML="<span style=\"color:green\">new html</span>";
+ 
+ }
+ 
+ function test5(){
+    var child=$("#childt")[0].children.length;
+	var secondChild=$("#childt")[0].children[1].nodeName;
+ 
+	$("#childi").html("length:"+child+"\n secondChild:"+secondChild);
+	var x=10;
+	console.log(x.toString(2));//返回数字的二进制表示
+	var y=~x;
+	console.log(y);
+	console.log(null+"");
+	console.log(2<<5);
+	console.log(2>>5);
+ }
+ 
+ function test6(){
+   var text=$("#innert")[0].textContent;
+  // console.log(text);//  结果居然是undefined哎， 火狐不支持此属性
+  // console.log(document.getElementById("innert").innerText);
+   
+   $("#inneri").html(getInnerText($("#innert")[0]));
+   //document.getElementById("innert").textContent="hello & world \"kk\"hhhhh";//NO 。。。。
+   
+   setInnerText($("#innert")[0],"hello helln");
+ }
+ 
+ //支持火狐和IE的获取文本内容的方法
+ function getInnerText(elementDOM){
+   return (typeof elementDOM.textContent=="string" )?elementDOM.textContent:elementDOM.innerText;
+ }
+ //支持火狐和IE的设置文本内容的方法
+ function setInnerText(elementDOM,content){
+    (typeof elementDOM.textContent=="string")?elementDOM.textContent=content:elementDOM.innerText=content;
+ }
+ 
  
 </script>
 </head>
@@ -48,22 +91,44 @@
 
 <div class="myClass1">getElementsByClassName1</div><br />
 <div class="myClass2">getElementsByClassName1</div><br />
-<input type="button" value="querySelector" id="bq" onClick="test2();"/><br />
+<input type="button" value="getElementsByClassName方法" id="bq" onClick="test2();"/><br />
 
-<p>innerHTML</p>
-<div id="tinhl"><span>hello sir</span></div><br><br>
+<p  style="color:#FF99FF">--------------------------innerHTML属性-----------------------------</p>
+<div id="tinhl"><span>hello innerHTML</span></div><br><br>
 <div id="tinhl2">hello&welcome,"reader"!</div>
 <input type="button" value="innerHTML测试" id="tinhlbtn" onClick="test3();"/><br />
 <table id="table">
   <tr>
     <td>hello</td>
   </tr>
-</table>
+</table><br>
 
-<script>
-  $("#scroll")[0].scrollIntoView(false);
+<p  style="color:#FF99FF">--------------------------outerHTML属性-----------------------------</p>
+<div id="outt"><span>hello outerHTML</span></div><br><br>
+input:<div id="inputs"></div>
+<input type="button" value="outerHTML测试" id="outbtn" onClick="test4();"/><br />
 
-</script>
+<p  style="color:#FF99FF">--------------------------childern属性-----------------------------</p>
+
+<div id="childt">
+   <span>hello childern</span><br>
+
+   <span>hello childern</span>
+</div><br> 
+input:<div id="childi"></div>
+<input type="button" value="childern属性测试" id="childbtn" onClick="test5();"/><br />
+ 
+ 
+ <p  style="color:#FF99FF">--------------------------innerText文本属性-----------------------------</p>
+<div id="innert">
+   hello innerText
+   <span>innerText1</span><br>
+
+   <span>innerText2</span><br>
+</div><br> 
+input:<div id="inneri"></div>
+<input type="button" value="innerText文本属性" id="innerbtn" onClick="test6();"/><br />
+ 
  
 </body>
  

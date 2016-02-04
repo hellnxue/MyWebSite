@@ -117,6 +117,13 @@ function testlablebreak(){
   
   
 }
+
+ function test1(){
+    var string="Java工程师面试题(三大框架SSH).txt";
+	 
+	var r=string.replace(string.substring(10,string.indexOf(".")-4),"...")
+    console.log(r);
+ }
 </script>
 </head>
 
@@ -128,5 +135,7 @@ function testlablebreak(){
 <input type="button" value="跳出当前for循环-break" onClick="testbreak()"/></br>
 
 <input type="button" value="跳出最外层循环-lable break" onClick="testlablebreak()"/></br>
+
+<input type="button" value="长名字中间用点表示" onclick="test1()"/>
 </body>
 </html>

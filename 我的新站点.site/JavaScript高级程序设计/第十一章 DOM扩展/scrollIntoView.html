@@ -22,7 +22,7 @@ function tests(){
    console.log( document.activeElement);//body  获得文档中获得了焦点的元素DOM对象*/
   
    var button=document.getElementById("tpbtn");
-   button.focus();
+   button.focus();//同$("#tp")[0].scrollIntoView(true);
    console.log( document.activeElement); 
    
 }

@@ -62,6 +62,19 @@ function getDistrictnum(uppervalue,lowervalue){
 }
 
 function test4(){
+ console.log(Number("02.20"))//2.2 会忽略前导的0
+ console.log(parseFloat("02.20"));//2.2  会忽略前导的0
+ console.log(parseInt("02.20"));//2
+ console.log(Number("0.20"));//0.2
+ console.log(Number("020"));//20   会忽略前导的0
+ console.log(parseInt("070"));//70
+ 
+ console.log(parseInt("10",2));
+ console.log(parseInt("0101",10));
+ var number=Number("");//0
+ var pInt=parseInt("");//NaN
+ var pFloat=parseFloat("");//NaN
+ $("#nift").html("Number(\"\"):"+number+"\n   parseInt(\"\"):"+pInt+"\n   parseFloat(\"\"):"+pFloat);
 /*console.log("1000">2000);
  console.log(parseInt(10.01));
   var s=10.00+10.00;
@@ -86,5 +99,6 @@ function test4(){
 <input type="button" value="测试String" onClick="test2()"/></br>
 <input type="button" value="测试Number2" onClick="test3()"/></br>
 <input type="button" value="数字测试" onClick="test4()"/></br>
+<h3>input:</h3><div id="nift"></div>
 </body>
 </html>

@@ -15,7 +15,8 @@
 	  
 	   console.log(array);//blue,yellow,pink,green 
 	   
-	   var c=array.splice(1,1,"black");  
+	   var c=array.splice(1,1,"black");//blue/black/pink/green
+	     
 	   console.log(array.join("/"));
 	
 	});
@@ -30,13 +31,24 @@
 	 console.log(a);
 	
 	});
+	
+	$("#btnArray").on("click",function(){
+	    var array=new Array(1,2);
+	    console.log(array.join("/")+"    "+Array.isArray(array));
+	    $("#arrayt").html(array.join("/")+"\n"+Array.isArray(array));
+	})
   })
 </script>
 </head>
 
 <body>
+<p style="color:#FF66FF">--------------检测数组的静态方法Array.isArray(array)------------</p><br />
+input:<div id="arrayt"></div><br>
+
+<input type="button" value="Array.isArray(array)" id="btnArray"/><br>
 <p>--------------Array类型的splice方法------------</p><br />
 <input type="button" value="splice操作数组" id="btnsplice"/><br>
 <input type="button" value="ces" id="btnces"/><br>
+
 </body>
 </html>

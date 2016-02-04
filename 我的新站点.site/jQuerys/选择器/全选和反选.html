@@ -3,6 +3,11 @@
 <head>
 <meta charset=gb2312/>
 <title>无标题文档</title>
+<style type="text/css">
+ 
+  .test{
+  display:none;}
+</style>
 <!--<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>-->
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
@@ -238,7 +243,14 @@ $("#tc").on("click",function(){
 	  });
 	
 })
-
+ function testToggleClass(thiss){
+   
+  
+   $("#toggleClasst").toggleClass("test"); 
+   thiss.scrollIntoView();//始终让按钮出现在视口中 同thiss.foucus();
+	
+ 
+ }
 </script>
 </head>
 
@@ -380,6 +392,10 @@ hihi
 <p class="ts">hello helln sssssssssssss</p>
 <input type="button" value="测试选择" id="selectbtn"/><br />
 
+
+<p>------------------toggleClass（）方法切换样式，显示和隐藏-----------------------------</p>
+<p id="toggleClasst">hello helln</p><br />
+<input type="button" value="toggleClass" onclick="testToggleClass(this)"/><br />
 
 </body>
 </html>

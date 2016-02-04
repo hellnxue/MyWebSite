@@ -131,12 +131,20 @@ $(function(){
   });
   
    $("#t12").on("click",function(){
-      console.log("typeof null="+typeof null);
-	  console.log("typeof String(undefined)="+typeof String(undefined));
+      console.log(typeof undefined);//undefined
+      console.log("typeof null="+typeof null);//object
+	  console.log("typeof String(undefined)="+typeof String(undefined));//String
 	  //console.log("hello \nworld");
-	   console.log("typeof function="+typeof testReturn);
-	  console.log("typeof Date="+typeof Date);
-	  console.log("typeof Array="+typeof Array);
+	   console.log("typeof function="+typeof testReturn);//function
+	  console.log("typeof Date="+typeof Date);//function
+	  console.log("typeof Array="+typeof Array);//function
+	  //:注 null和undefined没有toString()方法，要想返回他们的字符串表示，可以用String()方法
+	  console.log("String(null)="+String(null)+"   typeof="+typeof String(null));//null string
+	  console.log("String(undefined)="+String(undefined));//undefined
+	  
+	  
+	 
+	  
   });
   
 })
