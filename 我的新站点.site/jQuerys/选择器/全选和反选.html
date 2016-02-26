@@ -12,6 +12,24 @@
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
+
+  /**
+	 * jQuery扩展插件，将form表单内容序列化为Object
+	 */
+	$.fn.extend({
+		serializeObject:function(){
+			   if(this.length>1){
+					  return false;
+			   }
+			   var arr=this.serializeArray();
+			   var obj=new Object;
+			   $.each(arr,function(k,v){
+					  obj[v.name]=v.value;
+			   });
+			   return obj;
+		}
+	});
+
  var a=document.getElementById("hhhhhhh");
   console.log("ppppppppppppppppp"+$("#hhhhhhhhhhhh")+"\n"+a);
 //点击全选复选框处理结果
@@ -241,6 +259,15 @@ $("#tc").on("click",function(){
 		  
 		  
 	  });
+	  
+	  
+	  
+	$(".multipleClick :button").on("click",function(){
+  
+	   alert(this.value);//点击哪个弹出哪个的value，没有异常啊
+	  
+	  
+  });
 	
 })
  function testToggleClass(thiss){
@@ -250,6 +277,37 @@ $("#tc").on("click",function(){
    thiss.scrollIntoView();//始终让按钮出现在视口中 同thiss.foucus();
 	
  
+ }
+ 
+ function testAttribute(ts){
+   console.log($("[data-attr]").html());//<span>hello world</span><span id="san">hello helln</span>
+   var html=$($("[data-attr]").clone());
+    console.log(html.find("#san").html());//hello helln
+	
+	var hl="<div>hehe</div>";
+	console.log($(hl).find("div").html());//undefined
+ }
+ 
+ function tttt(ts){
+   
+   var variable=$(ts).data("actionMove");
+   console.log(variable);//actions
+ }
+ 
+ function testSerialize(){
+ 
+    var sObject=$("form").serializeObject();
+	var jsonObject=JSON.stringify(sObject);//将js对象转成JSON对象
+	
+    $("#results1").append( "<tt>" + decodeURI($("form").serialize()) + "</tt>" );
+	$("#results2").append( "<tt>" + jsonObject + "</tt>" );
+	 
+ }
+ 
+ function testParents(){
+    // $("span").parents("p").css("color","green");//一层时，不同点看不出来，当两层以上时，查找父元素才会看得出来奥
+    $("#prt").parents("div").css("color","green");// $("#prt").parent("div").css("color","green")则选择不到div,因为parent()是查找匹配元素的唯一父元素的(匹配元素的直接父元素奥)，而parents()与closest()功能类似，会逐级向上查找匹配元素的父元素
+  // $("#prt").closest("div").css("color","green");
  }
 </script>
 </head>
@@ -395,7 +453,74 @@ hihi
 
 <p>------------------toggleClass（）方法切换样式，显示和隐藏-----------------------------</p>
 <p id="toggleClasst">hello helln</p><br />
-<input type="button" value="toggleClass" onclick="testToggleClass(this)"/><br />
+<input type="button" value="toggleClass" onClick="testToggleClass(this)"/><br />
 
+
+<p>------------------选择器：[attribute]  匹配包含给定属性的元素-----------------------------</p>
+<p id="attribute" data-attr="hehe"><span>hello world</span><span id="san">hello helln</span></p><br />
+<input type="button" value="属性选择器[attribute]" onClick="testAttribute(this)"/><br />
+
+<p>------------------jquery的data()方法能获取由data自定义的属性值奥，新奇啊，DOM中是dataset啊-----------------------------</p>
+<div data-action-move="actions" onClick="tttt(this)">Clike me you can see data-action-move's value </div><br>
+
+
+
+<p>------------------jquery表单序列化之将一个表单序列化成对象Object,用自定义插件方法serializeObject() -----------------------------</p>
+<input type="button" value="表单序列化" onClick="testSerialize()"/><br />
+
+<p id="results1"><b>Results(表单序列化): </b> </p>
+<p id="results2"><b>Results(表单序列化成对象): </b> </p>
+<form>
+  <select name="single">
+    <option>Single</option>
+    <option>Single2</option>
+  </select>
+  <select name="multiple" multiple="multiple">
+    <option selected="selected">Multiple</option>
+    <option>Multiple2</option>
+    <option selected="selected">Multiple3</option>
+  </select><br/>
+  <input type="checkbox" name="check" value="check1"/> check1
+  <input type="checkbox" name="check" value="选择2" checked="checked"/> check2
+  <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
+  <input type="radio" name="radio" value="radio2"/> radio2
+  <input type="file" name="myfiles"  />上传表单不会出现在序列化完的结果中
+</form><br>
+<p>------------------选择器：parent()与parents()的区别-----------------------------</p>
+<div>
+<p><span id="prt">Hello</span></p>
+<span>Hello Again</span>
+</div>
+<input type="button" value="选择器：parent()与parents()" onClick="testParents(this)"/><br />
+
+
+<p>------------------多个绑定click，各自执行-----------------------------</p>
+<div class="multipleClick">
+  <input type="button" value="按钮1"  /><br />
+  <input type="button" value="按钮12"  /><br />
+  <input type="button" value="按钮13" /><br />
+</div>
+
+<div class="multipleClick">
+  <input type="button" value="按钮11"  /><br />
+  <input type="button" value="按钮112"  /><br />
+  <input type="button" value="按钮113" /><br />
+</div>
+<input type="button" value="选择器：parent()与parents()" onClick="testParents(this)"/><br />
+
+<p>------------------click：通过点击的元素，给指定元素绑定事件处理程序-----------------------------</p>
+ 
+<p id="clickTest"> </p>
+ 
+<input type="file" value="待绑定click" id="clickBtn"  /><br />
+<input type="button" value="绑定click"  onClick="$(this).siblings(':input#clickBtn').click()" /><br />
+<script>
+//onClick="hk()"
+function hk(){
+var v="http://image.hrofirst.com/101/201602/cadf74ef-f5c3-4549-955e-8aa4db4cd337.png";
+ 
+  $("#clickBtn").click();
+}
+</script>
 </body>
 </html>

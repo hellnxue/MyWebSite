@@ -12,7 +12,8 @@
 <script>
   var tevent=document.querySelector("#btnevent");
   tevent.onclick=function(event){
-    console.log(event.type);
+    console.log(event.type);//click
+	console.log(event.clientX+"\n"+event.clientY+"\n"+event.screenX+"\n"+event.screenY);
   }
   
  /* function test(){
@@ -20,6 +21,21 @@
 	 console.log(document.querySelector("#qst"));
   
   }*/
-</script>
+  
+
+</script><br>
+<input type="button" id="btneve" value="À©Õ¹×÷ÓÃÓò" onClick="alert(type);"/><br>
+
+
+<form method="post">
+  <input type="text" name="username" value="">
+  <input type="button" value="Echo Username" onClick="alert(username.value);"/>
+</form>
+
+
+<form action="hello" method="get">
+  <input type="button" value="compatMode" onClick="alert(action);">
+</form>
 </body>
 </html>
+ 

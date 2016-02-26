@@ -147,6 +147,14 @@ $(function(){
 	  
   });
   
+  
+   $("#t13").on("click",function(){
+      
+	  testArguments("hello","helln");
+	 
+	  
+  });
+  
 })
 function testReturn(){
   return;
@@ -158,6 +166,10 @@ function testFunction(a,b){
   alert("arguments[0]="+arguments[0]);
   alert("arguments[1]="+arguments[1]);
   
+}
+
+function testArguments(a1,a2,a3){
+  console.log(a1+"\n"+a2+"\n"+a3);
 }
  
 </script>
@@ -178,5 +190,7 @@ function testFunction(a,b){
 <input type="button" id="t11" value="²âÊÔparseInt"/><br/>
 <input type="button" id="t12" value="²âÊÔtypeof"/><br/>
  
+ <input type="button" id="t13" value="²âÊÔarguments"/><br/>
+  <input type="button" id="t14" value="²âÊÔarguments"/><br/>
 </body>
 </html>

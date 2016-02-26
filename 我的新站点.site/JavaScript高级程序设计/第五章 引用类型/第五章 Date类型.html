@@ -30,7 +30,10 @@ $("#d3").on("click",function(){
    console.log(getHandleDate(Date.parse("2015-09-17T09:29:20.6877003+08:00")));
    
     console.log(getHandleDate(438710400000));
-	 
+	
+	var datee="2015-12-04 15:49:03";
+	console.log(datee.split(" ")[0]+"\n"+datee.split(" ").length);
+	console.log(getHandleDateYMD(datee));
   
 });
 
@@ -50,6 +53,12 @@ function getHandleDate(ms){
   var handleDate=date.getFullYear()+"-"+month+"-"+day;
   return handleDate;
 }
+//时间格式化-----将格式为2015-12-04 15:49:03的只要年月日
+function getHandleDateYMD(ymdhhmmss){
+	 
+	  return ymdhhmmss.split(" ")[0];
+	
+};
 </script>
 </head>
 
