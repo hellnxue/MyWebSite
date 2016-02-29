@@ -2,40 +2,64 @@
 <html  >
 <head>
 <meta charset= "gb2312" />
-<title>无标题文档</title>
+<title>事件处理程序</title>
 
 </head>
 
 <body>
+<p>--------------------------------------HTML事件处理程序------------------------------------</p>
 <div id="qst">hello</div>
-<input type="button" id="btnevent"    value="测试事件"/><br>
+<input type="button" id="btnevent"    value="测试事件对象"/><br>
+
+<input type="button" id="btneve" value="扩展作用域" onClick="alert(type);"/><br><!--button-->
+
+
+<form method="post" name="myForm1">
+  <input type="text" name="username" value=""><br>
+  <input type="text" name="mobile" value=""><br>
+  <input type="button" value="点击输出第一个表单的值" onClick="alert(username.value);"/><!--其实，详细的是document.myForm1.username.value HTML事件处理程序之动态创建的函数可以用扩展作用域的方式访问其他控件的值-->
+  <input type="button" value="点击输出第二个表单的值" onClick="alert(mobile.value);"/>
+  <input type="button" value="js脚本输出form表单中的元素的值" onClick="test()" name="myBtn"/>
+</form>
 <script>
+  console.log("111111111111111111");
+</script>
+<br>
+<p>--------------------------------------HTML事件处理程序中事件函数中的作用域链------------------------------------</p>
+<form action="hello" method="get" name="myForm">
+  <input type="button" value="myForm.method" onClick="alert(myForm.method);"><!--get  document.myForm.method-->
+  <input type="button" value="method" onClick="alert(method);"><!--get   document.myForm.method-->
+  <input type="button" value="body" onClick="alert(body);"><!--[object HTMLBodyElement]  document.myForm.body-->
+   <input type="button" value="title" onClick="alert(title);"><!--为啥弹出来什么也没有呢？ document.title 获得当前文档的标题-->
+   <input type="button" value="document.title " onClick="alert(document.title );"><!--这样可以-->
+   <input type="button" value="compatMode" onClick="alert(compatMode );"><!--document.compatMode 用来判断浏览器的渲染方式 此处弹出CSS1Compat-->
+    
+</form>
+<script>
+console.log("22222222222222222222");
   var tevent=document.querySelector("#btnevent");
   tevent.onclick=function(event){
     console.log(event.type);//click
 	console.log(event.clientX+"\n"+event.clientY+"\n"+event.screenX+"\n"+event.screenY);
   }
   
- /* function test(){
-    
-	 console.log(document.querySelector("#qst"));
+   
+  function test(){
+   
+    var form=document.myForm1;//可以通过表单的name来访问表单对象
+	console.log("form.username.value="+form.username.value);
+	console.log("orm.myBtn.value="+form.myBtn.value);
+	console.log("form.username.length="+form.length);//表单中的表单控件数量
+	console.log("form.username.enctype="+form.enctype);//application/x-www-form-urlencoded 表单请求的编码类型
+	console.log("form.username.target="+form.target);
+	form.reset();//重置表单为默认值
+	//form.submit();//提交表单
+	console.log(document.title);
   
-  }*/
+  }
   
 
 </script><br>
-<input type="button" id="btneve" value="扩展作用域" onClick="alert(type);"/><br>
-
-
-<form method="post">
-  <input type="text" name="username" value="">
-  <input type="button" value="Echo Username" onClick="alert(username.value);"/>
-</form>
-
-
-<form action="hello" method="get">
-  <input type="button" value="compatMode" onClick="alert(action);">
-</form>
 </body>
 </html>
  

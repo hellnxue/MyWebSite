@@ -75,7 +75,7 @@ $(function(){
  
  $(".hehe").css("color","red");
  $(".hehe").on("click",function(){
-    console.log("hehe");
+   alert("hehe");
  
  });
 
@@ -268,6 +268,11 @@ $("#tc").on("click",function(){
 	  
 	  
   });
+  
+  $("#clo").on("click",function(){
+     console.log($("#htmlEventTest").clone());
+	 $("#clotest").append( $("#htmlEventTest").clone());
+  });
 	
 })
  function testToggleClass(thiss){
@@ -336,11 +341,16 @@ $("#tc").on("click",function(){
    hello2
 </div><br />
 <input type="button" value="测试clone" id="tc"/><br />
-
-
 <div  id="hihi">
 hihi
 </div>
+
+<p>------------------clone(true)方法复制的时候，带有事件222222222-----------------------------</p>
+<input  type="button" value="html事件处理程序" id="htmlEventTest" onClick="alert('hello new element');"/><br>
+<div id ="clotest"></div>
+<input type="button" value="测试clone" id="clo"/><br />
+
+
 <p>------------------clone的基础上再动态对复制后的元素进行相关操作（添加一个class属性值），不会影响原始的元素-----------------------------</p>
 <div  id="kiki">
    <span id="ll">hello world</span>
