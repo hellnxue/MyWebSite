@@ -1,0 +1,84 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+</head>
+
+<body>
+<p>-----------------------DOM0级事件处理程序--------------------</p>
+<input type="button" value="DOM0级事件测试" id="dom0Btn"/>
+<script>
+  var dombtn=$("#dom0Btn")[0];
+  dombtn.onclick=function(){
+    alert(this.value);
+  }
+  
+  setTimeout(function(){
+    dombtn.onclick=null;//取消事件绑定
+  },2000);
+
+</script>
+
+<p>-----------------------DOM2级事件处理程序--------------------</p>
+<input type="button" value="DOM2级事件测试" id="dom2Btn"/>
+
+<script>
+  var btn=$("#dom2Btn")[0];
+  btn.addEventListener("click",function(){
+    console.log(this.value);
+  },false);//绑定的第一个事件处理程序
+  
+   function handle(){
+  	console.log(this.id);
+  }
+  
+  btn.addEventListener("click",handle,false);//绑定的第二个时间处理程序
+  
+  //过两秒后删除绑定的事件处理程序
+  setTimeout(function(){
+     btn.removeEventListener("click",handle,false);
+  },2000);
+ 
+</script>
+
+
+<p>-----------------------IE事件处理程序--------------------</p>
+<input type="button" value="IE事件测试" id="IEBtn"/>
+<script>
+  var btn1=$("#IEBtn")[0];
+   btn1.attachEvent("onclick",function(){
+    alert("clicked");
+  }); //为啥IE浏览器没效果？
+</script>
+
+<p>-----------------------跨浏览器事件处理程序--------------------</p>
+<input type="button" value="跨浏览器事件测试" id="kkBtn"/>
+<script>
+  var EventUtil={
+     addHandler:function(element,type,handler){
+	     if(element.addEventListener){
+		   console.log("DOM2");
+		   element.addEventListener(type,handler,false);
+		 }else if(element.attachEvent){
+		   console.log("IE");
+		   element.attachEvent("on"+type,handler);
+		 
+		 }else{
+		   console.log("DOM0");
+		   element["on"+type]=handler;
+		 }
+	 
+	 }
+   
+  }
+  var kbtn=$("#kkBtn")[0];
+  var handlers=function(){
+    console.log(this.value);
+  }
+  EventUtil.addHandler(kbtn,"click",handlers);
+</script>
+</body>
+</html>

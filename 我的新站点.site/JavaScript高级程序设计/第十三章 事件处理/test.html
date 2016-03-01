@@ -3,7 +3,8 @@
 <head>
 <meta charset= "gb2312" />
 <title>事件处理程序</title>
-
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
 </head>
 
 <body>
@@ -60,6 +61,107 @@ console.log("22222222222222222222");
   
 
 </script><br>
+
+<p>-----------------------DOM0级事件处理程序--------------------</p>
+<input type="button" value="DOM0级事件测试" id="dom0Btn"/>
+<script>
+  var dombtn=$("#dom0Btn")[0];
+  dombtn.onclick=function(){
+    alert(this.value);
+  }
+  
+  setTimeout(function(){
+    dombtn.onclick=null;//取消事件绑定
+  },2000);
+
+</script>
+
+<p>-----------------------DOM2级事件处理程序--------------------</p>
+<input type="button" value="DOM2级事件测试" id="dom2Btn"/>
+
+<script>
+  var btn=$("#dom2Btn")[0];
+  btn.addEventListener("click",function(){
+    console.log(this.value);
+  },false);//绑定的第一个事件处理程序
+  
+   function handle(){
+  	console.log(this.id);
+  }
+  
+  btn.addEventListener("click",handle,false);//绑定的第二个时间处理程序
+  
+  //过两秒后删除绑定的事件处理程序
+  setTimeout(function(){
+     btn.removeEventListener("click",handle,false);
+  },2000);
+ 
+</script>
+
+
+<p>-----------------------IE事件处理程序--------------------</p>
+<input type="button" value="IE事件测试" id="IEBtn"/>
+<script>
+  var btn1=$("#IEBtn")[0];
+   btn1.attachEvent("onclick",function(){
+    alert("clicked");
+  }); //为啥IE浏览器没效果？
+</script>
+
+<p>-----------------------跨浏览器事件处理程序--------------------</p>
+<input type="button" value="跨浏览器事件测试" id="kkBtn"/>
+<script>
+ 
+  var kbtn=$("#kkBtn")[0];
+  var handlers=function(){
+    console.log(this.value);
+  }
+  EventUtil.addHandler(kbtn,"click",handlers);
+  
+  //时隔两秒后删除绑定的事件
+  setTimeout(function(){
+    EventUtil.removeHandler(kbtn,"click",handlers);
+  },2000);
+ 
+</script>
+
+
+<p>----------------------事件对象：DOM中的事件对象--------------------</p>
+<input type="button" value="事件对象event" id="eventBtn"/>
+<script>
+  var eventBtn=$("#eventBtn")[0];
+  document.body.onclick=function(event){
+    
+     console.log( event.currentTarget==document.body);//true currentTarget是事件处理程序处理的真正目标，此处为body
+	 console.log( this==event.target);//false  target为鼠标点击处的目标，如果点击了按钮，那就是按钮了
+	 console.log( this==document.body);//true
+	 console.log( event.target==eventBtn);//true 当点击id为eventBtn的时候
+	 
+	 console.log("是否冒泡=="+(event.bubbles));
+  }
+  
+  /*
+    使用event可以用一个函数处理多个事件处理程序奥
+  */
+  var handler=function(event){
+    switch(event.type){
+	  case "click":
+	     alert("clicked");
+		 break;
+	case "mouseover":
+	    event.target.style.backgroundColor="red";
+	    break;
+	 case "mouseout":
+	    event.target.style.backgroundColor="";
+	    break;
+	
+	}
+  }
+  
+  eventBtn.onclick=handler;
+  eventBtn.onmouseover=handler;
+  eventBtn.onmouseout=handler;
+</script>
 </body>
 </html>
  
