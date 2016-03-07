@@ -38,7 +38,8 @@
 <body>
 not p html<br />
 sgfjsddu
-<p style="padding-left:10px; margin-left:20px;">hello world</p>
+<p style="padding-left:10px; margin-left:20px;">hello world</p><br />
+<p style="padding-left:10px; border: 1px dotted #000;"></p>
 <p>The strongly emphasized word in this paragraph is<strong>red</strong>.</p>
 <h2>This subhead is also red.</h2>
 <h2>The strongly emphasized word in this subhead is<strong>blue</strong>.</h2>
@@ -53,6 +54,18 @@ This heading will be center-aligned
 This paragraph will also be center-aligned.
 </p> 
  
- <h3>hello helln,welcome to here!</h3>
+ <h3>hello helln,welcome to here!</h3> 
+
+ <h4 style="background-color:transparent;">设置透明的背景</h4>
+ 
+ <h4 style=" background-image:url(../image/repeat.png)">设置背景图片，默认图片是重复的</h4>
+ 
+ <div style="background-image:url(../image/flower.png); background-repeat:no-repeat">
+   <h4 style=" background-image:url(../image/repeat.png); background-repeat:inherit; ">设置背景图片是否重复:h4标签添加background-repeat:inherit属性的话，会继承父元素div的样式，H4的背景图会变为div的背景图，去掉background-repeat:inherit的话就不会这样了</h4>
+ </div>
+  
+  <h4 style=" background-image:url(../image/flower.png); background-repeat:no-repeat; background-position:center">背景图片的位置 background-position:center</h4>
+  <h4 style=" background-image:url(../image/flower.png); background-repeat:no-repeat; background-position:bottom">背景图片的位置 background-position:bottom</h4>
+  <h4 style=" background-image:url(../image/flower.png); background-repeat:no-repeat; background-position:top">背景图片的位置 background-position:top</h4>
 </body>
 </html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+</head>
+
+<body>
+<p>-----------------------事件对象 ：event.eventPhase:调用事件处理程序的阶段：1 捕获 2 "处于目标"  3 冒泡阶段--------------------</p>
+<input type="button" value="aaaaaaaa" id="eventBtn"/>
+<script>
+  var dombtn=$("#eventBtn")[0];
+  dombtn.onclick=function(event){
+    console.log("dombtn.onclick="+event.eventPhase);//2 处于目标阶段，触发的元素注册了事件的元素
+  }
+  
+  document.body.addEventListener("click",function(event){
+    
+    console.log("document.body.addEventListener="+event.eventPhase);//1 捕获阶段的
+  },true)
+  
+  document.body.onclick=function(event){
+    console.log("document.body.onclick="+event.eventPhase);//3 冒泡阶段
+  }
+  
+</script>
+
+
+
+
+ 
+</body>
+</html>

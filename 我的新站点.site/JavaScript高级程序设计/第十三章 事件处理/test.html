@@ -20,7 +20,7 @@
   <input type="text" name="mobile" value=""><br>
   <input type="button" value="点击输出第一个表单的值" onClick="alert(username.value);"/><!--其实，详细的是document.myForm1.username.value HTML事件处理程序之动态创建的函数可以用扩展作用域的方式访问其他控件的值-->
   <input type="button" value="点击输出第二个表单的值" onClick="alert(mobile.value);"/>
-  <input type="button" value="js脚本输出form表单中的元素的值" onClick="test()" name="myBtn"/>
+  <input type="button" value="js脚本输出form表单中的元素的值" onClick="test(event)" name="myBtn"/>
 </form>
 <script>
   console.log("111111111111111111");
@@ -45,8 +45,8 @@ console.log("22222222222222222222");
   }
   
    
-  function test(){
-   
+  function test(event){
+    console.log("是否冒泡="+event.bubbles);
     var form=document.myForm1;//可以通过表单的name来访问表单对象
 	console.log("form.username.value="+form.username.value);
 	console.log("orm.myBtn.value="+form.myBtn.value);
@@ -66,7 +66,8 @@ console.log("22222222222222222222");
 <input type="button" value="DOM0级事件测试" id="dom0Btn"/>
 <script>
   var dombtn=$("#dom0Btn")[0];
-  dombtn.onclick=function(){
+  dombtn.onclick=function(event){
+   console.log("是否冒泡="+event.bubbles);
     alert(this.value);
   }
   
@@ -81,15 +82,16 @@ console.log("22222222222222222222");
 
 <script>
   var btn=$("#dom2Btn")[0];
-  btn.addEventListener("click",function(){
+  btn.addEventListener("click",function(event){
     console.log(this.value);
-  },false);//绑定的第一个事件处理程序
+	 console.log("是否冒泡="+event.bubbles);
+  },false);//绑定的第一个事件处理程序  第三个参数false代表冒泡阶段
   
    function handle(){
   	console.log(this.id);
   }
   
-  btn.addEventListener("click",handle,false);//绑定的第二个时间处理程序
+  btn.addEventListener("click",handle,false);//绑定的第二个事件处理程序
   
   //过两秒后删除绑定的事件处理程序
   setTimeout(function(){
@@ -126,10 +128,11 @@ console.log("22222222222222222222");
 </script>
 
 
-<p>----------------------事件对象：DOM中的事件对象--------------------</p>
+<p>----------------------事件对象：DOM中的事件对象：event.type--------------------</p>
 <input type="button" value="事件对象event" id="eventBtn"/>
 <script>
   var eventBtn=$("#eventBtn")[0];
+  //给body元素绑定click事件，点击body中的任何元素都会触发事件并冒泡
   document.body.onclick=function(event){
     
      console.log( event.currentTarget==document.body);//true currentTarget是事件处理程序处理的真正目标，此处为body
@@ -141,7 +144,7 @@ console.log("22222222222222222222");
   }
   
   /*
-    使用event可以用一个函数处理多个事件处理程序奥
+    使用event对象可以用一个函数处理多个事件处理程序奥
   */
   var handler=function(event){
     switch(event.type){
@@ -162,6 +165,30 @@ console.log("22222222222222222222");
   eventBtn.onmouseover=handler;
   eventBtn.onmouseout=handler;
 </script>
+
+<p>----------------------事件对象：DOM中的事件对象：event.preventDefault()--------------------</p>
+<a href="事件处理程序.html" id="myLink">perventDefault()，阻止链接跳转行为</a><br>
+
+<form action="事件处理程序.html">
+  <input type="submit" id="submitBtn" value="阻止按钮为submit时的默认表单提交行为"/>
+</form>
+<script>
+  var links=$("#myLink")[0];
+  links.onclick=function(event){
+    // alert("clicked");
+	 event.preventDefault();//阻止默认的跳转链接行为
+  }
+  
+  var submits=$("#submitBtn")[0];
+  submits.onclick=function(event){
+    event.preventDefault();//阻止默认的提交方法
+  }
+</script>
+
+<p>----------------------事件对象：DOM中的事件对象：event.preventDefault() 详情见同级目录下的 事件处理.html--------------------</p><br>
+
+
+
 </body>
 </html>
  

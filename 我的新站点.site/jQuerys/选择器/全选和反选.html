@@ -518,7 +518,7 @@ hihi
 </div>
 <input type="button" value="选择器：parent()与parents()" onClick="testParents(this)"/><br />
 
-<p>------------------click：通过点击的元素，给指定元素绑定事件处理程序-----------------------------</p>
+<p>------------------事件-click：通过点击的元素，给指定元素绑定事件处理程序-----------------------------</p>
  
 <p id="clickTest"> </p>
  
@@ -531,6 +531,38 @@ var v="http://image.hrofirst.com/101/201602/cadf74ef-f5c3-4549-955e-8aa4db4cd337
  
   $("#clickBtn").click();
 }
+</script>
+
+
+<p>------------------:nth-child 匹配其父元素下的第N个子或奇偶元素-----------------------------</p>
+<p>-------------:eq(index)' 只匹配一个元素，而这个将为每一个父元素匹配子元素。:nth-child从1开始的，而:eq()是从0算起的------------</p>
+<div id="nth-child">
+	 <ul>
+	  <li>John</li>
+	  <li>hello world   </li>
+	  <li>Brandon</li>
+	</ul>
+	<ul>
+	  <li>Glen</li>
+	  <li>hello helln   </li>
+	  <li>Ralph</li>
+	</ul>
+</div><br>
+<input type="button" id="nth-child-btn" value="测试nth-child" onClick="nthChildTest();"/>
+<script>
+ function nthChildTest(){
+   var xx="";
+   $("#nth-child ul li:nth-child(2)").each(function(){
+      xx+=$(this).html();
+   });
+   console.log("nth-child="+xx);
+   
+   var yy="";
+   $("#nth-child ul li:eq(2)").each(function(){//eq只匹配第一个父元素底下的第三个
+      yy+=$(this).html();
+   });
+   console.log("eq="+yy);
+ }
 </script>
 </body>
 </html>
