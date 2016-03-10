@@ -564,5 +564,33 @@ var v="http://image.hrofirst.com/101/201602/cadf74ef-f5c3-4549-955e-8aa4db4cd337
    console.log("eq="+yy);
  }
 </script>
+
+
+
+<p>-------------:eq(index)' 只匹配一个元素，而这个将为每一个父元素匹配子元素。:nth-child从1开始的，而:eq()是从0算起的------------</p>
+ 
+<script type="text/javascript">
+$(function () {
+$("#btnTesta").change(function () { alert('aa'); });
+$("#btna").click(function () {
+ 
+ 
+//判断是否绑定了click事件
+var objEvt = $._data($("#btnTesta")[0], "events");
+if (objEvt && objEvt["change"]) {
+//console.info(objEvt["click"]);
+alert("bind click");
+}
+else {
+alert("Not bind click");
+}
+});
+ 
+});
+</script>
+</head>
+<body>
+<input type="button" id="btna" value="测试是否绑定事件" />
+<input type="button" id="btnTesta" value="被测试按钮" />
 </body>
 </html>

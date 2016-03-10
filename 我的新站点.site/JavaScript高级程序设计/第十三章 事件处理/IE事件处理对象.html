@@ -1,0 +1,101 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+</head>
+
+<body>
+<p>-----------------------IE中的事件对象 ：event--------------------</p>
+<input type="button" value="aaaaaaaa" id="eventBtn"/>
+<script>
+  var dombtn=$("#eventBtn")[0];
+  dombtn.onclick=function(event){
+    var events=window.event;//IE中访问事件对象event可以通过window.event获得，火狐浏览器中不会这样
+	alert(event.type);// IE-click  FireFox-click
+	alert(events.type);//IE-click  FireFox-undefined
+	alert(events==event);//IE-true  FireFox-false
+  } 
+  
+  //在IE浏览器中会报错，attachEvent事件处理程序方法不存在
+  /*dombtn.attachEvent("onclick",function(event){
+    alert(event.type);
+  })*/
+  
+</script>
+
+<p>-----------------------IE中的事件对象 ：srcElement--事件处于的目标，与DOM中的target属性相同--------------------</p>
+<p style="color:#00CCFF"> 备注：因为事件处理程序的作用域是根据指定它的方式来确定的，所以不能认为this会始终等于事件目标。故而，最好还是用event.srcElement比较保险-</p>
+<input type="button" value="srcElement属性" id="eventBtn1"/><br>
+<input type="button" value="srcElement属性22" id="eventBtn2"/><br>
+
+<script>
+  var dombtn=$("#eventBtn1")[0];
+   dombtn.onclick=function(event){
+    var flag= this==event.srcElement;
+    alert("this==event.srcElement=   "+flag);//true
+    alert("event.srcElement.value="+event.srcElement.value);//srcElement属性
+	alert("event.target="+event.target.value);//srcElement属性
+	 
+  } 
+  var dombtn2=$("#eventBtn2")[0];
+  dombtn2.attachEvent("onclick",function(event){
+    console.log(this==event.srcElement);//false
+	console.log(this.value);//undefined
+	console.log(event.srcElement.value);//srcElement属性22
+	console.log(this==window);//true
+	console.log(this.event.srcElement.value);//srcElement属性22
+	console.log(window.event.srcElement.value);//srcElement属性22
+  
+  });
+  
+  
+ </script>
+
+<p>-----------------------IE中的事件对象 ：returnValue 阻止元素的默认行为--------------------</p>
+ <a href="test.html" class="hh">hello world</a>
+ <script>
+   $("a.hh")[0].onclick=function(event){
+     
+	  window.event.returnValue=false;  //除了IE11，IE11以下版本都能阻止默认的链接行为
+	  alert("hehehehehe");
+	 // return false;
+   }
+ </script>
+<p>-----------------------阻止默认行为 return false与preventDefault()的区别--------------------</p> 
+ <div id="returnF">
+   <a href="test.html" class="cc">hello world,sir</a>
+ 
+ </div>
+  <script>
+  //说明：结果只会弹出"heheheheh"  
+  //retuan false虽然能阻止元素的默认链接行为，但是a元素外层的div绑定的事件处理程序会一块被取消掉，相当于同时用了preventDefault()和stopPropagation()两个事件方法哎，所以慎用啊。。。。
+   $(".cc").click(function(event){
+     
+	   alert("hehehehehe");
+	   return false;
+   })
+   
+    $("#returnF").click(function(){
+      alert("div");
+   } )
+ </script>
+ 
+ <p>-----------------------IE中的事件对象 ：cancelBubble-- --------------------</p>
+<input type="button" value="cancelBubbleBtn属性" id="cancelBubbleBtn"/>
+<script>
+  $("#cancelBubbleBtn")[0].onclick=function(){
+      alert(this.value);
+	  console.log("11111111111");
+	  window.event.cancelBubble=true;//取消冒泡，下面body的事件处理程序不会执行，cancelBubble默认值为false，同DOM的stopPropagation()方法
+  }
+  
+  $("body")[0].onclick=function(){
+     alert("click cancelBubbleBtn  and After...............");
+  }
+
+</script>
+</body>
+</html>

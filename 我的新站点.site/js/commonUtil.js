@@ -16,6 +16,15 @@
 		 }
 	 
 	 },
+	 getEvent:function(event){
+			 return event?event:window.event;
+			 },
+	 getTarget:function(event){
+		   return event.target?
+		 }
+	 
+	 
+	 
 	 removeHandler:function(element,type,handler){
 	     if(element.removeEventListener){
 		   console.log("DOM2 remove");
