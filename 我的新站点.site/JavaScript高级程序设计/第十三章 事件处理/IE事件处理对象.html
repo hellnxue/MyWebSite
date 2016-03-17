@@ -4,25 +4,43 @@
 <meta   charset="gb2312" />
 <title>无标题文档</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
-
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
 </head>
 
 <body>
 <p>-----------------------IE中的事件对象 ：event--------------------</p>
-<input type="button" value="aaaaaaaa" id="eventBtn"/>
+<input type="button" value="aaaaaaaa" id="eventBtn"/><br>
+<input type="button" value="attachEvent" id="attachBtn"/>
 <script>
   var dombtn=$("#eventBtn")[0];
   dombtn.onclick=function(event){
-    var events=window.event;//IE中访问事件对象event可以通过window.event获得，火狐浏览器中不会这样
+   /*   var events=window.event;//IE中访问事件对象event可以通过window.event获得，火狐浏览器中不会这样
 	alert(event.type);// IE-click  FireFox-click
 	alert(events.type);//IE-click  FireFox-undefined
-	alert(events==event);//IE-true  FireFox-false
+	alert(events==event);//IE-true  FireFox-false */
+	
+	var windowEvent=EventUtil.getEvent(event);//通过该方法获得的event对象也是window.event对象
+	console.log(windowEvent==window.event); //IE11为true  IE10以及以下版本为false 
+	/*var target=EventUtil.getTarget(event);
+	console.log(target==event.target);//true
+	console.log(target==event.srcElement);//true
+	console.log(target);
+	console.log( event.target);
+	console.log( event.srcElement);*/
+	console.log(windowEvent.type);
+	
+	var target=EventUtil.getTarget(windowEvent);
+	console.log(target.value);
+	
+	 
+	
   } 
   
-  //在IE浏览器中会报错，attachEvent事件处理程序方法不存在
-  /*dombtn.attachEvent("onclick",function(event){
+  //在IE11中会报错，attachEvent事件处理程序方法不存在;IE10版本以及以下可以哎
+   var IEbtn=$("#attachBtn")[0];
+   IEbtn.attachEvent("onclick",function(event){
     alert(event.type);
-  })*/
+  }) 
   
 </script>
 
@@ -59,8 +77,9 @@
  <script>
    $("a.hh")[0].onclick=function(event){
      
-	  window.event.returnValue=false;  //除了IE11，IE11以下版本都能阻止默认的链接行为
-	  alert("hehehehehe");
+	   // window.event.returnValue=false;  //除了IE11，IE11以下版本都能阻止默认的链接行为
+	 
+	   EventUtil.preventDefault(event);//除了IE8不行外，其它都行
 	 // return false;
    }
  </script>
@@ -83,13 +102,16 @@
    } )
  </script>
  
- <p>-----------------------IE中的事件对象 ：cancelBubble-- --------------------</p>
+ <p>-----------------------IE中的事件对象 ：cancelBubble--阻止事件冒泡的 --------------------</p>
 <input type="button" value="cancelBubbleBtn属性" id="cancelBubbleBtn"/>
 <script>
-  $("#cancelBubbleBtn")[0].onclick=function(){
+  $("#cancelBubbleBtn")[0].onclick=function(event){
       alert(this.value);
 	  console.log("11111111111");
-	  window.event.cancelBubble=true;//取消冒泡，下面body的事件处理程序不会执行，cancelBubble默认值为false，同DOM的stopPropagation()方法
+	 // window.event.cancelBubble=true;//取消冒泡，下面body的事件处理程序不会执行，cancelBubble默认值为false，同DOM的stopPropagation()方法 window.event.stopPropagation()也行哎
+	  
+	  EventUtil.stopPropagation(EventUtil.getEvent(window.event));
+	  
   }
   
   $("body")[0].onclick=function(){

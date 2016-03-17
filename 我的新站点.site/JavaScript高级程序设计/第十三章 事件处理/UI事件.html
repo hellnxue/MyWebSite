@@ -1,0 +1,88 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
+
+
+</head>
+
+<body   >
+ hello sir.
+ <span style="width:50px; font-size:50px; word-wrap:break-word; letter-spacing:20px;">hello world</span>
+  <span style="width:50px; font-size:50px; word-wrap:break-word; letter-spacing:20px;">hello world</span>
+  <span style="width:50px; font-size:50px; word-wrap:break-word; letter-spacing:20px;">hello world</span>
+  <span style="width:50px; font-size:50px; word-wrap:break-word; letter-spacing:20px;">hello world</span>
+ 
+ 
+ <!-- <div style="width:100px; height:100px; overflow:hidden; ">
+    <img src="../../image/flower.png"   style="height:100%;"/>
+
+ </div> -->
+ <script>
+
+ /* EventUtil.addHandler(window,"load",function(event){
+    alert("loaded!");
+  });*/
+ /* var img=$("img")[0];
+  
+  EventUtil.addHandler(img,"load",function(event){
+      console.log(EventUtil.getTarget(EventUtil.getEvent(event)).src);
+  });*/
+  
+ /* EventUtil.addHandler(window,"load",function(event){
+     var img=document.createElement("img");
+	 EventUtil.addHandler(img,"load",function(event){
+	    event=EventUtil.getEvent(event);
+		alert(EventUtil.getTarget(event).src);
+	 
+	 });
+	 
+	 document.body.appendChild(img);
+	 img.src="../../image/flower.png";
+   
+  });*/
+  
+  //图片加载事件
+/*  
+   EventUtil.addHandler(window,"load",function(event){
+     var img=new Image();
+	 EventUtil.addHandler(img,"load",function(event){
+	    event=EventUtil.getEvent(event);
+		alert(EventUtil.getTarget(event).src);
+	 
+	 });
+	 document.body.appendChild(img);
+	 img.src="../../image/flower.png";
+   
+  });*/
+  
+  //resize事件，当浏览器窗口被调整到一个新的高度或宽度时，就会触发这个事件，会重复触发
+  /* EventUtil.addHandler(window,"resize",function(event){
+	    
+		alert("Resized");
+	 
+	 });*/
+	 
+   //卸载事件，试过了，IE和火狐和谷歌浏览器中，只有IE支持，且是关闭页面的时候触发的，切换页面不会执行
+   /*EventUtil.addHandler(window,"unload",function(event){
+      alert("unloaded"); 
+   
+  });*/
+  
+  //scroll滚动事件,滚动条向上和向下都会触发，输出页面的垂直滚动位置，滚动条到顶部的距离
+  //scroll事件也会在文档被滚动期间重复触发
+ /* EventUtil.addHandler(window,"scroll",function(event){
+     if(document.compatMode="CSS1Compat"){
+	    console.log(document.documentElement.scrollTop+"="+document.documentElement.scrollLeft+"="+document.documentElement.scrollRight);
+	 }else{
+	    console.log(document.body.scrollTop+"="+document.body.scrollLeft+"="+document.body.scrollRight);
+	 }
+  
+  });*/
+
+</script>
+</body>
+</html>

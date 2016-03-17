@@ -1,0 +1,28 @@
+<!DOCTYPE html  >
+<html  >
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<script  src="../../js/jquery-1.8.2.min.js"/></script>
+<script type="text/javascript" src="../../js/main.js"></script>
+<script>
+   $(function(){
+      $("#pbtn").click(function(){
+	       location.href="图片放大镜效果.html";
+		  
+		  //方法二 location.replace("图片放大镜效果.html");
+	  });
+   
+   })
+
+</script>
+<!--方法一：以下代码会屏蔽掉进入另一个页面的浏览器的返回按钮-->
+< <script language="JavaScript">
+   javascript:window.history.forward(1);
+  </script> 
+</head>
+
+<body>
+<input type="button" id="pbtn" value="跳转至另一个页面"/>
+</body>
+</html>

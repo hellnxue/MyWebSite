@@ -3,10 +3,33 @@
 <style type="text/css">
 body 
 {
-background-image:url(../../image/flower.png);
+background-image:url(../image/flower.png);
 background-repeat:no-repeat;
 background-attachment:fixed/*设置固定的背景图像，图像不会随着页面的其它部分滚动 */
 }
+
+div.one{
+direction:rtl;
+color:#FFCCFF}
+
+div.two{
+direction:ltr}
+
+h1{
+letter-spacing:-10px;}
+
+h4{
+letter-spacing:0.5cm}
+
+h1.h11{
+text-align:center;
+letter-spacing:inherit;}
+h2.h22{
+text-align:left}
+h3.h33{
+text-align:right}
+
+ 
 </style>
 </head>
 
@@ -35,6 +58,21 @@ background-attachment:fixed/*设置固定的背景图像，图像不会随着页面的其它部分滚动 
 <p>The image will not scroll with the rest of the page</p>
 <p>The image will not scroll with the rest of the page</p>
 <p>The image will not scroll with the rest of the page</p>
+
+
+<div class="one">Some text. Right-to-left direction.</div>
+<div class="two">Some text. Left-to-right direction.</div>
+
+<h1>This is header 1</h1>
+<h4>This is header 4</h4>
+
+<div  >
+<h1 class="h11">This is header 1</h1>
+<h2 class="h22">This is header 2</h2>
+<h3 class="h33">This is header 3</h3>
+</div>
+
+ 
 </body>
 
 </html>

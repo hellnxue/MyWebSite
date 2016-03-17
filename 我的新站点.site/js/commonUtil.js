@@ -1,6 +1,8 @@
 // JavaScript Document
  
  /*跨浏览器事件处理程序*/
+ /*跨浏览器事件对象*/
+ /*有些方法或属性在同一个浏览器的不同版本中效果也不一样*/
  var EventUtil={
      addHandler:function(element,type,handler){
 	     if(element.addEventListener){
@@ -17,13 +19,37 @@
 	 
 	 },
 	 getEvent:function(event){
-			 return event?event:window.event;
+		 
+			 return event||window.event;
+			 
 			 },
 	 getTarget:function(event){
-		   return event.target?
-		 }
-	 
-	 
+		 
+		   return event.target||event.srcElement;
+		   
+		 },
+	 preventDefault:function(event){
+		 if(event.preventDefault){
+			 
+			 event.preventDefault();
+			  
+			 }else{
+				 
+			  event.returnValue=false;	
+			  
+			}
+		 },
+	 stopPropagation:function(event){
+		  if(event.stopPropagation){
+			  
+			  event.stopPropagation();
+			 
+			  }else{
+				  
+			  event.cancleBubble=true;
+			   
+			  }
+		 },
 	 
 	 removeHandler:function(element,type,handler){
 	     if(element.removeEventListener){

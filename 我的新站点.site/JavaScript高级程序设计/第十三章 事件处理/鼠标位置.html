@@ -1,0 +1,40 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
+
+
+</head>
+
+<body style="background-color:#eee">
+
+
+<span style="color:#CC00FF;margin-top:100px;background-color:#CCFF99; padding-top:20px;display:block">p</span>
+
+
+
+<div style="width:1500px; height:1000px; background-color:#CCFFFF; padding-left:100px; margin-left:50px; padding-top:100px;">
+
+hello client
+
+<span style="color:#CC00FF;margin-top:100px;background-color:#FF99FF; padding-top:20px;">p</span>
+
+<p  style="margin-top:100px; color:#CC00FF; background-color:#FFFF99; padding-top:20px;">o</p>
+
+
+
+</div>
+<script>
+   var div=$("div")[0];
+   EventUtil.addHandler(div,"click",function(event){
+       console.log("Client coordinates:"+event.clientX+","+event.clientY);//客户端可视区域
+	   console.log("Page coordinates:"+event.pageX+","+event.pageY);//页面的,滚动条所在范围内的
+	   console.log("Page coordinates:"+event.screenX+","+event.screenY);//电脑屏幕的
+   });
+	 
+</script>
+</body>
+</html>

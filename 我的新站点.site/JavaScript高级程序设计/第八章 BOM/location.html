@@ -21,6 +21,23 @@ $(function(){
 	  console.log("hello");
   
     });
+	
+	
+	$("#test4").on("click",function(){
+	 var paramObj={};
+     var str="?employeeId=18928&employeeName=侯辉&reportMonth=201603";
+	 var index=str.indexOf("?");
+	 var strl=str.substring(index+1);
+	 
+	 
+	 var strArray=strl.split("&");
+	 strArray.forEach(function(item,index,array){
+	   paramObj[(item.split("=")[0])]=item.split("=")[1];
+	   console.log( item.split("=")[0]+"="+ paramObj[(item.split("=")[0])]);
+	 });
+	 
+  
+    });
 });
  
 </script>
@@ -31,5 +48,8 @@ $(function(){
 <input type="button"   value="测试search" id="test1"/><br/>
  <input type="button"   value="测试replace" id="test2"/><br/>
   <input type="button"   value="测试reload" id="test3"/><br/>
+  <p>--------------------------j将location.search获得的地址栏的数据截取处理成Object----------------------------------------------------</p>
+  <p>?employeeId=18928&employeeName=侯辉&reportMonth=201603</p>
+    <input type="button"   value="处理search获取的地址栏数据" id="test4"/><br/>
 </body>
 </html>

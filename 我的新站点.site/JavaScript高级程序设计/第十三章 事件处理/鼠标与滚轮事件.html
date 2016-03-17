@@ -1,0 +1,56 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
+
+
+</head>
+
+<body>
+<p>-----------------------------鼠标双击事件-----------------------------------------</p>
+<input type="button" id="dblclick" value="双击执行事件"/>
+<script>
+     
+   /* $("#dblclick")[0].ondblclick=function(event){
+	  console.log(event.currentTarget.value);
+	}*/
+	function handler0(event){
+	 console.log("click=鼠标单击");
+	
+	}
+	function handler1(event){
+	 console.log("dblclick=鼠标双击");
+	
+	
+	}
+	function handle1r2(event){
+	 console.log("mousedown 鼠标摁下");
+	 
+	}
+	function handle1r3(event){
+	 console.log("mouseup 鼠标放开");//+event.currentTarget.value
+	
+	}
+	
+	function handle1r4(event){
+	 console.log("mousewheel  ");//+event.currentTarget.value
+	
+	}
+	EventUtil.addHandler($("#dblclick")[0],"click",handler0);
+	EventUtil.addHandler($("#dblclick")[0],"dblclick",handler1);
+	EventUtil.addHandler($("#dblclick")[0],"mousedown",handle1r2);
+	EventUtil.addHandler($("#dblclick")[0],"mouseup",handle1r3);
+	
+	EventUtil.addHandler(window,"mousewheel",handle1r4);//不管用哎。。。。why?
+	 
+	var isSupporter=document.implementation.hasFeature("MouseEvents","2.0");
+	console.log("isSupporter===="+isSupporter);
+	
+	var isSupporterMouseAllEvents=document.implementation.hasFeature("MouseEvents","3.0");
+	console.log("isSupporterMouseAllEvents===="+isSupporterMouseAllEvents);
+</script>
+</body>
+</html>

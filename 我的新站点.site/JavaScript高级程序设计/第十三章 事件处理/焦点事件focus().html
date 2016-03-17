@@ -1,0 +1,39 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
+
+<script>
+
+var isSupported=document.implementation.hasFeature("FocusEvent",3.0); 
+console.log(isSupported);
+
+   $(function(){
+   
+  
+      $("#focus")[0].focus();//让按钮获得焦点，这个事件不会冒泡哎，body的click事件不会发生
+	  
+	  // $("#focus")[0].focusin();//同focus（）,但是会冒泡，可是浏览器都不支持哎
+	   
+	  console.log("文档时候获得焦点："+document.hasFocus());
+	  console.log("文档获得焦点的DOM元素：");
+	  console.log(document.activeElement);
+	  
+	  
+	  $("body").click(function(){
+	     alert("hehes");
+		   console.log(document.hasFocus());
+	  });
+   })
+  
+</script>
+</head>
+
+<body>
+
+<input type="button" id="focus" value="foucesTest"/>
+</body>
+</html>
