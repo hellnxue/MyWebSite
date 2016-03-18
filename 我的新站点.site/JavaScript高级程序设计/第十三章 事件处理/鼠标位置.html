@@ -2,7 +2,7 @@
 <html  >
 <head>
 <meta   charset="gb2312" />
-<title>无标题文档</title>
+<title>鼠标位置，滚动条奥</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../../js/commonUtil.js"></script>
 
@@ -11,29 +11,74 @@
 
 <body style="background-color:#eee">
 
-
+<!-----------------------------将内联元素转换为块级元素------------------->
 <span style="color:#CC00FF;margin-top:100px;background-color:#CCFF99; padding-top:20px;display:block">p</span>
 
 
 
 <div style="width:1500px; height:1000px; background-color:#CCFFFF; padding-left:100px; margin-left:50px; padding-top:100px;">
-
+<!-----------------------------内联元素------------------->
 hello client
 
 <span style="color:#CC00FF;margin-top:100px;background-color:#FF99FF; padding-top:20px;">p</span>
+<a href="www" style="color:#0000FF; font-size:18px">内联元素</a>
+ 
+ 
+ <!-----------------------------内联元素中放块级元素，据说很少用......------------------->
+ <a>
+<div style="width:100px;height:100px;">测试</div>
+</a> 
 
-<p  style="margin-top:100px; color:#CC00FF; background-color:#FFFF99; padding-top:20px;">o</p>
+<!-----------------------------块级元素转为内联元素------------------->
+<p  style="margin-top:100px; color:#CC00FF; background-color:#FFFF99; padding-top:20px; display:inline;">o</p>
+
+<!-----------------------------块级元素------------------->
+<div>hello </div>
+<div>sir </div>
+
+<!----------------------------将无序列表默认的换行改掉，变成横向显示------------------->
+<ul >
+	<li style="display:inline-block;">one</li>
+	<li style="display:inline-block;">two</li>
+	<li style="display:inline-block;">three</li>
+
+</ul>
 
 
-
+ 
 </div>
 <script>
+   var scrollTop=document.body.scrollTop||document.documentElement.scrollTop
+   console.log("滚动条距离页面顶部的高度："+scrollTop);
+   console.log("滚动条距离页面顶部的高度："+$(window).scrollTop());
+   console.log("页面可视区域的总高度："+ $(window).height());
+   console.log("当前页面的总高度："+ $(document).height());//当前页面的总高度（即滚动条范围内的页面）=滚动条距离页面顶部的高度+页面可视区域的高度
    var div=$("div")[0];
-   EventUtil.addHandler(div,"click",function(event){
+/*   EventUtil.addHandler(div,"click",function(event){
        console.log("Client coordinates:"+event.clientX+","+event.clientY);//客户端可视区域
-	   console.log("Page coordinates:"+event.pageX+","+event.pageY);//页面的,滚动条所在范围内的
-	   console.log("Page coordinates:"+event.screenX+","+event.screenY);//电脑屏幕的
+	   console.log("Page coordinates:"+event.pageX+","+event.pageY);//相对于浏览器中的页面的,滚动条所在范围内的
+	   console.log("Screen coordinates:"+event.screenX+","+event.screenY);//相对于整个电脑屏幕的
+   });*/
+   
+   //IE8以及更早版本不支持pageX,pageY ，不过使用客户区坐标和滚动信息可以计算出来，需要document.body(混杂模式)或document.documentElement(标准模式)中的scrollLeft和scrollTop属性
+    EventUtil.addHandler(div,"click",function(event){
+        event=EventUtil.getEvent(event);
+		var pageX=event.pageX,
+		    pageY= event.pageY;
+			
+		if(pageX===undefined){
+		    console.log("jisuan");
+		    pageX=event.clientX+(document.body.scrollLeft||document.documentElement.scrollLeft);
+		}
+		
+		if(pageY===undefined){
+		   pageY=event.clientY+(document.body.scrollTop||document.documentElement.scrollTop)
+		}
+		
+		 console.log("Page coordinates:"+pageX+","+pageY); 
    });
+   
+   
 	 
 </script>
 </body>
