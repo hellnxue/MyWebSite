@@ -1,0 +1,38 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>鼠标位置，滚动条奥</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
+
+
+</head>
+
+<body style="background-color:#eee">
+ 
+
+<div style="width:1500px; height:1000px; background-color:#CCFFFF; padding-left:100px; margin-left:50px; padding-top:100px;">
+ 
+ 
+</div>
+<script>
+    var div=$("div")[0];
+	//火狐不支持，IE，O支持
+    EventUtil.addHandler(document,"mousewheel",function(event){
+         event=EventUtil.getEvent(event);
+		 console.log(event.wheelDelta);
+		 console.log(event.detail);
+		
+   });
+    
+     EventUtil.addHandler(document,"DOMMouseScroll",function(event){
+         event=EventUtil.getEvent(event);
+		 
+		 console.log(event.detail);
+		
+   });
+	 
+</script>
+</body>
+</html>

@@ -81,7 +81,10 @@ $(function(){
 
 
 $("#tc").on("click",function(){
-  $("#hihi").after($(".hehe").clone(true));
+  var html=$(".hehe").clone(true);
+  html.attr("name","newName");//这个html对象本身就是jQuery对象吗？ $(html)也好用哎？？？？？？？？？？？？？？？？？？
+  $(html).attr("data-name","dataNew");
+  $("#hihi").after(html);
 
  });
  
@@ -435,7 +438,7 @@ hihi
 <p id="tadd">Hello</p>
 <span id="sadd">Hello Again</span>
 <br>
-<input type="button" value="测试warp" id="addbtn"/><br />
+<input type="button" value="测试add()" id="addbtn"/><br />
 
 
 <p>------------------筛选方法  next()-----------------------------</p>
@@ -592,5 +595,25 @@ alert("Not bind click");
 <body>
 <input type="button" id="btna" value="测试是否绑定事件" />
 <input type="button" id="btnTesta" value="被测试按钮" />
+
+
+<p>--------------------------jQuery串联方法：add()：把与表达式匹配的元素添加到jQuery对象中。可以选择多个对象后添加同一个事件等，不用选择一个对象再绑定一个事件--------------------------------</p>
+<p>---------------给两个按钮都绑定click事件,绑定同一个事件------------------------------</p>
+ 
+<input type="button" value="add1" data-id="addBtn1" />
+<input type="button" value="add2" data-id="addBtn2" />
+ 
+
+<script>
+   $(function(){
+   // $("[data-id='addBtns']").add("[data-id='addBtn2']") 即使这样也能为存在的jquery对象添加上事件
+      $("[data-id='addBtn1']").add("[data-id='addBtn2']").on("click",function(){
+	  
+	    console.log(123);
+	  
+	  });
+   })
+
+</script>
 </body>
 </html>

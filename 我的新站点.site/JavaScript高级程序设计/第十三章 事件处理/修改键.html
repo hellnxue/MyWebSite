@@ -18,6 +18,10 @@
 </div>
 <script>
     var div=$("div")[0];
+	 /*
+	   在点击的同时，以下键盘中的任意键被按下时值为true
+	 */
+	
     EventUtil.addHandler(div,"click",function(event){
         event=EventUtil.getEvent(event);
 		var keys=new Array();

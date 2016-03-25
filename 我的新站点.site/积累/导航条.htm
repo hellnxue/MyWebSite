@@ -1,0 +1,140 @@
+<!doctype html>
+<html class="no-js">
+<head>
+<meta charset="utf-8">
+<title>Hello Amaze UI</title>
+
+ 
+<style>
+
+.stepInfo{position:relative;background:#33CCFF;margin:40px auto 0 auto;width:720px;}
+.init{float:left;width:48%;height:0.6em;background:#CCCCCC;list-style-type:none}
+.stepIco{border-radius:1.4em;padding:0.2em;background:#45a0f3;text-align:center;line-height:1.4em;color:#fff; position:absolute;width:1.4em;height:1.4em;}
+.stepIco1{top:-0.7em;left:2%;background-color:#CCCCCC}
+.stepIco2{top:-0.7em;left:25%;background-color:#CCCCCC}
+.stepIco3{top:-0.7em;left:48%;background-color:#CCCCCC}
+.stepIco4{top:-0.7em;left:71%;background-color:#CCCCCC}
+.stepIco5{top:-0.7em;left:95%;background-color:#CCCCCC}
+.stepText{color:#666;margin-top:0.2em;width:4em;text-align:center;margin-left:-1.4em;}
+ 
+ 
+ 
+ .point{
+   background-color:#0066FF
+ 
+ }
+ 
+  
+ 
+ .a{
+   background-color:#0099FF; width:21%;
+ }
+ 
+ .aa{
+   width:75%;
+ }
+ 
+  .b{
+   background-color:#0099FF; width:45%;
+ }
+ 
+ .bb{
+   width:50%;
+ }
+  .c{
+   background-color:#0099FF; width:70%;
+ }
+ 
+ .cc{
+   width:25%;
+ }
+  .d{
+   background-color:#0099FF; width:95%;
+ }
+ 
+ .dd{
+   width:0%;
+ }
+ 
+</style>
+<script type="text/javascript" src="../js/jquery-1.8.2.min.js"></script>
+<script>
+  var temp="办理中";
+  $(function(){
+	  /*if(temp=="审批中"){
+	       $(".test li").eq(0).removeClass("a").addClass("b");
+		   $(".test li").eq(1).removeClass("aa").addClass("bb");
+		   $("#test1").add("#test2").add(".stepIco3").addClass("point");
+	  }*/
+      
+	   handler(temp);
+	   
+	  /*  $(".stepIco4").add(".stepIco5").hide();
+	    $(".test li").eq(1).hide(); */
+  })
+  
+  function handler(name){
+    switch(name){
+	  case "已受理":
+	       $(".test li").eq(0).removeAttr("class").addClass("init");
+		   $(".test li").eq(1).removeAttr("class").addClass("init");
+		   $(".stepIco1").addClass("point");
+		   break;
+	  
+	  case "办理中":
+	  		$(".test li").eq(0).removeAttr("class").addClass("init a");
+		    $(".test li").eq(1).removeAttr("class").addClass("init aa");
+		     $(".stepIco1").add(".stepIco2").addClass("point");
+		    break;
+	  
+	  case "审批中":
+	        $(".test li").eq(0).removeAttr("class").addClass("init b");
+		    $(".test li").eq(1).removeAttr("class").addClass("init bb");
+		     $(".stepIco1").add(".stepIco2").add(".stepIco3").addClass("point");
+		    break;
+	  
+	  case "公证书制作":
+	  		 
+	        $(".test li").eq(0).removeAttr("class").addClass("init c");
+		    $(".test li").eq(1).removeAttr("class").addClass("init cc");
+		     $(".stepIco1").add(".stepIco2").add(".stepIco3").add(".stepIco4").addClass("point");
+		    break;
+	  
+	  case "可领证":
+			 
+	        $(".test li").eq(0).removeAttr("class").addClass("init d");
+		    $(".test li").eq(1).removeAttr("class").addClass("init dd");
+		    $(".stepIco1").add(".stepIco2").add(".stepIco3").add(".stepIco4").add(".stepIco5").addClass("point");
+		    break;
+	}
+  }
+</script>
+</head>
+<body>
+ 
+<div class="stepInfo">
+    <ul class="test">
+        <li class="init a"></li>
+        <li class="init aa"></li>
+		 
+		
+    </ul>
+    <div class="stepIco stepIco1" id="test1">1
+        <div class="stepText">已受理</div>
+    </div>
+    <div class="stepIco stepIco2" id="test2">2
+        <div class="stepText">办理中</div>
+    </div>
+    <div class="stepIco stepIco3">3
+        <div class="stepText">审批中</div>
+    </div>
+    <div class="stepIco stepIco4">4
+        <div class="stepText">公证书制作</div>
+    </div>
+    <div class="stepIco stepIco5">5
+        <div class="stepText">可领证</div>
+    </div>
+</div>
+ 
+</body>
+</html>

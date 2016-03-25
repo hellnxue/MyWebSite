@@ -1,0 +1,86 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset= "gb2312" />
+
+<!--<base> 标签为页面上的所有的链接规定默认的地址或目标，所以下面的js引用、form里的action地址、a超链接的地址、img的图片地址才能找到位置，不加<base>标签的情况：指定了的地址前面会默认加上当前文档的地址，所有链接都是-->
+<base href="../../" >
+
+<title>事件处理程序</title>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/commonUtil.js"></script>
+<script>
+
+  $(function(){
+     var form= $("form")[0];
+	  /* EventUtil.addHandler(form,"submit",function(event){
+	    event=EventUtil.getEvent(event);
+		EventUtil.preventDefault(event);
+		var target=EventUtil.getTarget(event);
+		console.log("target.nodeName="+target.nodeName);//FORM，因为submit事件只会在form上发生，不会在button上
+		console.log("event.currentTarget.nodeName="+event.currentTarget.nodeName);//FORM
+		
+		var btn=form["subBtn"];
+		btn.disabled="disabled";//禁用其中一个submit按钮，为啥值加不上呢，但效果是好的
+	 }); */
+	 
+	/* form.onsubmit=function(event){
+	    event.preventDefault();
+	    console.log(event.target.nodeName);        //FORM  
+		console.log(event.currentTarget.nodeName); //FORM
+	 } */
+	  
+	 $("#ttBtn").click(function(){
+	    var form=$(this).parents("form")[0];
+		
+		//以下三种都是获得form表单里元素的name值
+		var input1=form.elements[0];
+		var input2=form[0];
+		var input3=form["formInput"];
+		console.log(input3.name);
+	 })
+  })
+
+//页面加载完后给指定的表单的指定字段获得焦点，书上说如果隐藏该字段，获得焦点的这段代码会报错，试过了，没有哎........
+EventUtil.addHandler(window,"load",function(event){
+    
+   var element=document.forms[1].elements["focusTest"];
+   
+   if(element.autofocus!==true){
+      element.focus();
+	  console.log("JS focus");
+   }
+});
+</script>  
+</head>
+
+<body>
+<h4>----------阻止按钮submit类型的默认提交行为：以下表单的三种按钮类型都是submit，不加阻止的情况下会执行默认的submit事件，但是js脚本的submit()方法不会触发submit事件----</h4>
+<form action="hello.html" method="post" >
+  <input type="text" name="name"/>
+  <input type="submit" id="subBtn" name="subBtn" value="阻止按钮submit类型的默认提交行为"/>
+  <input type="image" src="flower.jpg"   width="40px" height="30px"/>图片按钮
+  <button type="submit">自定义submit类型按钮</button>
+  <button>没有设置type的自定义按钮</button>
+  <button type="button">type为button类型按钮</button>
+</form>
+<br>
+
+<a href="hello.html" >hello</a>
+
+<img src="flower.jpg" /><br /><br>
+
+
+
+<form action="hello.html" method="post" >
+  <input type="text" name="formInput" />
+  <input type="text" name="autofocus"  value="autofocus" />
+  <input type="text" name="focusTest" autofocus />
+  <input type="text" name="disInput1" disabled="" /><!--表单禁用属性，只要设置上了这个属性，不管值为true还是false表单都是禁用状态哎-->
+  <input type="text" name="disInput2"  readonly="" /><!--表单只读属性，只要设置上了这个属性，不管值为true还是false表单都是禁用状态哎-->
+  <input type="button" id="ttBtn" value="表单属性测试"/>
+</form>
+
+
+</body>
+</html>

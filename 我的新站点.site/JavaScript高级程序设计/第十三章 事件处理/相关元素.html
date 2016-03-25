@@ -1,0 +1,44 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta   charset="gb2312" />
+<title>鼠标位置，滚动条奥</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
+
+
+</head>
+
+<body style="background-color:#eee">
+ 
+
+<div style="width:1500px; height:1000px; background-color:#CCFFFF; padding-left:100px; margin-left:50px; padding-top:100px;">
+ 
+ 
+</div>
+<script>
+    var div=$("div")[0];
+    EventUtil.addHandler(div,"mouseout",function(event){
+        event=EventUtil.getEvent(event);
+		 var target=EventUtil.getTarget(event);
+		 var relatedTarget=EventUtil.getRelatedTarget(event);
+		 if(target&&relatedTarget){
+		    console.log("Moused out of "+target.tagName+" to "+relatedTarget.tagName);//Moused out of DIV to BODY 对于mouseout事件，主目标是失去光标的元素，而相关元素是获得光标的元素；mouseover与mouseout正好相反
+		 }
+		
+   });
+   
+    EventUtil.addHandler(div,"mouseover",function(event){
+        event=EventUtil.getEvent(event);
+		 var target=EventUtil.getTarget(event);
+		 var relatedTarget=EventUtil.getRelatedTarget(event);
+		 if(target&&relatedTarget){
+		    console.log("Moused over from "+relatedTarget.tagName+" to "+target.tagName); 
+		 }
+		
+   });
+   
+	 
+</script>
+</body>
+</html>

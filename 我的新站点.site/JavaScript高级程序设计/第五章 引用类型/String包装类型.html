@@ -118,11 +118,17 @@ function testlablebreak(){
   
 }
 
- function test1(){
+ function test11(){
     var string="Java工程师面试题(三大框架SSH).txt";
 	 
 	var r=string.replace(string.substring(10,string.indexOf(".")-4),"...")
     console.log(r);
+ }
+ 
+ function test12(){
+    var str="h.e.txt";
+	console.log(str.indexOf("."));//1
+	console.log(str.lastIndexOf("."));//3
  }
 </script>
 </head>
@@ -137,6 +143,8 @@ function testlablebreak(){
 
 <input type="button" value="跳出最外层循环-lable break" onClick="testlablebreak()"/></br>
 
-<input type="button" value="长名字中间用点表示" onclick="test1()"/>
+<input type="button" value="长名字中间用点表示" onclick="test11()"/>
+<p>--------------indexOf()取字符的位置是从前向后取，lastIndexOf()是从后向前取------------------------------</p>
+<input type="button" value="lastIndexOf()方法测试" onclick="test12()"/>
 </body>
 </html>
