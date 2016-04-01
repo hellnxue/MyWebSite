@@ -1,0 +1,44 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset= "gb2312" />
+
+ 
+<title>事件处理程序</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+  
+</head>
+
+<body>
+ 
+
+<form action="hello.html" method="post" >
+  <input type="text" name="formInput" />
+   
+  <input type="button" value="random" onClick="rdmTest()"/>
+</form>
+<script>
+  
+
+/*从某个证书范围内随机选择一个只  公式：值=Math.floor(Math.random() * 可能值得总数+ 第一个可能的值)*/
+/*例：取0-2范围内的随机整数*/
+function rdmTest(){
+		/*var quotes = new Array;
+        var a =Math.floor( Math.random()*3 +0);
+		 
+	    var rand1 = Math.floor( Math.random()*3 +0);
+	 
+		
+		quotes[0] = "正在进行材料审核,请耐心等待！";
+		quotes[1] = "正在进行调查审核,请耐心等待！";
+		quotes[2] = "审核拟稿中,请耐心等待！";
+		var quote = quotes[rand1] 
+		console.log(quote);*/
+		var rdm=Math.random();
+		console.log(0.6105773050839782*3);
+}
+ 
+</script>
+
+</body>
+</html>

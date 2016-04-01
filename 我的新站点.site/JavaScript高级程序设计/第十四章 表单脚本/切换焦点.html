@@ -1,0 +1,62 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset= "gb2312" />
+
+<!--<base> 标签为页面上的所有的链接规定默认的地址或目标，所以下面的js引用、form里的action地址、a超链接的地址、img的图片地址才能找到位置，不加<base>标签的情况：指定了的地址前面会默认加上当前文档的地址，所有链接都是-->
+<base href="../../" >
+
+<title>事件处理程序</title>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/commonUtil.js"></script>
+ 
+</head>
+
+<body>
+ 
+
+
+<form action="hello.html" method="post" >
+  <input type="text" id="t1"  maxlength="3"/>
+  <input type="text" id="t2"   maxlength="3"/>
+  <input type="text" id="t3" maxlength="4"/> 
+  
+</form>
+<script>
+  
+/*当第一个文本框输入满指定长度的数值之后，会用keyup事件触发下面方法，让下一文本框获得焦点*/
+function tabFormard(event){
+    
+    event=EventUtil.getEvent(event);
+	var target=EventUtil.getTarget(event);
+	 
+	if(target.value.length==target.maxLength){
+	    
+	    var form=target.form;
+		for(var i=0,len=form.elements.length;i<len;i++){
+		   console.log(form.elements[i].id);
+		   if(form.elements[i]==target){
+		     if(form.elements[i+1]){
+			   form.elements[i+1].focus();
+			 }
+			 return;
+		   }
+		}
+	}
+}
+ 
+
+$(function(){
+  var t1=$("#t1")[0];
+  var t2=$("#t2")[0];
+  var t3=$("#t3")[0];
+  
+  EventUtil.addHandler(t1,"keyup",tabFormard);
+   EventUtil.addHandler(t2,"keyup",tabFormard);
+    EventUtil.addHandler(t3,"keyup",tabFormard);
+});
+ 
+</script>
+
+</body>
+</html>

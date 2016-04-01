@@ -10,10 +10,10 @@ function test1(){
      name:"helln",
 	 age:20
    };
-   var objText=JSON.stringify(obj);//将javascript对象转成json
+   var objText=JSON.stringify(obj);//将javascript对象转成json，一般用于向服务器发送数据时传输json格式的数据
    console.log(objText);
    var jsonObject=JSON.parse(objText);
-   console.log(jsonObject);        //将json解析成javascript对象
+   console.log(jsonObject);        //将json解析成javascript对象，以便可以很方便的操作对象数据
    
    var json1={"name":"hell","age":10};
    console.log(eval("json1"));

@@ -17,7 +17,7 @@
 	    event=EventUtil.getEvent(event);
 		EventUtil.preventDefault(event);
 		var target=EventUtil.getTarget(event);
-		console.log("target.nodeName="+target.nodeName);//FORM，因为submit事件只会在form上发生，不会在button上
+		console.log("target.nodeName="+target.nodeName);//FORM，因为submit事件只会在form上发生，不会在button上,submit事件的目标本身就是form，也只会是form
 		console.log("event.currentTarget.nodeName="+event.currentTarget.nodeName);//FORM
 		
 		var btn=form["subBtn"];
@@ -39,9 +39,29 @@
 		var input3=form["formInput"];
 		console.log(input3.name);
 	 })
+	 
+	 /**
+	   给有默认行为的元素添加点击事件
+	 **/
+	 $("#hc").click(function(event){
+	   alert("hehe");
+	   //event.preventDefault();
+	 })
+	 
+	 
+	 /*选择部分文本*/  
+     /*要看到选择的文本，必须在调用setSelectionRange()之前或之后立即将焦点设置到文本框*/
+	   $("#setSltTsts").click(function(event){
+	    // setSltTsts.setSelectionRange(0,2);//选择0到2位置的字符串
+//	     setSltTsts.setSelectionRange(0,$(this)[0].value.length);//全选
+		setSltTsts.setSelectionRange(3,5);
+	 }); 
+	 
+	 
+	 
   })
 
-//页面加载完后给指定的表单的指定字段获得焦点，书上说如果隐藏该字段，获得焦点的这段代码会报错，试过了，没有哎........
+//页面加载完后给指定的表单字段获得焦点，书上说如果隐藏该字段，获得焦点的这段代码会报错，试过了，没有哎........
 EventUtil.addHandler(window,"load",function(event){
     
    var element=document.forms[1].elements["focusTest"];
@@ -51,6 +71,9 @@ EventUtil.addHandler(window,"load",function(event){
 	  console.log("JS focus");
    }
 });
+
+
+ 
 </script>  
 </head>
 
@@ -58,15 +81,19 @@ EventUtil.addHandler(window,"load",function(event){
 <h4>----------阻止按钮submit类型的默认提交行为：以下表单的三种按钮类型都是submit，不加阻止的情况下会执行默认的submit事件，但是js脚本的submit()方法不会触发submit事件----</h4>
 <form action="hello.html" method="post" >
   <input type="text" name="name"/>
+  <!--submit类型的按钮，会触发submit事件  start-->
   <input type="submit" id="subBtn" name="subBtn" value="阻止按钮submit类型的默认提交行为"/>
   <input type="image" src="flower.jpg"   width="40px" height="30px"/>图片按钮
   <button type="submit">自定义submit类型按钮</button>
+  <!--end-->
+  
   <button>没有设置type的自定义按钮</button>
   <button type="button">type为button类型按钮</button>
 </form>
 <br>
 
-<a href="hello.html" >hello</a>
+<!--给有默认行为的元素添加点击事件，会先执行点击事件再执行默认行为，这个顺序还要根据浏览器判断-->
+<a href="hello.html" id="hc" >hello</a>
 
 <img src="flower.jpg" /><br /><br>
 
@@ -75,12 +102,71 @@ EventUtil.addHandler(window,"load",function(event){
 <form action="hello.html" method="post" >
   <input type="text" name="formInput" />
   <input type="text" name="autofocus"  value="autofocus" />
-  <input type="text" name="focusTest" autofocus />
+  <input type="text" name="focusTest" autofocus /><!--HTML5新属性，设置了autofocus属性的表单会再页面加载完后自动获得焦点-->
   <input type="text" name="disInput1" disabled="" /><!--表单禁用属性，只要设置上了这个属性，不管值为true还是false表单都是禁用状态哎-->
   <input type="text" name="disInput2"  readonly="" /><!--表单只读属性，只要设置上了这个属性，不管值为true还是false表单都是禁用状态哎-->
   <input type="button" id="ttBtn" value="表单属性测试"/>
-</form>
+  <input type="text" id="blurTest" value="早期的只读实现方式" /><!--模拟早期没有readonly属性时，用blur()方法代替表单的只读功能，利用焦点事件去移除焦点-->
+  <input type="text" id="sltTst" value="早期的只读实现方式" />
+  <input type="text" id="sltTsts" value="获得选择的文本" />
+   <input type="text" id="setSltTsts" value="选择文本框中的部分文本" /><!--在文本框获得焦点的时候，默认选择指定的字符串范围--><br>
 
+  <input type="text" value=""  id="keypressTst"/><!--keypress事件也可以模仿只读文本框-->
+</form>
+<script>
+  var textbox=$("#blurTest")[0];
+  EventUtil.addHandler(textbox,"focus",function(event){
+    
+	 event=EventUtil.getEvent(event);
+	 
+	var target=EventUtil.getTarget(event);
+	
+	target.select();
+	target.blur();
+   
+});
+
+ var sltTst=$("#sltTst")[0];
+  EventUtil.addHandler(sltTst,"focus",function(event){
+    
+	 event=EventUtil.getEvent(event);
+	 
+	var target=EventUtil.getTarget(event);
+	
+	target.select();
+	 
+   
+});
+/*选择事件，当选择文本框中的文本时会触发此事件
+  text对象的input要获得选择范围内的文本，HTML5新加的两个属性selectionStart和selectionEnd 表示选择范围的开始位置和结束位置(index+1)，
+*/
+var sltTsts=$("#sltTsts")[0];
+  EventUtil.addHandler(sltTsts,"select",function(event){
+    
+	 event=EventUtil.getEvent(event);
+	 
+	var target=EventUtil.getTarget(event);
+	
+	console.log("test selected="+target.value);
+	console.log("test part selected="+target.value.substring(target.selectionStart,target.selectionEnd));
+	 
+	 var s="abc".substring(0,1);
+	 console.log(target.selectionStart+"="+target.selectionEnd);
+   
+});
+
+ var keypressTst=$("#keypressTst")[0];
+  EventUtil.addHandler(keypressTst,"keypress",function(event){
+    
+	 event=EventUtil.getEvent(event);
+	 
+	console.log(1);
+    
+	event.preventDefault();
+   
+});
+ 
+</script>
 
 </body>
 </html>

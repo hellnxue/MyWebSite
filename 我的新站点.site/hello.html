@@ -4,10 +4,27 @@
 <meta charset= "gb2312" />
  
 
-<title>test</title> 
+<title>test</title>
+<script  src="js/jquery-1.8.2.min.js"></script> 
 </head>
 
 <body>
+<h1>&#139;</h1>
+<a href="javascript:history.go(-1)">&#139;</a>
 <strong>hello world</strong>
+<p style="display:none">hi,this is p</p>
+<div>hi,this is div</div>
+<script>
+  $(function(){
+    $("h1").click(function(){
+	  history.go(-1);
+	});
+	
+	 $("div").click(function(){
+	    $(this).hide();
+		$("p").show();
+	});
+  })
+</script>
 </body>
 </html>

@@ -379,7 +379,7 @@ $("#ta2").on("click",function(){
 <body>
 <input type="button" id="ta1" value="测试栈"/></br>
 <input type="button" id="ta2" value="测试队列"/></br>
-<input type="button" id="ta3" value="数组排序"/></br>
+<input type="button" id="ta3" value="普通排序"/></br>
 <input type="button" id="ta4" value="数组排序campare"/></br>
 <input type="button" id="ta5" value="汉字分解"/></br>
 
@@ -430,6 +430,7 @@ test empty():</br>
 <input type="button" id="ta115" value="测试for循环中的作用域"/></br>
 
 <input type="button" id="ta116" value="测试for-in" onclick="testForIn()"/></br>
+
 <script>
   function testForIn(){
      var arrs=["hello","world","sir"];
@@ -438,6 +439,19 @@ test empty():</br>
 	   console.log(arrs[i]);
 	 }
   }
+  
+  function getLastItem(){
+    var array=[0,1,4,0,5];
+	var last=array.pop();//数组的pop()方法用于取得数组的最后一项
+	 
+	console.log("array.pop()="+last);
+	console.log(array.length);
+  }
+  
+  
 </script>
+
+<input type="button" data-filter value="取得数组的最后一项"  onclick="getLastItem()"/>
+
 </body>
 </html>
