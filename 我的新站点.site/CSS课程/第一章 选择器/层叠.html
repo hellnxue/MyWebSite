@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+
+  /*加了权重后，即使在行内样式中再次声明color也不会覆盖权重的声明*/
+  h3{color:pink !important;font-size:20px;}
+  h3{color:red;}
+  
+  /*p.largetext比p选择的更具体，特制度更高，所以p.largetext胜出，即使p在它后面，也不会覆盖p.largetext的样式*/
+ /* p.largetext {font-size:25px;}
+  
+  p {font-size:12px;}*/
+  
+  /*类的特特指度比标签的高，所以即使p在其后，也不会覆盖类所选择的元素的样式*/
+  .largetext {font-size:25px;}
+  
+  p {font-size:12px;}
+   
+</style>
+</head>
+
+<body>
+	 
+	<h3 id="show" style="color:yellow">This is right here.And color's pink.</h3>
+	
+	<p class="largetext">A bit of text</p>
+	 
+</body>
+</html>

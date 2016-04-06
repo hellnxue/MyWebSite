@@ -1,0 +1,41 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset="gb2312" />
+<title>盒子边框</title>
+<style>
+/*这三种粒度从一般到特殊*/
+  /*p{border:2px dashed red;} width、style、color一块声明，应用四条边*/
+  /*p{border-top:2px dashed red;} 只给上边框添加width，style，color，应用一条边*/
+  /*p{border-style:dashed;} 单独声明样式，应用四条边*/
+  /*p{border-color:red;} 单独声明color，应用四条边*/
+  /*p{border-width:red;} 单独声明width，应用四条边*/
+ /* p{ border-left-width:dashed;} 声明左边框样式 */
+ /* p{ border-left-style:dashed;} 声明左边框样式 */
+ /* p{ border-left-color:dashed;} 声明左边框样式 */
+ 
+ 
+/* 为盒子的上边
+和下边添加4 像素宽的红色边框，为左边添加1 像素宽的红色边框，而右边没有边框。*/
+p{border:4px solid red; } 
+p{border-left-width:1px;}
+p{border-right:none;}
+/*p {border-style:outset;}*/
+
+/*border属性里的三个值分别是：宽度、样式、颜色。border:solid red;的默认宽度是medium。*/
+p.warning{border:solid red; }
+p.warning {border-width:4px 1px 1px 4px;}
+   
+ .test{ border-top:1px solid green;}
+</style>
+</head>
+
+<body>
+	 
+  <p>A bit of text</p>
+  <p class="warning">A bit of text</p>
+  <h3 class="test">hello world</h3>
+  
+   
+</body>
+</html>

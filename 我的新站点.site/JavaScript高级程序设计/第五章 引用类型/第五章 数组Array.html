@@ -6,7 +6,7 @@
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../pin.js"></script>
 <script type="text/javascript">
-//比较方法
+/* 比较方法，倒叙*/
 function campare1(v1,v2){
   if(v1>v2){
   	return -1;
@@ -16,9 +16,14 @@ function campare1(v1,v2){
     return 0;
   }
 }
-//比较数值数组特用
+/* 比较数值数组特用，正序*/
 function campare2(v1,v2){
   return v1-v2;
+}
+
+ /*对象数组倒叙排序 */
+function campare3(v1,v2){
+  return Number(v2.date)-Number(v1.date);
 }
 $(function(){
 
@@ -68,7 +73,7 @@ $("#ta2").on("click",function(){
   });
   
    $("#ta4").on("click",function(){
-     var colors=[0,1,5,10,15];
+     var colors=[0,1,10,15,5];
 	colors.sort(campare1);
 	console.log(colors);
 	colors.sort(campare2);
@@ -380,7 +385,9 @@ $("#ta2").on("click",function(){
 <input type="button" id="ta1" value="测试栈"/></br>
 <input type="button" id="ta2" value="测试队列"/></br>
 <input type="button" id="ta3" value="普通排序"/></br>
-<input type="button" id="ta4" value="数组排序campare"/></br>
+<input type="button" id="ta4" value="重写数组排序campare"/></br>
+<input type="button" data-filter value="对象数组排序"  onclick="ObjAry()"/><br />
+
 <input type="button" id="ta5" value="汉字分解"/></br>
 
 <input type="button" id="ta66" value="拼接测试"/></br>
@@ -448,10 +455,64 @@ test empty():</br>
 	console.log(array.length);
   }
   
+  function ObjAry(){
+     var array= [
+             
+            {
+                "date": "201510", 
+                "name": "c" 
+            }, 
+            {
+                "date": "201511", 
+                "name": "e" 
+            }, 
+            {
+                "date": "201602", 
+                "name": "a" 
+            }, 
+             
+            {
+                "date": "201601", 
+                "name": "b"  
+                
+            }
+        ];
+	 
+	 array.sort(campare3);
+	 
+	 console.log("按照number类型的日期排序：");
+	 for(var i in array){
+	    console.log("name="+array[i].name+" date="+array[i].date)
+	 }
+	 
+	 console.log("指定字段name排序：");
+	 array.sort(createComparisonFunction("name"));
+	  for(var i in array){
+	    console.log("name="+array[i].name+" date="+array[i].date)
+	 }
+	 
+	 
+  }
+
+function createComparisonFunction(propertyName){
+   return function(obj1,obj2){
+     var v1=obj1[propertyName];
+	 var v2=obj2[propertyName];
+	 if(v1<2){
+	     return -1;
+	 }else if(v1>v2){
+	     return 1;
+	 }else{
+	    return 0;
+	 }
+   }
+}
   
 </script>
 
-<input type="button" data-filter value="取得数组的最后一项"  onclick="getLastItem()"/>
+<input type="button" data-filter value="取得数组的最后一项"  onclick="getLastItem()"/><br />
+
+
 
 </body>
 </html>

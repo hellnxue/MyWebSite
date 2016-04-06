@@ -109,9 +109,11 @@ EventUtil.addHandler(window,"load",function(event){
   <input type="text" id="blurTest" value="早期的只读实现方式" /><!--模拟早期没有readonly属性时，用blur()方法代替表单的只读功能，利用焦点事件去移除焦点-->
   <input type="text" id="sltTst" value="早期的只读实现方式" />
   <input type="text" id="sltTsts" value="获得选择的文本" />
-   <input type="text" id="setSltTsts" value="选择文本框中的部分文本" /><!--在文本框获得焦点的时候，默认选择指定的字符串范围--><br>
+   <input type="text" id="setSltTsts" value="选择文本框中的部分文本" size="25"/><!--在文本框获得焦点的时候，默认选择指定的字符串范围--><br>
 
-  <input type="text" value=""  id="keypressTst"/><!--keypress事件也可以模仿只读文本框-->
+  <input type="text" value="keypressTst"  id="keypressTst"/><!--keypress事件也可以模仿只读文本框--><br>
+
+  <input type="text" size="100"/><!--可以通过设置size控制文本框的长度,size指定文本框能够显示的字符数，即眼睛直接能看到的个数-->
 </form>
 <script>
   var textbox=$("#blurTest")[0];

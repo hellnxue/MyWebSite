@@ -1,0 +1,94 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+
+  /*紧邻同胞元素 */
+  h2 + p {font-variant:small-caps;}
+  
+  /* 一 般同胞元素 */
+  h2 ~ a{color:#FF0000;}
+  
+ /*通用选择符*   以下写法会让<p>标签所包含的元素的文本变为red。注意：是<p>所包含元素的文本奥，<p>自己的文本不会作用到*/
+  p * { color:red;}
+  
+  /*匹配非子元素，任何是section 孙子元素，而非子元素的a 标签和span都会被选中。*/
+  section * span,a{color:#FF00FF;}
+  
+  img[title] {border:2px solid blue;}
+  img[title="red flower"] {border:2px solid yellow}
+  
+  
+  /*
+    UI伪类
+	1链接伪类 要按以下顺序编写，不然浏览器可能不会显示预期的效果
+  */
+  blockquote a:link{color:black;}
+  blockquote a:visited{color:gray;}
+  blockquote a:hover{text-decoration:none;}
+  blockquote a:active{color:red;}
+  
+  
+  /*有些伪类可以用于任何元素，而不仅仅是a 元素*/
+ /* blockquote p:visited{ background-color:yellow;} 这个不管用哎*/
+  blockquote p:hover{ background-color:gray;}
+  
+  /*当表单文本框获得焦点时，获得焦点的那个文本框会显示指定的样式*/
+  input:focus{ border:1px dotted blue;}
+  
+  
+  /*如果用户点击一个指向页面中其他元素的链接，则那个元素就是目标（target），可以
+用:target 伪类选中它。*/
+  #show:target{ background-color:pink;}
+  
+  /*结构化伪类*/
+  ol.results li:first-child{color:blue;}
+  ol.results li:last-child{color:yellow}
+  ol.results li:nth-child(3){color:pink;}
+  
+  /*伪元素*/
+  p.wys::first-letter{ font-size:300%;}
+  p.wys::first-line{ background-color:#FFCC99}
+  p.age::before{ content:"Age ";}
+  p.age::after{ content:" Year.";}
+</style>
+</head>
+
+<body>
+	<a href="#show">let's go to....</a>
+	<!--<section>标签：<section> 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。-->
+	<section>
+		<h2>An H2 Heading</h2>
+		<p>This is paragraph 1<span>hello span</span></p>
+		<p>Paragraph 2 has <a href="#">a link</a> in it.</p>
+		<a href="#">Link</a>
+	</section>
+	
+	
+    <img src="../../img/001.png" title="yellow flower" alt="yellow flower" />
+	<img src="../../img/001.png" title="red flower" alt="red flower" />
+	
+	<blockquote>
+	  <a href="#">UI 伪类</a>
+	  <p>链接伪类也可以用在其它元素上</p>
+	</blockquote>
+	
+	<form>
+	  <input type="text" name="Name"/>
+	  <input type="text" name="Names"
+	</form>
+	<p id="show">This is right here.And color's pink.</p>
+	
+	<ol class="results">
+		<li>My Fast Pony</li>
+		<li>Steady Trotter</li>
+		<li>hello world</li>
+		<li>Slow Ol' Nag</li>
+	</ol>
+	
+	<p class="wys">伪元素就是你的文档中若有实无的元素</p>
+	<p class="age">25</p>
+</body>
+</html>
