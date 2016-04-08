@@ -1,0 +1,82 @@
+<!DOCTYPE html  >
+<html >
+<head>
+<base href="../../" >
+<meta  charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/commonUtil.js"></script>
+<script>
+
+</script>
+</head>
+
+<body>
+<form action="hello.html" method="post" >
+  <fieldset>
+    <legend>必填属性required</legend>
+    普通字段：<input type="text"   name="normal" autofocus/><br><br><!--普通字段-->
+    必填文本框： <input type="text" name="required"  required /><br><br>
+    必填文本域： <textarea required></textarea><br><br>
+    必填选项：
+	<select required>
+    <option >1</option>
+	<option selected="selected">2</option>
+	<option>3</option>
+   </select><br><br>
+
+   <input type="button" id="subBtn" value="测试"/><br><br>
+  </fieldset>
+   <fieldset>
+    <legend>其它输入类型</legend>
+   email字段：<input type="email"  name="email" id="email"/><br><br> 
+   url字段： <input type="url"/><br><br>
+     
+
+   <input type="button" id="typeBtn" value="测试"/><br><br>
+  </fieldset>
+  
+  <fieldset>
+    <legend>数值范围</legend>
+	
+   number字段：<input type="number"  name="count" min="0" step="5" max="100" /><br><br> 
+   步值设成5，点击向上和向下的按钮时会以5为单位。且不是5的倍数时，会提示输入错误
+     
+
+   <input type="button" id="typeBtn" value="测试"/><br><br>
+  </fieldset>
+
+   <!--对于设置了required的字段，不填时，Firefox4和Opera11会阻止表单提交，而有的浏览器（Safari和Chrome）则什么也不做，也不会阻止表单提交-->
+  <input type="submit"   value="提交"/>
+ 
+</form>
+<script>
+	/*检测浏览器是否支持required属性方法*/
+	var isRequiredSupported="required" in document.createElement("input");
+	console.log("isRequiredSupported="+isRequiredSupported);
+	/*检测是否支持email类型的input。支持的浏览器会得到email，不支持的会返回text*/
+    console.log(document.getElementById("email").type);
+
+    $(function(){
+     
+	 
+	 $("#subBtn").on("click",function(event){
+	    /*检测是否是必填字段：设置了required的文本框在用脚本获得该属性时，值为true，未设置的为false*/
+		var requiredElement=$("[name=required]")[0].required;
+		var normal=$("[name=normal]")[0].required;
+		console.log("required input="+requiredElement);//true
+		console.log("normal input="+normal);//false
+		 
+	 }); 
+	 
+	  $("#typeBtn").on("click",function(event){
+	  /*检测是否支持email类型的input。支持的浏览器会得到email，不支持的会返回text*/
+		var input=$("[name=email]")[0].type;
+
+		console.log(" input="+input);//false
+		 
+	 }); 
+    });
+</script>
+</body>
+</html>

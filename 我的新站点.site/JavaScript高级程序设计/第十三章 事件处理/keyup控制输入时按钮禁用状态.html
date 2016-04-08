@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html  >
+<head>
+<meta  charset="gb2312" />
+<title>keyup事件</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="../../js/commonUtil.js"></script>
+<style>
+ div,header{ margin:2em 50em;}
+ input.text{ width:20em}
+ input.button{ width:16em;margin-top:2em; margin-left:2.4em; color:#FFF; }
+ .style{background-color:#00CCFF}
+</style>
+</head>
+
+<body>
+<header>实现文本框输入值时,控制按钮的禁用状态</header>
+<div>
+<input type="text" name="name" id="name" class="text" /><br>
+<input type="button" id="btn" value="提交"  class="button " disabled="disabled"/>
+</div>
+
+<script>
+   $(function(){
+    
+	 
+	   inputDisabled();
+	  $("#name").on("keyup",function(){
+		  inputDisabled();
+	  });
+  
+   });
+   
+   
+  /*keyup事件可以获得输入完后文本框的全部值，是实时的。而keypress事件在键盘按下时，获得的文本值不是实时的*/
+  function inputDisabled(){
+	  if($("#name").val().length>0){
+	      console.log($("#name").val());
+		  $("#btn").removeAttr("disabled").addClass("style");
+	  }else{
+	      console.log(0);
+		  $("#btn").attr("disabled","disabled").removeClass("style");
+	  }
+  }
+</script>
+</body>
+</html>

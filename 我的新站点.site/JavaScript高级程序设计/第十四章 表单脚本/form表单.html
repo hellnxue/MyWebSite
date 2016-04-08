@@ -3,7 +3,7 @@
 <head>
 <meta charset= "gb2312" />
 
-<!--<base> 标签为页面上的所有的链接规定默认的地址或目标，所以下面的js引用、form里的action地址、a超链接的地址、img的图片地址才能找到位置，不加<base>标签的情况：指定了的地址前面会默认加上当前文档的地址，所有链接都是-->
+<!--<base> 标签为页面上的所有的链接规定默认的地址或目标，所以下面的js引用、form里的action地址、a超链接的地址、img的图片地址才能找到位置；不加<base>标签的情况：指定了的地址前面会默认加上当前文档的地址，所有链接都是-->
 <base href="../../" >
 
 <title>事件处理程序</title>
@@ -84,11 +84,11 @@ EventUtil.addHandler(window,"load",function(event){
   <!--submit类型的按钮，会触发submit事件  start-->
   <input type="submit" id="subBtn" name="subBtn" value="阻止按钮submit类型的默认提交行为"/>
   <input type="image" src="flower.jpg"   width="40px" height="30px"/>图片按钮
-  <button type="submit">自定义submit类型按钮</button>
+  <button  >没有设置type的自定义按钮，默认submit提交方式</button>
   <!--end-->
   
-  <button>没有设置type的自定义按钮</button>
-  <button type="button">type为button类型按钮</button>
+  <button type="submit">submit类型自定义按钮</button>
+  <button type="button"> button类型自定义按钮</button>
 </form>
 <br>
 
@@ -100,20 +100,42 @@ EventUtil.addHandler(window,"load",function(event){
 
 
 <form action="hello.html" method="post" >
-  <input type="text" name="formInput" />
-  <input type="text" name="autofocus"  value="autofocus" />
-  <input type="text" name="focusTest" autofocus /><!--HTML5新属性，设置了autofocus属性的表单会再页面加载完后自动获得焦点-->
-  <input type="text" name="disInput1" disabled="" /><!--表单禁用属性，只要设置上了这个属性，不管值为true还是false表单都是禁用状态哎-->
-  <input type="text" name="disInput2"  readonly="" /><!--表单只读属性，只要设置上了这个属性，不管值为true还是false表单都是禁用状态哎-->
-  <input type="button" id="ttBtn" value="表单属性测试"/>
-  <input type="text" id="blurTest" value="早期的只读实现方式" /><!--模拟早期没有readonly属性时，用blur()方法代替表单的只读功能，利用焦点事件去移除焦点-->
-  <input type="text" id="sltTst" value="早期的只读实现方式" />
-  <input type="text" id="sltTsts" value="获得选择的文本" />
-   <input type="text" id="setSltTsts" value="选择文本框中的部分文本" size="25"/><!--在文本框获得焦点的时候，默认选择指定的字符串范围--><br>
+  <input type="text" name="formInput" /><br><br>
 
-  <input type="text" value="keypressTst"  id="keypressTst"/><!--keypress事件也可以模仿只读文本框--><br>
 
-  <input type="text" size="100"/><!--可以通过设置size控制文本框的长度,size指定文本框能够显示的字符数，即眼睛直接能看到的个数-->
+  <input type="text" name="autofocus"  value="autofocus" /><br><br>
+
+
+  <input type="text" name="focusTest" autofocus /><!--HTML5新属性，设置了autofocus属性的表单会再页面加载完后自动获得焦点--><br><br>
+
+
+  <input type="text" name="disInput1" disabled="" /><!--表单禁用属性，只要设置上了这个属性，不管值为true还是false表单都是禁用状态哎--><br><br>
+
+
+  <input type="text" name="disInput2"  readonly="" /><!--表单只读属性，只要设置上了这个属性，不管值为true还是false表单都是禁用状态哎--><br><br>
+
+
+  <input type="button" id="ttBtn" value="表单属性测试"/><br><br>
+
+
+  <input type="text" id="blurTest" value="早期的只读实现方式" /><!--模拟早期没有readonly属性时，用blur()方法代替表单的只读功能，利用焦点事件去移除焦点--><br><br>
+
+
+  <input type="text" id="sltTst" value="早期的只读实现方式" /><br><br>
+
+
+  <input type="text" id="sltTsts" value="获得选择的文本" /><br><br>
+
+
+   <input type="text" id="setSltTsts" value="选择文本框中的部分文本" size="25"/><!--在文本框获得焦点的时候，默认选择指定的字符串范围--><br><br>
+
+
+  <input type="text"   id="keypressTst" title="keypress事件模仿只读"/><!--keypress事件也可以模仿只读文本框--><br><br>
+
+
+  <input type="text" size="100"/><!--可以通过设置size控制文本框的长度,size指定文本框能够显示的字符数，即眼睛直接能看到的个数--><br><br>
+
+
 </form>
 <script>
   var textbox=$("#blurTest")[0];
@@ -157,18 +179,18 @@ var sltTsts=$("#sltTsts")[0];
    
 });
 
+ /*取值keypress的默认行为可以模仿readonly只读属性，但是，有个bug,中文输入法输入时，不会触发keypress事件哎，呜呜，网上没搜到资料解释一下，除了中文都可以哎*/
  var keypressTst=$("#keypressTst")[0];
   EventUtil.addHandler(keypressTst,"keypress",function(event){
-    
+    console.log(1);
 	 event=EventUtil.getEvent(event);
-	 
-	console.log(1);
-    
+
 	event.preventDefault();
    
 });
  
 </script>
 
+ 
 </body>
 </html>

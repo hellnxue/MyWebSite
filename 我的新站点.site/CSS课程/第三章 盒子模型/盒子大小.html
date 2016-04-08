@@ -1,0 +1,55 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset="gb2312" />
+<title>盒子边框</title>
+<style>
+/*这三种粒度从一般到特殊*/
+  /*p{border:2px dashed red;} width、style、color一块声明，应用四条边*/
+  /*p{border-top:2px dashed red;} 只给上边框添加width，style，color，应用一条边*/
+  /*p{border-style:dashed;} 单独声明样式，应用四条边*/
+  /*p{border-color:red;} 单独声明color，应用四条边*/
+  /*p{border-width:red;} 单独声明width，应用四条边*/
+ /* p{ border-left-width:dashed;} 声明左边框样式 */
+ /* p{ border-left-style:dashed;} 声明左边框样式 */
+ /* p{ border-left-color:dashed;} 声明左边框样式 */
+ 
+ body {font-family:helvetica, arial, sans-serif;
+       font-size:1em; margin:0px;
+       background-color:#caebff;}
+	   
+ /*未设置宽度的*/ 
+ /*盒模型结论一：没有（就是没有设置 width 的）宽度的元素始终会扩展到填满其父 元素的宽度为止。添加水平边框、内边距和外边距，会导致内容宽度减少，减少量 等于水平边框、内边距和外边距的和。*/ 
+ p.nowidth {
+       
+       background-color:#fff;
+	   border:2px solid pink;
+	   padding:0 20px;
+	   margin:0 30px;
+	} 
+	
+ /*设置了宽度的*/
+ /*盒模型结论二：为设定了宽度的盒子添加边框、内边距和外边距，会导致盒子扩展 得更宽。实际上，盒子的 width 属性设定的只是盒子内容区的宽度，而非盒子要占 据的水平宽度*/
+  p.hwidth {
+       width:400px;
+       background-color:#fff;
+	   border:2px solid pink;
+	   margin:0;
+	   border:1px solid pink;
+	   padding:0 20px;
+	   margin:0 30px;
+	  /* padding:0 20px;
+	   margin:0 300px;*/
+	}
+</style>
+</head>
+
+<body>
+	 
+  <p class="nowidth">A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.</p>
+ 
+  <p class="hwidth">A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.</p>
+ 
+   
+</body>
+</html>

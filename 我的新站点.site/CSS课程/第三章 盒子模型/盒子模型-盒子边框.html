@@ -6,10 +6,15 @@
 <style>
 /*这三种粒度从一般到特殊*/
   /*p{border:2px dashed red;} width、style、color一块声明，应用四条边*/
-  /*p{border-top:2px dashed red;} 只给上边框添加width，style，color，应用一条边*/
+
   /*p{border-style:dashed;} 单独声明样式，应用四条边*/
   /*p{border-color:red;} 单独声明color，应用四条边*/
-  /*p{border-width:red;} 单独声明width，应用四条边*/
+  
+  /*p{border-width:2px;}  1个值时，应用四条边*/
+  /*p{border-width:1px 2px;}  2个值时，对边上下1px  对边左右2px*/
+  /*p{border-width:1px 2px 1px 2px;} 4个值时，分别应用上右下左。呼，感觉这个属性功能好强大。*/
+  
+ /*p{border-top:2px dashed red;} 只给上边框添加width，style，color，应用一条边*/
  /* p{ border-left-width:dashed;} 声明左边框样式 */
  /* p{ border-left-style:dashed;} 声明左边框样式 */
  /* p{ border-left-color:dashed;} 声明左边框样式 */
