@@ -1,0 +1,35 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<base href="../../"/>
+<meta charset="gb2312" />
+<title>围住浮动元素</title>
+<style>
+  /* 方法二：同时浮动父元素 */
+  
+  /*
+  浮动section 以后，不管其子元素是否浮动，它都会紧紧地包围（也称收缩包裹）住
+它的子元素（这样会导致section宽度收缩为被包含的img宽，使得img下的段落不在图片右边，而是在下方。footer若未设置float:left的情况下会飘到整个section的右边）。因此，需要用width:100%再让section 与浏览器容器同宽。另外，由
+于section 现在也浮动了，所以footer 会努力往上挤到它旁边去。为了强制footer
+依然呆在section 下方，要给它应用clear:left。被清除的元素不会被提升到浮动元
+素的旁边
+  */
+  section{ border:2px solid blue; margin:0 0 10px 0; float:left; width:100%;}
+  img{ border:1px solid yellow; float:left; }
+  p{border:1px solid pink; margin:0px;}
+  footer{ border:1px solid #000; clear:left}
+</style>
+</head>
+
+<body>
+  
+ <section>
+<img src="image/mxx/m2.jpg" alt="sorry" title="小希"/>
+<p>It's fun to float.</p>
+</section>
+<footer> Here is the footer element that runs across the bottom of the
+page.</footer>
+  
+  
+</body>
+</html>

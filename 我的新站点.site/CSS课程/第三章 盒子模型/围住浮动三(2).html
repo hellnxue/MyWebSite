@@ -1,0 +1,49 @@
+<!DOCTYPE html >
+<html  >
+<head>
+ 
+<meta charset="gb2312" />
+<title>围住浮动元素三</title>
+<link  href="../CSS/CSSUtil.css" type="text/css" rel="stylesheet"/>
+<style>
+  /* 方法三：添加非浮动的清除元素
+         第三种强制父元素包含其浮动子元素的方法，就是给父元素添加一个非浮动的子元素，然后清除该元素（就是清除浮动，clear：left）。由于包含元素一定会包围非浮动的子元素，而且清除会让这个子元素位于浮动元素的下方，因此包含元素一定会包含这个子元素——以及前面的浮动元素。在包含元素最后添加子元素作为清除元素的方式有两种...
+  */
+  
+ /*
+  方式二：
+      应用样式规则
+	  .clearfix:after {
+		content:".";
+		display:block;
+		height:0;
+		visibility:hidden;
+		clear:both;
+		}
+	  备注:它只添加了一个清除的包含句
+点作为非浮动元素（必须得有内容，而句点是最小的内容）①。规则中的其他声明是
+为了确保这个伪元素没有高度，而且在页面上不可见。
+  */
+  section{ border:2px solid blue; margin:0 0 10px 0;  }
+  img{ border:1px solid yellow; float:left; }
+  p{border:1px solid pink; margin:0px;}
+   
+  footer{ border:1px solid #000; }
+ 
+</style>
+</head>
+
+<body>
+  
+<section class="clearfix">
+	<img src="../../image/mxx/m3.jpg" alt="sorry" title="小希"/>
+	<p>It's fun to float.</p>
+</section>
+
+<footer>
+	 Here is the footer element that runs across the bottom of the page.
+</footer>
+  
+  
+</body>
+</html>
