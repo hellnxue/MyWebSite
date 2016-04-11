@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>显示属性</title>
+<style>
+  a.block{
+    border:1px solid yellow;
+	display:block;
+	
+	}
+	
+  p.inline{
+    border:1px solid red;
+	display:inline;
+	
+	}
+	
+ a.inline{
+	border:1px solid yellow;
+	 
+
+	}
+	
+  p.block{
+    border:1px solid red;
+ 
+	
+	}
+	
+	/*
+	display:none与visibility:hidden的区别：
+	把元素的display 设定为none，
+该元素及所有包含在其中的元素，都不会在页面中显示。它们原先占据的所有空间也都会被“回收”，就好像相关的标记根本不存在一样。与此相对的是visibility 属性，这个属性最常用的两个相对的值是visible（默认值）和hidden。把元素的 visibility设定为hidden，元素会隐藏，但它占据的页面空间仍然“虚位以待”。
+	
+	*/
+  p.a{
+    border:1px solid pink;
+   /* display:none;*/
+	visibility:hidden;
+	 
+	
+	}
+  p.b{
+    border:1px solid blue;
+ 
+	
+	}
+</style>
+<script>
+  function hello(){
+    console.log("hello sir");
+  }
+</script>
+</head>
+
+<body>
+<a class="inline" href="javascript:hello();">行内元素</a>
+<a class="block" href="javascript:void(0);">行内元素变块级元素</a>
+<p class="block">块级元素</p> 
+<p class="inline">块级元素变行内元素</p> 
+ <p class="a">这是一个段落</p> 
+ <p class="b">这是一个段落</p> 
+</body>
+</html>
