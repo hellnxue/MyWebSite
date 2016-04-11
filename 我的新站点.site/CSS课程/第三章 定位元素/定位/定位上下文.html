@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>定位上下文</title>
+<style>
+
+/*   在讲绝对定位的时候，我们知道绝对定位元素默认的定位上下文是 body。这是因为 body 是标记中所有元素唯一的祖先元素。而实际上，绝对定位元素的任何祖先元素都 可以成为它的定位上下文，只要你把相应祖先元素的 position 设定为 relative 即可*/
+/*
+  把外部 div 的 position 属性设定为 relative，此时内部 div 的 top 和 left 属性参照的就是外部 div 了。如果你再用 left 和 top 属 性重新定位外部 div，内部 div 也会跟着移动相同的距离，以保证它与外部 div（也 就是它的定位上下文）之间的位置关系。
+  
+  外部 div 改为相对定位之后，其后代中绝对定位的元素就会按照 top 和 left 属性的 设定，相对于外部 div 定位。
+*/ 
+ div#outer {
+    position:relative;
+    width:250px; 
+	margin:50px 40px; 
+	border-top:3px solid red;
+	top:30px;
+	left:30px;} 
+ div#inner { 
+    position:absolute;
+    top:10px; 
+	left:20px; 
+	background:#ccc;}  
+   
+</style>
+</head>
+
+<body>
+
+	 <div id="outer">  
+	 
+		   <div id="inner">This is text。Here are some sites that I reference during the course of my work, or just enjoy reading.Here are some sites that I reference during the course of my work, or just enjoy reading.</div>   
+		   
+	 </div>
+</body>
+</html>

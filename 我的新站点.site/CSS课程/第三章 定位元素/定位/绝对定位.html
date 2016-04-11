@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>绝对定位</title>
+<style>
+ /*给没有设置position属性的段落设置top、left、right、bottom是不管用滴。*/
+ .second{
+     border:1px solid pink;
+	  top:25px;
+	 left:30px;}
+	 
+  /*相对定位相对的是它原来在文档流中的位置（或者默认位置）
+    绝对定位的元素 完全脱离了常规文档流，它现在是相对于顶级元素 body 在定位。*/
+  p#specialpara {
+     position:absolute;
+	 top:25px;
+	 left:30px;
+	 border:1px solid black;}
+ 
+  
+</style>
+</head>
+
+<body>
+
+<p>First Paragraph</p>
+ <p class="second">Second Paragraph</p>
+  <p id="specialpara">Third Paragraph (with ID)</p>
+   <p class="four">Fourth Paragraph</p>
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>固定定位</title>
+<style>
+ /*给没有设置position属性的段落设置top、left、right、bottom是不管用滴。*/
+ .second{
+     border:1px solid pink;
+	  top:25px;
+	 left:30px;}
+	 
+  /* 固定定位元素不随着页面的滚动而滚动。
+    从完全移出文档流的角度说，固定定位与绝对定位类似。 
+    但不同之处在于，固定定位元素的定位上下文是视口（浏览器窗口或手持设备的屏幕），因此它不会随页面滚动而移动*/
+  p#specialpara {
+     position:fixed;
+	 top:25px;
+	 left:30px;
+	 border:1px solid black;}
+ 
+  .four{
+     margin-top:30px;
+    }
+</style>
+</head>
+
+<body>
+
+<p>First Paragraph</p>
+ <p class="second">Second Paragraph</p>
+  <p id="specialpara">Third Paragraph (with ID)</p>
+   <p class="four">Fourth Paragraph</p>
+
+</body>
+</html>

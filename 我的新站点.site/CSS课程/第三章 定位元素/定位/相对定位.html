@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>相对定位</title>
+<style>
+ /*给没有设置position属性的段落设置top、left、right、bottom是不管用滴。*/
+ .second{
+     border:1px solid pink;
+	  top:25px;
+	 left:30px;}
+	 
+  /*相对定位相对的是它原来在文档流中的位置（或者默认位置）*/
+  p#specialpara {
+     position:relative;
+	 top:25px;
+	 left:30px;
+	 border:1px solid black;}
+ 
+  .four{
+     margin-top:30px;
+    }
+</style>
+</head>
+
+<body>
+
+<p>First Paragraph</p>
+ <p class="second">Second Paragraph</p>
+  <p id="specialpara">Third Paragraph (with ID)</p>
+   <p class="four">Fourth Paragraph</p>
+
+</body>
+</html>
