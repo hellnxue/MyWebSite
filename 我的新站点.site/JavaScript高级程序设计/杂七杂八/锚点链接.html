@@ -1,15 +1,24 @@
 <html>
  <head>
-  <title>建立锚点、超链接 标签</title>
+  <title>建立锚点，超链接的各种情况</title>
+  <script>
+    /*锚链接 href:#ID 或者href:#Name  ID和Name 分别是对应位置的id、name。原以为只是id属性，其实name值也是锚链接中的一员*/
+  </script>
  </head> 
-
+ 
  <body>
+   <p>----------------------------超链接作为其他情况的使用--------------------------------</p>
+   <a href="javascript:void(0)" style="display:block;">取消超链接默认行为：javascript:void(0)</a>
+   <a href="javascript:(function(){console.log('hello world')})();" style="display:block;">取消超链接默认行为,并且点击后执行函数</a>
+   
+   <p>--------------------------------锚链接--------------------------------</p>
    <a href="#one">第一段</a><br>
    <a href="#two">第二段</a><br>
    <a href="#three">第三段</a><br>
-   <a href="http://blog.sina.com.cn/u/2073113227">URL阳哥哥</a>
-
+   <a href="#four">第四段</a><br>
+ 
    <a name="one">
+   第一段：
    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
@@ -63,8 +72,9 @@
    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa<br>
    </a>
-   <a href="#">返回</a><br>
+   <a href="#">返回顶部</a><br>
    <a name="two">
+   第二段：
    bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb<br>
    bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb<br>
    bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb<br>
@@ -84,18 +94,24 @@
    bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb<br>
    bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb<br>
    </a>
-   <a href="#">返回</a><br>
-   <a name="three">
+   <a href="#">返回顶部</a><br>
+   <a id="three">
+   第三段：
    ccccccccccccccccccccccccccccccccccccccc<br>
    ccccccccccccccccccccccccccccccccccccccc<br>
    ccccccccccccccccccccccccccccccccccccccc<br>
   </a>
-   <a href="mailto:xytmbj72d@163.com?subject=yangge&hello&cc=yangge@gmail.com">给我留言</a>
-   <br>
-   <a href="#">返回</a>
+  
    
-   <a href="http://blog.sina.com.cn/u/2073113227" target="_blank">URL阳哥哥</a><br>
-   <a href="./html/web.html" target="_blank">相对路径</a><br> 
+   <br>
+   <a href="#">返回顶部</a>
+  <a id="four" style="display:block;">
+  第四段：
+  Each box has a content area (e.g., text, an image, etc.) and optional surrounding padding, border, and margin areas; the size of each area is specified by properties defined below. The following diagram shows how these areas relate and the terminology used to refer to pieces of margin, border, and padding
+   </a>
+   
+   
+   
  </body> 
 
 

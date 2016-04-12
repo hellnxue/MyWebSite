@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>背景尺寸、粘付</title>
+<style>
+
+	 h3{
+	 text-align:center;}
+	 /*background-size 控制背景图片的尺寸*/
+	  div.bgsize1 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/mxx8.png);     
+		background-repeat:no-repeat;     
+		background-position:center;
+		background-size:50%; /*会默认加上auto？？  50%：缩放图片，使其填充背景区的一半。?? */
+		line-height:150px; 
+		text-align:center; }
+	 div.bgsize2 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/mxx8.png);     
+		background-repeat:no-repeat;     
+		background-position:50% 50%;
+		background-size:100px 50px; /*100px 50px：把图片调整到 100像素宽，50像素高*/
+		line-height:150px; 
+		text-align:center; }
+	 div.bgsize3 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/mxx8.png);     
+		background-repeat:no-repeat;     
+		background-position:50% 50%;
+		background-size:cover; /*cover：拉大图片，使其完全填满背景区；保持宽高比。 */
+		line-height:150px; 
+		text-align:center; }
+	 div.bgsize4 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/mxx8.png);     
+		background-repeat:no-repeat;     
+		background-position:50% 50%;
+		background-size:contain; /*contain:缩放图片，使其恰好适合背景区；保持宽高比.不是太懂，不明显。*/
+		line-height:150px; 
+		text-align:center; }
+		
+	/*
+	  
+	*/
+	 div.attachmentScroll{
+	    
+		border:2px solid yellow;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/m7.jpg);     
+		background-repeat:no-repeat;     
+		background-position:50% 50%;
+		background-size:contain;
+		background-attachment:scroll; 
+		background-color:#CCFFFF;   
+		line-height:150px; 
+		text-align:center;
+	 }
+	div.attachmentFixed{
+	        
+		border:2px solid yellow;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/m7.jpg); 
+		background-position:50% 50%;
+		background-color:#CCFFFF;    
+		background-repeat:no-repeat;     
+		
+		background-size:contain;/*在图片固定场景中，background-size设置成contain与auto效果不一样奥，缩放浏览器的可视化窗口可以看出来，contain图片会随着视口的缩放或方法而相应的变大变小*/
+		background-attachment:fixed;  
+		line-height:150px; 
+		text-align:center;
+	 }
+</style>
+</head>
+
+<body>
+<h3>--------------------------------------------背景粘付------------------------------</h3>
+<div class="attachmentScroll">A scroll background image!</div>
+<div class="attachmentFixed">A fixed background image!</div>
+<h3>--------------------------------------------背景尺寸------------------------------</h3>
+<div class="bgsize1">A centered background image!</div>
+<div class="bgsize2">A centered background image!</div>
+<div class="bgsize3">A centered background image!</div>
+<div class="bgsize4">A centered background image!</div>
+
+<p style="text-align:center">text align</p>
+
+
+</body>
+</html>

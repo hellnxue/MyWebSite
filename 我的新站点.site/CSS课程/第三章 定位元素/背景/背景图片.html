@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="gb2312" />
-<title>背景图片</title>
+<title>背景图片、重复、位置</title>
 <style>
 
 	p.default {
@@ -56,13 +56,87 @@
 	background-color:#fff;
     background-image:url(../../../image/round.jpg);
 	background-repeat:no-repeat;}
+	
+  
+	
+		
+	.hello{
+		line-height:64px;/*设置的行高会在问本行桑夏平均分配奥*/
+		border:1px solid;
+		width:350px;
+		/*color为前景色，及影响文本又影响边框的颜色。*/
+		color:pink;
+		margin:20px auto;}
+		
+	h3{
+	   text-align:center;/*div和p用margin:20px auto; 都可以居中，h3只能用这个才行，why?*/
+	 }
+	 
+	 /*background-size 控制背景图片的尺寸*/
+	  div.bgsize1 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/mxx8.png);     
+		background-repeat:no-repeat;     
+		background-position:center;
+		background-size:50%; /*会默认加上auto哎，why?  50%：缩放图片，使其填充背景区的一半。没看到该有的效果啊，呜呜?? */
+		line-height:150px; 
+		text-align:center; }
+	 div.bgsize2 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/mxx8.png);     
+		background-repeat:no-repeat;     
+		background-position:50% 50%;
+		background-size:100px 50px; /*100px 50px：把图片调整到 100像素宽，50像素高*/
+		line-height:150px; 
+		text-align:center; }
+	 div.bgsize3 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/mxx8.png);     
+		background-repeat:no-repeat;     
+		background-position:50% 50%;
+		background-size:cover; /*cover：拉大图片，使其完全填满背景区；保持宽高比。 */
+		line-height:150px; 
+		text-align:center; }
+	 div.bgsize4 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/mxx/mxx8.png);     
+		background-repeat:no-repeat;     
+		background-position:50% 50%;
+		background-size:contain; /*contain:缩放图片，使其恰好适合背景区；保持宽高比.不是太懂，不明显。*/
+		line-height:150px; 
+		text-align:center; }
 </style>
 </head>
 
 <body>
+<h3>--------------------------------------------背景重复------------------------------</h3>
 <p class="default">Here are some sites that I reference during the course of my work, or just enjoy reading.</p>
 <p class="repeat-x">Here are some sites that I reference during the course of my work, or just enjoy reading.</p>
 <p class="repeat-y">Here are some sites that I reference during the course of my work, or just enjoy reading.</p>
 <p class="no-repeat">Here are some sites that I reference during the course of my work, or just enjoy reading.</p>
+
+
+<h3>--------------------------------------------行高：line-height------------------------------</h3>
+<p class="hello">设置了line-height.行高在文本行上下平均分配。</p>
+
+
+
+<h3>--------------------------------------------背景尺寸------------------------------</h3>
+<div class="bgsize1">A centered background image!</div>
+<div class="bgsize2">A centered background image!</div>
+<div class="bgsize3">A centered background image!</div>
+<div class="bgsize4">A centered background image!</div>
 </body>
 </html>

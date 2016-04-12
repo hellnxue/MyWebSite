@@ -612,8 +612,23 @@ alert("Not bind click");
 	    console.log(123);
 	  
 	  });
+	  $("[data-ids='oo']").on("click",function(){
+	    $("#oneId,#twoId").css("color","yellow");
+		$("#oneId,#twoId").attr("title","hello");
+		 
+		$("#oneId,#twoId").click(function(){
+		  console.log($(this)[0].id);
+		})
+	  
+	  });
    })
 
 </script>
+<h3>---------------jQuery选择器基础：selector1,selector2,selectorN.一次选择多个选择器，方便去做同一件事。比add()方法简洁，当然add()方法用在适当的地方还是蛮好用的，特别是方法中，逐个添加选择器到一起。------------------------------</h3>
+ 
+<p id="oneId">selector1</p>
+<p  id="twoId">selector1</p>
+<input type="button" value="点击给多个段落添加样式和title" data-ids="oo" />
+ 
 </body>
 </html>
