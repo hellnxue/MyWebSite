@@ -13,8 +13,8 @@
    margin:16px; } 
    /*例 1：默认为从上到下*/
     .gradient1 {     
-		background:linear-gradient(#e86a43, #fff);
-		background:-moz-linear-gradient(#e86a43, #fff);
+/*		background:linear-gradient(#e86a43, #fff);
+*/		background:-moz-linear-gradient(#e86a43, #fff 50%,#e86a43);
 		 }
 		
 	.gradient2 { 
@@ -26,17 +26,62 @@
 	} 
 	/*例 3：左上到右下*/ 
 	 .gradient3 {     
-		background:linear-gradient(-45deg, #e86a43, #fff);/*-45deg可以换成一组关键字 top left或left top，关键字的顺序不影响，都是左上位置*/
+		background:linear-gradient(-45deg, #e86a43, #fff);/*-45deg是角度的写法。可以换成一组关键字 top left或left top，关键字的顺序不影响，都是左上位置*/
 		background:-moz-linear-gradient(-45deg, #e86a43, #fff); /*火狐专用-moz-*/
 		
 		} 
-		 
+	p{
+	 margin:20px auto;
+	 text-align:center;
+	}
+	
+	 
+	/*例1：50%处有一个渐变点*/
+	.gradient4 {
+	background:-moz-linear-gradient(#64d1dd, #fff 50%,#64d1dd);
+	}
+	/*例2：20%和80%处有两个渐变点*/
+	.gradient5 {
+	background:-moz-linear-gradient(#e86a43 20%, #fff 50%, #e86a43 80%);
+	}
+	/*例3：25%、50%、75%处有三个渐变点*/
+	.gradient6 { 
+	background:-moz-linear-gradient(#64d1dd, #fff 25%, #64d1dd 50%, #fff 75%,
+	#64d1dd);
+	}
+	/*例4：为同一个渐变点设定两种颜色可以得到突变效果*/
+	.gradient7 {
+	background:-moz-linear-gradient(#e86a43, #fff 25%, #64d1dd 25%, #64d1dd 75%,
+#fff 75%, #e86a43);
+	 
+	}
+	
+	.gradient8 {
+	background: -moz-radial-gradient(#fff, #64d1dd, #70aa25);
+	}
+	.gradient9 {
+	background: -moz-radial-gradient(circle, #fff, #64d1dd, #e86a43);
+	}
+	.gradient10 {
+	background:-moz-radial-gradient(50px 30px, circle, #fff, #64d1dd,
+	#4947ba);
+	}
 </style>
 </head>
 
 <body>
+<p>----------------背景渐变-----------------</p>
  <div class='gradient1'></div> 
  <div class='gradient2'></div> 
- <div class='gradient3'></div> 
+ <div class='gradient3'></div>
+ <p style="clear:both">----------------渐变点-----------------</p> 
+ <div class='gradient4'></div> 
+ <div class='gradient5'></div> 
+ <div class='gradient6'></div>
+ <div class='gradient7'></div>
+ <p style="clear:both">----------------放射性渐变-----------------</p> 
+ <div class='gradient8'></div> 
+ <div class='gradient9'></div>
+ <div class='gradient10'></div>
 </body>
 </html>
