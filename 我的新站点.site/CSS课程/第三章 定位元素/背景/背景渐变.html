@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+  /*为元素盒子添加样式*/ 
+  div {    
+   height:150px;     
+   width:200px;     
+   border:1px solid #ccc;     
+   float:left;     
+   margin:16px; } 
+   /*例 1：默认为从上到下*/
+    .gradient1 {     
+		background:linear-gradient(#e86a43, #fff);
+		background:-moz-linear-gradient(#e86a43, #fff);
+		 }
+		
+	.gradient2 { 
+	    background:linear-gradient(left, #64d1dd, #fff);/*W3C标准语法*/
+		background:-moz-linear-gradient(left, #64d1dd, #fff); /* Firefox */
+		background:-ms-linear-gradient(left, #64d1dd, #fff);   /* 微软 Internet Explorer */  
+		background:-webkit-linear-gradient(left, #64d1dd, #fff);  /* Safari 和 Chrome */ 
+		background:-o-linear-gradient(left, #64d1dd, #fff); /* Opera */
+	} 
+	/*例 3：左上到右下*/ 
+	 .gradient3 {     
+		background:linear-gradient(-45deg, #e86a43, #fff);/*-45deg可以换成一组关键字 top left或left top，关键字的顺序不影响，都是左上位置*/
+		background:-moz-linear-gradient(-45deg, #e86a43, #fff); /*火狐专用-moz-*/
+		
+		} 
+		 
+</style>
+</head>
+
+<body>
+ <div class='gradient1'></div> 
+ <div class='gradient2'></div> 
+ <div class='gradient3'></div> 
+</body>
+</html>

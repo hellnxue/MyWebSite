@@ -71,52 +71,40 @@
 	h3{
 	   text-align:center;/*div和p用margin:20px auto; 都可以居中，h3只能用这个才行，why?*/
 	 }
-	 
-	 /*background-size 控制背景图片的尺寸*/
-	  div.bgsize1 {     
+	 /*图片的位置 background-position*/
+	 /*使用关键字*/
+	div.bgposition1 {     
 		height:150px;     
 		width:250px;     
 		border:2px solid #aaa;     
 		margin:20px auto;     
-		background-image:url(../../../image/mxx/mxx8.png);     
+		background-image:url(../../../image/wn.png);     
 		background-repeat:no-repeat;     
-		background-position:center;
-		background-size:50%; /*会默认加上auto哎，why?  50%：缩放图片，使其填充背景区的一半。没看到该有的效果啊，呜呜?? */
+		background-position:center;/*background-position:center center 设定图片中心点与元素中心点重合，然后再 向各个方向重复 */
 		line-height:150px; 
 		text-align:center; }
-	 div.bgsize2 {     
+	/*使用百分比*/	
+	div.bgposition2 {     
 		height:150px;     
 		width:250px;     
 		border:2px solid #aaa;     
 		margin:20px auto;     
-		background-image:url(../../../image/mxx/mxx8.png);     
+		background-image:url(../../../image/wn.png);     
 		background-repeat:no-repeat;     
-		background-position:50% 50%;
-		background-size:100px 50px; /*100px 50px：把图片调整到 100像素宽，50像素高*/
+		background-position:50% 50%;/*使用数值（比如 40% 30%）时，第一个值表示水平位置，第二个值表示垂直位置。要是只设定 一个值，则将其用来设定水平位置，而垂直位置会被设为 center。*/
 		line-height:150px; 
 		text-align:center; }
-	 div.bgsize3 {     
+	div.bgposition3 {     
 		height:150px;     
 		width:250px;     
 		border:2px solid #aaa;     
 		margin:20px auto;     
-		background-image:url(../../../image/mxx/mxx8.png);     
+		background-image:url(../../../image/wn.png);     
 		background-repeat:no-repeat;     
-		background-position:50% 50%;
-		background-size:cover; /*cover：拉大图片，使其完全填满背景区；保持宽高比。 */
+		background-position:30px 40px;/*像素之类的绝对单位数值就不一样了。要是用像素单位来设定位置，那么图片的左上角会被放 在距离元素左上角指定位置的地方。*/
 		line-height:150px; 
 		text-align:center; }
-	 div.bgsize4 {     
-		height:150px;     
-		width:250px;     
-		border:2px solid #aaa;     
-		margin:20px auto;     
-		background-image:url(../../../image/mxx/mxx8.png);     
-		background-repeat:no-repeat;     
-		background-position:50% 50%;
-		background-size:contain; /*contain:缩放图片，使其恰好适合背景区；保持宽高比.不是太懂，不明显。*/
-		line-height:150px; 
-		text-align:center; }
+	  
 </style>
 </head>
 
@@ -132,11 +120,12 @@
 <p class="hello">设置了line-height.行高在文本行上下平均分配。</p>
 
 
+<h3>--------------------------------------------背景位置------------------------------</h3>
+<div class="bgposition1">A centered background image!</div>
+<div class="bgposition2">A centered background image!</div>
+<div class="bgposition3">A centered background image!</div>
+ 
 
-<h3>--------------------------------------------背景尺寸------------------------------</h3>
-<div class="bgsize1">A centered background image!</div>
-<div class="bgsize2">A centered background image!</div>
-<div class="bgsize3">A centered background image!</div>
-<div class="bgsize4">A centered background image!</div>
+ 
 </body>
 </html>
