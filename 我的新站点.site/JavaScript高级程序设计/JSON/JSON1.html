@@ -35,11 +35,44 @@ function test2(){
   console.log(data)
 }
 
+
+function test3(){
+    var obj={
+	    "上海":["上海社保","上海公积金"],
+		"北京":["北京社保","北京公积金"]
+	};
+	console.log(obj["上海"]);
+	
+	for(var i in obj){
+	   console.log("key:"+i+"  value:"+obj[i]);
+	}
+	
+}
+
+function test4(){
+  var objArray=[
+  { city:{name:"上海",value:"shagnhai"},
+    typeAry:[
+	      {name:"上海社保",value:"shagnhaishebao"},
+		  {name:"上海公积金",value:"sahgnhaigongjijin"}
+		  ]
+   },
+  {city:{name:"北京",value:"beijing"},
+   typeAry:[
+        {name:"北京社保",value:"beijingshebao"},
+		{name:"北京公积金",value:"beijinggongjijin"}
+		]
+  }];
+}
 </script>
 </head>
 
 <body>
 <input type="button"  name="d1" id="d1" value="json" onclick="test1()"/></br>
 <input type="button"  name="d1" id="d1" value="测试eval" onclick="test2()"/></br>
+
+<input type="button"   id="d2" value="当key为数字或字符时的Object怎么获取key的值" onclick="test3()"/></br>
+
+<input type="button"   id="d2" value="hehe" onclick="test4()"/></br>
 </body>
 </html>

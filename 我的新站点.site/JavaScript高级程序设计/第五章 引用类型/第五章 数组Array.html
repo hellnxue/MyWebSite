@@ -25,6 +25,11 @@ function campare2(v1,v2){
 function campare3(v1,v2){
   return Number(v2.date)-Number(v1.date);
 }
+
+ /*对象数组倒叙排序 */
+function campare4(v1,v2){
+  return Number(v2.date.replace(/-/,""))-Number(v1.date.replace(/-/,""));
+}
 $(function(){
 
 var pinyin = codefans_net_CC2PY("刘雪萍").toUpperCase();
@@ -387,7 +392,7 @@ $("#ta2").on("click",function(){
 <input type="button" id="ta3" value="普通排序"/></br>
 <input type="button" id="ta4" value="重写数组排序campare"/></br>
 <input type="button" data-filter value="对象数组排序"  onclick="ObjAry()"/><br />
-
+<input type="button" data-filter value="重写对象数组排序，格式化值"  onclick="ObjAryTwo()"/><br />
 <input type="button" id="ta5" value="汉字分解"/></br>
 
 <input type="button" id="ta66" value="拼接测试"/></br>
@@ -482,6 +487,7 @@ test empty():</br>
 	 
 	 console.log("按照number类型的日期排序：");
 	 for(var i in array){
+	     
 	    console.log("name="+array[i].name+" date="+array[i].date)
 	 }
 	 
@@ -493,6 +499,42 @@ test empty():</br>
 	 
 	 
   }
+  
+  //在重写排序方法的同时格式化对象值
+ function ObjAryTwo(){
+    var array= [
+             
+            {
+                "date": "2015-10", 
+                "name": "c" 
+            }, 
+            {
+                "date": "2015-11", 
+                "name": "e" 
+            }, 
+            {
+                "date": "2016-02", 
+                "name": "a" 
+            }, 
+             
+            {
+                "date": "2016-01", 
+                "name": "b"  
+                
+            }
+        ];
+		
+		//重新排序排序
+	   //array.sort(campare4);
+	   array.sort(function(v1,v2){
+		    return Number(v2.date.replace(/-/,""))-Number(v1.date.replace(/-/,""));
+		});
+		
+       for(var i in array){ 
+	     
+	    console.log("name="+array[i].name+" date="+array[i].date)
+	 }
+ }
 
 function createComparisonFunction(propertyName){
    return function(obj1,obj2){
