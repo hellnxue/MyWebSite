@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>字体大小</title>
+<style>
+/*
+ 关于字体单位：用于设定字体大小的单位有两种，一种是绝对单位，
+比如像素或点，另一种是相对单位，比如百分比或em。
+
+以绝对单位设定字体大小的元素不会受父元素字体大小的影响；以相对单位或百分比设定字体大小的元素会受父元素字体大小的影响。
+*/
+body{ font-size:16px;}/*页面基准定义为16px,假如某个子元素的祖先元素们都没有设置字体大小，那么该子元素的相对字体大小以body的font-size为基准。*/
+/*绝对单位*/
+.fontSizePX{ 
+          font-size:20px;
+		  border:1px solid yellow;}
+/*相对单位*/
+.fontSizeEM{ 
+          font-size:1.25em;/*20px/16px=1.25em*/
+		  border:1px solid yellow;}
+.medium{ 
+          font-size:x-small;/*x-small(小点的字体关键字),medium(跟没设置一样),x-large(大点的字体关键字)*/
+		  border:1px solid yellow;}
+/*相对单位*/
+.bl{ 
+          font-size:1.2em; 
+		  border:1px solid yellow;}
+.bll{ 
+          font-size:1.2em; /*此处相对的是父元素P的，父元素此时的字体像素大小伟1.2*16=19.2px;,因此此处的大小为19.2*1.2=23.04px;*/
+		  
+		   }
+/*使用百分比、em 或rem（根元素的字体大小）设定字体大小要复杂一些。如果你给
+某个元素设定了相对字体大小，则该元素的字体大小要相对于最近的“被设定过字
+体大小的”祖先元素来确定。*/		   
+		   
+.fspx{ 
+          font-size:16px;; 
+		  border:1px solid yellow;}
+.fsem{ 
+          font-size:1.2em; /*此处使用相对单位，相对的是父元素P的,基准就是16px，P是16px,因此，1.2em=1.2*16=19.2px;*/
+		   }
+/*如下例子，p元素没有设定字体大小，span的字体大小会以祖先元素section的字体大小为参考，成比例缩放。*/		   
+	 
+.sct{ border:1px solid pink;
+      font-size:20px;}	
+	     
+.fsf{ border:1px solid yellow;}
+.fsz{ 
+      font-size:1.2em; /*此处使用相对单位，相对的是祖先元素section的,基准就是20px，1.2*20=24px;*/
+		   }
+/*与em的区别在于使用rem 为元素设定字体大小时，仍然是相对大小，但相对的只是HTML 根元素。*/
+.rem{ font-size:1.5rem;}
+</style>
+</head>
+
+<body>
+body area
+<p class="fontSizePX">绝对单位，字体大小不会随着父元素的改变成比例变化，hello font-size</p>
+<p class="fontSizeEM">相对单位，字体大会受父元素字体大小的影响成比例缩放，hello font-size</p>
+<p >No font-size set.</p>
+
+<p class="medium">font-size set medium</p>
+
+
+<p class="bl">hello p<br>
+	<span class="bll">this span</span>
+</p>
+
+ 
+<p class="fspx">hello p<br>
+	<span class="fsem">this span</span>
+</p>
+<!--span的父元素P未设置字体大小，但是祖先元素section设置了字体大小，因此span的字体大小以section的为基准，如果section的是像素为单位，那么就以section像素大小的基准。如果section的是相对单位，那么section的单位要计算后，用计算后的像素大小为span的基准。-->
+<section class="sct">
+	 hello section
+	<p class="fsf">hello p<br>
+		<span class="fsz">this span</span>
+	</p>
+</section>
+
+<p class="rem">以rem为单位设置的字体,基于（或相对于）文档根节点html的字体大小</p>
+</body>
+</html>
