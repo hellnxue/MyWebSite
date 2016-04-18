@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>字体样式、粗细、变化、简写</title>
+<style>
+.tle{ text-align:center}
+/*字体样式font-style  值：italic、oblique、normal*/
+p.font-style-italic{ font-style:italic;}
+span.font-style-normal{ font-style:normal;}
+p.font-style-oblique{ font-style:oblique;}/*oblique与italic一样是斜体的*/
+
+/*常规值：
+   font-style 有一个normal 值，中文就是“常规”的意思。 这个值其实不仅font-style 有，
+很多其他属性也有，它的作用就是取消所有的特殊样式。什么情况下才会用它呢？
+这个值是用来有选择地覆盖某个默认或你设定的全局属性的。*/
+.h3Normal{
+       font-weight:700;
+	   font-size:normal;}
+
+/*字体粗细font-weight 值有bold bolder normal lighter,用的最多的是bold和normal*/   
+p.shows_weight{
+       font-weight:bold;}
+p.shows_weight span{
+       font-weight:normal;}
+p.bolder{
+       font-weight:bolder;}
+p.lighter{
+       font-weight:lighter;}
+	   
+/*字体变化 font-variant  值：small-caps、normal*/
+p.shows_variant{
+       font-variant:small-caps;}
+p.shows_variant span{
+       font-variant:normal;}
+p.font{
+       font:bold italic small-caps 2em Arial, Helvetica, sans-serif}
+</style>
+</head>
+
+<body>
+<p class="tle">-------------字体样式font-style--------------</p>
+<p class="font-style-italic">This is italicized text with <span class="font-style-normal">a piece of non-italic text</span> in the
+middle.</p>
+<p class="font-style-oblique">This is obliqueed text</p>
+
+<h3 class="h3Normal">test normal</h3> 
+<span>hello world ,no CSS</span> 
+
+<p class="tle">-------------字体粗细font-weight--------------</p>
+
+<p class="shows_weight">This is bolded text with <span>a piece of non-weight
+text</span> in the middle.</p>
+
+<p class="bolder">font-width bolder</p>
+<p class="lighter">font-width lighter</p>
+ 
+ 
+ <p class="tle">------------字体变化font-variant--------------</p>
+ <p class="shows_variant">This is variant text with <span>a piece of non-variant
+text</span> in the middle.</p>
+
+ <p class="tle">------------字体简写font--------------</p>
+ <p class="font">字体简写，good night helln.</p>
+</body>
+</html>
