@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+.indent{ 
+	text-indent:3em;
+	border:1px solid yellow;}
+ 
+p.wbsp { border:3px solid red;
+		 line-height:30px;
+		  text-indent:10px;}
+		 
+span.wbss {
+		 border:1px solid green;/*行高为啥加在P上管用，加在span上不管用捏。。。？？*/
+		
+		  }
+</style>
+</head>
+
+<body>
+	<p class="indent">A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.</p>
+	<!--为啥缩进的长度看着不一样的-->
+	<div style="width:400px; text-indent:5%;border:1px solid green;">
+	   rem和em一样也是一个相对单位，为了方便理解，我们就理解rem为root em，顾名思义rem只相对跟节点计算，这就是说只要在根节点设定好参考值，那么全篇的1rem都相等。
+	   <p style="width:200px;  border:1px solid pink;">rem和em一样也是一个相对单位，为了方便理解，我们就理解rem为root em，顾名思义rem只相对跟节点<html>计算，这就是说只要在根节点设定好参考值，那么全篇的1rem都相等。</p>
+	</div>
+	
+	<p class="wbsp"><span class="wbss">Here is a long paragraphA bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.</span></p>
+	
+	<span style="text-indent:30px;">ld sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir</span>
+</body>
+</html>

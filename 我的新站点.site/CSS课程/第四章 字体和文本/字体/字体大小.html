@@ -81,8 +81,17 @@ body area
 
 <p class="rem">以rem为单位设置的字体,基于（或相对于）文档根节点html的字体大小</p>
 
-<section>
-   <p >hello world</p>
+
+ 
+<p>em准确的说是相对于父节点的字号来计算的，如果自身定义了字号那么就相对自身字号来计算</p>
+<!--以下section中的第一段，实际宽度=16px*2em*2em=64px，section的字体大小以body字体大小为基准，段落P的字体大小以父元素section为基准;第二段的实际宽度=10px*2em=20px;-->
+<section style=" font-size:2em;">
+  <p style="border:1px solid yellow; width:2em;">hello sir</p>
+  <p style="border:1px solid yellow; width:2em; font-size:10px;">hello world</p>
 </section>
+
+<p style="width:5em; border:1px solid pink; overflow:hidden;">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
+ 
+ <p style="font-size:2em;">字体大小是<span>可以继承的</span>，如果子元素不设置font-size，则直接从父元素继承字体大小，如果子元素设置了font-size，会基于父元素的字体大小为基准，重新计算自身字体大小的</p>
 </body>
 </html>
