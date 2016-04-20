@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+.h3{ text-align:center;}
+</style>
+<script>
+  /*typeof返回某个检测变量的字符串形式的值*/
+  function typeofTest(){
+    var variable;
+	var varnum=10;
+	var flag=false;
+	var varnull=null;
+	var varfunction=arguments.callee;
+	console.log(variable);//undefined
+	console.log("typeof variable:"+typeof variable);//undefined
+	console.log("typeof (typeof variable):"+typeof (typeof variable));//string 
+	
+	console.log("typeof  varnum:"+typeof  varnum) ;//number 
+	console.log("typeof (typeof varnum):"+typeof (typeof varnum));//string 
+	
+	console.log("typeof flag:"+ typeof flag );//boolean 
+	console.log("typeof (typeof flag):"+typeof (typeof flag));//string
+	 
+	console.log("typeof varnull:"+ typeof varnull );//object 
+	console.log("typeof (typeof varnull):"+typeof (typeof varnull));//string
+	
+	console.log("typeof varfunction:"+ typeof varfunction );//function 
+	console.log("typeof (typeof varfunction):"+typeof (typeof varfunction));//string
+  }
+  
+  function undefinedTest(){
+    var name;
+	console.log(name);
+	//console.log(age); 直接用未声明的变量会导致程序报错，js代码终止于此。
+	console.log(typeof age);//所以，对未声明的变量，只能执行一项操作，即使用typeof操作符检测其数据类型。
+  }
+  function nullTest(){
+    var variable=null;
+	var flag=null==undefined;
+	console.log("null==undefined："+flag);
+  }
+  
+  function numberTest(){
+    var octalNum1=070;//56
+	var hexNum1=0xA;//10
+	
+	var intNum=octalNum1+hexNum1
+	console.log("八进制070："+octalNum1);
+	console.log("16进制0xA："+hexNum1);
+	console.log(intNum);//66 在进行算术计算时，所有八进制和十六进制表示的数值最终都将被转换成十进制。
+  }
+  
+  function floatTest(){
+    var float1=0.1;
+	var float2=0.2;
+	var float3=0.1+0.2;
+	console.log(float3);// 0.30000000000000004 特定的浮点值相加后，得到的值是经过舍入的，不如整数精确 0.5+0.5就不会这样。
+	console.log(float3==0.3);//false
+  }
+  
+  function NaNTest(){
+    var num= 0/0;
+	var nm=NaN+1;
+	var flag=NaN==NaN;
+	var n1=isNaN(NaN);//true
+	var n2=isNaN(10);//false
+	var n3=isNaN("10");//false
+	var n4=isNaN("blue");//true
+	var n5=isNaN(true);//false
+	console.log("0/0："+num);//NaN
+	console.log("NaN+1："+nm);//NaN 任何涉及NaN的操作都会返回NaN
+	console.log("NaN==NaN："+flag);
+	
+	
+  }
+</script>
+</head>
+
+<body>
+<h3>typeof 操作符</h3>
+<input type="button" value="typeof操作符" onclick="typeofTest()"/>
+<input type="button" value="Undefined类型" onclick="undefinedTest()"/>
+
+<input type="button" value="Nulll类型" onclick="nullTest()"/>
+<input type="button" value="Number类型" onclick="numberTest()"/>
+
+<input type="button" value="浮点数值" onclick="floatTest()"/>
+
+<input type="button" value="NaN" onclick="NaNTest()"/>
+</body>
+</html>
