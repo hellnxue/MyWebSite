@@ -16,19 +16,50 @@ span.wbss {
 		 border:1px solid green;/*行高为啥加在P上管用，加在span上不管用捏。。。？？*/
 		
 		  }
+/*
+  资料：
+  span是针对行元素的标签，与div这样的块元素不同，所以你设置span，仅对其中的文字元素有效，比如设置颜色、字符大小等，其他的就没用了。
+  span>标签属于行内元素（inline），所以无法设置高度和宽度；如果需要改变其宽高，就需要将其转变为块体元素（block）或行内块体元素（inle-block）。
+  
+  文本缩进text-indent的值如果越来越大会使得包含元素的高度变高，而span是行内元素，高度变高也不起作用。所以，给span这样的行内元素设置缩进不起作用。
+*/
+.spanInline{
+	text-indent:30px;
+	border:1px solid yellow;
+}
+
+.spanInlineToBlock{
+	display:block;
+	margin-top:20px;}
+h3{
+	text-align:center;}
+	
+a{
+	text-decoration:none;}
+a:hover{
+	 
+	text-decoration:underline;
+}
 </style>
 </head>
 
 <body>
+	<h3> 缩进</h3>
 	<p class="indent">A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.</p>
+	
+	<h3>继承的缩进</h3>
 	<!--为啥缩进的长度看着不一样的-->
 	<div style="width:400px; text-indent:5%;border:1px solid green;">
 	   rem和em一样也是一个相对单位，为了方便理解，我们就理解rem为root em，顾名思义rem只相对跟节点计算，这就是说只要在根节点设定好参考值，那么全篇的1rem都相等。
 	   <p style="width:200px;  border:1px solid pink;">rem和em一样也是一个相对单位，为了方便理解，我们就理解rem为root em，顾名思义rem只相对跟节点<html>计算，这就是说只要在根节点设定好参考值，那么全篇的1rem都相等。</p>
 	</div>
-	
+	<h3>文本蛇</h3>
 	<p class="wbsp"><span class="wbss">Here is a long paragraphA bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.</span></p>
+	<h3>关于行内元素设置缩进</h3>
+	<span  class="spanInline">sapn default inline.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir</span>
 	
-	<span style="text-indent:30px;">ld sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir</span>
+	<span  class="spanInline spanInlineToBlock">sapn default inline.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir.A bit of text，hello world sir</span>
+	
+	<a href="hello" class="">hello world</a>
 </body>
 </html>
