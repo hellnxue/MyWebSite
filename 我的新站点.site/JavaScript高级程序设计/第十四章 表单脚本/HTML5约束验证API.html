@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<form action="hello.html" method="post" >
+<form action="hello.html" method="post"  ><!--设置novalidate属性给表单，可以设置此表单不进行验证奥-->
   <fieldset>
     <legend>必填属性required</legend>
     普通字段：<input type="text"   name="normal" autofocus/><br><br><!--普通字段-->
@@ -29,8 +29,8 @@
   </fieldset>
    <fieldset>
     <legend>其它输入类型</legend>
-   email字段：<input type="email"  name="email" id="email"/><br><br> 
-   url字段： <input type="url"/><br><br>
+   email字段：<input type="email"  name="email" id="email" required/><br><br> 
+   url字段： <input type="url" required/><br><br>
      
 
    <input type="button" id="typeBtn" value="测试"/><br><br>
@@ -45,9 +45,20 @@
 
    <input type="button" id="typeBtn" value="测试"/><br><br>
   </fieldset>
-
+  	
+  <fieldset>
+ 	 <legend>输入模式</legend>
+     <input type="text"     pattern="\d+" required/><br>
+	 <input type="button"   value="测试" onClick="testpattern();"/><br> 
+  </fieldset>
+ <fieldset>
+ 	 <legend>检测有效性</legend>
+     <input type="text"     pattern="\d+" required/><br>
+	 <input type="button"   value="测试" onClick="testValidity();"/><br> 
+  </fieldset>
    <!--对于设置了required的字段，不填时，Firefox4和Opera11会阻止表单提交，而有的浏览器（Safari和Chrome）则什么也不做，也不会阻止表单提交-->
-  <input type="submit"   value="提交"/>
+  <input type="submit"   value="提交-会验证奥"/>
+   <input type="submit"   value="提交-不会验证奥" formnovalidate/>
  
 </form>
 <script>
@@ -77,6 +88,24 @@
 		 
 	 }); 
     });
+	
+	function testpattern(){
+		var input=$(":input[pattern]")[0];
+	    var pattern=input.pattern;//\d+    获取pattern属性值,若未设置pattern属性，则返回空字符串
+		//checkValidity()检测表单的有效性
+		var checkVal=input.checkValidity();//若输入的类型符合pattern的话为true ，否则为false，依据就是HTML5自带的表单约束
+	    var formValidity=input.checkValidity();//检测所有表单字段是否有效
+		var validity=input.validity.patternMismatch;//表单的validity对象属性patternMismatch，如果不符合pattern格式为true 空值或符合的时候都为false哎。
+		
+	    console.log("pattern:"+pattern);
+		console.log("checkVal："+checkVal);
+		console.log("formValidity："+formValidity);
+		console.log("validity："+validity);
+	}
+	
+	function testValidity(){
+	   
+	}
 </script>
 </body>
 </html>

@@ -5,8 +5,9 @@
 <title>无标题文档</title>
 <style>
 .h3{ text-align:center;}
+input{ margin:20px 10px;}
 </style>
-<script>
+<script type="text/javascript">
   /*typeof返回某个检测变量的字符串形式的值*/
   function typeofTest(){
     var variable;
@@ -43,14 +44,21 @@
 	console.log("null==undefined："+flag);
   }
   
+  /*Number类型用来表示整数值和浮点数值*/
   function numberTest(){
-    var octalNum1=070;//56
-	var hexNum1=0xA;//10
+    var octalNum1=070;//56 8进制表示的Number类型值
+	var hexNum1=0xA;//10   16进制表示的Number类型值
 	
 	var intNum=octalNum1+hexNum1
 	console.log("八进制070："+octalNum1);
 	console.log("16进制0xA："+hexNum1);
 	console.log(intNum);//66 在进行算术计算时，所有八进制和十六进制表示的数值最终都将被转换成十进制。
+	
+	//isFinite()函数判断某个值是否在最大值和最小值之间
+	var ifFinite=isFinite(Number.MAX_VALUE+Number.MAX_VALUE);
+	var ifFinite1=isFinite(10);
+	console.log("ifFinite:"+ifFinite);
+	console.log("ifFinite1:"+ifFinite1);
   }
   
   function floatTest(){
@@ -76,19 +84,101 @@
 	
 	
   }
+  
+  /*Number()可以转换任何类型的值*/
+  function NumberTTest(){
+  
+  //--------------转换基本类型值时-----------------------
+    var tBoolean=Number(true);//1
+	var tNum=Number(10);//10
+	var tnull=Number(null);//0 是零哎
+	var tundefined=Number(undefined);//NaN
+console.log("Number(true):"+Number(true) +"\n Number(10):"+Number(10)  +"\n Number(null):"+Number(null) +"\n Number(undefined):"+Number(undefined));
+	
+	//--------------转换字符串时-----------------------
+	var emptyString=Number("");//0 是零哎
+	var numString=Number("123");//123
+	var floatString=Number("1.23");//1.23
+	var sljzString=Number("0xA");//10 可以识别16进制，能将16进制的转换成十进制的值
+	var bjjString=Number("070");//70 不能识别16进制，忽略了前导的0，转换八进制是不可能的了
+	var strings=Number("hello");//NaN
+	console.log("Number(\"\")："+emptyString+"\n"+"Number(\"123\")："+numString+"\n"+"Number(\"1.23\")："+floatString+"\n"+"Number(\"0xA\")："+sljzString+"\n"+"Number(\"070\")："+bjjString+"\n"+"Number(\"hello\")："+strings);
+  }
+  
+  /*
+   parseInt()主要将值转换成整数
+  parseInt()与parseFloat()只能转换字符串类型的值
+  识别各种浮点值类型
+  */
+  function parseIntTTest(){
+    var emptyString=parseInt("");//NaN
+    var nbjz=parseInt("080");//80
+	
+	var numString=parseInt(" 123");//123
+	var floatString=parseInt("1.23");//1 
+	var sljzString=parseInt("0xA");//10 能将16进制的转换成十进制的值
+	var bjjString=parseInt("070");//56  
+	var strings=parseInt("hello");//NaN
+	var num=parseInt("1234blue");//1234
+	
+	console.log("parseInt(\"\")："+emptyString+"\n"+"parseInt(\" 123\")："+numString+"\n"+"parseInt(\"1.23\")："+floatString+"\n"+"parseInt(\"0xA\")："+sljzString+"\n"+"parseInt(\"070\")："+bjjString+"\n"+"parseInt(\"\")："+emptyString+"\n"+"parseInt(\"080\")："+nbjz+"\n"+"parseInt(\"1234blue\")："+num+"\n"+"parseInt(\"hello\")："+strings);
+	
+	//--------------可以指定parseInt()按照指定的基数转换值-----------------------
+    var num1=parseInt("0xA",16);//10
+	var num2=parseInt("A",16);//10当指定了基数后，16进制的数值表示可以去掉前面的0x啦，啊啦啦~~
+	
+	console.log('parseInt("0xA",16)：'+num1+"\n"+'parseInt("A",16)：'+num2);
+	
+	//--------------指定基数会影响到转换的输出结果-----------------------
+	var num3=parseInt("10",2);//2
+	var num4=parseInt("10",8);//8
+	var num5=parseInt("10",10);//10
+	var num6=parseInt("10",16);//16
+	
+	console.log('parseInt("10",2)：'+num3+"\n"+'parseInt("10",8)：'+num4+"\n"+'parseInt("10",10)：'+num5+"\n"+'parseInt("10",16)：'+num6);
+  }
+  
+  //主要用于浮点类型的字符串转换，只识别十进制奥
+  function parseFloatTTest(){
+    var emptyString=parseFloat("");//NaN
+    var nbjz=parseFloat("080");//80
+	
+	var numString=parseFloat(" 123");//123
+	var floatString=parseFloat("1.23");//1.23 
+	var sljzString=parseFloat("0xA");//0 不识别16进制，直接输出了0哎
+	var bjjString=parseFloat("070");//70 
+	var strings=parseFloat("hello");//NaN
+	var num=parseFloat("1234blue");//1234
+	
+	
+	console.log("parseFloat(\"\")："+emptyString+"\n"+"parseFloat(\" 123\")："+numString+"\n"+"parseFloat(\"1.23\")："+floatString+"\n"+"parseFloat(\"0xA\")："+sljzString+"\n"+"parseFloat(\"070\")："+bjjString+"\n"+"parseFloat(\"080\")："+nbjz+"\n"+"parseFloat(\"1234blue\")："+num);
+  }
 </script>
 </head>
 
 <body>
 <h3>typeof 操作符</h3>
-<input type="button" value="typeof操作符" onclick="typeofTest()"/>
-<input type="button" value="Undefined类型" onclick="undefinedTest()"/>
+<input type="button" value="typeof操作符" onClick="typeofTest()"/>
+<input type="button" value="Undefined类型" onClick="undefinedTest()"/>
 
-<input type="button" value="Nulll类型" onclick="nullTest()"/>
-<input type="button" value="Number类型" onclick="numberTest()"/>
+<input type="button" value="Nulll类型" onClick="nullTest()"/>
 
-<input type="button" value="浮点数值" onclick="floatTest()"/>
+<fieldset>
+  <legend>Number类型</legend>
+	 <input type="button" value="Number类型" onClick="numberTest()"/>
 
-<input type="button" value="NaN" onclick="NaNTest()"/>
+	<input type="button" value="浮点数值" onClick="floatTest()"/>
+
+	<input type="button" value="NaN" onClick="NaNTest()"/><br>
+
+	<input type="button" value="数值转换-Number()" onClick="NumberTTest()"/><br>
+	
+	<input type="button" value="数值转换-parseInt()" onClick="parseIntTTest()"/><br>
+	
+	<input type="button" value="数值转换-parseFloat()" onClick="parseFloatTTest()"/><br>
+	 
+</fieldset>
+
+
 </body>
 </html>
