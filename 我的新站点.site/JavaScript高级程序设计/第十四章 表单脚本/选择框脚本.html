@@ -1,14 +1,114 @@
 <!DOCTYPE html>
 <html>
 <head>
+<base href="../../" >
 <meta charset="gb2312" />
 <title>无标题文档</title>
 <style>
+fieldset{ margin:20px auto;}
+ 
 
+input[type='button']{ 
+    border:0 solid #64d1dd;
+	color:gray;
+	background:linear-gradient(#64d1dd, #fff 50%,#64d1dd);
+	background:-moz-linear-gradient(#64d1dd, #fff 50%,#64d1dd);
+}
 </style>
+
+<script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="js/commonUtil.js"></script>
+
+<script >
+   function selOne(){
+      var selObj=$("#selone")[0];
+	  var optionnum=selObj.options;
+	  var selectedIndex=selObj.selectedIndex;
+	  var value=selObj.value;//下拉框的value值由当前选中项决定，如果option中未设置value属性，那value值是option显示的文本值
+	  
+	  
+	  console.log("获取当前选中的项的索引："+selectedIndex);
+	  console.log("value："+value);
+	  
+   }
+   
+   function selmul(){
+      var selObj=$("#selmul")[0];
+	  
+	  var selectedIndex=selObj.selectedIndex;//对于多选下拉框，该属性获得的是多个选中的第一个项的索引
+	  var value=selObj.value;//多个选中的时候，value取第一个option的value属性值
+	  
+	  
+	  console.log("获取当前选中的项的索引："+selectedIndex);
+	  console.log("value："+value);
+	  
+   }
+   
+   function optOne(){
+      var selObj=$("#selone")[0];
+	  var opts=selObj.options;
+	  var opt=opts[0];
+	  
+	  var index=opt.index;//option在当前下拉列表中的索引
+	  var label=opt.label;//option中的label属性值
+	  var selected=opt.selected;//option是否被选中
+	  var text=opt.text;//option的显示值text 
+	  var value=opt.value;//option的value值 若未设置，获取的是text值
+	  
+	  console.log("index："+index+"\n"+"label："+label+"\n"+"selected："+selected+"\n"+"text："+text+"\n"+"value："+value);
+   }
+   
+   function optSel(){
+       var selObj=$("#selone")[0];
+	   var opts=selObj.options;
+	   var opt1=opts[selObj.selectedIndex];//获取选中项的option对象
+	   var opt2=opts[opts.length-1];//取得最后一项option对象
+	   opt2.selected=true;//将自定的option设置为选中状态
+	   
+	   console.log("当前选中项的text值："+opt1.text);
+	    
+   }
+   
+   function addOpt(){
+       var selObj=$("#selone")[0];
+	   var option=new Option("喝水","4");
+	   selObj.add(option,undefined);//添加选项到列表的最后位置
+   }
+</script>
 </head>
 
 <body>
 
+ <fieldset>
+ 	 <legend>单选下拉框</legend>
+	 
+	 
+    <select name="sel-multiple" id="selone" ><!-- 在select中设置size="2" 会设置框里显示的行数，同文本表单的size属性-->
+	     <option value="1">吃饭</option>
+	     <option value="2">睡觉</option>
+		 <option  label="豆豆">打豆豆</option><!--label 属性规定更短版本的选项。 下拉列表中会显示出所规定的更短版本。-->
+	</select> <br>
+
+    <input type="button" value="选择框对象select测试"  onClick="selOne();"> 
+
+	<input type="button" value="option对象测试"  onClick="optOne();"> 
+
+	<input type="button" value="选择选项"  onClick="optSel();"> 
+
+	<input type="button" value="添加选项"  onClick="addOpt();">
+  </fieldset>
+ <fieldset>
+ 	 <legend>多选下拉框</legend>
+	 
+	 
+    <select name="sel-multiple" multiple="multiple" id="selmul">
+	   <option value="1">泡面</option>
+	   <option value="2">火腿</option>
+	   <option value="3">饼干</option>
+    
+	</select>
+	  <input type="button" value="选择框对象select测试"  onClick="selmul();">
+  </fieldset>
+ 
 </body>
 </html>

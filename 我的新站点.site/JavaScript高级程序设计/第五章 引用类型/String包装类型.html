@@ -133,6 +133,11 @@ function testlablebreak(){
 	obj.name="hello";
 	console.log(typeof obj.age);
  }
+ function splitTest(){
+    var mystring = "google.com,baidu.com_weibo.com_haotu.net";
+	var myarray = mystring.split(/[,_]/);
+	console.log(myarray);
+ }
 </script>
 </head>
 
@@ -149,5 +154,7 @@ function testlablebreak(){
 <input type="button" value="长名字中间用点表示" onclick="test11()"/>
 <p>--------------indexOf()取字符的位置是从前向后取，lastIndexOf()是从后向前取------------------------------</p>
 <input type="button" value="lastIndexOf()方法测试" onclick="test12()"/>
+
+<input type="button" value="split()根据多个字符进行分割" onclick="splitTest()"/>
 </body>
 </html>
