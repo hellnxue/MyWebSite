@@ -105,10 +105,36 @@ input[type='button']{
 	   <option value="1">泡面</option>
 	   <option value="2">火腿</option>
 	   <option value="3">饼干</option>
-    
+       <option value="4">馒头</option>
 	</select>
 	  <input type="button" value="选择框对象select测试"  onClick="selmul();">
   </fieldset>
- 
+ <script>
+  /*obj.parent("select").find("option").selected=false;*/
+     var array=new Array();
+    $(function(){
+	 /* $("#selmul option").eq(1)[0].selected=true;
+	  $("#selmul option").eq(2)[0].selected=true;*/
+	   
+	   $("#selmul option").click(function(){
+		  
+		 $(this)[0].selected=false;
+		 
+		  var obj=$(this);
+		  if(array.indexOf($(this)[0].index)==-1){
+		     array.push($(this)[0].index);
+		  }else{
+		     array.splice(array.indexOf($(this)[0].index),1);
+		  }
+		 // console.log(array);
+		  array.forEach(function(item,index,array){
+		 
+		  
+		   obj.parent("select").find("option").eq(item)[0].selected=true ;
+		 
+		  });  
+	   });
+	});
+ </script>
 </body>
 </html>
