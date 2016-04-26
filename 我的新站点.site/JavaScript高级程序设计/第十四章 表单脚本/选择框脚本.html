@@ -74,6 +74,14 @@ input[type='button']{
 	   var option=new Option("喝水","4");
 	   selObj.add(option,undefined);//添加选项到列表的最后位置
    }
+   
+   //可以用选择框对象的remove(）方法删除，传入索引值
+   function removeOpt(){
+    var selObj=$("#selone")[0];
+      for(var i=0,len=selObj.options.length;i<len;i++){
+		 selObj.remove(0);//每次都删除第一个
+	  }
+   }
 </script>
 </head>
 
@@ -96,6 +104,8 @@ input[type='button']{
 	<input type="button" value="选择选项"  onClick="optSel();"> 
 
 	<input type="button" value="添加选项"  onClick="addOpt();">
+	
+	<input type="button" value="移除所有选项"  onClick="removeOpt();">
   </fieldset>
  <fieldset>
  	 <legend>多选下拉框</legend>
@@ -109,32 +119,43 @@ input[type='button']{
 	</select>
 	  <input type="button" value="选择框对象select测试"  onClick="selmul();">
   </fieldset>
+  
+  
+  <p>hello <span id="span" style="color:#FF00FF">world</span></p>
+  <p>hello </p>
+  
+  <input type="button" value="测试appendChild()"  onClick="appendTst();">
  <script>
   /*obj.parent("select").find("option").selected=false;*/
      var array=new Array();
     $(function(){
-	 /* $("#selmul option").eq(1)[0].selected=true;
-	  $("#selmul option").eq(2)[0].selected=true;*/
-	   
+	
+		/*
+		  点击几个选中几个，再次点击选中的项时取消选中状态
+		*/
+	    /* $("#selmul option").eq(1)[0].selected=true;
+	      $("#selmul option").eq(2)[0].selected=true;*/
 	   $("#selmul option").click(function(){
-		  
-		 $(this)[0].selected=false;
-		 
+ 
 		  var obj=$(this);
-		  if(array.indexOf($(this)[0].index)==-1){
-		     array.push($(this)[0].index);
+		  if(array.indexOf(obj[0].index)==-1){
+		     array.push(obj[0].index);
 		  }else{
-		     array.splice(array.indexOf($(this)[0].index),1);
+		     array.splice(array.indexOf(obj[0].index),1);
+			 obj[0].selected=false;
 		  }
-		 // console.log(array);
+	 
 		  array.forEach(function(item,index,array){
-		 
-		  
-		   obj.parent("select").find("option").eq(item)[0].selected=true ;
-		 
+		       obj.parent("select").find("option").eq(item)[0].selected=true ;
 		  });  
 	   });
 	});
+	
+	/*关于appendChild()  如果为appendChild()方法传入一个文档中已有的元素，那么就会先从该元素的父节点移除它，再把它添加到指定的位置。以前不知道哎......*/
+	function appendTst(){
+	   var spanObj=$("#span")[0];
+	   $("p:eq(1)")[0].appendChild(spanObj);
+	}
  </script>
 </body>
 </html>

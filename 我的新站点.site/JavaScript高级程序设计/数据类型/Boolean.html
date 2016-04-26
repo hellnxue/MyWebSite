@@ -35,11 +35,29 @@ function btnfushu(){
   }
   
 }
-
+function jbObjTest(){
+    var str=new String("");//true 显示的创建基本包装类型对象（不推荐的），用Boolean()方法转换时，创建的基本包装类型对象都会转成true（因为是对象）
+	var bstr=Boolean(str);//true
+	var blstr=Boolean("");//false //基本类型值用Boolean()方法时会用布尔方法转换值，空值会转成false，不为0的值会转成true。所以两者的区别很明显
+	
+	var num=new Number(0);//0
+	var bnum=Boolean(num);//true
+	var blnum=Boolean(0);//false
+	
+	var boolean=new Boolean(false);//false
+	var bboolean=Boolean(boolean);//true
+	var blboolean=Boolean(false);//false
+	console.log("Boolean(str):"+bstr+"\n"+"Boolean(num):"+bnum+"\n"+"Boolean(false):"+bboolean );
+	
+	console.log(boolean+"-"+bboolean+"-"+blboolean);
+	
+ }
 </script>
 </head>
 
 <body>
-<input type="button" value="测试负数"  onclick="btnfushu()"/>
+<input type="button" value="测试负数"  onclick="btnfushu()"/><br>
+
+<input type="button" value="基本包装类型对象与基本类型的区别" onclick="jbObjTest()"/>
 </body>
 </html>
