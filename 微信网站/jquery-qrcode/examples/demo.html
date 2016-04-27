@@ -10,7 +10,7 @@
 	even allow download of the image
 </p>
 
-<div id="output"></div>
+<div id="output" style="margin:0 auto;"></div>
 
 <script src="../../../我的新站点.site/js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../jquery.qrcode.min.js"></script>
@@ -23,23 +23,53 @@ jQuery(function(){
 		FN:张学友
 		TEL;CELL;VOICE:15201280000
 		EMAIL;PREF;INTERNET:jacky.cheung#mail.me
-		orG:学友后援团
+		ORG:学友后援团
 		ROLE:产品部
 		TITLE:CTO
 		ADR;WORK;POSTAL:北京市朝阳区北四环中路35号;100101
 		END:VCARD
 	*/
-    var pt="BEGIN:VCARD\n"+"VERSION:3.0\n"+"FN:"+toUtf8("婉儿")+"\n"+"TEL;CELL;VOICE:15201280000\n"+"EMAIL;PREF;INTERNET:jacky.cheung#mail.me\n"+"orG:"+toUtf8("学友后援团")+"\n"+"ROLE:"+toUtf8("产品部")+"\n"+"TITLE:CTO\n"+"ADR;WORK;POSTAL:"+toUtf8("北京市朝阳区北四环中路35号")+";100101\n"+"END:VCARD\n";
+    var pt="BEGIN:VCARD\n"+"VERSION:3.0\n"+"FN:"+toUtf8("婉儿")+"\n"+"TEL;CELL;VOICE:15201280000\n"+"EMAIL;PREF;INTERNET:jacky.cheung#mail.me\n"+"ORG:"+toUtf8("学友后援团")+"\n"+"ROLE:"+toUtf8("产品部")+"\n"+"TITLE:CTO\n"+"ADR;WORK;POSTAL:"+toUtf8("北京市朝阳区北四环中路35号")+";100101\n"+"END:VCARD\n";
 
 
 
 
 
+/*BEGIN:VCARD
+VERSION:3.0
+FN:任侠
+TEL;CELL;VOICE:15201280000
+TEL;WORK;VOICE:010-62100000
+TEL;WORK;FAX:010-62100001
+EMAIL;PREF;INTERNET:lzw#lzw.me
+URL:http://lzw.me
+ORG:志文工作室
+ROLE:产品部
+TITLE:CTO
+ADR;WORK;POSTAL:北京市朝阳区北四环中路35号;100101
+REV:2012-12-27T08:30:02Z
+END:VCARD*/
 
-
+var ppt="BEGIN:VCARD\nVERSION:3.0\nFN:"+toUtf8("任侠")+"\nTEL;CELL;VOICE:15201280000\nTEL;WORK;VOICE:010-62100000\nTEL;WORK;FAX:010-62100001\nEMAIL;PREF;INTERNET:lzw#lzw.me\n"+"URL:http://lzw.me\n"+"ORG:ABC\;"+toUtf8("技术开发部")+"\n"+"ROLE:"+toUtf8("产品部")+"\nTITLE:CTO\nADR;WORK;POSTAL:"+toUtf8("北京市朝阳区北四环中路35号;100101")+"\n"+"REV:2012-12-27T08:30:02Z\nEND:VCARD\n";
 
  
-	jQuery('#output').qrcode(pt);
+//用户名，邮箱，手机，公司名  
+var pt="BEGIN:VCARD\n"+"VERSION:3.0\n"+"FN:"+toUtf8("小明")+"\n"+"TEL;CELL;VOICE:15201280000\n"+"EMAIL;PREF;INTERNET:1032638888@163.com\n"+"ORG:"+toUtf8("智阳科技")+"\n"+"END:VCARD\n";
+   
+var zzk="BEGIN:VCARD\nVERSION:3.0\nFN:"+toUtf8("赵梓凯")+"\nTEL;CELL;VOICE:13671873792\nEMAIL;PREF;INTERNET:zzk963741987@qq.com\n"+"URL:http://user.qzone.qq.com/908175219/main\n"+"ORG:"+toUtf8("平安企业")+"\;"+toUtf8("高级软件工程师")+"\n"+"ROLE:"+toUtf8("高级软件工程师")+"\nTITLE:"+toUtf8("安卓工程师")+"\nADR;WORK;POSTAL:"+toUtf8("张江路紫薇路88号;262100")+"\n"+"END:VCARD\n";
+
+var czx="BEGIN:VCARD\nVERSION:3.0\nFN:"+toUtf8("陈忠星")+"\nTEL;CELL;VOICE:13918419427\nEMAIL;PREF;INTERNET:710107219@qq.com\n"+"URL:http://user.qzone.qq.com/710107219/main\n"+"ORG:"+toUtf8("智阳科技(上海)有限公司")+"\;"+toUtf8("高级软件工程师")+"\n"+"ROLE:"+toUtf8("高级软件工程师")+"\nTITLE:"+toUtf8("软件工程师")+"\nADR;WORK;POSTAL:"+toUtf8("张江路紫薇路88号;262100")+"\n"+"END:VCARD\n";
+ 
+	/*jQuery('#output').qrcode(pt);*/
+	
+	$("#output").qrcode({ 
+		/*render: "table", //table方式 */
+		width:300, //宽度 
+		height:300, //高度 
+		text:czx //任意内容 
+    });
+	$("canvas").css({ "margin":"0 auto","display":"block"})
+	
 });
 
 function toUtf8(str) {    
