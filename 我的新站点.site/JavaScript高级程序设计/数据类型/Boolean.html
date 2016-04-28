@@ -52,12 +52,28 @@ function jbObjTest(){
 	console.log(boolean+"-"+bboolean+"-"+blboolean);
 	
  }
+ 
+ function kobjTest(){
+   var obj={};
+   var objnull=null;
+   var objFlag=Boolean(obj);//true
+   var objnullFlag=Boolean(objnull);//false 只有为对象为null的情况下会转为false
+   
+   console.log("Boolean(obj)："+objFlag);
+   console.log("Boolean(objnull)："+objnullFlag);
+   
+   if(!obj){
+     console.log(123);
+   }
+ };
 </script>
 </head>
 
 <body>
 <input type="button" value="测试负数"  onclick="btnfushu()"/><br>
 
-<input type="button" value="基本包装类型对象与基本类型的区别" onclick="jbObjTest()"/>
+<input type="button" value="基本包装类型对象与基本类型的区别" onClick="jbObjTest()"/>
+
+<input type="button" value="测试空对象{}和为null的对象" onClick="kobjTest()"/>
 </body>
 </html>
