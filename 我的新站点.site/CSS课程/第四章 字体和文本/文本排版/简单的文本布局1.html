@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+  /*删除所有元素的外边距*/
+* {margin:0; padding:0;}
+/*设定主字体族和字体大小*/
+body {font:1.0em helvetica, arial, sans-serif;}
+/*居中显示盒子*/
+article {width:500px; margin:20px auto; padding:20px; border:2px solid #999;}
+/*标题周围的空白*/
+h1, h2, h3, h4, h5, h6 {line-height:1.15em; margin-bottom:.1em;}
+</style>
+</head>
+
+<body>
+	<!--放在article里的标题标签默认大小都自动改为了1.5em哎，为啥？-->
+	<article>
+	    <!--放在article标签里的标题标签h1的字体默认大小成了1.5em(不在article里的默认大小是2em，why?)-->
+		<h1 style="border:1px solid pink; font-size:1.5em; " >CSS</h1>
+		
+		<p style="border:1px solid pink;">CSS stands for Cascading Style Sheets. CSS controls the presentational
+		aspects of your Web pages.</p>
+		
+		<h2 style="font-size:1.5em;">Block-Level Elements</h2>
+		
+		<p>Block-level elements stack down the page. They include:</p>
+		
+		<ul>
+			<li><code>header</code></li>
+			<li><code>section</code></li>
+			<li><code>h1, h2, etc.</code></li>
+		</ul>
+		
+		<h2>Inline Elements</h2>
+		
+		<p>Inline elements sit next to each other, if there is room. They include:</p>
+		
+		<ul>
+			<li><code>img</code></li>
+			<li><code>a</code></li>
+			<li><code>em</code></li>
+		</ul>
+		
+		<blockquote>
+			<q>Typography maketh the Web site.</q><cite>CWS</cite>
+		</blockquote>
+		
+	</article>
+	
+	<p style="border:1px solid pink; font-size:12px; line-height:20px">hello world helln hello world helln</p>
+	<h1 style="font-size:2em;">hello world</h1>
+</body>
+</html>

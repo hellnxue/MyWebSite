@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>行高line-height</title>
+<style>
+/*
+行高是不叠加的，是累积的
+CSS中的行高平均分布在一行文本的上方和下方。举个例子，如果字体大小是 12像 素，行高是 20 像素，则浏览器会在文本上方和下方各加 4 像素的空白，以凑足 20 像素的行高
+*/
+p:nth-child(1){font-size:12px; line-height:20px; border:1px solid blue;}
+p:nth-child(2){font-size:12px; line-height:20px; border:1px solid red;}
+p.dd{font-size:12px; line-height:100px; border:1px solid green; height:100px; margin-bottom:100px;}
+div {  
+		 border:2px solid #FF00FF;}
+		 
+/*设置div中的文字水平居中,注意一定要设置宽度奥，不然div默认宽度会占用一行，auto会不起作用哒。*/		 
+.hln{ margin:20px auto; width:100px;}
+</style>
+</head>
+
+<body sty>
+ 
+<p class="d">hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight</p>
+
+<p  >hello goodnight hello goodnight hello goodnight hello goodnight </p>
+
+<p  class="dd"><span style="border:1px solid pink;">hello goodnight hello goodnight hello</span> </p>
+
+
+<p  class="dd"><span style="border:1px solid pink;">hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight</span> </p>
+ <!--设置div中的文字水平居中，-->
+<h3 style="text-align:center;"> -----------------------------------设置div中的文字水平居中-------------------------------- </h3>
+<div class="hln"><h4> hello helln </h4></div>
+<div  >hello helln</div>
+
+ <label for="idcard">身份证号</label>
+
+
+</body>
+</html>

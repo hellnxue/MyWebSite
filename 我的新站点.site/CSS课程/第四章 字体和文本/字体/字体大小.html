@@ -62,7 +62,7 @@ body area
 
 <p class="medium">font-size set medium</p>
 
-
+<!--p设置的字体大小是1.2em，sapn的字体大小设置的是1.2em，p的实际字体大小是1.2*16px=19.2px  span的字体大小最终是1.2*1.2*16=23.0333px-->
 <p class="bl">hello p<br>
 	<span class="bll">this span</span>
 </p>
@@ -71,6 +71,8 @@ body area
 <p class="fspx">hello p<br>
 	<span class="fsem">this span</span>
 </p>
+
+
 <!--span的父元素P未设置字体大小，但是祖先元素section设置了字体大小，因此span的字体大小以section的为基准，如果section的是像素为单位，那么就以section像素大小的基准。如果section的是相对单位，那么section的单位要计算后，用计算后的像素大小为span的基准。-->
 <section class="sct">
 	 hello section
@@ -93,5 +95,19 @@ body area
 <p style="width:5em; border:1px solid pink; overflow:hidden;">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
  
  <p style="font-size:2em;">字体大小是<span>可以继承的</span>，如果子元素不设置font-size，则直接从父元素继承字体大小，如果子元素设置了font-size，会基于父元素的字体大小为基准，重新计算自身字体大小的</p>
+ 
+ 
+ 
+ 
+ <h1>放在section或者article里的标题元素默认的字体大小会发生改变，如h1,由原来的2em，改为1.5em哎，原因可能是因为section或article定义块的因素，总是需要发生些变化的</h1>
+ <section style="border:1px solid yellow;">
+    <h1>标题的字体大小会不会继承父元素的呢</h1>
+    <h2>标题的字体大小会不会继承父元素的呢</h2>
+    <h3>标题的字体大小会不会继承父元素的呢</h3>
+	<h4>标题的字体大小会不会继承父元素的呢</h4>
+	<h5>标题的字体大小会不会继承父元素的呢</h5>
+    <h6>标题的字体大小会不会继承父元素的呢</h6>
+   <code>code标签的字体大小会不会继承父元素的呢</code>
+ </section>
 </body>
 </html>

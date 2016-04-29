@@ -2,40 +2,106 @@
 <html>
 <head>
 <meta charset="gb2312" />
-<title>行高line-height</title>
+<title>无标题文档</title>
 <style>
-/*
-行高是不叠加的，是累积的
-CSS中的行高平均分布在一行文本的上方和下方。举个例子，如果字体大小是 12像 素，行高是 20 像素，则浏览器会在文本上方和下方各加 4 像素的空白，以凑足 20 像素的行高
-*/
-p:nth-child(1){font-size:12px; line-height:20px; border:1px solid blue;}
-p:nth-child(2){font-size:12px; line-height:20px; border:1px solid red;}
-p.dd{font-size:12px; line-height:100px; border:1px solid green; height:100px; margin-bottom:100px;}
-div {  
-		 border:2px solid #FF00FF;}
-		 
-/*设置div中的文字水平居中,注意一定要设置宽度奥，不然div默认宽度会占用一行，auto会不起作用哒。*/		 
-.hln{ margin:20px auto; width:100px;}
+h3{ text-align:center;}
+/*letter-spacing用于调整所有字符之间的距离*/
+p.letter-spacing{ letter-spacing:0.2em;}
+p.small{ letter-spacing:0.001em;}
+h2.letter{ letter-spacing:-0.04em;}/*默认的字符间距在字体变大时会使文本显得松散，因此缩小大标题的字距可以让网
+页显得更专业*/
+
+
+p.word{ word-spacing:0.2em;}
+p.smallword{  word-spacing:-0.2em;}
+
+
+p.uu{ text-decoration:underline;}
+p.ov{ text-decoration:overline}
+p.th{ text-decoration:line-through}
+p.uuov{ text-decoration:overline underline;}/*同时添加下划线和上划线*/
+
+p.left{ text-align:left}
+p.right{ text-align:right}
+p.center{ text-align:center}
+p.justify{ text-align:justify}
+
+
+p.uppercase{ text-transform:uppercase;}
+p.lowercase{ text-transform:lowercase}
+p.capitalize{ text-transform:capitalize;}
+p.small-caps{ font-variant:small-caps;}
+
+
+p.custom sub {font-size:60%; vertical-align:-.4em;}
+p.custom sup {font-size:65%; vertical-align:.65em;}
+p.customsmall {font-size:.8em; vertical-align:1em;}
 </style>
 </head>
 
-<body sty>
+<body>
+<h3>-----字符间距letter-spacing-----------</h3>
+<p  >Here is a long paragraphA bit of text，hello world sir. --默认</p>
+
+<p class="letter-spacing">Here is a long paragraphA bit of text，hello world sir. </p>
+
+<p class="small">Here is a long paragraphA bit of text，hello world sir. </p>
+
+<h2 >Here is a long paragraphA bit of text,no letter-spacing</h2>
+
+<h2 class="letter">Here is a long paragraphA bit of text</h2>
+
+<h3>-----单词间距word-spacing-----------</h3>
  
-<p class="d">hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight</p>
+<p class="word">Here is a long paragraphA bit of text，hello world sir. </p>
 
-<p  >hello goodnight hello goodnight hello goodnight hello goodnight </p>
+<p class="smallworld">Here is a long paragraphA bit of text，hello world sir. </p>
 
-<p  class="dd"><span style="border:1px solid pink;">hello goodnight hello goodnight hello</span> </p>
+<p style="word-spacing:1em;">单词间对中文没有作用，因为中文之间没有空格</p>
 
+<h3>-----文本装饰text-decoration-----------</h3>
+ 
+<p class="uu">Here is a long paragraphA bit of text，hello world sir. </p>
 
-<p  class="dd"><span style="border:1px solid pink;">hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight hello goodnight</span> </p>
- <!--设置div中的文字水平居中，-->
-<h3 style="text-align:center;"> -----------------------------------设置div中的文字水平居中-------------------------------- </h3>
-<div class="hln"><h4> hello helln </h4></div>
-<div  >hello helln</div>
+<p class="ov">Here is a long paragraphA bit of text，hello world sir. </p>
 
- <label for="idcard">身份证号</label>
+<p class="th">Here is a long paragraphA bit of text，hello world sir. </p>
 
+<p class="uuov">Here is a long paragraphA bit of text，hello world sir.</p>
 
+<h3>-----文本对齐text-decoration-----------</h3>
+ 
+<p class="left">Here is a long paragraphA bit of text. </p>
+
+<p class="right">Here is a long paragraphA bit of text. </p>
+
+<p class="justify">Here is a long paragraphA bit of text. </p>
+
+<p  class="center"> hello world </p>
+
+<h3>-----文本转换text-transform-----------</h3>
+ 
+<p class="uppercase">Here is a long paragraphA bit of text. </p>
+
+<p class="lowercase">Here is a long paragraphA bit of text. </p>
+
+<p class="capitalize">Here is a long paragraphA bit of text.首字母大写 </p>
+
+<p  class="small-caps"> hello world  </p>
+ 
+ 
+<h3>-----文本垂直对齐vertical-align-----------</h3> 
+
+<h4>Default <code>sub</code> and <code>sup</code> styles</h4>
+
+<p>Enjoy mountain spring H<sub>2</sub>O. It’s 10<sup>5</sup> times better than tap<sup>&dagger;</sup> water!</p>
+
+<p class="customsmall"><sup>&dagger;</sup><em>This means water provided through a municipal distribution system</em></p>
+
+<h4>Custom <code>sub</code> and <code>sup</code> styles</h4>
+
+<p class="custom">Enjoy mountain spring H<sub >2</sub>O. It’s 10<sup>5</sup> times better than tap<sup>&dagger;</sup> water!</p>
+
+<p class="customsmall"><sup>&dagger;</sup><em>This means water provided through a municipal distribution system</em></p>
 </body>
 </html>
