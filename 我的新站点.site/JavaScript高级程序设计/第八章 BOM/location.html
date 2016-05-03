@@ -40,6 +40,21 @@ $(function(){
     });
 });
  
+ 
+ function specialTest(){
+  /* var search="?idcard=+/z//v38/PT1//31/fz9/fz0";
+   var rel=search.split("idcard");
+   var relstr=rel[1].substring(1);
+   console.log(rel[1]);
+   console.log(relstr);*/
+   
+   var search="?idcard=+/z//v38/PT1//31/fz9/fz0&nickname=婉儿&headimgurl=http://wx.qlogo.cn/mmopen/JDDwYKEZ0CyMtNpZqVlpgGWLHmFicQ3NKkVAve0TkMOiaILQrlj9lPf9p2SkoV5hrEga8bY1ekviaibFj6lcIz9Hbg/0";
+   
+    var rel=search.split("&");
+    var relstr=rel[0].split("idcard");
+    var relst1r=relstr[0].substring(1)
+   
+ }
 </script>
 </head>
 
@@ -51,5 +66,6 @@ $(function(){
   <p>--------------------------j将location.search获得的地址栏的数据截取处理成Object----------------------------------------------------</p>
   <p>?employeeId=18928&employeeName=侯辉&reportMonth=201603</p>
     <input type="button"   value="处理search获取的地址栏数据" id="test4"/><br/>
+	<input type="button" value="特殊截取" id="test5" onClick="specialTest();"/>
 </body>
 </html>
