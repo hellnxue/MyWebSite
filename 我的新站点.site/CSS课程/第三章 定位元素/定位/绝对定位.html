@@ -11,23 +11,28 @@
 	 left:30px;}
 	 
   /*相对定位相对的是它原来在文档流中的位置（或者默认位置）
-    绝对定位的元素 完全脱离了常规文档流，它现在是相对于顶级元素 body 在定位。*/
+    绝对定位的元素 完全脱离了常规文档流，它现在是相对于顶级元素 body 在定位。（即使设置为绝对定位的元素有父元素，它的父元素在没有设置为relative的情况下，它依然以body为相对定位元素）*/
   p#specialpara {
      position:absolute;
 	 top:25px;
 	 left:30px;
 	 border:1px solid black;}
  
-  
+ div{
+ 	margin-top:100px;
+	
+	} 
 </style>
 </head>
 
 <body>
+<div>
+    <p>First Paragraph</p>
+	<p class="second">Second Paragraph</p>
+	<p id="specialpara">Third Paragraph (with ID)</p>
+	<p class="four">Fourth Paragraph</p>
+</div>
 
-<p>First Paragraph</p>
- <p class="second">Second Paragraph</p>
-  <p id="specialpara">Third Paragraph (with ID)</p>
-   <p class="four">Fourth Paragraph</p>
 
 </body>
 </html>
