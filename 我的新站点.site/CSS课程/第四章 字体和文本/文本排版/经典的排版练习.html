@@ -11,15 +11,77 @@
   font-weight: normal; 
 }
 
- 
+  @font-face {
+  font-family: 'AlexBrushRegular' ;
+  src: url('Fonts/AlexBrush-Regular.ttf');
+  font-style: normal;
+  font-weight: normal; 
+}
 
  *{ margin:0;padding:0;}
 
 body {    
  font-family:"CrimsonRoman", georgia, times, serif;      
  background-color:#fff;     
- margin:29px 10% 0;      
+ margin:29px 18% 0;      
  background-image:url(../../../image/grid_24px.png) }
+ 
+ h2{font-size:18px;
+	line-height:24px;
+	font-weight:bold;
+	text-align:center;
+	font-variant:small-caps;
+	word-spacing:.5em;
+	letter-spacing:.6em;
+	}
+h1{
+   font-size:60px;
+   line-height:96px;
+   font-family:'AlexBrushRegular', cursive;
+   margin:4px 0 -4px;
+   text-align:center;
+   font-weight:normal;
+   position:relative;}
+   
+ p{
+  font-size:18px;
+  line-height:24px;}
+  
+ blockquote {margin:0px 20%;}
+ 
+ q{
+    font-size:18px;
+	line-height:24px;
+	font-style:italic;}
+	
+/*h1+p::first-letter{
+
+  font-family:times, serif;
+  font-size: 90px;
+  float:left;
+  border:1px solid;}*/
+h1 + p::first-letter {
+	font-family:times, serif;
+	font-size: 90px;
+	float:left;
+	
+	padding:.07em 3px 0 0;
+}
+
+h1 + p::first-line{
+    font-variant:small-caps;
+	letter-spacing:.15em;
+    }
+	
+p + p{
+	text-indent:14px;
+	}
+/*引用内容前面的引号*/
+q::before {content:"\201C"}
+/*引用内容后面的引号*/
+q::after {content:"\201D"}
+ 
+
 </style>
 </head>
 
