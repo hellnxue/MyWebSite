@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+ 
+</style>
+<script  src="../../js/jquery-1.8.2.min.js"/></script>
+<script>
+
+/*resolved*/
+ function deferredTest(){
+        var deferred = $.Deferred();
+		deferred.done(function(value) {
+		   console.log("success:"+value);
+		   console.log("state:"+deferred.state());//resolved 表示操作成功。
+		}).fail(function(value){
+		   console.log("fail:"+value);
+		   console.log("state:"+deferred.state());//rejected  
+		});
+		
+		console.log("1="+deferred.state());//pending 表示操作还没有完成。
+		deferred.reject("hello world");//改变延迟对象的状态，设置为reject后会走fail的回调函数，设置为resolve走done的回调函数
+		console.log("2="+deferred.state());//rejected 表示操作失败。
+ }
+ 
+function procressTest(){
+        console.log(123);
+        var userProgress = $.Deferred();
+        var $profileFields = $("input");
+        var totalFields = $profileFields.length;
+        userProgress.progress(function (filledFields) {
+            var pctComplete = (filledFields/totalFields)*100;
+            $("#progress").html(pctComplete.toFixed(0));
+        }); 
+        userProgress.done(function () {
+            $("#thanks").html("Thanks for completing your profile!").show();
+        });
+        $("input").on("change", function () {
+            var filledFields = $profileFields.filter("[value!='']").length;
+            userProgress.notify(filledFields);
+			console.log("filledFields:"+filledFields);
+			console.log("totalFields:"+totalFields);
+            if (filledFields == totalFields) {
+                userProgress.resolve();
+            }
+        });
+ }
+</script>
+</head>
+
+<body>
+ <input type="button" value="Deferred对象" onClick="deferredTest();"/>
+ <input type="button" value="procress" onClick="procressTest();"/><br>
+ <input type="text"  value=""/>
+ <input type="text" value=""/>
+<div id="progress"></div>
+<div id="thanks"></div>
+</body>
+</html>
