@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+  * {margin:0; padding:0;}
+	body {font:1em helvetica, arial, sans-serif;}
+	div#main_wrapper{
+		min-width:600px; max-width:1100px;
+		/*超过最大宽度时，居中布局*/
+		margin:0 auto;
+		/*背景图片默认从左上角开始拼接*/
+		background:url(images/bg_tile_150pxw.png) repeat-y #eee;
+	}
+	header {
+		padding:5px 10px;
+		background:#3f7ccf;
+	}
+	div#threecolwrap {
+		/*浮动强制它包围浮动的栏*/
+		float:left;
+		width:100%;
+		/*背景图片右对齐*/
+		background:url(images/bg_tile_210pxw.png) top right repeat-y;
+	}
+	div#twocolwrap {
+		/*浮动强制它包围浮动的栏*/
+		float:left;
+		width:100%;
+		/*把右栏拉到区块外边距腾出的位置上*/
+		margin-right:-210px;
+	}
+	nav {
+		float:left;
+		width:150px;
+		background:#f00;
+		padding:20px 0;
+	}
+	 
+	/*让子元素与栏边界保持一定距离*/
+	nav > * {margin:0 30px;}
+	article {
+		width:auto;
+		margin-left:150px;
+		/*在流动居中的栏右侧腾出空间*/
+		margin-right:210px;
+		background:#eee;
+		padding:20px 0;
+	}
+	/*让子元素与栏边界保持一定距离*/
+	article > * {margin:0 20px;}
+	aside {
+		float:left;
+		width:210px;
+		background:#ffed53;
+		padding:20px 0;
+	}
+	/*让子元素与栏边界保持一定距离*/
+	aside > * {margin:0 10px;}
+	footer {
+		clear:both;
+		width:100%;
+		text-align:center;
+		background:#000;
+	}
+</style>
+</head>
+
+<body>
+	<div id="main_wrapper">
+		<header>
+		  <h1>A Three-Column Fluid Center Layout</h1>
+		</header>
+		<div id="threecolwrap"> 
+			<div id="twocolwrap"> 
+				<nav>
+				  
+					<ul>
+					 <li>link1</li>
+					 <li>link2</li>
+					 <li>link3</li>
+				  </ul>
+				  
+				</nav>
+				
+				<article>
+				   <div  style="border:1px solid pink;">
+					 Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
+		
+		This profound book from bestselling author, Spencer Johnson, will show you how to anticipate change, adapt to change quickly, enjoy change and be ready to change quickly again and again. Discover the secret for yourself and learn how to deal with change, so that you suffer from less stress and enjoy more success in your work and in life.
+				  </div>
+				</article>
+				</div>
+				<aside>
+				   <div>
+				      Written for all ages, this story takes less than an hour to read, but its unique insights can last for a lifetime.
+				   </div>
+					 
+				   
+				</aside>
+				</div>
+				<footer>
+				  This parable tells the story of an air pilot who meets a Little Prince when he has to make a forced landing in the Sahara Desert. The Little Prince tells him wise and enchanted stories.
+				</footer>
+		      
+		
+	</div>
+	 
+</body>
+</html>

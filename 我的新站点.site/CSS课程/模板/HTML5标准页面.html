@@ -4,10 +4,10 @@
 <meta charset="gb2312" />
 <title>无标题文档</title>
 <style>
- p{ border-bottom:0.5px solid;}
+/* p{ border-bottom:0.5px solid;}
  span{border:1px solid pink;
       margin-left:10px;
-	  padding-left:10px;}
+	  padding-left:10px;}*/
 </style>
 
 </head>
@@ -17,5 +17,15 @@
 <label>hi</label>
 <span>hellow world</span>
 <div style="border:1px solid yellow;width:200px;"> <img src="../../image/mxx/m6.jpg" width="300px;"/></div>
+
+<!--给设置了宽度的元素添加内边距，外边距和边框会使得宽度变宽。-->
+<div style="border:1px solid black;width:200px;">
+	<!--未设置宽度的元素，元素的宽度会随盒子边距的变化而变化，及内容宽度不是一成不变的。设置了宽度的元素的内容宽度是一直不变的。-->
+	<div style="border:1px solid pink;margin-left:20px;">span here</div>
+</div>
+
+<div style="border:1px solid pink;width:200px;"><span style="border:1px solid black; ">hehe</span>
+<span style="border:1px solid black; ">hello</span>
+</div>
 </body>
 </html>
