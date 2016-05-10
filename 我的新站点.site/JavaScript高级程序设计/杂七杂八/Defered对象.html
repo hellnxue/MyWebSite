@@ -25,28 +25,110 @@
 		console.log("2="+deferred.state());//rejected 表示操作失败。
  }
  
+/*通过给表单元素添加change事件，获取表单元素填写的进度。*/
 function procressTest(){
-        console.log(123);
+       
         var userProgress = $.Deferred();
         var $profileFields = $("input");
         var totalFields = $profileFields.length;
+		
+		/*调用Deferred对象的notify()方法的时候会触发progress()回调函数*/
         userProgress.progress(function (filledFields) {
             var pctComplete = (filledFields/totalFields)*100;
             $("#progress").html(pctComplete.toFixed(0));
         }); 
+		
+		/*调用Deferred对象的resolve()方法的时候会触发done()这个回调函数*/
         userProgress.done(function () {
             $("#thanks").html("Thanks for completing your profile!").show();
         });
+		
+		//文本框的值发生变化时and失去了焦点后就会触发change事件,每次触发都会调用回调函数来显示填写的进度。
         $("input").on("change", function () {
             var filledFields = $profileFields.filter("[value!='']").length;
+			
+			//显示进度
             userProgress.notify(filledFields);
 			console.log("filledFields:"+filledFields);
 			console.log("totalFields:"+totalFields);
+			
+			//当表单元素全部填写完后，将Deferred对象设置成完成状态
             if (filledFields == totalFields) {
                 userProgress.resolve();
             }
         });
  }
+ 
+ function  thenTest(){
+       var defer = jQuery.Deferred();
+    defer.done(function(a,b){
+	   console.log( a * b);
+                return a * b;
+    }).done(function( result,h ) {
+                console.log("result = " + result+"\n h="+h);
+    }).then(function( a, b ) {
+                return a * b;
+    }).done(function( result ) {
+                console.log("result = " + result);
+    }).then(function( a, b ) {
+	            console.log("a="+a+"\n b="+b);
+                return a * b;
+    }).done(function( result ) {
+                console.log("result = " + result);
+    });
+    defer.resolve( 2, 3 );
+ 
+ }
+ 
+ 
+ function maybeAsync( num ) {
+  var dfd = $.Deferred();
+  if ( num === 1 ) {
+    setTimeout(function() {
+      dfd.resolve( num );
+    }, 2000);
+    return dfd.promise();//返回deferred延迟对象的只读版promise对象奥
+  }
+  return num;
+}
+
+
+/*	$.when()接受多个deferred对象作为参数，当它们全部运行成功后，才调用resolved状态的回调函数，但只要其中有一个失败，就调用rejected状态的回调函数。它相当于将多个非同步操作，合并成一个。
+  when方法的另一个作用是，如果它的参数返回的不是一个Deferred或Promise对象，那么when方法的回调函数将 立即运行。
+  利用这个特点，我们可以写一个具有缓存效果的异步操作函数。也就是说，第一次调用这个函数的时候，将执行异步操作，后面再调用这个函数，将会返回缓存的结果。
+*/
+function whenTest(){
+	  //参数为1时，暂存1秒后执行回调函数then中的第一个参数(及done()回调函数)
+	  $.when(maybeAsync(1)).then(function (resp){
+			$('#target').html('<p>' + resp + '</p>');
+	  });
+	  
+	  //参数不为1时，返回的不是延迟对象，回调函数then()会立马执行的
+	  $.when(maybeAsync(0)).then(function (resp){
+	  		$('#target').html( '<p>' + resp + '</p>');
+	  });
+}
+
+//耗时函数，伪异步方法（自己起的名字奥，嘿嘿）
+var wait=function(){
+   var dfdObj=$.Deferred();
+   var task=function(){
+     alert("执行方法。。。");
+	 dfdObj.resolve();
+   }
+   
+   setTimeout(task,5000);
+   
+   return dfdObj;//返回deferred对象
+}
+
+//给耗时方法加上回调函数，wait方法时隔5秒后，执行完后，才执行回调函数
+function pwhenTest(){
+    $.when(wait()).done(function(){
+	  console.log("执行完了。。。");
+	});
+}
+ 
 </script>
 </head>
 
@@ -55,7 +137,14 @@ function procressTest(){
  <input type="button" value="procress" onClick="procressTest();"/><br>
  <input type="text"  value=""/>
  <input type="text" value=""/>
-<div id="progress"></div>
-<div id="thanks"></div>
+<div id="progress">progress</div>
+<div id="thanks">thanks</div>
+
+<input type="button" value="then()"  onClick="thenTest();"/><br>
+<input type="button" value="when()"  onClick="whenTest();"/><br>
+<div id="target">thanks</div>
+
+
+<input type="button" value="利用when()方法可以给普通耗时的方法加上回调函数奥"  onClick="pwhenTest();"/><br>
 </body>
 </html>

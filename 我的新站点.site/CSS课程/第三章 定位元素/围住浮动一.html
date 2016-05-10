@@ -1,11 +1,15 @@
 <!DOCTYPE html >
 <html  >
 <head>
-<base href="../../../我的新站点.site"/>
+ 
 <meta charset="gb2312" />
 <title>围住浮动元素</title>
 <style>
-  /*方法一：为父元素添加overflow:hidden*/
+
+  /*
+    子元素只要浮动就会脱离文档流，父元素也不会包围它，因此会破坏页面布局，解决办法就是让父元素围住浮动的子元素。
+  
+  方法一：为父元素添加overflow:hidden*/
   /*overflow:hidden 的作用：
         overflow：hidden声明的真正用途是防止包含元素被超大内容撑大。应用overflow:hidden之后，包含元素依然保持其设定的宽度，而超大的子内容则会被容器剪切掉。除此之外，overflow：hidden还有另外一个作用，即他能可靠的迫使父元素包含其浮动的子元素。
   
@@ -20,7 +24,7 @@
 <body>
   
  <section>
-<img src="../第三章 盒子模型/image/mxx/m2.jpg" alt="sorry" title="小希"/>
+<img src="../../image/mxx/m2.jpg" alt="sorry" title="小希"/>
 <p>It's fun to float.</p>
 </section>
 <footer> Here is the footer element that runs across the bottom of the
