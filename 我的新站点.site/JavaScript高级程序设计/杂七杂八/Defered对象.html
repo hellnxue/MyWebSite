@@ -2,13 +2,16 @@
 <html>
 <head>
 <meta charset="gb2312" />
-<title>无标题文档</title>
+<title>延迟对象-Defered</title>
 <style>
  
 </style>
 <script  src="../../js/jquery-1.8.2.min.js"/></script>
 <script>
+/*
+  参考自阮一峰的博客:http://www.ruanyifeng.com/blog/2011/08/a_detailed_explanation_of_jquery_deferred_object.html
 
+*/
 /*resolved*/
  function deferredTest(){
         var deferred = $.Deferred();
@@ -119,13 +122,25 @@ var wait=function(){
    
    setTimeout(task,5000);
    
-   return dfdObj;//返回deferred对象
+   return dfdObj.promise();//返回deferred对象的只读版对象promise
 }
 
 //给耗时方法加上回调函数，wait方法时隔5秒后，执行完后，才执行回调函数
 function pwhenTest(){
-    $.when(wait()).done(function(){
+
+   var dfd=wait();
+   
+  try{
+    dfd.reject();//此处会报错，延迟对象的只读版promise中没有改变状态的方法，只有绑定回调函数的方法
+  }catch(err){
+    console.log("error");
+  }
+
+	//等待耗时函数执行完成后执行回调函数
+    $.when(dfd).done(function(){
 	  console.log("执行完了。。。");
+	}).fail(function(){
+	  console.log("失败了。。。");
 	});
 }
  

@@ -11,7 +11,11 @@
 </p>
 
 <div id="output" style="margin:0 auto;"></div>
-<div id="imgs"><img src="" alt="from canvas"></div>
+<div id="imgs">
+  <img src="" alt="from canvas">
+  <img src="../img/ptp.png" style="margin-left:-20px;"/>
+
+</div>
 
 <script src="../../../我的新站点.site/js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../jquery.qrcode.min.js"></script>
@@ -60,6 +64,12 @@ var pt="BEGIN:VCARD\n"+"VERSION:3.0\n"+"FN:"+toUtf8("小明")+"\n"+"TEL;CELL;VOICE
 var zzk="BEGIN:VCARD\nVERSION:3.0\nFN:"+toUtf8("赵梓凯")+"\nTEL;CELL;VOICE:13671873792\nEMAIL;PREF;INTERNET:zzk963741987@qq.com\n"+"URL:http://user.qzone.qq.com/908175219/main\n"+"ORG:"+toUtf8("平安企业")+"\;"+toUtf8("高级软件工程师")+"\n"+"ROLE:"+toUtf8("高级软件工程师")+"\nTITLE:"+toUtf8("安卓工程师")+"\nADR;WORK;POSTAL:"+toUtf8("张江路紫薇路88号;262100")+"\n"+"END:VCARD\n";
 
 var czx="BEGIN:VCARD\nVERSION:3.0\nFN:"+toUtf8("陈忠星")+"\nTEL;CELL;VOICE:13918419427\nEMAIL;PREF;INTERNET:710107219@qq.com\n"+"URL:http://user.qzone.qq.com/710107219/main\n"+"ORG:"+toUtf8("智阳科技(上海)有限公司")+"\;"+toUtf8("高级软件工程师")+"\n"+"ROLE:"+toUtf8("高级软件工程师")+"\nTITLE:"+toUtf8("软件工程师")+"\nADR;WORK;POSTAL:"+toUtf8("张江路紫薇路88号;262100")+"\n"+"END:VCARD\n";
+
+var lxp="BEGIN:VCARD\nVERSION:3.0\nFN:"+toUtf8("刘雪萍")+"\nTEL;TYPE=CELL;VOICE:13671832769\nEMAIL;PREF;INTERNET:1032755304@qq.com\n"+"URL:http://user.qzone.qq.com/1032755304/main\n"+"PHOTO;VALUE=uri:http://wx.qlogo.cn/mmopen/JDDwYKEZ0CyMtNpZqVlpgGWLHmFicQ3NKkVAve0TkMOiaILQrlj9lPf9p2SkoV5hrEga8bY1ekviaibFj6lcIz9Hbg/0\n"+"END:VCARD\n";
+
+
+var isMe="BEGIN:VCARD\nVERSION:3.0\nFN:"+toUtf8("刘雪萍")+"\nTEL;TYPE=CELL;VOICE:13671832769\n"+"END:VCARD\n";
+
  
 	/*jQuery('#output').qrcode(pt);*/
 	
@@ -67,12 +77,12 @@ var czx="BEGIN:VCARD\nVERSION:3.0\nFN:"+toUtf8("陈忠星")+"\nTEL;CELL;VOICE:13918
 		/*render: "table", //table方式 */
 		width:300, //宽度 
 		height:300, //高度 
-		text:czx //任意内容 
+		text:isMe //任意内容 
     });
 	//$("canvas").css({ "margin":"0 auto","display":"block"}); canvas显示的图像
 	var image    = $("canvas")[0].toDataURL("image/png");//用toDataURL()将canvas生成的图像转成img ，得到的结果是一个src值。
 	$("canvas").css("display","none"); 
-	$("img").attr("src",image).css({ "margin":"0 auto","display":"block"});
+	$("img[alt]").attr("src",image).css({ "margin":"0 auto","display":"block"});
 });
 
 function toUtf8(str) {    
