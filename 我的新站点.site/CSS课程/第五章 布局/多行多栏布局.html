@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+
+section#feature_area{
+ 
+overflow:hidden;/*包围住浮动的子元素们*/
+
+}
+
+ /*每个 article 作为一个浮动栏*/ 
+ section#feature_area article {     
+	 float:left;     
+	 width:320px;     
+	 /*对于作为栏的容器，只能添加垂直内边距，因为宽度设置死的，增加水平边距会使元素宽度变宽，布局会被打乱*/     
+	 padding:10px 0;     
+	 background:#fff;     
+	 border-top:4px solid #f7be84; }
+	 
+/*为所有内容盒子添加公共样式*/ 
+section#feature_area article .inner {     
+	margin:10px 20px;     
+	padding:5px;     
+	background:#fff;     
+	border:5px solid; } 
+	
+/*以下三条分别为三个内容盒子设定样式*/ 
+section#feature_area article:nth-child(1) .inner {     
+	border-color:#d7dd6f; } 
+	
+section#feature_area article:nth-child(2) .inner {     
+	border-color:#f6dec5; } 
+	
+section#feature_area article:nth-child(3) .inner {     
+	border-color:#d1d8e4; } 
+</style>
+
+</head>
+
+<body>
+ <div id="wrapper">     
+     <header> 
+	 	<h1>Full-width content</h1>     
+	 </header> 
+	    
+	  <nav>         
+	  	<p>Navigation menus go here</p>     
+	  </nav>
+	       
+	  <section id="branding">         
+	 	 <img src="../../image/flowerlogo.png" alt="Grand Canyon" />     
+	  </section>
+	  <!-- branding 结束 -->   
+	  
+	    
+	  <section id="feature_area">         
+		  <article>             
+			  <div class="inner">                 
+			  	<p>Lorem Ipsum text1</p>
+			   </div>      
+		   </article>
+		    <article>             
+			  <div class="inner">                 
+			  	<p>Lorem Ipsum text2</p>
+			   </div>      
+		   </article>   
+		    <article>             
+			  <div class="inner">                 
+			  	<p>Lorem Ipsum text3</p>
+			   </div>      
+		   </article>            
+		   
+	   </section>
+	 <!-- feature_area 结束-->   
+	 
+	   
+	<section id="promo_area">         
+		<article>             
+			<div class="inner">                
+			 	<p>Lorem Ipsum text</p>             
+			 </div>         
+		</article>
+		<article>             
+			<div class="inner">                
+			 	<p>Lorem Ipsum text</p>             
+			 </div>         
+		</article>   
+		<article>             
+			<div class="inner">                
+			 	<p>Lorem Ipsum text</p>             
+			 </div>         
+		</article>   
+		<article>             
+			<div class="inner">                
+			 	<p>Lorem Ipsum text</p>             
+			 </div>         
+		</article>            
+		 
+	 </section>
+	 <!-- promo_area 结束-->
+	      
+	 <footer>         
+		 <p>A CSS template from <a href="http://www.stylinwithcss.com"><em>Stylin' with CSS, Third Edition</em></a> by Charles Wyke-Smith</p>    
+	 </footer> 
+ </div> 
+</body>
+</html>

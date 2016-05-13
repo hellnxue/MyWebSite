@@ -18,47 +18,25 @@
 		padding:5px 10px;
 		background:#3f7ccf;
 	}
-	div#threecolwrap {
-		/*浮动强制它包围浮动的栏*/
-		float:left;
-		width:100%;
-		/*背景图片右对齐*/
-		background:url(../../image/bg_tile_210pxw.png) top right repeat-y;
-	}
-	div#twocolwrap {
-		/*浮动强制它包围浮动的栏*/
-		float:left;
-		width:100%;
-		/*把右栏拉到区块外边距腾出的位置上*/
-		margin-right:-210px;
-	}
-	nav {
-		float:left;
-		width:150px;
-		background:#d3c7b9;
-		padding:20px 0;
-	}
+	/*左栏 设置宽度*/
+	nav{
+	display:table-cell;
+	width:150px;
+	padding:10px;
+	background:#CCCCCC;}
+	
+	/*中栏 没有设置宽度奥，这一栏是流动的*/
+	article{
+	display:table-cell; 
+	padding:10px 20px;     
+    background:#CCCCFF;}
+	
+	/*右栏 设置宽度*/
+	aside{
+	display:table-cell; 
+	width:210px; padding:10px;      
+	background:#FFFFCC;}
 	 
-	/*让子元素与栏边界保持一定距离*/
-	nav > * {margin:0 30px;}
-	article {
-		width:auto;
-		margin-left:150px;
-		/*在流动居中的栏右侧腾出空间*/
-		margin-right:210px;
-		background:#eee;
-		padding:20px 0;
-	}
-	/*让子元素与栏边界保持一定距离*/
-	article > * {margin:0 20px;}
-	aside {
-		float:left;
-		width:210px;
-		background:#a8b667;
-		padding:20px 0;
-	}
-	/*让子元素与栏边界保持一定距离*/
-	aside > * {margin:0 10px;}
 	footer {
 		clear:both;
 		width:100%;
@@ -73,8 +51,7 @@
 		<header>
 		  <h1>A Three-Column Fluid Center Layout</h1>
 		</header>
-		<div id="threecolwrap"> 
-			<div id="twocolwrap"> 
+		 
 				<nav>
 				  
 					<ul>
@@ -86,21 +63,21 @@
 				</nav>
 				
 				<article>
-				    <div>
+				    
 					 Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
 		
 		This profound book from bestselling author, Spencer Johnson, will show you how to anticipate change, adapt to change quickly, enjoy change and be ready to change quickly again and again. Discover the secret for yourself and learn how to deal with change, so that you suffer from less stress and enjoy more success in your work and in life.
-				  </div> 
+				  
 				</article>
-				</div>
+				 
 				<aside>
-				   <div>
+				   
 				      Written for all ages, this story takes less than an hour to read, but its unique insights can last for a lifetime.
-				   </div>
+				   
 					 
 				   
 				</aside>
-				</div>
+			 
 				<footer>
 				  This parable tells the story of an air pilot who meets a Little Prince when he has to make a forced landing in the Sahara Desert. The Little Prince tells him wise and enchanted stories.
 				</footer>
