@@ -51,6 +51,18 @@ function jbObjTest(){
 	
 	console.log(boolean+"-"+bboolean+"-"+blboolean);
 	
+	 //显示创建的基本包装类型对象和基本类型的另一个区别，使用instanceof时。。。
+	 var instanceofJB=bboolean instanceof Boolean;//false 不是Boolean对象的实例
+	 var instanceofJBBZ=boolean instanceof Boolean;//true 是Boolean对象的实例
+	 console.log("bboolean instanceof Boolean:"+instanceofJB);
+	 console.log("boolean instanceof Boolean:"+instanceofJBBZ);
+	 
+	 //基本包装类型的显示对象创建-->用Object构造函数创建
+	 var strsObj=new Object("hello world");
+	 var substrs=strsObj.substring(0,5);
+	 console.log("strsObj.substring(0,5)："+substrs);//hello
+	 
+	 
  }
  
  function kobjTest(){
@@ -65,6 +77,8 @@ function jbObjTest(){
    if(!obj){
      console.log(123);
    }
+   
+   
  };
 </script>
 </head>

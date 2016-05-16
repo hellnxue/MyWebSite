@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+/*
+   关于：“父元素没有上、下边框的情况下，子元素的上、下外边距会折 叠的。”的理解
+   
+   父元素的上下外边距（解释中说的都是上下外边距，左右外边距不会出现这种情况哎）
+   
+   当父元素没有设置边框时，子元素的外边距会与父元素的外边距进行重叠，不会累加。子元素设置的margin只有大于父元素的margin时才会看出外边距在增大的效果奥。
+   
+   只有父元素设置的边框或者内边距时，子元素的外边距才不会与父元素重叠起来，子元素的外边距会以父元素的边框或者内边距为参考，独立分割。
+   
+   如果父元素设置了padding，子元素设置了margin，这两者会累加的。
+
+*/
+ .outer{
+     margin-top:30px;}
+	 
+/*子元素外边距*/
+ .inner{
+     margin-top:20px;}
+	 
+ .empty{
+    margin-top:20px;
+	margin-bottom:20px;
+ }
+</style>
+
+</head>
+
+<body>
+ <div class="outer">
+    <div class="inner">Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.</div>
+ </div>
+ <p>I miss you,who moved my cheese?</p>
+ <div class="empty"></div>
+</body>
+</html>
