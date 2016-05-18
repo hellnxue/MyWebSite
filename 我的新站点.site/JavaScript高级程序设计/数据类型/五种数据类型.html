@@ -100,7 +100,7 @@ console.log("Number(true):"+Number(true) +"\n Number(10):"+Number(10)  +"\n Numb
 	var numString=Number("123");//123
 	var floatString=Number("1.23");//1.23
 	var sljzString=Number("0xA");//10 可以识别16进制，能将16进制的转换成十进制的值
-	var bjjString=Number("070");//70 不能识别16进制，忽略了前导的0，转换八进制是不可能的了
+	var bjjString=Number("070");//70 不能识别八进制，忽略了前导的0，转换八进制是不可能的了
 	var strings=Number("hello");//NaN
 	console.log("Number(\"\")："+emptyString+"\n"+"Number(\"123\")："+numString+"\n"+"Number(\"1.23\")："+floatString+"\n"+"Number(\"0xA\")："+sljzString+"\n"+"Number(\"070\")："+bjjString+"\n"+"Number(\"hello\")："+strings);
   }

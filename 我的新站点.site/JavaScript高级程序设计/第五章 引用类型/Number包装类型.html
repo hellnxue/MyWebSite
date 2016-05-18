@@ -16,10 +16,7 @@ function test1(){
     console.log("toFixed3="+n3)
 	
 	
-  var nu=99;
-  console.log("toPrecision(1)="+nu.toPrecision(1));
-  console.log("toPrecision(2)="+nu.toPrecision(2));
-  console.log("toPrecision(3)="+nu.toPrecision(3))
+ 
    
 }
 
@@ -90,6 +87,23 @@ function test4(){
 	var indMoney=parseFloat("2858")*parseFloat(0.08);//缴纳金额(元)	个人
 	console.log(indMoney.toFixed(2));
 }
+
+function test5(){
+  var i=1.6;
+  var j=i.toFixed(0);//2 书上所说的IE8不能舍入的范围没测出来哎
+  console.log("j:"+j);
+  
+  var z=100;
+  var s=z.toExponential(1);//1.0e+2 参数代表要显示的小数位数
+  console.log(s);
+}
+
+function test6(){
+  var nu=99;
+  console.log("toPrecision(1)="+nu.toPrecision(1));
+  console.log("toPrecision(2)="+nu.toPrecision(2));
+  console.log("toPrecision(3)="+nu.toPrecision(3))
+}
 </script>
 </head>
 
@@ -99,6 +113,8 @@ function test4(){
 <input type="button" value="测试String" onClick="test2()"/></br>
 <input type="button" value="测试Number2" onClick="test3()"/></br>
 <input type="button" value="数字测试" onClick="test4()"/></br>
+<input type="button" value="toExponential()" onClick="test5()"/></br>
+<input type="button" value="toPrecision()" onClick="test6()"/></br>
 <h3>input:</h3><div id="nift"></div>
 </body>
 </html>

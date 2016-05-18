@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>横向菜单</title>
+<style>
+.list1 ul {
+/*强制ul 包围浮动的li 元素*/
+overflow:hidden;
+}
+.list1 li {
+/*让li 元素水平排列*/
+float:left;
+/*去掉项目符号*/
+list-style-type:none;
+}
+.list1 a {
+/*让链接填满li 元素*/
+display:block;
+padding:0 16px;
+/*去掉链接的下划线*/
+text-decoration:none;
+color:#999;
+}
+.list1 li + li a {border-left:1px solid #aaa;}
+.list1 a:hover {color:#555;}
+</style>
+
+</head>
+
+<body>
+ <nav class="list1">
+	<ul>
+		<li><a href="#">Alternative</a></li>
+		<li><a href="#">Country</a></li>
+		<li><a href="#">Jazz</a></li>
+		<li><a href="#">Rock</a></li>
+	</ul>
+</nav>
+</body>
+</html>
