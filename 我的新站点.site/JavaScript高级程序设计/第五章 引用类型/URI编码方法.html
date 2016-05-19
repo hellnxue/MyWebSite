@@ -1,0 +1,58 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset= "gb2312" />
+
+ 
+<title>URI编码方法</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+  
+</head>
+
+<body>
+ 
+   <input type="button" value="encodeURI" onClick="encodeURITest()"/>
+ 
+	<script>
+	  /*
+	    escape不编码字符有69个：*，+，-，.，/，@，_，0-9，a-z，A-Z
+
+		encodeURI不编码字符有82个：!，#，$，&，'，(，)，*，+，,，-，.，/，:，;，=，?，@，_，~，0-9，a-z，A-Z
+
+		encodeURIComponent不编码字符有71个：!， '，(，)，*，-，.，_，~，0-9，a-z，A-Z
+		
+		
+		
+		
+		URL特殊符号及对应的十六进制值编码：   
+ 
+		1. +  URL 中+号表示空格 %2B   
+		2. 空格 URL中的空格可以用+号或者编码 %20   
+		3. /  分隔目录和子目录 %2F    
+		4. ?  分隔实际的 URL 和参数 %3F    
+		5. % 指定特殊字符 %25    
+		6. # 表示书签 %23    
+		7. & URL 中指定的参数间的分隔符 %26    
+		8. = URL 中指定参数的值 %3D  
+	  
+	  
+	  */
+	 /*+号是特殊字符吗？*/
+	function encodeURITest(){
+		var paramt="+/z//v38/PT1//31/fz9/fz0";
+		var paramz="小新";
+		var pencode=encodeURI(paramt);
+		var tencode=encodeURI(paramz);
+		var tencodeec=encodeURIComponent(paramt);
+		var c=encodeURIComponent(paramz);
+		
+		console.log("encodeURI(+/z//v38/PT1//31/fz9/fz0)："+pencode);	//+/z//v38/PT1//31/fz9/fz0   
+		console.log("encodeURI(小新)："+tencode);						//%E5%B0%8F%E6%96%B0
+		console.log("encodeURIComponent(+/z//v38/PT1//31/fz9/fz0)："+tencodeec);//%2B%2Fz%2F%2Fv38%2FPT1%2F%2F31%2Ffz9%2Ffz0
+		console.log("encodeURIComponent(小新)："+c);					//%E5%B0%8F%E6%96%B0	 
+	}
+	 
+	</script>
+
+</body>
+</html>

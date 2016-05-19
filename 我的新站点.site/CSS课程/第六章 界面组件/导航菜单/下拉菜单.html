@@ -2,54 +2,103 @@
 <html>
 <head>
 <meta charset="gb2312" />
-<title>纵向菜单</title>
+<title>无标题文档</title>
 <style>
-/*去掉默认的内边距和外边距*/ 
-* {margin:0; padding:0;} 
+/*番外：ul是块级元素奥*/
+ /*添加视觉样式*/
+.multi_drop_menu {font:1em helvetica, arial, sans-serif;}
+.multi_drop_menu a {
+	/*让链接充满列表项*/
+	display:block;
+	
+	/*文本颜色*/
+	color:#555;
+	
+	/*背景颜色*/
+	background-color:#eee;
+	
+	/*链接的内边距*/
+	padding:.2em 1em;
+	
+	/*分隔线宽度*/
+	border-width:3px;
+	
+	/*可以有颜色，也可以透明*/
+	border-color:transparent;
+}
+.multi_drop_menu a:hover {
+	/*悬停时文本颜色*/
+	color:#fff;
+	/*悬停时背景色*/
+	background-color:#aaa;
+}
+.multi_drop_menu a:active {
+	/*点击时背景变色*/
+	background:#fff;
+	/*点击时文本变色*/
+	color:#ccc;
+}
 
-/*设定本例中菜单的大小和位置*/ 
-nav {
-	margin:50px; 
-	width:150px;} 
+/*添加功能样式*/
+.multi_drop_menu * {margin:0; padding:0;}
 
-/*给菜单加上边框*/ 
-.list1 ul {
-	border:1px solid #f00; 
-	border-radius:3px;/*border-radius 为元素添加圆角边框*/     
-	padding:5px 10px 3px;} 
+/*强制ul 包围li*/
+.multi_drop_menu ul {float:left;}
+.multi_drop_menu li {
+	/*水平排列菜单项*/
+	float:left;
+	/*去掉默认的项目符号*/
+	list-style-type:none;
+	/*为子菜单提供定位上下文*/
+	position:relative;
+}
+.multi_drop_menu li a {
+	/*让链接填充列表项*/
+	display:block;
+	/*给每个链接添加一个右边框*/
+	border-right-style:solid;
+	/*背景只出现在内边距区域后面*/
+	background-clip:padding-box;
+	/*去掉链接的下划线*/
+	text-decoration:none;
+}
+/*设置最后一项li没有右边框*/
+.multi_drop_menu li:last-child a {border-right-style:none;}
 
-/*去掉项目符号并为链接添加间距*/
- .list1 li {
-	 list-style-type:none; 
-	} 
- 
- /*“非首位子元素”选择符*/ 
- .list1 li + li a {
- 	border-top:1px solid #f00;} 
- 
- /*为链接添加样式*/ 
- .list1 a {
- 	 display:block;
-	 text-decoration:none; 
-	 padding:3px 10px;
-	 font:20px Exo, helvetica,arial, sans-serif; 
-	 font-weight:400; color:#000;         
-	 background:#ffed53;} 
- 
- /*悬停高亮*/
-  .list1 a:hover {color:#9966FF;}
+/*临时隐藏低级菜单 */
+.multi_drop_menu li ul {display:none;}
 </style>
 
 </head>
 
 <body>
- <nav class="list1">
+  <nav class="multi_drop_menu">
+	<!-- 一级开始 -->
 	<ul>
-		<li><a href="#">Alternative</a></li>
-		<li><a href="#">Country</a></li>
-		<li><a href="#">Jazz</a></li>
-		<li><a href="#">Rock</a></li>
+		<li><a href="#">Power</a></li>
+		<li><a href="#">Money</a></li>
+		<li><a href="#">Love</a></li>
+		<li><a href="#">Fame</a>
+			<!-- 二级开始 -->
+			<ul>
+				<li><a href="#">Sports Star</a></li>
+				<li><a href="#">Movie Star</a></li>
+				<li><a href="#">Rock Star</a>
+					<!-- 三级开始 -->
+					<ul>
+						<li><a href="#">Bruce Springsteen</a></li>
+						<li><a href="#">Bono</a></li>
+						<li><a href="#">Mick Jagger</a></li>
+						<li><a href="#">Bob Dylan</a></li>
+					</ul>
+					<!-- 三级结束 -->
+				</li>
+				<li><a href="#">Web Designer</a></li>
+			</ul>
+			<!-- 二级结束 -->
+		</li>
 	</ul>
+	<!-- 一级结束 -->
 </nav>
 </body>
 </html>
