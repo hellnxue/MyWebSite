@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>浮动元素后导致的问题，div中有p时</title>
+<style>
+*{margin:0;padding:0;}
+.border{
+ border:1px solid pink;
+ display:block;
+}
+ .common{
+  
+ width:200px;
+ height:200px;
+ margin:10px;
+ border:1px solid yellow;
+ text-align:center;
+ line-height:200px;
+ }
+ 
+  .felement0{
+ float:left;
+ 
+ }
+ .felement1{
+ float:left;
+ 
+ }
+ .bgcolor{
+ background-color:#eee;}
+ 
+ .center{
+ }
+</style>
+
+</head>
+
+<body>
+ 
+<div class="common felement0">
+  <p>hello world</p>
+</div>
+ 
+<div class="common felement1">
+  <p>hello world </p>
+</div>
+
+ <!--设定了宽度高度的div会因为前面元素的浮动而发生上移，但是内容hello world会被挡在浮动元素的下面奥-->
+<div class="common bgcolor">
+  <p>hello world</p>
+</div>
+
+
+</body>
+</html>

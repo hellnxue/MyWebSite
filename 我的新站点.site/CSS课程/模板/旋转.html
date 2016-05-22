@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>扔在桌面上的照片</title>
+<style>
+
+/*try this url:http://w3school.com.cn/tiy/t.asp?f=css3_image_gallery*/
+ body{
+ margin:20px;
+ background-color:#eee;
+ 
+ }
+ /*设置与盒子相关的属性。*/
+ .shadwo{
+ width:300px;
+ border:1px solid pink;
+ padding:10px;
+ background-color:#fff;
+ box-shadow:6px 6px 3px #aaa;
+ }
+ 
+ /*
+ 浮动第一个div才能让第二个div在设置float：left的时候浮动到它的右边。
+ 两个div在页面上上下罗列显示，即使设置了宽度，不设置浮动，在第一个div右边空间允许的情况下，第二个div也不会过去，只有第一个div设置了浮动，第二个div也设置浮动的情况下，第二个div才会浮动到第一个浮动元素的旁边。如果第一个div不设置float:left，只有第二个设置了，那也不可以，因为第二个div浮动时会被第一个div挡在下面，浮动就会没有效果了。
+ 
+ */
+ .rotate-left{
+ float:left;
+-ms-transform:rotate(7deg); /* IE 9 */
+-moz-transform:rotate(7deg); /* Firefox */
+-webkit-transform:rotate(7deg); /* Safari and Chrome */
+-o-transform:rotate(7deg); /* Opera */
+transform:rotate(7deg);}
+
+ .rotate-right{
+ float:left;
+ border:1px solid yellow;
+-ms-transform:rotate(-8deg); /* IE 9 */
+-moz-transform:rotate(-8deg); /* Firefox */
+-webkit-transform:rotate(-8deg); /* Safari and Chrome */
+-o-transform:rotate(-8deg); /* Opera */
+transform:rotate(-8deg);}
+</style>
+
+</head>
+
+<body>
+<div class="shadwo rotate-left">
+  <img src="../../image/me.jpg" width="284" height="213"/>
+  <p>仿佛来到了国外，刚来到一个陌生城市时的迷茫...</p>
+</div>
+
+<div class="shadwo rotate-right">
+  <img src="../../image/me2.jpg" width="284" height="213"/>
+   <p>这里是月亮湖奥</p>
+</div>
+ 
+</body>
+</html>

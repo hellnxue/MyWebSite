@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>浮动的问题</title>
+<style>
+.border{
+ border:1px solid pink;
+ display:block;
+}
+ .felement{
+ float:left;
+ width:200px;
+ height:200px;
+ margin:10px;
+ border:1px solid yellow;
+ }
+</style>
+
+</head>
+
+<body>
+<!--浮动元素后导致的问题，div中有p时-->
+<span class="border">Say to me this world Say to me this worldSay </span>
+<div class="felement ">
+  <p>hello world</p>
+</div>
+ 
+</body>
+</html>

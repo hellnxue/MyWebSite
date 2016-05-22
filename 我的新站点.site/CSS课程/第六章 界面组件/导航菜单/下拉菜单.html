@@ -4,7 +4,7 @@
 <meta charset="gb2312" />
 <title>无标题文档</title>
 <style>
-/*番外：ul是块级元素奥*/
+  /*番外：ul是块级元素奥*/
  /*添加视觉样式*/
 .multi_drop_menu {font:1em helvetica, arial, sans-serif;}
 .multi_drop_menu a {
@@ -34,7 +34,7 @@
 }
 .multi_drop_menu a:active {
 	/*点击时背景变色*/
-	background:#fff;
+	background-color:#fff;
 	/*点击时文本变色*/
 	color:#ccc;
 }
@@ -65,14 +65,108 @@
 /*设置最后一项li没有右边框*/
 .multi_drop_menu li:last-child a {border-right-style:none;}
 
-/*临时隐藏低级菜单 */
-.multi_drop_menu li ul {display:none;}
+ 
+/*处理二级菜单-----------------------------------------------*/
+
+/* 添加的视觉样式 */
+.multi_drop_menu li ul {
+	/*二级菜单宽度*/
+	width:9em;
+	}
+
+.multi_drop_menu li li a {
+	/*去掉继承的右边框*/
+	border-right-style:none;
+	/*添加上边框*/
+	border-top-style:solid;
+}
+
+/* 添加的功能样式 */
+.multi_drop_menu li ul {
+	/*临时隐藏二级下拉菜单,鼠标悬停在有子菜单的li上时再显示它*/
+	display:none;
+	/*相对于父菜单项定位*/
+	position:absolute;
+	/*左边与父菜单项对齐*/
+	left:0;
+	/*顶边与父菜单项底边对齐*/
+	top:100%;
+}
+.multi_drop_menu li li {
+	/*停止浮动，恢复堆叠*/
+	float:none;
+}
+
+.multi_drop_menu li:hover > ul{
+	/*鼠标悬停在li上时，显示它的子菜单*/
+	display:block;
+}
+.multi_drop_menu li li ul {
+	/*相对于父菜单定位，这里其实已经继承了二级菜单中的绝对定位奥*/
+	position:absolute;
+	/*与父菜单右侧对齐*/
+	left:100%;
+	/*与父菜单项顶边对齐*/
+	top:0;
+}
+
+.multi_drop_menu li li li a {
+	 
+	/*给三级菜单的链接加上左边框*/
+	border-left-style:solid;
+}
+
+/*----------------垂直菜单------------------------*/
+ 
+/*顶级垂直菜单宽度,因为ul是块级元素*/
+.multi_drop_menu.vertical {width:8em;}
+/*去掉横向显示时的右边框，用边框替代*/
+.multi_drop_menu.vertical li a {
+border-right-style:none;
+border-top-style:solid;
+}
+.multi_drop_menu.vertical li li a {border-left-style:solid;}
+.multi_drop_menu.vertical ul,
+.multi_drop_menu.vertical li {
+/*让顶级菜单垂直显示*/
+float:none;
+}
+.multi_drop_menu.vertical li ul {
+/*子菜单左边与上一级菜单右边对齐*/
+left:100%;
+/*子菜单顶边与上一级菜单项顶边对齐*/
+top:0;
+}
+
+
+/*提高下拉菜单的可读性 事件冒泡*/
+/*这个操作导致链接的悬停和active不管用了，被下面替换了
+ 难道   .multi_drop_menu a:hover 的特制度比.multi_drop_menu li:hover > a的特制度高吗？
+
+
+*/
+
+.multi_drop_menu li:hover > a {
+	/*悬停时的文本颜色*/
+	color:#fff;
+	/*悬停时的背景颜色*/
+	background-color:#aaa
+}
+
+ /*下面这个冒泡会更明显一点，当鼠标点击li时，子元素a的变化*/
+   .multi_drop_menu li:active >a {
+  	background-color:#fff;
+    color:pink;
+  }
+  
+  
+
 </style>
 
 </head>
 
 <body>
-  <nav class="multi_drop_menu">
+  <nav class="multi_drop_menu vertical">
 	<!-- 一级开始 -->
 	<ul>
 		<li><a href="#">Power</a></li>

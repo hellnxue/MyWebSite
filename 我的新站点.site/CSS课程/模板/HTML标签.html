@@ -4,7 +4,8 @@
 <meta charset="gb2312" />
 <title>无标题文档</title>
 <style>
-
+li{
+	background-color:#eee;}
 </style>
 </head>
 
@@ -52,7 +53,19 @@
    <a href="#">helln</a>
    <a href="#">tom</a>
  </nav>
- 
- 
+ <!--ul是块级元素奥-->
+ <ul>
+   <li>hellow world</li>
+   <li>hellow world</li>
+   <li>hellow world</li>
+ </ul>
+ <!--label中包含控件与不包含控件但有for属性指向控件的ID是一样的效果，都是可以点击label文字使控件获得焦点-->
+<label>User Name<input type="text" name="user_name" />
+</label>
+<br>
+<label for="user_name">User Name</label><input type="text" name="user_name" id="user_name"/><br>
+<h3>---------------表单元素---------------</h3>
+<input type="search"/>
+<input type="range"/>
 </body>
 </html>

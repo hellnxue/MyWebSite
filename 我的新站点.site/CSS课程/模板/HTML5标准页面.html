@@ -107,5 +107,20 @@
 <span style="background-color:yellow;">hello world</span>
 
 <p><span  style="background-color:yellow;">hello world</span></p>
+
+
+<!--文本居中-->
+<div style="border:1px solid yellow;margin:0;padding:0;">
+<p style="border:1px solid pink;">hello sir,hello world</p>
+</div>
+
+<!--给浮动元素添加清除浮动clear:left-->
+<div style=" width: 100%; background-color:#eee">
+<img  src="../../image/mxx/m4.jpg" style="float: left;">
+<p>萌小希的oneday</p>
+<!--虽然有点别扭，但确实可以给一个设置了float:left的元素设置clear：left,这样做会使这个浮动元素位于第一个浮动元素的下方，本身依旧是浮动元素奥，只不过不在随着文档流往上走了而已。-->
+<img  src="../../image/mxx/m2.jpg" style="float: left; clear:left;">
+<p>萌小希的sedondday</p>
+</div>
 </body>
 </html>

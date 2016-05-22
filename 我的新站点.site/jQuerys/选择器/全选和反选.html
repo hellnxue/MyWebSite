@@ -621,6 +621,16 @@ alert("Not bind click");
 		})
 	  
 	  });
+	  
+	  
+	  
+	  
+	     
+		 
+		 $("[data-mulClass='oo']").click(function(){
+		  $(".hello.world").css("font-weight","bold");//选择有多个class的元素
+		})
+	  
    })
 
 </script>
@@ -628,7 +638,14 @@ alert("Not bind click");
  
 <p id="oneId">selector1</p>
 <p  id="twoId">selector1</p>
-<input type="button" value="点击给多个段落添加样式和title" data-ids="oo" />
+<input type="button" value="点击给多个段落添加样式和title--多个ID" data-ids="oo" /><br>
+
+<h3>--------------------选择有多个class的元素奥-----------------------------------</h3>
+<p  class="hello world">selector1</p>
+ 
+<input type="button" value="上面段落会变粗" data-mulClass="oo" /><br>
+
+
  
 </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+ .bgclip{
+ 	border:5px dotted pink;
+	padding:10px;
+ 	background-color:#CCCCCC;
+	
+	/*background-clip 属性规定背景的绘制区域。
+	  默认值是border-box 背景被剪裁到边框盒
+	  padding-box 背景被剪裁到内边距框
+	  content-box 背景被剪裁到内容框
+	  
+	*/
+	background-clip:padding-box;
+	
+	}
+	
+	
+	/*对于选择的同一个元素，特制度高的胜出，即使后面特制度低的选择器又重写了这个元素的样式*/
+	.tzd p{
+	color:pink;}
+	
+	 p{
+	color:yellow;}
+	 
+	div.hvt{
+	width:150px;}
+	 
+	.hvt li{
+	list-style-type:none;
+	 }
+	
+	.hvt a{
+	display:block;
+	text-decoration:none;
+	color:black;
+	background-color:#CCCCCC;
+	border-top-style:solid;
+	background-clip:padding-box;
+	border-color:transparent;}
+	.hvt li a:hover{
+	color:white;
+	background-color:#eee;}
+	
+	.hvt li a:active{
+	color:black;
+	background-color:#FFFFFF;}
+	/*链接的悬停和点击都被下面的li下的链接样式所取代了奥*/
+	.hvt li:hover>a{
+	color:#FF66CC;
+	background-color:#00FFFF;}
+	
+</style>
+
+</head>
+
+<body>
+
+<div class="bgclip">
+   Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
+</div>
+
+<div class="tzd h" id="tzd">
+   <p id="tt">Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy.</p>
+</div>
+<div class="hvt">
+	<ul>
+	  <li><a href="#">hello world</a></li>
+	  <li><a href="#">hello sir</a></li>
+	</ul>
+</div>
+
+</body>
+</html>

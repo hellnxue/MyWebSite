@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<style>
+
+
+  
+  /*---------------视觉效果------------------*/
+
+   .multi_drop_menu  a{
+    display:block;
+	padding:.2em 1em;
+	color:#000;
+	background-color:#eee;
+	border-color:transparent;
+	border-width:3px;
+	
+   }
+   
+    /*悬停时背景色*/
+   .multi_drop_menu a:hover{
+   	color:#fff;
+	background-color:#ccc;}
+	
+	 /*点击时背景色*/
+   .multi_drop_menu a:active{
+   	color:#000;
+	background-color:#fff;}
+	
+   /*--------------------功能-----------------------------*/
+   
+  .multi_drop_menu *{margin:0;padding:0;}
+   /*父元素包围浮动的子元素*/
+  .multi_drop_menu ul{
+  	float:left;
+  
+  }
+  /*列表浮动*/
+  .multi_drop_menu li{
+	  float:left;
+	  list-style-type:none;
+	  /*为子菜单提供定位上下文*/
+	  position:relative;
+  
+   }
+   /*设置链接视觉效果*/
+  .multi_drop_menu li a{
+    display:block;
+	background-clip:padding-box;
+	border-right-style:solid;
+	text-decoration:none;
+   }
+   /*最后一项的链接去掉右边框*/
+   .multi_drop_menu li:last-child a{
+   border-right-style:none;}
+
+
+ 
+   
+   /*---------------------------二级菜单-----------------------------------------*/
+   /*视觉效果*/
+    .multi_drop_menu li ul{
+     /*二级菜单宽度*/
+	 width:9em;
+   }
+   
+   /*处理功能*/
+   .multi_drop_menu li ul{
+     display:none;
+     float:none;
+	 position:absolute;
+	 top:100%;
+	 left:0;
+   }
+   
+   /*停止浮动，恢复堆叠*/
+   .multi_drop_menu li  li{
+     float:none;
+	 
+   }
+   /*二三级菜单去掉右边框，添加上边框*/
+   .multi_drop_menu li li a{
+   border-right-style:none;
+   border-top-style:solid;
+	 
+   }
+   /*鼠标悬停在li列表项上时，显示它的子菜单*/
+   .multi_drop_menu li:hover>ul{
+   display:block;}
+   
+   /*三级下拉菜单*/
+  .multi_drop_menu li li ul{
+     display:none;
+	 position:absolute;
+	 left:100%;
+	 top:0;
+	 
+   }
+   /*三级下拉菜单链接添加左边框*/
+  .multi_drop_menu li li li a{
+  border-left-style:solid;}
+  
+  
+  /*突出在层级中选择的列表元素
+   因为:hover 事件会沿着元素的结构层次“向上冒泡“，所以父元素的背景色会显示成下面代码设置成的颜色
+   CSS里也有冒泡啊，冒泡好奇妙啊。
+   
+   
+  */
+  .multi_drop_menu li:hover >a {
+  	background-color:#ccc;
+    color:yellow;
+  }
+   /*下面这个冒泡会更明显一点，当鼠标点击li时，子元素a的变化*/
+   .multi_drop_menu li:active >a {
+  	background-color:#fff;
+    color:pink;
+  }
+  
+  
+
+  
+  
+  .multi_drop_menu.vertical{
+    
+	width:8em;
+  }
+  
+  /*横向变为垂直*/
+  .multi_drop_menu.vertical ul, .multi_drop_menu.vertical li{
+    
+	float:none;
+  }
+ 
+  
+   .multi_drop_menu.vertical li a{
+     
+	border-right-style:none;
+	border-top-style:solid;
+  }
+  
+   .multi_drop_menu.vertical li ul{
+   top:0;
+   left:100%;}
+   
+   .multi_drop_menu.vertical li  li a{
+     border-left-style:solid;
+   }
+</style>
+
+</head>
+
+<body>
+  <nav class="multi_drop_menu vertical">
+	<!-- 一级开始 -->
+	<ul>
+		<li><a href="#">Power</a></li>
+		<li><a href="#">Money</a></li>
+		<li><a href="#">Love</a></li>
+		<li><a href="#">Fame</a>
+			<!-- 二级开始 -->
+			<ul>
+				<li><a href="#">Sports Star</a></li>
+				<li><a href="#">Movie Star</a></li>
+				<li><a href="#">Rock Star</a>
+					<!-- 三级开始 -->
+					<ul>
+						<li><a href="#">Bruce Springsteen</a></li>
+						<li><a href="#">Bono</a></li>
+						<li><a href="#">Mick Jagger</a></li>
+						<li><a href="#">Bob Dylan</a></li>
+					</ul>
+					<!-- 三级结束 -->
+				</li>
+				<li><a href="#">Web Designer</a></li>
+			</ul>
+			<!-- 二级结束 -->
+		</li>
+	</ul>
+	<!-- 一级结束 -->
+</nav>
+</body>
+</html>
