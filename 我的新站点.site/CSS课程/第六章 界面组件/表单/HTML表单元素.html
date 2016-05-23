@@ -84,7 +84,73 @@ box-shadow:1px 1px 3px #ccc;
 font-size:.8em;
 /* 针对Firefox - 没有这条声明会在textarea 上使用Courier */
 font-family:inherit;
-outline:none; /* 去掉默认蓝色聚焦轮廓线 */
+outline:none; /* 去掉默认蓝色聚焦轮廓线，对于谷歌浏览器？ */
+}
+
+/* 设定文本字段（文本、密码、日期、文本区等）的样式，并加圆角 */
+.stylin_form1 section input,
+.stylin_form1 section textarea {
+width:12em; /*设定字段宽度*/
+border:1px solid #bbb7ae;
+border-radius:3px; /*圆角边框*/
+}
+
+.stylin_form1 section textarea {
+height:5em; /* textarea 的高度 */
+margin-top:.3em; /* 与上面label 的间距 */
+line-height:1.1;
+}
+
+.stylin_form1 section p { /*控件使用说明*/
+	margin:.3em .75em 0;
+	clear:both;
+	font-size:.7em;
+	line-height:1.1;
+	color:#000;
+}
+.stylin_form1 section p.error {
+color:#f00; /* 添加error 类，把说明文字设定为红色 */
+}
+
+.stylin_form1 section section { /* 控件/标注的内包装 */
+overflow:hidden; /* 强制元素包围浮动标注 */
+margin:.2em 0 .3em .4em;
+padding:0 0 .1em 0;
+border-bottom:none;
+}
+
+.stylin_form1 section section input { /*单选按钮或复选框*/
+float:left;
+clear:both;
+width:auto; /* 重设继承的宽度 */
+margin:.1em 0 0em .3em; /* 顶部与标注对齐，左侧防止intput 溢出 */
+}
+
+.stylin_form1 section section label {
+float:left;
+clear:none; /* 重设继承的值 */
+width:15em;
+margin:.15em 0 0 .6em; /* 在相邻的复选框之间、复选框与标注之间增加间距 */
+font-weight:normal; /* 重设继承的值 */
+font-size:.7em;
+line-height:1.2;
+}
+
+.stylin_form1 section select {
+margin-left:.4em;
+font-size:.85em;
+}
+.stylin_form1 section input[type="submit"] { /*提交按钮*/
+width:auto; /* 覆盖为其他字段设定的宽度 */
+margin:.4em .3em 0 0;
+font-size:1em;
+font-weight:800;
+color:#fff;
+background-color:#bbb7ae;
+cursor:pointer; /*在鼠标位于按钮之上时，把光标变成小手形状*/
+}
+.stylin_form1 > section:last-child { /*居中提交按钮*/
+text-align:center;
 }
 </style>
 
