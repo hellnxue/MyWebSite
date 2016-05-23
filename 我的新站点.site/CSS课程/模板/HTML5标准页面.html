@@ -3,6 +3,7 @@
 <head>
 <meta charset="gb2312" />
 <title>无标题文档</title>
+<link  href="../CSS/CSSUtil.css" type="text/css" rel="stylesheet"/>
 <style>
 /* p{ border-bottom:0.5px solid;}
  span{border:1px solid pink;
@@ -115,12 +116,26 @@
 </div>
 
 <!--给浮动元素添加清除浮动clear:left-->
-<div style=" width: 100%; background-color:#eee">
+<div style=" width: 100%; background-color:#eee" class="clearfix">
 <img  src="../../image/mxx/m4.jpg" style="float: left;">
 <p>萌小希的oneday</p>
 <!--虽然有点别扭，但确实可以给一个设置了float:left的元素设置clear：left,这样做会使这个浮动元素位于第一个浮动元素的下方，本身依旧是浮动元素奥，只不过不在随着文档流往上走了而已。-->
 <img  src="../../image/mxx/m2.jpg" style="float: left; clear:left;">
 <p>萌小希的sedondday</p>
 </div>
+ 
+
+				<select id="select_choice" name="select_choice">
+				<option value="0">None</option>
+				<option value="1">Choice 1</option>
+				<option value="2">Choice 2</option>
+				<option value="3">Choice 3</option>
+				<option value="4">Choice 4</option>
+				</select>
+<section>
+	<label for="description">Description</label>
+	<textarea id="description" name="description"
+	placeholder="Enter the description here."></textarea>
+</section>
 </body>
 </html>

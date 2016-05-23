@@ -4,6 +4,12 @@
 <meta charset="gb2312" />
 <title>无标题文档</title>
 <style>
+
+
+h3{ text-align:center;}
+
+	
+/*---------------------------------------------------------------------*/ 
  .bgclip{
  	border:5px dotted pink;
 	padding:10px;
@@ -19,14 +25,17 @@
 	
 	}
 	
+/*------------特指度---------------------------------------------------------*/
+	/*对于选择的同一个元素，特指度高的胜出，即使后面特制度低的选择器又重写了这个元素的样式，那也不会被覆盖掉*/
 	
-	/*对于选择的同一个元素，特制度高的胜出，即使后面特制度低的选择器又重写了这个元素的样式*/
+	
 	.tzd p{
 	color:pink;}
 	
 	 p{
 	color:yellow;}
-	 
+
+	/*---------------------------------------------------------------------*/ 
 	div.hvt{
 	width:150px;}
 	 
@@ -53,26 +62,58 @@
 	.hvt li:hover>a{
 	color:#FF66CC;
 	background-color:#00FFFF;}
+	/*---------------------------------------------------------------------*/ 
+	.world-wrap{
+	word-wrap:break-word;/*文本换行是以空格为参考的，word-wrap可以让没有空格的长单词或者url换到下一行，像url不会默认换行的，因为没有空格，只会整个一行显示出来。*/
+	width:300px;
+	margin:10px auto;
+	border:1px solid yellow;
+	}
+	
+	
+	/*outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。注释：轮廓线不会占据空间，也不一定是矩形。*/
+	.outline{
+	width:300px;
+	height:300px;
+	margin:0 auto;
+	border:1px solid black;
+	outline:blue dotted 3px;
+	
+	}
 	
 </style>
 
 </head>
 
 <body>
-
+<h3>-------背景绘制范围：background-clip-------------</h3>
 <div class="bgclip">
    Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
 </div>
 
+<h3>-------特指度小测试-------------</h3>
 <div class="tzd h" id="tzd">
    <p id="tt">Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy.</p>
 </div>
+
+<h3>-------伪类覆盖：:hover-------------</h3>
 <div class="hvt">
 	<ul>
 	  <li><a href="#">hello world</a></li>
 	  <li><a href="#">hello sir</a></li>
 	</ul>
 </div>
+<h3>-------强制换行属性：world-wrap:break-world-------------</h3>
+<aside style="" class="world-wrap">
+https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=monline_3_dg&rsv_enter=1&rsv_sug3=6&rsv_sug1=3&rsv_sug7=100&rsv_t=eda9Ky5GmLpySZ0%2FlssIPOPRUiFUwDY%2FaPSWoRyeVaVf71JO4%2Fjc5jNpbaCVIlOfkwIz
+</aside>
+
+
+<h3>-------outline 轮廓属性-------------</h3>
+<div class="outline">
+   Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
+</div>
+
 
 </body>
 </html>
