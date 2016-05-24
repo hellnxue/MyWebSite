@@ -3,6 +3,10 @@
 <head>
   
 <title>无标题文档</title>
+<style>
+a{
+text-decoration:none;}
+</style>
 <script src="../../js/jquery-1.8.2.min.js"></script>
 <script>
 
@@ -30,8 +34,9 @@ function test2(){
   //window.moveBy(0,100);
  // window.resizeTo(100,50);
  // console.log(window.resizeTo(100,50));
- var wroxwin=window.open("topFrame.html","hello","height:100,width:100,top:10,left:10,resiable=ye");
- window.find( );//弹出浏览器查找窗口
+ var openWindow=window.open("topFrame.html","hello","height:400,width:400,top:10,left:10,resizable=no");//和书上说的不太一样哎，这个可以拖动设置窗口哎resizble=no不是不能设置吗？满脑子的问号......
+ console.log(openWindow.name);//hello
+ //window.find( );//弹出浏览器查找窗口
    
 }
 
@@ -63,6 +68,24 @@ function sub(){
   var cname="刘雪萍";
   console.log(cname.substring(0,1));
   console.log(cname.substring( 1));
+  
+  var wname=window.name;
+  console.log(wname);
+}
+
+/*初始化完页面时，点击按钮打开新窗口，并在新窗口载入href指定的文档内容(及页面内容)，在这之后再点击都只会对这个打开的窗口执行某些操作奥~*/
+var win=null;
+function opentest(){
+  if(win){
+  /*  win.resizeTo(500.500);
+	win.location.replace("mxxi.html"); */
+	win.close();
+	var flag=win.closed;
+	console.log("窗口是否关闭："+flag);
+  }else{
+     
+     win=window.open("mxxm.html","hello","height:400,width:400,top:10,left:10,resizable=yes");
+  }
 }
 </script>
 </head>
@@ -75,6 +98,25 @@ function sub(){
 <br/>
  <input type="button" onClick="testSetTimeout()" value="超时调用"/><br/>
  <input type="text" value="" id="testst" onClick="stopTimeout()"/>
- <input type="button" onClick="sub()" value="substring"/><br/>
+ <input type="button" onClick="sub()" value="substring"/><br/><br>
+
+ 
+  window.open()方法测试：<input type="button" onClick="opentest()" value="window.open()"/><br/>
+  <h3>------------------超链接自带的target，设置他们时，新打开的页面里window.name为空--------------</h3>
+  <a href="topFrame.html" target="_blank">_blank</a>
+  <br>
+   <a href="topFrame.html" target="_parent">_parent</a>
+  <br>
+   <a href="topFrame.html" target="_self">_self</a>
+  <br>
+   <a href="topFrame.html" target="_top">_top"</a>
+  <br>
+  <div id="topFrame" style="border:1px solid pink;"></div>
+  <a href="leftFrame.html" target="frame_a">_top"</a><br><br>
+<a href="leftFrame.html" target="frame_d">_top"</a><br>
+  
+  
+  
+
 </body>
 </html>
