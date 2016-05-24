@@ -84,12 +84,12 @@ box-shadow:1px 1px 3px #ccc;
 font-size:.8em;
 /* 针对Firefox - 没有这条声明会在textarea 上使用Courier */
 font-family:inherit;
-outline:none; /* 去掉默认蓝色聚焦轮廓线，对于谷歌浏览器？ */
+outline:none; /* 去掉默认蓝色聚焦轮廓线，对于谷歌浏览器 */
 }
 
 /* 设定文本字段（文本、密码、日期、文本区等）的样式，并加圆角 */
 .stylin_form1 section input,
-.stylin_form1 section textarea {
+.stylin_form1 section textarea  {
 width:12em; /*设定字段宽度*/
 border:1px solid #bbb7ae;
 border-radius:3px; /*圆角边框*/
@@ -139,6 +139,7 @@ line-height:1.2;
 .stylin_form1 section select {
 margin-left:.4em;
 font-size:.85em;
+border-radius:4px;/*下拉框控件显示为圆角边框*/
 }
 .stylin_form1 section input[type="submit"] { /*提交按钮*/
 width:auto; /* 覆盖为其他字段设定的宽度 */
@@ -149,7 +150,7 @@ color:#fff;
 background-color:#bbb7ae;
 cursor:pointer; /*在鼠标位于按钮之上时，把光标变成小手形状*/
 }
-.stylin_form1 > section:last-child { /*居中提交按钮*/
+.stylin_form1 > section:last-child { /*居中提交按钮  居然用的是文本居中哎*/
 text-align:center;
 }
 </style>
@@ -224,21 +225,19 @@ text-align:center;
 			<!-- 开始单选按钮 -->
 				<section>
 					<h4>Select Only One</h4>
-				<section>
-					<input checked="checked" id="radio1" name="radioset" type="radio"
-					value="Choice_1" />
-					<label for="radio1">Choice 1 is pre-selected and shows the text
-					wraps nicely if it goes to multiple lines.</label>
-				</section>
-				
-				<section>
-					<input id="radio2" name="radioset" type="radio" value="Choice_2" />
-					<label for="radio2">Choice 2</label>
-				</section>
-				
-				<section>
-					<input id="radio3" name="radioset" type="radio" value="Choice_3" />
-					<label for="radio3">Choice 3</label>
+					<section>
+						<input checked="checked" id="radio1" name="radioset" type="radio"value="Choice_1" />
+						<label for="radio1">Choice 1 is pre-selected and shows the text wraps nicely if it goes to multiple lines.</label>
+					</section>
+					
+					<section>
+						<input id="radio2" name="radioset" type="radio" value="Choice_2" />
+						<label for="radio2">Choice 2</label>
+					</section>
+					
+					<section>
+						<input id="radio3" name="radioset" type="radio" value="Choice_3" />
+						<label for="radio3">Choice 3</label>
 					</section>
 			</section>
 			
