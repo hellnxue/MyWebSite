@@ -35,7 +35,7 @@ function test2(){
  // window.resizeTo(100,50);
  // console.log(window.resizeTo(100,50));
  var openWindow=window.open("topFrame.html","hello","height:400,width:400,top:10,left:10,resizable=no");//和书上说的不太一样哎，这个可以拖动设置窗口哎resizble=no不是不能设置吗？满脑子的问号......
- console.log(openWindow.name);//hello
+ console.log(openWindow.name);//hello  获得的是传入window.open()的第二个参数target的值
  //window.find( );//弹出浏览器查找窗口
    
 }
