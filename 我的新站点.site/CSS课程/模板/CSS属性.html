@@ -3,10 +3,35 @@
 <head>
 <meta charset="gb2312" />
 <title>CSS属性</title>
+<link href="../CSS/CSSUtil.css"  rel="stylesheet" type="text/css"/>
 <style>
-
-
-h3{ text-align:center;}
+/*background:linear-gradient(#e86a43, #fff);
+	background:-moz-linear-gradient(#e86a43, #fff 50%,#e86a43);*/
+ @font-face {
+  font-family: 'CrimsonRoman' ;
+  src: url('Fonts/Crimson-Roman.otf');
+  font-style: normal;
+  font-weight: normal; 
+}	
+/*手写体*/
+@font-face {
+  font-family: 'AlexBrushRegular' ;
+  src: url('Fonts/AlexBrush-Regular.ttf');
+  font-style: normal;
+  font-weight: normal; 
+}
+		
+/*每段属性介绍的标题*/
+h3{ 
+    font-family:'CrimsonRoman', cursive;
+    text-align:center;
+	background-color:#ccc;
+	margin:30px;
+	color:#33CCFF;
+	border-radius:6px;
+	background:linear-gradient(#FFCCCC,#fff 50%,#FFCCCC);
+	background:-moz-linear-gradient(#FFCCCC,#fff 50%,#FFCCCC);
+	 }
 
 	
 /*---------------------------------------------------------------------*/ 
@@ -86,40 +111,44 @@ h3{ text-align:center;}
 </head>
 
 <body>
-<h3>-------背景绘制范围：background-clip-------------</h3>
+<h3> 背景绘制范围：background-clip </h3>
 <div class="bgclip">
    Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
 </div>
 
-<h3>-------特指度小测试-------------</h3>
+<h3> 特指度小测试 </h3>
 <div class="tzd h" id="tzd">
    <p id="tt">Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy.</p>
 </div>
 
-<h3>-------伪类覆盖：:hover-------------</h3>
+<h3> 伪类覆盖：:hover </h3>
 <div class="hvt">
 	<ul>
 	  <li><a href="#">hello world</a></li>
 	  <li><a href="#">hello sir</a></li>
 	</ul>
 </div>
-<h3>-------强制换行属性：world-wrap:break-world-------------</h3>
+<h3> 强制换行属性：world-wrap:break-world </h3>
 <aside style="" class="world-wrap">
 https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=1&f=8&rsv_bp=0&rsv_idx=2&ie=utf-8&tn=monline_3_dg&rsv_enter=1&rsv_sug3=6&rsv_sug1=3&rsv_sug7=100&rsv_t=eda9Ky5GmLpySZ0%2FlssIPOPRUiFUwDY%2FaPSWoRyeVaVf71JO4%2Fjc5jNpbaCVIlOfkwIz
 </aside>
 
 
-<h3>-------outline 轮廓属性-------------</h3>
+<h3> outline 轮廓属性 </h3>
 <div class="outline">
    Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
 </div>
 
 
-<h3>-------cursor:pointer 光标变为小手的属性-------------</h3>
+<h3> cursor:pointer 光标变为小手的属性 </h3>
 <div style="width:500px;margin:0 auto;padding:5px;cursor:pointer;">
  Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession
 </div>
 
+<h3> border-radius:3px 边框变圆角，只用border-radius就可以让边框变圆角 </h3>
+<div style="background-color:#CCCCCC;width:500px;border-radius:6px;margin:0 auto;">
+	  hello world
+</div>
 
 
 </body>
