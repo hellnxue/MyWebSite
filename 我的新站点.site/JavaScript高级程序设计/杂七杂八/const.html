@@ -1,17 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html  >
+<html  >
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>无标题文档</title>
+<meta  charset="gb2312" />
+<title>定义只读常量</title>
 <script  src="../../js/jquery-1.8.2.min.js"/></script>
 <script>
   function constTest(){
-    var str1="hello world";
+  
+    var str1="hello world";//定义普通变量
+	
     /*const 声明创建一个只读的常量。这不意味着常量指向的值不可变，而是变量标识符的值只能赋值一次*/
 	const str2="hello sir";
-	      str2="haha";/*第二次赋值 会抛出异常奥，这个关键字回家查查*/
-	console.log(str1);
-	console.log(str2);
+	 // str2="haha";/*第二次赋值 会抛出异常奥~*/
+	 
+	 //const str2="hello 3";/*重新声明也会报错*/
+	 
+	 //var str2="hihi";/*这样也报错*/
+		  
+	console.log("var str1："+str1);
+	console.log("const str2："+str2);
 	
   }
   
@@ -19,10 +26,20 @@
     $securityTypeSelector.trigger('change:once');
   
   */
+  
+  function letTest(){
+  
+    for(let i=0;i<2;i++){
+	  console.log("hehe");
+	}
+	
+	console.log("测试："+i);//会报错 let没被火狐46支持吗？
+  }
 </script>
 </head>
 
 <body>
-<input type="button" onclick="constTest()" value="const"/>
+<input type="button" onclick="constTest()" value="const"/><br />
+<input type="button" onclick="letTest()" value="let"/>
 </body>
 </html>

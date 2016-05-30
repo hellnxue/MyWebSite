@@ -105,7 +105,21 @@ h3{
 	outline:blue dotted 3px;
 	
 	}
+	/*设置了权重的地方，样式最为突出，不管在哪里设置的奥*/
+	.important{
+	background-color:#CCCCFF !important;}
 	
+	/*--------------------------------------------------过渡--------------------------------------------------*/
+	div.transition{
+	background-color:#FF99FF;
+	width:200px;
+	margin:0 auto;
+	border-radius:6px;
+	transition:width 2s;
+	}
+	
+	div.transition:hover{
+	width:500px;}
 </style>
 
 </head>
@@ -150,6 +164,19 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 	  hello world
 </div>
 
+<h3> 权重 !important </h3>
+<div style="background-color:#CCCCCC;width:500px;border-radius:6px;margin:0 auto;" class="important">
+	  hello world
+</div>
 
+<h3> transition：过度属性 </h3>
+<div class="transition">
+	  hello world
+</div>
+
+<h3> 属性值transparent 将某个CSS的属性值设置为透明的</h3>
+<div style="background-color:#FFFF99;width:500px;border-radius:6px;margin:0 auto; border:1px solid transparent;"  >
+	  设置颜色透明的像素为1的border边框奥~
+</div>
 </body>
 </html>

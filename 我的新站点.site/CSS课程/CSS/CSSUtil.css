@@ -9,5 +9,19 @@
 
 html body p#ice{
 	color:pink;}
+/*不知道为什么，引用字体只能文件只能放在同级目录里直接引用，why?多个目录级别都不行哎。*/	
+/*@font-face {
+  font-family: 'CrimsonRoman' ;
+  src: url('Fonts/Crimson-Roman.otf');
+  font-style: normal;
+  font-weight: normal; 
+}*/
+/*手写体*/
+/*@font-face {
+  font-family: 'AlexBrushRegular' ;
+  src: url('Fonts/AlexBrush-Regular.ttf');
+  font-style: normal;
+  font-weight: 400; 
+}*/
 	
  

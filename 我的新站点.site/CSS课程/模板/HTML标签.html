@@ -4,12 +4,26 @@
 <meta charset="gb2312" />
 <title>无标题文档</title>
 <style>
+
+h3{
+	margin:30px;
+	background-color:#FFFF99;
+	border-radius:10px;
+	text-align: center;
+	color:#FF66FF;
+	background:-moz-linear-gradient(left,#64d1dd, #FFF 50%, #64d1dd);
+	font-size:1.2em;
+	
+}
 li{
 	background-color:#eee;}
+	
 </style>
 </head>
 
 <body>
+
+ <h3>blockquote标签定义块引用</h3>
   <!--<blockquote> 标签定义块引用。
 
   <blockquote> 与 </blockquote> 之间的所有文本都会从常规文本中分离出来，经常会在左、右两边进行缩进（增加外边距），而且有时会使用斜体。也就是说，块引用拥有它们自己的空间。
@@ -21,7 +35,7 @@ li{
   <blockquote cite="http://www.baidu.com">百度的名字起源于<q>众里寻他千百度，蓦然回首，那人却在灯火阑珊处。</q></blockquote> 
  
  <!--<article> 标签规定独立的自包含内容。 HTML5的新标签-->
- <h1>article标签</h1>
+ <h3>article标签</h3>
  <article>
   <h1>Internet Explorer 9</h1>
   <p>Windows Internet Explorer 9（简称 IE9）于 2011 年 3 月 14 日发布.....</p>
@@ -36,8 +50,16 @@ li{
  <h3>cite标签</h3>
  <p><cite>《谁偷了我的奶酪》</cite>是一本讲述变化是不变的书。</p>
  
- <div style="height:50px; border:1px solid yellow; "><p style="line-height:50px; text-align:center;border:1px solid pink;">hello,sir</p><img src="../../image/mxx/m1.jpg"/></div>
+  <h3>line-height行高,设置的行高值会平均分配在文本的上下方奥</h3>
+ <div style="height:50px; border:1px solid yellow; ">
  
+	 <p style="line-height:50px; text-align:center;border:1px solid pink;margin:0px;">hello,sir</p>
+	 
+	 <img src="../../image/mxx/m1.jpg"/>
+ </div>
+
+ 
+ <h3>label标签的for属性</h3>
  <div style="margin-top:250px;">
    点击文本可以触发选择单选按钮动作<br>
 
@@ -47,26 +69,46 @@ li{
   <label for="fmale">song</label>
   <input type="radio" name="sex" id="fmale" /> <br>
 
+   <!--label中包含控件与不包含控件与有for属性指向控件的ID是一样的效果，都是可以点击label文字使控件获得焦点-->
+  <label>User Name<input type="text" name="user_name" />
+	</label>
  
  </div>
- <!--HTML5新增导航链接 块级元素-->
+ 
+ <h3>HTML5新增导航链接 块级元素</h3>
  <nav>
    <a href="#">helln</a>
    <a href="#">tom</a>
  </nav>
- <!--ul是块级元素奥-->
+ 
+ <h3>ul是块级元素奥</h3>
  <ul>
    <li>hellow world</li>
    <li>hellow world</li>
    <li>hellow world</li>
  </ul>
- <!--label中包含控件与不包含控件但有for属性指向控件的ID是一样的效果，都是可以点击label文字使控件获得焦点-->
-<label>User Name<input type="text" name="user_name" />
-</label>
-<br>
-<label for="user_name">User Name</label><input type="text" name="user_name" id="user_name"/><br>
-<h3>---------------表单元素---------------</h3>
+
+ 
+<h3>表单元素search,range</h3>
 <input type="search"/>
 <input type="range"/>
+
+<h3>figure 标签规定独立的流内容（图像、图表、照片、代码等等）</h3>
+<p>萌小希是一个努力奋进的好孩纸。</p>
+
+<figure> 
+  <figcaption>快乐的萌小希</figcaption>
+  <img src="../../image/mxx/m4.jpg" />
+</figure>
+
+
+<h3>图片，行内元素对齐方式，默认底部对齐文本的基线位置</h3>
+<!--文字旁边搭配图片时，发现图片比文字靠上，原来默认的情况是图片底部相对于文本基线对齐，行内
+元素的定位原则是与文本基线对齐，而不是与它们容器的底边对齐，所以导致图片与包含它的容器不对齐，给图片设置vertical-align，可以去掉图片底部的基线空白奥-->
+<div style="text-decoration:underline; border:1px solid blue;">
+ <img src="../../image/mxx/m6.jpg" style="vertical-align:text-bottom;"/>中文English
+</div>
+
+
 </body>
 </html>

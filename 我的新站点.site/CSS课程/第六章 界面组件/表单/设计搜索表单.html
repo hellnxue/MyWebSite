@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>设计搜索表单</title>
+<style>
+ 	* {margin:0; padding:0;}
+	header { /*在这个例子中代表页眉*/
+		font-family:helvetica, arial, sans-serif;
+		display:block;
+		overflow:hidden;
+		width:500px;
+		margin:30px;
+		border-radius:6px;
+		background-color:#ddd;
+	}
+	
+	form.stylin_form_search1 { /*包含label 和input 的容器*/
+	float:right;
+	width:200px;
+	margin:5px; padding:5px;
+	}
+	
+	form.stylin_form_search1 input {
+	float:right;
+	width:70px;
+	padding:2px 0 3px 5px;
+	outline:none; /*去掉默认的突显轮廓线*/
+	font-size:.8em; border-color:#eee #ccc #ccc #eee;
+	/*针对其他浏览器的厂商前缀*/
+	border-radius:10px;
+    -webkit-transition:2s width;
+	-moz-transition:2s width;/*firefox*/
+	-ms-transsition:rotate(7deg); /* IE 9 */
+	transition:2s width;
+	}
+
+form.stylin_form_search1 label {display:none;} /*标注是必要的，但不用显示出来*/
+
+/*One  通过CSS样式实现--鼠标点击时，改变文本框宽度，变宽*/
+/*这种方式在input获得焦点时变宽，失去焦点时又回到初始化的样子哎，但是通过JS事件要加focus和blur才同时实现*/
+/* form.stylin_form_search1 input:focus {width:200px;} */
+
+/*Two 通过js添加事件--给元素添加样式，实现过渡，要加上!important的，不然会被input元素原来就有的样式覆盖掉，因为特制度的关系啊，阿门*/
+.eventStyle{width:250px !important;}
+
+</style>
+<script type="text/javascript" src="../../../js/jquery-1.8.2.min.js"></script>
+<script>
+  $(function(){
+     /*通过事件给元素添加样式，实现过渡*/
+  	 $(":input").on("focus",function(){
+		/*$(this).css("width","250px");*/
+		
+		 $(this).addClass("eventStyle");
+	 }).on("blur",function(){
+	      $(this).removeClass("eventStyle");
+	 });
+  });
+</script>
+</head>
+
+<body>
+ 	<header>
+		<form class="stylin_form_search1" action="#" method="post">
+			<label for="search">search</label>
+			<input type="search" id="search" name="search" placeholder="search" />
+		</form>
+	</header>
+	
+	
+</body>
+</html>
