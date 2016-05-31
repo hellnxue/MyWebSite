@@ -17,6 +17,22 @@ h3{
 }
 li{
 	background-color:#eee;}
+
+#aftertest{
+	border: 3px solid yellow;
+    height: 100px;
+    position: relative;
+    width: 100px;}	
+#aftertest::after{
+   border-color: transparent transparent transparent yellow;
+    border-style: solid;
+    border-width: 12px;
+    content: "";
+    height: 0;
+    left: 100%;
+    position: absolute;
+    top: 33%;
+    width: 0;}
 	
 </style>
 </head>
@@ -107,6 +123,20 @@ li{
 元素的定位原则是与文本基线对齐，而不是与它们容器的底边对齐，所以导致图片与包含它的容器不对齐，给图片设置vertical-align，可以去掉图片底部的基线空白奥-->
 <div style="text-decoration:underline; border:1px solid blue;">
  <img src="../../image/mxx/m6.jpg" style="vertical-align:text-bottom;"/>中文English
+</div>
+
+<h3>元素堆叠，在一个包含多个同辈元素的容器内，这些同辈元素都会构造一个堆叠上下文。在这个上下文中，它们的子元素会上下堆叠起来。</h3>
+<!--ps子div都是绝对定位后，脱离了文档流，父元素成了一条线哎，好可怜啊-->
+<span>默认情况下，div中的第二个div会堆叠在第一个div的上方，z-index默认值为auto，即为0，通过给第一个div设置z-index:1 可以打破默认的堆叠传统奥~</span>
+<div style="border:1px solid; position:relative; background-color:#FFFFCC;">
+   <div style="position:absolute;z-index:1;"><img src="../../image/mxx/m3.jpg"></div>
+   <div style="position:absolute;left:150px;"><img src="../../image/mxx/m5.jpg"></div>
+</div>
+<h3 style="margin-top:300px;">用边框制造三角形</h3>
+<div style="width:500px;margin:10px auto;">
+  <div style=" border-bottom:12px solid red; height:30px; width:30px; border-left:12px solid yellow; border-right:12px solid blue; border-top:12px solid pink;"> </div>
+
+<div  id="aftertest">hello sir</div>
 </div>
 
 

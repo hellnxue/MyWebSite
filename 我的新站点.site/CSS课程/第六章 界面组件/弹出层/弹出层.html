@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="gb2312" />
-<title>无标题文档</title>
+<title>弹出层</title>
 <style>
 *{margin:0;padding:0;}
  figure {
@@ -23,10 +23,10 @@ figcaption {
 	width:130px; /*弹出层宽度*/
 	padding:10px; /*弹出层内边距*/
 	background:#f2eaea;
-	border:3px solid red;
+	border:3px solid  #FFCCFF;
 	border-radius:6px;
 }
-figure:hover figcaption {display:block;} /*鼠标悬停在图片上时显示弹出层*/
+figure:hover figcaption {display:block; z-index:1;} /*鼠标悬停在图片上时显示弹出层*/
 figcaption h3 { /*弹出层的内容*/
 	font-size:14px;
 	color:#666;
@@ -37,6 +37,15 @@ figcaption a { /*弹出层的内容*/
 	text-decoration:none;
 	font-size:12px;
 	color:#000;
+}
+
+figcaption::after { /*红色三角形的盒子*/
+content:""; /*需要有内容，这里是一个空字符串*/
+position:absolute; /*相对于弹出层定位*/
+border:12px solid;
+border-color:transparent  #FFCCFF transparent transparent;
+right:100%; top:17px; /*相对于盒子边框定位三角形*/
+height:0px; width:0px; /*收缩边框创造三角形*/
 }
 </style>
 

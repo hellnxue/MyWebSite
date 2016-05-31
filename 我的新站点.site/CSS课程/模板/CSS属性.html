@@ -120,6 +120,12 @@ h3{
 	
 	div.transition:hover{
 	width:500px;}
+	
+	/*-------------------------------------------------::after---------------------------------------------------*/
+	#testafter{
+	border:1px solid yellow;}
+	#testafter::after{
+	content:" good night";}
 </style>
 
 </head>
@@ -178,5 +184,8 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 <div style="background-color:#FFFF99;width:500px;border-radius:6px;margin:0 auto; border:1px solid transparent;"  >
 	  设置颜色透明的像素为1的border边框奥~
 </div>
+
+<h3>用伪元素在div内容后面放一个边框</h3>
+<div id="testafter">hello world</div>
 </body>
 </html>
