@@ -2,26 +2,64 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>无标题文档</title>
+<title>属性类型和访问器属性</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
 	$("#d1").on("click",function(){
 	  var pp={
-	     name:"jack"
+	     name:"jack",
+		 age:20
 	  };
-	   console.log("name1="+pp.name);
+	  
+	  console.log("name1="+pp.name);
+	  
 	  Object.defineProperty(pp,"name",{
-	     writable:false, //false代表不可写
-		 value:"jacks"
+	     writable:false //false代表不可写
+		 
 		 
 	  })
+ 
 	 
 	  pp.name="tom";
-	  console.log("name2="+pp.name);
+	  console.log("name2="+pp.name);//jack
+	  
+	  console.log(pp.age);//20
+	  
+	  Object.defineProperty(pp,"age",{
+	    configurable:false
+	  });
+ 
+	  delete pp.age;
+	  
+	  console.log(pp.age);//20
 	  
 	  
 	  
+	});
+	
+	$(":input:eq(1)").on("click",function(){
+	   var book={
+	      _year:2004,//前面的下划线是一种常用记号，用于表示只能通过对象方法访问的属性哎
+		  edition:1
+	   };
+	   
+	   Object.defineProperty(book,"year",{
+	     get:function(){
+		   return "hello world";
+		 } 
+		 set:function(newValue){
+		    this._year=newValue;
+			this.edition+=newValue-2004;
+		 } 
+	   });
+	   book.year=2005;
+	   console.log(book.edition);//2
+	   console.log(book._year);//2005  使用访问器属性的常见方式，即设置一个属性的值会导致其他属性发生变化
+	   
+	  
+	   
+	   
 	});
 
 
@@ -31,7 +69,7 @@ $(function(){
 </head>
 
 <body>
-<input type="button"  name="d1" id="d1" value="测试Date"/></br>
-
+<input type="button"  name="d1" id="d1" value="数据属性"/></br>
+<input type="button" value="访问器属性"/></br>
 </body>
 </html>

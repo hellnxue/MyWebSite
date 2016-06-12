@@ -3,6 +3,7 @@
 <head>
 <meta charset="gb2312" />
 <title>无标题文档</title>
+<link href="../CSS/CSSUtil.css"  rel="stylesheet" type="text/css"/>
 <style>
 
 h3{
@@ -33,7 +34,32 @@ li{
     position: absolute;
     top: 33%;
     width: 0;}
-	
+div[data-border='feactur_border']{
+	border-color: pink blue red yellow;
+    border-style: solid;
+    border-width: 12px;
+    display: inline;
+    height: 0;
+    left: 50%;
+    margin-left: -12px;
+    margin-top: -12px;
+    position: absolute;
+    top: 50%;
+    width: 0;
+}
+
+
+#centerSun{
+	background-color:#CCCCFF;
+	text-align:center;}
+#centerSun ul{
+	background:#FFFF99;}
+#centerSun ul li{
+	float:left;
+	list-style-type:none;
+	}
+
+	 <!-- 奇怪，只要ul下的列表浮动了，在父元素nav上设置text-align子元素ul就没作用了-->
 </style>
 </head>
 
@@ -98,11 +124,14 @@ li{
  </nav>
  
  <h3>ul是块级元素奥</h3>
- <ul>
-   <li>hellow world</li>
-   <li>hellow world</li>
-   <li>hellow world</li>
- </ul>
+ <nav id="centerSun">
+	   <ul class="clearfix">
+		   <li>hellow world</li>
+		   <li>hellow world</li>
+		   <li>hellow world</li>
+	   </ul>
+ </nav>
+ 
 
  
 <h3>表单元素search,range</h3>
@@ -133,12 +162,15 @@ li{
    <div style="position:absolute;left:150px;"><img src="../../image/mxx/m5.jpg"></div>
 </div>
 <h3 style="margin-top:300px;">用边框制造三角形</h3>
-<div style="width:500px;margin:10px auto;">
-  <div style=" border-bottom:12px solid red; height:30px; width:30px; border-left:12px solid yellow; border-right:12px solid blue; border-top:12px solid pink;"> </div>
+<div style="width:500px;margin:10px auto;position: relative;border: 1px solid gold;">
+  <div data-border="feactur_border"> </div>
 
 <div  id="aftertest">hello sir</div>
 </div>
 
 
+<div style="background-color:#00FFFF">
+  <div style="background-color:#FFCC99;">hello sir</div>
+</div>
 </body>
 </html>

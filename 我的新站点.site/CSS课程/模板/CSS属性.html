@@ -126,6 +126,55 @@ h3{
 	border:1px solid yellow;}
 	#testafter::after{
 	content:" good night";}
+	
+	/*-------------------------------------------------::box-shadow---------------------------------------------------*/
+	#boxShadow{
+	border: 1px solid yellow;
+    border-radius: 20px 0;
+    box-shadow: 0 12px 8px -9px #555;
+    margin: 20px 0;
+    padding: 2px 0 3px 10px;
+	
+	}
+	
+	/*-------------------------------------------------绝对子元素对父元素高度的影响------------------------------*/
+	div#absolute {
+	  position:relative;
+	  border:1px solid red;
+	  margin:20px auto;
+	  background-color:#ddd;
+	}
+	
+	div#absolute div:nth-child(1){
+	
+	width:400px;
+	height:100px;
+	background-color:#99FF99;
+	position:absolute;
+	top:10%;
+	left:1%;}
+	
+	div#absolute div:nth-child(2){
+	background-color:#FFFF99;}
+	
+	/*-------------------------------------------------弧形角---------------------------------------------------*/
+	div#borderRadius{
+	background-color: #ddd;
+	border-radius:10px 6px 4px 12px / 20px 12px 8px 24px;/* 4 个水平值，4 个垂直值 */
+	padding: 3px;}
+	
+	.box{
+	 float:left;
+	 position:relative;
+	 left:50%;
+	 border: 1px solid red;
+	}
+	.box p{
+	 float:left;
+	 position:relative;
+	 right:50%;
+	 border: 1px solid yellow;
+	}
 </style>
 
 </head>
@@ -187,5 +236,51 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 
 <h3>用伪元素在div内容后面放一个边框</h3>
 <div id="testafter">hello world</div>
+
+<h3>box-shadow 盒子阴影</h3>
+<div id="boxShadow">hello world hellnxue</div>
+
+	<h3>绝对定位对高度的影响,绝对定位对高度没有影响，因为它已经脱离了文档流，连根拔起(听起来好吓人啊~_~ )，所以它的高度宽度不对父元素造成影响</h3>
+	<div id="absolute">
+	  <div> Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship。
+	 .</div>
+	
+		<div>
+		  This profound book from bestselling author, Spencer Johnson, will show you how to anticipate change, adapt to change quickly, enjoy change and be ready to change quickly again and again. Discover the secret for yourself and learn how to deal with change, so that you suffer from less stress and enjoy more success in your work and in life
+		</div>
+	</div>
+	
+<h3>弧形角</h3>
+<div id="borderRadius">This profound book from bestselling author, Spencer Johnson, will show you how to anticipate change, adapt to change quickly, enjoy change and be ready to change quickly again and again.</div>
+
+
+<h3>居中</h3>
+
+
+<p>1.块级元素包围行内元素时，子元素的居中</p>
+<div style="background-color:#CCCCFF; text-align:center;"> 
+	<span  style="background-color:#ccc;">hello world.</span>  
+</div>
+
+<p>1.块级元素包围浮动元素时，子元素的居中</p>
+<div style="border: 1px solid blue; overflow: hidden; text-align: center; "> 
+	<div  style="background-color:#ccc; float:left;background-color: #ccc;  display: inline-block; ">hello world.</div> 
+	 world
+</div>
+
+
+<div style="background-color:#FFCCFF; text-align:center;clear:both;">
+  <div style="background-color:#FFFFCC; display:inline-block; width:300px;">hello helln</div>
+</div>
+
+<div class="box">
+ <p>我是浮动的</p>
+ <p>我也是居中的</p>
+</div>
+
+<div style="text-align:center; margin:40px 0 0 0;">
+ <a href="#"><strong>top</strong></a>
+</div>
+ 
 </body>
 </html>

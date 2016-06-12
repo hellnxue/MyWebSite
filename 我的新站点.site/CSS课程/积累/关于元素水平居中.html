@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+ 		
+/*每段属性介绍的标题*/
+h3{ 
+    font-family:'CrimsonRoman', cursive;
+    text-align:center;
+	background-color:#ccc;
+	margin:30px;
+	color:#33CCFF;
+	border-radius:6px;
+	background:linear-gradient(#FFCCCC,#fff 50%,#FFCCCC);
+	background:-moz-linear-gradient(#FFCCCC,#fff 50%,#FFCCCC);
+	 }
+/*利用text-align水平居中子元素*/
+ .textAlign{
+ 	background-color:#CCCCCC;
+	text-align:center;}
+.textAlign div{
+ 	background-color:#FF33FF;
+	width:400px;
+	display:inline;/*在不支持text-align居中块级元素的情况下，子元素改为行内元素，使其居中*/
+	margin:0 auto;
+	}
+</style>
+
+</head>
+
+<body>
+	<h3> 用text-align居中子元素 </h3>
+	<div class="textAlign">
+	
+	 	<div>who moved my cheese?</div>
+	 
+	</div>
+
+ 
+</body>
+</html>

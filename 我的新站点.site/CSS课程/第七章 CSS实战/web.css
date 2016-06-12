@@ -1,0 +1,106 @@
+/* CSS Document */
+*{ margin:0; padding:0;}
+body {
+font-family:helvetica, arial, sans-serif;
+background:#efefef;
+margin:0;
+}
+wrapper {width:980px; margin:0 auto 20px;}
+header {
+	position:relative; /*为页面标题和搜索表单提供定位上下文*/
+	height:70px; /*固定高度，包围绝对定位元素*/
+	margin:10px 0;
+	background:#fff;
+	border-radius:20px 0px 20px 0px; /*顺序：左上、右上、右下、左下*/
+	box-shadow:0 12px 8px -9px #555; /*负扩展值把阴影定位到盒子内部  不太懂奥，第四个不是设置阴影尺寸的吗？*/
+	padding:1px; /*防止子元素外边距叠加  待测奥~*/
+}
+header section#title {
+	position:absolute;
+	width:300px; /*宽到足以不让文本折行*/
+	height:65px; /*高到足以容纳两行文本*/
+	left:0px; /*左上角定位*/
+	top:0;
+}
+
+header h1 {
+	padding:9px 12px 0;
+	font-family:'Lato', helvetica, sans-serif;
+	font-weight:900;
+	font-size:2.2em;
+	line-height:1;
+	letter-spacing:-.025em;
+	color:#4eb8ea;
+}
+header h2 {
+	padding:0px 12px;
+	font-family:"Source Sans Pro", helvetica, sans-serif;
+	font-weight:400; /*设定下载字体的粗细*/
+	font-size:.9em; line-height:1;
+	letter-spacing:-.025em;
+	color:#333;
+}
+
+ form.search {
+	position:absolute; width:150px; /*宽到足以容纳扩展后的搜索框*/
+	top:23px; right:20px; /*相对于页眉右上角定位*/
+}
+.search input {
+	float:right; width:70px;
+	padding:2px 0 3px 5px;
+	border-radius:10px 0px 10px 0px;
+	font-family:"Source Sans Pro", helvetica, sans-serif;
+	font-weight: 400;
+	font-size:1em;
+	color:#888;
+	outline:none; /*去掉默认的轮廓线*/
+	-moz-transition:2s width; /*搜索框过渡动画，别忘了带其他厂商前缀的属性*/
+}
+.search input:focus { width:140px;}/*在获得焦点时扩展到这么宽*/
+.search label{display:none;}
+form.search input {background-color:#fff;}
+
+/*修改占位符的默认颜色*/
+form.search input::-moz-placeholder {color:#ccc;}/*火狐写法*/
+form.search input::-ms-input-placeholder {color:red;}/*IE写法*/
+
+
+/* 菜单 */
+nav.menu {
+margin:19px auto;
+padding:0;
+text-align:center; /*在容器内居中菜单*/
+font-size:.8em;
+}
+nav.menu > ul { display:inline-block;} /*收缩包紧列表项？ 为啥不用overflow：hidden ?* /
+
+ /* 让菜单项水平排列*/
+nav.menu li {
+float:left;
+list-style-type:none; /*去掉默认的项目符号*/
+position:relative; /*为子列表提供定位上下文*/
+}
+nav.menu li a {
+display:block; /*让链接填满列表项*/
+padding:.25em .8em;
+font-family:"Source Sans Pro", helvetica, sans-serif;
+font-style: normal;
+font-weight:600;
+font-size:1.2em;
+text-align:left;
+color:#fff;
+text-decoration:none; /*去掉链接的下划线*/
+-moz-font-smoothing: antialiased; /*在WebKit 浏览器中平滑字体？*/
+}
+nav.menu li.choice1 a {background:#f58c21;}
+nav.menu li.choice2 a {background:#4eb8ea;}
+nav.menu li.choice3 a {background:#d6e636;}
+nav.menu li.choice4 a {background:#ee4c98;}
+nav.menu li.choice5 a {background:#f58c21;}
+nav.menu li:hover > a {
+color:#555;
+border-color:#fff;
+border:0;
+}
+nav.menu li:last-child a {border-bottom-right-radius:10px;}
+nav.menu li:first-child a {border-top-left-radius:10px;}
