@@ -72,7 +72,12 @@ padding:0;
 text-align:center; /*在容器内居中菜单*/
 font-size:.8em;
 }
-nav.menu > ul { display:inline-block;} /*收缩包紧列表项？ 为啥不用overflow：hidden ?* /
+/* 收缩包紧列表项？ 为啥不用overflow：hidden ?
+   如果给ul清除浮动clearfix并且设置width属性，设置margin:0 auto,那么ul会在nav中居中的，但是ul是宽度不固定的列表菜单，这种方式不通过
+*/
+nav.menu > ul { 
+	display:inline-block;/*为什么用display:inline就不行呢，可能是跟浮动有关吧，普通行内元素是会居中的*/
+} 
 
  /* 让菜单项水平排列*/
 nav.menu li {

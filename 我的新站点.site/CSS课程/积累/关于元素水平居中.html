@@ -17,15 +17,30 @@ h3{
 	background:linear-gradient(#FFCCCC,#fff 50%,#FFCCCC);
 	background:-moz-linear-gradient(#FFCCCC,#fff 50%,#FFCCCC);
 	 }
-/*利用text-align水平居中子元素*/
+/*利用text-align水平居中子元素
+
+用text-align可以使块级父元素中的行内元素居中，但不能居中块级父元素中的块级元素（除了IE6/IE7/IE8）
+IE6/7及IE8混杂模式中，text- align:center可以使块级元素也居中对齐。其他浏览器中，text-align:center仅作用于行内内容上。
+解决这个问题比较好的方式，就是为所有需要相对父容器居中对齐的块级元素设置“margin-left:auto; margin-right:auto”。但这个方式 IE6/IE7/IE8的混杂模式中不支持，所以还要设置父容器的 “text-align:center;”。
+*/
  .textAlign{
  	background-color:#CCCCCC;
 	text-align:center;}
 .textAlign div{
  	background-color:#FF33FF;
 	width:400px;
-	display:inline;/*在不支持text-align居中块级元素的情况下，子元素改为行内元素，使其居中*/
+	display:inline;/*或者display:inline-block 在不支持text-align居中块级元素的情况下，子元素改为行内元素，使其居中*/
 	margin:0 auto;
+	}
+
+/*IE6/7及IE8混杂模式中,text-align可以使块级元素居中，在其他浏览器中不居中*/	
+ .textAlign1{
+ 	background-color:#CCCCCC;
+	text-align:center;}
+.textAlign1 div{
+ 	background-color:#FF33FF;
+	width:400px;
+	 
 	}
 </style>
 
@@ -34,6 +49,12 @@ h3{
 <body>
 	<h3> 用text-align居中子元素 </h3>
 	<div class="textAlign">
+	
+	 	<div>who moved my cheese?</div>
+	 
+	</div>
+	
+	<div class="textAlign1">
 	
 	 	<div>who moved my cheese?</div>
 	 
