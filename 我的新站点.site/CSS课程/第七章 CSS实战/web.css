@@ -17,7 +17,7 @@ header {
 }
 header section#title {
 	position:absolute;
-	width:300px; /*宽到足以不让文本折行*/
+	width:316px; /*宽到足以不让文本折行*/
 	height:65px; /*高到足以容纳两行文本*/
 	left:0px; /*左上角定位*/
 	top:0;
