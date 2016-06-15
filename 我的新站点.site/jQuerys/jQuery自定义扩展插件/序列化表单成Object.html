@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+  /**
+	 * jQuery扩展插件，将form表单内容序列化为Object
+	 * 使用方式：$("选择器").serializeObject();
+	 */
+	$.fn.extend({
+		serializeObject:function(){
+			   if(this.length>1){
+					  return false;
+			   }
+			   var arr=this.serializeArray();
+			   var obj=new Object;
+			   $.each(arr,function(k,v){
+					  obj[v.name]=v.value;
+			   });
+			   return obj;
+		}
+	});
+	
+ 
+	
+});
+
+ function testSerialize(){
+ 
+    var formObject=$("form").serializeObject();
+	console.log("表单序列化为对象："+formObject);
+	var jsonObject=JSON.stringify(formObject);//将js对象转成JSON对象
+	
+	console.log("对象转为json："+jsonObject);
+  
+  	 /*上传表单不会出现在序列化完的结果中，需要手动把值放在序列后的对象formObject中*/
+	 var fileVal=$("[name=myfiles]").val();
+	 formObject.myfiles=fileVal;
+	 console.log("上传文件值："+fileVal);
+	 console.log("单独将上传文件input的值添加到表单对象中："+formObject);
+	 console.log("添加了上传input值的json串："+JSON.stringify(formObject));
+   }
+   
+   function testFormData(){
+     var fo=new FormData($("form")[0]);
+	 
+	 var fojson=JSON.stringify(fo);//FormData是一个有很多方法和属性的对象，不是普通对象，不能直接用JSON.stringify()序列化成json串
+	 console.log(fo.get("chinaec"));//FormData读取值
+	 console.log(fo);
+	 /*  console.log("fojson:"+fojson);*/
+	  
+	  
+	  var oo=new FormData();
+	  oo.append("name","tom");
+	  console.log(oo.get("name"));
+   }
+</script>
+</head>
+
+<body>
+	<form>
+	<fieldset>
+	   <legend>表单</legend>
+	   <select name="single">
+		<option>Single</option>
+		<option>Single2</option>
+	  </select>
+	  <select name="multiple" multiple="multiple">
+		<option selected="selected">Multiple</option>
+		<option>Multiple2</option>
+		<option selected="selected">Multiple3</option>
+	  </select><br/>
+	  <input type="checkbox" name="check" value="check1"/> check1
+	  <input type="checkbox" name="check" value="选择2" checked="checked"/> check2
+	  <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
+	  <input type="radio" name="radio" value="radio2"/> radio2
+	  <input type="file" name="myfiles"  /><br />
+	  <input  name="chinaec" class="am-form-field am-input-lg" type="text"  > 
+	</fieldset>
+	  
+	</form><br />
+
+<p>-------jquery表单序列化之将一个表单序列化成对象Object,用自定义插件方法serializeObject() -------------</p>
+<input type="button" value="表单序列化" onClick="testSerialize()"/><br />
+<input type="button" value="FormData()" onClick="testFormData()"/><br />
+
+</body>
+</html>
