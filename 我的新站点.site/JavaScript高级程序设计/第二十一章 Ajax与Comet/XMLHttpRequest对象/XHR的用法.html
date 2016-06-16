@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../../js/jquery-1.8.2.min.js"></script>
+<script>
+    $(function(){
+	   /*JS原生ajax的用法*/
+	    $(":button:eq(0)").on("click",function(){
+		 
+		   var formObj=new FormData($("form")[0]);
+		   var xhr=new XMLHttpRequest();
+		   
+		   //用DOM0级方法为xhr添加事件，为了兼容所有浏览器奥~
+		   xhr.onreadystatechange=function(){
+		     console.log("请求状态："+xhr.readyState);
+			
+			 if(xhr.readyState==4){//已经完成异步请求，接收到全部响应数据，而且已经可以在客户端使用了
+				 if((xhr.status=200&&xhr.status<300)||xhr.status==304){
+					   console.log(xhr.responseText);
+					   var obj=JSON.parse(xhr.responseText);
+					   console.log(obj.result);
+				   }else{
+					   console.log("Request was unsuccessful:"+xhr.status);
+				   }
+				 
+			 }  
+			   
+		   };
+		   
+		   xhr.open("post", "${ctx}/code/ysajax", true);//true是异步请求，false代表同步请求
+		   
+		   // xhr.abort();//取消异步请求的方法
+		   xhr.send(formObj);
+		   
+		   
+		   
+	   });
+	})
+</script>
+
+</head>
+
+<body>
+ <form id="form1" name="form1" enctype="multipart/form-data" class="form-horizontal" method="post" data-re="hello world">
+   <fieldset>
+   	   <legend>表单</legend>
+	    <input id="china" name="china"   type="text"  ><br>
+        <input  name="chinaec"   type="text"  > <br>
+   	    <input type="button"   value="原生Ajax" id="hihi"><br>
+		<input type="button"   value="HTML事件处理程序"  onClick="null"><br><!--删除通过HTML方式指定的事件-->
+		<a href="javascript:void(0);">超链接</a>
+   </fieldset>
+    
+	
+     
+  </form>  
+ 
+</body>
+</html>
