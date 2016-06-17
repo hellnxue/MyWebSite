@@ -19,7 +19,7 @@
 			 if(xhr.readyState==4){//已经完成异步请求，接收到全部响应数据，而且已经可以在客户端使用了
 				 if((xhr.status=200&&xhr.status<300)||xhr.status==304){
 					   console.log(xhr.responseText);
-					   var obj=JSON.parse(xhr.responseText);
+					   var obj=JSON.parse(xhr.responseText);//如果是json字符串则需要手动解析成对象，jQuery.ajax也是利用JSON.parse解析异步请求的数据
 					   console.log(obj.result);
 				   }else{
 					   console.log("Request was unsuccessful:"+xhr.status);
@@ -30,9 +30,14 @@
 		   };
 		   
 		   xhr.open("post", "${ctx}/code/ysajax", true);//true是异步请求，false代表同步请求
-		   
+		   // xhr.setRequestHeader("MyHeader", "MyValue");//自定义请求头信息
 		   // xhr.abort();//取消异步请求的方法
-		   xhr.send(formObj);
+		   
+		   
+		   /* post请求时，如果发送的实体是查询字符串，则需要给xhr对象设置头信息("Content-type", "application/x-www-form-urlencoded")模仿表单提交，如果发送的实体是FormData()对象则不需要设置，xhr会识别FormData的实例，服务器能正常读取发送的数据。*/
+		   xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		   xhr.send("china=小新&chinaec=小星");//发送查询字符串
+		  // xhr.send(formObj);
 		   
 		   
 		   
