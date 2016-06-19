@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+ 
+</style>
+
+</head>
+<!-- 4、使用表格
+
+如果你使用的是表格的话，那完全不用为各种居中问题而烦恼了，只要用到 td(也可能会用到 th)元素的 align="center" 以及 valign="middle" 这两个属性就可以完美的处理它里面内容的水平和垂直居中问题了,而且表格默认的就会对它里面的内容进行垂直居中。如果想在css中控制表格内容的居中，垂直居中可以使用 vertical-align:middle，至于水平居中，貌似css中是没有相对应的属性的,但是在IE6、7中我们可以使用text-align:center来对表格里的元素进行水平居中，IE8+以及谷歌、火狐等浏览器的text-align:center只对行内元素起作用，对块状元素无效。--> 
+<body>
+<table>
+   <tr>
+      <!--表格自带的内容居中两个属性 align="center" valign="middle"-->
+      <td height="200px" width="200px"  style=" border:1px solid red; vertical-align:middle; text-align:center;">
+	  	<div style="width:100px; height:100px; background:#000000; display: inline-block;"></div>
+	  </td>
+   </tr>
+</table>
+
+<div style="width:200px; height:200px; border:1px solid red; text-align:center;">
+	<div style="width:50px; height:50px; display:inline-block; background:#999999;">
+	  
+	</div>
+</div>
+ 
+ <div style="width:200px; height:200px; border:1px solid red; ">
+	
+	<span style="vertical-align:middle;">hello world</span>
+</div>
+</body>
+</html>
