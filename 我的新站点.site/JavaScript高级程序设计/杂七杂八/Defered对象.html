@@ -144,6 +144,37 @@ function pwhenTest(){
 	});
 }
  
+ function ws(dtd){
+    var tasks=function(){
+	  alert("执行完毕！");
+
+　　　　　　dtd.resolve(); // 改变Deferred对象的执行状态
+	}
+	
+	setTimeout(tasks,2000);
+	return dtd.promise();
+ }
+ 
+ /*防止延迟对象状态被修改的另一种写法
+  jQuery规定，$.Deferred()可以接受一个函数名（注意，是函数名）作为参数，$.Deferred()所生成的deferred对象将作为这个函数的默认参数。
+ */
+ function deferred(){
+  /* $.Deferred(ws).done(function(){
+     console.log("complete......");
+   }).fail(function(){
+     console.log("no,failed!");
+   });*/
+   console.log(1111);
+   var dtd=$.Deferred();
+    dtd.promise(ws).done(function(){
+     console.log("complete......");
+   }).fail(function(){
+     console.log("no,failed!");
+   })
+   
+ }
+ 
+ 
 </script>
 </head>
 
@@ -161,5 +192,8 @@ function pwhenTest(){
 
 
 <input type="button" value="利用when()方法可以给普通耗时的方法加上回调函数奥"  onClick="pwhenTest();"/><br>
+
+
+<input type="button" value="将耗时函数传入$.Deferred(）中"  onClick="deferred();"/><br>
 </body>
 </html>

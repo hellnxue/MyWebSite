@@ -215,6 +215,18 @@ function test55(){
   var instance=new Hh();
 }
 
+var mObj={
+   name:"hello",
+   say:function(){
+     console.log(this.name+"world");
+   }
+}
+
+function fzObj(){
+   console.log(123);
+   mObj.say();
+}
+
 </script>
 </head>
 
@@ -230,5 +242,6 @@ function test55(){
 <input type="button"  name="d1" id="d1" value="构造函数&原型继承" onclick="test5()"/></br>
 <input type="button"  name="d1" id="d1" value="tt" onclick="test55()"/></br>
 
+<input type="button"    value="封装的对象" onclick="fzObj()"/></br>
 </body>
 </html>
