@@ -59,6 +59,7 @@ function startHeartAnimation() {
 		}
 		if (draw) {
 			heart.push(bloom);
+			console.log(bloom);
 			garden.createRandomBloom(bloom[0], bloom[1]);
 		}
 		if (angle >= 30) {

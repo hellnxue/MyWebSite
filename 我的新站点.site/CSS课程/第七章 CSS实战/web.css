@@ -116,7 +116,7 @@ nav.menu li:first-child a {border-top-left-radius:10px;}
 
 /*子菜单淡入淡出*/
 nav.menu li ul{
-	visibility:hidden;
+	visibility:hidden;/*display属性没有过度效果，即使在过渡中有这个声明*/
 	opacity:0;
 	position:absolute;
 	top:100%;
@@ -142,8 +142,8 @@ nav.menu li li:last-child a{
 	 border-bottom-left-radius:10px; 
 	 }
 	 
-	 
- .no-csstransitions nav.menu li ul { /*针对不支持过渡的浏览器*/
+ /*针对不支持过渡的浏览器 可以在header上加上class=no-csstransitions */	 
+ .no-csstransitions nav.menu li ul {
 visibility:visible; /*覆盖过渡声明*/
 opacity:1; /*覆盖过渡声明*/
 display:none; /*如果不支持过渡，就直接隐藏菜单*/

@@ -3,6 +3,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
+<style>
+body{
+background-color:#eee;}
+  input{
+  width:200px;
+  margin-bottom:40px;
+  border-radius:10px;
+  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+  box-shadow:0 12px 8px -9px #555;
+  
+  
+  }
+  
+  fieldset{
+  width:600px;
+  margin:20px auto;
+  background-color:#fff;}
+</style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
   
@@ -22,52 +41,165 @@ console.log(c.hasOwnProperty("var1"));
 
 
 //-----------------------原型对象----------------------------
+/*Person构造函数*/
 function Person(){
 
 }
 
-
+/*原型对象与实例对象的关系*/
 function test1(){
    
-   Person.prototype.name="Nigola";
+   Person.prototype.name="Nigola";//给原型对象添加属性&值
    
+   //创建一个实例对象
    var p1=new Person();
-   console.log(p1.constructor);
-   console.log(p1.constructor==Person);//constructor为原型对象的属性，指向构造函数指针Person
-   console.log(Person.prototype.isPrototypeOf(p1));//原型对象与实例对象之间的关系，说明实例对象的Prototype属性指向原型对象
-   console.log(Object.getPrototypeOf(p1));//Object.getPrototypeOf()取得指定对象的原型对象
-   console.log(Object.getPrototypeOf(p1)==Person.prototype);
-   console.log(Object.getPrototypeOf(p1).name);
    
    var p2=new Person();
    
+   console.log(p1);//构造函数的实例对象 包含指向原型对象的指针[[Prototype]]  在火狐中的脚本是叫_proto_
+   
+   /*原型对象最初只包含 constructor属性，该属性也是共享的，所以实例对象可以访问它*/
+   console.log(p1.constructor);//原型对象的constructor属性 指向构造函数
+   
+   console.log(p1.constructor==Person);//constructor为原型对象的属性，指向构造函数指针Person
+   
+    /*利用原型对象的isPrototypeOf()方法，可以确认原型对象与实例对象之间的关系，说明实例对象的指针[[Prototype]]是否指向该原型对象*/
+   console.log("p1:"+Person.prototype.isPrototypeOf(p1)+"\np2:"+Person.prototype.isPrototypeOf(p2));//true true
+   
+    /*ECMAScript 5 新增方法 Object.getPrototypeOf(实例对象) ,返回实例对象的指针[[Prototype]] ，也就是原型对象*/
+   console.log(Object.getPrototypeOf(p1));//Object.getPrototypeOf()取得指定对象的原型对象
+   
+   console.log(Object.getPrototypeOf(p1)==Person.prototype);//true
+   console.log(Object.getPrototypeOf(p1).name);//"Nigola" 来自原型对象中的属性name
+   
+   
+   
+   console.log("--------------------------------------------------------------------------------------------------------------------------------");
    p1.name="tom";
    p1.getName=function(){
      return "hello";
    }
    
-   console.log("p1.name="+p1.name);//实例中添加的属性名称若与原型对象的属性名称相同，前者会覆盖后者 tom
+   //实例中添加的属性名称若与原型对象的属性名称相同，前者会覆盖后者 
+   console.log("p1.name="+p1.name);//tom 
+   
    console.log("Object.getPrototypeOf(p1).name="+Object.getPrototypeOf(p1).name);//取得对象p1原型对象中的name,即Nigola
+   
    console.log("p2.name="+p2.name);//另一个实例对象访问的仍然是原型对象中的值，Nigola
    
-   console.log("p1.hasOwnProperty(\"name\")="+ p1.hasOwnProperty("name"));//hasOwnPropertype()方法检测一个属性是否存在与实例或原型中
-   console.log("delete p1.name");
-   delete p1.name;//delete删除实例中的属性，恢复访问原型对象的属性，即Nigola
+    /*hasOwnPropertype()方法检测一个属性是否存在与实例或原型中,这个方法只有在给定属性存在于调用此方法的对象（实例对象或者原型对象）中时才会返回true*/
+   console.log("p1.hasOwnProperty(\"name\")="+ p1.hasOwnProperty("name"));//true
+    
+   console.log("delete p1.name start");
+   
+   //delete删除实例中的属性，恢复访问原型对象的属性，即Nigola
+   delete p1.name;
+   
+   console.log("delete p1.name end");
+   
    console.log("p1.name="+p1.name);
    
-   console.log("p1.hasOwnProperty(\"name\")="+p1.hasOwnProperty("name"));
+   console.log("p1.hasOwnProperty(\"name\")="+p1.hasOwnProperty("name"));//true 实例中
    
-   console.log("p1.hasOwnProperty(\"constructor\")="+p1.hasOwnProperty("constructor"));
-   console.log("Object.getPrototypeOf(p1).hasOwnProperty(\"constructor\")="+Object.getPrototypeOf(p1).hasOwnProperty("constructor"));
+   console.log("Person.prototype.hasOwnProperty(\"constructor\")="+Person.prototype.hasOwnProperty("constructor"));//true 原型对象中是否存在constructor属性
    
-   console.log("p1.hasOwnProperty(\"getName\")="+p1.hasOwnProperty("getName"));
+   console.log("Object.getPrototypeOf(p1).hasOwnProperty(\"constructor\")="+Object.getPrototypeOf(p1).hasOwnProperty("constructor"));//true 原型对象中是否存在constructor属性 当然有啦
+   
+   console.log("p1.hasOwnProperty(\"getName\")="+p1.hasOwnProperty("getName"));//true
 	
-   console.log("Person.prototype.hasOwnProperty(\"name\")="+Person.prototype.hasOwnProperty("name"));
+   console.log("Person.prototype.hasOwnProperty(\"name\")="+Person.prototype.hasOwnProperty("name"));//true
 }
 
+/*原型与操作符in*/
+function testIn(){
+   
+   Person.prototype.name="Nicholas";
+   Person.prototype.age=20;
+   Person.prototype.job="software engineer";
+   
+   
+   var p1=new Person();
+   var p2=new Person();
+   /*
+     in操作符会在通过对象能够访问给定属性时返回true,无论该属性存在于实例中还是原型中
+   */
+   var a="name" in p1;//true
+   var b="name" in Person.prototype;//true
+   console.log("\"name\" in p1:"+a+"\n \"name\" in Person.prototype:"+b);
+   console.log(p1.hasOwnProperty("name"));//false
+   
+   p1.name="tom";
+    console.log("\"name\" in p1:"+a+"\n \"name\" in Person.prototype:"+b);
+   console.log(p1.hasOwnProperty("name"));//true
+   
+   var c=hasPrototypeProperty(p1,"name");
+   var d=hasPrototypeProperty(p2,"name");
+   
+   var e=hasPrototypeProperty2(p1,"name");
+    var f=hasPrototypeProperty2(p2,"name");
+   
+   console.log("name是否是p1对象的原型对象的属性："+c);
+   
+   console.log("name是否是对象p2的原型对象的属性："+d);
+   
+   console.log("name是否是p1对象的原型对象的属性："+e);
+    console.log("name是否是p2对象的原型对象的属性："+f);
+   
+   console.log("------------------------替代for-in循环-------------------------------");
+    /*for-in循环返回的是所有能够通过对象访问的、可枚举的属性
+	  可以用Object.keys()和Object.getOwnPrototypeNames()这两个方法代替for-in循环取得对象的属性奥
+	*/
+	p1.age=25;
+	
+	/*Object.keys接受一个对象作为参数，返回一个包含所有可枚举属性的字符串数组*/
+	var keys=Object.keys(Person.prototype);
+	var key=Object.keys(p1);
+	console.log("Object.keys(Person.prototype):"+Object.keys(Person.prototype));//name,age,job
+	console.log("Object.keys(p1):"+Object.keys(p1));//name,age
+	
+	/*Object.getOwnPropertyNames() 获取所有实例属性，无论它是否可枚举*/
+	
+	var keyss=Object.getOwnPropertyNames(Person.prototype);
+	var keysss=Object.getOwnPropertyNames(p1);
+   console.log("Object.getOwnPropertyNames(Person.prototype):"+Object.getOwnPropertyNames(Person.prototype));//constructor,name,age,job constructor默认是不可枚举的
+	console.log("=Object.getOwnPropertyNames(p1):"+Object.getOwnPropertyNames(p1));// name,age 
+   
+}
+
+
+
+/*
+  判断属性是否只存在于原型对象
+  利用in和hasOwnProperty()判断属性是否来自原型对象,只是存在于原型对象中时才为true
+  方法一：
+*/
+function hasPrototypeProperty(object,name){
+   return !object.hasOwnProperty(name)&&(name in object);
+}
+/* 判断属性是否只存在于原型对象
+   方法二：
+*/
+function hasPrototypeProperty2(object,name){
+
+   return !object.hasOwnProperty(name)&&(Object.getPrototypeOf(object).hasOwnProperty(name));
+}
+
+
+
+
+
+
+
+
+
+
+
+/*构造函数Person1*/
 function Person1(){
 
 }
+
+
 function test2(){
 
    //简单的原型语法，但会重写原型对象，导致constructor不在指向构造函数的指针，指向了Object
@@ -231,17 +363,24 @@ function fzObj(){
 </head>
 
 <body>
-<input type="button"  name="d1" id="d1" value="测试原型对象1" onclick="test1()"/></br>
-<input type="button"  name="d1" id="d1" value="测试原型对象2" onclick="test2()"/></br>
+	<fieldset>
+	 <legend>try.....</legend>
+		 <input type="button"  value="原型对象与实例对象的关系" onclick="test1()"/></br>
+		
+		<input type="button"  value="原型与in操作符" onclick="testIn()"/></br>
+		
+		<input type="button"  value="测试原型对象2" onclick="test2()"/></br>
+		
+		
+		<input type="button"  value="原型继承" onclick="test3()"/></br>
+		
+		<input type="button"  value="构造函数继承" onclick="test4()"/></br>
+		
+		<input type="button"  value="构造函数&原型继承" onclick="test5()"/></br>
+		<input type="button"  value="tt" onclick="test55()"/></br>
+		
+		<input type="button"  value="封装的对象" onclick="fzObj()"/></br>
+	</fieldset>
 
-
-<input type="button"  name="d1" id="d1" value="原型继承" onclick="test3()"/></br>
-
-<input type="button"  name="d1" id="d1" value="构造函数继承" onclick="test4()"/></br>
-
-<input type="button"  name="d1" id="d1" value="构造函数&原型继承" onclick="test5()"/></br>
-<input type="button"  name="d1" id="d1" value="tt" onclick="test55()"/></br>
-
-<input type="button"    value="封装的对象" onclick="fzObj()"/></br>
 </body>
 </html>
