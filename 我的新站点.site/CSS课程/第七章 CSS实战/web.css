@@ -151,3 +151,72 @@ display:none; /*如果不支持过渡，就直接隐藏菜单*/
 .no-csstransitions nav.menu li:hover > ul {
 display:block; /*在父菜单项悬停时显示菜单*/
 }
+
+
+/*专题区*/
+section#feature_area {
+	overflow:hidden; /*包围浮动的子元素*/
+	margin:16px 0 0; /*在页眉与专题区之间留出间隙*/
+	padding:0 0 10px;
+}
+section#feature_area article {float:left; width:66%;}
+section#feature_area aside {float:right; width:34%;}
+
+section#feature_area article .inner{
+padding:12px;
+background-color:#fff;
+box-shadow:0 12px 8px -9px #555;
+border-radius:10px 0;
+	
+}
+/*文章超链接*/
+section#feature_area article a{
+text-decoration:none;}
+/*照片*/
+section#feature_area article img{
+	float:left;
+	padding:0 10px 10px 0;}
+/*时间*/
+section#feature_area article h4{
+	font-family:"Source Sans Pro", helvetica, sans-serif;
+	font-style:normal;
+	font-weight:400;
+	color:#f58c21;
+	letter-spacing:-.025em;}
+	
+section#feature_area article h3 { /*博文标题*/
+	font-family:Lato, helvetica, sans-serif;
+	font-style:normal;
+	font-weight:700;
+	font-size:1.75em;
+	color:#555;
+	margin:0px 0 12px 0px;
+	letter-spacing:-.05em;
+}
+
+section#feature_area article#blog_leadoff p { /*博文内容*/
+	font-family:"Source Sans Pro", helvetica, sans-serif;
+	font-style: normal;
+	font-weight:400;
+	font-size:1.1em;
+	line-height:1.5em;
+	color:#616161;
+	margin:0 0px;
+	text-align:justify;/*文本两端对齐*/
+}
+
+section#feature_area article#blog_leadoff p::first-letter { /*首字母下沉*/
+	font-family:Lato, helvetica, sans-serif;
+	font-style: normal;
+	font-weight:700;
+	font-size:4.5em;
+	float:left;
+	margin:.05em .05em 0 0;
+	line-height:0.6;/*这个属性貌似不管用*/
+	text-shadow:1px 3px 3px #ccc; /*IE10 及以上版本支持文本阴影*/
+}
+
+section#feature_area article#blog_leadoff p::first-line { /*首行小型大写字母*/
+	font-variant:small-caps;
+	font-size:1.2em;
+}
