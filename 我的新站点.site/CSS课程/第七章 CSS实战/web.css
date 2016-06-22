@@ -369,13 +369,15 @@ input:-webkit-autofill { color:#fff !important; } /*去掉 WebKit 默认的黄色背景*/
 	background-color:#fff;
 	margin:8px 0 15px ;
 	}
- section#book_area article.left{
+ section#book_area article{
  	float:left;
 	width:25%;
 	padding:10px 0;
 	background:none;}
+section#book_area article aside{
+display:none;}
 	
-section#book_area article div.inner{
+section#book_area article .inner{
 	position:relative;
 	width:140px;
 	margin:0 auto;}	
@@ -392,4 +394,6 @@ section#book_area article div.inner{
 	font-style:normal;
 	font-weight:900;
 	text-align:left;}
-/*较窄的封面需要不同的偏移量*/ #book_area article.right:last-child h3 { left:85%; }  #book_area article img { box-shadow: 0 12px 8px -9px #555; }/*封面阴影*/ 
+/*较窄的封面需要不同的偏移量*/
+ #book_area article.right:last-child h3 { left:85%; }  
+ #book_area article img { box-shadow: 0 12px 8px -9px #555; }/*封面阴影*/ 
