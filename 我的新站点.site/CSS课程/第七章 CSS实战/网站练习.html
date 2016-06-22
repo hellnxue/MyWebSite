@@ -28,7 +28,7 @@
 									<li> <a href="#">Visual Stylin’ with CSS3</a> </li>
 									<li> <a href="#">Scriptin’ with JavaScript and Ajax</a> </li>
 									<li> <a href="#">Codin’ for the Web</a> </li>
-								</ul>
+							  </ul>
 							</li>
 							<li class="choice3" ><a href="#">Resources</a></li>
 							<li class="choice4"><a href="#">Bookshelf</a></li>
@@ -42,7 +42,7 @@
 						"search" />
 					</form>
 				
-				</header>
+	   </header>
 			
 			<section id="feature_area"><!-- 一级 -->
 			
@@ -51,7 +51,7 @@
 						<h4>September 7, 2012</h4>
 						<a href="#"><h3>Medium - a new blogging platform</h3></a>
 						<img src="../../image/mxx/m2.jpg" alt="Charles Wyke-Smithphoto"  width="115px" height="115px;"/>
-						<p>recently, I signed up at Medium, the blogging platform, and can't resist visiting at least a couple of times a day - it's a very addictive experience! Articles come from numerous authors but display in one continuous feed, so it's a different model from most blog sites that are the voice of single person.  Read this Article.it's a very addictive experience! Articles come from numerous authors but display in one continuous feed.
+						<p>Recently, I signed up at Medium, the blogging platform, and can't resist visiting at least a couple of times a day - it's a very addictive experience! Articles come from numerous authors but display in one continuous feed, so it's a different model from most blog sites that are the voice of single person.  Read this Article.it's a very addictive experience! Articles come from numerous authors but display in one continuous feed.Articles come from numerous authors but display in one continuous feed, so it's a different model from most blog sites that are the voice of single person.  Read this Article.it's a very addictive experience! Articles come from numerous authors but display in one continuous feed.
 						</p>
 					</div>
 				</article>
@@ -63,18 +63,20 @@
 						<fieldset> <!-- 作为表单控件的容器 -->
 							<!-- 控件组的标题 -->
 							<legend><span>Sign In for Code and Updates</span></legend>
+							
 								<section> <!-- 用于为控件、标注和说明添加样式的外包装 -->
 									<!-- 与控件ID 同名的for 属性将标注与控件关联起来 -->
 									<label for="email">Email</label>
 									<!-- type 属性的text 值表明这是文本框 -->
 									<input type="text" id="email" name="email" />
 								</section>
+								
 								<section>
 									<label for="password">Password</label>
-									<input type="password" id="password" name="password"
-									maxlength="20" /> <!-- 密码框中的字符显示为掩码 -->
+									<input type="password" id="password" name="password" maxlength="20" /> <!-- 密码框中的字符显示为掩码 -->
 									<p class="direction">Wrong user name or password</p>
 								</section>
+								
 								<section> <!-- 提交按钮 -->
 									<input type="submit" value="Sign In" />
 									<p class="signup">Not signed up? <a href="#">Register now!</a></p>
@@ -85,20 +87,71 @@
 					<nav><!-- 三级 -->
 						<h3>Recent Articles</h3>
 						<!-- 博文链接 -->
+				       <ul>        
+					    <li><a href="#">Z-index&mdash;Layers of Confusion</a></li>         
+						<li><a href="#">Box-Image Techniques</a></li>         
+						<li><a href="#">Shadow FX with CSS3</a></li>    
+					   </ul> 
 					</nav>
 					
 				</aside>
 				
 		</section>
 		
-		<section id="promo_area"><!-- 一级 -->
+		<section id="book_area"><!-- 一级 -->
 		
-			<article><!-- 二级 -->
+			<article class="left"><!-- 二级 -->
 				<div class="inner"><!-- 三级 -->
-				<!-- 图书封面及旋转的文字-->
+				  <h3>HTML5 + CSS3</h3><!-- 要旋转的文字 -->            
+				  <img src="../../image/books/stylin3_cover1-130x160.jpg" alt="Stylin' with CSS cover" />             
+				  <aside> <!-- 弹出层 -->                                        
+					  <ol>                     
+						   <li><a href="#">Download the Code</a></li>                    
+						   <li><a href="#">Table of Contents</a></li>                     
+						   <li><a href="#">Buy this Book</a></li>                  
+					   </ol>             
+				   </aside>   
 				</div>
 			</article>
-			
+			<article class="left"><!-- 二级 -->
+				<div class="inner"><!-- 三级 -->
+				  <h3>JavaScript</h3><!-- 要旋转的文字 -->            
+				  <img src="../../image/books/scriptin_cover1-130x160.jpg" alt="Stylin' with CSS cover" />             
+				  <aside> <!-- 弹出层 -->                                        
+					  <ol>                     
+						   <li><a href="#">Download the Code</a></li>                    
+						   <li><a href="#">Table of Contents</a></li>                     
+						   <li><a href="#">Buy this Book</a></li>                  
+					   </ol>             
+				   </aside>   
+				</div>
+			</article>
+			<article class="left"><!-- 二级 -->
+				<div class="inner"><!-- 三级 -->
+				  <h3>PHP + SQL</h3><!-- 要旋转的文字 -->            
+				  <img src="../../image/books/codin_cover-130x160.jpg" alt="Stylin' with CSS cover" />             
+				  <aside> <!-- 弹出层 -->                                        
+					  <ol>                     
+						   <li><a href="#">Download the Code</a></li>                    
+						   <li><a href="#">Table of Contents</a></li>                     
+						   <li><a href="#">Buy this Book</a></li>                  
+					   </ol>             
+				   </aside>   
+				</div>
+			</article>
+			<article class="left"><!-- 二级 -->
+				<div class="inner"><!-- 三级 -->
+				  <h3>Presentation</h3><!-- 要旋转的文字 -->            
+				  <img src="../../image/books/visual_stylin_cover_smaller.jpg" alt="Stylin' with CSS cover" />             
+				  <aside> <!-- 弹出层 -->                                        
+					  <ol>                     
+						   <li><a href="#">Download the Code</a></li>                    
+						   <li><a href="#">Table of Contents</a></li>                     
+						   <li><a href="#">Buy this Book</a></li>                  
+					   </ol>             
+				   </aside>   
+				</div>
+			</article>
 		<!-- article 重复4 次-->
 		</section>
 		

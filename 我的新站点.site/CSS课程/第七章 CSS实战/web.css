@@ -1,7 +1,13 @@
 /* CSS Document */
 *{ margin:0; padding:0;}
+@font-face {
+  font-family: 'CrimsonRoman' ;
+  src: url('Fonts/Crimson-Roman.otf');
+  font-style: normal;
+  font-weight: normal; 
+}
 body {
-font-family:helvetica, arial, sans-serif;
+font-family:"CrimsonRoman", arial, sans-serif;
 background:#efefef;
 margin:0;
 }
@@ -25,7 +31,7 @@ header section#title {
 
 header h1 {
 	padding:9px 12px 0;
-	font-family:'Lato', helvetica, sans-serif;
+	font-family:"CrimsonRoman", helvetica, sans-serif;
 	font-weight:700;
 	font-size:2em;
 	line-height:1;
@@ -153,7 +159,7 @@ display:block; /*在父菜单项悬停时显示菜单*/
 }
 
 
-/*专题区*/
+/*-------------------------------------------------专题区------------------------------------------------*/
 section#feature_area {
 	overflow:hidden; /*包围浮动的子元素*/
 	margin:16px 0 0; /*在页眉与专题区之间留出间隙*/
@@ -185,7 +191,7 @@ section#feature_area article h4{
 	letter-spacing:-.025em;}
 	
 section#feature_area article h3 { /*博文标题*/
-	font-family:Lato, helvetica, sans-serif;
+	font-family:"CrimsonRoman", helvetica, sans-serif;
 	font-style:normal;
 	font-weight:700;
 	font-size:1.75em;
@@ -206,7 +212,7 @@ section#feature_area article#blog_leadoff p { /*博文内容*/
 }
 
 section#feature_area article#blog_leadoff p::first-letter { /*首字母下沉*/
-	font-family:Lato, helvetica, sans-serif;
+	font-family:"CrimsonRoman", helvetica, sans-serif;
 	font-style: normal;
 	font-weight:700;
 	font-size:4.5em;
@@ -220,3 +226,170 @@ section#feature_area article#blog_leadoff p::first-line { /*首行小型大写字母*/
 	font-variant:small-caps;
 	font-size:1.2em;
 }
+
+/*------------------------------登录表单--------------------------------------------------*/
+/*表单整体*/
+form.signin{
+	width:19em;
+	float:right;
+	background:#fff;
+	border-radius:10px 0 10px 0;
+	box-shadow:0px 12px 8px -9px #555;
+}
+
+/*fieldset*/
+form.signin fieldset{
+	border:0;
+	margin:10px 14px;
+}
+
+/*fieldset>legend>span*/
+form.signin fieldset legend span{
+	font-family:"CrimsonRoman", helvetica, sans-serif;
+	font-weight:700;
+	font-size:1.3em;
+	line-height:1.1em;
+	color:#4eb8ea;
+	letter-spacing:-.05em;
+}
+/*form 下的section*/
+.signin section{
+	overflow:hidden;
+	padding:.25em 0;}
+	
+.signin section label{
+	font-family:"CrimsonRoman", helvetica, sans-serif;
+	font-weight:400;
+	float:left;
+	width:5em;
+	margin:.5em .3em 00;
+	line-height:1.1;
+	color:#555;
+	}
+.signin section input{
+	float:right;
+	width:10.5em;
+	margin:.2em 00 .5em;
+	padding:3px 10px 2px;/*输入文本域控件的间距*/
+	color:#555;
+	font-size:.8em;
+	outline:none;
+	border-radius:10px 0 10px 0;}
+	
+	
+input:-webkit-autofill { color:#fff !important; } /*去掉 WebKit 默认的黄色背景*/
+	
+.signin section input[type=submit]{
+	float:right;
+	width:auto;
+	margin:0 2px 3px 0;
+	font-size:1em;
+	font-weight:800;
+	color:#fff;
+	border:none;/*去除按钮默认的阴影*/
+	background-color:#d6e636;
+	box-shadow:1px 1px 2px #888;}
+	
+.signin section p{
+	float:right;
+	clear:both;
+	margin:.2em 00;
+	text-align:right;
+	font-size:.8em;
+	line-height:1;
+	color:#555;}
+	
+.signin section p  a{
+	color:#333;
+	}
+	
+.signin section p a:hover{
+	color:#777;
+	text-decoration:none;
+	}
+	
+.signin section p.direction.error { /*错误消息*/    
+ display:block;     
+ color:#f00;  /*添加 error 类后，把说明文字变成红色*/     
+} 
+
+ .signin section p.direction { display:none; } /*隐藏错误消息*/ 
+ 
+ /*------------------------------博文链接--------------------------------------------------*/
+ section#feature_area nav{
+ width:19em;
+ float:right;
+/* clear:both; 因为nav本身也浮动，不用担心它的区域会扩充到form里，因此不需要加clear:both*/
+ margin:15px 0 0;
+ padding:.6em 0em .75em;
+ background-color:#fff;
+ border-radius:10px 0 10px 0;
+ box-shadow:0 12px 8px -9px #555;
+ }
+ 
+ #feature_area nav h3{
+ 	padding:0 14px;
+	font-family:"CrimsonRoman", helvetica, sans-serif;
+	font-weight:700;
+	font-size:1.3em;
+	text-align:left;
+	color:#aaa;
+	letter-spacing:-.05em;
+	}
+	
+ #feature_area nav ul{ margin:0em 0 0 20px;}
+ 	
+ #feature_area nav li{
+ 	padding:.7em 0 0 2em;
+	position:relative;
+	list-style-type:none;}
+	
+#feature_area nav li:before{/*在li内容之前添加好看的符号*/
+	content:'';
+	height:10px;
+	width:10px;
+	position:absolute;
+	left:12px;
+	top:12px;
+	background-color:#d6e636;
+	border-radius:5px 0 5px 0;
+	box-shadow:1px 1px 2px #888;}
+#feature_area nav li a{
+	display:block;
+	text-decoration:none;
+	font-size:1em;
+	color:#616161;}
+#feature_area nav li a:hover{
+	color:#000;}
+ /*------------------------------图文区--------------------------------------------------*/
+ section#book_area{
+ 	overflow:hidden;
+	border-radius:20px 0;
+	box-shadow:0 12px 9px -8px #555;
+	background-color:#fff;
+	margin:8px 0 15px ;
+	}
+ section#book_area article.left{
+ 	float:left;
+	width:25%;
+	padding:10px 0;
+	background:none;}
+	
+section#book_area article div.inner{
+	position:relative;
+	width:140px;
+	margin:0 auto;}	
+	
+#book_area .inner h3{
+	position:absolute;
+	width:160px;
+	left:112%; bottom:5px;
+	-moz-transform:rotate(-90deg);
+	transform-origin:left bottom;
+	color:#ccc;
+	font-size:1.4em;
+	font-family:"CrimsonRoman", helvetica, sans-serif;
+	font-style:normal;
+	font-weight:900;
+	text-align:left;}
+/*较窄的封面需要不同的偏移量*/ #book_area article.right:last-child h3 { left:85%; }  #book_area article img { box-shadow: 0 12px 8px -9px #555; }/*封面阴影*/ 
