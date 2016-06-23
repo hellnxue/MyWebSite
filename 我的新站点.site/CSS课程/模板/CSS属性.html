@@ -175,6 +175,27 @@ h3{
 	 right:50%;
 	 border: 1px solid yellow;
 	}
+	/*-------------------------------------------------旋转---------------------------------------------------*/
+	div.transform{
+		position:relative;width:200px; height:200px; margin:0 auto; background-color:#ccc;
+	}
+	
+	.transform div{
+	 position:absolute;
+	 width:200px; 
+	 height:100px; 
+	 left:50%; 
+	 top:50%; 
+	 margin-left:-25%; 
+	 margin-top:-25%;
+	 background-color:#FFCCCC; 
+	 text-align:center; 
+	 line-height:100px; /*让一行文字垂直居中*/
+	 transform:rotate(-30deg);/*逆时针旋转30度*/
+	 transform-origin:left bottom 0;/*设置元素的左下角为旋转点*/
+	 
+	 }
+	
 </style>
 
 </head>
@@ -259,7 +280,17 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 <p style="font-weight:700; font-size:4.5em; text-shadow:7px 7px 3px #ccc; color:#000; margin:0;">hello world</p>
 </div>
 
+
+
+<h3>旋转transform</h3>
+<div style="  " class="transform">
+	<div  style="">hello helln</div>
+</div>
  
  
+<h3>制造与元素边框融合的三角形指针</h3>
+<div style="  " class="transform">
+	<div  style="">hello helln</div>
+</div>
 </body>
 </html>

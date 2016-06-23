@@ -374,8 +374,7 @@ input:-webkit-autofill { color:#fff !important; } /*去掉 WebKit 默认的黄色背景*/
 	width:25%;
 	padding:10px 0;
 	background:none;}
-section#book_area article aside{
-display:none;}
+ 
 	
 section#book_area article .inner{
 	position:relative;
@@ -397,3 +396,94 @@ section#book_area article .inner{
 /*较窄的封面需要不同的偏移量*/
  #book_area article.right:last-child h3 { left:85%; }  
  #book_area article img { box-shadow: 0 12px 8px -9px #555; }/*封面阴影*/ 
+ 
+/*弹出层共享样式开始*/
+  
+ /*弹出层 */
+ #book_area article aside{
+ 	display:none;
+	position:absolute;
+	/*left:85%;
+	top:14px;*/
+	z-index:2;
+	width:200px;
+	padding:10px 2px 5px;
+	border:2px solid #f58c21;
+	border-radius:10px 0;
+	box-shadow:4px 4px 16px #555;
+	color:#555;
+	font-family:"CrimsonRoman", helvetica, sans-serif;
+	font-size:.8em;
+	line-height:1.5em;
+	background:#fff; 
+	}
+	
+
+	
+#book_area article:hover aside{
+	display:block;
+	 }
+	
+ #book_area article aside li{
+ 	padding:.25em 0 .75em 1em;
+ 	list-style-type:none;
+	line-height:1.2em;}
+		
+ #book_area article aside li a{
+    display:block;
+ 	text-decoration:none;
+	font-size:1.2em;
+	color:#616161;}	
+#book_area article aside li a:hover { /*悬停时突显链接*/    
+    color:#333;     } 
+/*弹出层共享样式结束*/ 
+
+
+
+
+ /*弹出层弹出的位置和小箭头 */
+ #book_area article.left  aside{
+ 	left:85%;
+	top:14px;}
+	
+  #book_area article.right  aside{
+ 	right:85%;
+	top:14px;}
+
+
+/*弹出层的三角形*/
+#book_area article aside::after{
+	content:'';
+	position:absolute;/*相对于弹出层定位哎？弹出层aside的position是absolute哎*/
+	top:33px;
+	border:12px solid;
+	height:0;
+	width:0;
+	 
+	}
+	
+#book_area article.left aside::after{
+	right:100%;
+	border-color:transparent #f58c21 transparent transparent; 
+	}
+#book_area article.right aside::after{
+	left:100%;
+	 border-color:transparent transparent transparent #f58c21; 
+	}
+	
+	
+	
+	#book_area article aside:before { /*白色三角形*/    
+		 content:""; /*需要有内容，这里是一个空字符串*/     
+		 position:absolute; /*相对于弹出层定位*/     
+		 border:8px solid;    
+		 height:0px; width:0px; /*收缩边框创造三角形*/     
+		 z-index:100; /*保证白色三角形在最前面*/     
+		 top:37px;     } 
+   #book_area article.left aside:before { /*左侧图书白色三角形的样式、位置和颜色*/    
+	   right:100%;      
+	   border-color:transparent white transparent transparent;      
+   } 
+   #book_area article.right aside:before {  /*右侧图书白色三角形的样式、位置和颜色*/     
+	   left:100%;     
+	   border-color:transparent transparent transparent white;     }
