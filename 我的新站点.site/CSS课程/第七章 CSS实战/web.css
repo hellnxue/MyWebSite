@@ -441,7 +441,7 @@ section#book_area article .inner{
 
 
 
- /*弹出层弹出的位置和小箭头 */
+ /*弹出层弹出的位置 */
  #book_area article.left  aside{
  	left:85%;
 	top:14px;}
@@ -451,39 +451,96 @@ section#book_area article .inner{
 	top:14px;}
 
 
-/*弹出层的三角形*/
+/*弹出层的三角形指针*/
 #book_area article aside::after{
 	content:'';
-	position:absolute;/*相对于弹出层定位哎？弹出层aside的position是absolute哎*/
+	position:absolute;/*相对于弹出层定位哎？弹出层aside的position是absolute哎   试了下，这样写没有问题哎*/
 	top:33px;
 	border:12px solid;
 	height:0;
 	width:0;
 	 
 	}
-	
+/*左边两本书在左*/	
 #book_area article.left aside::after{
 	right:100%;
 	border-color:transparent #f58c21 transparent transparent; 
 	}
+/*右边两本书在右*/
 #book_area article.right aside::after{
 	left:100%;
 	 border-color:transparent transparent transparent #f58c21; 
 	}
 	
 	
+/*制造三角形指针从边框中突出的效果 左右两边小三角共享部分*/	
+ #book_area article aside:before { /*白色三角形*/    
+	 content:""; /*需要有内容，这里是一个空字符串*/     
+	 position:absolute; /*相对于弹出层定位*/     
+	 border:8px solid;    
+	 height:0px; width:0px; /*收缩边框创造三角形*/     
+	 z-index:100; /*保证白色三角形在最前面*/     
+	 top:37px;     }
+/*左边两本书小三角*/	  
+#book_area article.left aside:before { /*左侧图书白色三角形的样式、位置和颜色*/    
+   right:100%;      
+   border-color:transparent white transparent transparent;      
+}
+/*右边两本书小三角*/ 
+#book_area article.right aside:before {  /*右侧图书白色三角形的样式、位置和颜色*/     
+   left:100%;     
+   border-color:transparent transparent transparent white;     }
+   
+   
+ /*------------------------------------------页脚--------------------------------------------*/ 
+ /*页脚整体部分*/ 
+ footer{
+  padding:.5em 0 .35em 0;
+  text-align:center;/*居中内容*/
+  border-radius:10px 0;
+  background:#fff;
+  box-shadow:0 12px 8px -9px #555;}
+  
+  /*文行的样式*/
+  footer p{
+  	font-family:"CrimsonRoman", helvetica, sans-serif;
+	font-weight:400;
+	font-size:.85em;
+	letter-spacing:-.05em;
+	color:#aaa;
+	 }
+   /*文行里的超链接样式*/
+  footer p a{
+  	font-family:"CrimsonRoman", helvetica, sans-serif;
+	font-weight:700;
+	font-size:1em;
+	font-style:italic;
+	color:#4eb8ea;
+	text-decoration:none;
+	 } 
+  footer p a:hover {     
+  color:#777;   
+    } 
+
+  footer ul {
+  	display:inline-block;
+	margin:4px 0 0;    
+   
+    } 
+  footer ul li{
+  	float:left;
+	list-style-type:none;
+   	font-family:"CrimsonRoman", helvetica, sans-serif;
+	font-weight:400;
+	font-size:.85em;
+    } 
 	
-	#book_area article aside:before { /*白色三角形*/    
-		 content:""; /*需要有内容，这里是一个空字符串*/     
-		 position:absolute; /*相对于弹出层定位*/     
-		 border:8px solid;    
-		 height:0px; width:0px; /*收缩边框创造三角形*/     
-		 z-index:100; /*保证白色三角形在最前面*/     
-		 top:37px;     } 
-   #book_area article.left aside:before { /*左侧图书白色三角形的样式、位置和颜色*/    
-	   right:100%;      
-	   border-color:transparent white transparent transparent;      
-   } 
-   #book_area article.right aside:before {  /*右侧图书白色三角形的样式、位置和颜色*/     
-	   left:100%;     
-	   border-color:transparent transparent transparent white;     }
+ footer ul li + li a{
+	border-left:1px solid #ccc;}
+	
+ footer ul li a{
+ 	text-decoration:none;
+	color:#aaa;
+	padding:0 5px;}
+ footer a:hover{
+ 	color:#777;}

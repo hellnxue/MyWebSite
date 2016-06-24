@@ -445,11 +445,28 @@ test empty():</br>
 
 <script>
   function testForIn(){
-     var arrs=["hello","world","sir"];
+    /* var arrs=["hello","world","sir"];
 	 
 	 for(var i in arrs){//iÊÇË÷Òý
 	   console.log(arrs[i]);
+	 }*/
+	 
+	 
+	 
+	 
+	 var obj={
+	    "2016":"hello",
+		"2015":"world"
 	 }
+	 
+	 for(var i in obj){
+	    console.log("hello="+obj[i]);
+		
+	 }
+	 
+	 
+	 
+	 
   }
   
   function getLastItem(){

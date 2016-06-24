@@ -195,7 +195,49 @@ h3{
 	 transform-origin:left bottom 0;/*设置元素的左下角为旋转点*/
 	 
 	 }
-	
+	/*-------------------------------------------------通过在内容前后添加三角形并调整位置，制造出边框中突出一个小三角的效果---------------------------------------------------*/ 
+	 div.triangle{
+	 position:relative;/*为三角形提供定位上下文*/
+	 width:200px;  
+	 height:200px;
+	 margin:0 auto;/*居中显示*/
+	 padding:10px 0 0 10px;
+	 border:10px solid yellow;
+	 line-height:200px;
+	 
+	 
+	 }
+	 /*内容前加三角-黄色*/
+      div.triangle::before{
+	  content:'';
+	  position:absolute;
+	  width:0; height:0;
+	  border:30px solid;
+	  border-color:transparent yellow transparent transparent;
+	  top:38%;
+	  right:100%
+	  }	
+	  
+	   /*内容后加三角-白色*/
+      div.triangle::after{
+	  content:'';
+	  position:absolute;
+	  width:0; height:0;
+	  z-index:100;/*保证白色在最上面*/
+	  border:20px solid;
+	  border-color:transparent #fff transparent transparent;
+	  line-height:200px;
+	  top:43%;
+	  right:100% 
+	  }	
+	  
+	  div.inlineBlock{
+	  display:inline-block;
+	  width:200px;
+	  height:200px;
+	  margin:0 auto;
+	  background:#FFFFCC;
+	  }
 </style>
 
 </head>
@@ -289,8 +331,13 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
  
  
 <h3>制造与元素边框融合的三角形指针</h3>
-<div style="  " class="tran">
-	<div  style="">hello helln</div>
-</div>
+
+<div  class="triangle">fly to sky....... </div>
+
+<h3>display:inline-block</h3>
+
+<div  class="inlineBlock">fly to sky....... </div>
+
+
 </body>
 </html>
