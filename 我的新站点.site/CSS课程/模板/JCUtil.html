@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>writer title here</title>
+<link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+  body{
+	  background-color:#eee;}
+  input{
+   	  display: block;     
+	  width:200px;
+	  margin: 20px auto 40px;
+	  border-radius:10px;
+	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+	  box-shadow:0 12px 8px -9px #555;
+  }
+  #wrap{
+	  overflow:hidden;
+	  width:900px;
+	  margin:20px auto;}
+  
+  fieldset{
+	  float:left;
+	  width:400px;
+	  min-height:300px;
+	  margin:20px 5px;;
+	  border: 0 none;
+	  background-color:#fff; 
+	  border-radius: 10px 0;
+	  box-shadow: 0 12px 8px -9px #ccc;
+  }
+
+  fieldset.out div{
+  	margin:20px;
+	color:#999;}
+  
+  
+</style>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+/*公共方法-消息显示*/
+function commonShow(msg){
+  $("#out").html("");
+  $("#out").html(msg);
+}
+
+  
+function test1(){
+  var vr="hello world";
+  commonShow(vr);
+}
+
+
+
+
+
+ 
+
+</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<fieldset class="enter">
+		 <legend>try.....</legend>
+			 <input type="button"  value="test1" onclick="test1()"/> 
+			
+			<input type="button"  value="test2" onclick="testIn()"/> 
+			
+			<input type="button"  value="test3" onclick="test2()"/> 
+			
+			 
+		 
+			
+			  
+		</fieldset>
+		
+		<fieldset class="out">
+		 <legend>out.....</legend>
+		 <div id="out">
+		   result here......
+		 </div>	 
+		 
+			
+			  
+		</fieldset>
+	</div>
+	
+
+</body>
+</html>

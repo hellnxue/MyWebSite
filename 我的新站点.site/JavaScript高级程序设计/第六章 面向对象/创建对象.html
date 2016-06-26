@@ -4,26 +4,50 @@
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
 <style>
-body{
-background-color:#eee;}
+  body{
+	  background-color:#eee;}
   input{
-  width:200px;
-  margin-bottom:40px;
-  border-radius:10px;
-  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
-  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
-  box-shadow:0 12px 8px -9px #555;
+   	  display: block;     
+	  min-width:200px;
+	  margin: 20px auto 40px;
+	  border-radius:10px;
+	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+	  box-shadow:0 12px 8px -9px #555;
   
   
   }
+  #wrap{
+	  overflow:hidden;
+	  width:900px;
+	  margin:20px auto;}
   
   fieldset{
-  width:600px;
-  margin:20px auto;
-  background-color:#fff;}
+	  float:left;
+	  width:400px;
+	  margin:20px 5px;;
+	  border: 0 none;
+	  background-color:#fff; 
+	  border-radius: 10px 0;
+	  box-shadow: 0 12px 8px -9px #ccc;
+  }
+  fieldset.out{
+	  min-height:300px;
+	   }
+  fieldset.out div{
+  	margin:20px;
+	color:#999;}
+  
+  
 </style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
+/*公共方法-消息显示*/
+function commonShow(msg){
+  $("#out").html("");
+  $("#out").html(msg);
+}
+
   
 var a=function(){
 //empty
@@ -48,6 +72,7 @@ function Person(){
 
 /*原型对象与实例对象的关系*/
 function test1(){
+  
    
    Person.prototype.name="Nigola";//给原型对象添加属性&值
    
@@ -199,22 +224,53 @@ function Person1(){
 
 }
 
+/*更简单的原型语法-重写原型对象*/
+function test6(){
+
+   //简单的原型语法 但会重写原型对象，导致constructor不再指向构造函数指针，而是指向了Object
+   Person1.prototype={
+    /* constructor:Person1,*///可以重新让constructor属性指向构造函数的指针
+     name:"Nigola",
+	 age:70
+   };
+   var friend=new Person1(); 
+   
+   console.log(friend.constructor);//Object
+   console.log(friend.constructor==Person1);//false
+   console.log(friend.constructor==Object);//true
+   
+   console.log(friend.name);//Nigola
+   
+   console.log(Object.getPrototypeOf(friend)==Person1.prototype);//true 此处实例的原型对象指针与构造函数的原型对象是一个
+ 
+   
+}
+
+
+/*原型对象的动态性--与重写了原型对象后的区别
+   构造函数创建后默认有一个prototype属性，指向它的原型对象。实例对象中会有一个指向构造函数的原型对象的指针[[Prototype]]，若在创建实例对象之后再用简单的原型语法重写了构造函数的原型对象，那么实例对象的原型指针还是指向构造函数最原始的那个原型对象。
+   最原始的那个原型对象除了含有默认的construction属性外，没有别的属性了，所以会找不到name。
+*/
 
 function test2(){
 
-   //简单的原型语法，但会重写原型对象，导致constructor不在指向构造函数的指针，指向了Object
+   //实例对象中有一个指针[[Prototype]],指向构造函数的原型对象
+   var friend=new Person1(); 
+   
+   //重写构造函数的原型对象  
    Person1.prototype={
-     constructor:Person1,//重新指定constructor的指向
+     constructor:Person1, //重新指定constructor的指向
      name:"Nigola",
 	 age:70
    };
    
-   var friend=new Person1(); 
-   console.log(friend.constructor);
-   console.log(friend.constructor==Person1);
    
-   console.log(Date.parse("2015-09-17T09:29:20.6877003+08:00"));
+   //console.log(Date.parse("2015-09-17T09:29:20.6877003+08:00"));
+   console.log(friend.name);//undefined
    
+   console.log(Object.getPrototypeOf(friend)==Person1.prototype);//false
+   console.log(Object.getPrototypeOf(friend));//friend的[[Prototype指针指向了构造函数Person1原始的原型对象]]
+   console.log(Person1.prototype);//新的原型对象
    
 }
 //-----------------------原型对象----------------------------
@@ -326,61 +382,120 @@ function test5(){
   
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-function Hh(){
-  console.log("Hh="+this);
+/*原型对象的问题--对包含引用类型值的属性*/
+function prototypePro(){
+  Person1.prototype={
+      constructor:Person1,
+	  name:"Nicholas",
+	  age:20,
+	  friends:["tom","jack"],
+	  sayName:function(){
+	    alert(this.name);
+	  }
+  };
+  
+  var p1=new Person1();
+  var p2=new Person1();
+  
+  p1.friends.push("helln");
+  commonShow(p1.friends+"</br> "+p2.friends);//tom,jack,helln   tom,jack,helln 
+  p1.name="helln";
+  
+  p1.sayName();//helln
+  p2.sayName();//Nicholas
+  
+ 
+  
+  
 }
-function test55(){
-  //console.log(this);
-  var instance=new Hh();
+
+
+/*-------------------组合使用构造函数模式和原型模式:用来定义引用类型的一种默认模式奥~-------------------------------*/
+
+function Student(name,age){
+	this.name=name;
+	this.age=age;
+	this.friend=["tom","jack"];
 }
 
-var mObj={
-   name:"hello",
-   say:function(){
-     console.log(this.name+"world");
+Student.prototype={
+   constructor:Person,
+   sayName:function(){
+     alert(this.name);
    }
 }
 
-function fzObj(){
-   console.log(123);
-   mObj.say();
+function group(){
+  var stu1=new Student("joni",20);
+  var stu2=new Student("hook",25);
+  stu1.friend.push("foot");
+  console.log(stu1.friend);//"tom", "jack", "foot"
+  console.log(stu2.friend);//"tom", "jack"
+   
 }
 
+/*-------------------组合使用构造函数模式和原型模式end-------------------------------*/ 
+function Tree(name,age){
+	this.name=name;
+	this.age=age;
+	/*this.sayName=function(){
+	     alert(123);
+	   }*/
+	if(typeof this.sayName!="function"){//根据判断的属性不存在，再初始化原型对象
+	   Tree.prototype.sayName=function(){
+	     alert(this.name);
+	   }
+	}
+}
+
+function dynamic(){
+  var tr=new Tree("tom",20);
+  tr.sayName();//tom
+  console.log(Object.getPrototypeOf(tr)==Tree.prototype);//true
+  console.log(Object.getPrototypeOf(tr) );
+}
 </script>
 </head>
 
 <body>
-	<fieldset>
-	 <legend>try.....</legend>
-		 <input type="button"  value="原型对象与实例对象的关系" onclick="test1()"/></br>
+	<div id="wrap">
+		<fieldset class="enter">
+		 <legend>try.....</legend>
+			 <input type="button"  value="原型对象与实例对象的关系" onclick="test1()"/> 
+			
+			<input type="button"  value="原型与in操作符" onclick="testIn()"/> 
+			
+			<input type="button"  value="更简单的原型语法-重写原型对象" onclick="test6()"/> 
+			
+			<input type="button"  value="更简单的原型语法-原型的动态性" onclick="test2()"/> 
+			
+			<input type="button"  value="原型对象的问题" onclick="prototypePro()"/>
+			
+			<input type="button"  value="组合使用构造函数模式和原型模式" onclick="group()"/>
+			
+			<input type="button"  value="动态原型模式" onclick="dynamic()"/>
+			
+			<input type="button"  value="原型继承" onclick="test3()"/> 
+			
+			<input type="button"  value="构造函数继承" onclick="test4()"/> 
+			
+			<input type="button"  value="构造函数&原型继承" onclick="test5()"/> 
+		 
+			
+			  
+		</fieldset>
 		
-		<input type="button"  value="原型与in操作符" onclick="testIn()"/></br>
-		
-		<input type="button"  value="测试原型对象2" onclick="test2()"/></br>
-		
-		
-		<input type="button"  value="原型继承" onclick="test3()"/></br>
-		
-		<input type="button"  value="构造函数继承" onclick="test4()"/></br>
-		
-		<input type="button"  value="构造函数&原型继承" onclick="test5()"/></br>
-		<input type="button"  value="tt" onclick="test55()"/></br>
-		
-		<input type="button"  value="封装的对象" onclick="fzObj()"/></br>
-	</fieldset>
+		<fieldset class="out">
+		 <legend>out.....</legend>
+		 <div id="out">
+		   result here......
+		 </div>	 
+		 
+			
+			  
+		</fieldset>
+	</div>
+	
 
 </body>
 </html>
