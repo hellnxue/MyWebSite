@@ -9,6 +9,15 @@ text-decoration:none;}
 </style>
 <script src="../../js/jquery-1.8.2.min.js"></script>
 <script>
+/*window.name是浏览器窗口的名字，通过window.open()方法指定的第二个参数就是新打开窗口的name
+ 当手动设置了window的name的名字后，即使刷新页面，本窗口的名字依然不变，除非关掉浏览器
+*/
+function windowName(){
+   var name=window.name;
+   console.log(name);//空
+   window.name="window names";//当超链接的target=_parent或者_self时，打开的新窗口的name就是此处设置的值  除了_blank是新打开一个浏览器窗口，此时这个窗口没有名字奥
+   console.log(window.name);//this's window name
+}
 
 
 var color="red";
@@ -34,7 +43,7 @@ function test2(){
   //window.moveBy(0,100);
  // window.resizeTo(100,50);
  // console.log(window.resizeTo(100,50));
- var openWindow=window.open("topFrame.html","hello","height:400,width:400,top:10,left:10,resizable=no");//和书上说的不太一样哎，这个可以拖动设置窗口哎resizble=no不是不能设置吗？满脑子的问号......
+ var openWindow=window.open("topFrame.html","hello","height:400,width:400,top:10,left:10,resizable=no");//和书上说的不太一样哎，这个可以拖动设置窗口哎，resizble=no不是不能设置吗？满脑子的问号......
  console.log(openWindow.name);//hello  获得的是传入window.open()的第二个参数target的值
  //window.find( );//弹出浏览器查找窗口
    
@@ -69,8 +78,7 @@ function sub(){
   console.log(cname.substring(0,1));
   console.log(cname.substring( 1));
   
-  var wname=window.name;
-  console.log(wname);
+  
 }
 
 /*初始化完页面时，点击按钮打开新窗口，并在新窗口载入href指定的文档内容(及页面内容)，在这之后再点击都只会对这个打开的窗口执行某些操作奥~*/
@@ -92,6 +100,7 @@ function opentest(){
 
 <body>
 <h1>jack</h1>
+<input type="button" onClick="windowName()" value="给当前窗口命名name"/><br/>
 <input type="button" onClick="test1()" value="测试window全局变量"/><br/>
 <input type="button" onClick="test2()" value="测试框架"/><br/>
 <a href="www.baidu.com" target="topFrame">hello world</a>
@@ -112,8 +121,8 @@ function opentest(){
    <a href="topFrame.html" target="_top">_top"</a>
   <br>
   <div id="topFrame" style="border:1px solid pink;"></div>
-  <a href="leftFrame.html" target="frame_a">_top"</a><br><br>
-<a href="leftFrame.html" target="frame_d">_top"</a><br>
+  <a href="leftFrame.html" target="frame_a">_top</a><br><br>
+  <a href="leftFrame.html" target="frame_d">_top</a><br>
   
   
   

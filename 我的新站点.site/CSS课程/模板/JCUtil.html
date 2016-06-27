@@ -41,24 +41,34 @@
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
+
   var obj={
      name:1,
 	 age:2
 	 };
+/*----------------无块级作用域---------------------------------*/	 
  
+ for(var i in obj){
+   var key1=i;
+   var value1=obj[i];
+   
+ }
+ 
+console.log("无块级作用域测试key1="+key1);//age
+console.log("无块级作用域测试value1="+value1);//2
   
-  (function(){
-     for(var i in obj){
-       var name=obj[i];
-	   var temp=obj[i];
-	   var age=obj[i];
-     }
-  })();
+/*----------------模仿块级作用域--立即执行函数---------------------------------*/  
+(function(){
+ for(var i in obj){
+   var key=i;
+   var value=obj[i];
+   
+ }
+})();
 
-console.log("lllllllllllllll=="+name);
-console.log("lllllllllllllll=="+age);
-
-console.log("lllllllllllllll=="+temp);
+console.log("模拟块级作用域测试key="+key);//报错
+console.log("模拟块级作用域测试value="+value);//报错
+ ;
 
 
 /*公共方法-消息显示*/
