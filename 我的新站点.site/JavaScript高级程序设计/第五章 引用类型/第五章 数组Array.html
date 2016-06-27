@@ -445,22 +445,24 @@ test empty():</br>
 
 <script>
   function testForIn(){
-    /* var arrs=["hello","world","sir"];
+  
+    /*------------------用for-in循环数组-----------------------------*/
+     var arrs=["hello","world","sir"];
 	 
 	 for(var i in arrs){//i是索引
-	   console.log(arrs[i]);
-	 }*/
+	   console.log(i+"=="+arrs[i]);
+	 }  
 	 
 	 
 	 
-	 
+	 /*------------------用for-in循环遍历对象-----------------------------*/
 	 var obj={
 	    "2016":"hello",
 		"2015":"world"
 	 }
 	 
-	 for(var i in obj){
-	    console.log("hello="+obj[i]);
+	 for(var i in obj){//i是对象的key
+	    console.log(i+"="+obj[i]);
 		
 	 }
 	 
