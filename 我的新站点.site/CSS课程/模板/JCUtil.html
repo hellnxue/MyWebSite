@@ -41,6 +41,10 @@
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
+name="caption";
+console.log("name==="+name);
+var name="hello kitty";
+console.log("name==="+name);
 
   var obj={
      name:1,
@@ -65,10 +69,14 @@ console.log("无块级作用域测试value1="+value1);//2
    
  }
 })();
-
-console.log("模拟块级作用域测试key="+key);//报错
+try{
+  console.log("模拟块级作用域测试key="+key);//报错
 console.log("模拟块级作用域测试value="+value);//报错
- ;
+ 
+}catch(ex){
+  console.log("error:"+ex);
+}
+
 
 
 /*公共方法-消息显示*/

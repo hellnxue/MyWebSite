@@ -19,7 +19,7 @@
 			 if(xhr.readyState==4){//已经完成异步请求，接收到全部响应数据，而且已经可以在客户端使用了
 				 if((xhr.status=200&&xhr.status<300)||xhr.status==304){
 					   console.log(xhr.responseText);
-					   var obj=JSON.parse(xhr.responseText);//如果是json字符串则需要手动解析成对象，jQuery.ajax也是利用JSON.parse解析异步请求的数据
+					   var obj=JSON.parse(xhr.responseText);//如果是json字符串则需要手动解析成对象，jQuery.ajax也是利用JSON.parse解析异步请求的数据 且需要指定datatype为json奥
 					   console.log(obj.result);
 				   }else{
 					   console.log("Request was unsuccessful:"+xhr.status);
