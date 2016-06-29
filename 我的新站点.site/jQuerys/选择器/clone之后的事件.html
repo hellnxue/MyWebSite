@@ -1,0 +1,41 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta charset=gb2312/>
+<title>深度克隆clone(true)对元素事件的影响</title>
+<style type="text/css">
+ 
+  .test{
+  display:none;}
+</style>
+<!--<script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>-->
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+    //模板事件
+    $("#test1").on("click",function(){
+	   console.log("clicked");
+	});
+	
+	//深度克隆clone(true)后的按钮依旧存在原始按钮绑定的事件,这会导致克隆出来的元素副本存在事件冗余，尽量不要深度克隆啊
+	$("#clones").on("click",function(){
+	   $("div").html($("#test1").clone(true));
+	});
+})
+
+</script>
+</head>
+
+<body>
+<input type="button" id="clones" value="元素克隆后对事件的影响"/>
+<br />
+<p>待克隆的按钮：</p>
+<input type="button" id="test1" value="模板"/>
+
+
+<p>克隆之后的按钮：</p>
+<div style="color:#CCCCCC">
+
+</div>
+</body>
+</html>
