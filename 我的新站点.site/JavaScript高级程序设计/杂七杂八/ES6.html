@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+  
+</style>
+<script>
+  function* fibs() {
+		  var a = 0;
+		  var b = 1;
+		  while (true) {
+		    yield a;
+		    [a, b] = [b, a + b];
+		    console.log(a)
+		  }
+		}
+
+var [first, second, third, fourth, fifth, sixth] = fibs();
+console.log(first, second, third, fourth, fifth, sixth);
+
+
+
+
+
+
+
+
+function test1(){
+/*匿名函数的理解*/
+		/*
+		var a = [];
+		for(var i=0;i<10;i++){
+			(function(param){
+			  a[param] = function(){
+				console.log(param);
+			}
+			})(i);
+		}
+		console.log(i);//10
+		a[1]();//10
+		a[2]();//10
+		................
+		a[9]();//10
+       */
+
+  //let可以替代匿名函数哎
+		var a = [];
+		for(var i=0;i<10;i++){
+			(function(param){
+			  a[param] = function(){
+				console.log(param);
+			}
+			})(i);
+		}
+		a[9]();//9
+}
+
+
+function test2(){
+  var a = [];
+		for(let i=0;i<10;i++){
+			 
+			  a[i] = function(){
+				console.log(i);
+			  };
+			 
+		}
+		a[9]();//9
+}
+
+
+
+</script>
+</head>
+
+<body>
+<input type="button" value="匿名函数" onclick="test1()"/><br />
+<input type="button" value="let关键字" onclick="test2()"/>
+
+ 
+</body>
+</html>

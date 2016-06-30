@@ -19,9 +19,27 @@ $(function(){
 	
 	//深度克隆clone(true)后的按钮依旧存在原始按钮绑定的事件,这会导致克隆出来的元素副本存在事件冗余，尽量不要深度克隆啊
 	$("#clones").on("click",function(){
-	   $("div").html($("#test1").clone(true));
+	   var  html= $("#test1").clone(true) ;
+	   var $html=$(html);
+	   $html.off();//去除克隆副本的事件
+	   $("div").html($html);
 	});
 })
+
+
+
+function* fibs() {
+		  var a = 0;
+		  var b = 1;
+		  while (true) {
+		    yield a;
+		    [a, b] = [b, a + b];
+		    console.log(a)
+		  }
+		}
+
+var [first, second, third, fourth, fifth, sixth] = fibs();
+console.log(first, second, third, fourth, fifth, sixth);
 
 </script>
 </head>
