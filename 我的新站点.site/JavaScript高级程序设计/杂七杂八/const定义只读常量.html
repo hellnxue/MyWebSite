@@ -1,0 +1,90 @@
+<!DOCTYPE html  >
+<html  >
+<head>
+<meta  charset="gb2312" />
+<title>定义只读常量</title>
+<script  src="../../js/jquery-1.8.2.min.js"/></script>
+<script src="test1.js"></script>
+<script src="test2.js"></script>
+<script>
+  function constTest(){
+  
+    var str1="hello world";//定义普通变量
+	
+    /*const 声明创建一个只读的常量。这不意味着常量指向的值不可变，而是变量标识符的值只能赋值一次*/
+	const str2="hello sir";
+	 // str2="haha";/*第二次赋值 会抛出异常奥~*/
+	 
+	 //const str2="hello 3";/*重新声明也会报错*/
+	 
+	 //var str2="hihi";/*这样也报错*/
+		  
+	console.log("var str1："+str1);
+	console.log("const str2："+str2);
+	
+  }
+  
+  /*关于JQuery
+    $securityTypeSelector.trigger('change:once');
+    let模拟js块级作用域，类似js立即执行函数
+  */
+  
+  function letTest(){
+     console.log("num1==="+num1 );//2
+	 console.log("num2==="+num2 );//1 在第二个js文件中再次声明let num2时会报错哎
+	  console.log("num3==="+num3 );//1
+	 let i=1;
+	// let i=2; syntxterror
+	 console.log(i);
+	 blockScope();
+   
+  }
+  
+  /*let关键字块级作用域*/
+  function blockScope(){
+    console.log("let定义的变量开始有块级作用域的概念............");
+	
+	for(let i=0;i<2;i++){
+	
+	 // console.log("i="+i);
+	  
+	}
+	
+	console.log("let定义变量测试："+i);//会报错 let没被火狐46支持吗？ 火狐47支持const关键字啦
+  }
+  
+  
+  /*js立即执行函数模拟块级作用域*/
+  function blockScopeFunction(){
+    console.log("js立即执行函数模拟块级作用域............");
+
+	(function(){
+	   for(let i=0;i<2;i++){
+	
+		 // console.log("i="+i);
+		  
+		}
+	}());
+	
+	console.log("let定义变量测试："+i);//会报错 let没被火狐46支持吗？ 火狐47支持const关键字啦
+  }
+  /*js里没用let定义变量之前，没有块级作用域的概念哎*/
+   function varScope(){
+    console.log("var 定义变量 没有块级作用域............");
+	
+	for(var i=0;i<2;i++){
+	
+	  //console.log("i="+i);
+	  
+	}
+	
+	console.log("var定义变量测试："+i);//会报错 let没被火狐46支持吗？ 火狐47支持const关键字啦
+  }
+</script>
+</head>
+
+<body>
+<input type="button" onClick="constTest()" value="const"/><br />
+<input type="button" onClick="letTest()" value="let"/>
+</body>
+</html>
