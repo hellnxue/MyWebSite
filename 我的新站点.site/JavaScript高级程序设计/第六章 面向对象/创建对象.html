@@ -81,6 +81,9 @@ function test1(){
    
    var p2=new Person();
    
+   console.log(typeof p1);//object
+   console.log(typeof Person);//function
+   
    console.log(p1);//构造函数的实例对象 包含指向原型对象的指针[[Prototype]]  在火狐中的脚本是叫_proto_
    
    /*原型对象最初只包含 constructor属性，该属性也是共享的，所以实例对象可以访问它*/

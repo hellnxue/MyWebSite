@@ -45,6 +45,9 @@ $(function(){
 	$("#d1").on("click",function(){
 	 
 	  var person1=Person("helln",10);
+	  console.log(typeof person1);//object
+   	  console.log(typeof Person);//function
+	
 	  console.log(person1.name);
 	  person1.say();
 	  var person2=Person("tom",20);
