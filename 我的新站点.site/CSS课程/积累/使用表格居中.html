@@ -22,7 +22,8 @@
    </tr>
 </table>
 
-<!--模仿单元格然后用vertical-align:middle;垂直居中-->
+<!--垂直居中：用display:table-cell模仿单元格然后用vertical-align:middle;垂直居中-->
+<!--水平居中：内部div用display:inline-block 变为可设置宽度的行内元素，然后外部div用text-align:center水平居中内部div-->
 <div style="width:200px; height:200px; border:1px solid red; text-align:center; display:table-cell; vertical-align:middle;">
 	<div style="width:50px; height:50px; display:inline-block; background:#999999;">
 	  

@@ -342,5 +342,23 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 <div style="width:400px;height:400px;background-color:blue;border-style:solid;">
     <div style="width:200px;height:200px;margin-top:100px;background-color:red;"></div>
 </div>
+
+<!--不要给div设置影响宽度的属性，像padding和margin等，圆形的关键是div设置一样的长度和宽度，然后设置border-radius:50%-->
+<h3>制造圆形图像</h3>
+<div  style="text-align:center;">
+  <div style=" display:inline-block;width:100px; height:100px; border-radius:50%;  overflow:hidden;">
+    <img src="../../image/mxx/m3.jpg" style="width:100px; height:100px;"/>
+  </div>
+</div>
+<h3>制造带圈圈的圆形头像</h3>
+<div style="text-align:center; ">
+   <img src="../../image/mxx/m2.jpg" style="border-radius:50%;border:1px solid #ddd; padding:2px;"/>
+
+</div>
+<h3>图片成比例缩放....有待研究</h3>
+<div style=" width:80px; height:80px; overflow:hidden;">
+  <img src="../../image/mxx/m3.jpg" style="max-width:100px; min-height:100px;"/>
+</div>
+
 </body>
 </html>
