@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>writer title here</title>
+<link href="../../CSS课程/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+  body{
+	  background-color:#eee;}
+  input{
+   	  display: block;     
+	  width:200px;
+	  margin: 20px auto 40px;
+	  border-radius:10px;
+	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+	  box-shadow:0 12px 8px -9px #555;
+  }
+  #wrap{
+	  overflow:hidden;
+	  width:980px;
+	  margin:20px auto;
+	   box-sizing:border-box;
+	  }
+  
+  fieldset{
+	  float:left;
+	  width:400px;
+	  min-height:300px;
+	  margin:20px 5px;
+	/*  padding:0;*/
+	  border: 0 none;
+	  background-color:#fff; 
+	  border-radius: 10px 0;
+	  box-shadow: 0 12px 8px -9px #ccc;
+	  box-sizing:border-box;
+  }
+
+  fieldset.out div{
+  	margin:20px;
+	color:#999;}
+	
+  div#btn {
+  	float:left;
+	text-align:center;
+	width:160px;
+	box-sizing:border-box;
+	
+	}
+  
+ div#btn input{
+   width:100px;
+	 
+	}
+  
+</style>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+<script>
+
+/*公共方法-消息显示*/
+function commonShow(msg){
+ 
+  $("#out").append(String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
+}
+
+function clears(){
+   $("#out").html("");
+}
+
+/*--------------------- 原型 ----------------------------------*/
+function Person(name){
+   this.name=name;
+}
+
+Person.prototype.sayName=function(){
+   console.log(this.name);
+}
+
+
+/*---------------------继承-原型链----------------------------------*/
+
+  //父类
+  function SuperType(){
+      this.property=true;
+  }
+  
+  //给SuperType的原型添加方法
+  SuperType.prototype.getSuperValues=function(){
+  	  return this.property;
+  }
+  
+  //子类
+  function SubType(){
+    this.subproperty=false;
+  }
+  
+  //继承
+  SubType.prototype=new SuperType();
+  
+  //子类的原型添加方法，也就是给new SuperType()创建出来的实例添加方法
+  SubType.prototype.getSubValue=function(){
+  	return this.subproperty;
+  }
+  
+  
+   
+   
+  
+
+function test1(){
+
+	var instance=new SubType();
+	 
+	console.log(instance);
+	console.log(SubType.prototype);
+	commonShow("instance.getSuperValues():  "+instance.getSuperValues());//true
+ 	
+	commonShow("SubType.prototype.isPrototypeOf(instance):  "+SubType.prototype.isPrototypeOf(instance)+"\n"+"SuperType.prototype.isPrototypeOf(instance):  "+SuperType.prototype.isPrototypeOf(instance));
+ 
+	
+	
+	 
+   
+}
+
+function testPrototype(){
+   var person=new Person("小新");
+   console.log(person);
+   console.log(person.name);
+   person.sayName();
+   
+}
+
+
+
+ 
+
+</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<fieldset class="enter">
+		 <legend>try.....</legend>
+			 <input type="button"  value="继承基础" onClick="test1()"/> 
+			
+			<input type="button"  value="原型测试" onClick="testPrototype()"/> 
+			
+			<input type="button"  value="test3" onClick="test2()"/> 
+			
+			 
+		 
+			
+			  
+		</fieldset>
+		
+		<fieldset class="out">
+		 <legend>out.....</legend>
+		 <div id="out">
+		   result here......
+		 </div>	 
+		 
+			
+			  
+		</fieldset>
+		
+		 
+		 
+		 <div id="btn">
+		   <input type="button"  value="clear" onClick="clears()"/> 
+		 </div>	 
+		 
+			
+			  
+		 
+	</div>
+	
+
+</body>
+</html>
