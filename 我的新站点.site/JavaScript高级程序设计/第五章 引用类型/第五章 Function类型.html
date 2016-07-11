@@ -12,12 +12,47 @@
    return num1+num2;
  }
  var num1=num;
- num=null;
+ num=null;//销毁num指针
+ 
+ //构造函数
+ function Person(name){
+     this.name=name;
+ }
+ 
 
 $(function(){
+
+/*
+  对象和函数
+  Object和Function是两种引用类型奥~
+*/
 $("#f1").on("click",function(){
    //console.log(num(1,2));
-   console.log(num1(1,2));
+    console.log(num1(1,2));//3
+   
+    /*typeof分别检测实例和函数，得到的结果：对象实例都是object类型的，而函数是function类型的
+	  js中函数也是对象，但是函数有一些特殊的属性，因此归为function类型。
+	*/
+  
+    //函数类型
+	console.log("typeof num1: "+typeof num1);		//function
+	
+	//另一种创建函数的方式
+	var num6=new Function("num1","num2","return num1+num2");
+	console.log("typeof num6: "+typeof num6);//function  检测是Function类型哎
+	
+	//创建对象
+	var strObj=new String("123");  //typeof strObj =object
+    var obj=new Object();			//typeof obj =object
+	
+	//用构造函数创建对象
+	var p1=new Person("Nichols");//typeof p1=object
+	console.log("typeof p1: "+typeof p1);//object
+	
+	//执行第三种函数
+	console.log(num6(2,2));//4
+	 
+    
   
 })
 //console.log(num2()); 会报错，原因是num2是函数表达式，还未被初始化
@@ -32,10 +67,87 @@ var num2=function(){
    return "hello world1!";
  }
 });
+
+/*........................................................*/
+
+function pf(n1,n2){
+  var al=arguments.length;
+  return al;
+}
+
+//递归
+function factorial(num){
+	if(num<=1){
+		return num;
+	}else{
+	   return num*arguments.callee(num-1);
+	}
+}
+
+//this
+
+window.color="red";
+var o={color:"blue"};
+function sayColor(){
+  console.log(this.color);
+}
+
+
+function test1(){
+   //函数参数个数arguments.length
+   console.log(pf(1));//1
+   console.log(pf(5,2));//2
+   
+   //测试递归
+   var factorial2=factorial;
+   console.log(factorial2(3));//6
+   
+   //测试this
+   sayColor();//red this指向window
+   
+   sayColor.call(o);//blue this指向对象o
+   
+
+}
+/*call()和apply()可以扩展函数赖以运行的作用域*/
+
+function sayEng(num){
+  return "hello "+num;
+}
+
+function callYy(n){
+  //console.log(this);
+   return sayEng.call(this,n);
+}
+
+function applyYy(n){
+  //console.log(this);
+   return sayEng.apply(this,arguments);
+}
+
+
+function test2(){
+  //函数的属性length-同函数的内部对象arguments的属性：arguments.length
+  console.log(factorial.length);//1
+  console.log(sayColor.length);//0
+  
+   sayColor.call(this);// red
+   
+   sayColor.call(o);//blue 在对象o的作用域调用函数sayColor，this当然指向对象o
+   
+   sayColor.apply(this);// red
+   
+   sayColor.apply(o);//blue
+  
+  console.log(callYy("tom"));//hello tom  this指向全局对象window  因为鼠标地点击test2时，实在全局环境中运行哒
+  console.log(applyYy("jack"));//hello jack
+}
 </script>
 </head>
 
 <body>
-<input type="button"  name="f1" id="f1" value="测试function"/></br>
+<input type="button"  name="f1" id="f1" value="对象Object类型和函数Function类型"/></br>
+<input type="button"   value="函数内部对象：arguments和this" onclick="test1()"/></br>
+<input type="button"   value="函数的属性和方法" onclick="test2()"/></br>
 </body>
 </html>
