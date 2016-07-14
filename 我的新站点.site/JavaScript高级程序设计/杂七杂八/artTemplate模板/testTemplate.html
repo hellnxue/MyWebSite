@@ -31,15 +31,7 @@
 	{{/if}}
  </script>
  
- <script id="test2" type="text/html">
-    <ul>
-	     {{each data as value index}}
-		 
-		    <li>{{value}}</li>
-			
-		 {{/each}}
-	   </ul>
- </script>
+ 
 <script>
 
 
@@ -52,12 +44,6 @@
 var html=template("test",data);
 $("#content").html(html);
 
-
- var data2 = ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他'];
- var html2=template("test2",data2);
- console.log(html2);
- $("content2").html(html2);
- 
  
  
  
