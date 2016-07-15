@@ -124,6 +124,14 @@ function test1(){
 }
  
 
+var variable=10;
+function getVariable(i){
+    console.log("variable=="+i);
+}
+
+function test2(){
+    getVariable(variable);
+}
 
  
 
@@ -135,6 +143,7 @@ function test1(){
 		<fieldset class="enter">
 		 <legend>try.....</legend>
 			 <input type="button"  value="方法参数按值传递" onClick="test1()"/> 
+			 <input type="button"  value="验证作用域链" onClick="test2()"/> 
 			
 			<!--<input type="button"  value="原型测试" onClick="testPrototype()"/> 
 			
