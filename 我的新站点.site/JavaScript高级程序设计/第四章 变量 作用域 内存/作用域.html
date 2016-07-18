@@ -82,7 +82,7 @@
 /*公共方法-消息显示*/
 function commonShow(msg){
  
-  $("#out").append("         "+String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
+  $("#out").append("<br/>"+String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
 }
 
 function clears(){
@@ -90,6 +90,7 @@ function clears(){
 }
 
 /*-------------------------------------------------分割线-----------------------------------------------------------------------*/ 
+
    
 function setName(obj){
    obj.name="Nicholas";
@@ -122,17 +123,65 @@ function test1(){
 	 commonShow(person.name);//helln
    
 }
+/*-----------------------------------------------------------------------------------*/ 
  
-
+var o={
+   name:"jack",
+   age:20,
+   love:"apple",
+   getLove:function(){
+     commonShow("匿名函数的包含函数中的this属性："+this.love);
+	 return function(){
+	    commonShow("匿名函数的this属性："+this.love);
+	 }
+   }
+   }
 var variable=10;
-function getVariable(i){
-    console.log("variable=="+i);
+var name="Rost";
+function getVariable( ){
+  // commonShow("variable=="+variable);
+   return function(vv){
+         commonShow("variable=="+variable);
+	     commonShow("this.name=="+this.name);
+	     commonShow("vv=="+vv);
+		 console.log(arguments);
+		 console.log(arguments[0]);
+   }
 }
 
 function test2(){
-    getVariable(variable);
+    /*
+	  第一次执行结果：
+	  variable==10
+	  this.name==Rost
+	  vv==lop
+	*/
+    getVariable()("lop");
+	variable=20;
+	
+	/*
+	第二次执行结果:
+	variable==20
+	this.name==jack
+	vv==lol*/
+	getVariable().call(o,"lol");
 }
 
+/*
+ 函数中的this是指 函数据以执行的环境对象,
+而匿名函数中的this是指匿名函数据以执行的环境对象
+函数中的this在作用域链中不支持连接时查找，this是函数执行时所在环境对象的代表。
+arguments与this一样，也不支持作用域链时查找，因为它是函数的内部对象，属于函数本身
+*/
+ 
+function test3(){
+  commonShow("---------- o.getLove()()-------------");
+  o.getLove()();
+  commonShow("----------  o.getLove().call(o)-------------");
+  o.getLove().call(o);
+   
+  
+}
  
 
 </script>
@@ -144,6 +193,7 @@ function test2(){
 		 <legend>try.....</legend>
 			 <input type="button"  value="方法参数按值传递" onClick="test1()"/> 
 			 <input type="button"  value="验证作用域链" onClick="test2()"/> 
+			  <input type="button"  value="匿名函数中的this" onClick="test3()"/> 
 			
 			<!--<input type="button"  value="原型测试" onClick="testPrototype()"/> 
 			
