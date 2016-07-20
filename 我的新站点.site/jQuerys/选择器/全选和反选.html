@@ -322,6 +322,14 @@ $("#tc").on("click",function(){
 </head>
 
 <body>
+ <div style="width:968px; margin:0 auto; text-align:center; font-size:x-large;">
+     <a href="#bottom">跳到底部</a>
+ </div>
+
+
+
+
+
 <h3>全选:<input type="checkbox" name="alls"/><br/></h3>
 <input type="checkbox"  name="instr" value="apple" />apple<br/>
 <input type="checkbox"  name="instr" value="banana" />banana<br/>
@@ -630,6 +638,10 @@ alert("Not bind click");
 		 
 		 $("[data-mulClass='oo']").click(function(){
 		  $(".hello.world").css("font-weight","bold");//选择有多个class的元素
+		});
+		
+		 $("[data-select=\"set\"]").click(function(){
+		  $("#zy-mobile-register-type").val("4");//选择有多个class的元素
 		})
 	  
    })
@@ -646,7 +658,25 @@ alert("Not bind click");
  
 <input type="button" value="上面段落会变粗" data-mulClass="oo" /><br>
 
+<h3>--------------------给下下拉菜单赋值-----------------------------------</h3>
+<select id="zy-mobile-register-type"   name="registerType" >
+	<option value="1">苹果</option>
+	<option value="2">橘子</option>
+	<option value="3">西瓜</option>
+	<option value="4">桃子</option>
+</select>
+<input type="button" value="val()可以给下拉菜单赋值" data-select="set"  onClick=""/><br>
 
  
+ 
+ 
+ 
+ 
+  <a name="bottom" style=" opacity:0;">回到顶部</a>
+ <div style="width:968px; margin:0 auto; text-align:center; font-size:x-large;">
+ 	
+     <a href="#">回到顶部</a>
+ </div>
+
 </body>
 </html>
