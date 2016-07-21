@@ -90,23 +90,71 @@ function clears(){
 }
 
  
+/*在构造函数内部定义特权方法*/   
+function MyObject(){
+   var privateVariable=20;
+   function privateFunction(){
+       commonShow("私有变量："+privateVariable);
+       return false;
+   }
    
+   this.publicMethod=function(){
+   	   privateVariable++;
+	   return privateFunction();
+   }
+}
+
+function anonymous(){
+   var  privateVariable=1;
    
+   return function(){
+     return  ++privateVariable;
+	  
+   }
+}
   
 
 function test1(){
 
  
- 	
-	commonShow("hello helln" );
+ 	var myObj=new MyObject();
+	 
+	 commonShow(myObj.publicMethod());
  
 	
 	
 	 
    
 }
- 
 
+/*
+anonymous()执行在here1位置和here2位置的结果完全不同。
+如果放在here2的位置，执行a() 输出的结果永远都是2，因为每次执行test11函数，都会从头初始化var a=anonymous() ，方法里的privateVariable会重新初始化为1。
+如果放在here1的位置，执行a() 输出的结果会随着a()函数的执行而增加，因为a是在全局中，只执行一次初始化var a=anonymous() ，也就是说函数anonymous里的变量只被初始化一次
+*/
+ var a=anonymous();// here1 
+ var i=0;
+ function test11(){
+
+ 	 //var a=anonymous();//here2  
+	 
+	 if(i>=10){
+	 
+	  a=null;
+	  
+	  commonShow("闭包释放内存喽......");
+	 
+	 }else if(typeof a){
+	 
+	  i=a();
+	  commonShow(i);
+	  
+	 }
+	
+	 
+	
+ 
+ }
 
  
 
@@ -117,9 +165,9 @@ function test1(){
 	<div id="wrap">
 		<fieldset class="enter">
 		 <legend>try.....</legend>
-			 <input type="button"  value="继承基础" onClick="test1()"/> 
+			 <input type="button"  value="构造函数中创建特权方法" onClick="test1()"/> 
 			
-			<input type="button"  value="原型测试" onClick="testPrototype()"/> 
+			<input type="button"  value="闭包" onClick="test11()"/> 
 			
 			<input type="button"  value="test3" onClick="test2()"/> 
 			

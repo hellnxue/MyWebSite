@@ -126,7 +126,8 @@ function applyYy(n){
 }
 
 
-function test2(){
+
+function test2(a,b,c){
   //函数的属性length-同函数的内部对象arguments的属性：arguments.length
   console.log(factorial.length);//1
   console.log(sayColor.length);//0
@@ -141,6 +142,10 @@ function test2(){
   
   console.log(callYy("tom"));//hello tom  this指向全局对象window  因为鼠标地点击test2时，实在全局环境中运行哒
   console.log(applyYy("jack"));//hello jack
+  
+  
+  console.log(arguments.callee.length);//   3  length可以获取函数的参数个数
+  
 }
 </script>
 </head>

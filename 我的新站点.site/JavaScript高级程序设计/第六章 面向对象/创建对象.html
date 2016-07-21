@@ -456,6 +456,20 @@ function dynamic(){
   console.log(Object.getPrototypeOf(tr)==Tree.prototype);//true
   console.log(Object.getPrototypeOf(tr) );
 }
+
+function test6(){
+   var obj={
+      name:"helln",
+	  age:"20",
+	  love:"apple",
+	  sayName:function(){
+	     console.log(this.name);
+	  }
+   };
+   
+   var arry=Object.keys(obj);
+    commonShow(arry.join("="));
+}
 </script>
 </head>
 
@@ -482,6 +496,8 @@ function dynamic(){
 			<input type="button"  value="构造函数继承" onclick="test4()"/> 
 			
 			<input type="button"  value="构造函数&原型继承" onclick="test5()"/> 
+			
+			<input type="button"  value="Object.keys()代替for-in" onclick="test6()"/> 
 		 
 			
 			  
