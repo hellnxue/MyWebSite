@@ -237,7 +237,50 @@ h3{
 	  height:200px;
 	  margin:0 auto;
 	  background:#FFFFCC;
+	  
 	  }
+	  
+	  
+	  /*动画*/
+	  [data-animation-div=div]{
+	   border:1px solid ;
+		-moz-animation:mysecond 3s;
+		position:relative;
+	  }
+	  
+	  [data-animation-img=img]{
+	    border-radius:50%;
+		border:1px solid #ddd; 
+		padding:4px;
+		position:absolute;
+		left:50%;
+		margin-left:-100px;
+		-moz-animation:myfirst 10s;
+	   }
+	   
+	   @keyframes myfirst{
+	   
+	   from{ background:yellow; opacity:0.5;/* height:300px;*/ left:0px; top:5px; }
+	   to{ background:pink; opacity:1;  /*height:600px;*/ right:0px; top:30px; }
+	   }
+	   
+	    -@-moz-keyframes myfirst{
+	   
+	   from{ background:yellow; opacity:0.5;/* height:300px;*/ left:0px; top:5px; }
+	   to{ background:pink; opacity:1;  /*height:600px;*/ right:0px; top:30px; }
+	   }
+	   
+	    @keyframes mysecond{
+	   
+	   from{ text-align:left;  }
+	   to{  text-align:right;  }
+	   }
+	   
+	    -@-moz-keyframes mysecond{
+	   
+	   from{ text-align:left;}
+	   to{  text-align:right; }
+	   }
 </style>
 
 </head>
@@ -343,6 +386,8 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
     <div style="width:200px;height:200px;margin-top:100px;background-color:red;"></div>
 </div>
 
+
+
 <!--不要给div设置影响宽度的属性，像padding和margin等，圆形的关键是div设置一样的长度和宽度，然后设置border-radius:50%-->
 <h3>制造圆形图像</h3>
 <div  style="text-align:center;">
@@ -358,6 +403,13 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 <h3>图片成比例缩放....有待研究</h3>
 <div style=" width:80px; height:80px; overflow:hidden;">
   <img src="../../image/mxx/m3.jpg" style="max-width:100px; min-height:100px;"/>
+</div>
+
+<h3>动画</h3>
+<div   data-animation-div="div">
+
+   <img src="../../image/mxx/m6.jpg"  data-animation-img="img"/>
+
 </div>
 
 </body>

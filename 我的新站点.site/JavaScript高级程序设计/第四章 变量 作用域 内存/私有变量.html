@@ -90,14 +90,21 @@ function clears(){
 }
 
  
-/*在构造函数内部定义特权方法*/   
+/*
+特权方法创建方式一：
+
+在构造函数内部定义特权方法*/   
 function MyObject(){
+   //私有变量
    var privateVariable=20;
+   
+   //私有方法
    function privateFunction(){
        commonShow("私有变量："+privateVariable);
        return false;
    }
    
+   //共有方法
    this.publicMethod=function(){
    	   privateVariable++;
 	   return privateFunction();
@@ -116,10 +123,11 @@ function anonymous(){
 
 function test1(){
 
- 
+ 	//创建构造函数的实例
  	var myObj=new MyObject();
 	 
-	 commonShow(myObj.publicMethod());
+	//调用实例的公共方法
+	commonShow(myObj.publicMethod());
  
 	
 	
@@ -128,6 +136,8 @@ function test1(){
 }
 
 /*
+测试：引用包含函数中的变量，多次调用返回的闭包，引用的都是包含函数中的同一个变量奥
+
 anonymous()执行在here1位置和here2位置的结果完全不同。
 如果放在here2的位置，执行a() 输出的结果永远都是2，因为每次执行test11函数，都会从头初始化var a=anonymous() ，方法里的privateVariable会重新初始化为1。
 如果放在here1的位置，执行a() 输出的结果会随着a()函数的执行而增加，因为a是在全局中，只执行一次初始化var a=anonymous() ，也就是说函数anonymous里的变量只被初始化一次
@@ -140,7 +150,7 @@ anonymous()执行在here1位置和here2位置的结果完全不同。
 	 
 	 if(i>=10){
 	 
-	  a=null;
+	  a=null;//释放闭包内存，使包含函数的引用也销毁
 	  
 	  commonShow("闭包释放内存喽......");
 	 
@@ -155,8 +165,76 @@ anonymous()执行在here1位置和here2位置的结果完全不同。
 	
  
  }
+ 
+ /*利用私有和特权成员，可以隐藏那些不应该被直接修改的数据 */
+ function test111(){
+ 
+    //构造函数 
+    function Person(name){
+	   this.setName=function(value){
+	      name=value;
+	   };
+	   
+	   this.getName=function(){
+	      return name;
+	   };
+	   
+	};
+	
+	//创建实例对象
+	var person=new Person("蜡笔小新");
+	 
+	commonShow(person.getName());//获得name值
+	
+	person.setName("铅笔小新");//间接给person实例的属性name赋值
+	
+	commonShow(person.getName());
+	
+	
+ }
 
  
+ 
+ 
+ 
+ /*
+   特权方法创建方式二：
+   
+   静态私有变量
+   在私有作用域中定义私有变量或函数，创建特权方法  。私有变量和私有函数由每个实例共享，特权方法，即公共方法publicMethod是在原型上定义的，因此所有实例都是用同一个函数。
+   
+ */
+ 
+ (function(){
+ 
+   //私有变量
+   var privateVariable=10;
+   //私有方法
+   function privateFunction(){
+      return false;
+   }
+   
+   MyObjects=function(){
+   
+   };
+   
+   MyObjects.prototype.publicMethod=function(){
+      privateVariable++;
+	  commonShow(privateVariable);
+	  return privateFunction();
+   }
+ 
+ })();
+ 
+ function test1111(){
+ 
+    var myObj1=new MyObjects();
+	commonShow(myObj1.publicMethod());// 11 false
+	
+	var myObj2=new MyObjects();
+	commonShow(myObj2.publicMethod());//12 false
+    
+ }
 
 </script>
 </head>
@@ -166,8 +244,12 @@ anonymous()执行在here1位置和here2位置的结果完全不同。
 		<fieldset class="enter">
 		 <legend>try.....</legend>
 			 <input type="button"  value="构造函数中创建特权方法" onClick="test1()"/> 
+			 
+			 <input type="button"  value="闭包使对象的属性值不被直接修改" onClick="test111()"/> 
+			 
+			  <input type="button"  value="静态私有变量" onClick="test1111()"/> 
 			
-			<input type="button"  value="闭包" onClick="test11()"/> 
+			<input type="button"  value="闭包作用域链" onClick="test11()"/> 
 			
 			<input type="button"  value="test3" onClick="test2()"/> 
 			
