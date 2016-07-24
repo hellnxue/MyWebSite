@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>writer title here</title>
+<link href="../../CSS课程/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+  body{
+	  background-color:#eee;}
+  input{
+   	  display: block;     
+	  width:200px;
+	  margin: 20px auto 40px;
+	  border-radius:10px;
+	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  background:-ms-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  background:-webkit-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+	  box-shadow:0 12px 8px -9px #555;
+  }
+  #wrap{
+	  overflow:hidden;
+	  width:1000px;
+	  margin:20px auto;
+	   box-sizing:border-box;
+	  }
+  
+  fieldset{
+	  float:left;
+	  width:400px;
+	  min-height:300px;
+	  margin:20px 0px;
+	/*  padding:0;*/
+	  border: none;
+	  border-right: 3px solid #eee;
+	  background-color:#fff; 
+	  border-radius: 10px 0;
+	  box-shadow: 0 12px 8px -9px #ccc;
+	  box-sizing:border-box;
+	  text-align:center;
+  }
+  
+  fieldset:nth-child(1){
+  	width:200px;}
+  
+  fieldset:nth-child(2){
+  	width:660px;
+	text-align:left;
+  
+  }
+
+  fieldset.out div{
+    display:inline-block;
+  	margin-top:20px;
+	color:#999;}
+	
+  div#btn {
+  	 
+	box-sizing:border-box;
+	float: left;
+	width: 100px;
+    margin-top: 20px;
+    min-height: 300px;
+    position: relative;
+    text-align: left;
+	
+	}
+  
+ div#btn input{
+    display: inline-block;
+    margin: -20px 0 0;
+    position: absolute;
+    top: 50%;
+    width: 100px;
+	height:25px;
+	 
+	}
+  
+</style>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+<script>
+
+/*公共方法-消息显示*/
+function commonShow(msg){
+ 
+  $("#out").append("<br/>"+String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
+}
+
+function clears(){
+   $("#out").html("");
+}
+
+ 
+ //-------------------------------------------------------------------
+ 
+  var a=10;
+  console.log(window.a);//10  
+  
+  let b=20;
+  console.log(window.b); //undefined let声明的全局变量不会成为window对象的属性
+     
+   
+  
+
+function test1(){
+
+ //let只在代码块中有效
+ {
+   var a="hello";
+   let b="world";
+   commonShow("let b:"+b);
+ }
+ 	
+	commonShow(a);
+ 	//commonShow(b);//ReferenceError: b is not defined
+	
+  //不能在定义之前使用let
+  /* commonShow(c);//error 
+   let c="sir"; */
+   
+  //TDZ 即使存在全局变量temp,但只要在代码块里有let命令，就不能在let之前使用该变量 typeof类型判断标识符也不可以 
+   commonShow( temp);
+   var temp=0;
+   if(1){
+     try{
+	   commonShow(temp);//error
+	   commonShow(typeof tempVariable);//error
+	 }catch(e){
+	   commonShow("error:"+e );
+	 }
+     
+	 let temp=10;
+	 commonShow(temp); 
+   
+   } 
+   
+   
+  
+}
+ 
+function test11(){
+	
+	//变量未被定义时直接使用导致语法错误
+   /*console.log(variable);*/
+   //对于未定义的变量，只有一种用处，那就是使用typeof判断它的类型，这种说法是在出现let之前 ！
+   console.log(typeof variable);//undefined 
+   
+   //而在定义变量之前使用该变量不会导致语法错误，会有一个变量提升的过程，只要在js里定义了，那么就能找到该变量，只不过在定义且初始化之前使用此变量，此变量的值是undefined，因为没有初始化。
+   console.log( temp);//undefined
+   console.log( typeof temp );//undefined 是字符串类型的undefined
+   var temp=10;//此处已经定义了变量，并且初始化了
+   
+  /* console.log(tempLet);//导致语法错误
+     console.log(typeof tempLet);
+   let tempLet=10;*/
+   
+}
+
+/*
+ //??????????调用时没有报错哎
+function bar(x = y, y = 2) {
+  return [x, y];
+}*/
+
+/*IE10.0不支持参数有默认值哎*/
+function test2(x=2){
+  
+  commonShow(x);
+ }  
+ 
+function test3(arg){
+
+   //error
+   /* let arg=1;*/
+
+   {
+     let arg=1;
+	 commonShow(arg);
+   }
+}
+
+
+/*没见过的问题-很新奇，很专业*/
+var date=new Date();
+function test4(){
+
+ commonShow(date);//undefined 原因在于函数内部，又声明了一次变量，变量提升，值是undefined
+ 
+  if(false){
+    var date="hello world";
+  }
+}
+
+</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<fieldset class="enter">
+		 <legend>try.....</legend>
+			 <input type="button"  value="let-块级作用域" onClick="test1()"/> 
+			
+			<input type="button"  value="测试语法" onClick="test11()"/> 
+			
+			<input type="button"  value="函数参数默认值" onClick="test2()"/> 
+			
+			<input type="button"  value="重复声明" onClick="test3(11)"/> 
+			 
+		    <input type="button"  value="ES5变量提升导致的问题" onClick="test4()"/>
+			
+			  
+		</fieldset>
+		
+		<fieldset class="out">
+		 <legend>out.....</legend>
+		 <div id="out">
+		   result here......
+		 </div>	 
+		 
+			
+			  
+		</fieldset>
+		
+		 
+		 
+		 <div id="btn">
+		   <input type="button"  value="clear" onClick="clears()"/> 
+		 </div>	 
+		 
+			
+			  
+		 
+	</div>
+	
+
+</body>
+</html>

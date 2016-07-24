@@ -255,7 +255,7 @@ h3{
 		position:absolute;
 		left:50%;
 		margin-left:-100px;
-		-moz-animation:myfirst 10s;
+		-moz-animation:myfirst  5s  ;
 	   }
 	   
 	   @keyframes myfirst{
@@ -280,6 +280,32 @@ h3{
 	   
 	   from{ text-align:left;}
 	   to{  text-align:right; }
+	   }
+	   
+	   
+	   
+	   
+	   /*---------图片边框-----------*/
+	   [ data-border-img="borderImg" ]{
+	     width:300px;
+		 margin:0 auto;
+		 border:15px solid transparent;
+		 padding:10px 20px;
+		 -moz-border-image:url(../../image/mxx/m2.jpg) 30 0   30 0 stretch;
+	   }
+	   
+	    /*---------多个背景图片 css规定先列出的图片在上层-----------*/
+	   [data-background-img="img"]{
+	    width:500px;
+		height:200px;
+		padding:10px;
+		margin:0 auto;
+		background-image:url(../../image/mxx/sml1.png),url(../../image/mxx/bg1.PNG);
+		background-position:center center,left top;
+		background-repeat:no-repeat,repeat;
+		border:1px solid blue;
+		
+	   
 	   }
 </style>
 
@@ -409,6 +435,21 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 <div   data-animation-div="div">
 
    <img src="../../image/mxx/m6.jpg"  data-animation-img="img"/>
+
+</div>
+
+<h3 style="margin-top:250px;">border-img</h3>
+<div  data-border-img="borderImg"  >
+
+   想出去玩，可是外面有个超大的太阳
+
+</div>
+
+
+<h3 >多层背景图像</h3>
+<div  data-background-img="img"  >
+
+   设置多个背景图片时，先列出的背景图片在上层奥~
 
 </div>
 

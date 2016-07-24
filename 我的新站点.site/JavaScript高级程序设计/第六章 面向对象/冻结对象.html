@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>writer title here</title>
+<link href="../../CSS课程/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+  body{
+	  background-color:#eee;}
+  input{
+   	  display: block;     
+	  width:200px;
+	  margin: 20px auto 40px;
+	  border-radius:10px;
+	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  background:-ms-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  background:-webkit-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+	  box-shadow:0 12px 8px -9px #555;
+  }
+  #wrap{
+	  overflow:hidden;
+	  width:1000px;
+	  margin:20px auto;
+	   box-sizing:border-box;
+	  }
+  
+  fieldset{
+	  float:left;
+	  width:400px;
+	  min-height:300px;
+	  margin:20px 0px;
+	/*  padding:0;*/
+	  border: none;
+	  border-right: 3px solid #eee;
+	  background-color:#fff; 
+	  border-radius: 10px 0;
+	  box-shadow: 0 12px 8px -9px #ccc;
+	  box-sizing:border-box;
+	  text-align:center;
+  }
+  
+  fieldset:nth-child(1){
+  	width:200px;}
+  
+  fieldset:nth-child(2){
+  	width:660px;
+	text-align:left;
+  
+  }
+
+  fieldset.out div{
+    display:inline-block;
+  	margin-top:20px;
+	color:#999;}
+	
+  div#btn {
+  	 
+	box-sizing:border-box;
+	float: left;
+	width: 100px;
+    margin-top: 20px;
+    min-height: 300px;
+    position: relative;
+    text-align: left;
+	
+	}
+  
+ div#btn input{
+    display: inline-block;
+    margin: -20px 0 0;
+    position: absolute;
+    top: 50%;
+    width: 100px;
+	height:25px;
+	 
+	}
+  
+</style>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+<script>
+
+/*公共方法-消息显示*/
+function commonShow(msg){
+ 
+  $("#out").append("<br/>"+String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
+}
+
+function clears(){
+   $("#out").html("");
+}
+
+ 
+ 
+  
+/*Object.freeze(obj),把一个对象设置成只读状态，增删改对象的属性都不可以(增删改在严格模式下会使js报错)*/
+function test1(){
+  "use strict";//严格模式
+   var obj={
+      name:"helln",
+	  age:20
+   };
+   commonShow("-----------冻结之前------------------");
+   obj.age=10;
+   commonShow(obj.name+":"+obj.age);
+   commonShow("-----------冻结之后------------------");
+   var nboj=  Object.freeze(obj);
+   
+   //严格模式下给已冻结的对象修改属性是犯法的
+   try{
+   
+	 obj.name="rose";
+   }catch(e){
+      commonShow(e);//TypeError: "name" is read-only
+   }
+	
+    commonShow(obj.name+":"+obj.age);//helln:10
+ 
+ }
+ 	
+	
+</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<fieldset class="enter">
+		 <legend>try.....</legend>
+			 <input type="button"  value="冻结一个对象" onClick="test1()"/> 
+			
+			<input type="button"  value="测试语法" onClick="test11()"/> 
+			
+			 
+			
+			  
+		</fieldset>
+		
+		<fieldset class="out">
+		 <legend>out.....</legend>
+		 <div id="out">
+		   result here......
+		 </div>	 
+		 
+			
+			  
+		</fieldset>
+		
+		 
+		 
+		 <div id="btn">
+		   <input type="button"  value="clear" onClick="clears()"/> 
+		 </div>	 
+		 
+			
+			  
+		 
+	</div>
+	
+
+</body>
+</html>
