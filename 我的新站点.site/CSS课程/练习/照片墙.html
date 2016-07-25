@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>CSS3 transform旋转特效</title>
+	
+	<style>
+	
+	body{
+	background-color:#eee;}
+	
+	h1{
+	text-align:center}
+	
+	.container{
+	 position:relative;
+	 width:900px;
+	 height: 550px;
+     margin: 50px auto;/*容器居中*/
+	 padding:20px 10px 20px 20px;
+	
+	}
+	
+	/*设置照片相同的样式*/
+	.pic{
+	 position:absolute;/*设置绝对定位*/
+	 padding:10px 10px 15px 10px;/*制造拍立得的白边效果*/
+	 background-color:#fff;/*与padding一起制造拍立得的白边效果*/
+	 box-shadow:12px 12px 8px -9px #555;/*制造照片阴影效果 水平方向和垂直方向都有，就像光线从左上角射进来的效果一样*/
+	 border:1px solid #ddd;/*设置边框，看起来更清晰*/
+	 -moz-transition:1s all;
+	 -webkit-transition:1s all;
+	 -ms-transition:1s all;
+	 transition:1s all;/*设置样式过渡，产生缓慢变化的效果。注意：不加厂商前缀的要放在最后*/
+	 z-index:1;/*统一设置照片层的大小*/
+	}
+	
+	
+	/*鼠标移动到照片上时，照片不在有旋转角度，并慢慢放大，显示在所有照片的最上方*/
+	.pic:hover{
+	  -moz-transform:rotate(0deg) scale(1.2);
+	  -webkit-transform:rotate(0deg) scale(1.2);
+	  -ms-transform:rotate(0deg) scale(1.2);
+	  transform:rotate(0deg) scale(1.2);/*照片恢复到不旋转的样子，比例也变为原来的1.2倍*/
+	  box-shadow:15px 15px 20px -9px #555;
+	  z-index:2;/*设置照片层比其它层大，显示在最上方*/
+	
+	}
+	
+	/*设置每张照片的位置，旋转角度*/
+	.pic1{
+	left: 100px;
+    top: 48px;
+    -moz-transform: rotate(12deg);/*每张照片都有不同的旋转角度，12deg是顺时针旋转12度，-12deg是逆时针旋转12度*/
+	-webkiit-transform: rotate(12deg);
+	-ms-transform: rotate(12deg);
+ transform: rotate(12deg);
+	}
+	
+	.pic2{
+	left: 367px;
+    top: 49px;
+	-moz-transform: rotate(-12deg);
+	-webkit-transform: rotate(-12deg);
+	-ms-transform: rotate(-12deg);
+    transform: rotate(-12deg);
+	
+	}
+	
+	.pic3{
+	 left: 666px;
+    top: 46px;
+    -moz-transform: rotate(33deg);
+	-webkit-transform: rotate(33deg);
+	-ms-transform: rotate(33deg);
+	 transform: rotate(33deg);
+	
+	}
+	
+	.pic4{
+	 left: 220px;
+     top: 325px;
+     -moz-transform: rotate(-28deg);
+	 -webkit-transform: rotate(-28deg);
+	 -ms-transform: rotate(-28deg);
+	 transform: rotate(-28deg);
+	
+	}
+	
+	.pic5{
+	left: 514px;
+    top: 300px;
+    -moz-transform: rotate(5deg);
+	-webkit-transform: rotate(5deg);
+	-ms-transform: rotate(5deg);
+	transform: rotate(5deg);
+	
+	}
+	
+
+	
+ 
+	   
+	</style>
+</head>
+
+<body>
+	<h1>CSS3照片墙</h1>
+	<div class="container">
+		<img class="pic pic1" src="images/mm1.jpg">
+		<img class="pic pic2" src="images/mm2.jpg">
+		<img class="pic pic3" src="images/mm3.jpg">
+		<img class="pic pic4" src="images/mm4.jpg">
+		<img class="pic pic5" src="images/mm5.jpg">
+		 
+	</div>
+</body>
+</html>
