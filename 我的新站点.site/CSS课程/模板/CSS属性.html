@@ -245,7 +245,11 @@ h3{
 	  [data-animation-div=div]{
 	   border:1px solid ;
 		-moz-animation:mysecond 3s;
-		position:relative;
+		-ms-animation:mysecond 3s;
+		-webkit-animation:mysecond 3s;
+		-o-animation:mysecond 3s;
+		animation:mysecond 3s;
+		 position:relative;
 	  }
 	  
 	  [data-animation-img=img]{
@@ -255,19 +259,23 @@ h3{
 		position:absolute;
 		left:50%;
 		margin-left:-100px;
-		-moz-animation:myfirst  5s  ;
+		-moz-animation:myfirst  5s;
+		-ms-animation:myfirst  5s;
+		-webkit-animation:myfirst  5s;
+		-o-animation:myfirst  5s;
+		animation:myfirst  5s;
 	   }
 	   
 	   @keyframes myfirst{
 	   
-	   from{ background:yellow; opacity:0.5;/* height:300px;*/ left:0px; top:5px; -moz-transform:rotateY(180deg); }
-	   to{ background:pink; opacity:1;  /*height:600px;*/ right:0px; top:30px;; -moz-transform:rotateY(360deg);  }
+	   from{ background:yellow; opacity:0.5;/* height:300px;*/ left:0px; top:5px; -moz-transform:rotateY(180deg); -ms-transform:rotateY(180deg);-webkit-transform:rotateY(180deg);-o-transform:rotateY(180deg);transform:rotateY(180deg);}
+	   to{ background:pink; opacity:1;  /*height:600px;*/ right:0px; top:30px;; -moz-transform:rotateY(360deg); -o-transform:rotateY(360deg);-ms-transform:rotateY(360deg);-webkit-transform:rotateY(360deg); transform:rotateY(360deg); }
 	   }
 	   
 	    -@-moz-keyframes myfirst{
 	   
-	   from{ background:yellow; opacity:0.5;/* height:300px;*/ left:0px; top:5px; -moz-transform:rotateY(180deg);}
-	   to{ background:pink; opacity:1;  /*height:600px;*/ right:0px; top:30px; -moz-transform:rotateY(360deg);}
+	   from{ background:yellow; opacity:0.5;/* height:300px;*/ left:0px; top:5px; -moz-transform:rotateY(180deg); -ms-transform:rotateY(180deg); -webkit-transform:rotateY(180deg); -o-transform:rotateY(180deg);  transform:rotateY(180deg);}
+	   to{ background:pink; opacity:1;  /*height:600px;*/ right:0px; top:30px; -moz-transform:rotateY(360deg);-ms-transform:rotateY(360deg);-webkit-transform:rotateY(360deg);-o-transform:rotateY(360deg); transform:rotateY(360deg);}
 	   }
 	   
 	    @keyframes mysecond{
@@ -292,6 +300,10 @@ h3{
 		 border:15px solid transparent;
 		 padding:10px 20px;
 		 -moz-border-image:url(../../image/mxx/m2.jpg) 30 0   30 0 stretch;
+		 -ms-border-image:url(../../image/mxx/m2.jpg) 30 0   30 0 stretch;
+		 -webkit-border-image:url(../../image/mxx/m2.jpg) 30 0   30 0 stretch;
+		 -o-border-image:url(../../image/mxx/m2.jpg) 30 0   30 0 stretch;
+		 border-image:url(../../image/mxx/m2.jpg) 30 0   30 0 stretch;
 	   }
 	   
 	    /*---------多个背景图片 css规定先列出的图片在上层-----------*/
