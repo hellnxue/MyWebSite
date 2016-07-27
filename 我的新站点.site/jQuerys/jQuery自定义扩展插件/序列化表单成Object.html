@@ -13,6 +13,8 @@ $(function(){
 	 */
 	$.fn.extend({
 		serializeObject:function(){
+		        /*this代表jquery对象*/
+				/*this.length>1 是为了保证只序列化一个form表单*/
 			   if(this.length>1){
 					  return false;
 			   }
@@ -30,7 +32,10 @@ $(function(){
 });
 
  function testSerialize(){
- 
+     console.log($("form"));
+	 console.log($("form")[0]);
+	 
+	 
     var formObject=$("form").serializeObject();
 	console.log("表单序列化为对象："+formObject);
 	var jsonObject=JSON.stringify(formObject);//将js对象转成JSON对象
@@ -63,7 +68,7 @@ $(function(){
 
 <body>
 	<form>
-	<fieldset>
+	 
 	   <legend>表单</legend>
 	   <select name="single">
 		<option>Single</option>
@@ -80,7 +85,29 @@ $(function(){
 	  <input type="radio" name="radio" value="radio2"/> radio2
 	  <input type="file" name="myfiles"  /><br />
 	  <input  name="chinaec" class="am-form-field am-input-lg" type="text"  > 
-	</fieldset>
+	 
+	  
+	</form><br />
+	
+	<form>
+	 
+	   <legend>表单</legend>
+	   <select name="single">
+		<option>Single</option>
+		<option>Single2</option>
+	  </select>
+	  <select name="multiple" multiple="multiple">
+		<option selected="selected">Multiple</option>
+		<option>Multiple2</option>
+		<option selected="selected">Multiple3</option>
+	  </select><br/>
+	  <input type="checkbox" name="check" value="check1"/> check1
+	  <input type="checkbox" name="check" value="选择2" checked="checked"/> check2
+	  <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
+	  <input type="radio" name="radio" value="radio2"/> radio2
+	  <input type="file" name="myfiles"  /><br />
+	  <input  name="chinaec" class="am-form-field am-input-lg" type="text"  > 
+	 
 	  
 	</form><br />
 
