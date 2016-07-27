@@ -175,7 +175,7 @@ h3{
 	 right:50%;
 	 border: 1px solid yellow;
 	}
-	/*-------------------------------------------------旋转---------------------------------------------------*/
+	/*-------------------------------------------------2D旋转 transform:rotate()---------------------------------------------------*/
 	div.transform{
 		position:relative;width:200px; height:200px; margin:0 auto; background-color:#ccc;
 	}
@@ -183,19 +183,22 @@ h3{
 	.transform div{
 	 position:absolute;
 	 width:200px; 
-	 height:100px; 
+	 height:100px;
+	  
+	 /*让子元素在父元素范围内居中*/
 	 left:50%; 
 	 top:50%; 
 	 margin-left:-25%; 
 	 margin-top:-25%;
+	 
 	 background-color:#FFCCCC; 
 	 text-align:center; 
 	 line-height:100px; /*让一行文字垂直居中*/
-	 transform:rotate(-30deg);/*逆时针旋转30度*/
-	 transform-origin:left bottom 0;/*设置元素的左下角为旋转点*/
+	 transform:rotate(-30deg);/*逆时针旋转30度  设置为0度可以去掉旋转的样式*/
+	 transform-origin:left bottom 0;/*设置元素的左下角为旋转点 就像用摁钉定住的一样奥 。旋转点默认为元素的中心位置 */
 	 
 	 }
-	/*-------------------------------------------------通过在内容前后添加三角形并调整位置，制造出边框中突出一个小三角的效果---------------------------------------------------*/ 
+	/*----------------通过在内容前后添加三角形并调整位置，制造出边框中突出一个小三角的效果-----------------*/ 
 	 div.triangle{
 	 position:relative;/*为三角形提供定位上下文*/
 	 width:200px;  
@@ -240,8 +243,44 @@ h3{
 	  
 	  }
 	  
+	  /*-------------------旋转的指针------------------------------*/
+	  [data-animation-div=clock]{
+	   width:300px;
+	   height:300px;
+	   margin:10px auto;
 	  
-	  /*动画*/
+	   background-image:url(../../image/whiteClock.jpg);
+	   background-position:center;
+	   background-size:cover;
+		/*-moz-animation:mysecond 3s;*/
+		position:relative;
+		
+	  }
+	  
+	   [data-animation-div="zz"]{
+	   position:absolute;
+	   left:50%;
+	   top:6%;
+	   height:130px;
+	   width:5px;
+	   background-color:black;
+	   -moz-animation:clock  60s linear  infinite running;
+	   }
+	   
+	  @keyframes clock{
+	   from{
+	     -moz-transform:rotate(0deg);
+		 -moz-transform-origin:left bottom 0;
+		 }
+		 
+	   to{
+	    -moz-transform:rotate(360deg);
+		-moz-transform-origin:left bottom 0;
+		 }}
+	  
+	  
+	  
+	  /*-------------------------------动画 animation------------------------------*/
 	  [data-animation-div=div]{
 	   border:1px solid ;
 		-moz-animation:mysecond 3s;
@@ -261,16 +300,32 @@ h3{
 	   
 	   @keyframes myfirst{
 	   
-	   from{ background:yellow; opacity:0.5;/* height:300px;*/ left:0px; top:5px; -moz-transform:rotateY(180deg); }
-	   to{ background:pink; opacity:1;  /*height:600px;*/ right:0px; top:30px;; -moz-transform:rotateY(360deg);  }
+	   from{ 
+		   background:yellow; 
+		   opacity:0.5;/* height:300px;*/ 
+		   left:0px; 
+		   top:5px;
+	   	   -moz-transform:rotateY(180deg);/*CSS3 3D转换*/
+		 }
+	   to{ 
+		   background:pink; 
+		   opacity:1;  /*height:600px;*/ 
+		   right:0px; 
+		   top:30px;
+		   -moz-transform:rotateY(360deg); /*CSS3 3D转换*/ 
+		}
 	   }
 	   
+	   /* -@-moz-keyframes这个厂商前缀不好用哎？？？？？*/
 	    -@-moz-keyframes myfirst{
 	   
 	   from{ background:yellow; opacity:0.5;/* height:300px;*/ left:0px; top:5px; -moz-transform:rotateY(180deg);}
 	   to{ background:pink; opacity:1;  /*height:600px;*/ right:0px; top:30px; -moz-transform:rotateY(360deg);}
 	   }
 	   
+	   
+	   
+	   /*  用text-align设置到动画里貌似不管用哎，用定位可以  */
 	    @keyframes mysecond{
 	   
 	   from{ text-align:left;  }
@@ -432,12 +487,22 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
   <img src="../../image/mxx/m3.jpg" style="max-width:100px; min-height:100px;"/>
 </div>
 
+<h3>旋转的指针</h3>
+<div   data-animation-div="clock">
+
+  <div data-animation-div="zz"></div>
+
+</div>
+
+
 <h3>动画-3D转换</h3>
 <div   data-animation-div="div">
 
    <img src="../../image/mxx/m6.jpg"  data-animation-img="img"/>
 
 </div>
+
+
 
 <h3 style="margin-top:250px;">border-img</h3>
 <div  data-border-img="borderImg"  >
