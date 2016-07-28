@@ -243,15 +243,15 @@ h3{
 	  
 	  }
 	  
-	  /*-------------------旋转的指针------------------------------*/
+	  /*-------------------动画：旋转的指针------------------------------*/
 	  [data-animation-div=clock]{
 	   width:300px;
 	   height:300px;
 	   margin:10px auto;
 	  
 	   background-image:url(../../image/whiteClock.jpg);
-	   background-position:center;
-	   background-size:cover;
+	   background-position:center;/*设置图片的中心与元素的中心点对齐*/
+	   background-size:cover;/*设置背景图片覆盖元素*/
 		/*-moz-animation:mysecond 3s;*/
 		position:relative;
 		
@@ -264,13 +264,13 @@ h3{
 	   height:130px;
 	   width:5px;
 	   background-color:black;
-	   -moz-animation:clock  60s linear  infinite running;
+	   -moz-animation:clock  60s linear  infinite running;/**/
 	   }
 	   
 	  @keyframes clock{
 	   from{
-	     -moz-transform:rotate(0deg);
-		 -moz-transform-origin:left bottom 0;
+	     -moz-transform:rotate(0deg);/*元素未旋转状态，或者值为 none */
+		 -moz-transform-origin:left bottom 0;/*以元素左下角为旋转点*/
 		 }
 		 
 	   to{
