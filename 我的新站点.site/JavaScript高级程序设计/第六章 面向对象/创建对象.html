@@ -227,7 +227,7 @@ function Person1(){
 }
 
 /*更简单的原型语法-重写原型对象*/
-function test6(){
+function test66(){
 
    //简单的原型语法 但会重写原型对象，导致constructor不再指向构造函数指针，而是指向了Object
    Person1.prototype={
@@ -457,6 +457,7 @@ function dynamic(){
   console.log(Object.getPrototypeOf(tr) );
 }
 
+
 function test6(){
    var obj={
       name:"helln",
@@ -470,6 +471,30 @@ function test6(){
    var arry=Object.keys(obj);
     commonShow(arry.join("="));
 }
+
+
+/*每个函数都是Function类型的实例对象，因此函数也有属性和方法，比如Tree.length*/
+function Tree(name,height){
+   this.name=name;
+   this.height=height;
+}
+function test7(){
+    
+	//实例对象
+	var yangshu=new Tree("杨树",100);
+    console.log("函数的length属性："+Tree.length); 
+	
+	Tree("柳树",200);
+	console.log(window.name+"身高"+window.height+"cm");//柳树
+	
+	var o=new Object();
+	/*将构造函数Tree中的属性和方法添加到了对象o中*/
+	Tree.call(o,"杨柳青青",300);
+	
+	console.log(o.name);//杨柳青青 
+	
+	
+}
 </script>
 </head>
 
@@ -481,7 +506,7 @@ function test6(){
 			
 			<input type="button"  value="原型与in操作符" onclick="testIn()"/> 
 			
-			<input type="button"  value="更简单的原型语法-重写原型对象" onclick="test6()"/> 
+			<input type="button"  value="更简单的原型语法-重写原型对象" onclick="test66()"/> 
 			
 			<input type="button"  value="更简单的原型语法-原型的动态性" onclick="test2()"/> 
 			
@@ -497,9 +522,11 @@ function test6(){
 			
 			<input type="button"  value="构造函数&原型继承" onclick="test5()"/> 
 			
-			<input type="button"  value="Object.keys()代替for-in" onclick="test6()"/> 
+			<input type="button"  value="Object.keys()代替for-in遍历对象key" onclick="test6()"/> 
 		 
+		    <input type="button"  value="函数的属性和方法" onclick="test7()"/> 
 			
+			 <input type="button"  value="将构造函数当做函数使用" onclick="test7()"/> 
 			  
 		</fieldset>
 		

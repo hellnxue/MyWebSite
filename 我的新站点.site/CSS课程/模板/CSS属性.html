@@ -363,6 +363,119 @@ h3{
 		
 	   
 	   }
+	   
+	   
+	   /*2D转换*/
+	   [data-rotate="2D"]{
+	     width:200px;
+		 height:200px;
+		 padding:10px;
+		 margin:0 auto;
+		 background:#FF66FF;
+		 text-align:center;
+		 transform:rotateX(160deg);
+		 
+	   }
+	   
+	    [data-rotate="2D"] >*{
+		line-height:200px;
+		margin:0;
+		padding:0;
+		}
+		
+		
+		/*----------------试试3D立方体---------------------------------*/
+		/*参考网址：https://segmentfault.com/a/1190000003932428*/
+		/*rgb颜色参考网址：http://www.internetke.com/jsEffects/2015011203/*/
+		/*最外层div*/
+		.zwrap{
+		 background: #ccc none repeat scroll 0 0;
+   		 padding: 50px;
+		}
+		
+		/*包裹盒子的div*/
+		[data-try="3D"]{
+			position:relative;
+			width:800px;
+			height:400px;
+		/*	border:1px solid;*/
+			margin:0 auto;
+			transform-style:preserve-3d;
+		/*	transform:rotateY(-30deg);*/
+		/*	transform-origin:50% 50%;*//*don't understand*/
+			-moz-animation:mybox 10s linear infinite running; 
+		}
+		
+		/*盒子每个面共有属性*/
+		[data-try="3D"] div{
+			position:absolute;/*所有div都摞在一张2D平面上，最后的那个div在最上层奥*/
+			width:200px;
+			height:200px;
+			/*水平居中*/
+			left:50%;
+			margin-left:-100px;
+			/*垂直居中*/
+		    line-height:200px;
+			/*文本居中*/
+			text-align:center;
+			margin-top:50px;
+			}
+		
+		/*每个面都有自己固定的旋转角度*/
+		[data-try="3D"] .front{
+		   /* background-color:#99FF66;*/
+		   background-color:rgba(128, 0, 128, 0.5);/*rgba可以设置颜色透明奥，不同颜色不可以*/
+			transform:rotateX(0deg) translateZ(100px);
+			}
+			
+		[data-try="3D"] .right{
+		   /* background-color:#FF66CC;*/
+		    background-color: rgba(255, 0, 255, 0.5);
+			transform:rotateY(90deg) translateZ(100px);}
+		
+		[data-try="3D"] .left{
+		/*background-color:#FF6633;*/
+		background-color: rgba(255, 153, 204, 0.5);
+		transform:rotateY(-90deg) translateZ(100px);}
+		
+		[data-try="3D"] .back{
+		/*background-color:#FFFF00;*/
+		background-color: rgba(0, 204, 255, 0.5);
+		transform:rotateY(180deg) translateZ(100px);}
+		
+		[data-try="3D"] .top{
+		/*background-color:#00CCFF;*/
+		background-color: rgba(153, 204, 255, 0.5);
+		transform:rotateX(90deg) translateZ(100px);}
+		
+		[data-try="3D"] .bottom{
+		/*background-color:#FFCCFF;*/
+		background-color: rgba(0, 255, 255, 0.5);
+		transform:rotateX(-90deg) translateZ(100px);}
+		
+		
+		/*定义立方体动画*/
+		/* -@-moz-keyframes mybox{
+		 
+		from{ opacity:.5;}
+		to{  opacity:1 ;}
+		
+		}*/
+		
+		 @keyframes mybox{
+	   
+		   from{ 
+		   		transform:rotateX(0deg) rotateY(0deg);
+				/*opacity:.5;*/
+			 
+			 }
+		   to{ 
+			  
+			   transform:rotateX(360deg) rotateY(360deg);
+			  /* opacity:1;*/
+			 
+			}
+	   }
 </style>
 
 </head>
@@ -518,6 +631,30 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
    设置多个背景图片时，先列出的背景图片在上层奥~
 
 </div>
+
+<h3 >2D转换</h3>
+<div  data-rotate="2D"   >
+
+   <h2>2</h2>
+
+</div>
+
+<h3 >不停旋转的3D立方体</h3>
+<div class="zwrap">
+  <div data-try="3D">
+
+   <div class="front">front</div>
+   <div class="back">back</div>
+   <div class="right">right</div>
+   <div class="left">left</div>
+  
+   <div class="top">top</div>
+   <div class="bottom">bottom</div>
+
+</div>
+</div>
+
+
 
 </body>
 </html>
