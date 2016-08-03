@@ -482,14 +482,19 @@ h3{
 	   width:200px;
 	   height:200px;
 	   padding:10px;
-	   margin:0 auto;
+	   margin:20px auto;
 	   text-align:center;
 	   line-height:200px;
 	  }
-	  
-	   .commonBox div{
-	    float:left;
-	   }
+	   
+	   .showbox{
+	    float: left;
+   	    left: 50%;
+    	margin-left: -200px;
+    	position: relative;}
+	   
+	   .colorSet1,.colorSet2{
+	   float:left;}
 	  
 	   div.colorSet1{
 	    
@@ -680,7 +685,10 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 
 
 <h3 >rgba设置颜色和颜色透明度</h3>
+
+<div class="showbox">
 <div class="commonBox colorSet1"  >rgba设置颜色的不透明度</div>
 <div class="commonBox colorSet2"  >hsla设置颜色的不透明度</div>
+</div>
 </body>
 </html>
