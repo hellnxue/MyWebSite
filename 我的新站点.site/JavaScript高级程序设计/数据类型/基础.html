@@ -31,11 +31,20 @@ function dataTypeBtn(){
   var rlt=strnum==num;
   console.log(rlt);
 }
+
+function addsx(){
+    var obj={};
+	obj["data"]="hello";
+	obj.name="小新";
+	console.log(obj.data);
+	console.log(obj.name);
+}
 </script>
 </head>
 
 <body>
 <input type="button" value="测试let"  onclick="btnfushu()"/>
 <input type="button" value="测试类型"  onclick="dataTypeBtn()"/>
+<input type="button" value="对象添加属性"  onclick="addsx()"/>
 </body>
 </html>
