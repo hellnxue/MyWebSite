@@ -6,7 +6,7 @@
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../pin.js"></script>
 <script type="text/javascript">
-/* 比较方法，倒叙*/
+/* 比较方法，降序*/
 function campare1(v1,v2){
   if(v1>v2){
   	return -1;
@@ -16,7 +16,7 @@ function campare1(v1,v2){
     return 0;
   }
 }
-/* 比较数值数组特用，正序*/
+/* 比较数值数组特用，升序*/
 function campare2(v1,v2){
   return v1-v2;
 }
@@ -473,10 +473,28 @@ test empty():</br>
   
   function getLastItem(){
     var array=[0,1,4,0,5];
-	var last=array.pop();//数组的pop()方法用于取得数组的最后一项
-	 
-	console.log("array.pop()="+last);
-	console.log(array.length);
+	var lastItem=array[array.length-1];//获取最后一项
+	console.log(array);
+	var removeLast=array.pop();//数组的pop()方法用于移除数组的最后一项并返回被移除项的值
+	
+	console.log("取得数组的最后一项：array[array.length-1]="+lastItem);
+	console.log("移除数组的最后一项：array.pop()="+removeLast);
+	console.log(array);
+	
+	var removeFirst=array.shift();//shift()用于移除数组的第一项并返回移除项的值
+	console.log("移除数组的第一项 array.shift():"+array.shift());
+	console.log(array);//[0,4] 与调用valueOf()方法返回的结果一致，都是输出数组本身
+	
+	//array.valueOf()输出数组本身
+	console.log(array.valueOf());//[1,4]    
+	
+	//alert()接收一个字符串作为参数，因此传入数组后，数组在后台会为每一项调用toString()方法返回最后拼成的字符串（默认用逗号分隔）
+	alert(array);//1,4 
+	console.log(array.valueOf()+"");//1,4  
+	
+	// array.join()方法返回指定字符拼成的数组项字符串
+	console.log(array.join(",")+"\n"+typeof array.join(","));//1,4  string   
+	
   }
   
   function ObjAry(){
@@ -515,6 +533,13 @@ test empty():</br>
 	  for(var i in array){
 	    console.log("name="+array[i].name+" date="+array[i].date)
 	 }
+	 
+	  console.log("指定字段name排序：");
+	 array.sort(createComparisonFunction("name"));
+	  for(var i in array){
+	    console.log("name="+array[i].name+" date="+array[i].date)
+	 }
+	 
 	 
 	 
   }
@@ -559,7 +584,7 @@ function createComparisonFunction(propertyName){
    return function(obj1,obj2){
      var v1=obj1[propertyName];
 	 var v2=obj2[propertyName];
-	 if(v1<2){
+	 if(v1<v2){
 	     return -1;
 	 }else if(v1>v2){
 	     return 1;
@@ -568,12 +593,35 @@ function createComparisonFunction(propertyName){
 	 }
    }
 }
+
+function emptyArray(){
+    var a=[1,2];
+	var v1=a.toString();
+	console.log(v1);//1,2
+	console.log(typeof a);//object
+	
+	var b=[];
+	var v2=b.toString();
+	console.log(b);//[]
+	console.log(v2);//空字符串哎
+	 
+	 
+	 
+}
+
+function testConsole(){
+  var people = "Alex";
+  var years = 42;
+  console.log("%s is %e years old.", "Alex", 22);
+}
   
 </script>
 
 <input type="button" data-filter value="取得数组的最后一项"  onclick="getLastItem()"/><br />
-
-
-
+ 
+<input type="button" data-filter value="空数组调用toString()方法会返回空字符串"  onclick="emptyArray()"/><br />
+ 
+<input type="button" data-filter value="console.log();"  onclick="testConsole()"/><br />
+ 
 </body>
 </html>
