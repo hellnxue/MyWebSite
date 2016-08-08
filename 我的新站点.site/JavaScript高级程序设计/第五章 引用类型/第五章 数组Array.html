@@ -614,6 +614,42 @@ function testConsole(){
   var years = 42;
   console.log("%s is %e years old.", "Alex", 22);
 }
+
+
+/*forEach()函数类似于for循环遍历数组*/ 
+function testMap(){
+    var ary=[3,5,2,1];
+	
+	/*对数组的每一项运行给定的函数，返回每次函数调用的结果组成的数组*/
+	var mapResult=ary.map(function(item,index,arry){
+	  
+	  return item*2;
+	});
+	
+	console.log(mapResult);
+	
+	/*对数组的每一项运行给定的函数，如果该函数对每一项都返回true，则返回true*/
+	var flagEvery=ary.every(function(item,index,arry){
+	    return item>2;
+	});
+
+	console.log(flagEvery);
+	
+	/*对数组的每一项运行给定的函数，如果该函数对任一项 返回true，则返回true*/
+	var flagSome=ary.some(function(item,index,arry){
+	   return item>3
+	});
+	
+	console.log(flagSome);
+	
+	/*对数组的每一项运行给定的函数， 该函数返回true项组成的数组*/
+	var filterArry=ary.filter(function(item,index,arry){
+	   return item>2
+	});
+	
+	console.log(filterArry);
+	
+}
   
 </script>
 
@@ -623,5 +659,6 @@ function testConsole(){
  
 <input type="button" data-filter value="console.log();"  onclick="testConsole()"/><br />
  
+<input type="button" data-filter value="迭代函数测试"  onclick="testMap()"/><br />
 </body>
 </html>

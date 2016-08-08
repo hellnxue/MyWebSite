@@ -82,7 +82,7 @@ function test1(){
    var p2=new Person();
    
    console.log(typeof p1);//object
-   console.log(typeof Person);//function
+   console.log(typeof Person);//function  每个函数都是Function类型的对象，因此 typeof会返回function
    
    console.log(p1);//构造函数的实例对象 包含指向原型对象的指针[[Prototype]]  在火狐中的脚本是叫_proto_
    
@@ -126,7 +126,9 @@ function test1(){
    
    console.log("p1.name="+p1.name);
    
-   console.log("p1.hasOwnProperty(\"name\")="+p1.hasOwnProperty("name"));//true 实例中
+   console.log("p1.hasOwnProperty(\"name\")="+p1.hasOwnProperty("name"));//false 实例中
+   
+   console.log("Person.prototype.hasOwnProperty(\"name\")="+Person.prototype.hasOwnProperty("name"));//true 原型中
    
    console.log("Person.prototype.hasOwnProperty(\"constructor\")="+Person.prototype.hasOwnProperty("constructor"));//true 原型对象中是否存在constructor属性
    
@@ -134,7 +136,7 @@ function test1(){
    
    console.log("p1.hasOwnProperty(\"getName\")="+p1.hasOwnProperty("getName"));//true
 	
-   console.log("Person.prototype.hasOwnProperty(\"name\")="+Person.prototype.hasOwnProperty("name"));//true
+   
 }
 
 /*原型与操作符in*/
@@ -223,6 +225,7 @@ function hasPrototypeProperty2(object,name){
 
 /*构造函数Person1*/
 function Person1(){
+  
 
 }
 
@@ -233,9 +236,13 @@ function test66(){
    Person1.prototype={
     /* constructor:Person1,*///可以重新让constructor属性指向构造函数的指针
      name:"Nigola",
-	 age:70
+	 age:70,
+	 sayName:function(){
+	    return this.name;
+	 }
+	 
    };
-   var friend=new Person1(); 
+   var friend=new Person1("Tom"); 
    
    console.log(friend.constructor);//Object
    console.log(friend.constructor==Person1);//false
@@ -245,6 +252,8 @@ function test66(){
    
    console.log(Object.getPrototypeOf(friend)==Person1.prototype);//true 此处实例的原型对象指针与构造函数的原型对象是一个
  
+    console.log(friend.sayName());
+	 
    
 }
 
