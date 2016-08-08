@@ -645,7 +645,13 @@ alert("Not bind click");
 		});
 		
 		
-		
+		/*map*/
+		$('[data-function-map="map"] + :button').click(function(){
+		  $('[data-function-map="map"] input').map(function(){
+		      return  $("[data-map-p=\"p\"]").append(" "+$(this).val());
+		  })
+		  
+		});
 		
 	  
    })
@@ -672,7 +678,15 @@ alert("Not bind click");
 </select>
 <input type="button" value="val()可以给下拉菜单赋值" data-select="set"  onClick=""/><br>
  
- 
+ <h3>--------------------$.map()-----------------------------------</h3>
+ <p data-map-p="p"><b>Values: </b></p>
+<form data-function-map="map">
+  <input type="text" name="name" value="John"/>
+  <input type="text" name="password" value="password"/>
+  <input type="text" name="url" value="http://ejohn.org/"/>
+  
+</form>
+<input type="button" value="$.map()函数" data-map="map"   /><br>
  
  
   <a name="bottom" style=" opacity:0;">回到顶部</a>

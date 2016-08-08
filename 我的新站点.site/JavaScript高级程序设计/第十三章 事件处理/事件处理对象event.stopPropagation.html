@@ -15,7 +15,7 @@
   dombtn.onclick=function(event){
     alert(this.value);
 	console.log(event.bubbles);//true为事件会冒泡
-	event.stopPropagation();//阻止了body绑定的click事件处理程序 alert("Body clicked");的发生
+	//event.stopPropagation();//阻止了body绑定的click事件处理程序 alert("Body clicked");的发生
 	 
   }
   

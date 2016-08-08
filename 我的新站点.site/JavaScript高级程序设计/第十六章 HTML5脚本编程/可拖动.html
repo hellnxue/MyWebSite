@@ -50,7 +50,7 @@
    dgbDOM.addEventListener("dragstart",function(ev){
       
 	 ev.dataTransfer.setData("Text",ev.target.id);
-	 
+ 
    });
    
     var pDOM=$("#draggableP")[0];
@@ -80,6 +80,7 @@
 	dtDOM.addEventListener("dragover",function(event){
 	  //console.log(123);
 	  event.preventDefault();
+	  event.stopPropagation();
 	});
 	
 	 
@@ -91,6 +92,7 @@
 	   
 	     var datas=event.dataTransfer.getData("url");
 	  console.log(datas);
+	  event.stopPropagation();
 	});
 	
 	
@@ -98,13 +100,14 @@
 	var itDOM=$("#imgTarget")[0];
 	itDOM.addEventListener("dragover",function(e){
 	   e.preventDefault();
+	   e.stopPropagation();
 	});
 	
 	itDOM.addEventListener("drop",function(e){
 	  e.preventDefault();
 	  var data=e.dataTransfer.getData("TEXT");
 	  $( e.target).append($("#"+data).clone() );//¸´ÖÆ
-	 
+	 e.stopPropagation();
 	
 	});
 	
