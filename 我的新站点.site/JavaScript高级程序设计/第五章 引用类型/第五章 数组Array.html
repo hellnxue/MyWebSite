@@ -650,6 +650,39 @@ function testMap(){
 	console.log(filterArry);
 	
 }
+/* 
+jQuery.map()的作用等同于js数组自带的方法map()（只不过这个map是js用于处理数组的哎，jQuery.map()处理数组或对象都可以哒）
+jQuery.map()将一个数组中的所有元素转换到另一个数组中。*/
+function testJQueryMap(){
+
+   /*处理数组，返回新的项组成的数组*/
+   var ary=[3,5,2,1];
+   var result=$.map(ary,function(item,index){
+       return item*2;
+   });
+   console.log(result);//[6, 10, 4, 2]
+   
+   
+   /*处理对象，返回新的项组成的数组*/
+   var obj={
+     name:"helln",
+	 age:20
+   }; 
+  console.log("-----------------------------");
+  
+  /*item是对象的值，key是对象的键名*/
+  var newObje= $.map(obj,function(item,key){
+      return obj[key]=item+" world";
+   });
+   
+   console.log( newObje);// ["helln world", "20 world"]
+   
+   
+   console.log(typeof q);
+   
+
+   
+}
   
 </script>
 
@@ -660,5 +693,7 @@ function testMap(){
 <input type="button" data-filter value="console.log();"  onclick="testConsole()"/><br />
  
 <input type="button" data-filter value="迭代函数测试"  onclick="testMap()"/><br />
+
+<input type="button" data-filter value="jquery的$.map()函数处理数组或对象，返回新数组"  onclick="testJQueryMap()"/><br />
 </body>
 </html>

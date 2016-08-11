@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>响应规则 @media</title>
+<link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+
+     a{
+	   text-decoration:none;
+	   color:rgba(0,255,255,.2);
+	   }
+    @media print {     
+	   nav {         
+	      /*display:none; */
+		  background-color:rgba(0,255,255,.4);/*为啥背景颜色在@media里不管用。。。？*/
+		  border:2px solid green;
+		  
+	   } 
+	   nav a{
+	   text-decoration:none;
+	   color:rgba(255,0,255,1);
+	   
+	   }
+	 }
+</style>
+
+</head>
+
+<body>
+
+<nav>
+<a href="/html/index.asp">Home</a>
+<a href="/html/html_intro.asp">Previous</a>
+<a href="/html/html_elements.asp">Next</a>
+</nav>
+
+ 
+</body>
+</html>
