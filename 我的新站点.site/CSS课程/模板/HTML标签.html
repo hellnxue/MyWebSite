@@ -24,6 +24,7 @@ li{
     height: 100px;
     position: relative;
     width: 100px;}	
+	
 #aftertest::after{
    border-color: transparent transparent transparent yellow;
     border-style: solid;
@@ -34,16 +35,30 @@ li{
     position: absolute;
     top: 33%;
     width: 0;}
+	
+#aftertest::before{
+   content:"";
+   width:0;
+   height:0;
+   border-style:solid;
+   border-width:10px;
+   border-color:transparent transparent transparent #fff;
+   position:absolute;
+   right:0;
+   top:32%;
+
+}
+	
 div[data-border='feactur_border']{
 	border-color: pink blue red yellow;
     border-style: solid;
     border-width: 12px;
-    display: inline;
+   /* display: inline;  这属性在这里没有作用可言，宽和高设置为0可以使有边框的div成为一个小正方形。行内样式和设置宽高放一起不合适*/
     height: 0;
     left: 50%;
     margin-left: -12px;
     margin-top: -12px;
-    position: absolute;
+    position: absolute;/*即使同时设置了display:inline;，因为有绝对定位，div的默认高度也会取消，好神奇。*/
     top: 50%;
     width: 0;
 }
@@ -59,7 +74,28 @@ div[data-border='feactur_border']{
 	list-style-type:none;
 	}
 
-	 <!-- 奇怪，只要ul下的列表浮动了，在父元素nav上设置text-align子元素ul就没作用了-->
+	/* <!-- 奇怪，只要ul下的列表浮动了，在父元素nav上设置text-align子元素ul就没作用了-->*/
+	 
+/*用边框制造三角形*/
+[data-triangle="two"]{
+     background-color:rgba(0,0,0,0);
+	 width:200px;
+  	 height:200px;
+     margin:0 auto;/*让容器在浏览器中居中*/
+     line-height:200px;/*让容器中得元素垂直居中*/
+	 text-align:center;/*让容器中得元素水平居中*/
+	 border:1px solid pink;
+}
+
+[data-triangle="two"] div{
+   display:inline-block;/*div变为可设置宽度和高度的行内样式，方便外部容器用text-align来居中它，注：设置display:inline时，会使div元素有默认的高度，22px,及时设置了height:0，div也会有默认高度。*/
+   width:0; 
+   height:0; 
+   border:10px solid ; 
+   border-color:red green blue yellow;
+  
+}	 
+	 
 </style>
 </head>
 
@@ -168,9 +204,14 @@ div[data-border='feactur_border']{
 <div  id="aftertest">hello sir</div>
 </div>
 
-
-<div style="background-color:#00FFFF">
-  <div style="background-color:#FFCC99;">hello sir</div>
+<h3  >用边框制造三角形2</h3>
+<div data-triangle="two">
+  <div></div>
 </div>
+
+<!--对于行内元素，设置margin和padding只能在水平方向能看出明显的效果-->
+<h3  >display:inline设置元素为行内元素，会使得height:0 效果消失，因为行内元素是不可以设置高度的</h3>
+<div style="border: 1px solid; display: inline; height: 100px; margin: 20px; padding: 44px; width: 100px;">hello sir....</div>
+ <div style="border:10px solid ; border-color:pink yellow red green; height:0; width: 0;"></div>
 </body>
 </html>

@@ -3,12 +3,13 @@
 <head>
 <meta charset="gb2312" />
 <meta name="viewport"  content="width=device-width;maximumscale=1.0"/>
+<meta name="viewport" content="width=device-width; maximumscale=1.0" />
 <title>无标题文档</title>
 <link   href="web.css"  type="text/css"  rel="stylesheet"/>
 <link   href="../CSS/CSSUtil.css" type="text/css"  rel="stylesheet"/>
 <style>
 /*1000像素断点--适用于ipad 不是手机设备奥*/
-/*@media screen and (max-width:1000px){
+/*@media only screen and (max-width:1000px){
 
    body{
     margin:0 8px 20px;
@@ -42,17 +43,18 @@
 	 }	
 	section#feature_area aside form{
 	 
-	margin-top:17em;
+	margin-top:1em;
 	 }	
 	
 
 }*/
 
-@media only screen and (max-width:1000px) { /*1000 像素的断点*/
+/*1000 像素的断点*/
+@media only screen and (max-width:1000px) { 
 body {
 margin:0 8px 20px; /*添加右外边距，以防滚动条碍事儿*/
 }
-#wrapper {width:98%;} /*布局由固定变成流动*/
+#wrapper {width:98%;} /*布局由固定变成流动*//*谷歌中测试有问题，不设置width反而更好一点*/
 header {
 height:100px; /*增加页眉高度，为重新定位菜单留出空间*/
 padding:1px 0 0 0; /*防止导航菜单的上外边距叠加*/
@@ -77,6 +79,51 @@ section#feature_area aside nav {
 width:17em; /*缩小博文链接区的宽度*/
 }
 } /*1000 像素断点结束*/
+
+
+
+@media only screen and (max-width:640px) {
+header {height:100px;}
+header nav.menu {width:94%; font-size:.65em; } /*水平间距更多了*/
+section#book_area article { /*博文摘要*/
+width:auto;
+float:none;
+margin:0; padding:0; /*每本书的容器都与布局同宽*/
+}
+section#feature_area aside form,
+section#feature_area aside nav { /*博文链接*/
+margin:10px auto; /*添加上、下外边距*/
+float:none;
+}
+/*图片容器与布局同宽*/
+section#book_area article .inner {width:98%; margin:0 0 0 5px; }
+#book_area .inner h3 { /*取消文本旋转效果*/
+-webkit-transform:none;
+-moz-transform:none;
+-moz-transform-origin:none;
+-ms-transform-origin:none;
+transform:none;
+position:static;
+}
+#book_area article img { /*相对设备宽度确定图片宽度 */
+width:40%;
+}
+section#book_area {background:#fff; padding: 0 10px 10px; margin:0 0 10px;}
+#book_area article aside { /*在图片旁边显示弹出层*/
+display:block;
+position:static;
+float:right;
+margin:0; padding:0 0 20px 0;
+font-size:.8em;
+border:none;
+width:55%;
+box-shadow:none;
+}
+section#book_area article aside::before, /*隐藏弹出层的三角*/
+section#book_area article aside::after {
+display:none;
+}
+}
  
 </style>
 
