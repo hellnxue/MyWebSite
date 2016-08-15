@@ -162,13 +162,16 @@ function test11(){
 	function f() {
     return "function";
     }
-	/*如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。*/
+	/*如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。因为默认值只有数组位置的值没有或者显示指明为undefined的时候，默认值才会赋值给变量*/
 	 commonShow( "let [xx = f()] = [1]");
 	 let [xx = f()] = [1];
 	 commonShow("xx: "+ xx);//1
 	 commonShow( "let [yy = f()] = []");	
 	 let [yy = f()] = [];
 	 commonShow( "yy: "+yy);//1
+	 
+	 
+	 
    
 }
 
@@ -202,9 +205,69 @@ function test4(){
 
  commonShow(date);//undefined 原因在于函数内部，又声明了一次变量，变量提升，值是undefined
  
+  //即使用了false控制语句，变量声明依然会有
   if(false){
     var date="hello world";
   }
+}
+
+function test5(){
+  /*声明变量的同时赋值*/
+  var {foo,bar}={foo:"hello foo",bar:"hello bar"};
+  commonShow(foo);
+  commonShow(bar);
+  
+  /*先声明后赋值*/
+  var foo,bar;
+  ({foo,bar}={foo:"hi foo",bar:"hi bar"});
+  commonShow(foo);
+  commonShow(bar);
+  
+  
+  /*如果变量跟属性名不一致，变量必须写在属性后面*/
+  var obj={foo:"hello foo",bar:"hello bar"}
+  var {z,o}=obj;
+  commonShow(z);//undefined
+  
+  var {foo:z,baa:o}=obj;
+  commonShow(z);//hello foo
+  commonShow(o);//undefined
+  
+  
+  
+  /*嵌套结构的对象的变量赋值*/
+  
+  var obj2 = {
+	  p: [
+		'Hello',
+		{ y: 'World' }
+	  ]
+   };
+   
+   var {p:[x,{y:z}]}=obj2;
+   
+  /* commonShow("  p:"+p+"  x:"+x+"  z:"+z); ???? 为啥p会报错，not defined*/
+  commonShow( "  x:"+x+"  z:"+z);
+	 
+  /*  var obj3={name:["helln"],age:20};
+   var{name:[sname],age}=obj3;
+   console.log(name);//空字符串 为啥这个可以？？？？？？
+    console.log(sname);
+	 console.log(age);*/
+	 
+	 
+	/*解构失败变量会返回undefined*/
+   var {foo,bar,kkk}=obj;
+   commonShow(kkk);//undefined
+   
+   
+   /*对数组*/
+   var arry=[1,2,3];
+   var {0:first,[arry.length-1]:last}=arry;
+   commonShow(first);
+   commonShow(last);
+   
+   
 }
 
 </script>
@@ -223,6 +286,8 @@ function test4(){
 			<input type="button"  value="重复声明" onClick="test3(11)"/> 
 			 
 		    <input type="button"  value="ES5变量提升导致的问题" onClick="test4()"/>
+			
+			 <input type="button"  value="对象的解构赋值" onClick="test5()"/>
 			
 			  
 		</fieldset>

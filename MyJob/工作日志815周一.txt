@@ -1,0 +1,49 @@
+确定：
+
+ var getTitle = '总体人员名单';
+ var getTarget = $('[data-toggle="attachments"]').attr('data-target');
+var $modal = $(getTarget);
+var $uploadCompent = $modal.find('[data-toggle="upload:file"]');
+   var  $getMsgCover = $uploadCompent.find(":file").parents('[data-toggle="upload:file"]').siblings('.msg-cover');
+	
+	
+	
+	 
+	
+	$getMsgCover.css({
+		height: $getMsgCover.parent().height(),
+		lineHeight: $getMsgCover.parent().height()+'px',
+		width: $getMsgCover.parent().width(),
+		zIndex: 100
+	}).text(getTitle+'上传中...').show();
+	
+	  var formData=new FormData();
+		formData.append('uploadFiles', $(this)[0].files[0]);
+		formData.append('personId', '${personId}');
+		
+	$.ajax({
+			url:  "employee/uploadSecurityFiles",
+			type: 'POST',
+			cache: false,
+			dataType: 'json',
+			data: formData,
+			processData: false,
+			contentType: false
+
+		})
+		.done(function(d){
+			if(d.success){
+			   /* tmpl = tmpl.replace('@imgUrl', d.imgUrl)
+					.replace('@originName', oFile)
+					.replace('@uploadDate', 'Thornton')
+					.replace('@uploader', '@fat');
+				$listAttachment.append(tmpl);*/
+				
+				$getMsgCover.text(getTitle+'上传成功。');
+				setTimeout(function(){ $getMsgCover.hide(); }, 1500);
+			}else{
+				$getMsgCover.text(getTitle+'上传失败。');
+				setTimeout(function(){ $getMsgCover.hide(); }, 1500);
+			}
+
+		});
