@@ -65,11 +65,13 @@ function test2(){
 
 function substring1(){
   var cname="hello world";
-  var result=cname.substring(0,3);//substring取得两个指定下标之间的字符
+  var result=cname.substring(0,3);//substring取得两个指定下标之间的字符，第二个参数那个位置的字符截取不到的
   console.log("test substring=="+result);//hel
   
   var resultsub=cname.substr(0,3);//substr取得从start下标开始的指定长度的字符
   console.log("test substr=="+resultsub);//hel
+  
+  console.log(cname.substr(2));//llo world 单独一个参数代表从哪个位置开始截取后面所有的字符
   
   console.log("刘雪萍".substring(3));//从索引为3的位置截取到最后
 }
