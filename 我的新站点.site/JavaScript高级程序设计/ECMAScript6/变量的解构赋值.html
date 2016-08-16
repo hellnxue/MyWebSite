@@ -157,7 +157,7 @@ function test11(){
 	
 	var [y = 1] = [null];
     commonShow( "var [y = 1] = [null]");
-    commonShow( y);//null  y的默认值未生效，因为null===undefined 为false, 但null==undefined为true哎
+    commonShow( y);//null  y的默认值未生效，因为null===undefined 全等为false, 但null==undefined为true哎
 	
 	function f() {
     return "function";
@@ -281,6 +281,94 @@ function test6(){
    commonShow(len);
 }
 
+/*数值和布尔值的解构赋值  不太懂。。。。。？*/
+function test7(){
+  
+  let {toString:x}=123;
+  console.log(x);//toString()
+  console.log(x === Number.prototype.toString);//true
+}
+
+ 
+ 
+function test8(){
+  
+  /*给函数传参其实也是给变量赋值的一个过程。。。*/
+  function a([x=0,y=0]){
+    return x+y;
+  } 
+  var ary=[1,2,3];
+  var variable1=a(ary);
+  console.log(variable1);
+  
+  
+  /*解构失败，因为传入函数的参数1不具备解构的条件*/
+ /* var variable2=a(1);//TypeError:  is not iterable
+  console.log(variable2);*/
+  
+  var variable3=a([]);//要解构的数组为空时，会触发解构的默认值
+  console.log(variable3);//0
+  
+  
+  /*ES6中函数的参数可以有默认值,触发默认赋值的条件是传入空或者undefined的时候*/
+  function b(x=1){
+    return x;
+  }
+  
+  var v1=b(2);
+  console.log(v1);//2
+  
+  var v2=b();
+  console.log(v2);//1
+  
+   var v3=b(undefined);
+  console.log(v3);//1
+  
+   var v4=b(null);
+  console.log(v3);//null
+  
+   console.log("函数参数解构的默认赋值............................");
+  /*函数参数解构的默认赋值*/
+  //创建一个传入对象解构参数的函数，并给予默认对象{}，默认解构赋值x=0,y=0
+  function c({x=0,y=0}={}){
+     return [x,y];
+  }
+  
+  var c1=c({x:3,y:4});
+  console.log(c1);//[3,4]
+  
+  var c2=c({x:3});
+  console.log(c2);//[3, 0]
+  
+  var c3=c({});
+  console.log(c3);//[0, 0]
+  
+  /*下面未给函数传入任何对象参数，此处函数参数的解构就会按照默认对象进行解构赋值*/
+   var c4=c();
+  console.log(c4);//[0, 0]
+  
+  /*----------------参数解构，参数变量没有默认值的情况----------------------------------------*/
+  console.log("参数解构，参数变量没有默认值的情况............................");
+  /*只要不传入任何参数，那么就会执行默认的对象解构操作，解构{x:0,y:0}，但是这次的参数变量{x,y}是没有默认值，因此传入空对象{}的时候，{x,y}={}得到的最终结果是[undefined, undefined]，因为找不到属性x和y*/
+  function d({x,y}={x:0,y:0}){
+     return [x,y];
+  }
+  
+  var d1=d({x:3,y:4});
+  console.log(d1);//[3,4]
+  
+  var d2=d({x:3});
+  console.log(d2);//[3, undefined]
+  
+  var d3=d({});
+  console.log(d3);//[undefined, undefined]
+  
+  /*下面未给函数传入任何对象参数，此处函数参数的解构就会按照默认对象进行解构赋值*/
+   var d4=d();
+  console.log(d4);//[0, 0]
+  
+}
+
 </script>
 </head>
 
@@ -301,7 +389,10 @@ function test6(){
 			 <input type="button"  value="对象的解构赋值" onClick="test5()"/>
 			 
 			 <input type="button"  value="字符串的解构赋值" onClick="test6()"/>
-			
+			 
+			  <input type="button"  value="数值和布尔值的解构赋值" onClick="test7()"/>
+			  
+			  <input type="button"  value="函数参数的解构赋值" onClick="test8()"/>
 			  
 		</fieldset>
 		
