@@ -270,6 +270,17 @@ function test5(){
    
 }
 
+/*字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象。
+类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。*/
+function test6(){
+   var vb="hello world";
+   var [a,b,c,d]=vb;
+   commonShow(a+"</br> "+b+"</br> "+c+" </br>"+d);//h e l l 
+   
+   var {length:len}=vb;//11
+   commonShow(len);
+}
+
 </script>
 </head>
 
@@ -288,6 +299,8 @@ function test5(){
 		    <input type="button"  value="ES5变量提升导致的问题" onClick="test4()"/>
 			
 			 <input type="button"  value="对象的解构赋值" onClick="test5()"/>
+			 
+			 <input type="button"  value="字符串的解构赋值" onClick="test6()"/>
 			
 			  
 		</fieldset>

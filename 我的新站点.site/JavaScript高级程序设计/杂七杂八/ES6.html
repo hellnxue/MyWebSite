@@ -71,15 +71,27 @@ function test2(){
 		a[9]();//9
 }
 
+function test4(){
 
+  var ff=[1,2,3];
+  var cc=ff;
+  cc[0]=100;
+  console.log(ff[0],cc[0]);
+  
+   {  let a = 1;  const b = 1; } console.log(b); // ReferenceError console.log(b); // ReferenceError
+
+  
+}
+
+/*引用类型*/
 
 </script>
 </head>
 
 <body>
-<input type="button" value="匿名函数" onclick="test1()"/><br />
-<input type="button" value="let关键字" onclick="test2()"/>
-
- 
+<input type="button" value="匿名函数" onClick="test1()"/><br />
+<input type="button" value="let关键字" onClick="test2()"/>
+<input type="button" value="console.log()" onClick="test3()"/>
+ <input type="button" value="引用类型" onClick="test4()"/>
 </body>
 </html>
