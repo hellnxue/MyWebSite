@@ -267,6 +267,26 @@ function test5(){
    commonShow(first);
    commonShow(last);
    
+   /*对象的解构赋值也可以有默认值，条件是属性严格等于undefined*/
+   
+   var {x1=0,y1=0}={};
+   console.log(x1);//0
+   
+   var {x=0,y=0}=10;
+   console.log(x);//0 对象解构有默认值。x在要解构的10中找不到x属性，x===undefined,可以使得解构的默认值有效
+   
+    var {xx ,yy }=10;
+   console.log(xx);//undefined
+   
+   
+  /*对于对象的解构，如果等号右边不是对象，也不会像数组解构那样报语法错误，而是返回undefined值奥~~*/
+  var {j=1,z}="abc";
+  console.log(j+"   z:"+z);//1   undefined
+  
+  //报错
+ /* let [foz] = 1;
+   console.log(foz);*/
+   
    
 }
 
@@ -343,6 +363,15 @@ function test8(){
   var c3=c({});
   console.log(c3);//[0, 0]
   
+   console.log("-----------------------");
+   var c4=c();
+  console.log(c4);//[0, 0]
+  
+   var c5=c(1);
+  console.log(c5);//[0, 0]
+  
+    console.log("-----------------------");
+  
   /*下面未给函数传入任何对象参数，此处函数参数的解构就会按照默认对象进行解构赋值*/
    var c4=c();
   console.log(c4);//[0, 0]
@@ -367,8 +396,50 @@ function test8(){
    var d4=d();
   console.log(d4);//[0, 0]
   
+   console.log("=================================");
+  var d5=d("abc");
+  console.log(d5);
+  
+  
+   
+   
+  
+   
+  
 }
 
+function test9(){
+  function h([o,p]=[3,4]){
+      return [o,p];
+   }
+   
+    var q1=h([1,2]);
+  console.log(q1);//[1,2]
+  
+  /*只有不给函数h传入任何值得时候，或者传入undefined的时候，函数参数才会默认去解构数组[3,4]的，因为这是函数的参数，传入则有参可用，否则参数的默认值才会生效的奥~*/
+   var q2=h();
+  console.log(q2);//[3,4]
+  
+  
+  /*TypeError:  is not iterable*/
+ // var q3=h(true);
+//  console.log(q3);
+
+/*TypeError: undefined has no properties*/
+ //var [p,l]=undefined;
+//  console.log(p);
+  
+  /*给函数传入undefined会触发函数的默认参数赋值的*/
+  var q4=h(undefined);
+  console.log(q4);//[3,4]
+  
+ 
+   
+
+}
+
+
+ 
 </script>
 </head>
 
@@ -393,6 +464,11 @@ function test8(){
 			  <input type="button"  value="数值和布尔值的解构赋值" onClick="test7()"/>
 			  
 			  <input type="button"  value="函数参数的解构赋值" onClick="test8()"/>
+			  
+			  <input type="button"  value="函数参数的解构赋值-数组参数" onClick="test9()"/>
+			  
+			 <input type="button"  value="交换变量值" onClick="test10()"/>  
+			   
 			  
 		</fieldset>
 		
