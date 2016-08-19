@@ -84,13 +84,7 @@ function factorial(num){
 	}
 }
 
-//this
 
-window.color="red";
-var o={color:"blue"};
-function sayColor(){
-  console.log(this.color);
-}
 
 
 function test1(){
@@ -125,10 +119,17 @@ function applyYy(n){
    return sayEng.apply(this,arguments);
 }
 
+//this
 
+window.color="red";
+var o={color:"blue"};
+function sayColor(){
+  console.log(this);
+  console.log(this.color);
+}
 
 function test2(a,b,c){
-  //函数的属性length-同函数的内部对象arguments的属性：arguments.length
+   //函数的属性length-同函数的内部对象arguments的属性：arguments.length
   console.log(factorial.length);//1
   console.log(sayColor.length);//0
   
@@ -139,14 +140,69 @@ function test2(a,b,c){
    sayColor.apply(this);// red
    
    sayColor.apply(o);//blue
+   
+   /*jQuery的$.proxy方法可以替代js的call 来改变this的值奥*/
+   var newSayColor=$.proxy(sayColor,window);
+  newSayColor();//blue
   
   console.log(callYy("tom"));//hello tom  this指向全局对象window  因为鼠标地点击test2时，实在全局环境中运行哒
   console.log(applyYy("jack"));//hello jack
   
   
-  console.log(arguments.callee.length);//   3  length可以获取函数的参数个数
+  console.log(arguments.callee.length);//   3  length可以获取函数的参数个数 
+  
+  
+  
+  
+   
   
 }
+
+var value="apple";
+var eat={
+      value:"bread",
+	  say:function(){
+	    
+		 
+		 console.log(this.value);
+	    
+	  }
+   };
+   
+ var drink={
+      value:"milk",
+	  say:function(){
+	    
+		 
+		 console.log(this.value);
+	    
+	  }
+   };
+function test3(){
+   
+   eat.say();//bread
+   
+  /*改变函数的执行环境后 ，this指向drink*/
+  var newSay= $.proxy(eat.say,drink);
+  
+  newSay();//milk
+  
+}
+
+
+$(function(){
+
+	 /* $("#testcall").on("click",function(){
+		  eat.say();
+	  });*/
+  
+ 
+  
+     /*$("#testcall").on("click",eat.say );*/  //测试call方法
+	 
+	 $("#testcall").on("click",$.proxy(eat.say,eat) );//bread
+
+});
 </script>
 </head>
 
@@ -154,5 +210,9 @@ function test2(a,b,c){
 <input type="button"  name="f1" id="f1" value="对象Object类型和函数Function类型"/></br>
 <input type="button"   value="函数内部对象：arguments和this" onclick="test1()"/></br>
 <input type="button"   value="函数的属性和方法" onclick="test2()"/></br>
+
+<input type="button"   value="call()" onclick="test3()"/></br>
+
+<input type="button"   value="测试call方法"     id="testcall"/></br>
 </body>
 </html>
