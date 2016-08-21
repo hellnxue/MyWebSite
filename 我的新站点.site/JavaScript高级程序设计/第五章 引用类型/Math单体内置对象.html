@@ -16,6 +16,8 @@
   <input type="text" name="formInput" />
    
   <input type="button" value="random" onClick="rdmTest()"/>
+  
+   <input type="button" value="取出传入math方法的参数的最大值，或者一组数组的最大值" onClick="maxTest()" style="display:block;"/>
 </form>
 <script>
   
@@ -36,6 +38,17 @@ function rdmTest(){
 		console.log(quote);*/
 		var rdm=Math.random();
 		console.log(0.6105773050839782*3);
+}
+
+
+function maxTest(){
+  var num=Math.max(2,6,3,1);
+  console.log(num);//6
+  
+  var ary=[2,6,3,1];
+  var maxNum=Math.max.apply(Math,ary);
+  
+  console.log(maxNum);//6
 }
  
 </script>

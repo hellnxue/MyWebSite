@@ -640,20 +640,52 @@ alert("Not bind click");
 		  $(".hello.world").css("font-weight","bold");//选择有多个class的元素
 		});
 		
-		 $("[data-select=\"set\"]").click(function(){
+		 $('[data-select="set"]').click(function(){
 		  $("#zy-mobile-register-type").val("4");//选择有多个class的元素
 		});
 		
 		
-		/*map*/
+		/*
+		------------------.map()------------------------------
+		通过一个函数匹配当前集合中的每个元素,产生一个包含新的jQuery对象
+		由于返回值是一个jQuery包裹的数组，所以通常会使用get()方法将其转换成普通的数组。
+		*/
 		$('[data-function-map="map"] + :button').click(function(){
-		  $('[data-function-map="map"] input').map(function(){
-		      return  $("[data-map-p=\"p\"]").append(" "+$(this).val());
-		  })
+		   var ary=$('[data-function-map="map"] input').map(function(){
+		   
+		      
+			  return  $("[data-map-p=\"p\"]").append(" "+$this.val());
+			   
+		  }); 
+		  
+		  /*通过一个函数匹配当前集合中的每个元素,产生一个包含新的jQuery对象 可以用.get()转为js对象，也就是数组*/
+		  var newArray=$('[data-function-map="map"] input').map(function(){
+		      return  $(this).val();
+		  });
+		  
+		  console.log(newArray.get());// ["John", "password", "http://ejohn.org/"]     注：ary.[0]会只获取jQuery数组的第一个元素  
+		  
+		  console.log(newArray.get().join());//John,password,http://ejohn.org/
 		  
 		});
 		
+		/*自己扩展的jQuery插件，平均化div的高度，以最高的为准
+		  this指向被选择元素的jQuery对象
+		*/
+		$.fn.equalizeHeights = function() {
+		  /*i是下标，e是遍历的选择元素的DOM对象*/
+		  var maxHeight = this.map(function(i,e) {
+			return $(e).height();
+		  }).get();
+		 
+		  return this.height( Math.max.apply(this, maxHeight) );//传给apply方法的第一个参数必须是this哎，Math不可以  and..why????
+		};
+		
+	  $('[data-math="math"]').click(function(){
 	  
+		  $('.math div').equalizeHeights();
+		  
+	  });
    })
    
    
@@ -669,16 +701,16 @@ alert("Not bind click");
  
 <input type="button" value="上面段落会变粗" data-mulClass="oo" /><br>
 
-<h3>--------------------给下下拉菜单赋值-----------------------------------</h3>
+<h3>--------------------给下下拉菜单赋值 val(下拉框的value值)-----------------------------------</h3>
 <select id="zy-mobile-register-type"   name="registerType" >
 	<option value="1">苹果</option>
 	<option value="2">橘子</option>
 	<option value="3">西瓜</option>
 	<option value="4">桃子</option>
 </select>
-<input type="button" value="val()可以给下拉菜单赋值" data-select="set"  onClick=""/><br>
+<input type="button" value="val()可以给下拉菜单赋值" data-select="set"  /><br>
  
- <h3>--------------------$.map()-----------------------------------</h3>
+ <h3>--------------------.map()-----------------------------------</h3>
  <p data-map-p="p"><b>Values: </b></p>
 <form data-function-map="map">
   <input type="text" name="name" value="John"/>
@@ -687,6 +719,37 @@ alert("Not bind click");
   
 </form>
 <input type="button" value="$.map()函数" data-map="map"   /><br>
+ 
+ 
+ 
+ <h3>--------------------.map的实例，通过对选择元素返回指定的值拼成的数组，平衡div的高度-----------------------------------</h3>
+    <input type="button" value="equalize div heights" data-math="math">
+ 
+	<div class="math">
+	  <div   style="background:red; height: 40px; width:50px;float:left; "></div>
+	  <div   style="background:green; height: 70px;width:50px;float:left; " ></div>
+	  <div  style="background:blue; height: 50px; width:50px;float:left; "></div>
+	  <div style="clear:left;"></div>
+	</div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  
   <a name="bottom" style=" opacity:0;">回到顶部</a>

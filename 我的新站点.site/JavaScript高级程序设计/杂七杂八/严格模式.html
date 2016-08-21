@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+ 
+<style>
+  
+</style>
+<script>
+ 'use strict';
+ var color="red";
+ function test(){
+    console.log(this.color);
+ }
+
+
+ function  strictTest(){
+    test();//this is undefined
+ }
+</script>
+</head>
+
+<body>
+
+<input type="button" value="严格模式下的this" onclick="strictTest();"
+ 
+</body>
+</html>
