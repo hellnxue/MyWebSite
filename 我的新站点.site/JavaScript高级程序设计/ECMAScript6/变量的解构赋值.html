@@ -217,7 +217,7 @@ function test5(){
   commonShow(foo);
   commonShow(bar);
   
-  /*先声明后赋值*/
+  /*先声明后赋值,需要用到(),否则会报语法错误*/
   var foo,bar;
   ({foo,bar}={foo:"hi foo",bar:"hi bar"});
   commonShow(foo);
@@ -286,6 +286,14 @@ function test5(){
   //报错
  /* let [foz] = 1;
    console.log(foz);*/
+   
+   /*对象解构赋值也可以指定默认值,默认赋值的生效条件是 对象的属性值严格等于undefined。*/
+   var {a=1,b=2}={};
+   var {c=1,d=2}=11;
+   var {e=1}={e:null};
+   console.log(a,b);//1,2
+   console.log(c,d);//1,2
+    console.log(e);//null
    
    
 }
@@ -446,6 +454,9 @@ function test10(){
    [x,y]=[y,x];
    
    console.log(x,y);
+   
+   
+   
 }
 
 

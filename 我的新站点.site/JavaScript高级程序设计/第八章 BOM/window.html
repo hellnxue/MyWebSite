@@ -51,6 +51,7 @@ function test2(){
 
 function test3(){
 //setTimeout为超时调用，只在指定的时间过后执行一次
+//以下代码会在超时函数未执行时直接取消掉超时调用，结果就是没有执行超时调用。
  var t=setTimeout(function(){
   alert("1 second");
 },1000); 
@@ -102,6 +103,7 @@ function opentest(){
 <h1>jack</h1>
 <input type="button" onClick="windowName()" value="给当前窗口命名name"/><br/>
 <input type="button" onClick="test1()" value="测试window全局变量"/><br/>
+<input type="button" onClick="test3()" value="取消超时调用"/></br>
 <input type="button" onClick="test2()" value="测试框架"/><br/>
 <a href="www.baidu.com" target="topFrame">hello world</a>
 <br/>

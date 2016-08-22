@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>writer title here</title>
+<link href="../../CSS课程/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+
+<style>
+  body{
+	  background-color:#eee;}
+  input{
+   	  display: block;     
+	  width:200px;
+	  margin: 20px auto 40px;
+	  border-radius:10px;
+	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  background:-ms-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  background:-webkit-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+	  box-shadow:0 12px 8px -9px #555;
+  }
+  #wrap{
+	  overflow:hidden;
+	  width:1000px;
+	  margin:20px auto;
+	   box-sizing:border-box;
+	  }
+  
+  fieldset{
+	  float:left;
+	  width:400px;
+	  min-height:300px;
+	  margin:20px 0px;
+	/*  padding:0;*/
+	  border: none;
+	  border-right: 3px solid #eee;
+	  background-color:#fff; 
+	  border-radius: 10px 0;
+	  box-shadow: 0 12px 8px -9px #ccc;
+	  box-sizing:border-box;
+	  text-align:center;
+  }
+  
+  fieldset:nth-child(1){
+  	width:200px;}
+  
+  fieldset:nth-child(2){
+  	width:660px;
+	text-align:left;
+  
+  }
+
+  fieldset.out div{
+    display:inline-block;
+  	margin-top:20px;
+	color:#999;}
+	
+  div#btn {
+  	 
+	box-sizing:border-box;
+	float: left;
+	width: 100px;
+    margin-top: 20px;
+    min-height: 300px;
+    position: relative;
+    text-align: left;
+	
+	}
+  
+ div#btn input{
+    display: inline-block;
+    margin: -20px 0 0;
+    position: absolute;
+    top: 50%;
+    width: 100px;
+	height:25px;
+	 
+	}
+  
+</style>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+<script>
+
+/*公共方法-消息显示*/
+function commonShow(msg){
+ 
+  $("#out").append("<br/>"+String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
+}
+
+function clears(){
+   $("#out").html("");
+}
+
+ 
+ //-------------------------------------------------------------------
+ 
+ $(function(){
+   
+ 
+ 
+ 
+ });
+  
+
+function test1(){
+
+
+  
+  var variable='world';
+	
+  /*使用反引号，这个反引号在Dreamweaver里表示的居然是个点。。。。*/
+  var template=`hello ${variable}`; 
+
+  commonShow(template);//hello world
+  
+  /*多行字符串*/
+  var mutiple=`hello
+  sir`;
+    
+  console.log(mutiple);//会按照声明的样子输出
+  
+   /*普通字符串*/
+  var usually1=`In JavaScript  \n  is a line-feed.`;
+  var usually2=`In JavaScript  '\n'  is a line-feed.`;
+  
+  /*In JavaScript  
+  is a line-feed.*/
+  console.log(usually1); 
+  console.log(usually1);
+  
+  /*在模板字符串中需要使用反引号，需要用反斜杠转移奥*/
+  var ts=`This is \`me\` `;
+  console.log(ts);//This is `me` 
+  
+  /*模板字符串中可以直接放入字符串*/
+  var tp=`${'hello world'}`;
+  console.log(tp);//hello world
+  
+  
+  
+  
+  
+  
+}
+ 
+function test11(){
+   var fn=function(){
+      return "world";
+   };
+   
+    var fx=function(){
+      console.log( "world");
+   };
+   
+   var temp=`hello ${fn()}`;
+   console.log(temp);//hello world
+   
+   var temx=`hello ${fx()}`;
+   console.log(temx);//会先执行fx函数，然后输出字符串
+}
+
+ 
+
+/*IE10.0不支持参数有默认值哎*/
+function test22( ){
+
+  var a="long long";
+  var b="ago";
+  /*模板与模板可以嵌套使用，嵌套的那个需要用反引号包起来，否则会有语法错误*/
+  var c=`${a+` ${b}`}`;
+  console.log(c);//long long ago
+  
+  
+  /*执行函数时的嵌套，赶脚好复杂。。。*/
+  var arry=[{a:"hello",b:"apple"},{a:"hi",b:"banana"}];
+  var temp=array=>` ${array.map(obj=> `${obj.a+':'+obj.b}`).join(',') } `;
+  console.log(temp(arry));// hello:apple,hi:banana
+  
+  
+  
+  
+ }  
+ 
+function test3(arg){
+
+  
+}
+
+
+/*没见过的问题-很新奇，很专业*/
+var date=new Date();
+function test4(){
+
+ commonShow(date);//undefined 原因在于函数内部，又声明了一次变量，变量提升，值是undefined
+ 
+  if(false){
+    var date="hello world";
+  }
+}
+
+</script>
+</head>
+
+<body>
+	<div id="wrap">
+		<fieldset class="enter">
+		 <legend>try.....</legend>
+			 <input type="button"  value="认识模板字符串" onClick="test1()"/> 
+			
+			<input type="button"  value="模板字符串中可以调用函数" onClick="test11()"/> 
+			
+			 <input type="button"  value="模板字符串可以嵌套使用" onClick="test22()"/> 
+			
+			<input type="button"  value="函数参数默认值" onClick="test2()"/> 
+			
+			<input type="button"  value="重复声明" onClick="test3(11)"/> 
+			 
+		    <input type="button"  value="ES5变量提升导致的问题" onClick="test4()"/>
+			
+			  
+		</fieldset>
+		
+		<fieldset class="out">
+		 <legend>out.....</legend>
+		 <div id="out">
+		   result here......
+		 </div>	 
+		 
+			
+			  
+		</fieldset>
+		
+		<div id="html">
+		
+		</div>
+		
+		 
+		 
+		 <div id="btn">
+		   <input type="button"  value="clear" onClick="clears()"/> 
+		 </div>	 
+		 
+			
+			  
+		 
+	</div>
+	
+
+</body>
+</html>
