@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+
+.div1{
+   border:1px solid blue;
+   width:804px;
+   overflow:hidden;
+}
+
+.div2{
+   border:1px solid pink;
+   width:400px;
+   float:left;
+}
+
+.div3{
+   border:1px solid pink;
+   width:400px;
+   float:left;
+}
+  
+</style>
+
+</head>
+
+<body>
+
+<div class="div1">
+   <div class="div2"> <div>Who Moved My Cheese? is an amusing and enlightening story of four</div> </div>
+   <div class="div3"><div>Who Moved My Cheese? is an amusing and enlightening story of four</div> </div>
+</div>
+
+<!--当父元素设置了固定宽度后，子元素若比父元素还宽父元素也不会被撑大-->
+<div style="border:1px solid blue; width:500px; margin-top:100px; ">
+   <div style="border:1px solid red; width:600px; ">Who Moved My Cheese? is an amusing and enlightening story of four</div>
+</div>
+
+
+<!--关于fieldset的内部元素会撑大父元素的解释。。。-->
+<fieldset style="border:1px solid blue; width:500px; margin-top:100px; ">
+   <div style="border:1px solid red; width:600px; ">Who Moved My Cheese? is an amusing and enlightening story of four</div>
+</fieldset>
+
+
+<div style="border:1px solid blue; width:500px; margin-top:100px; display:inline;">
+   <div style="border:1px solid red; width:600px; ">Who Moved My Cheese? is an amusing and enlightening story of four</div>
+</div>
+
+<div style="border:1px solid blue;   margin-top:100px; display:inline;">
+  Who Moved My Cheese? is an amusing and enlightening story of four 
+</div>
+ 
+</body>
+</html>
