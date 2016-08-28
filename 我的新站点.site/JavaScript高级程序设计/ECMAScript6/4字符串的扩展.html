@@ -181,22 +181,74 @@ function test22( ){
   
   
  }  
- 
-function test3(arg){
 
+
+
+
+/*ES6为字符串添加了遍历器接口（详见《Iterator》一章），使得字符串可以被for...of循环遍历。*/
+
+function test2(){
+  var str="abcde";
+  
+  for(var s of str){
+     console.log(s);
+  }
+  
   
 }
 
+/*传统上，JavaScript只有indexOf方法，可以用来确定一个字符串是否包含在另一个字符串中。ES6又提供了三种新方法。
 
-/*没见过的问题-很新奇，很专业*/
-var date=new Date();
-function test4(){
+    includes()：返回布尔值，表示是否找到了参数字符串。
+    startsWith()：返回布尔值，表示参数字符串是否在源字符串的头部。
+    endsWith()：返回布尔值，表示参数字符串是否在源字符串的尾部。
+*/ 
+function test3(arg){
+   var str="hello world";
+   var inc=str.includes("wo");//true
+   var sta=str.startsWith("h");//true str.startsWith("e")为false
+   var end=str.endsWith("d");//true  str.endsWith("l") 为false
+   
+   commonShow(inc);
+   commonShow(sta);
+   commonShow(end);
+   
+   /*这三个方法都支持第二个参数，表示开始搜索的位置。
+   使用第二个参数n时，endsWith的行为与其他两个方法有所不同。它针对前n个字符，而其他两个方法针对从第n个位置直到字符串结束*/
+   var s = 'Hello world!';
+    
+	var s1=s.startsWith('world', 6) // true
+	var s2=s.endsWith('Hell', 5) // true  s.endsWith('Hell', 5) 为false
+	var s3=s.includes('Hello', 6) // false
+	
+	commonShow(s1);
+    commonShow(s2);
+    commonShow(s3);
+}
 
- commonShow(date);//undefined 原因在于函数内部，又声明了一次变量，变量提升，值是undefined
- 
-  if(false){
-    var date="hello world";
-  }
+/* */
+ function test4(){
+  var a= 'x'.repeat(3) // "xxx"
+  var b= 'hello'.repeat(2) // "hellohello"
+  var c= 'na'.repeat(0) //"" 重复0次是空字符串哎
+  var e='ok'.repeat(NaN);//""
+  var f='ok'.repeat("3");//"okokok"
+  var g='ok'.repeat("hh");//""
+   
+    console.log(g);
+	 
+      
+}
+
+/*padStart和padEnd一共接受两个参数，第一个参数用来指定字符串的最小长度，第二个参数是用来补全的字符串。*/
+function test5(){
+   var a='x'.padStart(2,"ab");//ax
+   var b='x'.padEnd(2,"ab");//xa
+   var c='x'.padEnd(1,"ab");//x
+   var e='x'.padEnd(3);//x  e的长度为3 省略第二个参数时会用空格补上
+   var f='1'.padStart(10, '0') ;// 0000000001 数值字符串
+   
+   
 }
 
 </script>
@@ -212,12 +264,13 @@ function test4(){
 			
 			 <input type="button"  value="模板字符串可以嵌套使用" onClick="test22()"/> 
 			
-			<input type="button"  value="函数参数默认值" onClick="test2()"/> 
+			<input type="button"  value="字符串的遍历器接口for...of " onClick="test2()"/> 
 			
-			<input type="button"  value="重复声明" onClick="test3(11)"/> 
+			<input type="button"  value="字符串查找方法" onClick="test3( )"/> 
 			 
-		    <input type="button"  value="ES5变量提升导致的问题" onClick="test4()"/>
-			
+		    <input type="button"  value="字符串重复方法repeat()" onClick="test4()"/>
+		
+		   <input type="button"  value="字符串补全方法" onClick="test5()"/>	
 			  
 		</fieldset>
 		

@@ -762,13 +762,41 @@ function copyAry(){
    
    console.log("变量数组："+newAry.join(","));//1159, 1693
    
-   /**/
-   var ary1= [1159, 1676, 1693];
-   var copyNewAry=ary1.join(",").split(",");
-   copyNewAry.splice(1,1);
    
-    console.log("原始数组："+ary1.join(","));
-    console.log("变量数组："+copyNewAry.join(","));
+   
+   /*基于一个指定数组的所有项创建一个新的数组，可以保证操作数组时不破坏原始数组奥~3~*/
+   
+   //原始数组
+   var  original= [1159, 1676, 1693];
+   
+   /*1、自己写的copy数组的方法*/
+   var copy=original.join(",").split(",");
+   copy.splice(1,1);
+   
+    console.log("原始数组："+original.join(","));      //1159, 1676, 1693
+    console.log("变量数组："+copy.join(","));//1159, 1693
+	
+	console.log("------------------concat()-------------------------------");
+	
+	//2、使用数组自带的concat()方法，不传入任何参数的时候会复制一个数组的副本，传入参数时会把参数传入到副本数组的末尾，成为一个新数组*/
+	var concatArray=original.concat(); 
+	
+	//删除新数组的第一个元素
+	var temp=concatArray.splice(0,1);
+	
+	console.log("原始数组："+original);//1159,1676,1693
+	console.log("变量数组:"+concatArray);//1676,1693
+	
+	console.log("------------------slice()-------------------------------");
+	
+	//3、slice()能基于当前数组的一个或多个项创建一个新数组，通过传入下标来创建新数组，开始和结束，只传入一个参数代表slice()返回从指定位置开始到当前数组末尾的所有项*/
+	var sliceArray=original.slice(0); //从数组开始到数组结尾，完整的复制了原始数组
+	
+	//删除新数组的第一个元素
+	var temp=sliceArray.splice(0,1);
+	
+	console.log("原始数组："+original);//1159,1676,1693
+	console.log("变量数组:"+sliceArray);//1676,1693
    
 }
   
@@ -790,6 +818,6 @@ function copyAry(){
 
 <input type="button" data-filter value="删除数组中的指定元素"  onclick="removeElement()"/><br />
 
-<input type="button" data-filter value="用一个数组拷贝出一个新的数组"  onclick="copyAry()"/><br />
+<input type="button" data-filter value="基于一个数组拷贝出一个新的数组"  onclick="copyAry()"/><br />
 </body>
 </html>
