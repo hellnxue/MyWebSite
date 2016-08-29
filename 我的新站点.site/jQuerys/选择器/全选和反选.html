@@ -16,6 +16,7 @@ $(function(){
   /**
 	 * jQuery扩展插件，将form表单内容序列化为Object
 	 * 使用方式：$("选择器").serializeObject();
+	   this代表用此方法的表单的jQuery对象，不是DOM对象
 	 */
 	$.fn.extend({
 		serializeObject:function(){
@@ -296,19 +297,67 @@ $("#tc").on("click",function(){
 	var hl="<div>hehe</div>";
 	console.log($(hl).find("div").html());//undefined
  }
- 
+
+
+/*jQuery的data()方法，存取数据*/ 
  function tttt(ts){
    
    var variable=$(ts).data("actionMove");
    console.log(variable);//actions
+   
+   
+   var temp={
+     name:"helln",
+	 age:"20"
+   };
+   /*.data()存取时的数值类型都会保持一致*/
+   $(ts).data("temp",temp);
+   
+   var gettemp=$(ts).data("temp");
+   console.log(gettemp);// Object { name="helln",  age="20"}
+   console.log(gettemp instanceof Object);//true
  }
+ 
+ /*<div data-dom-test="div" data-typeof-test="div" data-role="page" data-last-value="43" data-hidden="true" data-options='{"name":"John"}' data-test='100.0'>data()存取各种类型的值</div>
+*/
+ function testData(){
+ 
+    /*data()将数据存储在选择的元素上，只要定位此元素就可以取出相应的数据，不必非得用存储时选择的那个元素，比如$d和$e代表的就是用data()存储数据的同一个元素*/
+    var $d=$('[data-typeof-test="div"]');
+	var $e=$('[data-dom-test="div"]');
+	
+	var num=$d.data("test");//100.0
+	console.log(typeof num);//string  100.0不会转换数值类型，用字符串表示
+	
+	var nm=$d.data("lastValue");//43  
+	console.log(typeof nm);//number
+	
+	
+	var nu=$e.data("lastValue");//43  
+	console.log(nu);
+	
+	var nn=$d.attr("data-last-value");//43
+	console.log(nn);
+	console.log(typeof nn);//string
+	
+	var dd=$d.data();
+	console.log(dd);
+	
+	$d.data("name","helln");
+	var ss=$d.data();
+	console.log(ss);
+	
+ }
+ 
+ 
+ 
  
  function testSerialize(){
  
-    var sObject=$("form").serializeObject();
+    var sObject=$("form.serialize").serializeObject();
 	var jsonObject=JSON.stringify(sObject);//将js对象转成JSON对象
 	
-    $("#results1").append( "<tt>" + decodeURI($("form").serialize()) + "</tt>" );
+    $("#results1").append( "<tt>" + decodeURI($("form.serialize").serialize()) + "</tt>" );
 	$("#results2").append( "<tt>" + jsonObject + "</tt>" );
 	 
  }
@@ -482,17 +531,21 @@ hihi
 <p id="attribute" data-attr="hehe"><span>hello world</span><span id="san">hello helln</span></p><br />
 <input type="button" value="属性选择器[attribute]" onClick="testAttribute(this)"/><br />
 
-<p>------------------jquery的data()方法能获取由data自定义的属性值奥，新奇啊，DOM中是dataset啊-----------------------------</p>
+<h3>------------------jquery的data()方法能获取由data自定义的属性值奥，新奇啊，DOM中是dataset啊-----------------------------</h3>
 <div data-action-move="actions" onClick="tttt(this)">Clike me you can see data-action-move's value </div><br>
+
+<div data-dom-test="div" data-typeof-test="div" data-role="page" data-last-value="43" data-hidden="true" data-options='{"name":"John"}' data-test='100.0'>data()存取各种类型的值</div>
+
+<input type="button" value="测试data()存取的数据值类型" onClick="testData()"/><br />
+
 
 
 
 <p>------------------jquery表单序列化之将一个表单序列化成对象Object,用自定义插件方法serializeObject() -----------------------------</p>
-<input type="button" value="表单序列化" onClick="testSerialize()"/><br />
 
 <p id="results1"><b>Results(表单序列化): </b> </p>
 <p id="results2"><b>Results(表单序列化成对象): </b> </p>
-<form>
+<form class="serialize">
   <select name="single">
     <option>Single</option>
     <option>Single2</option>
@@ -502,11 +555,28 @@ hihi
     <option>Multiple2</option>
     <option selected="selected">Multiple3</option>
   </select><br/>
+  
   <input type="checkbox" name="check" value="check1"/> check1
   <input type="checkbox" name="check" value="选择2" checked="checked"/> check2
+  
   <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
   <input type="radio" name="radio" value="radio2"/> radio2
-  <input type="file" name="myfiles"  />上传表单不会出现在序列化完的结果中
+  <!--上传表单不会出现在序列化完的结果中-->
+  <input type="file" name="myfiles"  />
+  <br>
+  普通text控件：
+   <input type="text" name="num" value="200"   />
+   <br>
+  只读控件：
+  <!--只读控件可以被序列化-->
+  <input type="text" name="stuName" value="小新" readonly="readonly"  />
+  <br>
+  禁用的控件：
+  <!--禁用控件不会出现在序列化结果中-->
+   <input type="text" name="age" value="20"  disabled="disabled"/>
+   <br>
+  <input type="button" value="表单序列化" onClick="testSerialize()"/><br />
+
 </form><br>
 <p>------------------选择器：parent()与parents()的区别-----------------------------</p>
 <div>

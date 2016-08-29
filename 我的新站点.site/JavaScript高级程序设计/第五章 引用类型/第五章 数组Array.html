@@ -680,7 +680,20 @@ function testJQueryMap(){
    
    console.log(typeof q);
    
-
+   /*$.map()与js的数组的map方法都可以将处理完的结果组成一个新的数组*/
+   var obja=[{name:"a",age:10},{name:"b",age:20},{name:"c",age:30}];
+   
+   var rt1=obja.map(function(item,index,ary){
+       return item.name;
+   });
+   
+   var rt2=$.map(obja,function(item,index){
+      return item.name;
+   });
+   
+   console.log(obja);
+   console.log(rt1);//["a", "b", "c"]
+   console.log(rt2);//["a", "b", "c"]
    
 }
 
