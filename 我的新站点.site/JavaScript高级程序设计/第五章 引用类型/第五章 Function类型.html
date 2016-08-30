@@ -128,8 +128,10 @@ function sayColor(){
   console.log(this.color);
 }
 
+
+
 function test2(a,b,c){
-   //函数的属性length-同函数的内部对象arguments的属性：arguments.length
+  // 函数的属性length-同函数的内部对象arguments的属性：arguments.length
   console.log(factorial.length);//1
   console.log(sayColor.length);//0
   
@@ -156,6 +158,18 @@ function test2(a,b,c){
   
    
   
+}
+
+function sayCall(){
+ 
+  console.log(this);
+  alert(this);
+}
+function test22(){
+   sayColor.call(null);//red
+   sayCall(1);
+   sayCall("hello");
+   sayCall(true);
 }
 
 var value="apple";
@@ -210,6 +224,8 @@ $(function(){
 <input type="button"  name="f1" id="f1" value="对象Object类型和函数Function类型"/></br>
 <input type="button"   value="函数内部对象：arguments和this" onclick="test1()"/></br>
 <input type="button"   value="函数的属性和方法" onclick="test2()"/></br>
+
+<input type="button"   value="函数的属性和方法-call()" onclick="test22()"/></br>
 
 <input type="button"   value="call()" onclick="test3()"/></br>
 
