@@ -162,14 +162,18 @@ function test2(a,b,c){
 
 function sayCall(){
  
+  console.log(this.color);
   console.log(this);
-  alert(this);
 }
+
+/*怎么this的结果都指向了window哎*/
 function test22(){
-   sayColor.call(null);//red
-   sayCall(1);
-   sayCall("hello");
-   sayCall(true);
+   
+   
+    sayCall(null);
+    sayCall(1);
+    sayCall("hello");
+    sayCall(true);
 }
 
 var value="apple";
@@ -203,6 +207,21 @@ function test3(){
   
 }
 
+function test4(){
+  var v="   ";
+  var c=" ab  c";
+  console.log(v.length);//3
+  console.log(v=="");//false
+  console.log($.trim(c));
+   console.log($.trim(v).length);
+   
+   var vv="hello";
+   var ss=vv.substr(1);
+   var aa=vv.substring(1);
+    console.log(ss);
+	console.log(aa);
+}
+
 
 $(function(){
 
@@ -230,5 +249,7 @@ $(function(){
 <input type="button"   value="call()" onclick="test3()"/></br>
 
 <input type="button"   value="测试call方法"     id="testcall"/></br>
+
+<input type="button"   value="空字符串的长度"      onclick="test4()"/></br>
 </body>
 </html>
