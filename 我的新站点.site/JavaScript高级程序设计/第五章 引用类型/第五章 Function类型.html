@@ -208,7 +208,7 @@ function test3(){
 }
 
 function test4(){
-  var v="   ";
+ /* var v="   ";
   var c=" ab  c";
   console.log(v.length);//3
   console.log(v=="");//false
@@ -220,6 +220,16 @@ function test4(){
    var aa=vv.substring(1);
     console.log(ss);
 	console.log(aa);
+	*/
+	
+	var name="ËÎ¼ÑºÎ";
+	var nn=name.substr(name.indexOf("¼Ñ"),name.indexOf("¼Ñ"));
+	var na=name.substr(name.indexOf("¼ÑºÎ"),"¼ÑºÎ".length);
+	console.log(nn);
+	console.log(na);
+	
+	var cc=name.replace("¼Ñ","h");
+	console.log(cc);
 }
 
 

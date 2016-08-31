@@ -31,19 +31,7 @@
 <meta name="msapplication-TileColor" content="#0e90d2">
 <link rel="stylesheet" href="assets/css/amazeui.min.css">
 <link rel="stylesheet" href="assets/css/app.css">
-<!--json数据-->
-<script type="text/javascript"  src="assets/js/tongxunlu.js"></script>
-<!--将汉字转为拼音的js-->
-<script type="text/javascript"  src="assets/js/pin.js"></script>
-<script src=" assets/js/jquery.min.js"></script> 
-<script src=" assets/js/int.web.js"></script> 
-<script src="assets/js/amazeui.js"></script> 
-<script src="assets/js/int.pageajax.js"></script>
-<script src="assets/js/jquery.transit.js"></script> 
-<script src="assets/js/int.com.js" type="text/javascript"></script>
-<script src="assets/js/int.datecur.js" type="text/javascript"></script>
-<script type="text/javascript"  src="assets/js/jquery.dialog.js"></script>
-<script type="text/javascript"  src="assets/js/jquery.bgiframe.min.js"></script>
+
 
 </head>
 <body>
@@ -232,6 +220,21 @@
   <input type="hidden" name="temail" id="temail">
 </form>
 
+
+
+<!--json数据-->
+<script type="text/javascript"  src="assets/js/tongxunlu.js"></script>
+<!--将汉字转为拼音的js-->
+<script type="text/javascript"  src="assets/js/pin.js"></script>
+<script src=" assets/js/jquery.min.js"></script> 
+<script src=" assets/js/int.web.js"></script> 
+<script src="assets/js/amazeui.js"></script> 
+<script src="assets/js/int.pageajax.js"></script>
+<script src="assets/js/jquery.transit.js"></script> 
+<script src="assets/js/int.com.js" type="text/javascript"></script>
+<script src="assets/js/int.datecur.js" type="text/javascript"></script>
+<script type="text/javascript"  src="assets/js/jquery.dialog.js"></script>
+<script type="text/javascript"  src="assets/js/jquery.bgiframe.min.js"></script>
 <script>
  var zimuArray=[ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',  
 	             'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'  
@@ -346,7 +349,7 @@ $(function() {
 					handlezimu1(chars);
 				}
 				
-				//多个字母(1.每个汉字拼音的首字母组合  2.汉字的部分全拼)
+				//多个字母(1.每个汉字拼音的首字母组合  2.汉字的部分全拼 )
 				if ( charsLen > 1) {
 					 
 					handlezimu2(chars, "dzm");
@@ -358,7 +361,7 @@ $(function() {
 			//输入汉字
 			if (isC) {
 				//console.log("输入的是汉字====================");
-				handlezimu2(chars, "ll");
+				handlezimu2(chars);
 			}
 
 		} else {//显示全部数据
@@ -419,14 +422,16 @@ $(function() {
 
 		 
 		if (zh === "dzm") {
-			chars = chars.toUpperCase();//输入的值为字母时转成大?
+			chars = chars.toUpperCase();//输入的值为字母时转成大写
 		}
 		 
-		$("#clist").html("");//清空
+		
 		var tempHtml = "";
 		var reclen = tempObject.rec.length;
 		var rec = tempObject.rec;
-
+		
+		$("#clist").html("");//清空
+		
 		for (var i = 0; i < reclen; i++) {
 
  
@@ -476,11 +481,13 @@ $(function() {
 								+','+"'"+contactsAry[x].email+"'"+')"  data-name=' + tempName + '  data-id=' + x
 								+ '>' + hfe + '</li>';
 					}
+					
+					continue;
 
 				}
 
-				//按照汉字或者汉字拼音的首字?  singleGroup.indexOf(chars) != -1    replaceIndexof(singleGroup,chars)
-				if (singleGroup !== "nosingleGroup"&& replaceIndexof(singleGroup, chars)) {
+				//按照汉字拼音的首字母  singleGroup.indexOf(chars) != -1    replaceIndexof(singleGroup,chars)
+				if (singleGroup !== "dzm"&& replaceIndexof(singleGroup, chars)) {
 				     
 					var first = tempName.substr(0, chars.length);
 					var end = tempName.substring(first.length);
@@ -490,6 +497,25 @@ $(function() {
 							+"'"+','+"'"+contactsAry[x].position+"'"+','+"'"+contactsAry[x].mobile+"'"+','+"'"+contactsAry[x].phone+"'"+','+"'"
 							+contactsAry[x].email+"'"+ ')" data-name=' + tempName + '  data-id=' + x
 							+ '>' + hfe + '</li>';
+					continue;
+
+				}
+				
+				//按照汉字
+				if (singleGroup!=="dzm"&& replaceIndexof(singleGroup, chars,true)) {
+				    
+					alert(singleGroup);
+					//var first = tempName.substr(tempName.indexOf(chars), chars.length);
+
+					var hfe =  '<span style="color:#00FF00">' + chars
+							+ '</span>' ;
+					var highlight=tempName.replace(chars,hfe);
+					
+					tempHtml += '<li onClick="updateClass('+x + ','+"'"+contactsAry[x].CNAME+"'"+','+"'"+contactsAry[x].DEPT_NAME
+							+"'"+','+"'"+contactsAry[x].position+"'"+','+"'"+contactsAry[x].mobile+"'"+','+"'"+contactsAry[x].phone+"'"+','+"'"
+							+contactsAry[x].email+"'"+ ')" data-name=' + tempName + '  data-id=' + x
+							+ '>' + highlight + '</li>';
+					continue;
 
 				}
 			}
@@ -593,16 +619,29 @@ $(function() {
 
 	//indexOf匹配后重叠字符会出错，替代方法如下
 	/*
-	   tempName:处理成全拼的姓名
+	   用于过滤时判断输入的字符与数据堆中有无匹配的项，虽然传入的参数有三种，但是都是用顺序匹配来决定能否过滤出结果来
+	   tempName:处理成全拼的姓名 or（ 姓名全拼的首字母组合 or 汉字姓名）
 	   inputVal:输入的全拼字母
 	*/
-	function replaceIndexof(tempName, inputVal) {
-
-		var c = tempName.substr(0, inputVal.length);
+	function replaceIndexof(tempName, inputVal ,isChinese) {
+		
+		if(isChinese){
+		
+		   var len=tempName.indexOf(inputVal);
+		   
+		   if(len!=-1){
+		      return true;
+		   }
+		
+		}else{
+		
+		    var c = tempName.substr(0, inputVal.length);
 		 
-		if (inputVal === c) {
-			return true;
+			if (inputVal === c) {
+				return true;
+			}
 		}
+		
 		return false;
 	}
 	
