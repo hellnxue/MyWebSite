@@ -16,12 +16,24 @@ $(document).ready(function(){
 		$(this).parents(".city-wrapper").find("li").removeClass('cur');
 		$(this).addClass('cur');
 	})
-	//城市
-	$(".city-nav li").each(function (e) {
+	//设置通讯录页面滚动条的位置
+	$(".city-nav li").each(function (index) {
 		$(this).click(function () {
 			  //$(this).parents("li").addClass("cur").siblings().removeClass("cur");
 			  //$(".city-wrapper").animate({ scrollTop: $(".city-wrapper h3").get(e).offsetTop}, 1000);
-			  $(document).scrollTop($(".cityhli").get(e).offsetTop);
+			  
+			  
+			  var key=$(this).data("key");
+			  
+			  var keyDOM=$(".cityhli.city-key-"+key).get(0);
+			  
+			  if(keyDOM){
+				    
+				   $(document).scrollTop(keyDOM.offsetTop);
+				  
+				  
+				 }
+			  
 		});
 	});
 	//通讯录

@@ -708,6 +708,8 @@ alert("Not bind click");
 		 
 		 $("[data-mulClass='oo']").click(function(){
 		  $(".hello.world").css("font-weight","bold");//选择有多个class的元素
+		  
+		  console.log($(".hello sishdiddjddk").get(0));
 		});
 		
 		 $('[data-select="set"]').click(function(){
@@ -757,7 +759,23 @@ alert("Not bind click");
 		  
 	  });
    })
-   
+  
+  
+  function testScrollTop(ts){
+     
+
+	var st=$(ts).next("div").scrollTop( );
+	var os=ts.offsetTop;//div元素距离页面顶部的位置
+	 
+	 console.log(st);
+	  
+	   
+	  console.log("$(document).scrollTop():"+$(document).scrollTop());//当前文档的滑块的位置
+	  console.log("ts.offsetTop:"+os);
+	  
+	  //设置页面文档的滚动条的位置
+	  //$(document).scrollTop($(document).scrollTop()-500)
+  } 
    
 </script>
 <h3>---------------jQuery选择器基础：selector1,selector2,selectorN.一次选择多个选择器，方便去做同一件事。比add()方法简洁，当然add()方法用在适当的地方还是蛮好用的，特别是方法中，逐个添加选择器到一起。------------------------------</h3>
@@ -805,10 +823,18 @@ alert("Not bind click");
  
  
  
+ <h3>--------------------.scrollTop() 获取匹配的元素集合中第一个元素的当前垂直滚动条的位置或设置每个匹配元素的垂直滚动条位置--------- -</h3>
  
+ <input type="button" value="scrollTop()"  onClick="testScrollTop(this)">
+ <div data-scroll-top="scroll" style="width:300px; height:300px; margin:10px auto; padding:10px; background-color:#eee; overflow:auto; border:1px solid #FFFF00;">
+  <h3 style="text-align:center;">有滚动条的div元素</h3>
+  <div style="width:600px; height:600px; margin:10px auto; text-indent:30px;">
+  
+       拖动滚动条，然后点击按钮测试div元素的滚动条的垂直位置。 获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置获取当前元素滚动条的位置
  
- 
- 
+  </div>
+    
+ </div>
  
  
  
