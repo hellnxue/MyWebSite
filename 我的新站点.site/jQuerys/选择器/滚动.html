@@ -18,11 +18,35 @@ overflow:auto;
 </head>
 <body>
   <div class="demo"><h1>lalala</h1><p>Hello</p></div>
+    <div class="demo"><h1>lalala</h1><p>Hello</p></div>
+	  <div class="demo"><h1>lalala</h1><p>Hello</p></div>
+  <div>
+    <input type="button" value="test" onClick="testHeight();"
+  </div>
 <script>
 
 $("div.demo").scrollTop(400);
 
 console.log($("div.demo").scrollTop());
+
+
+function testHeight(){
+  var doch=$(document).height();//获得页面的高度
+  var winh=$(window).height();//获得可视化窗口的高度
+  
+  console.log("document height:"+doch);
+  console.log("window height:"+winh);
+  
+  var dochs=$(document).scrollTop();
+  var winhs=$(window).scrollTop();
+  var flag=dochs==winhs;//true
+   console.log("document scrollTop:"+dochs);
+  console.log("window scrollTop:"+winhs);
+  
+  alert(dochs);
+  alert(winhs);
+  
+}
 </script>
  
 </body>

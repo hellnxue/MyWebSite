@@ -11,9 +11,9 @@ $(function(){
  	 //延迟加载（由于scroll事件自身会有重复执行的问题，所以，用超时函数与布尔值去阻止滚动时的重复）
   	 $(window).scroll(function() {
   	      
-  	        var  scrollTop = $(window).scrollTop(); //滚动条距离顶部的高度
-  	        var  scrollHeight = $(document).height(); //当前页面的总高度
-  	        var  windowHeight = $(window).height(); //当前可视的页面高度
+  	        var  scrollTop = $(window).scrollTop(); //滚动条距离顶部的高度 也可以用$(window).scrollTop()
+  	        var  scrollHeight = $(document).height(); //当前页面的总高度 body元素的盒子高度
+  	        var  windowHeight = $(window).height(); //当前可视的页面高度 （可视化窗口的高度）
   	        if ((scrollTop + windowHeight >= scrollHeight)) { //距离顶部+当前高度 >=文档总高度 即代表滑动到底部
   	        		
   	           if(flag){
