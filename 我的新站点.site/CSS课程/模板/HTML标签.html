@@ -141,7 +141,9 @@ div[data-border='feactur_border']{
   <p><small> <small>very small:This is a nice day today.</small></small></p>
    <p><small> <small><small>very very small:This is a nice day today.</small></small></small></p>
 
-<!--<cite> 标签通常表示它所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。-->
+<!--<cite> 标签通常表示它所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。
+<cite> 标签定义作品（比如书籍、歌曲、电影、电视节目、绘画、雕塑等等）的标题。不包括人名
+-->
  <h3>cite标签</h3>
  <p><cite>《谁偷了我的奶酪》</cite>是一本讲述变化是不变的书。</p>
  
@@ -153,6 +155,44 @@ div[data-border='feactur_border']{
 	 <img src="../../image/mxx/m1.jpg"/>
  </div>
 
+<h3 style="margin-top:200px;">dl标签 定义一个描述列表。dl标签与 dt （定义项目/名字）和 dd （描述每一个项目/名字）一起使用。</h3>
+<div style="text-align:center;">
+  <dl>
+  <dt >水果...</dt>
+  <dd style="margin-left:0;">苹果</dd><!--默认有40px的左外边距，可以重写样式去掉默认样式-->
+  <dd>香蕉</dd>
+  <dt>果汁...</dt>
+  <dd>苹果汁</dd>
+  <dd>香蕉汁</dd> 
+</dl>
+</div>
+
+<!--
+<address>是块级元素
+
+<address> 标签定义文档作者/所有者的联系信息。
+
+如果 <address> 元素位于 <body> 元素内部，则它表示该文档作者/所有者的联系信息。
+
+如果 <address> 元素位于 <article> 元素内部，则它表示该文章作者/所有者的联系信息。
+
+<address> 元素的文本通常呈现为斜体。大多数浏览器会在该元素的前后添加换行。-->
+<h3 >address标签</h3>
+<div style="text-align:center;">
+	<p>重写了样式之后的</p>
+	 <address style="font-style:normal; font-size:14px;"><!--默认为斜体，可以重写默认样式-->
+		Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+		Visit us at:<br>
+		Example.com<br>
+		Box 564, Disneyland<br>
+		USA
+	</address>
+	<p>默认样式为斜体</p>
+	 <address  ><!--默认为斜体，可以重写默认样式-->
+		 007 street<br>
+		 Some City, State XXXXX
+	</address>
+</div>
  
  <h3>label标签的for属性</h3>
  <div style="margin-top:250px;">

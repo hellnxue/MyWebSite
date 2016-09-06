@@ -544,6 +544,27 @@ h3{
 	   }
 	   
 	   
+	   .textOverflow div{
+		   border:1px solid green; 
+		   width:300px;   
+		   margin:10px auto; 
+		   white-space:nowrap;
+		   overflow:hidden;
+		    }
+			
+	 .textOverflow div:hover{
+	       text-overflow:inherit;
+		   overflow:visible;
+	 }
+	  
+	   .textOverflow   .a{
+	       text-overflow:ellipsis;
+	   }
+	   
+	    .textOverflow  .b{
+	       text-overflow:"  hello world";
+	   }
+	   
 </style>
 
 </head>
@@ -751,6 +772,35 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 <h3 >line-height只能使一行文字在父元素中有垂直居中效果</h3>
 <div class="lineheight">
       hello world
+</div>
+
+<h3 >white-space 属性设置如何处理元素内的空白。</h3>
+<div class="whiteSpace">
+
+     <strong>正常情况下，段落p会自动换行：</strong>
+	<p style="color:#999;">As developers ourselves, we know how important it is to spend your timing crafting the code that you love into the perfect application for your users. Writing yet another CRUD application and then perfecting all of its little details can consume a huge amount of time</p>
+	
+	
+	 <strong> nowrap 文本不会换行，文本会在在同一行上继续，直到遇到 &lt;br&gt; 标签为止。：</strong>
+	 <p style="white-space:nowrap; color:#999;">As developers ourselves, we know how important it is to spend your timing crafting the code that you love into the perfect application for your users. Writing yet another CRUD application and then perfecting all of its little details can consume a huge amount of time</p>
+	
+	 <strong> pre 	空白会被浏览器保留。其行为方式类似 HTML 中的 &lt; pre &gt; 标签。：</strong>
+	 <p style="white-space:pre; color:#999;">
+	  As developers ourselves,
+	  we know how important it is to spend your timing crafting the code that you love into the perfect application for your users. 
+	  Writing yet another CRUD application and then perfecting all of its little details can consume a huge amount of time</p>
+</div>
+
+
+<h3 >text-overflow规定当文本溢出包含元素时发生的事情</h3>
+<div class="textOverflow">
+    
+	<div > we know how important it is to spend your timing crafting the code  </div>
+	<!--text-overflow:ellipsis;显示省略符号来代表被修剪的文本。--> 
+	<div  class="a"> we know how important it is to spend your timing crafting the code </div> 
+	<!--text-overflow:string;使用给定的字符串来代表被修剪的文本。--> 
+	<div class="b"> we know how important it is to spend your timing crafting the code.</div> 
+  
 </div>
 
 <h3 >verticle-align</h3>
