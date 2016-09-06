@@ -16,7 +16,7 @@
 	 
 	  $("#argumentsBtn").click(function(){
 	   
-		argumentsInput("hello");
+		argumentsInput("hello");//b是undefined
 		argumentsInput("hello","world");
 	 })
   })
@@ -27,8 +27,21 @@
   }
   
   
-  function radioval(){
-     
+  function radioval(th){
+      var $selected=$(th).siblings("input").filter(":checked") ;
+	  console.log($selected[0].value);
+  }
+  
+  function sonselector(){
+    var $p=$(".son>p");
+	var $sn=$(".son>*");//选择.son后的所有直接子元素，不包括子元素的后代元素
+	var $hd=$(".son *");//选择.son的所有后代元素
+	console.log($p.length);//3
+	console.log($sn.length);//4
+	console.log($hd.length);//5
+	console.log($sn);///p, p, p, input
+	console.log($hd);//p, p, p, span, input
+	
   }
 
 </script>
@@ -42,7 +55,7 @@
 <img src="ss" alt="sorry"/><br>
 
 
-<h3>------------------------------获得id的属性值以modal开头的div对象---------------------------------------------------</h3>
+<h3>------------------------------获得以modal开头的div对象的id属性值---------------------------------------------------</h3>
 <div id="modal0">
   <div>
     <input type="button" id="parentsBtn" value="parents方法和属性选择结合">
@@ -53,12 +66,23 @@
 <h3>------------------------------函数参数定义多个，但传入不全的情况下---------------------------------------------------</h3>
  
  <input type="button" id="argumentsBtn" value="函数参数传值"><br>
-<fieldset>
-   <legend>单选按钮</legend>
+<fieldset >
+   <legend >单选按钮</legend>
    <input type="radio" name="sex" value="1" />男
    <input type="radio" name="sex" value="2"   checked="checked" />女<br>
- <input type="button" id="radioval" value="获得单选按钮的值" onClick="radioval()"><br>
+   <input type="button" id="radioval" value="获得单选按钮的值" onClick="radioval(this)"><br>
 </fieldset>
+
+
+<h3>------------------------------子星选择器 选择指定选择器的所有直接子元素---------------------------------------------------</h3>
+ <div class="son">
+    <p>hello</p>
+	<p>world</p>
+	<p>apple
+	  <span>banana</span>
+	</p>
+	<input type="button"   value="子星选择器" onClick="sonselector()">
+ </div>
  
 </div>
 </body>

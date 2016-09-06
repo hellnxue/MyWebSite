@@ -542,28 +542,28 @@ h3{
 	 
 	   
 	   }
+  /*-------------------------------text-shadow属性------------------------------*/	   
 	   
-	   
-	   .textOverflow div{
+	  .textOverflow div{
 		   border:1px solid green; 
 		   width:300px;   
 		   margin:10px auto; 
-		   white-space:nowrap;
-		   overflow:hidden;
+		   white-space:nowrap;/*强制文本在div中不换行*/
+		   overflow:hidden;/*子元素的宽度比父元素宽的时候，隐藏掉多出来的子元素内容*/
 		    }
 			
 	 .textOverflow div:hover{
 	       text-overflow:inherit;
 		   overflow:visible;
-	 }
+	  }
 	  
-	   .textOverflow   .a{
-	       text-overflow:ellipsis;
-	   }
+     .textOverflow  .a{
+	   text-overflow:ellipsis;/*显示省略符号来代表被修剪的文本*/
+     }
 	   
-	    .textOverflow  .b{
-	       text-overflow:"  hello world";
-	   }
+	 .textOverflow  .b{
+	   text-overflow:"  hello world";/*text-overflow:string;使用给定的字符串来代表被修剪的文本。*/
+     }
 	   
 </style>
 
@@ -802,6 +802,8 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 	<div class="b"> we know how important it is to spend your timing crafting the code.</div> 
   
 </div>
+
+
 
 <h3 >verticle-align</h3>
 <div class="verticalAlign">
