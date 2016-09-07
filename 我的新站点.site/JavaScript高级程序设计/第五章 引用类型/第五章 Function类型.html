@@ -318,7 +318,16 @@ function test5(){
      var html=$(id)[0].innerHTML;
 	 console.log("html:"+html);
 	 console.log("html.replace:"+html.replace(/[\r\n\t]/g," "));
-	 var result="var p=[];with(obj){p.push('"
+	 
+/* <ul>      <% for ( var i=0; i< users.length;i++){ %>   <li><a href="<%=users[i].url%>"><%=users[i].name%></a></li>   <%}%>    </ul> */
+	 
+	 console.log("html.replace.replace:"+html.replace(/[\r\n\t]/g," ") .replace(/<%=(.*?)%>/g,"');p.push($1);p.push('"));
+/*
+
+ <ul>      <% for ( var i=0; i< users.length;i++){ %>   <li><a href="');p.push(users[i].url);p.push('">');p.push(users[i].name);p.push('</a></li>   <%}%>    </ul> 
+
+*/	
+    var result="var p=[];with(obj){p.push('"
 	 +html.replace(/[\r\n\t]/g," ")
 	 .replace(/<%=(.*?)%>/g,"');p.push($1);p.push('")
 	 .replace(/<%/g,"');")
