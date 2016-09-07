@@ -344,6 +344,16 @@ function test5(){
 	
 	 
   }
+  
+  function test7(){
+    var str="<a href='<%=users[i].url%>'>><%=users[i].name%></a>";
+	var rstr=str.replace(/<%=(.*?)%>/g,"p.push($1)");
+	console.log(rstr);
+  }
 </script>
+
+
+<input type="button"   value="ÕýÔò"      onclick="test7()"/></br>
+
 </body>
 </html>
