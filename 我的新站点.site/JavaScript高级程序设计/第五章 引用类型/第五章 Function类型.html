@@ -246,6 +246,17 @@ $(function(){
 	 $("#testcall").on("click",$.proxy(eat.say,eat) );//bread
 
 });
+
+function test5(){
+  var result="var vb=123;return vb;";
+  var fn=new Function("obj",result);
+  var rt=fn();
+  console.log(rt);//123
+}
+
+
+
+ 
 </script>
 </head>
 
@@ -261,5 +272,69 @@ $(function(){
 <input type="button"   value="测试call方法"     id="testcall"/></br>
 
 <input type="button"   value="空字符串的长度"      onclick="test4()"/></br>
+
+<input type="button"   value="不长使用的定义函数的方式"      onclick="test5()"/></br>
+
+<input type="button"   value="字符串循环模板"      onclick="test6()"/></br>
+
+<div id="results">template..........</div>
+
+<script type="text/html" id="user_tmpl">
+   <ul>
+     <% for ( var i=0; i< users.length;i++){ %>
+	 <li><a href="<%=users[i].url%>"><%=users[i].name%></a></li>
+	 <%}%>
+   </ul>
+</script>
+<script>
+  var results=$("#results")[0];
+  var users=[
+    {name:"byron","url":"localhost"},
+	{name:"tom","url":"localhost"},
+	{name:"jack","url":"localhost"}
+  ];
+  
+  
+  /*
+  
+  var p=[];
+  with(obj){
+  p.push('    <ul>      '); 
+  for ( var i=0; i< users.length;i++){
+  
+	   p.push('   <li><a href="');
+	   p.push(users[i].url);
+	   p.push('">');
+	   p.push(users[i].name);
+	   p.push('</a></li>   ');
+	   }
+	   p.push('    </ul> ');
+	   
+	   }
+	   return p.join('');
+	   
+   */
+  function templ(id,data){
+     var html=$(id)[0].innerHTML;
+	 console.log("html:"+html);
+	 console.log("html.replace:"+html.replace(/[\r\n\t]/g," "));
+	 var result="var p=[];with(obj){p.push('"
+	 +html.replace(/[\r\n\t]/g," ")
+	 .replace(/<%=(.*?)%>/g,"');p.push($1);p.push('")
+	 .replace(/<%/g,"');")
+	 .replace(/%>/g,"p.push('")
+	 +"');}return p.join('');";
+	 console.log(result);
+	// debugger;
+	 var fn=new Function("obj",result);
+	 return fn(data);
+  }
+  
+  function test6(){
+     results.innerHTML=templ("#user_tmpl",users);
+	
+	 
+  }
+</script>
 </body>
 </html>

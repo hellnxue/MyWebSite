@@ -1,6 +1,7 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta  charset="gb2312">
 <title>无标题文档</title>
 <style>
  
@@ -11,13 +12,15 @@
   width:200px;
   float:left;
   color:#999;
+  
   }
 </style>
 </head>
 
 <body>
-<!--谷歌里不正常，不在一条平行线上哎。。。-->
+ 
 <div>hello helln</div>
-<div>hello sir</div>
+<!--第二个div的上外边距与body的上外边距重叠，给body加上border或者padding就可以了-->
+<div style="margin-top:20px;">hello sir</div>
 </body>
 </html>

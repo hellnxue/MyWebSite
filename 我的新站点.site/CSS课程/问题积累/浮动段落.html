@@ -1,21 +1,51 @@
+<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<meta charset="gb2312" />
 <title>无标题文档</title>
 <style>
   p{
   border:1px solid green;}
   
-  p:nth-child(1){
+  p:nth-child(1) {
   width:200px;
   float:left;
   color:#999;
   }
+  
+  .fp{
+  width:600px;
+  height:400px;
+  background-color:#eee;
+  }
+  
+ .fp>p{
+  color:red;
+  width:auto;
+  float:none;}
+  
+  .fp>p:nth-child(1){
+   width:200px;
+   float:left;
+   color:green;}
  </style>
 </head>
 
 <body>
+<!--谷歌里不正常，不在一条水平线上哎。。。当第一个段落浮动，第二个段落不浮动时，两个段落不在一条水平线上，两个段落都有默认的margin-top：16px
+    p的上外边距与body的上外边距重合导致不在一条水平线上，可以给body加上border或者padding奥-->
 <p>hello helln</p>
 <p>hello sir</p>
+
+<div>hello wir</div>
+
+<!--div不加边框或者padding时，如果它的子元素第一个p浮动了，第二个p会上移，并且第二个p的margin-top和div的margin-top会重合，导致两个p不在一条水平线上（解决办法，可以给div加上padding或者是border奥） -->
+<div class="fp">
+
+	<p>hello helln</p>
+	
+	<p>hello sir</p>
+
+</div>
 </body>
 </html>
