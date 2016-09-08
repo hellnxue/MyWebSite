@@ -316,6 +316,10 @@ $("#tc").on("click",function(){
    var gettemp=$(ts).data("temp");
    console.log(gettemp);// Object { name="helln",  age="20"}
    console.log(gettemp instanceof Object);//true
+   
+   /* HTML5自定义属性对象Dataset 存值，取值时会改变值得类型哎，jquery的data()就不会的*/
+   th.dataset.test=[1,2];
+   console.log(th.dataset.test);//1,2
  }
  
  /*<div data-dom-test="div" data-typeof-test="div" data-role="page" data-last-value="43" data-hidden="true" data-options='{"name":"John"}' data-test='100.0'>data()存取各种类型的值</div>

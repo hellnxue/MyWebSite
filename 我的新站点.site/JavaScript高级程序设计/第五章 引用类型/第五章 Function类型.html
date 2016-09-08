@@ -327,6 +327,15 @@ function test5(){
  <ul>      <% for ( var i=0; i< users.length;i++){ %>   <li><a href="');p.push(users[i].url);p.push('">');p.push(users[i].name);p.push('</a></li>   <%}%>    </ul> 
 
 */	
+
+ console.log("html.replace.replace.replace:"+html.replace(/[\r\n\t]/g," ") .replace(/<%=(.*?)%>/g,"');p.push($1);p.push('").replace(/<%/g,"');"));
+ /*<ul>      '); for ( var i=0; i< users.length;i++){ %>   <li><a href="');p.push(users[i].url);p.push('">');p.push(users[i].name);p.push('</a></li>   ');}%>    </ul> */
+ 
+ 
+  console.log("html.replace.replace.replace:"+html.replace(/[\r\n\t]/g," ") .replace(/<%=(.*?)%>/g,"');p.push($1);p.push('").replace(/<%/g,"');").replace(/%>/g,"p.push('"));
+  
+ /*<ul>      '); for ( var i=0; i< users.length;i++){ p.push('   <li><a href="');p.push(users[i].url);p.push('">');p.push(users[i].name);p.push('</a></li>   ');}p.push('    </ul>*/ 
+ 
     var result="var p=[];with(obj){p.push('"
 	 +html.replace(/[\r\n\t]/g," ")
 	 .replace(/<%=(.*?)%>/g,"');p.push($1);p.push('")
@@ -345,10 +354,18 @@ function test5(){
 	 
   }
   
-  function test7(){
+function test7(){
     var str="<a href='<%=users[i].url%>'>><%=users[i].name%></a>";
-	var rstr=str.replace(/<%=(.*?)%>/g,"p.push($1)");
-	console.log(rstr);
+	var rstr1=str.replace(/<%=(.*?)%>/g,"p.push($1)");
+	var rstr2=str.replace(/<%=(.*)%>/g,"p.push($1)");
+	var rstr3=str.replace(/<%=(.*)?%>/g,"p.push($1)");
+	console.log(rstr1);
+	
+	/*<a href='p.push(users[i].url)'>>p.push(users[i].name)</a>*/
+	
+	console.log(rstr2);
+	/*<a href='p.push(users[i].url%>'>><%=users[i].name)</a>*/
+	console.log(rstr3);
   }
 </script>
 

@@ -32,9 +32,10 @@ $(function(){
 		  
 		  
 		  var pt2=/.{4}/;
-		  var str1="201507";
+		  var str1="201507";//匹配2015
 		  console.log(pt2.test(str1));
-		  
+		  console.log(str1.replace(pt2,"a"));//a07
+		   
 		  //测试捕获组
 		  var str2=str1.replace(/(.{2})/g, '$1-');
 		  var str3=str1.replace(/(.{3})/g, '$1-');
@@ -112,12 +113,63 @@ $(function(){
 	});
 });
 
+/*用正则进行分割*/
 function regExpSplit(){
-   var pattern=/[^\,]/;
+
+   var pattern=/[^\,]/;//以不是,的每个字母进行分割，除了逗号，字母都是分隔符  正则模式也可以用/[^,]/ 不知道为啥要加上个\  逗号又不需要进行转义......
    var colorText="red,blue,green,yellow";
-   var colors=colorText.split(pattern);
-   $("#split").html(colors.length);
-   console.log(pattern.test(colorText));
+   var colors=colorText.split(pattern);//===,====,=====,======
+   $("#split").html(colors.join("="));
+   console.log(colors.length);//19
+   console.log(pattern.test(colorText));//true
+}
+
+function regTest(th){
+  
+  var reg=/<.*?>/g;//加上?后是非贪婪模式，可以匹配<h1>和</h1>  不加?是贪婪模式，会匹配所有的带有<>的字符串
+  var str="<h1>hello world</h1>";
+  var rlt=str.replace(reg,"A");//Ahello worldA
+  console.log(rlt);
+  
+  /*为什么和书上说的结果不一样呢? 正则字面量与正则实例是不一样的，正则字面量是共享的，而实例每次都不同，bug....下面的循环却都是true*/
+  var str="catastrcathe";
+  var re=null;
+  for(var i=0;i<5;i++){
+      re=/cat/g;
+	   console.log( re.lastIndex);
+      console.log(re.test("catastroate"));//都是true哎
+	   console.log( re.lastIndex);
+	// console.log(str.replace(re,"A"));
+  }
+  console.log("-----------------------------------------------------------");
+  for(var i=0;i<5;i++){
+     re=new RegExp("cat","g");
+	  console.log( re.lastIndex);
+     console.log(re.test("catastrophe"));
+	   console.log( re.lastIndex);
+  }
+  
+  
+}
+
+
+function regTest1(th){
+   var reg=/data?/;
+   var a="data1";
+   var b="daab2";
+   var c="datadataeee";
+	 
+  
+   console.log(reg.test(a));
+   console.log(reg.test(b));
+   console.log(reg.test(c));//true？
+   
+	console.log(a.replace(reg,"A"));
+	console.log(b.replace(reg,"A"));
+	console.log(c.replace(reg,"A"));
+	
+    
+  
 }
 </script>
 </head>
@@ -134,6 +186,9 @@ function regExpSplit(){
 
 <input type="button" id="intFloat"  value="测试用正则分割" onclick="regExpSplit()"/>
 
+<input type="button"    value="正则匹配测试"   onclick="regTest(this)"/>
+
+<input type="button"    value="正则匹配"   onclick="regTest1(this)"/>
  
 </body>
 </html>
