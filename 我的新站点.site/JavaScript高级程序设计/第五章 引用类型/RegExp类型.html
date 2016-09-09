@@ -152,22 +152,33 @@ function regTest(th){
   
 }
 
-
+/*正则的exec()方法，返回数组的第一个元素为匹配的子字符串，第二个为捕获组的结果，也就是()里匹配的一个整体，如果()里不是简单的字符，是元字符，还要根据具体的正则规则确定该元素， result1[1]的结果是o，是正则(\w)+\b匹配的结果*/
 function regTest1(th){
-   var reg=/data?/;
-   var a="data1";
-   var b="daab2";
-   var c="datadataeee";
-	 
+  var testString = 'Hello World',
+	reg1 = /\b(\w)+\b/;
+
+  var result1 = reg1.exec(testString);
+  var first=result1[0];//hello
+  var second=result1[1];//o  
   
-   console.log(reg.test(a));
-   console.log(reg.test(b));
-   console.log(reg.test(c));//true？
-   
-	console.log(a.replace(reg,"A"));
-	console.log(b.replace(reg,"A"));
-	console.log(c.replace(reg,"A"));
-	
+  console.log(result1);//[hello, o]
+  console.log(reg1.lastIndex); //0
+  console.log(result1.index); //0 
+
+    
+  
+}
+
+function regTest2(th){
+  var testString = 'Hello World',
+	reg = /\b(\w)+\b/g;
+  var myAry;
+  while((myAry=reg.exec(testString))!=null){
+	   console.log(myAry); 
+	   console.log(reg.lastIndex);  
+	   console.log(myAry.index); 
+  }
+
     
   
 }
@@ -184,11 +195,16 @@ function regTest1(th){
 <span id="split"></span>
 <br />
 
-<input type="button" id="intFloat"  value="测试用正则分割" onclick="regExpSplit()"/>
+<input type="button" id="intFloat"  value="测试用正则分割" onclick="regExpSplit()"/><br />
 
-<input type="button"    value="正则匹配测试"   onclick="regTest(this)"/>
 
-<input type="button"    value="正则匹配"   onclick="regTest1(this)"/>
+<input type="button"    value="正则匹配测试"   onclick="regTest(this)"/><br />
+
+
+<input type="button"    value="模式匹配方法exec()，非全局的"   onclick="regTest1(this)"/><br />
+
+ 
+ <input type="button"    value="模式匹配方法exec()，全局的"   onclick="regTest2(this)"/>
  
 </body>
 </html>

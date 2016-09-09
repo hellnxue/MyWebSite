@@ -143,7 +143,7 @@ function testlablebreak(){
  
  /*字符串的模式匹配方法*/
  function matchTest(){
-   var text="cat,bat,sat,fat";
+  /* var text="cat,bat,sat,fat";
    var pattern=/.at/g;
    
    var matches=text.match(pattern);
@@ -157,20 +157,27 @@ function testlablebreak(){
    console.log(matches1);// ["cat"]
    
     matches1=pattern.exec(text);
-   console.log(matches1);// [ "bat",]
+   console.log(matches1);// [ "bat",]*/
    
    
    
    
    
    var testString = 'Hello World',
-        reg1 = /\b(\w)+\b/;
+        reg1 = /\b(\w)+\b/g;
   
   var result1 = reg1.exec(testString);
   
   console.log(result1);//[hello, o]
   console.log(reg1.lastIndex); //0
   console.log(result1.index); //0 
+  
+ result1 = reg1.exec(testString);
+  
+  console.log(result1);//[hello, o]
+  console.log(reg1.lastIndex); //0
+  console.log(result1.index); //0 
+ 
  }
  
  

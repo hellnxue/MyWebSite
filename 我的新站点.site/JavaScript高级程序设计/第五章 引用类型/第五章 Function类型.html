@@ -275,10 +275,11 @@ function test5(){
 
 <input type="button"   value="不长使用的定义函数的方式"      onclick="test5()"/></br>
 
-<input type="button"   value="字符串循环模板"      onclick="test6()"/></br>
+<input type="button"   value="字符串循环模板模拟"      onclick="test6()"/></br>
 
 <div id="results">template..........</div>
 
+<!--模板-->
 <script type="text/html" id="user_tmpl">
    <ul>
      <% for ( var i=0; i< users.length;i++){ %>
@@ -286,6 +287,7 @@ function test5(){
 	 <%}%>
    </ul>
 </script>
+
 <script>
   var results=$("#results")[0];
   var users=[
@@ -314,6 +316,8 @@ function test5(){
 	   return p.join('');
 	   
    */
+   
+  //自己编写的模板渲染方法
   function templ(id,data){
      var html=$(id)[0].innerHTML;
 	 console.log("html:"+html);
