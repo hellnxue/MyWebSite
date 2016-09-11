@@ -16,6 +16,18 @@ h3{
 	font-size:1.2em;
 	
 }
+
+
+.bootstrap-well{
+	min-height:20px;
+	border:1px solid #e3e3e3;
+	padding:20px;
+	margin-bottom:20px;
+	border-radius:6px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.05) inset;
+	background-color:#f5f5f5;}
+	
+	
 li{
 	background-color:#eee;}
 
@@ -94,8 +106,85 @@ div[data-border='feactur_border']{
    border:10px solid ; 
    border-color:red green blue yellow;
   
-}	 
-	 
+}
+
+  
+	
+#dltd dl{
+	text-align:center;
+	overflow:hidden;}
+	
+#dltd dt{
+    width:160px;
+	float:left;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	text-align:right;}
+	
+#dltd  dd{
+  margin-left:180px;
+  text-align:left;}  
+  
+  
+  /*好看的表格样式奥*/
+  
+  .table{
+  margin-bottom:20px;
+  min-width:100%;
+  width:100%;
+  background-color:transparent;
+  /*border-collapse 属性设置表格的边框是否被合并为一个单一的边框，还是象在标准的 HTML 中那样分开显示。
+  separate 	默认值。边框会被分开。不会忽略 border-spacing 和 empty-cells 属性。
+  collapse 	如果可能，边框会合并为一个单一的边框。会忽略 border-spacing 和 empty-cells 属性。*/
+  border-collapse:collapse;
+  
+  /*border-spacing 属性设置相邻单元格的边框间的距离（仅用于“边框分离”模式 即 border-collapse:separate;）。*/
+  border-spacing:0;/*感觉这个加上也是多余的，因为border-collapse不是分离模式的*/
+  }
+  
+  th{
+  text-align:left;/*表头th里的内容默认水平居中，要重置一下*/
+  }
+  
+  td,th{
+  padding:0;
+  }
+  
+  .table > thead:first-child > tr:first-child > th{
+  border-top:0 none;
+  }
+  
+  .table > thead >tr >th{
+  border-bottom:2px solid #ddd;
+  vertical-align:bottom;/*为什么要用这个呢？*/
+  
+  }
+  
+  .table > thead >tr >th, .table > thead >tr >td,
+   .table > tbody >tr >th, .table > tbody >tr >td{
+   border-top:1px solid #ddd;
+   padding:8px;
+   vertical-align:top;/*为什么要加这个呢？*/
+   line-height:1.4;/*还有这个。。。*/}
+   
+   
+   /*为表格添加条纹*/
+   .table-striped tbody tr:nth-of-type(odd){
+   background-color:#f9f9f9;
+   }
+   
+ 
+   
+   /*鼠标悬停时，一行的颜色变化*/
+   .table-hover tbody tr:hover{
+   background-color:#f5f5f5;}
+   
+   
+   /*精简表格，压缩了的样子哎*/
+   .table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {
+    padding: 5px;
+}
 </style>
 </head>
 
@@ -156,12 +245,12 @@ div[data-border='feactur_border']{
  </div>
 
 <h3 style="margin-top:200px;">dl标签 定义一个描述列表。dl标签与 dt （定义项目/名字）和 dd （描述每一个项目/名字）一起使用。</h3>
-<div style="text-align:center;">
+<div   id="dltd" class="bootstrap-well">
   <dl>
-  <dt >水果...</dt>
-  <dd style="margin-left:0;">苹果</dd><!--默认有40px的左外边距，可以重写样式去掉默认样式-->
+  <dt >水果的种类有很多种，比如以下的这些</dt>
+  <dd >苹果</dd><!--默认有40px的左外边距，可以重写样式去掉默认样式-->
   <dd>香蕉</dd>
-  <dt>果汁...</dt>
+  <dt>果汁是水果炸到最后的结果</dt>
   <dd>苹果汁</dd>
   <dd>香蕉汁</dd> 
 </dl>
@@ -195,7 +284,7 @@ div[data-border='feactur_border']{
 </div>
  
  <h3>label标签的for属性</h3>
- <div style="margin-top:250px;">
+ <div  >
    点击文本可以触发选择单选按钮动作<br>
 
    <label for="male">eat</label>
@@ -270,6 +359,53 @@ div[data-border='feactur_border']{
 <h3  >display:inline设置元素为行内元素，会使得height:0 效果消失，因为行内元素是不可以设置高度的</h3>
 <div style="border: 1px solid; display: inline; height: 100px; margin: 20px; padding: 44px; width: 100px;">hello sir....</div>
  <div style="border:10px solid ; border-color:pink yellow red green; height:0; width: 0;"></div>
+ 
+ 
+ <h3>-----------------短语元素---------------</h3>
+ 
+ <div class="bootstrap-well">
+    <em>强调标签-em。</em>&nbsp;&nbsp;&nbsp;&nbsp;
+	<strong>比em根据强调作用的文本-strong。</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+	<i>斜体文本标签-i。</i>&nbsp;&nbsp;&nbsp;&nbsp;
+	<dfn>定义一个定义项目-dfn。</dfn>&nbsp;&nbsp;&nbsp;&nbsp;
+	<code>定义计算机代码文本 hello world-code。</code>&nbsp;&nbsp;&nbsp;&nbsp;
+	
+	字符序列 <samp>ae</samp> 可能会被转换为 &aelig; 连字字符。&nbsp;&nbsp;&nbsp;&nbsp;
+	键入 <kbd>quit</kbd> 来退出程序，或者键入 <kbd>menu</kbd> 来返回主菜单。
+ </div>
+
+<h3>-----------------模仿bootstrap画的表格---------------</h3> 
+ <div>
+ 	 <table class="table table-striped table-hover table-condensed"  >
+	  <thead>
+		<tr>
+		 <th>#</th>
+		 <th>FirstName</th>
+		</tr>
+	  </thead>
+	  <tbody>
+		 <tr>
+		   <td>1</td>
+		   <td>helln</td>
+		 </tr>
+		 <tr>
+		   <td>2</td>
+		   <td>tom</td>
+		 </tr>
+		 <tr>
+		   <td>3</td>
+		   <td>join</td>
+		 </tr>
+		 
+		  <tr>
+		   <td>4</td>
+		   <td>jouch</td>
+		 </tr>
+	  </tbody>
+			  
+		   
+  </table>
+ </div>
  
  
 </body>

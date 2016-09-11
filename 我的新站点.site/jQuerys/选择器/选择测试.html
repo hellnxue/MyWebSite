@@ -3,6 +3,35 @@
 <head>
 <meta charset=gb2312/>
 <title>无标题文档</title>
+<style>
+  
+[type="button"]{
+    background-color: #5bc0de;
+    border: 0 none #46b8da;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin-bottom: 0;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.bootstrap-well {
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 6px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05) inset;
+    margin-bottom: 20px;
+    min-height: 20px;
+    padding: 20px;
+}
+</style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
   $(function(){
@@ -84,6 +113,34 @@
 	<input type="button"   value="子星选择器" onClick="sonselector()">
  </div>
  
+ 
+	<h3>------------------------------兄弟选择符:选择所有兄弟元素 or 选择指定元素的紧邻兄弟元素-------------------------------------</h3>
+	<div class="bootstrap-well">
+	   <dl id="dldt">
+		  <dt>水果...</dt>
+		  <dd>苹果</dd><!--默认有40px的左外边距，可以重写样式去掉默认样式-->
+		  <dd>香蕉</dd>
+		  <dt>果汁...</dt>
+		  <dd>苹果汁</dd>
+		  <dd>香蕉汁</dd> 
+	  </dl>
+	  <input type="button"    value="~选择定义描述列表的dt的所有兄弟元素dd" onClick="xddselector()">
+	   <input type="button"   value="+选择定义描述列表的dt的紧邻的兄弟元素dd" onClick="xdselector()">
+	</div>
+
 </div>
+
+<script>
+function xddselector(){
+   $("#dldt dt ~ dd").css("color","yellow");
+  
+}
+
+function xdselector(){
+   
+   $("#dldt dt + dd").css("color","red");
+}
+   
+</script>
 </body>
 </html>

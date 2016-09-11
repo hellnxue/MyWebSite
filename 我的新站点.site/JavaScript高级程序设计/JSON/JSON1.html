@@ -64,6 +64,18 @@ function test4(){
 		]
   }];
 }
+
+function test5(){
+  var ary=[
+    {name:"a"},
+	{name:"b"}
+  ];
+  
+  var json=JSON.stringify(ary);
+  console.log(json);
+  
+  
+}
 </script>
 </head>
 
@@ -74,5 +86,7 @@ function test4(){
 <input type="button"   id="d2" value="当key为数字或字符时的Object怎么获取key的值" onclick="test3()"/></br>
 
 <input type="button"   id="d2" value="hehe" onclick="test4()"/></br>
+
+<input type="button"    value="转json串" onclick="test5()"/></br>
 </body>
 </html>

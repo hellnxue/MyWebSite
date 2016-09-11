@@ -33,6 +33,7 @@ h3{
 	background:-moz-linear-gradient(#FFCCCC,#fff 50%,#FFCCCC);
 	 }
 
+
 	
 /*---------------------------------------------------------------------*/ 
  .bgclip{
@@ -564,6 +565,18 @@ h3{
 	 .textOverflow  .b{
 	   text-overflow:"  hello world";/*text-overflow:string;使用给定的字符串来代表被修剪的文本。*/
      }
+	 
+	 
+  .nth  p, .nth  h1	{
+  margin:0;
+  height:auto;
+  padding:0;
+  line-height:normal;
+  color:#333333;} 
+  .nthChild p:nth-child(2),.nthOfType p:nth-of-type(2){
+  background-color:#FF00FF;}
+  
+  
 	   
 </style>
 
@@ -762,10 +775,39 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
  
 </div>
 
+<!--:nth-child(n) 选择器匹配属于其父元素的第 N 个子元素，不论元素的类型。
 
-<h3 style="clear:both;">CSS选择器：nth-child()</h3>
-<div class="commonBox">
-  hello world
+n 可以是数字、关键词或公式。
+
+提示：请参阅 :nth-of-type() 选择器，该选择器选取父元素的第 N 个指定类型的子元素。
+
+两者的选择前提是都有父元素包围要选择的子元素，不管父元素是什么。
+-->
+<!--p:nth-child()中得数字所在的位置的元素如果不是P，那么是选择不了的,例如p:nth-child(1),只能选择有父元素包围的并且第一个位置是p的那个元素。-->
+<h3 style="clear:both;">CSS选择器：p:nth-child(2)</h3>
+<div class="commonBox nthChild nth">
+    <p>第一个段落。</p>
+	<p>第二个段落。</p>
+	 <div>
+		<h1>这是标题</h1>
+		<p>第一个段落。</p>
+		<p>第二个段落。</p>
+		<p>第三个段落。</p>
+		<p>第四个段落。</p>
+	 </div>
+</div>
+
+<h3 style="clear:both;">CSS选择器：p:nth-of-type(2)</h3>
+<div class="commonBox nthOfType nth">
+    <p>第一个段落。</p>
+	<p>第二个段落。</p>
+	 <div>
+		<h1>这是标题</h1>
+		<p>第一个段落。</p>
+		<p>第二个段落。</p>
+		<p>第三个段落。</p>
+		<p>第四个段落。</p>
+	 </div>
 </div>
 
 
