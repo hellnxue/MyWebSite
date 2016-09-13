@@ -47,7 +47,10 @@
 	   
 		argumentsInput("hello");//b是undefined
 		argumentsInput("hello","world");
-	 })
+	 });
+	 
+	 
+	 
   })
   
   function argumentsInput(a,b){
@@ -127,8 +130,17 @@
 	  <input type="button"    value="~选择定义描述列表的dt的所有兄弟元素dd" onClick="xddselector()">
 	   <input type="button"   value="+选择定义描述列表的dt的紧邻的兄弟元素dd" onClick="xdselector()">
 	</div>
-
-</div>
+	
+	
+	<h3>------------------------------jquery动画animate()-------------------------------------</h3>
+     
+	 <input type="button" id="clickme"   value="点击按钮图片慢慢消失..." onClick="imgDissappear()">
+	 
+	<div class="bootstrap-well" style="height:200px;">
+	
+	 <img id="book" src="../../image/mxx/m2.jpg"    style="position: relative; left: 10px;"   />
+	 
+	</div>
 
 <script>
 function xddselector(){
@@ -139,6 +151,19 @@ function xddselector(){
 function xdselector(){
    
    $("#dldt dt + dd").css("color","red");
+}
+
+function imgDissappear(){
+   $('#book').animate({
+		opacity: 0.25,  //成透明度的样子
+		left: '+=50',   //离自己原来的位置不断加50
+		height: 'toggle'//高度慢慢变为0,因此整个img也就消失不见了
+		
+	  }, 5000, function() {
+		// Animation complete.
+		$(this).parent("div").append("完成隐藏。。。");
+	  });
+
 }
    
 </script>

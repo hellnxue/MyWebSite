@@ -577,7 +577,57 @@ h3{
   background-color:#FF00FF;}
   
   
-	   
+  /*---------------------定位对宽度的影响-------------------------------*/
+  .testssdiv{
+  position:relative;
+  width: 502px; 
+  height:200px;  
+  margin: 20px auto; 
+  border:1px solid #000000;
+  background-color:#f9f9f9;}
+  
+  /*p元素的容器*/
+  .testssdiv div{
+  position: absolute;/*设置div为绝对定位后，能包裹住浮动的子元素 p 哎，一大发现，有空翻翻包裹浮动的子元素*/
+  top: 50%;
+  margin-top:-21px;
+  border:1px solid #0000FF;
+  
+  overflow:hidden;
+  }
+  
+  /*设置p元素的样式*/
+  .testssdiv div p{
+  color: rgb(0, 0, 0); 
+  background-color: rgb(204, 153, 255); 
+  float: left; 
+  width:121px;
+  position:relative;}
+  
+  /*
+  p + p 非首位子元素
+  
+  设置p元素的左外边距，p+p可以保证第一个p没有左外边距奥，而设置做外边距是为了保证最两边的p不会有外边距，第一个没有做外边距，最后一个没有又外边距*/
+ .testssdiv div p + p {
+  margin-left:5px;}
+  
+  
+  /*实现，当鼠标移到p元素上的时候，p变大，并且p两边还有空隙*/
+  .testssdiv div p:hover{
+  cursor:pointer;
+  -moz-transform:rotate(0deg) scale(1.2);/*利用转换，当鼠标移动到p元素上的时候，p整体变为原来的1.2倍，并且不影响p原来的宽度哎*/
+  left:13px;/*因为p元素是相对定位，相对定位在设置left或者right时不影响父元素div的子元素p的总宽度，因此，这才是正解*/
+  z-index:1;}
+  
+  /*鼠标移到p元素上的时候，控制p的同辈元素之间的间隙*/
+  .testssdiv div p:hover ~ p{
+  left:27px;
+  }
+  
+ /* .testssdiv div p:nth-of-type(1){
+  left:10px;}
+ .testssdiv div p:nth-of-type(2){
+  left:2px;}	   */
 </style>
 
 </head>
@@ -851,6 +901,19 @@ n 可以是数字、关键词或公式。
 <div class="verticalAlign">
      
 	<span> hello world<img src="../../image/mxx/m1.jpg">hello world</span>
+	 
+</div>
+
+
+<h3 >定位对宽度高度的影响</h3>
+<div class="testssdiv">
+     
+	<div>
+	  <p class="testss">hello world</p>
+	  <p class="testss">hello helln</p>
+	  <p class="testss">hello hebe</p>
+	  <p class="testss">hello sir</p>
+	</div>
 	 
 </div>
 </body>
