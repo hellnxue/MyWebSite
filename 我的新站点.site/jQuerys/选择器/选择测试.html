@@ -31,6 +31,27 @@
     min-height: 20px;
     padding: 20px;
 }
+
+#block1{
+  background-color:#bca;
+  width:200px;
+  height:1.1em;
+  text-align:center;
+  border:2px solid green;
+  margin:3px;
+  font-size:14px;
+}
+
+
+ 
+#demo{position:relative;width:630px;height:300px;background:#eee;border-top:5px solid #888;border-bottom:5px solid #888}
+.one,.two,.three,.four,.five,.six,.seven{display:block;position:absolute;left:30px;top:0;width:30px;height:30px;background:#888;color:#fff;text-align:center;font-weight:bold;line-height:30px}
+.two{left:120px}
+.three{left:210px}
+.four{left:300px}
+.five{left:390px}
+.six{left:480px}
+.seven{left:570px}
 </style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
@@ -134,13 +155,24 @@
 	
 	<h3>------------------------------jquery动画animate()-------------------------------------</h3>
      
-	 <input type="button" id="clickme"   value="点击按钮图片慢慢消失..." onClick="imgDissappear()">
+	 <input type="button" id="clickme"   value="点击按钮图片慢慢消失...再次点击会出现" onClick="imgDissappear()">
 	 
 	<div class="bootstrap-well" style="height:200px;">
 	
 	 <img id="book" src="../../image/mxx/m2.jpg"    style="position: relative; left: 10px;"   />
 	 
 	</div>
+	
+	<h3>------------------------------jquery动画animate() 将动画加入到序列中-------------------------------------</h3>
+	 <input type="button"     value="动画和队列" onClick="queue()">
+	<div id="block1">Block1</div>
+	
+	
+	<h3>------------------------------动画测试-------------------------------------</h3>
+     <input type="button"     value="动画测试" onClick="animateTest(this)" style="display:block;"> 
+     <p style="background-color:#CCFFCC; width:200px;">hello world</p>
+	 <p  style="background-color:#CCFFCC; width:200px;">hello helln</p>
+	 
 
 <script>
 function xddselector(){
@@ -152,6 +184,7 @@ function xdselector(){
    
    $("#dldt dt + dd").css("color","red");
 }
+
 
 function imgDissappear(){
    $('#book').animate({
@@ -165,7 +198,112 @@ function imgDissappear(){
 	  });
 
 }
+/*设置队列queue为false就是让动画的执行顺序收到影响吧，设置了queue:false的动画会立即执行*/
+function queue(){
+
+    $( "#block1" )
+	 .animate( { width: "90%" }, { queue: false, duration: 3000 })//第一个动画设置了队列为false，不加入队列，div会在变宽的同时执行以下的动画，字体变大，出现右边框，如果设置成true或不设置，div的动画将会顺序执行，先变宽-字体变大-出现右边框
+     .animate({ fontSize: "24px" }, 1500 )
+     .animate({ borderRightWidth: "15px" } );
+
+}
+
+
+function animateTest(ts){
+     $(ts).nextAll("p").animate({opacity:"0.5",width:"toggle"},"slow");
+	 
+	 setTimeout(function(){
+	    var  n=$(ts).next("p").queue("fx" );
+	    console.log(n.length);
+	 } ,2000);
+	
+}
    
+</script>
+
+
+	 
+	 <h3>------------------------------jQuery的队列方法queue()-------------------------------------</h3>
+	 <!--DEMO start-->
+	<input type="button" value="停止动画"  data-queue="queue"/>
+	<div id="demo">
+		<span class="one">01</span>
+		<span class="two">02</span>
+		<span class="three">03</span>
+		<span class="four">04</span>
+		<span class="five">05</span>
+		<span class="six">06</span>
+		<span class="seven">07</span>
+		
+	</div>
+	<!--DEMO end-->
+	
+<script>
+
+/*
+jQuery核心中, 有一组队列控制方法, 这组方法由queue()/dequeue()/clearQueue()三个方法组成, 它对需要连续按序执行的函数的控制可以说是简明自如, 主要应用于animate ()方法, ajax以及其他要按时间顺序执行的事件中.
+先解释一下这组方法各自的含义.
+queue(name,[callback]): 当只传入一个参数时, 它返回并指向第一个匹配元素的队列(将是一个函数数组,队列名默认是fx); 当有两个参数传入时, 第一个参数还是默认为fx的的队列名, 第二个参数又分两种情况, 当第二个参数是一个函数时, 它将在匹配的元素的队列最后添加一个函数. 当第二个参数是一个函数数组时,它将匹配元素的队列用新的一个队列来代替(函数数组).可能, 这个理解起来有点晕, 稍后, 后面会有点此查看DEMO.
+dequeue(name): 这个好理解, 就是从队列最前端移除一个队列函数, 并执行它.
+clearQueue([queueName]):这是1.4新增的方法. 清空对象上尚未执行的所有队列. 参数可选,默认为fx.
+*/
+/*******************************
+ * @author Mr.Think
+ * @author blog http://mrthink.net/
+ * @2010.11.16
+ * @可自由转载及使用,但请注明版权归属
+ *******************************/
+$(function(){
+	//可用animate()方法如此眩晕地实现
+//	$('.one').delay(500).animate({top:'+=290px'},500,function(){
+//		$('.two').delay(500).animate({top:'+=290px'},500,function(){
+//			$('.three').delay(500).animate({top:'+=290px'},500,function(){
+//				$('.four').delay(500).animate({top:'+=290px'},500,function(){
+//					$('.five').delay(500).animate({top:'+=290px'},500,function(){
+//						$('.six').delay(500).animate({top:'+=290px'},500,function(){
+//							$('.seven').animate({top:'+=290px'},500,function(){
+//								alert('按序落体运动结束! Yeah!')
+//							});
+//						});
+//					});
+//				});
+//			});
+//		});
+//	});
+
+	//还可以利用queue()方法简明自如的实现
+	var _slideFun=[
+		//把要执行的动画依次放入一个数组
+		function(){$('.one').delay(2000).animate({top:'+=270px'},500,_takeOne);},
+		function(){$('.two').delay(300).animate({top:'+=270px'},500,_takeOne);},
+		function(){$('.three').delay(300).animate({top:'+=270px'},500,_takeOne);},
+		function(){$('.four').delay(300).animate({top:'+=270px'},500,_takeOne);},
+		function(){$('.five').delay(300).animate({top:'+=270px'},500,_takeOne);},
+		function(){$('.six').delay(300).animate({top:'+=270px'},500,_takeOne);},
+		function(){$('.seven').delay(300).animate({top:'+=270px'},500,function(){
+			alert('按序落体运动结束! Yeah!');
+		});}
+	];
+	//将函数数组放入slideList动画队列
+	$('#demo').queue('slideList',_slideFun);
+	var _takeOne=function(){
+		//取出第一个函数,并执行它
+		$('#demo').dequeue('slideList');
+	};
+	//初始执行第一个函数
+	_takeOne();
+	
+	$('[data-queue="queue"]').click(function(){
+		$(this).val('刷新重试').attr('disabled',true).css('color','#ccc');
+		//停止也可用载入空数组实现$('#demo').queue('slideList',[]);
+		$('#demo').clearQueue('slideList');
+		 
+	});
+	
+	
+	
+	
+});
 </script>
 </body>
 </html>
