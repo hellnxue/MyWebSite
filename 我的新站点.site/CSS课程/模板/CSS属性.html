@@ -60,6 +60,10 @@ h3{
 	
 	 p{
 	color:yellow;}
+	
+	.bp{
+	color:#000;
+	margin:10px;}
 
 	/*---------------------------------------------------------------------*/ 
 	div.hvt{
@@ -128,7 +132,7 @@ h3{
 	#testafter::after{
 	content:" good night";}
 	
-	/*-------------------------------------------------::box-shadow---------------------------------------------------*/
+	/*-------------------------------------------------元素阴影属性box-shadow---------------------------------------------------*/
 	#boxShadow{
 	border: 1px solid yellow;
     border-radius: 20px 0;
@@ -137,6 +141,40 @@ h3{
     padding: 2px 0 3px 10px;
 	
 	}
+ 
+	 
+    .boxShdowMultiply{
+	   width:400px;
+	   margin:0 auto;
+	  
+	   
+		
+	 }
+	 
+	 .boxShdowMultiply div{
+	    float:left;
+	 	width:150px;
+		height:150px;
+		border:1px solid #000;
+		background-color:#FFFFCC;
+		
+	 }
+	 
+	  .boxShdowMultiply div+div{
+	    margin-left:40px;
+		
+	 }
+	 
+	  .boxShdowMultiply div:nth-of-type(1){
+	   	box-shadow:-4px -4px 5px 1px #abc;
+		
+	 }
+	 
+	  .boxShdowMultiply div:nth-of-type(2){
+	   	box-shadow:4px 4px 5px 1px #999,-4px -4px 5px 1px #abc;
+		
+	 }
+	 
 	
 	/*-------------------------------------------------绝对子元素对父元素高度的影响------------------------------*/
 	div#absolute {
@@ -692,6 +730,26 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 
 <h3>box-shadow 盒子阴影</h3>
 <div id="boxShadow">hello world hellnxue</div>
+ 
+<div class="boxShdowMultiply clearfix">
+	<div>
+	
+	  <p  class="bp">水平和垂直偏移量是负值，阴影会在元素左上方</p>
+	  
+	</div>
+	
+	<div>
+	
+	  <p  class="bp">box-shadow支持多个阴影</p>
+	  
+	</div>
+</div>
+ 
+
+ 
+
+
+
 
 	<h3>绝对定位对高度的影响,绝对定位对高度没有影响，因为它已经脱离了文档流，连根拔起(听起来好吓人啊~_~ )，所以它的高度宽度不对父元素造成影响</h3>
 	<div id="absolute">
