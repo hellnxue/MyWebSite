@@ -4,3 +4,12 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+
+$nav-color:#999;
+$border-color:black;
+p{
+	$width:100px;
+	width:$width;
+	color:$nav-color;
+	border:1px solid $border-color;
+	}

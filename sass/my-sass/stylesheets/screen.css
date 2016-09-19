@@ -66,3 +66,10 @@ a img {
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
+
+/* line 10, ../sass/screen.scss */
+p {
+  width: 100px;
+  color: #999;
+  border: 1px solid black;
+}
