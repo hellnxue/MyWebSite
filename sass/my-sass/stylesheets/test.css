@@ -29,3 +29,54 @@ p {
 body.ctt #content aside {
   color: pink;
 }
+
+/* line 37, ../sass/test.scss */
+#content h1, #content h2 {
+  background-color: #abcdef;
+}
+
+/* line 44, ../sass/test.scss */
+nav a, aside a {
+  text-decoration: none;
+}
+
+/* line 49, ../sass/test.scss */
+div#ultt {
+  /*   
+     li+li{
+     	 background-color:pink;
+     }
+     
+     >ul{
+        >li{
+  	     text-decoration:underline;
+  	  }  
+     }
+     */
+  /*why.....?*/
+}
+/* line 64, ../sass/test.scss */
+div#ultt ul {
+  text-decoration: underline;
+}
+/* line 68, ../sass/test.scss */
+li + div#ultt ul li {
+  font-size: 26px;
+  color: red;
+}
+
+/* 
+ #ultt  li + ul li {
+    font-size: 26px;
+	color:red;
+} */
+/*why.....?*/
+/* line 91, ../sass/test.scss */
+p + #tyty div {
+  background-color: pink;
+}
+
+/* line 101, ../sass/test.scss */
+nav + #content article {
+  color: red;
+}

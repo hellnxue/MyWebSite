@@ -32,3 +32,74 @@ p{
 	 }
   }
 }
+
+#content{
+  h1,h2{
+    background-color:#abcdef;
+	
+  }
+}
+
+nav,aside{
+   a{
+     text-decoration:none;
+   }
+}
+
+div#ultt{
+
+/*   
+   li+li{
+   	 background-color:pink;
+   }
+   
+   >ul{
+      >li{
+	     text-decoration:underline;
+	  }  
+   }
+   */
+ 
+/*why.....?*/   
+ ul{
+      text-decoration:underline;
+      li  + &{
+	       
+          li{
+		     
+		      font-size: 26px;
+			  color:red;
+		  }
+
+	  }
+   }  
+ 
+  
+}
+
+ 
+
+/* 
+ #ultt  li + ul li {
+    font-size: 26px;
+	color:red;
+} */  
+
+/*why.....?*/ 
+#tyty{
+  div {
+	p + &{
+		 background-color:pink;
+	  }
+   }
+} 
+
+
+#content{
+   article {
+ 
+	nav + & { color: red }
+   }
+}
+
+
