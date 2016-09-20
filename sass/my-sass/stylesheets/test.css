@@ -1,0 +1,31 @@
+/* line 4, ../sass/test.scss */
+p {
+  width: 200px;
+  color: #999;
+  border: 1px solid black;
+}
+
+/* line 12, ../sass/test.scss */
+#content article h1 {
+  color: #333;
+}
+/* line 15, ../sass/test.scss */
+#content article p {
+  border: 1px solid black;
+  transition: border 0.25s ease-in-out 0s,background-color 0.15s ease-in-out 0s;
+  background-color: #eee;
+}
+/* line 19, ../sass/test.scss */
+#content article p:hover {
+  cursor: pointer;
+  background-color: #ddd;
+  border: 1px solid yellow;
+}
+/* line 28, ../sass/test.scss */
+#content aside {
+  background-color: #eee;
+}
+/* line 30, ../sass/test.scss */
+body.ctt #content aside {
+  color: pink;
+}
