@@ -604,8 +604,13 @@ h3{
 	 .textOverflow  .b{
 	   text-overflow:"  hello world";/*text-overflow:string;使用给定的字符串来代表被修剪的文本。*/
      }
-	 
-	 
+  /*----------:nth-child()与:nth-of-type()的区别----------------------------------------------*/	 
+ /* 
+   :nth-child(n) 选择器匹配属于其父元素的第 N 个子元素，不论元素的类型。(例如选择p:nth-child(2) 选择时是根据p的父元素来的，假设p的父元素是一个div,那:nth-child(2)就是选择div下得第二个子元素，不论是不是p，第二个子元素有可能不是p，这时是选择不中的奥~  先看下标，再论x:nth-child()中得x类型)
+   
+   :nth-of-type(n) 选择器匹配属于父元素的特定类型的第 N 个子元素的每个元素. (先论类型，再论下标)
+ 
+ */	 
   .nth  p, .nth  h1	{
   margin:0;
   height:auto;

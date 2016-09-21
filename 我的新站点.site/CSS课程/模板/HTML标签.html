@@ -433,6 +433,15 @@ color:#737373;}
     position: absolute;
     width: 400px;
 }
+
+/*CSS中貌似没有类似jQuery的sibiling()方法可以选择一个元素的所有同辈元素 ，只好用:not()来代替喽。。。*/
+#sibilings p{
+   margin:5px 0 0 0;
+}
+#sibilings p:not(#slb) {
+	background-color:#abcdef;
+
+}
  
 </style>
 </head>
@@ -750,6 +759,17 @@ color:#737373;}
 <img class="img img-circle" src="../../image/mxx/m2.jpg"/>
 <img class="img img-thumbnail" src="../../image/mxx/m2.jpg"/>
 
+
+
+
+<h3>-----------------CSS 同辈选择器 用:not()代替吧---------------</h3> 
+<div id="sibilings" class="bootstrap-well">
+   <p>one</p>
+   <p>two</p>
+   <p id="slb">three</p>
+   <p>four</p>
+   <p>five</p>
+</div>
 
  <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
  <script>
