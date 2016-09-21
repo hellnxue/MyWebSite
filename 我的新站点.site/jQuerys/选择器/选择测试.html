@@ -281,7 +281,7 @@ $(function(){
 		function(){$('.five').delay(300).animate({top:'+=270px'},500,_takeOne);},
 		function(){$('.six').delay(300).animate({top:'+=270px'},500,_takeOne);},
 		function(){$('.seven').delay(300).animate({top:'+=270px'},500,function(){
-			alert('按序落体运动结束! Yeah!');
+			console.log('按序落体运动结束! Yeah!');
 		});}
 	];
 	//将函数数组放入slideList动画队列
@@ -300,10 +300,76 @@ $(function(){
 		 
 	});
 	
+$("[data-mutil='lot']")	.on("click",function(){
+     $('[data-type=total]').siblings().css("color","red");
+	 
+	console.log($('[data-type=total]').siblings().length);//26  两行都有data-type=total 会被同时选中，累加到一起成为一个集合，13+13=26
 	
+	$('[data-type=total]').siblings().each(function(index, elem){
+		        	 
+		            if(index < 8) $(elem).remove();
+		        });
+}) 
 	
 	
 });
 </script>
+
+ <h3>------------------------------选择器选中多个地方的情况-------------------------------------</h3>
+<input type="button" value="测试多个选择的情况"  data-mutil="lot"/>
+
+<table id="detailTable" class="table table-bordered table-hover detailTable dataTable no-footer" width="100%" role="grid" border="1" style="width: 100%;">
+ 
+	<tbody>
+	 	<tr class="even" role="row">
+		<td>失业保险</td>
+		<td>4</td>
+		<td>5</td>
+		<td>6.00</td>
+		<td>7.00</td>
+		<td>8.00</td>
+		<td>9.00</td>
+		<td>10.00</td>
+		<td>11.00</td>
+		<td>12.00</td>
+		<td>13.00</td>
+		<td>14.00</td>
+		<td>15.00</td>
+		<td>16.00</td>
+		</tr>
+		<tr class="odd" role="row">
+			<td colspan="9" data-type="total"></td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td>49.00</td>
+			<td>53.00</td>
+			<td>57.00</td>
+			<td>61.00</td>
+		</tr>
+		<tr class="even" role="row">
+			<td colspan="9" data-type="total">公积金</td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td> </td>
+			<td>0.00</td>
+			<td>62.23</td>
+			<td>0.00</td>
+			<td>995.47</td>
+		</tr>
+	</tbody>
+</table>
 </body>
 </html>
