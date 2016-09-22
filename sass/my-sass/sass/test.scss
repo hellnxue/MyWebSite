@@ -1,6 +1,10 @@
+
  
 $color:#999;
 $border-color:black;
+$bgColors:yellow;
+
+@import  "_abc";
 p{
 	$width:200px;
 	width:$width;
@@ -32,7 +36,7 @@ p{
 	 }
   }
 }
-
+/*群组选择器*/
 #content{
   h1,h2{
     background-color:#abcdef;
@@ -46,60 +50,104 @@ nav,aside{
    }
 }
 
+
+ /*-----------子组合选择器和同层组合选择器：>、+和~ 这类的也可以应用嵌套规则，sass会把嵌套的一个个连起来----------*/
 div#ultt{
 
-/*   
-   li+li{
-   	 background-color:pink;
+   /*
+     结果
+     div#ultt li + li {
+		background-color: pink;
+	 }
+   */
+   li{
+     +li{
+	 	 font-weight:600;
+	 }
+   	 
    }
    
+   
+   /*
+     结果
+	div#ultt > ul > li {
+		text-decoration: underline;
+	}
+   */
    >ul{
       >li{
 	     text-decoration:underline;
 	  }  
    }
-   */
+   
  
-/*why.....?*/   
- ul{
-      text-decoration:underline;
-      li  + &{
-	       
-          li{
-		     
-		      font-size: 26px;
-			  color:red;
-		  }
-
-	  }
-   }  
- 
-  
-}
-
- 
-
-/* 
- #ultt  li + ul li {
-    font-size: 26px;
-	color:red;
-} */  
-
-/*why.....?*/ 
-#tyty{
-  div {
-	p + &{
-		 background-color:pink;
-	  }
-   }
-} 
-
-
-#content{
+/*why.....?
+   Because:&会被替换为div#ultt ul 而不是ul,所以........&符号有待考证
+   
+   可以用这个案例证明奥(&会被替换为div#ultt ul 而不是ul)
+   #content{
    article {
  
 	nav + & { color: red }
    }
 }
+*/   
+ul{
+      text-decoration:underline;
+      li  + &{
+	     border:2px solid yellow;
+
+	  }
+   }   
+}
+
+
+/*  -------------------------------------------嵌套属性----------------------------------- */
+
+
+//生成样式代码
+
+//.propertyNest {
+//    -moz-border-bottom-colors: none;
+//    -moz-border-left-colors: none;
+//    -moz-border-right-colors: none;
+//    -moz-border-top-colors: none;
+//    border-color: yellow #ddd blue;
+//    border-image: none;
+//    border-style: solid;
+//    border-width: 4px 2px;
+//}
+.propertyNest{
+   p{
+     border:none;
+	 width:auto;
+   }
+   border: 2px solid #ddd{
+      top:{
+	     color:yellow;
+		 width:4px;
+	  }
+	  
+	  bottom:{
+	     color:blue;
+		 width:4px;
+	  }
+   }
+}
+
+/*-----------静默变量--------------------*/
+
+div[data-vb="dfvb"]{
+  background-color:$bgColors;
+  @import "abd";
+  border-color:$dcolor;
+  border:1px solid black{
+     color:$dcolor;
+	 width:2px;
+  };
+ text-decoration: $text;
+  
+}
+
 
 

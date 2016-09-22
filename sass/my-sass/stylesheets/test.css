@@ -1,82 +1,113 @@
-/* line 4, ../sass/test.scss */
+@charset "UTF-8";
+/* line 8, ../sass/test.scss */
 p {
   width: 200px;
   color: #999;
   border: 1px solid black;
 }
 
-/* line 12, ../sass/test.scss */
+/* line 16, ../sass/test.scss */
 #content article h1 {
   color: #333;
 }
-/* line 15, ../sass/test.scss */
+/* line 19, ../sass/test.scss */
 #content article p {
   border: 1px solid black;
   transition: border 0.25s ease-in-out 0s,background-color 0.15s ease-in-out 0s;
   background-color: #eee;
 }
-/* line 19, ../sass/test.scss */
+/* line 23, ../sass/test.scss */
 #content article p:hover {
   cursor: pointer;
   background-color: #ddd;
   border: 1px solid yellow;
 }
-/* line 28, ../sass/test.scss */
+/* line 32, ../sass/test.scss */
 #content aside {
   background-color: #eee;
 }
-/* line 30, ../sass/test.scss */
+/* line 34, ../sass/test.scss */
 body.ctt #content aside {
   color: pink;
 }
 
-/* line 37, ../sass/test.scss */
+/*群组选择器*/
+/* line 41, ../sass/test.scss */
 #content h1, #content h2 {
   background-color: #abcdef;
 }
 
-/* line 44, ../sass/test.scss */
+/* line 48, ../sass/test.scss */
 nav a, aside a {
   text-decoration: none;
 }
 
-/* line 49, ../sass/test.scss */
+/*-----------子组合选择器和同层组合选择器：>、+和~ 这类的也可以应用嵌套规则，sass会把嵌套的一个个连起来----------*/
+/* line 55, ../sass/test.scss */
 div#ultt {
-  /*   
-     li+li{
-     	 background-color:pink;
-     }
+   /*
+     结果
+     div#ultt li + li {
+		background-color: pink;
+	 }
+   */
+   /*
+     结果
+	div#ultt > ul > li {
+		text-decoration: underline;
+	}
+   */
+  /*why.....?
+     Because:&会被替换为div#ultt ul 而不是ul,所以........&符号有待考证
      
-     >ul{
-        >li{
-  	     text-decoration:underline;
-  	  }  
+     可以用这个案例证明奥(&会被替换为div#ultt ul 而不是ul)
+     #content{
+     article {
+   
+  	nav + & { color: red }
      }
-     */
-  /*why.....?*/
+  }
+  */
 }
 /* line 64, ../sass/test.scss */
+div#ultt li + li {
+  font-weight: 600;
+}
+/* line 78, ../sass/test.scss */
+div#ultt > ul > li {
+  text-decoration: underline;
+}
+/* line 95, ../sass/test.scss */
 div#ultt ul {
   text-decoration: underline;
 }
-/* line 68, ../sass/test.scss */
-li + div#ultt ul li {
-  font-size: 26px;
-  color: red;
+/* line 97, ../sass/test.scss */
+li + div#ultt ul {
+  border: 2px solid yellow;
 }
 
-/* 
- #ultt  li + ul li {
-    font-size: 26px;
-	color:red;
-} */
-/*why.....?*/
-/* line 91, ../sass/test.scss */
-p + #tyty div {
-  background-color: pink;
+/*  -------------------------------------------嵌套属性----------------------------------- */
+/* line 120, ../sass/test.scss */
+.propertyNest {
+  border: 2px solid #ddd;
+  border-top-color: yellow;
+  border-top-width: 4px;
+  border-bottom-color: blue;
+  border-bottom-width: 4px;
+}
+/* line 121, ../sass/test.scss */
+.propertyNest p {
+  border: none;
+  width: auto;
 }
 
-/* line 101, ../sass/test.scss */
-nav + #content article {
-  color: red;
+/*-----------静默变量--------------------*/
+/* line 140, ../sass/test.scss */
+div[data-vb="dfvb"] {
+  background-color: yellow;
+  border-color: #abcdef;
+  border: 1px solid black;
+  border-color: #abcdef;
+  border-width: 2px;
+  text-decoration: underline;
 }
