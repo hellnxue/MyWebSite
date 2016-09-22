@@ -442,6 +442,21 @@ color:#737373;}
 	background-color:#abcdef;
 
 }
+
+
+/*--------------------------让两段文本在一行显示----------------------------------------*/
+.tryme .textLeft{
+    display: inline-block;
+    float: left;
+    text-align: left;
+    width: 50%;
+}
+
+.tryme .textRight{
+    display: inline-block;
+    text-align: right;
+    width: 50%;
+}
  
 </style>
 </head>
@@ -769,6 +784,14 @@ color:#737373;}
    <p id="slb">three</p>
    <p>four</p>
    <p>five</p>
+</div>
+
+<h3>-----------------让两段文本在一行显示--------------</h3> 
+<div class="tryme bootstrap-well"  >
+  <span  class="textLeft">商品名称</span>
+  <span  class="textRight">哈利波特</span>
+  <span  class="textLeft">交易时间</span>
+  <span  class="textRight">2016-09-22</span>
 </div>
 
  <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>

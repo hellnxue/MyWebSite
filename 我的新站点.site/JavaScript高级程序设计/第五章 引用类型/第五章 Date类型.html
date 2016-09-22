@@ -29,12 +29,13 @@ $("#d3").on("click",function(){
    
    console.log(getHandleDate(Date.parse("2015-09-17T09:29:20.6877003+08:00")));
    
-    console.log(getHandleDate(438710400000));
+   
 	
 	var datee="2015-12-04 15:49:03";
 	console.log(datee.split(" ")[0]+"\n"+datee.split(" ").length);
 	console.log(getHandleDateYMD(datee));
   
+   console.log(getHandleDate(438710400000));
 });
 
 });
@@ -98,6 +99,36 @@ function formatDate(){
  
    var result=formdate(new Date().toString(),"yyyy年 MM月 dd日 hh:mm:ss");
    console.log(result);
+   
+   //获取时间戳 
+  var timestamp = Date.parse(new Date());
+
+   console.log(timestamp);
+   
+   //时间戳转成时间
+   var result=formdate(new Date(1474537128000).toString(),"yyyy年 MM月 dd日 hh:mm:ss");
+   console.log(result);//2016年 09月 22日 17:38:48
+   
+  var s=new Date(parseInt(1474537128000)).toLocaleString('chinese',{hour12:false}).replace(/年|月/g, "-").replace(/日/g, " "); 
+  
+  console.log(s);//2016/9/22 17:38:48
+  
+  var x="2016/9/22 17:38:48";
+  console.log(x.replace(/\//g,"-"));
+}
+
+function getTimes(){
+ 
+ /*获取的时间戳是把毫秒改成000显示*/
+var timestamp = Date.parse(new Date());
+
+
+/*第二种和第三种是获取了当前毫秒的时间戳。*/
+var timestamp = (new Date()).valueOf();
+
+
+var timestamp=new Date().getTime();
+
 }
 </script>
 </head>
@@ -107,5 +138,7 @@ function formatDate(){
 <input type="button"  name="d2" id="d2" value="测试Date2"/></br>
 <input type="button"  name="d2" id="d3" value="测试Date3"/></br>
 <input type="button"    value="时间格式化" onclick="formatDate()"/></br>
+<input type="button"    value="获取时间戳" onclick="getTimes()"/></br>
+
 </body>
 </html>
