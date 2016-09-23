@@ -16,6 +16,30 @@ div {
 		 
 /*设置div中的文字水平居中,注意一定要设置宽度奥，不然div默认宽度会占用一行，auto会不起作用哒。*/		 
 .hln{ margin:20px auto; width:100px;}
+
+
+/*---------在字体的简写属性中同时应用行高---*/
+.abbrFont {
+    background-color: #abcdef;
+    height: 100px;
+    margin: 0 auto;
+    width: 500px;
+	height:auto;
+}
+.abbrFont p{
+    border: none;
+	/*
+	  使用这个字体简写形式要遵守两条规则，否则浏览器无法正确解释声明的值
+	  规则一：必须声明 font-size 和 font-family 的值。 
+	规则二：所有值必须按如下顺序声明。  
+	1. font-weight、font-style、font-variant 不分先后；
+    2. 然后是 font-size； 3. 后是 font-family。 
+	
+	设置的行高最好是em单位的，不然字体过大时，会出现行重叠，如果行高设置成pixel的话
+	*/
+    font: 20px/2em serif;
+}
+
 </style>
 </head>
 
@@ -35,6 +59,22 @@ div {
 <div  >hello helln</div>
 
  <label for="idcard">身份证号</label>
+
+
+
+
+<h3 style="text-align:center;"> -----------------------------在字体的简写属性中同时应用行高-------------------------------- </h3>
+<div class="abbrFont">
+	<p>
+	这个段落拥有更小的行高。
+	这个段落拥有更小的行高。
+	这个段落拥有更小的行高。
+	这个段落拥有更小的行高。
+	这个段落拥有更小的行高。
+	这个段落拥有更小的行高。
+	这个段落拥有更小的行高。
+	</p>
+</div>
 
 
 </body>
