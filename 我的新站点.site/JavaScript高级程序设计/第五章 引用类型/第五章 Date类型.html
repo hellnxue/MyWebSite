@@ -9,15 +9,18 @@ $(function(){
 $("#d1").on("click",function(){
   var date=new Date();
    console.log("date=="+date);
-   console.log("date.getTime()=="+date.getTime());
+   console.log("date.getTime()=="+date.getTime());//日期的毫秒值，时间戳
    console.log("date.getFullYear()=年="+date.getFullYear());
    console.log("date.getMonth()=月="+Number(date.getMonth()+1));
    console.log("date.getDate()=日="+date.getDate());
    console.log("date.getDay()=星期="+date.getDay());
+   console.log("");
 });
+
 $("#d2").on("click",function(){
   console.log( getHandleDate(new Date().getTime()));
 });
+
 
 $("#d3").on("click",function(){
  
@@ -42,11 +45,11 @@ $("#d3").on("click",function(){
 //时间格式化------根据时间的毫秒值处理时间获得年月日
 function getHandleDate(ms){
    var date=new Date(ms);
-   var month=Number(date.getMonth()+1)+"";
+   var month= date.getMonth()+1 +"";
    if(month.length<2){
  	 month="0"+month;
   }
-   var day=Number(date.getDate())+"";
+   var day= date.getDate() +"";
    if(day.length<2){
  	 day="0"+day;
   }
@@ -76,6 +79,8 @@ function formdate(date,format){
         "S": date.getMilliseconds() //毫秒 
     };
     format = format.replace(/([yMdhmsqS])+/g, function(all, t){
+	    console.log(all);
+		console.log(t);
         var v = map[t];
         if(v !== undefined){
             if(all.length > 1){
@@ -109,36 +114,77 @@ function formatDate(){
    var result=formdate(new Date(1474537128000).toString(),"yyyy年 MM月 dd日 hh:mm:ss");
    console.log(result);//2016年 09月 22日 17:38:48
    
+  //根据指定的毫秒值获取年月日，时分秒
   var s=new Date(parseInt(1474537128000)).toLocaleString('chinese',{hour12:false}).replace(/年|月/g, "-").replace(/日/g, " "); 
   
   console.log(s);//2016/9/22 17:38:48
   
   var x="2016/9/22 17:38:48";
-  console.log(x.replace(/\//g,"-"));
+  
+  //替换全部的/
+  var hx=x.replace(/\//g,"-");
+  console.log(hx);
 }
 
 function getTimes(){
  
  /*获取的时间戳是把毫秒改成000显示*/
-var timestamp = Date.parse(new Date());
+var timestamp1 = Date.parse(new Date());
 
 
 /*第二种和第三种是获取了当前毫秒的时间戳。*/
-var timestamp = (new Date()).valueOf();
+var timestamp2 = (new Date()).valueOf();
 
 
-var timestamp=new Date().getTime();
+var timestamp3=new Date().getTime();
 
+   console.log(   timestamp1);
+   console.log(   timestamp2);
+   console.log(   timestamp3);
+
+}
+
+function testrr(){
+   var date=new Date();
+   var n=date.getFullYear();
+   var month=date.getMonth()+1+"";
+   var day= date.getDate() +"";
+   var week=date.getDay();
+   var hour=date.getHours();
+   var minutes=date.getMinutes();
+   var seconds=date.getSeconds();
+   
+   var ps=Date.parse(new Date());
+   var hm=date.getTime();
+   
+/*   console.log(   hour);
+   console.log(   minutes);
+   console.log(   seconds);
+    console.log(   ps);
+	 console.log(   hm);
+	  console.log(   date.valueOf());
+	 
+   var date1=new Date(2007,0,1);
+   var date2=new Date(2007,1,1);
+   console.log(date1<date2);
+   console.log(date1.valueOf());
+   
+   console.log(   date.toString());*/
+   
+   
+   var result=formdate(new Date().toString(),"yyyy年 MM月 dd日 hh:mm:ss");
+    console.log(new Date().toString());
+   console.log(result);
 }
 </script>
 </head>
 
 <body>
-<input type="button"  name="d1" id="d1" value="测试Date"/></br>
-<input type="button"  name="d2" id="d2" value="测试Date2"/></br>
-<input type="button"  name="d2" id="d3" value="测试Date3"/></br>
+<input type="button"  name="d1" id="d1" value="分别获取日期的时间戳、年、月、日"/></br>
+<input type="button"  name="d2" id="d2" value="根据时间的毫秒值处理时间获得年月日"/></br>
+<input type="button"  name="d2" id="d3" value="时间格式化"/></br>
 <input type="button"    value="时间格式化" onclick="formatDate()"/></br>
 <input type="button"    value="获取时间戳" onclick="getTimes()"/></br>
-
+<input type="button"    value="测试日期" onclick="testrr()"/></br>
 </body>
 </html>
