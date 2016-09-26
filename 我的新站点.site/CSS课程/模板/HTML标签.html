@@ -493,6 +493,43 @@ color:#737373;}
     width: 20px;
 	display:inline-block;/*如果是inline-block 那此处的div会和div内的文字分离，文字垂直居中，div不会。或者此处设置为display:inline,div内的内容为空，这时div是垂直居中的*/
 }
+
+
+.fheader {
+    background-color: #fff;
+    border: 1px solid #999;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 10px 6px 5px 5px;
+   
+    width: 80%;
+}
+
+.fheader div:nth-of-type(1) {
+    
+    display: inline-block;
+    float: left;
+    padding-top: 4px;
+    width: 50%;
+}
+
+.fheader div:nth-of-type(2){
+    display: inline-block;
+    text-align: right;
+    width: 50%;
+}
+
+.fheader  span{
+	 
+	display:inline-block;
+	vertical-align: middle;
+}
+
+.fheader div span+span{
+	 
+	  padding-left: 50px;
+
+}
  
 </style>
 </head>
@@ -847,6 +884,19 @@ color:#737373;}
 <h3>-----------------line-height行高对垂直居中的影响，影响文本和行内元素，对块级元素无效哒，不过line-height是会继承的--------------</h3> 
 <div   class="lineHeigh-Center">
 	<div >hello</div>
+</div>
+
+
+<h3>-----------------横向浮动--------------</h3> 
+<div class="fheader clearfix">
+	<div>
+		<span><strong>现金账户</strong></span>
+	</div>
+	<div>
+	   <span><strong>余额</strong></span>
+	   <span><strong>$9999.00</strong></span>
+	   <span><button type="button" class="btn btn-info">充值</button></span>
+	</div>
 </div>
 
  <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
