@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="gb2312" >
+    <title>垂直居中的新方法</title>
+    <style>
+        .myContainer{
+            width: 500px;
+            height: 300px;
+            margin: 10px auto;
+            background-color: gray;
+            text-align: center;
+        }
+
+        .div1{
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            display: inline-block;
+            vertical-align: middle
+        }
+
+        .div2{
+            width: 0;
+            height: 100%;
+            background-color: aqua;
+            display: inline-block;
+            vertical-align: middle
+        }
+    </style>
+</head>
+<body>
+<div class="myContainer">
+    <div class="div1"></div>
+    <div class="div2"></div>
+</div>
+</body>
+</html>

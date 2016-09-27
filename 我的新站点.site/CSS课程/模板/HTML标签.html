@@ -50,7 +50,14 @@ h3{
 .btn-info{
 	background-color:#5bc0de;
 	border-color:#46b8da;
-	color:#fff;}	
+	color:#fff;}
+	
+	
+.btn-primary {
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    color: #fff;
+}	
 
 .btn-lg{
 	border-radius:6px;
@@ -89,9 +96,17 @@ h3{
 }
 
 .btn.disabled:focus,.btn.disabled:hover{
-		background-color:#5bc0de;
+	background-color:#5bc0de;
 	border-color:#46b8da;
 }
+
+
+/*bootstrap分隔器*/
+.divider{
+	background-color:#e5e5e5;
+	height:1px;
+	margin:9px 0;
+	overflow:hidden;}
 
 .img{
 vertical-align:middle;
@@ -542,27 +557,35 @@ color:#737373;}
     margin: 0 auto;
     padding: 10px 6px 5px 5px;
     width: 80%;
+    font-size:0;
+    letter-spacing:-4px; /*实际情况下 -4这个值可能还要调整*/
+    word-spacing:-4px; 
+}
+
+.fheader1 div{
+	   
+  display: inline-block;
+  width: 50%;	
+  vertical-align:middle;
+  zoom:1;
+  
+  /*去除两个display:inline-block 的div之间的空隙*/
+  font-size:16px;
+  letter-spacing:normal;
+  word-spacing:normal;
 }
 
 .fheader1 div:nth-of-type(1) {
-    
-    display: inline-block;
-    padding-top: 4px;
-    width: 50%;
-	vertical-align:middle;
+	text-align:left;
 	background-color:#FFCCCC;
 }
 
 .fheader1 div:nth-of-type(2){
-    display: inline-block;
     text-align: right;
-    width: 49%;
-	vertical-align:middle;
 	background-color:#FFFFCC;
 }
 
-.fheader1  span{
-	 
+.fheader1  span{	 
 	display:inline-block;
 	vertical-align: middle;
 }
@@ -572,7 +595,22 @@ color:#737373;}
 	  padding-left: 50px;
 
 }
- 
+
+
+/*display:inline-block也能包围浮动的子元素 
+*/
+
+.wrap-float{
+	display:inline-block;/*包围住浮动的子元素，可能inline具有收缩功能吧，但会导致 用margin:0 auto来居中元素无效，解决方法就是再包围一层div,并设置text-align:center即可*/
+	width:80%;
+	margin:0 auto;
+	border:1px solid #abdddd;}
+
+
+.wrap-float .btn{
+	float:left;
+	 
+	 }
 </style>
 </head>
 
@@ -918,7 +956,7 @@ color:#737373;}
   <span  class="textRight">2016-09-22</span>
 </div>
 
-<h3>-----------------横向 display:inline-block + float:left--------------</h3> 
+<h3>-----------------横向 display:inline-block + float:left,浮动使得中间木有空隙--------------</h3> 
 <div class="fheader clearfix">
 	<div>
 		<span><strong>现金账户</strong></span>
@@ -929,7 +967,7 @@ color:#737373;}
 	   <span><button type="button" class="btn btn-info">充值</button></span>
 	</div>
 </div>
-<h3>-----------------display:inline的元素可以在一行显示，只不过元素之间有默认的空隙哎--------------</h3> 
+<h3>-----------------display:inline-block的元素可以在一行显示，只不过元素之间有默认的空隙哎--------------</h3> 
 <div class="fheader1">
 	<div>
 		<span><strong>现金账户</strong></span>
@@ -937,7 +975,7 @@ color:#737373;}
 	<div>
 	   <span><strong>余额</strong></span>
 	   <span><strong>$9999.00</strong></span>
-	   <span><button type="button" class="btn btn-info">充值</button></span>
+	   <span><button type="button" class="btn btn-primary">充值</button></span>
 	</div>
 </div>
 
@@ -951,7 +989,18 @@ color:#737373;}
 	<div >hello</div>
 </div>
 
+<h3>----------------.divider分隔器，一条灰色的高1px的线--------------</h3> 
+<div class="divider" style="width:50%; "></div>
+ 
 
+
+<h3>----------------用display:inline-block包围浮动的子元素--------------</h3> 
+<div style="text-align:center;"><!--居中display:inline-block的子元素-->
+   <div class="wrap-float">
+	<button class="btn btn-info">按钮one</button>
+	<button class="btn btn-info">按钮two</button>
+</div>
+</div>
 
 
  <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
