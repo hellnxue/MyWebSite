@@ -79,8 +79,7 @@ function formdate(date,format){
         "S": date.getMilliseconds() //毫秒 
     };
     format = format.replace(/([yMdhmsqS])+/g, function(all, t){
-	    console.log(all);
-		console.log(t);
+	    
         var v = map[t];
         if(v !== undefined){
             if(all.length > 1){
@@ -99,23 +98,21 @@ function formdate(date,format){
 	}
 	
 function formatDate(){
-   console.log(new Date().toString());
-   console.log(  new Date(new Date().toString()));
- 
+   
+   //格式化时间  年月日，时分秒
    var result=formdate(new Date().toString(),"yyyy年 MM月 dd日 hh:mm:ss");
    console.log(result);
    
-   //获取时间戳 
-  var timestamp = Date.parse(new Date());
-
-   console.log(timestamp);
    
    //时间戳转成时间
    var result=formdate(new Date(1474537128000).toString(),"yyyy年 MM月 dd日 hh:mm:ss");
    console.log(result);//2016年 09月 22日 17:38:48
    
   //根据指定的毫秒值获取年月日，时分秒
-  var s=new Date(parseInt(1474537128000)).toLocaleString('chinese',{hour12:false}).replace(/年|月/g, "-").replace(/日/g, " "); 
+  var s=new Date(parseInt(1474537128000)).toLocaleString('chinese',{hour12:false}).replace(/年|月/g, "-").replace(/日/g, " ");
+   
+   //根据指定的毫秒值获取年月日，时分秒
+  var d=new Date(new Date().getTime()).toLocaleString('chinese',{hour12:false}).replace(/\//g,"-");//2016-9-28 10:26:34
   
   console.log(s);//2016/9/22 17:38:48
   
@@ -173,8 +170,9 @@ function testrr(){
    
    
    var result=formdate(new Date().toString(),"yyyy年 MM月 dd日 hh:mm:ss");
-    console.log(new Date().toString());
+   console.log(new Date().toString());
    console.log(result);
+   console.log(  new Date(new Date().getTime()).toLocaleString('chinese',{hour12:false}).replace(/\//g,"-"));
 }
 </script>
 </head>
