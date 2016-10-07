@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<link href="../../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+
+/*每个页面的导航部分*/
+body{
+	margin:0;}
+
+/*导航容器*/
+.custom-head-line{
+	position:relative;
+	width:100%;
+	padding:10px 0;
+	background-color:#fff;
+	
+}
+
+/*导航线*/
+ .custom-line {
+    background-color: #ccc;
+    height: 2px;
+    left: 10%;
+    position: absolute;
+    top: 35%;
+    width: 80%;
+	z-index:1;/*设置好层的顺序*/
+} 
+
+
+.custom-head-line ul {
+	position:relative;
+	z-index:10;/*让ul层在导航线的上方*/
+    display: flex;/*设置ul为弹性盒子容器*/
+    flex-direction: row;/*弹性子元素的排列方式--行排列*/
+    justify-content: space-around;/*设置弹性盒子子元素在主轴(横轴)方向上的对齐方式--项目位于各行之前、之间、之后都留有空白的容器内。*/
+	align-items: center;/*设置弹性盒子子元素在侧轴（纵轴）方向上的对齐方式--垂直居中*/
+	flex-wrap:nowrap;/*设置弹性盒子的子元素超出父元素容器时是否换行--不换行*/
+	align-content:center;/*修改 flex-wrap 属性的行为，类似 align-items, 但不是设置子元素对齐，而是设置行对齐*/
+	margin:0;
+	padding:10px 0;
+	 
+}
+
+.custom-head-line ul li{
+	list-style:none;
+	flex-grow:1;
+	 
+  
+}
+
+.custom-head-line ul li a{
+	display:block;
+	width:70%;
+	margin:0 auto;
+  	background-color:#fff;
+	text-decoration:none;
+	text-align:center;
+	font-size:20px;
+}
+
+.custom-head-line ul li a span{
+	display:block;
+  	 
+}
+
+.custom-head-line ul li a span:last-child{
+	font-size:16px;
+	margin-top:10px;
+  	 
+}
+
+  
+</style>
+
+</head>
+
+
+<body>
+
+	<div class="custom-head-line">
+			<div class="custom-line"></div>
+			<ul>
+				<li><a class="active" href="#"><span>1</span><span>个人信息</span></a></li>
+				<li><a href="#"><span>2</span><span>履历信息</span></a></li>
+				<li><a href="#"><span>3</span><span>教育信息</span></a></li>
+				<li><a href="#"><span>4</span><span>社会关系</span></a></li>
+			</ul>
+		</div>
+
+ 
+</body>
+</html>
