@@ -1,4 +1,6 @@
 @charset "UTF-8";
+/*变量需要先定义后再使用，右前后顺序的*/
+@import url(../mycss/originalCSS.css);
 /* line 8, ../sass/test.scss */
 p {
   width: 200px;
@@ -6,44 +8,44 @@ p {
   border: 1px solid black;
 }
 
-/* line 16, ../sass/test.scss */
+/* line 17, ../sass/test.scss */
 #content article h1 {
   color: #333;
 }
-/* line 19, ../sass/test.scss */
+/* line 20, ../sass/test.scss */
 #content article p {
   border: 1px solid black;
   transition: border 0.25s ease-in-out 0s,background-color 0.15s ease-in-out 0s;
   background-color: #eee;
 }
-/* line 23, ../sass/test.scss */
+/* line 24, ../sass/test.scss */
 #content article p:hover {
   cursor: pointer;
   background-color: #ddd;
   border: 1px solid yellow;
 }
-/* line 32, ../sass/test.scss */
+/* line 33, ../sass/test.scss */
 #content aside {
   background-color: #eee;
 }
-/* line 34, ../sass/test.scss */
+/* line 35, ../sass/test.scss */
 body.ctt #content aside {
   color: pink;
 }
 
 /*群组选择器*/
-/* line 41, ../sass/test.scss */
+/* line 42, ../sass/test.scss */
 #content h1, #content h2 {
   background-color: #abcdef;
 }
 
-/* line 48, ../sass/test.scss */
+/* line 49, ../sass/test.scss */
 nav a, aside a {
   text-decoration: none;
 }
 
 /*-----------子组合选择器和同层组合选择器：>、+和~ 这类的也可以应用嵌套规则，sass会把嵌套的一个个连起来----------*/
-/* line 55, ../sass/test.scss */
+/* line 56, ../sass/test.scss */
 div#ultt {
    /*
      结果
@@ -69,25 +71,25 @@ div#ultt {
   }
   */
 }
-/* line 64, ../sass/test.scss */
+/* line 65, ../sass/test.scss */
 div#ultt li + li {
   font-weight: 600;
 }
-/* line 78, ../sass/test.scss */
+/* line 79, ../sass/test.scss */
 div#ultt > ul > li {
   text-decoration: underline;
 }
-/* line 95, ../sass/test.scss */
+/* line 96, ../sass/test.scss */
 div#ultt ul {
   text-decoration: underline;
 }
-/* line 97, ../sass/test.scss */
+/* line 98, ../sass/test.scss */
 li + div#ultt ul {
   border: 2px solid yellow;
 }
 
 /*  -------------------------------------------嵌套属性----------------------------------- */
-/* line 120, ../sass/test.scss */
+/* line 118, ../sass/test.scss */
 .propertyNest {
   border: 2px solid #ddd;
   border-top-color: yellow;
@@ -95,19 +97,154 @@ li + div#ultt ul {
   border-bottom-color: blue;
   border-bottom-width: 4px;
 }
-/* line 121, ../sass/test.scss */
+/* line 119, ../sass/test.scss */
 .propertyNest p {
   border: none;
   width: auto;
 }
 
-/*-----------静默变量--------------------*/
+/*-----------默认变量值--------------------*/
 /* line 140, ../sass/test.scss */
 div[data-vb="dfvb"] {
   background-color: yellow;
+  /*嵌套导入局部sass文件*/
   border-color: #abcdef;
   border: 1px solid black;
   border-color: #abcdef;
   border-width: 2px;
   text-decoration: underline;
+  border-color: blue;
+}
+
+/*导入原生的CSS文件*/
+/* line 1, ../sass/_changeSass.scss */
+.change {
+  color: pink;
+}
+
+/* line 183, ../sass/test.scss */
+[name=helln] {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  background-color: #fff;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: border-color 0.15s ease-in-out 0s,box-shadow 0.15s ease-in-out 0s;
+}
+/* line 175, ../sass/test.scss */
+[name=helln]:focus {
+  border-color: #66afe9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/* line 188, ../sass/test.scss */
+[name=favorite] {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  background-color: #fff;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.4;
+  transition: border-color 0.15s ease-in-out 0s,box-shadow 0.15s ease-in-out 0s;
+}
+/* line 175, ../sass/test.scss */
+[name=favorite]:focus {
+  border-color: #66afe9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+/* line 205, ../sass/test.scss */
+a.hi {
+  color: black;
+}
+/* line 196, ../sass/test.scss */
+a.hi:hover {
+  color: pink;
+}
+/* line 199, ../sass/test.scss */
+a.hi:active {
+  color: black;
+}
+
+/* line 211, ../sass/test.scss */
+.error, .seriousError {
+  margin-top: 5px;
+  border: 1px solid red;
+  background-color: #fdd;
+}
+
+/* line 217, ../sass/test.scss */
+div.error, div.seriousError {
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/* line 223, ../sass/test.scss */
+.error p, .seriousError p {
+  width: auto;
+  color: #000;
+  border: none;
+}
+
+/*
+	生成的样式表源码，整个样式表就这一处，不会重复出现
+	.error, .seriousError {
+	  margin-top: 5px;
+	  border: 1px solid red;
+	  background-color: #fdd;
+	}
+*/
+/* line 235, ../sass/test.scss */
+.seriousError {
+  border-width: 3px;
+}
+
+/*继承元素选择器的CSS样式规则*/
+/* line 240, ../sass/test.scss */
+font, .disabled {
+  font-size: 19px;
+}
+
+/* line 243, ../sass/test.scss */
+.disabled {
+  color: gray;
+}
+
+/*
+继承复杂的选择器时
+假如一条样式规则继承了一个复杂的选择器，那么它只会继承这个复杂选择器命中的元素所
+应用的样式
+如下面的.complex继承了.a.b的样式color:#aca  而不是单独的.a的样式或.b的样式
+*/
+/* line 255, ../sass/test.scss */
+.a {
+  border: 1px solid yellow;
+}
+
+/* line 259, ../sass/test.scss */
+.b {
+  background-color: #ccc;
+}
+
+/* line 262, ../sass/test.scss */
+body .a.b, body .complex {
+  color: #aca;
+}
+
+/* line 266, ../sass/test.scss */
+.complex {
+  font-size: 20px;
 }

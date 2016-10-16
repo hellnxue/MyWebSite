@@ -1,5 +1,5 @@
 
- 
+/*变量需要先定义后再使用，右前后顺序的*/ 
 $color:#999;
 $border-color:black;
 $bgColors:yellow;
@@ -10,6 +10,7 @@ p{
 	width:$width;
 	color:$color;
 	border:1px solid $border-color;
+	 
 	}
 #content{
   article{
@@ -107,16 +108,13 @@ ul{
 
 //生成样式代码
 
-//.propertyNest {
-//    -moz-border-bottom-colors: none;
-//    -moz-border-left-colors: none;
-//    -moz-border-right-colors: none;
-//    -moz-border-top-colors: none;
-//    border-color: yellow #ddd blue;
-//    border-image: none;
-//    border-style: solid;
-//    border-width: 4px 2px;
-//}
+ //.propertyNest {
+//  border: 2px solid #ddd;
+//  border-top-color: yellow;
+//  border-top-width: 4px;
+//  border-bottom-color: blue;
+//  border-bottom-width: 4px;
+// }
 .propertyNest{
    p{
      border:none;
@@ -135,19 +133,143 @@ ul{
    }
 }
 
-/*-----------静默变量--------------------*/
+/*-----------默认变量值--------------------*/
 
+ $test-color:red;
+$text-color2:blue;
 div[data-vb="dfvb"]{
   background-color:$bgColors;
-  @import "abd";
+  @import "abd";/*嵌套导入局部sass文件*/
   border-color:$dcolor;
   border:1px solid black{
      color:$dcolor;
 	 width:2px;
   };
  text-decoration: $text;
+ border-color:$text-color2;
   
 }
+
+
+
+/*导入原生的CSS文件*/
+@import url(../mycss/originalCSS.css);
+
+@import "_changeSass";
+
+//混合样式定义
+@mixin rounded-corner{
+  display:block;
+  width:100%;
+  height:34px;
+  padding:6px 12px;
+  box-sizing:border-box;
+  border:1px solid #ccc;
+  border-radius:4px;
+  box-shadow:0 1px 1px rgba(0,0,0,.075) inset;
+  background-color:#fff;
+  color:#555;
+  font-size:14px;
+  line-height:1.4;
+  transition:border-color 0.15s ease-in-out 0s,box-shadow 0.15s ease-in-out 0s;
+  &:focus{
+  	border-color:#66afe9;
+	box-shadow:0 1px 1px rgba(0,0,0,0.075) inset,0 0 8px rgba(102,175,233,0.6) ;
+  }
+}
+
+
+//混合器使用
+[name=helln]{
+  @include rounded-corner;
+  
+}
+
+[name=favorite]{
+  @include rounded-corner;
+}
+//带有参数的混合器  有默认值的参数要定义在没有默认值参数的后面 ，不然会报语法错误的，比如$active和$hover:$normal的位置
+
+@mixin hihi($normal,$hover,$active:$normal){
+	color:$normal;
+	
+	&:hover{
+	 color:$hover;
+	}
+	&:active{
+	  color:$active;
+	}
+
+}
+
+a.hi{
+  @include hihi($normal:black,$hover:pink)
+}
+
+
+//选择器继承
+.error{
+  margin-top:5px;
+  border: 1px solid red;
+  background-color: #fdd;
+}
+
+div.error{
+  margin-top:5px;
+  border-radius:5px;
+  
+}
+
+.error p{
+  width:auto;
+  color:#000;
+  border:none;}
+/*
+	生成的样式表源码，整个样式表就这一处，不会重复出现
+	.error, .seriousError {
+	  margin-top: 5px;
+	  border: 1px solid red;
+	  background-color: #fdd;
+	}
+*/
+.seriousError {
+	@extend .error;
+	border-width: 3px;
+}
+/*继承元素选择器的CSS样式规则*/
+font{
+  font-size:19px;}
+  
+.disabled{
+	color:gray;
+	@extend font;}
+	
+	
+	
+/*
+继承复杂的选择器时
+假如一条样式规则继承了一个复杂的选择器，那么它只会继承这个复杂选择器命中的元素所
+应用的样式
+如下面的.complex继承了.a.b的样式color:#aca  而不是单独的.a的样式或.b的样式
+*/
+.a{
+	border:1px solid yellow;
+}
+
+.b{
+	background-color:#ccc;}	
+	
+body .a.b{
+	color:#aca;
+}
+
+.complex{
+  font-size:20px;
+  @extend   .a.b;
+}
+
+
+
 
 
 
