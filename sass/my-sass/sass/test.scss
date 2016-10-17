@@ -155,7 +155,7 @@ div[data-vb="dfvb"]{
 /*导入原生的CSS文件*/
 @import url(../mycss/originalCSS.css);
 
-@import "_changeSass";
+//@import "_changeSass";
 
 //混合样式定义
 @mixin rounded-corner{
@@ -207,29 +207,66 @@ a.hi{
 }
 
 
+
+
+
+
+
 //选择器继承
+
+/*
+	选择器.seriousError继承.error后，.error会被替换为：
+	.error, .seriousError {
+		background-color: #fdd;
+		border: 1px solid red;
+		margin-top: 5px;
+	}
+	
+	并且，继承了.error后，与.seriousError的其它选择器组合会与.error一样的效果
+*/
 .error{
   margin-top:5px;
   border: 1px solid red;
   background-color: #fdd;
 }
 
+
+/*
+  	源码中:
+	div.error, div.seriousError {
+		border-radius: 5px;
+	}
+*/
 div.error{
-  margin-top:5px;
+  
   border-radius:5px;
   
 }
 
+
+/*
+  源码中：
+  
+	.error p, .seriousError p {
+		border: medium none;
+		color: #000;
+		width: auto;
+	}
+*/
 .error p{
   width:auto;
   color:#000;
   border:none;}
+  
+  
 /*
-	生成的样式表源码，整个样式表就这一处，不会重复出现
+	源码中：
+	.seriousError {
+    border-width: 3px;
+	}
 	.error, .seriousError {
-	  margin-top: 5px;
-	  border: 1px solid red;
-	  background-color: #fdd;
+		background-color: #fdd;
+		margin-top: 5px;
 	}
 */
 .seriousError {
@@ -244,6 +281,21 @@ font{
 	color:gray;
 	@extend font;}
 	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
 	
 /*

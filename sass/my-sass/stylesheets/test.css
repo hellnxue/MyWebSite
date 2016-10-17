@@ -117,11 +117,6 @@ div[data-vb="dfvb"] {
 }
 
 /*导入原生的CSS文件*/
-/* line 1, ../sass/_changeSass.scss */
-.change {
-  color: pink;
-}
-
 /* line 183, ../sass/test.scss */
 [name=helln] {
   display: block;
@@ -179,20 +174,44 @@ a.hi:active {
   color: black;
 }
 
-/* line 211, ../sass/test.scss */
+/*
+	选择器.seriousError继承.error后，.error会被替换为：
+	.error, .seriousError {
+		background-color: #fdd;
+		border: 1px solid red;
+		margin-top: 5px;
+	}
+	
+	并且，继承了.error后，与.seriousError的其它选择器组合会与.error一样的效果
+*/
+/* line 227, ../sass/test.scss */
 .error, .seriousError {
   margin-top: 5px;
   border: 1px solid red;
   background-color: #fdd;
 }
 
-/* line 217, ../sass/test.scss */
+/*
+  	源码中:
+	div.error, div.seriousError {
+		border-radius: 5px;
+	}
+*/
+/* line 240, ../sass/test.scss */
 div.error, div.seriousError {
-  margin-top: 5px;
   border-radius: 5px;
 }
 
-/* line 223, ../sass/test.scss */
+/*
+  源码中：
+  
+	.error p, .seriousError p {
+		border: medium none;
+		color: #000;
+		width: auto;
+	}
+*/
+/* line 256, ../sass/test.scss */
 .error p, .seriousError p {
   width: auto;
   color: #000;
@@ -200,25 +219,27 @@ div.error, div.seriousError {
 }
 
 /*
-	生成的样式表源码，整个样式表就这一处，不会重复出现
+	源码中：
+	.seriousError {
+    border-width: 3px;
+	}
 	.error, .seriousError {
-	  margin-top: 5px;
-	  border: 1px solid red;
-	  background-color: #fdd;
+		background-color: #fdd;
+		margin-top: 5px;
 	}
 */
-/* line 235, ../sass/test.scss */
+/* line 272, ../sass/test.scss */
 .seriousError {
   border-width: 3px;
 }
 
 /*继承元素选择器的CSS样式规则*/
-/* line 240, ../sass/test.scss */
+/* line 277, ../sass/test.scss */
 font, .disabled {
   font-size: 19px;
 }
 
-/* line 243, ../sass/test.scss */
+/* line 280, ../sass/test.scss */
 .disabled {
   color: gray;
 }
@@ -229,22 +250,22 @@ font, .disabled {
 应用的样式
 如下面的.complex继承了.a.b的样式color:#aca  而不是单独的.a的样式或.b的样式
 */
-/* line 255, ../sass/test.scss */
+/* line 307, ../sass/test.scss */
 .a {
   border: 1px solid yellow;
 }
 
-/* line 259, ../sass/test.scss */
+/* line 311, ../sass/test.scss */
 .b {
   background-color: #ccc;
 }
 
-/* line 262, ../sass/test.scss */
+/* line 314, ../sass/test.scss */
 body .a.b, body .complex {
   color: #aca;
 }
 
-/* line 266, ../sass/test.scss */
+/* line 318, ../sass/test.scss */
 .complex {
   font-size: 20px;
 }
