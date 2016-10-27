@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>writer title here</title>
+<link href="../../CSS课程/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<link href="css/panel.css" rel="stylesheet" type="text/css"/>
+
+</head>
+
+<body>
+	<div id="wrap">
+		<fieldset class="enter">
+		 <legend>try.....</legend>
+			 <input type="button"  value="aa" id="test1" class="btn-info"/> 
+			
+			<input type="button"  value="bb" id="test2" class="btn-info"/> 
+			
+			<input type="button"  value="cc" id="test3" class="btn-info"/> 
+			
+			<input type="button"  value="dd" id="test4" class="btn-info"/> 
+			 
+		    <input type="button"  value="ee" id="test5" class="btn-info"/>
+			
+			  
+		</fieldset>
+		
+		<fieldset class="out">
+		 <legend>out.....</legend>
+		 <div id="out">
+		   result here......
+		 </div>	 
+	  
+		</fieldset>
+				 
+		 <div id="btn">
+		   <input type="button"  value="clear" onClick="clears()" class="btn-clear"/> 
+		 </div>	 			  
+		 
+	</div>
+	
+	<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+	
+	<script>
+		/*公共方法-消息显示*/
+		function commonShow(msg){
+		 
+		  $("#out").append("<br/>"+String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
+		}
+		
+		function clears(){
+		   $("#out").html("");
+		}
+	
+		$(function(){
+		   $("#test1").on("click",function(){
+		     console.log(1);
+		   });
+		   
+		    $("#test2").on("click",function(){
+		     console.log(2);
+		   });
+		   
+		    $("#test3").on("click",function(){
+		     console.log(3);
+		   });
+		   
+		    $("#test4").on("click",function(){
+		     console.log(4);
+		   });
+		   
+		    $("#test5").on("click",function(){
+		     console.log(5);
+		   });
+		});
+	 
+	
+	</script>
+</body>
+</html>

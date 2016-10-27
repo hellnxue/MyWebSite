@@ -314,7 +314,15 @@ font{
 body .a.b{
 	color:#aca;
 }
-
+/*
+    生成的css源码：
+	body .a.b, body .complex {
+		color: #aca;
+	}
+	.complex {
+		font-size: 20px;
+	}
+*/
 .complex{
   font-size:20px;
   @extend   .a.b;

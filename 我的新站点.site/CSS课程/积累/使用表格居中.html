@@ -31,10 +31,30 @@
 </div>
 
 
- <!--利用行高垂直居中，适合只有一行文字的情况下奥~-->
- <div style="width:200px; height:200px; border:1px solid red; text-align:center ">
+ <!--利用行高垂直居中，适合父元素高度确定只有一行文字的情况下奥~-->
+ <div style="width:200px; height:200px; border:1px solid red; text-align:center; ">
 	
-	<span style=" line-height:200px;">hello world</span>
-</div>
+	<span  style="line-height:200px;" >hello world</span>
+	
+ </div>
+
+
+
+
+ <!--多行文本垂直居中 先设置 display:table-cell 再设置 vertical-align:middle；-->
+ <div style="width:200px; height:200px; border:1px solid red; text-align:center; display:table-cell; vertical-align:middle; ">
+	
+	<span>如果你使用的是表格的话，那完全不用为各种居中问题而烦恼了，只要用到 td(也可能会用到 th)元素的 align="center" 以及 
+	</span>
+	
+ </div>
+ 
+ 
+ <div style="width:200px; height:200px; border:1px solid red; position:relative; left:50% ">
+	
+	<div style="position:relative; left:50%;">如果你使用的是表格的话，  
+	</div>
+	
+ </div>
 </body>
 </html>

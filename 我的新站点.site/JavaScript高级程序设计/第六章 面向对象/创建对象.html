@@ -19,21 +19,24 @@
   }
   #wrap{
 	  overflow:hidden;
-	  width:900px;
+	  width:100%;
 	  margin:20px auto;}
   
-  fieldset{
-	  float:left;
-	  width:400px;
-	  margin:20px 5px;;
-	  border: 0 none;
-	  background-color:#fff; 
-	  border-radius: 10px 0;
-	  box-shadow: 0 12px 8px -9px #ccc;
-  }
-  fieldset.out{
-	  min-height:300px;
-	   }
+ fieldset {
+    background-color: #fff;
+    border: medium none;
+    border-radius: 10px 0;
+    box-shadow: 0 12px 8px -9px #ccc;
+    box-sizing: border-box;
+    float: left;
+    margin: 0;
+    width: 50%;
+}
+
+fieldset.out {
+    border-left: 5px solid #eee;
+    min-height: 300px;
+}
   fieldset.out div{
   	margin:20px;
 	color:#999;}
@@ -243,16 +246,20 @@ function test66(){
 	 
    };
    var friend=new Person1("Tom"); 
-   
+
    console.log(friend.constructor);//Object
-   console.log(friend.constructor==Person1);//false
+   console.log(friend.constructor==Person1.prototype.constructor);//true 都为Object
+   console.log( Person1.prototype.constructor);//Object
    console.log(friend.constructor==Object);//true
-   
+   console.log(friend.constructor==Person1);//false
    console.log(friend.name);//Nigola
    
    console.log(Object.getPrototypeOf(friend)==Person1.prototype);//true 此处实例的原型对象指针与构造函数的原型对象是一个
  
     console.log(friend.sayName());
+	
+	friend.sex='nan';
+	console.log(friend.sex);
 	 
    
 }
@@ -282,6 +289,8 @@ function test2(){
    console.log(Object.getPrototypeOf(friend)==Person1.prototype);//false
    console.log(Object.getPrototypeOf(friend));//friend的[[Prototype指针指向了构造函数Person1原始的原型对象]]
    console.log(Person1.prototype);//新的原型对象
+   
+   
    
 }
 //-----------------------原型对象----------------------------
@@ -356,10 +365,12 @@ SuperType11.prototype.sayName=function(){
 
 
 function SubType11(name,age){
+  //继承属性
   SuperType11.call(this,name);
   this.age=age;
 }
 
+//继承方法
 SubType11.prototype=new SuperType11();
 
 SubType11.prototype.sayAge=function(){
@@ -370,7 +381,8 @@ SubType11.prototype.sayAge=function(){
 function test5(){
   var instance1=new SubType11("helln",20);
   instance1.color.push("pinck");
-  console.log(instance1.color);
+  console.log(instance1.color);          // ["red", "black", "blue", "pinck"]
+  console.log(SubType11.prototype.color);// ["red", "black", "blue"]
   instance1.sayName();
 
   var instance2=new SubType11("ailike",10);
@@ -380,17 +392,34 @@ function test5(){
   
   console.log("age="+instance2.age);
   
-  console.log("SubType11.prototype.hasOwnProperty(\"color\")="+SubType11.prototype.hasOwnProperty("color"));//SubType11的原型等于SuperType11的实例，所以，那么属于SubType11的原型属性，只不过后来color的值在对象实例化的时候被构造函数继承法给覆盖掉了
+ console.log("SubType11.prototype.hasOwnProperty(\"color\")="+SubType11.prototype.hasOwnProperty("color"));//SubType11的原型等于SuperType11的实例，所以，那么属于SubType11的原型属性，只不过后来color的值在对象实例化的时候被构造函数继承法给覆盖掉了
+ 
+ 
   console.log("SubType11.prototype.hasOwnProperty(\"name\")="+SubType11.prototype.hasOwnProperty("name"));//true
   console.log("SuperType11.prototype.hasOwnProperty(\"name\")="+SuperType11.prototype.hasOwnProperty("name"));//false  name是SuperType11的实例属性
-  console.log("instance1.hasOwnProperty(\"name\")="+instance1.hasOwnProperty("name"));
-  console.log("SubType11.prototype.hasOwnProperty(\"sayName\")="+SubType11.prototype.hasOwnProperty("sayName"));
-  console.log("SubType11.prototype.hasOwnProperty(\"age\")="+SubType11.prototype.hasOwnProperty("age"));
-  console.log("instance1.hasOwnProperty(\"age\")="+instance1.hasOwnProperty("age"));
+  
+  console.log("instance1.hasOwnProperty(\"name\")="+instance1.hasOwnProperty("name"));//true
+  
+  console.log("SubType11.prototype.hasOwnProperty(\"sayName\")="+SubType11.prototype.hasOwnProperty("sayName"));//false sayName是父类的原型属性，SubType11.prototype=new SuperType11(); SubType的原型是父类的实例，只包含父类的实例属性，不包括父类的原型属性，两者要区分开来
+  
+  console.log("SubType11.prototype.hasOwnProperty(\"age\")="+SubType11.prototype.hasOwnProperty("age"));//false
+  console.log("instance1.hasOwnProperty(\"age\")="+instance1.hasOwnProperty("age"));//true
   
   console.log("获得instance1的实例的原型对象");
-  console.log(Object.getPrototypeOf(instance1));//
+  console.log(Object.getPrototypeOf(instance1));  
   
+  
+  /*通过构造函数和原型继承组合的方方式继承的方法，父构造函数的属性同时存在于子类的实例中和子类的原型中 */
+  var icolor=instance1.hasOwnProperty("color");//true
+  var scolor=SubType11.prototype.hasOwnProperty("color");//true
+  
+  var iname=instance1.hasOwnProperty("name");//true
+  var sname=SubType11.prototype.hasOwnProperty("color");//true
+  
+  console.log(SubType11.prototype.name);//undefined   
+  
+    
+   
 }
 
 /*原型对象的问题--对包含引用类型值的属性*/
@@ -504,6 +533,58 @@ function test7(){
 	
 	
 }
+
+function test8(){
+   var obj={
+      name:"helln",
+	  age:"20"
+   };
+   var enumerKeys=Object.keys(obj);//取得指定对象上所有可枚举的属性名称，返回一个对象
+   var instanceEnumerKeys=Object.getOwnPropertyNames(obj);//取得实例对象上所有的属性，无论是否可枚举
+  
+//   console.log(Object.keys(obj));
+    
+//   console.log(Object.getOwnPropertyNames(obj));
+ 
+    for(var v in obj){
+		  console.log(v);
+	   }
+	//Object.defineProperty可以修改对象属性默认的特性，比如enumerable默认值为true，允许使用for-in循环遍历属性名称，设置为false后就不可以了
+    Object.defineProperty(obj,"age",{
+     enumerable:false
+    });
+	   for(var v in obj){
+		  console.log(v);
+	   }
+   //delete也可以删除构造函数原型上定义的属性，直接通过实例对象是删除不了的
+   function Oh(){
+     this.name="蜡笔小新"
+   };  
+   Oh.prototype.address="中国";
+   Oh.prototype.age="20";
+   Oh.prototype.say=function(){
+     console.log(123);
+   }
+   /*console.log(Oh.prototype.address);
+   delete Oh.prototype.address;
+   console.log(Oh.prototype.address);*/
+   
+   var is=new Oh();
+   console.log(is.address);
+   delete is.address;
+   console.log(is.address); 
+   
+   console.log(Object.keys( is ));//["name"]
+    console.log(Object.keys(Object.getPrototypeOf(is)));//["name","age"]
+	/*实例的内部属性__proto__也可以添加原型方法*/
+   is.__proto__.say();
+    is.__proto__.eat=function(){
+	  console.log("eat......");
+	}
+	
+	is.eat();
+  
+}
 </script>
 </head>
 
@@ -536,6 +617,8 @@ function test7(){
 		    <input type="button"  value="函数的属性和方法" onclick="test7()"/> 
 			
 			 <input type="button"  value="将构造函数当做函数使用" onclick="test7()"/> 
+			 
+			  <input type="button"  value="for-in遍历对象属性名称" onclick="test8()"/> 
 			  
 		</fieldset>
 		

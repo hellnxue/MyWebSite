@@ -1,0 +1,73 @@
+/* CSS Document */
+
+.transiationBorder{
+	position:relative;
+	width:400px;
+	height:224px;
+	margin:0 auto;
+	cursor:pointer;
+	border:1px solid yellow;
+	overflow:hidden;
+}
+
+.transiationBorder img{
+  width:400px;
+}
+
+.transiationBorder span{
+	 
+	position:absolute;
+	display:block;
+	background-color:#FF99FF;
+	width:8px;
+	height:8px;
+	transition:all 0.8s ease 0s;
+
+}
+
+/*初始化边框*/
+
+.x-top-left{
+	top:0;
+	left:-100%;
+}
+
+.x-top-right{
+	top:-100%;
+	right:0;
+}
+
+.x-bottom-right{
+	
+	
+	bottom:0;
+	right:-100%;
+}
+
+.x-bottom-left{
+	bottom:-100%;
+	left:0;
+}
+
+/*渐变样式*/
+ 
+.transiationBorder:hover .x-top-left {
+  width:100%;
+  left:0;
+}
+
+.transiationBorder:hover .x-top-right {
+   height:100%;
+   top:0;
+}
+
+.transiationBorder:hover .x-bottom-left {
+ height:100%;
+ bottom:0;
+}
+
+.transiationBorder:hover .x-bottom-right{
+  
+   width:100%;
+   right:0;
+}

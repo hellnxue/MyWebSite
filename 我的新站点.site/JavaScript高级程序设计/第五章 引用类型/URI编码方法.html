@@ -5,13 +5,104 @@
 
  
 <title>URI编码方法</title>
+<style>
+ .container *{
+ 	box-sizing:border-box;
+ }
+  .container{
+  	width:100%;
+	height:auto;
+	margin:0;
+	padding:0;
+	
+  }
+  
+  .container header{
+  	width:100%;
+	margin:0 auto;
+	padding:5px;
+	background-color: #abcdf0;
+    border-radius: 5px 5px 0 0;
+	text-align:center;
+  }
+  
+  .panel{
+	min-height:20px;
+	margin-bottom:20px;
+	padding:40px;
+	border:1px solid #e3e3e3;
+    border-radius: 0 0 5px 5px;
+	background-color: #f5f5f5;
+	box-shadow:0 1px 1px rgba(0,0,0,0.05) inset;
+	 
+  }
+  
+  
+  
+  .btn{
+  	 display:inline-block;
+	 padding:6px 12px;
+	  border:1px solid #46b8da;
+	 border-radius:4px;
+	 vertical-align:middle;
+	 white-space:nowrap;
+	 font-size:14px;
+	 font-weight:400;
+	 line-height:1.4;
+	 text-align:center;
+	 cursor:pointer;
+	 background-color: #5bc0de;
+     color: #fff;
+  }
+  
+  .btn:hover{
+ 	background-color: #31b0d5;
+    border-color: #269abc;
+    color: #fff;}
+  .btn:focus{
+	 background-color: #31b0d5;
+    border-color: #269abc;
+    color: #fff;
+}
+  
+  .form-control{
+  display:block;
+  width:100%;
+  height:34px;
+  margin:20px 0;
+  padding:6px 12px;
+  line-height:1.4;
+  background-color:#fff;
+  border:1px solid #ccc;
+  border-radius:4px;
+  box-shadow:0 1px 1px rgba(0,0,0,0,0.07) inset;
+  color:#555;
+  transition:border-color 0.15s ease-in-out 0s,box-shadow 0.15s ease-in-out 0s;
+  
+  }
+  
+  .form-control:focus{
+  border-color:#66afe9;
+  box-shadow:0 1px 1px rgba(0,0,0,0.075) inset,0 0 8px rgba(102,175,233,0.6)}
+</style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
   
 </head>
 
 <body>
+	<div class="container">
+		<header><h3>JS 编码&解码</h3></header>
+	   <div class="panel">
+		   <input type="button" value="encodeURI" onClick="encodeURITest()" class="btn"/>
+		   <input type="text" value="" name="encode" class="form-control">
+		   <input type="button" value="对转码的URL解码" onClick="decodeURIEvent(event)" class="btn"/>
+		   <div>result:</div>
+	   </div>
+		
+	</div>
+  
  
-   <input type="button" value="encodeURI" onClick="encodeURITest()"/>
+ 
  
 	<script>
 	  /*
@@ -43,15 +134,37 @@
 		var paramz="小新";
 		var pencode=encodeURI(paramt);
 		var tencode=encodeURI(paramz);
+		var cc=encodeURI("hello");
 		var tencodeec=encodeURIComponent(paramt);
 		var c=encodeURIComponent(paramz);
 		
 		console.log("encodeURI(+/z//v38/PT1//31/fz9/fz0)："+pencode);	//+/z//v38/PT1//31/fz9/fz0   
 		console.log("encodeURI(小新)："+tencode);						//%E5%B0%8F%E6%96%B0
+		console.log("encodeURI(hello)："+cc);						// 
 		console.log("encodeURIComponent(+/z//v38/PT1//31/fz9/fz0)："+tencodeec);//%2B%2Fz%2F%2Fv38%2FPT1%2F%2F31%2Ffz9%2Ffz0
 		console.log("encodeURIComponent(小新)："+c);					//%E5%B0%8F%E6%96%B0	
 		
 		console.log(decodeURIComponent(tencodeec)); 
+		
+		
+		var temp="http%3A%2F%2Fwww.duitang.com%2Fredirect%2F%3Fto%3Dhttps%3A%2F%2Fitem.taobao.com%2Fitem.htm%3Fspm%3Da219t.7900221%2F10.1998910419.d30ccd691.lMTqSO%26id%3D524527729442%26spm_d%26app_code%3D&spm=2014.12553688.1.&mb=&unid=059eadadeba";
+		
+		var dtemp=decodeURIComponent(temp);
+		
+		console.log(dtemp);
+		
+		console.log("encodeURI(encodeURI(小新))："+encodeURI(encodeURI("小新")));	
+		console.log("decodeURI(decodeURI(小新))："+decodeURI(  "小新" ));	
+		
+	}
+	
+	function decodeURIEvent(event){
+	   var $btn=$(event.currentTarget);
+	   var encodeURL=$btn.siblings(":text").val();
+	   
+	   $btn.siblings("div").append("<span style='color:gold; font-size:20px;'>"+decodeURIComponent(encodeURL)+"</span>");
+	   
+	   
 	}
 	 
 	</script>

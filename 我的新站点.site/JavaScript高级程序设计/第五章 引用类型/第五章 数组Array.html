@@ -759,9 +759,12 @@ function  removeElement (){
   
   var index=ary.indexOf(1676);//指定元素的位置
    
-  ary.splice(index,1)
+  var delItem=ary.splice(index,1);//splice()方法返回删除的项组成的数组，如果没有删除任何一项则返回空数组
   
-  console.log(ary);
+  console.log( delItem);//[ 1676 ]
+  
+  console.log(ary);//[1159, 1693]
+  
 }
 
 function copyAry(){
@@ -782,8 +785,11 @@ function copyAry(){
    //原始数组
    var  original= [1159, 1676, 1693];
    
-   /*1、自己写的copy数组的方法*/
+   /*1、自己写的copy数组的方法 会改变数组元素的数据类型，number的会变成string哎，不建议使用*/
    var copy=original.join(",").split(",");
+   
+   console.log(typeof copy[0]);//string
+   console.log(typeof original[0]);//number
    copy.splice(1,1);
    
     console.log("原始数组："+original.join(","));      //1159, 1676, 1693

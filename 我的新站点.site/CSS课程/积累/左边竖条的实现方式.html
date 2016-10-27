@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="gb2312" />
+<title>无标题文档</title>
+<link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+body *{
+	box-sizing:border-box;
+	}
+  div{
+    position:relative;
+    width:200px;
+    height:60px;
+    background:#ddd;
+}
+
+div+div{
+	margin-top:20px;}
+
+/*方法一 border*/
+.borderLeft{
+	border-left:5px solid deeppink;
+
+}
+/*方法二 使用伪元素+绝对定位*/
+ 
+
+div.after:after{
+	/*display:block; */ /*此处不用也可以，因为用了绝对定位后就有了效果  why？？？？*/
+	position:absolute;
+	left:0;
+	top:0;
+	content:"";
+	width:5px;
+	height:100%;
+	background-color:deeppink;
+}
+
+/*方法三 外 box-shadow*/
+.boxShadow1{
+	box-shadow:-5px 0 0 deeppink;}
+/*方法四 内box-shadow*/	
+.boxShadow2{
+box-shadow:5px 0 0 deeppink inset;}
+
+/*方法五 滤镜 CSS3还真是强大*/
+.dropShadow{
+	 filter:drop-shadow(-5px 0 0 deeppink);
+}
+/*方法六 背景渐变*/
+.linearGradient{
+	/*or background-image:linear-grainent(left center,deeppink 0px,deeppink 5px,transparent 5px)*/
+	background-image:linear-gradient(90deg, deeppink 0px, deeppink 5px, transparent 5px);
+	
+	}
+	
+ 
+</style>
+
+</head>
+
+<body>
+
+<div class="borderLeft"></div>
+<div class="after">hello world</div>
+<div class="boxShadow1">hello world</div>
+<div class="boxShadow1">hello world</div>
+
+<div class="dropShadow">hello world</div>
+
+
+<div class="linearGradient">hello world</div>
+
+
+ 
+</body>
+</html>

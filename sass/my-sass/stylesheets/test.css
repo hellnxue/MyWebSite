@@ -265,7 +265,16 @@ body .a.b, body .complex {
   color: #aca;
 }
 
-/* line 318, ../sass/test.scss */
+/*
+    生成的css源码：
+	body .a.b, body .complex {
+		color: #aca;
+	}
+	.complex {
+		font-size: 20px;
+	}
+*/
+/* line 326, ../sass/test.scss */
 .complex {
   font-size: 20px;
 }
