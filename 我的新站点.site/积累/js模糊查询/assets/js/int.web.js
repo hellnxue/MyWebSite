@@ -29,8 +29,17 @@ $(document).ready(function(){
 			  
 			  if(keyDOM){
 				    
-				   $(document).scrollTop(keyDOM.offsetTop);
-				  
+				   //$(document).scrollTop(keyDOM.offsetTop);
+ 				   $(document).scrollTop($(".cityhli.city-key-"+key).offset().top);
+					
+					/*
+					  keyDOM.offsetTop相对于包含元素的位置，包含元素与parentNode不一定相等
+					  $(".cityhli.city-key-"+key).offset().top jquery的offset().top偏移量相对于整个文档，在这里该值会比DOM的offsetTop大，因此滚动条隐藏的部分会多一些，看到的字母行更贴近浏览器头部
+					  
+					  DOM.offsetTop()有时候会与jQuery的offset().top很接近，有时候差别很大......?
+					*/
+					console.log(keyDOM.offsetTop);
+					console.log($(".cityhli.city-key-"+key).offset().top);
 				  
 				 }
 			  

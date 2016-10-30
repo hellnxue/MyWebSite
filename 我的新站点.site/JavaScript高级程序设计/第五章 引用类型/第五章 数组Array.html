@@ -818,6 +818,17 @@ function copyAry(){
 	console.log("变量数组:"+sliceArray);//1676,1693
    
 }
+/*
+	可以利用函数非继承的方法apply执行max或min方法，apply方法的第二个参数可以传入一个数组
+*/
+function maxAry(){
+    var ary=[3,9,5,3,2,1];
+	var bl=ary instanceof Array;//true
+	var maxValue=Math.max.apply(Math,ary);//9
+	var minValue=Math.min.apply(Math,ary);//1
+	console.log(maxValue);
+	console.log(minValue);
+}
   
 </script>
 
@@ -838,5 +849,7 @@ function copyAry(){
 <input type="button" data-filter value="删除数组中的指定元素"  onclick="removeElement()"/><br />
 
 <input type="button" data-filter value="基于一个数组拷贝出一个新的数组"  onclick="copyAry()"/><br />
+
+<input type="button" data-filter value="从一组数值数组中选出最大值"  onclick="maxAry()"/><br />
 </body>
 </html>

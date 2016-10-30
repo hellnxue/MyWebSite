@@ -8,22 +8,26 @@
 var flag=true;
 $(function(){
      
- 	 //延迟加载（由于scroll事件自身会有重复执行的问题，所以，用超时函数与布尔值去阻止滚动时的重复）
-  	 $(window).scroll(function() {
-  	      
-  	        var  scrollTop = $(window).scrollTop(); //滚动条距离顶部的高度 也可以用$(window).scrollTop()
-  	        var  scrollHeight = $(document).height(); //当前页面的总高度 body元素的盒子高度
-  	        var  windowHeight = $(window).height(); //当前可视的页面高度 （可视化窗口的高度）
-  	        if ((scrollTop + windowHeight >= scrollHeight)) { //距离顶部+当前高度 >=文档总高度 即代表滑动到底部
-  	        		
-  	           if(flag){
-  	        	 setTimeout("ajaxRed()",1000);
-  	        	 flag=false;
-  	           }
-  	        	
-  	        }
-  	    }); 
-
+ //延迟加载（由于scroll事件自身会有重复执行的问题，所以，用超时函数与布尔值去阻止滚动时的重复）
+$(window).scroll(function() {
+	 
+  	var  documentHeight = $(document).height(); //当前页面的总高度（隐藏区和可视区） body元素的盒子高度
+	
+	var  scrollTop = $(window).scrollTop(); //滚动条距离顶部的高度(即通过拖动滚动条隐藏起来的那部分页面) 也可以用$(document).scrollTop()
+	
+	var  windowHeight = $(window).height(); //当前可视的页面高度 （可视化窗口的高度）
+	
+	if ((scrollTop + windowHeight >= documentHeight)) { //距离顶部+当前可视高度 >=文档总高度 即代表滑动到底部
+			
+	   if(flag){
+	     flag=false;
+		 setTimeout("ajaxRed()",1000);
+		 
+	   }
+		
+	}
+}); 
+/*关于页面刷新后html会append两次的解释： setTimeout("ajaxRed()",1000); 若滚动条在底部，刷新页面后第一次append时，滚动条滚动了，但增加的是scrollTop的长度，即滚动条还是在最底部，且flag在执行完第一遍ajaxRed()后改为true，符合两个条件，因此又紧接着执行了一次append。此后手动下拉滚动条就只会执行一次ajaxRed方法了奥~*/
 });
 var i=0; 
 function ajaxRed(){
@@ -33,12 +37,29 @@ function ajaxRed(){
   
   //$("#test div").last().get(0).scrollIntoView();//让最后添加的div一直出现的可视范围内，会导致append方法一直执行
 }
+
+function test(){
+
+  var bodyHeight=$(document).height();
+  var top=$(window).scrollTop();
+  var height=$(window).height();
+  
+  var documentTop=$(document).scrollTop();
+  
+  console.log(bodyHeight);
+  console.log(top);
+  /*console.log(documentTop);*/
+  console.log(height);
+   $("#test").append("<div style='color:blue'>welcome to china!"+1+"</div>");
+}
 </script>
 <head>
 <body>
 <div id="test">
+<button type="button" onClick="test()">位置测试</button>
    <span>hello helln</span><br/>
 <span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/>
+<button type="button" onClick="test()" style="display:block;">位置测试</button>
 </div>
 </body>
 </html>
