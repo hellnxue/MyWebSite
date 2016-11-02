@@ -5,7 +5,10 @@
 <title>无标题文档</title>
 <link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <style>
- 
+   .test::after{
+   	content:"";
+	height:20px;
+   }
 </style>
 
 </head>
@@ -13,11 +16,42 @@
 
 如果你使用的是表格的话，那完全不用为各种居中问题而烦恼了，只要用到 td(也可能会用到 th)元素的 align="center" 以及 valign="middle" 这两个属性就可以完美的处理它里面内容的水平和垂直居中问题了,而且表格默认的就会对它里面的内容进行垂直居中。如果想在css中控制表格内容的居中，垂直居中可以使用 vertical-align:middle，至于水平居中，貌似css中是没有相对应的属性的,但是在IE6、7中我们可以使用text-align:center来对表格里的元素进行水平居中，IE8+以及谷歌、火狐等浏览器的text-align:center只对行内元素起作用，对块状元素无效。--> 
 <body>
-<table>
+
+
+
+<div class="test">
+
+</div>
+
+
+
+
+
+<table border="1">
    <tr>
       <!--表格自带的内容居中两个属性 align="center" valign="middle"-->
       <td height="200px" width="200px"  style=" border:1px solid red; vertical-align:middle; text-align:center;">
 	  	<div style="width:100px; height:100px; background:#000000; display: inline-block;"></div>
+	  </td>
+   </tr>
+   <tr>
+     
+      <td  >
+	  	<p  >hello</p>
+	  </td>
+   </tr>
+   
+    <!--visibility:collapse;当在表格元素中使用时，此值可删除一行或一列，但是它不会影响表格的布局。被行或列占据的空间会留给其他内容使用(删除的行或列的空间会被回收，如同使用了display:none一样，visibility:hidden应用在元素上时，空间就不会被回收，依然占据页面一部分)。如果此值被用在其他的元素上，会呈现为 "hidden"。-->
+    <tr style="visibility:collapse;">
+      <!---->
+      <td  >
+	  	<p  >world</p>
+	  </td>
+   </tr>
+    <tr>
+      
+      <td  >
+	  	<p  >gggg</p>
 	  </td>
    </tr>
 </table>
