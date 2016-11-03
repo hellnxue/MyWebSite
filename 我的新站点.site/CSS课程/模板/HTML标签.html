@@ -168,6 +168,12 @@ div[data-border='feactur_border']{
 <div  id="aftertest">hello sir</div>
 </div>
 
+<!--设置了inline-block的元素且有宽度，设置它在容器内居中时用了margin:0 auto;不管用哎，这类元素要在父元素上设置text-align:center来居中它们 -->
+<h3 >inline-block的元素的居中问题</h3>
+<div style="width:500px; height:200px; margin:0 auto; border:1px solid;text-align:center;">
+  <span style="display:inline-block;width:80%; border:1px solid yellow; margin:0 auto;">下一步</span>
+</div>
+
 
 <div style="background-color:#00FFFF">
   <div style="background-color:#FFCC99;">hello sir</div>
