@@ -14,10 +14,34 @@
         overflow：hidden声明的真正用途是防止包含元素被超大内容撑大。应用overflow:hidden之后，包含元素依然保持其设定的宽度，而超大的子内容则会被容器剪切掉。除此之外，overflow：hidden还有另外一个作用，即他能可靠的迫使父元素包含其浮动的子元素。
   
   */
-  section{ border:2px solid blue; margin:0 0 10px 0;overflow:hidden;}
-  img{ border:1px solid yellow; float:left; }
-  p{border:1px solid pink; margin:0px;}
-  footer{ border:1px solid #000;}
+  section{ 
+	   border:2px solid blue;
+	   margin:0 0 10px 0;
+	  /* overflow:hidden;*/  /*围住浮动元素方法1.1*/
+	  
+	   
+	   }
+
+/*围住浮动元素方法1.2 这样也可以达到父元素围住子元素的效果*/	   
+section:after{ 
+	content:"";
+	display:table;
+	clear:both;
+  
+   
+   }
+   
+  img{ 
+	  border:1px solid yellow; 
+	  float:left; }
+  
+  p{
+	  border:1px solid pink; 
+	  margin:0px;}
+  
+  footer{ 
+  	  border:1px solid #000;
+  }
 </style>
 </head>
 

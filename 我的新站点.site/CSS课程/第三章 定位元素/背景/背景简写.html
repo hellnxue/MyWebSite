@@ -13,6 +13,9 @@
 	background-position
 	
 	奇怪，设置图片尺寸会导致整个background属性不可用。？
+	
+	答:像下面这样写就可以了
+	background：yellow url("../../../image/mxx/m2.jpg") no-repeat scroll center center  / cover;
   */
   p.logogram{
     width:600px;
@@ -21,6 +24,7 @@
 	padding:10px;
 	line-height:400px;
 	text-align:center;
+	/* 带有尺寸的背景简写 background:yellow url("../../../image/mxx/m2.jpg") no-repeat scroll center center  / cover*/
 	background:url(../../../image/mxx/m2.jpg) center yellow no-repeat  ;}
 	
 	p.multiple { 
