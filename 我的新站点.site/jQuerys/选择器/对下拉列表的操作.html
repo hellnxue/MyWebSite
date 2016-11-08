@@ -9,10 +9,10 @@
      $("#dj").click(function(){
 	   //alert( $(":selected").val());
 	   //alert($("#tt").find("option:selected").val());
-	   var selvalue=$("#tt").find("option:selected");                  //获得选中的下拉列表值
+	   var selvalue=$("#tt").find("option:selected");                  //获得选中的下拉列表 
 	   $("#t1").html("下拉框选中项的value值是：  "+selvalue.val());    //下拉列表的value值
 	   $("#t1").append("   下拉框选中项的text值是：  "+selvalue.text());//下拉列表的文本值
-	   $("#t1").append("   下拉列表的长度：  "+$("#tt option").length);//下拉列表的文本值
+	   $("#t1").append("   下拉列表的长度：  "+$("#tt option").length);//下拉列表的长度
 	 
 	 });
 	 $("#tt").change(function(){
@@ -41,6 +41,12 @@
 	 
 	 });
   });
+  
+ function ett(e){
+    //$(e).empty();
+	$(e).find(":empty").css("background-color","red").text("no element");
+	console.log($(e).find(":empty").html());
+ }
 </script>
 </head>
 
@@ -55,5 +61,8 @@
 </select><br/>
 <div id="t1"></div><br/>
 <div id="t2"></div>
+
+<!--:empty选择器匹配没有子元素(包括没有文本)的元素-->
+<div id="ett" onclick="ett(this);"  style="cursor:pointer;">点击测试jQuery选择器:empty<label></label></div>
 </body>
 </html>

@@ -30,10 +30,12 @@
 	  })
 	  
 	  
-	   $("#btn11").click(function(){
+	   $("#btn110").click(function(){
 	  
-	     $("#form1 input:checked").css({"border":"solid"});
+	     var len=$("#form1 input:checked").length;
+		 console.log("获得选中的复选框的个数："+len);
 	  })
+	  
 	   $("#btn12").click(function(){
 	  
 	     $("#form1 ul li:gt(3):not(:last)").hide();
@@ -52,6 +54,11 @@
 	  })
    });
   
+  
+  function getRadio(){
+     var len=$("form :radio:checked").length;
+	 console.log(len);
+  }
 </script>
 </head>
 
@@ -90,6 +97,9 @@
 <form id="form1">
   <input type="checkbox" value="1" checked="checked" />选中的<br/>
   <input type="checkbox" value="0"  />未选中的<br/>
+  
+  <input type="radio" />
+  <input type="radio"/>
   <ul id="tu">
      <li>English</li>
       <li>中文</li>
@@ -99,8 +109,9 @@
 		  <li>地理</li>
 		   <li>数学</li>
   </ul>
-  <input type="button" value="获取选中的复选框元素"  id="btn11"/>
-    <input type="button" value="将大于3的元素并且不是最后一个li的元素值隐藏"  id="btn12"/>
+   <input type="button" value="获取选中的单选按钮的元素个数"   onclick="getRadio()"/>
+  <input type="button" value="获取选中的复选框元素个数"  id="btn110"/>
+  <input type="button" value="将大于3的元素并且不是最后一个li的元素值隐藏"  id="btn12"/>
 </form>
 <hr/>
 层次选择器
