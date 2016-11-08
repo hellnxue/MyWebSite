@@ -1,0 +1,44 @@
+1.手机不支持点击option的click事件吗？
+ $("select option").on("click",function(){
+		       
+			  $(this).parent("select").siblings("h4").html($(this).text());
+			  
+		  });
+
+
+
+2./*placeholder颜色修改--支持手机的*/
+ 
+input.ph-color::-webkit-input-placeholder {
+  color: #fff;
+  opacity: 0.5;
+}
+input.ph-color::-moz-placeholder {/* Firefox 18- */
+  color: #fff;
+   opacity: 0.5;
+}
+input.ph-color::-moz-placeholder{/* Firefox 19+ */
+ color: #fff;
+  opacity: 0.5;
+}
+input.ph-color::-ms-input-placeholder {
+  color: #fff;
+   opacity: 0.5;
+}
+
+
+3.bootstrap下拉框在页面底部显示组件？
+
+4.绝对定位的元素在父容器中总是居中的问题？？
+
+
+5.响应的页面字体大小也要用百分比吗？
+
+6.bootstrap每列的空隙即padding怎么去除？
+
+7.CSS 的 :empty 选择器？
+
+8.CSS的not()选择器
+
+
+
