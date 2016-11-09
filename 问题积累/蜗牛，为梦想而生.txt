@@ -34,11 +34,16 @@ input.ph-color::-ms-input-placeholder {
 
 5.响应的页面字体大小也要用百分比吗？
 
-6.bootstrap每列的空隙即padding怎么去除？
+6.bootstrap每列的空隙即padding怎么去除？ 貌似bootstrap没有自带的去除左右padding样式
 
-7.CSS 的 :empty 选择器？
+7.CSS 的 :empty 选择器？OK
 
-8.CSS的not()选择器
+8.CSS的not()选择器 OK
 
 
+绝对定位会让元素宽度收缩到包围子元素的宽度吗？
+一个内联元素，设置了绝对定位后，父容器用text-align:center后就不管用了哎。。。？？？
+绝对定位子元素对于父元素居中问题？、、
 
+
+背景图片简写：background:rgba(0, 0, 0, 0) url("../img/new/index_bg@2x.png") no-repeat scroll 50% 50% / cover ;

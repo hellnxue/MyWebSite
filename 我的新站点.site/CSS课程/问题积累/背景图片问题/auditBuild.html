@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>背景图片</title>
+	<style>
+	     .bg{
+		 
+		 	background-image:url(../../img/auditBuild.gif);
+			background-repeat:no-repeat;
+		/*	background-position:center;*/
+			background-size:cover;
+		 }
+		 
+		 
+		 /*方法三、效果也不怎么好
+		   在不同的屏幕大小上还可以用下面的js（因为几乎放弃了背景，下面就不试了......除非给一张宽高相同的图片）
+		   $(function(){
+			$('#formbackground').height($(window).height());
+			$('#formbackground').width($(window).width());
+		});
+		 */
+		 .test{
+		 	position:fixed;
+			top:0;
+			left:0;
+			bottom:0;
+			right:0;
+			z-index:-1;}
+			
+			/*除非是宽高一样的图片，不然用css同时设置宽高会使图片失真的，比如下面的*/
+		  .test img{
+		  	height:100%;
+			width:100%;
+			border:0;
+		  	}
+	</style>
+  </head>
+  
+  <!--让图片适应浏览器大小，缩大缩小都不会有问题-->
+  <!--方法一（目前感觉最好的方法了）：div中放入图片，设置body的背景色同图片颜色大体一致-->
+  <!-- <body style="background-color:#EBF4FE;">
+  
+     <div>
+     
+	    <img src="../../img/auditBuild.gif"   width="100%" />
+	    
+	 </div>
+	 
+  </body> -->
+  
+  <!--二、用背景图片实现.......? 效果不怎么好，手机上显示时图片不会覆盖整个屏幕哎。。。-->
+  
+<!--  <body class="bg">
+      
+  </body>-->
+  
+  <!--三、把img放入一个div中，div设置未固定定位-->
+   <body >
+       <div class="test">
+             <img src="../../img/auditBuild.gif" />
+      </div>
+	  
+	 <div style="width:200px;height:200px;">
+	    <p>hello world</p>
+	 </div>
+  </body> 
+  
+</html>
