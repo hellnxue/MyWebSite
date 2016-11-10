@@ -47,3 +47,15 @@ input.ph-color::-ms-input-placeholder {
 
 
 背景图片简写：background:rgba(0, 0, 0, 0) url("../img/new/index_bg@2x.png") no-repeat scroll 50% 50% / cover ;
+
+
+9.jquery的load()方法？
+
+
+
+
+当该属性不等于none引起对象浮动时，对象将被视作块对象(block-level)，即display属性等于block。也就是说，浮动对象的display特性将被忽略。float在绝对定位和display为none时不会被应用。对应的脚本特性为stylefloat（ie）或cssfloat（非ie）。(注意这里为stylefloat或cssfloat，而不是float)
+
+文／Number1020（简书作者）
+原文链接：http://www.jianshu.com/p/acfe075269a7
+著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="gb2312" />
-<title>无标题文档</title>
+<title>CSS学习笔记</title>
 <link href="../CSS/CSSUtil.css"  rel="stylesheet" type="text/css"/>
 <style>
 /*积累：
@@ -624,7 +624,28 @@ color:#737373;}
 
 }
 
+ /*相对单位em的计算规则*/
  
+ .emTest{
+    background-color: #ffffcc;
+    display: table-cell;
+    font-size: 16px;
+    height: 200px;
+    vertical-align: middle;
+    width: 200px;
+}
+ 
+ .emTest div  {
+    background-color: #ffccff;
+    font-size: 14px;
+    height: 100px;
+    width: 200px;
+}
+ 
+ .emTest div span {
+    font-size: 2em;/* 此处依据父元素的字体基数大小算的 ，即基数是14px  2em*14px=28px;*/
+    line-height: 1.14em; /*此处依据自己元素设置的字体大小，即上面计算出的基数是28px，1.14em*28px=31.9px;*/
+}
  
 </style>
 </head>
@@ -1023,6 +1044,16 @@ color:#737373;}
 	<div class="mt">Create a new jQuery object with elements added to the set of matched elements.</div>
 	<div class="mt">One or more elements to add to the set of matched elements.</div>
 </div>
+
+
+<h3>--- 相对单位em的计算规则----按照父元素的字体大小为基数，如果元素本身设置了字体大小，就以自己元素的字体大小为基数计算</h3> 
+<div   class="emTest">
+   <div  >
+      <span  > hello world</span>
+   </div>
+</div>
+
+
 
 
  <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
