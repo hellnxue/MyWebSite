@@ -32,7 +32,7 @@ input.ph-color::-ms-input-placeholder {
 4.绝对定位的元素在父容器中总是居中的问题？？
 
 
-5.响应的页面字体大小也要用百分比吗？
+5.响应的页面字体大小也要用百分比吗？ 当页面ctrl+ 或ctrl-时字体用百分比or相对单位em
 
 6.bootstrap每列的空隙即padding怎么去除？ 貌似bootstrap没有自带的去除左右padding样式
 
@@ -41,9 +41,15 @@ input.ph-color::-ms-input-placeholder {
 8.CSS的not()选择器 OK
 
 
-绝对定位会让元素宽度收缩到包围子元素的宽度吗？
-一个内联元素，设置了绝对定位后，父容器用text-align:center后就不管用了哎。。。？？？
-绝对定位子元素对于父元素居中问题？、、
+-------------------绝对定位会让元素宽度收缩到包围子元素的宽度吗？OK------------------
+	绝对定位会让没有宽度的块级元素收缩到包围子元素的宽度
+	浮动也会让没有宽度的块级元素收缩到包围子元素的宽度
+
+ 
+ 
+------------一个内联元素，设置了绝对定位后，父容器用text-align:center后就不管用了哎。。。？？？----------------
+
+绝对定位子元素对于父元素居中问题？ OK
 
 
 背景图片简写：background:rgba(0, 0, 0, 0) url("../img/new/index_bg@2x.png") no-repeat scroll 50% 50% / cover ;
@@ -59,3 +65,6 @@ input.ph-color::-ms-input-placeholder {
 文／Number1020（简书作者）
 原文链接：http://www.jianshu.com/p/acfe075269a7
 著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。
+
+
+10.不太懂的vertical-align:middle。。。。。。？？？

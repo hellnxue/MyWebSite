@@ -646,7 +646,107 @@ color:#737373;}
     font-size: 2em;/* 此处依据父元素的字体基数大小算的 ，即基数是14px  2em*14px=28px;*/
     line-height: 1.14em; /*此处依据自己元素设置的字体大小，即上面计算出的基数是28px，1.14em*28px=31.9px;*/
 }
- 
+
+
+/*元素绝对定位后的宽度问题*/
+.absoluteWidth{
+    background-color: #ffffcc;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+    width: 500px;
+}
+.absoluteWidth div{
+    background-color: #ffccff;
+    float: left;
+    height: 50px;
+	} 
+	
+	
+/*元素绝对定位后在容器中总是居中的问题------定位元素是像素宽度的情况*/
+
+.pc-wrapper,.pct-wrapper{
+	text-align:center;
+	
+	}
+	
+	
+.pc-wrapper{
+	width:800px;
+	height:150px;
+	margin:0 auto;
+	background-color:#FFFFCC;}
+
+.pc-wrapper div {
+    background-color: #ffccff;
+    height: 100px;
+    left: 50%;
+    margin-left: -200px;
+    margin-right: -200px;
+    position: absolute;
+    width: 400px;
+}
+
+
+
+/*元素绝对定位后在容器中总是居中的问题------定位元素是百分比宽度的额情况*/
+/*  小结：
+1、如果定位元素的宽度单位是px，那居中时，left:50%后，margin-left要设置为宽度的一半，单位也是px
+2、如果定位元素的宽度单位是%，那居中时，left:50%后，margin-left要设置为宽度的一半，单位也是%
+   不然会出现不居中的情况哎~~
+*/
+.pct-wrapper {
+    background-color: #ffffcc;
+    height: 150px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+
+.pct-wrapper div {
+    position: absolute;
+    width: 25%;
+	left: 50%;
+    margin-left: -12.5%;
+	height: 100px;
+    background-color: #ffccff;
+  
+   
+}
+
+/* 在一张图片上放绝对定位的div*/ 
+.pm-wrapper{
+	position:relative;
+	background-color: #ffffcc;
+    height: auto;
+    margin: 0 auto;
+    width: 80%;
+
+}
+.pm-wrapper div:nth-of-type(1) {
+    background-color: #ffccff;
+    margin: 0 auto;
+    width: 40%;
+	height:auto;
+}
+
+.pm-wrapper img {
+    display: block;/*因为img是行内元素，行内元素的默认对其方式是基线，将display设置成block后会解决这个问题。bootstrap用的是vertical-align:middle哎....?*/
+    width: 100%;
+}
+
+
+.pm-wrapper div:nth-of-type(2) {
+    background-color: #abcdef;
+    height: 100%;
+    left: 50%;
+    margin-left: -20%;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    width: 40%;
+}
+
 </style>
 </head>
 
@@ -1053,8 +1153,46 @@ color:#737373;}
    </div>
 </div>
 
+<h3>--- 未设置宽的的块级元素绝对定位后，宽度收缩问题</h3>
+<!--绝对定位会让没有宽度的块级元素收缩到包围子元素的宽度，因为会改变display的特性，浮动的元素也会出现这种宽度收缩的情况--> 
+<div   class="absoluteWidth">
+   <div  >
+       position:absolute about width
+   </div>
+</div>
+
+<h3>--- 绝对定位的元素在容器中总是居中的问题 (一、)定位元素宽度为像素</h3>
+ 
+<div   class="pc-wrapper">
+   <div  >
+       hello world
+   </div>
+</div>
+
+<h3>--- 绝对定位的元素在容器中总是居中的问题 (二、)定位元素宽度为百分比</h3>
+ 
+<div   class="pct-wrapper">
+   <div  >
+       hello world
+   </div>
+</div>
 
 
+
+
+ 
+<h3>--- 在一张图片上放绝对定位的div----</h3>
+ 
+<div  class="pm-wrapper">
+    <div>
+		 <img src="../img/bill_bg@2x.png"/>
+	</div>
+	
+	<div>
+	    <p style="text-align:center;">定位元素中的内容</p>
+	</div>
+</div>
+ 
 
  <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
  <script>
