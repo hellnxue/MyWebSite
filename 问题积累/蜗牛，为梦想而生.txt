@@ -29,7 +29,7 @@ input.ph-color::-ms-input-placeholder {
 
 3.bootstrap下拉框在页面底部显示组件？
 
-4.绝对定位的元素在父容器中总是居中的问题？？
+4.绝对定位的元素在父容器中总是居中的问题？？OK
 
 
 5.响应的页面字体大小也要用百分比吗？ 当页面ctrl+ 或ctrl-时字体用百分比or相对单位em

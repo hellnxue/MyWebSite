@@ -15,13 +15,19 @@
 	   $("#t1").append("   下拉列表的长度：  "+$("#tt option").length);//下拉列表的长度
 	 
 	 });
-	 $("#tt").change(function(){
-	   //alert( $(":selected").val());
-	 //alert( $(this).val());
-	
-	 $("#t1").html("下拉框选中的项value是："+$(this).val());
-	  $("#t1").append("   下拉框选中项的序列是：  "+$("#tt").get(0).options.selectedIndex);
 	 
+	 /*获取选中项的value、text、所在option组中得下标*/
+	 $("#tt").change(function(){
+	 
+		
+		  $("#t1").html("下拉框选中的项value是："+$(this).val());
+		  $("#t1").append("</br> 下拉框选中的项text是："+$(this).find("option:selected").text());
+		  $("#t1").append("</br> 下拉框选中项的序列是："+$("#tt").get(0).options.selectedIndex);
+		  $("#t1").append("</br> 下拉框选中项的序列是："+$(this).find("option:selected").index());
+		  
+		 console.log($(this).find("option").index($(this).find("option:selected")));
+		  
+		 
 	 });
 	 
 	 $("#dp").click(function(){
@@ -47,6 +53,8 @@
 	$(e).find(":empty").css("background-color","red").text("no element");
 	console.log($(e).find(":empty").html());
  }
+ 
+ 
 </script>
 </head>
 
