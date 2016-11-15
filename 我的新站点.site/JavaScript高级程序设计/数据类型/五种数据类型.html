@@ -158,6 +158,13 @@ console.log("Number(true):"+Number(true) +"\n Number(10):"+Number(10)  +"\n Numb
     console.log(Number(" 123"));//123
 	console.log(parseInt("070"));//70
   }
+  
+  function deleteObj(){
+     var obj={name:"小浅",age:50000};
+	 console.log(obj);
+	 delete obj.age;
+	 console.log(obj);
+  }
 </script>
 </head>
 
@@ -183,6 +190,8 @@ console.log("Number(true):"+Number(true) +"\n Number(10):"+Number(10)  +"\n Numb
 	<input type="button" value="数值转换-parseFloat()" onClick="parseFloatTTest()"/><br>
 	 
 	 <input type="button" value="toNumber" onClick="toNumber()"/><br>
+	 
+	 <input type="button" value="对象删除前后" onClick="deleteObj()"/><br>
 </fieldset>
 
 

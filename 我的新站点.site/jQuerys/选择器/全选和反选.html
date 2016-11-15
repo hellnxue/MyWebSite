@@ -161,7 +161,7 @@ $("#tc").on("click",function(){
  
 	 var is2=$(this).is(function(index){
 	    
-		return $("strong",this).length==2;//$("strong",this)获取当前DOM对象中的strong的li的jquery对象，length属性为jquery对象的个数
+		return $("strong",this).length==2;//$("strong",this)获取当前DOM对象(指点击的li)中的strong的jquery对象，length属性为jquery对象(strong)的个数
 	 
 	 });
 	 console.log(is2);
