@@ -747,6 +747,40 @@ color:#737373;}
     width: 40%;
 }
 
+
+
+
+/* 绝对定位问题*/ 
+.pmtb-wrapper {
+    background-color: #ffffcc;
+    border: 2px inset #ddd;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    width: 80%;
+}
+
+
+
+.pmtb-wrapper > div {
+    position: absolute;
+/*	margin: 0 auto;*//* position: absolute;绝对定位会使得用外边距让元素在父容器中居中失效哎*/
+    top: 10px;
+	bottom: 0;/*同时设置了top和bottom:0,定位元素的底部会与相对容器（这里是pmtb-wrapper容器）的底部对齐，拉大了高度，这样定位元素的高度就能随着相对定位容器的高度走了*/
+	width: 80%;
+	height: auto;
+    background-color: #abcdef;
+	
+	/*番外:绝对定位的元素用display:table-cell + vertical-align:middle;让子元素垂直居中也不好用了哎*/
+	/*display:table-cell;
+	vertical-align:middle;*/
+   
+  
+   
+   
+  
+}
+
 </style>
 </head>
 
@@ -1181,7 +1215,7 @@ color:#737373;}
 
 
  
-<h3>--- 在一张图片上放绝对定位的div----</h3>
+<h3>--- 在一张图片上放绝对定位的div 绝对定位的div高度设置为100%之后，与图片高度一直相同----</h3>
  
 <div  class="pm-wrapper">
     <div>
@@ -1192,6 +1226,24 @@ color:#737373;}
 	    <p style="text-align:center;">定位元素中的内容</p>
 	</div>
 </div>
+
+
+<h3>--- 一个绝对定位的div，设置了top，bottom:0之后的情况----</h3>
+ 
+<div  class="pmtb-wrapper">
+ 
+	<div>
+	    <p style="text-align:center;">定位元素中的内容</p>
+	</div>
+</div>
+
+
+
+
+
+
+
+
  
 
  <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>

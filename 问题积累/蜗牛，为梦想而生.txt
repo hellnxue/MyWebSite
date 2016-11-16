@@ -68,3 +68,38 @@ input.ph-color::-ms-input-placeholder {
 
 
 10.不太懂的vertical-align:middle。。。。。。？？？
+
+11.绝对定位同时设置top和bottom，然后bottom设置为0，会是什么效果的呢？
+
+12.绝对定位的元素用display:table-cell + vertical-align:middle;让子元素垂直居中也不好用了哎
+
+
+-------------在sublime-text中设置浏览器预览--------------------
+先安装插件SideBarEnhancements
+
+Preferences-Key Bindlings打开编辑页User输入下面的内容即可
+ // chrome
+{ "keys": ["ctrl+f12"], "command": "side_bar_files_open_with",
+          "args": {
+                "paths": [],
+                "application": "C:/Users/Administrator/AppData/Local/Google/Chrome/Application/chrome.exe",
+                "extensions":".*"
+          }
+ },
+// firefox
+{ "keys": ["f12"], "command": "side_bar_files_open_with",
+            "args": {
+                "paths": [],
+                "application": "C:/Program Files/Mozilla Firefox/firefox.exe",
+                "extensions":".*"
+          }
+}
+
+
+---------------sublime-text设置字体大小
+”preferences” ->”Settings - User”
+输入
+    "font_size":12.0,
+	"default_encoding":"UTF-8"
+
+
