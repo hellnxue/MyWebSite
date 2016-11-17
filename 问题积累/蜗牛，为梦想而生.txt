@@ -73,6 +73,35 @@ input.ph-color::-ms-input-placeholder {
 
 12.绝对定位的元素用display:table-cell + vertical-align:middle;让子元素垂直居中也不好用了哎
 
+13.DOM的classname属性
+
+字符串的match()方法可以传字符串当参数吗？
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 -------------在sublime-text中设置浏览器预览--------------------
 先安装插件SideBarEnhancements
@@ -101,5 +130,10 @@ Preferences-Key Bindlings打开编辑页User输入下面的内容即可
 输入
     "font_size":12.0,
 	"default_encoding":"UTF-8"
+	
+----------------sublime text双击文件打开&在新窗口打开
+”preferences” ->”Settings - User”
+输入：
+"preview_on_click": false
 
 

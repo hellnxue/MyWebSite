@@ -163,20 +163,31 @@ function testlablebreak(){
    
    
    
-   var testString = 'Hello World',
-        reg1 = /\b(\w)+\b/g;
+ //   var testString = 'Hello World',
+ //        reg1 = /\b(\w)+\b/g;
   
-  var result1 = reg1.exec(testString);
+ //  var result1 = reg1.exec(testString);
   
-  console.log(result1);//[hello, o]
-  console.log(reg1.lastIndex); //0
-  console.log(result1.index); //0 
+ //  console.log(result1);//[hello, o]
+ //  console.log(reg1.lastIndex); //0
+ //  console.log(result1.index); //0 
   
- result1 = reg1.exec(testString);
+ // result1 = reg1.exec(testString);
   
-  console.log(result1);//[hello, o]
-  console.log(reg1.lastIndex); //0
-  console.log(result1.index); //0 
+ //  console.log(result1);//[hello, o]
+ //  console.log(reg1.lastIndex); //0
+ //  console.log(result1.index); //0 
+
+    // var str="flip aa";
+    // console.log(123);
+    // console.log(str.match("flip"));
+    // console.log(str.match("flips"));
+    // console.log(str.match(/flip/));
+
+    // console.log(str.search("flip"));
+
+    var str="cat,bat,hat,fat";
+    console.log(str.match(/f/));
  
  }
  
