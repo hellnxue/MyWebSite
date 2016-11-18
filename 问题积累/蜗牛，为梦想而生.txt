@@ -84,6 +84,8 @@ box-sizing: content-box;？
 
 页面底部的实现：http://learning.sohu.com/20161117/n473390318.shtml
 
+3.label自身有高度吗，即使不添加任何内容。。。。？
+
 
 
 
