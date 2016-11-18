@@ -78,7 +78,11 @@ input.ph-color::-ms-input-placeholder {
 字符串的match()方法可以传字符串当参数吗？
 
 
+box-sizing: content-box;？
 
+自身是浮动的，并且也自身清除浮动的情况
+
+页面底部的实现：http://learning.sohu.com/20161117/n473390318.shtml
 
 
 

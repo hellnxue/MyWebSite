@@ -775,10 +775,31 @@ color:#737373;}
 	/*display:table-cell;
 	vertical-align:middle;*/
    
-  
-   
-   
-  
+ 
+}
+
+
+/*
+  父元素包围浮动元素的一种：当父容器的其它内容比父容器里的浮动元素高时父容器看起来就像是包围了浮动的子元素，因此，造成一种视觉上的假象而已，差点搞迷糊了....
+*/
+.pmfloat-wrapper{
+   width: 200px;
+   margin: 0 auto; 
+   border: 1px solid yellow;
+  font-size: 16px;
+  line-height: 18px;
+  color: #4398ED;
+
+}
+
+/*浮动的子元素 div*/
+.pmfloat-wrapper >div{
+
+  float: left;
+  height: 18px;
+  width: 5px;
+  margin-right:13px;
+  background:url(../img/title-tag.png);
 }
 
 </style>
@@ -1237,7 +1258,14 @@ color:#737373;}
 	</div>
 </div>
 
+<h3>--- 包围浮动元素的假象，父元素包围浮动元素的一种：当父容器的其它内容比父容器里的浮动元素高时----</h3>
+ 
+<div  class="pmfloat-wrapper">
+ 
+  <div></div>
+  热门评论
 
+</div>
 
 
 

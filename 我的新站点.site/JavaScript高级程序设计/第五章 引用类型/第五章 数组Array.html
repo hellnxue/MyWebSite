@@ -829,6 +829,26 @@ function maxAry(){
 	console.log(maxValue);
 	console.log(minValue);
 }
+
+/*将类数组对象arguments用Arry.prototype.slice.call转换成数组,我怎么没看到过这个使用方法奥....*/
+function convertAry(a,b){
+
+	var len=arguments.length;//2
+	var isArgAry=Array.isArray(arguments);//false
+
+	var ary=Array.prototype.slice.call(arguments,0);// ["button", "convertBtn"]
+	var isAry=Array.isArray(ary);//true
+	
+	console.log(len);
+	console.log(ary);
+	console.log(isAry);
+	console.log(isArgAry);
+
+
+
+}
+
+ 
   
 </script>
 
@@ -851,5 +871,9 @@ function maxAry(){
 <input type="button" data-filter value="基于一个数组拷贝出一个新的数组"  onclick="copyAry()"/><br />
 
 <input type="button" data-filter value="从一组数值数组中选出最大值"  onclick="maxAry()"/><br />
+
+<input type="button" data-filter value="将类数组对象arguments用Arry.prototype.slice.call转换成数组"  onclick="convertAry(type,name)" name="convertBtn"/><br />
+
+
 </body>
 </html>
