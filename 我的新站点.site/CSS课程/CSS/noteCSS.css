@@ -95,16 +95,151 @@ h3{
 
 
 /*评论区域*/
+.cmt-wrapper *{
+	box-sizing: border-box;
+}
+
 .cmt-wrapper{
-	width: 80%;
+	width: 660px;
 	margin: 0 auto;
 }
 
 .cmt-list-type{
 	position: relative;
 	height: 30px;
-	line-height: 30px;
+	line-height: 30px;/*文字垂直居中的*/
 	margin-top: 50px;
 	overflow: hidden;
+	color: #4398ed;
+	/*border: 1px solid yellow;*/
 
+}
+
+ul.type-lists{
+	margin: 0;
+	padding:0;
+
+}
+
+ul.type-lists li{
+	position: relative;
+	bottom: -1px;
+	background: rgba(0, 0, 0, 0) url("../img/cmtlist-bg-active.png") no-repeat scroll 0 0;
+    
+    list-style-type: none;
+    text-align: center;
+    width: 66px;
+	
+}
+
+
+.cmt-list-border{
+	background-color: #4398ed;
+    bottom: 1px;
+    height: 1px;
+    left: 66px;
+    position: relative;
+
+
+}
+
+.cmt-list-number{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+ .comment-number {
+    color: #4398ed;
+    font-family: "Microsoft YaHei";
+    font-size: 14px;
+}
+
+.number {
+    color: #4398ed;
+    font-family: Impact;
+    font-size: 20px;
+    margin: 0 5px;
+}
+
+/*输入框部分*/
+.rounded {
+    border: 1px solid #4398ed;
+    border-radius: 42px;
+    color: #4398ed;
+    font-size: 85%;
+    height: 40px;
+    left: 10px;
+    line-height: 40px;
+    position: absolute;
+    text-align: center;
+    top: -36px;
+    width: 40px;
+}
+.post-wrap-w{
+	display: block;
+	position: relative;
+	height:97px;
+	z-index: 2;
+}
+
+.post-wrap-border-l{
+	position:absolute;
+	left:0;
+	top:0;
+	height:97px;
+	width: 8px;
+	background: rgba(0,0,0,0)  url(../img/border-l.png);
+}
+
+.post-wrap-border-r{
+	position:absolute;
+	right:0;
+	top:0;
+	height:97px;
+	width: 8px;
+	background: rgba(0,0,0,0)  url(../img/border-r.png);
+}
+
+
+.post-wrap-main {
+    border-bottom: 1px solid #4398ed;
+    box-sizing: content-box;
+    height: 96px;
+    margin: 0 8px;
+    position: relative;
+    background:rgba(0, 0, 0, 0) url("../img/cy-logo.png") no-repeat scroll center center;
+}
+
+.post-wrap-border-t {
+    height: 8px;
+    position: relative;
+}
+
+.post-wrap-border-t-l{
+	width: 46px;
+	height: 8px;
+	position: absolute;;
+	top: 0;
+	left: 0;
+	overflow: hidden;;
+	background: rgba(0,0,0,0)  url(../img/border-t.png);
+
+}
+
+.post-wrap-border-t-r{
+	border-top: 1px solid #4398ed;
+	margin-left: 46px;
+}
+
+.wrap-area-w{
+	padding: 13px 10px 0;
+}
+
+.area-textarea-w textarea{
+	border: 0px none; 
+	width: 100%; 
+	height: 70px; 
+	resize: none; 
+	background: rgba(0,0,0,0);
 }
