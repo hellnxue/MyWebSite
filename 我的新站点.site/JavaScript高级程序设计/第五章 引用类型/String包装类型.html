@@ -190,6 +190,18 @@ function testlablebreak(){
     console.log(str.match(/f/));
  
  }
+
+ /*用正则替换子字符串中所有匹配的项*/
+ function replaceAllTest(){
+     var str="hello world world";
+     var a=str.replace("h","H");//只能替换第一个子字符
+    // console.log(a);
+
+     var temp="d";
+     /*用正则RegExp类型可以传入变量，动态替换啦*/
+     var b=str.replace(new RegExp(temp,'gm'),"D");
+     console.log(b);
+ }
  
  
 </script>
@@ -214,6 +226,7 @@ function testlablebreak(){
 
 <input type="button" value="字符串的模式匹配方法" onclick="matchTest()"  style="display:block;"/>
 
- 
+ <input type="button" value="替换方法replace的参数为变量时替换所有匹配的项" onclick="replaceAllTest()"  style="display:block;"/>
+
 </body>
 </html>

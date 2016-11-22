@@ -2,15 +2,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>无标题文档</title>
+<title>脦脼卤锚脤芒脦脛碌碌</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
+
+
    var isTrue=false;
-    //验证公共函数
+    //脩茅脰陇鹿芦鹿虏潞炉脢媒 
 	function validatorUtil(id,errMsg){
 		
 		if(arguments.length==2){
-			$(id).after("<label id=\"errInfo\" style=\"color:#f60\">"+errMsg+"！<label>");
+			$(id).after("<label id=\"errInfo\" style=\"color:#f60\">"+errMsg+"拢隆<label>");
 			isTrue=true;
 			return false;
 			
@@ -21,6 +23,8 @@
 		
 		
 	}
+	
+var regIntPattern=/^[0-9]*[1-9][0-9]*$/;
 
 $(function(){
 	  $("#reg1").on("click",function(){
@@ -32,11 +36,11 @@ $(function(){
 		  
 		  
 		  var pt2=/.{4}/;
-		  var str1="201507";//匹配2015
+		  var str1="201507";//脝楼脜盲2015
 		  console.log(pt2.test(str1));
 		  console.log(str1.replace(pt2,"a"));//a07
 		   
-		  //测试捕获组
+		  //虏芒脢脭虏露禄帽脳茅
 		  var str2=str1.replace(/(.{2})/g, '$1-');
 		  var str3=str1.replace(/(.{3})/g, '$1-');
 		  var str4=str1.replace(/(.{4})/g, '$1-');
@@ -46,8 +50,8 @@ $(function(){
 		  console.log("str2=="+str2);
 		  console.log("str3=="+str3);
 		  console.log("str4=="+str4);
-		  console.log("str5=="+str5);//07-（按顺序捕获，(.{4})匹配了2015，剩下的(.{2})去匹配07）
-		  console.log("str6=="+str6);//201507（(.{5})匹配20150，剩下的7用(.{2})捕获组去匹配时，不够数，因此'$2-'代表一个空值，即不匹配）
+		  console.log("str5=="+str5);//07-拢篓掳麓脣鲁脨貌虏露禄帽拢卢(.{4})脝楼脜盲脕脣2015拢卢脢拢脧脗碌脛(.{2})脠楼脝楼脜盲07拢漏
+		  console.log("str6=="+str6);//201507拢篓(.{5})脝楼脜盲20150拢卢脢拢脧脗碌脛7脫脙(.{2})虏露禄帽脳茅脠楼脝楼脜盲脢卤拢卢虏禄鹿禄脢媒拢卢脪貌麓脣'$2-'麓煤卤铆脪禄赂枚驴脮脰碌拢卢录麓虏禄脝楼脜盲拢漏
 		  
 		  console.log("kkkkk="+$("#hihi")[0]);
 		  if($("#hihi").val()){
@@ -59,8 +63,8 @@ $(function(){
 
 	 $("#intFloat").on("keyup",function(){
 	    
-		var regInt=/^[0-9]*[1-9][0-9]*$/;//正整数正则
-		var regFloat=/^\d{1,}\.{0,1}\d{1,}$/;//浮点正则
+		var regInt=/^[0-9]*[1-9][0-9]*$/;//脮媒脮没脢媒脮媒脭貌   脢盲脠毛0虏禄脭脷脮没脢媒路露脦搂脛脷掳楼
+		var regFloat=/^\d{1,}\.{0,1}\d{1,}$/;//赂隆碌茫脮媒脭貌
 		var js=$("#intFloat").val();
 		
 		 var hjs=parseFloat(js);
@@ -75,13 +79,13 @@ $(function(){
 		
 		if(js==""){
 			
-		   validatorUtil(id,"请填写基数");
+		   validatorUtil(id,"脟毛脤卯脨麓禄霉脢媒");
 			   
 		}else if( regInt.test(js)){
 			console.log("int");
  			if(ijs<imin||ijs>imax){
 				 
-				validatorUtil(id,"基数范围"+fmin+"~"+fmax);
+				validatorUtil(id,"禄霉脢媒路露脦搂"+fmin+"~"+fmax);
 				
 			}else{
 				
@@ -92,7 +96,7 @@ $(function(){
 			console.log("float");
 			 if(hjs<fmin||hjs>fmax){
 				
-				validatorUtil(id,"基数范围"+fmin+"~"+fmax);
+				validatorUtil(id,"禄霉脢媒路露脦搂"+fmin+"~"+fmax);
 				
 			}else{
 				
@@ -111,12 +115,37 @@ $(function(){
 		}
 		 
 	});
+
+
+
+	 /*脰禄脛脺脢盲脠毛脮媒脮没脢媒碌脛脟茅驴枚拢卢脰禄脢盲脠毛0露录虏禄脨脨掳楼*/
+
+	$('input[data-money="fix"]').on("blur",function(){
+		var $value=$(this).val();
+		if( $value!=""){
+			$(this).val($value.replace(/脭陋/g,"")+"脭陋");
+		}
+		
+	}).on("keyup",function(){
+		
+		var $value=$(this).val();
+		var nbm=Number($value);
+		
+		if(isNaN(nbm)){
+			$(this).val("");
+		}else if(!regIntPattern.test(nbm)){
+			$(this).val("");
+		}else if($value.indexOf(".")!=-1){
+			$(this).val("");
+		}
+    	
+    });
 });
 
-/*用正则进行分割*/
+/*脫脙脮媒脭貌陆酶脨脨路脰赂卯*/
 function regExpSplit(){
 
-   var pattern=/[^\,]/;//以不是,的每个字母进行分割，除了逗号，字母都是分隔符  正则模式也可以用/[^,]/ 不知道为啥要加上个\  逗号又不需要进行转义......
+   var pattern=/[^\,]/;//脪脭虏禄脢脟,碌脛脙驴赂枚脳脰脛赂陆酶脨脨路脰赂卯拢卢鲁媒脕脣露潞潞脜拢卢脳脰脛赂露录脢脟路脰赂么路没  脮媒脭貌脛拢脢陆脪虏驴脡脪脭脫脙/[^,]/ 虏禄脰陋碌脌脦陋脡露脪陋录脫脡脧赂枚\  露潞潞脜脫脰虏禄脨猫脪陋陆酶脨脨脳陋脪氓......
    var colorText="red,blue,green,yellow";
    var colors=colorText.split(pattern);//===,====,=====,======
    $("#split").html(colors.join("="));
@@ -126,18 +155,18 @@ function regExpSplit(){
 
 function regTest(th){
   
-  var reg=/<.*?>/g;//加上?后是非贪婪模式，可以匹配<h1>和</h1>  不加?是贪婪模式，会匹配所有的带有<>的字符串
+  var reg=/<.*?>/g;//录脫脡脧?潞贸脢脟路脟脤掳脌路脛拢脢陆拢卢驴脡脪脭脝楼脜盲<h1>潞脥</h1>  虏禄录脫?脢脟脤掳脌路脛拢脢陆拢卢禄谩脝楼脜盲脣霉脫脨碌脛麓酶脫脨<>碌脛脳脰路没麓庐
   var str="<h1>hello world</h1>";
   var rlt=str.replace(reg,"A");//Ahello worldA
   console.log(rlt);
   
-  /*为什么和书上说的结果不一样呢? 正则字面量与正则实例是不一样的，正则字面量是共享的，而实例每次都不同，bug....下面的循环却都是true*/
+  /*脦陋脢虏脙麓潞脥脢茅脡脧脣碌碌脛陆谩鹿没虏禄脪禄脩霉脛脴? 脮媒脭貌脳脰脙忙脕驴脫毛脮媒脭貌脢碌脌媒脢脟虏禄脪禄脩霉碌脛拢卢脮媒脭貌脳脰脙忙脕驴脢脟鹿虏脧铆碌脛拢卢露酶脢碌脌媒脙驴麓脦露录虏禄脥卢拢卢bug....脧脗脙忙碌脛脩颅禄路脠麓露录脢脟true*/
   var str="catastrcathe";
   var re=null;
   for(var i=0;i<5;i++){
       re=/cat/g;
 	   console.log( re.lastIndex);
-      console.log(re.test("catastroate"));//都是true哎
+      console.log(re.test("catastroate"));//露录脢脟true掳楼
 	   console.log( re.lastIndex);
 	// console.log(str.replace(re,"A"));
   }
@@ -152,7 +181,7 @@ function regTest(th){
   
 }
 
-/*正则的exec()方法，返回数组的第一个元素为匹配的子字符串，第二个为捕获组的结果，也就是()里匹配的一个整体，如果()里不是简单的字符，是元字符，还要根据具体的正则规则确定该元素， result1[1]的结果是o，是正则(\w)+\b匹配的结果*/
+/*脮媒脭貌碌脛exec()路陆路篓拢卢路碌禄脴脢媒脳茅碌脛碌脷脪禄赂枚脭陋脣脴脦陋脝楼脜盲碌脛脳脫脳脰路没麓庐拢卢碌脷露镁赂枚脦陋虏露禄帽脳茅碌脛陆谩鹿没拢卢脪虏戮脥脢脟()脌茂脝楼脜盲碌脛脪禄赂枚脮没脤氓拢卢脠莽鹿没()脌茂虏禄脢脟录貌碌楼碌脛脳脰路没拢卢脢脟脭陋脳脰路没拢卢禄鹿脪陋赂霉戮脻戮脽脤氓碌脛脮媒脭貌鹿忙脭貌脠路露篓赂脙脭陋脣脴拢卢 result1[1]碌脛陆谩鹿没脢脟o拢卢脢脟脮媒脭貌(\w)+\b脝楼脜盲碌脛陆谩鹿没*/
 function regTest1(th){
   var testString = 'Hello World',
 	reg1 = /\b(\w)+\b/;
@@ -186,25 +215,28 @@ function regTest2(th){
 </head>
 
 <body>
-<input type="button" id="reg1" value="测试标志"/><br />
-<p>浮点型和整型正则</p>
+<input type="button" id="reg1" value="虏芒脢脭卤锚脰戮"/><br />
+<p>赂隆碌茫脨脥潞脥脮没脨脥脮媒脭貌</p>
 
 <input type="text" id="intFloat" data-min="1000" data-max="2000"/><br />
 
-<p>----------------------------------------------测试用正则作为split的方法参数----------------------------------------</p>
+<p>----------------------------------------------虏芒脢脭脫脙脮媒脭貌脳梅脦陋split碌脛路陆路篓虏脦脢媒----------------------------------------</p>
 <span id="split"></span>
 <br />
 
-<input type="button" id="intFloat"  value="测试用正则分割" onclick="regExpSplit()"/><br />
+<input type="button" id="intFloat"  value="虏芒脢脭脫脙脮媒脭貌路脰赂卯" onclick="regExpSplit()"/><br />
 
 
-<input type="button"    value="正则匹配测试"   onclick="regTest(this)"/><br />
+<input type="button"    value="脮媒脭貌脝楼脜盲虏芒脢脭"   onclick="regTest(this)"/><br />
 
 
-<input type="button"    value="模式匹配方法exec()，非全局的"   onclick="regTest1(this)"/><br />
+<input type="button"    value="脛拢脢陆脝楼脜盲路陆路篓exec()拢卢路脟脠芦戮脰碌脛"   onclick="regTest1(this)"/><br />
 
  
- <input type="button"    value="模式匹配方法exec()，全局的"   onclick="regTest2(this)"/>
+ <input type="button"    value="脛拢脢陆脝楼脜盲路陆路篓exec()拢卢脠芦戮脰碌脛"   onclick="regTest2(this)"/>
+
+ <p>---------------------------脰禄脛脺脢盲脠毛脮媒脮没脢媒碌脛脟茅驴枚拢卢脰禄脢盲脠毛0露录虏禄脨脨掳楼-------------------------------------</p>
+  <input type="text" class="form-control ph-color" id="monSalary" placeholder="脟毛脢盲脠毛脛煤碌脛脭脗脢脮脠毛" data-money="fix" autocomplete="off"/>
  
 </body>
 </html>

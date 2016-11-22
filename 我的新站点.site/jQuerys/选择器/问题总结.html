@@ -13,7 +13,7 @@
 	  margin: 20px auto 40px;
 	  border-radius:10px;
 	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
-	  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+	  border:none;/*脠楼碌么掳麓脜楼脛卢脠脧碌脛脪玫脫掳拢卢鲁卢录露脛脩驴麓碌脛脛卢脠脧脩霉脢陆*/
 	  box-shadow:0 12px 8px -9px #555;
   }
   #wrap{
@@ -36,15 +36,17 @@
   	margin:20px;
 	color:#999;}
   
-  
+  .v-hidden{
+  	visibility: hidden;
+  }
 </style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
-/*公共方法-消息显示*/
+/*鹿芦鹿虏路陆路篓-脧没脧垄脧脭脢戮*/
 function commonShow(msg){
  
-  $("#out").append("<br/>"+String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
+  $("#out").append("<br/>"+String(msg));//虏禄脛脺脫脙msg.toString() 脪貌脦陋boolean脌脿脨脥脫脙脭脷麓脣麓娄禄谩卤篓麓铆
 }
 
 function clears(){
@@ -78,11 +80,33 @@ function hideTest(){
   var $dy3=$("#dy3");
   
   console.log($dy1.offset().top+": "+ $dy1.get(0).offsetTop);
-  console.log($dy2.offset().top+": "+ $dy2.get(0).offsetTop);//0: 0 设置了display:none的元素是没有偏移量的
+  console.log($dy2.offset().top+": "+ $dy2.get(0).offsetTop);//0: 0 脡猫脰脙脕脣display:none碌脛脭陋脣脴脢脟脙禄脫脨脝芦脪脝脕驴碌脛
   console.log($dy3.offset().top);
    console.log( Array.isArray([1,3,2]));
   
 }
+
+/*禄帽脠隆脪禄露脦html脠禄潞贸陆酶脨脨脪禄脨漏虏脵脳梅拢卢虏禄鹿脺脫脙掳楼拢卢脝忙鹿脰*/
+function rtest(){
+   var template=$(".rtt").html();
+
+  /* console.log(template);
+   console.log( $(template).find('[data-type="cancel"]').hasClass("v-hidden"));*/
+   // $(template).find('bdo[data-type="cancel"]').removeClass("v-hidden");
+  
+
+   //console.log($(template).find('bdo[data-type="cancel"]').removeClass("v-hidden").parent("div").html());
+
+   template=$(template).find('bdo[data-type="cancel"]').removeClass("v-hidden").parent("div").html();
+     console.log(template);
+    $(".rtt").html(template);
+
+    
+
+
+}
+
+//鑾峰彇涓庡厓绱犺嚜韬殑html,鍖呭惈瀛愯妭鐐圭殑
  
 
 </script>
@@ -93,12 +117,12 @@ function hideTest(){
 		<fieldset class="enter">
 		 <legend>try.....</legend>
 		 
-		    <input type="button"  value="多次绑定事件测试"  id="multiply"/> 
+		    <input type="button"  value="露脿麓脦掳贸露篓脢脗录镁虏芒脢脭"  id="multiply"/> 
 			
 		
 			
 		     
-		    <input type="button"  value="上面的按钮绑定点击事件" onClick="test1()"/> 
+		    <input type="button"  value="脡脧脙忙碌脛掳麓脜楼掳贸露篓碌茫禄梅脢脗录镁" onClick="test1()"/> 
 			
 			<input type="button"  value="test2" onClick="testIn()"/> 
 			
@@ -124,7 +148,19 @@ function hideTest(){
 			  
 		</fieldset>
 	</div>
+
+	<div class="rtt">
+		<div class="form_ft ctm-ft "> 
+		  <bdo class="c_orange ctm-cursor v-hidden" data-type="cancel">脠隆脧没露漏碌楼</bdo>
+		  <bdo class="c_orange ctm-f-r">脳麓脤卢拢潞露漏碌楼脡锚脟毛脰脨</bdo>  
+		</div>
+
+	</div>
 	
+
+	<button type="button" onclick="rtest()">閫氳繃鑾峰彇鐨勪竴娈礹tml杩涜鐩稿叧鎿嶄綔</button>
+
+	<button type="button" onclick="rrtest()">鑾峰彇鍏冪礌鏈韩鐨刪tml...</button>
 
 </body>
 </html>
