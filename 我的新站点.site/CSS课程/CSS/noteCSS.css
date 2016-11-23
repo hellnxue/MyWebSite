@@ -243,3 +243,100 @@ ul.type-lists li{
 	resize: none; 
 	background: rgba(0,0,0,0);
 }
+
+
+/*用浮动包围超出父容器宽度的子元素*/
+.ctm-f-wrapper{
+   min-height: 100px;
+   padding-top: 5px;
+   background-color: #abcdef;
+
+}
+
+.ctm-f-wrapper >div{
+	/*float: left;;
+	width: 70%;
+	margin: 0 auto;
+	background-color: #E4A8FE;
+	 border: 2px solid red;
+    border-radius: 6px;*/
+
+
+    background-color: #e4a8fe;
+    border: 2px solid red;
+    border-radius: 6px;
+    float: left;
+    margin: 0 auto;
+}
+
+.ctm-f-wrapper .f1{
+	width: 100%;
+	 
+
+}
+
+/*.ctm-f-wrapper .f2{
+	 
+	margin-top:5px;
+	min-height: 50px;
+	background-color: green;
+	width: 120%;
+}*/
+
+.ctm-f-wrapper .f3{
+	 
+	 
+    width: 100%;
+}
+
+
+/*浮动没有宽度的元素 之 子元素宽度为百分比的情况*/
+.commona{
+   background-color: yellow;
+   min-height: 50px;
+
+}
+
+.commonb{
+    background-color: green;
+    box-sizing: border-box;
+    margin-top: 5px;
+    min-height: 50px;
+
+}
+
+
+.ff > div{
+	float: left;
+}
+
+.ctm-f-wrapper .f5{
+	
+    width: 50%;
+
+}
+
+.ctm-f-wrapper .f6{
+	
+    width: 70%;
+
+}
+
+
+/*浮动没有宽度的元素 之 子元素宽度为百分比的情况*/
+
+.ff>div{
+	float: left;
+}
+
+.ctm-f-wrapper .f7{
+	 
+    width: 600px;
+
+}
+
+.ctm-f-wrapper .f8{
+	 
+   width: 800px;
+
+}

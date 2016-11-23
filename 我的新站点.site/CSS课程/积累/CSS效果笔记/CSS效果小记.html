@@ -61,5 +61,52 @@
 </div>
  <textarea node-type="textarea" name="" class="textarea-fw textarea-bf" >有事没事说两句... </textarea>
  
+
+
+ <h3>--- 用浮动属性包围超出父容器宽度的子元素(重要提示：此功能的前提是，子元素的内容的宽度不是百分比，或者子元素的内容比子元素还要宽，或者子元素的内容宽度设置了像素的情况下才管用的，具体看浮动非宽度的两种情况吧。。。)----</h3>
+ <div class="ctm-f-wrapper clearfix">
+     <div>
+          <!-- f1的宽度为100% -->
+          <div class="f1 commona">short width</div>
+
+          <!-- <div class="f2">long width</div> -->
+
+          <!-- div f3的宽度为100%，但是img的宽度为像素，且超出了直接父容器div的宽度时 -->
+          <div class="f3 commonb">
+              <img src="../../img/test.PNG" style="height: 50px; width: 1400px;">
+
+          </div>
+
+     </div>
+    
+ </div>
+
+
+
+ <h3>--- 一、浮动没有宽度的元素 之 子元素宽度为百分比的情况----</h3>
+ <div class="ctm-f-wrapper clearfix ff">
+     <div>
+          
+          <div class="commona f5">short width</div>
+          <div class="commonb f6"> </div>
+
+     </div>
+    
+ </div>
+
+
+ <h3>--- 二、浮动没有宽度的元素 之 子元素宽度为像素情况----</h3>
+ <div class="ctm-f-wrapper clearfix ff">
+     <div>
+          
+          <div class="commona f7">short width</div>
+          <div class="commonb f8"> </div>
+
+     </div>
+    
+ </div>
+
+
+
 </body>
 </html>
