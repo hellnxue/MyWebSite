@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>�ޱ����ĵ�</title>
+<meta charset="utf-8" />
+<title>无标题文档</title>
 <link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <style>
   
@@ -15,10 +15,10 @@
 
 <body>
  <div id="content"> </div>
-  <div id="content2"> </div>
  <script id="test" type="text/html">
+    <div>
     {{if isAdmin}}
-	   <h1>{{title}}</h1>
+	   <h1 class="hellos">{{title}}</h1>
 	   <ul>
 	     {{each list as value index}}
 		 
@@ -29,25 +29,33 @@
 	
 	
 	{{/if}}
+
+	</div>
  </script>
  
  
 <script>
-
-
   var data = {
-	title: '��������',
+	title: '基本例子',
 	isAdmin: true,
-	list: ['����', '����', '��Ӱ', '��Ӱ', '��ҥ', '����', '����']
-};
+	list: ['文艺', '博客', '摄影', '电影', '民谣', '旅行', '吉他']
+	};
+	var html=template("test",data);
 
-var html=template("test",data);
-$("#content").html(html);
+	var $html=$(html);
+
+	/*原来给渲染后的html里的某些元素绑定事件，需要用append等可以传入jQuery对象或DOM对象的方法，否则只传入一段text是没有任何事件可言的。html()方法就只能传入一段string，哎，终于解决了啊！*/
+	$html.find(".hellos").on("click",function(){
+	  console.log("hello");
+
+	})
+
+	$("#content").append($html);
+
 
  
  
  
-
 </script>
 </body>
 </html>
