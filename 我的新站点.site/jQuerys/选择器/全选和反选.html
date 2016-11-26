@@ -301,6 +301,8 @@ $("#tc").on("click",function(){
 
 /*jQuery的data()方法，存取数据*/ 
  function tttt(ts){
+ 
+    console.log($(ts).data("billid"));//data-billId会自动转为小写 data-billid哎
    
    var variable=$(ts).data("actionMove");
    console.log(variable);//actions
@@ -536,7 +538,7 @@ hihi
 <input type="button" value="属性选择器[attribute]" onClick="testAttribute(this)"/><br />
 
 <h3>------------------jquery的data()方法能获取由data自定义的属性值奥，新奇啊，DOM中是dataset啊-----------------------------</h3>
-<div data-action-move="actions" onClick="tttt(this)">Clike me you can see data-action-move's value </div><br>
+<div data-action-move="actions" data-billId="hello" onClick="tttt(this)" >Clike me you can see data-action-move's value </div><br>
 
 <div data-dom-test="div" data-typeof-test="div" data-role="page" data-last-value="43" data-hidden="true" data-options='{"name":"John"}' data-test='100.0'>data()存取各种类型的值</div>
 

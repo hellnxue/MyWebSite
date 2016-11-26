@@ -849,6 +849,34 @@ function convertAry(a,b){
 }
 
  
+ function maxAryObj(){
+     var pm=1;
+     var ary=[
+	     {x:1,y:"a"},
+		 {x:2,y:"b"},
+		 {x:3,y:"c"},
+		 {x:4,y:"a"},
+	 ];
+	 
+	 var flag=ary.every(function(item,index){
+	     return pm<=item.x;
+	 });
+	 
+	 console.log(flag);
+	 
+	 
+	 /*从对象数组中筛选出符合条件的项，组成一个新的数组*/
+	 var xry=$.map(ary,function(item,index){
+	 
+	    if("a"==item.y){
+		   return item.x;
+		}
+	 	 
+		
+	 });
+	 
+	 console.log(xry);
+ }
   
 </script>
 
@@ -873,6 +901,9 @@ function convertAry(a,b){
 <input type="button" data-filter value="从一组数值数组中选出最大值"  onclick="maxAry()"/><br />
 
 <input type="button" data-filter value="将类数组对象arguments用Arry.prototype.slice.call转换成数组"  onclick="convertAry(type,name)" name="convertBtn"/><br />
+
+<input type="button" data-filter value="从一组对象数值数组中选出最小值"  onclick="maxAryObj()"/><br />
+
 
 
 </body>
