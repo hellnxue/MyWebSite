@@ -1,8 +1,8 @@
 <!DOCTYPE html >
 <html >
 <head>
-<meta charset=utf-8/>
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta charset="utf-8"/>
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <style>
   
 [type="button"]{
@@ -66,7 +66,7 @@
 	 
 	  $("#argumentsBtn").click(function(){
 	   
-		argumentsInput("hello");//bÊÇundefined
+		argumentsInput("hello");//bæ˜¯undefined
 		argumentsInput("hello","world");
 	 });
 	 
@@ -87,8 +87,8 @@
   
   function sonselector(){
     var $p=$(".son>p");
-	var $sn=$(".son>*");//Ñ¡Ôñ.sonºóµÄËùÓĞÖ±½Ó×ÓÔªËØ£¬²»°üÀ¨×ÓÔªËØµÄºó´úÔªËØ
-	var $hd=$(".son *");//Ñ¡Ôñ.sonµÄËùÓĞºó´úÔªËØ
+	var $sn=$(".son>*");//é€‰æ‹©.sonåçš„æ‰€æœ‰ç›´æ¥å­å…ƒç´ ï¼Œä¸åŒ…æ‹¬å­å…ƒç´ çš„åä»£å…ƒç´ 
+	var $hd=$(".son *");//é€‰æ‹©.sonçš„æ‰€æœ‰åä»£å…ƒç´ 
 	console.log($p.length);//3
 	console.log($sn.length);//4
 	console.log($hd.length);//5
@@ -108,54 +108,54 @@
 <img src="ss" alt="sorry"/><br>
 
 
-<h3>------------------------------»ñµÃÒÔmodal¿ªÍ·µÄdiv¶ÔÏóµÄidÊôĞÔÖµ---------------------------------------------------</h3>
+<h3>------------------------------è·å¾—ä»¥modalå¼€å¤´çš„divå¯¹è±¡çš„idå±æ€§å€¼---------------------------------------------------</h3>
 <div id="modal0">
   <div>
-    <input type="button" id="parentsBtn" value="parents·½·¨ºÍÊôĞÔÑ¡Ôñ½áºÏ">
+    <input type="button" id="parentsBtn" value="parentsæ–¹æ³•å’Œå±æ€§é€‰æ‹©ç»“åˆ">
   </div>
 </div>
 
 
-<h3>------------------------------º¯Êı²ÎÊı¶¨Òå¶à¸ö£¬µ«´«Èë²»È«µÄÇé¿öÏÂ---------------------------------------------------</h3>
+<h3>------------------------------å‡½æ•°å‚æ•°å®šä¹‰å¤šä¸ªï¼Œä½†ä¼ å…¥ä¸å…¨çš„æƒ…å†µä¸‹---------------------------------------------------</h3>
  
- <input type="button" id="argumentsBtn" value="º¯Êı²ÎÊı´«Öµ"><br>
+ <input type="button" id="argumentsBtn" value="å‡½æ•°å‚æ•°ä¼ å€¼"><br>
 <fieldset >
-   <legend >µ¥Ñ¡°´Å¥</legend>
-   <input type="radio" name="sex" value="1" />ÄĞ
-   <input type="radio" name="sex" value="2"   checked="checked" />Å®<br>
-   <input type="button" id="radioval" value="»ñµÃµ¥Ñ¡°´Å¥µÄÖµ" onClick="radioval(this)"><br>
+   <legend >å•é€‰æŒ‰é’®</legend>
+   <input type="radio" name="sex" value="1" />ç”·
+   <input type="radio" name="sex" value="2"   checked="checked" />å¥³<br>
+   <input type="button" id="radioval" value="è·å¾—å•é€‰æŒ‰é’®çš„å€¼" onClick="radioval(this)"><br>
 </fieldset>
 
 
-<h3>------------------------------×ÓĞÇÑ¡ÔñÆ÷ Ñ¡ÔñÖ¸¶¨Ñ¡ÔñÆ÷µÄËùÓĞÖ±½Ó×ÓÔªËØ---------------------------------------------------</h3>
+<h3>------------------------------å­æ˜Ÿé€‰æ‹©å™¨ é€‰æ‹©æŒ‡å®šé€‰æ‹©å™¨çš„æ‰€æœ‰ç›´æ¥å­å…ƒç´ ---------------------------------------------------</h3>
  <div class="son">
     <p>hello</p>
 	<p>world</p>
 	<p>apple
 	  <span>banana</span>
 	</p>
-	<input type="button"   value="×ÓĞÇÑ¡ÔñÆ÷" onClick="sonselector()">
+	<input type="button"   value="å­æ˜Ÿé€‰æ‹©å™¨" onClick="sonselector()">
  </div>
  
  
-	<h3>------------------------------ĞÖµÜÑ¡Ôñ·û:Ñ¡ÔñËùÓĞĞÖµÜÔªËØ or Ñ¡ÔñÖ¸¶¨ÔªËØµÄ½ôÁÚĞÖµÜÔªËØ-------------------------------------</h3>
+	<h3>------------------------------å…„å¼Ÿé€‰æ‹©ç¬¦:é€‰æ‹©æ‰€æœ‰å…„å¼Ÿå…ƒç´  or é€‰æ‹©æŒ‡å®šå…ƒç´ çš„ç´§é‚»å…„å¼Ÿå…ƒç´ -------------------------------------</h3>
 	<div class="bootstrap-well">
 	   <dl id="dldt">
-		  <dt>Ë®¹û...</dt>
-		  <dd>Æ»¹û</dd><!--Ä¬ÈÏÓĞ40pxµÄ×óÍâ±ß¾à£¬¿ÉÒÔÖØĞ´ÑùÊ½È¥µôÄ¬ÈÏÑùÊ½-->
-		  <dd>Ïã½¶</dd>
-		  <dt>¹ûÖ­...</dt>
-		  <dd>Æ»¹ûÖ­</dd>
-		  <dd>Ïã½¶Ö­</dd> 
+		  <dt>æ°´æœ...</dt>
+		  <dd>è‹¹æœ</dd><!--é»˜è®¤æœ‰40pxçš„å·¦å¤–è¾¹è·ï¼Œå¯ä»¥é‡å†™æ ·å¼å»æ‰é»˜è®¤æ ·å¼-->
+		  <dd>é¦™è•‰</dd>
+		  <dt>æœæ±...</dt>
+		  <dd>è‹¹æœæ±</dd>
+		  <dd>é¦™è•‰æ±</dd> 
 	  </dl>
-	  <input type="button"    value="~Ñ¡Ôñ¶¨ÒåÃèÊöÁĞ±íµÄdtµÄËùÓĞĞÖµÜÔªËØdd" onClick="xddselector()">
-	   <input type="button"   value="+Ñ¡Ôñ¶¨ÒåÃèÊöÁĞ±íµÄdtµÄ½ôÁÚµÄĞÖµÜÔªËØdd" onClick="xdselector()">
+	  <input type="button"    value="~é€‰æ‹©å®šä¹‰æè¿°åˆ—è¡¨çš„dtçš„æ‰€æœ‰å…„å¼Ÿå…ƒç´ dd" onClick="xddselector()">
+	   <input type="button"   value="+é€‰æ‹©å®šä¹‰æè¿°åˆ—è¡¨çš„dtçš„ç´§é‚»çš„å…„å¼Ÿå…ƒç´ dd" onClick="xdselector()">
 	</div>
 	
 	
-	<h3>------------------------------jquery¶¯»­animate()-------------------------------------</h3>
+	<h3>------------------------------jqueryåŠ¨ç”»animate()-------------------------------------</h3>
      
-	 <input type="button" id="clickme"   value="µã»÷°´Å¥Í¼Æ¬ÂıÂıÏûÊ§...ÔÙ´Îµã»÷»á³öÏÖ" onClick="imgDissappear()">
+	 <input type="button" id="clickme"   value="ç‚¹å‡»æŒ‰é’®å›¾ç‰‡æ…¢æ…¢æ¶ˆå¤±...å†æ¬¡ç‚¹å‡»ä¼šå‡ºç°" onClick="imgDissappear()">
 	 
 	<div class="bootstrap-well" style="height:200px;">
 	
@@ -163,13 +163,13 @@
 	 
 	</div>
 	
-	<h3>------------------------------jquery¶¯»­animate() ½«¶¯»­¼ÓÈëµ½ĞòÁĞÖĞ-------------------------------------</h3>
-	 <input type="button"     value="¶¯»­ºÍ¶ÓÁĞ" onClick="queue()">
+	<h3>------------------------------jqueryåŠ¨ç”»animate() å°†åŠ¨ç”»åŠ å…¥åˆ°åºåˆ—ä¸­-------------------------------------</h3>
+	 <input type="button"     value="åŠ¨ç”»å’Œé˜Ÿåˆ—" onClick="queue()">
 	<div id="block1">Block1</div>
 	
 	
-	<h3>------------------------------¶¯»­²âÊÔ-------------------------------------</h3>
-     <input type="button"     value="¶¯»­²âÊÔ" onClick="animateTest(this)" style="display:block;"> 
+	<h3>------------------------------åŠ¨ç”»æµ‹è¯•-------------------------------------</h3>
+     <input type="button"     value="åŠ¨ç”»æµ‹è¯•" onClick="animateTest(this)" style="display:block;"> 
      <p style="background-color:#CCFFCC; width:200px;">hello world</p>
 	 <p  style="background-color:#CCFFCC; width:200px;">hello helln</p>
 	 
@@ -188,21 +188,21 @@ function xdselector(){
 
 function imgDissappear(){
    $('#book').animate({
-		opacity: 0.25,  //³ÉÍ¸Ã÷¶ÈµÄÑù×Ó
-		left: '+=50',   //Àë×Ô¼ºÔ­À´µÄÎ»ÖÃ²»¶Ï¼Ó50
-		height: 'toggle'//¸ß¶ÈÂıÂı±äÎª0,Òò´ËÕû¸öimgÒ²¾ÍÏûÊ§²»¼ûÁË
+		opacity: 0.25,  //æˆé€æ˜åº¦çš„æ ·å­
+		left: '+=50',   //ç¦»è‡ªå·±åŸæ¥çš„ä½ç½®ä¸æ–­åŠ 50
+		height: 'toggle'//é«˜åº¦æ…¢æ…¢å˜ä¸º0,å› æ­¤æ•´ä¸ªimgä¹Ÿå°±æ¶ˆå¤±ä¸è§äº†
 		
 	  }, 5000, function() {
 		// Animation complete.
-		$(this).parent("div").append("Íê³ÉÒş²Ø¡£¡£¡£");
+		$(this).parent("div").append("å®Œæˆéšè—ã€‚ã€‚ã€‚");
 	  });
 
 }
-/*ÉèÖÃ¶ÓÁĞqueueÎªfalse¾ÍÊÇÈÃ¶¯»­µÄÖ´ĞĞË³ĞòÊÕµ½Ó°Ïì°É£¬ÉèÖÃÁËqueue:falseµÄ¶¯»­»áÁ¢¼´Ö´ĞĞ*/
+/*è®¾ç½®é˜Ÿåˆ—queueä¸ºfalseå°±æ˜¯è®©åŠ¨ç”»çš„æ‰§è¡Œé¡ºåºæ”¶åˆ°å½±å“å§ï¼Œè®¾ç½®äº†queue:falseçš„åŠ¨ç”»ä¼šç«‹å³æ‰§è¡Œ*/
 function queue(){
 
     $( "#block1" )
-	 .animate( { width: "90%" }, { queue: false, duration: 3000 })//µÚÒ»¸ö¶¯»­ÉèÖÃÁË¶ÓÁĞÎªfalse£¬²»¼ÓÈë¶ÓÁĞ£¬div»áÔÚ±ä¿íµÄÍ¬Ê±Ö´ĞĞÒÔÏÂµÄ¶¯»­£¬×ÖÌå±ä´ó£¬³öÏÖÓÒ±ß¿ò£¬Èç¹ûÉèÖÃ³Étrue»ò²»ÉèÖÃ£¬divµÄ¶¯»­½«»áË³ĞòÖ´ĞĞ£¬ÏÈ±ä¿í-×ÖÌå±ä´ó-³öÏÖÓÒ±ß¿ò
+	 .animate( { width: "90%" }, { queue: false, duration: 3000 })//ç¬¬ä¸€ä¸ªåŠ¨ç”»è®¾ç½®äº†é˜Ÿåˆ—ä¸ºfalseï¼Œä¸åŠ å…¥é˜Ÿåˆ—ï¼Œdivä¼šåœ¨å˜å®½çš„åŒæ—¶æ‰§è¡Œä»¥ä¸‹çš„åŠ¨ç”»ï¼Œå­—ä½“å˜å¤§ï¼Œå‡ºç°å³è¾¹æ¡†ï¼Œå¦‚æœè®¾ç½®æˆtrueæˆ–ä¸è®¾ç½®ï¼Œdivçš„åŠ¨ç”»å°†ä¼šé¡ºåºæ‰§è¡Œï¼Œå…ˆå˜å®½-å­—ä½“å˜å¤§-å‡ºç°å³è¾¹æ¡†
      .animate({ fontSize: "24px" }, 1500 )
      .animate({ borderRightWidth: "15px" } );
 
@@ -223,9 +223,9 @@ function animateTest(ts){
 
 
 	 
-	 <h3>------------------------------jQueryµÄ¶ÓÁĞ·½·¨queue()-------------------------------------</h3>
+	 <h3>------------------------------jQueryçš„é˜Ÿåˆ—æ–¹æ³•queue()-------------------------------------</h3>
 	 <!--DEMO start-->
-	<input type="button" value="Í£Ö¹¶¯»­"  data-queue="queue"/>
+	<input type="button" value="åœæ­¢åŠ¨ç”»"  data-queue="queue"/>
 	<div id="demo">
 		<span class="one">01</span>
 		<span class="two">02</span>
@@ -241,20 +241,20 @@ function animateTest(ts){
 <script>
 
 /*
-jQueryºËĞÄÖĞ, ÓĞÒ»×é¶ÓÁĞ¿ØÖÆ·½·¨, Õâ×é·½·¨ÓÉqueue()/dequeue()/clearQueue()Èı¸ö·½·¨×é³É, Ëü¶ÔĞèÒªÁ¬Ğø°´ĞòÖ´ĞĞµÄº¯ÊıµÄ¿ØÖÆ¿ÉÒÔËµÊÇ¼òÃ÷×ÔÈç, Ö÷ÒªÓ¦ÓÃÓÚanimate ()·½·¨, ajaxÒÔ¼°ÆäËûÒª°´Ê±¼äË³ĞòÖ´ĞĞµÄÊÂ¼şÖĞ.
-ÏÈ½âÊÍÒ»ÏÂÕâ×é·½·¨¸÷×ÔµÄº¬Òå.
-queue(name,[callback]): µ±Ö»´«ÈëÒ»¸ö²ÎÊıÊ±, Ëü·µ»Ø²¢Ö¸ÏòµÚÒ»¸öÆ¥ÅäÔªËØµÄ¶ÓÁĞ(½«ÊÇÒ»¸öº¯ÊıÊı×é,¶ÓÁĞÃûÄ¬ÈÏÊÇfx); µ±ÓĞÁ½¸ö²ÎÊı´«ÈëÊ±, µÚÒ»¸ö²ÎÊı»¹ÊÇÄ¬ÈÏÎªfxµÄµÄ¶ÓÁĞÃû, µÚ¶ş¸ö²ÎÊıÓÖ·ÖÁ½ÖÖÇé¿ö, µ±µÚ¶ş¸ö²ÎÊıÊÇÒ»¸öº¯ÊıÊ±, Ëü½«ÔÚÆ¥ÅäµÄÔªËØµÄ¶ÓÁĞ×îºóÌí¼ÓÒ»¸öº¯Êı. µ±µÚ¶ş¸ö²ÎÊıÊÇÒ»¸öº¯ÊıÊı×éÊ±,Ëü½«Æ¥ÅäÔªËØµÄ¶ÓÁĞÓÃĞÂµÄÒ»¸ö¶ÓÁĞÀ´´úÌæ(º¯ÊıÊı×é).¿ÉÄÜ, Õâ¸öÀí½âÆğÀ´ÓĞµãÔÎ, ÉÔºó, ºóÃæ»áÓĞµã´Ë²é¿´DEMO.
-dequeue(name): Õâ¸öºÃÀí½â, ¾ÍÊÇ´Ó¶ÓÁĞ×îÇ°¶ËÒÆ³ıÒ»¸ö¶ÓÁĞº¯Êı, ²¢Ö´ĞĞËü.
-clearQueue([queueName]):ÕâÊÇ1.4ĞÂÔöµÄ·½·¨. Çå¿Õ¶ÔÏóÉÏÉĞÎ´Ö´ĞĞµÄËùÓĞ¶ÓÁĞ. ²ÎÊı¿ÉÑ¡,Ä¬ÈÏÎªfx.
+jQueryæ ¸å¿ƒä¸­, æœ‰ä¸€ç»„é˜Ÿåˆ—æ§åˆ¶æ–¹æ³•, è¿™ç»„æ–¹æ³•ç”±queue()/dequeue()/clearQueue()ä¸‰ä¸ªæ–¹æ³•ç»„æˆ, å®ƒå¯¹éœ€è¦è¿ç»­æŒ‰åºæ‰§è¡Œçš„å‡½æ•°çš„æ§åˆ¶å¯ä»¥è¯´æ˜¯ç®€æ˜è‡ªå¦‚, ä¸»è¦åº”ç”¨äºanimate ()æ–¹æ³•, ajaxä»¥åŠå…¶ä»–è¦æŒ‰æ—¶é—´é¡ºåºæ‰§è¡Œçš„äº‹ä»¶ä¸­.
+å…ˆè§£é‡Šä¸€ä¸‹è¿™ç»„æ–¹æ³•å„è‡ªçš„å«ä¹‰.
+queue(name,[callback]): å½“åªä¼ å…¥ä¸€ä¸ªå‚æ•°æ—¶, å®ƒè¿”å›å¹¶æŒ‡å‘ç¬¬ä¸€ä¸ªåŒ¹é…å…ƒç´ çš„é˜Ÿåˆ—(å°†æ˜¯ä¸€ä¸ªå‡½æ•°æ•°ç»„,é˜Ÿåˆ—åé»˜è®¤æ˜¯fx); å½“æœ‰ä¸¤ä¸ªå‚æ•°ä¼ å…¥æ—¶, ç¬¬ä¸€ä¸ªå‚æ•°è¿˜æ˜¯é»˜è®¤ä¸ºfxçš„çš„é˜Ÿåˆ—å, ç¬¬äºŒä¸ªå‚æ•°åˆåˆ†ä¸¤ç§æƒ…å†µ, å½“ç¬¬äºŒä¸ªå‚æ•°æ˜¯ä¸€ä¸ªå‡½æ•°æ—¶, å®ƒå°†åœ¨åŒ¹é…çš„å…ƒç´ çš„é˜Ÿåˆ—æœ€åæ·»åŠ ä¸€ä¸ªå‡½æ•°. å½“ç¬¬äºŒä¸ªå‚æ•°æ˜¯ä¸€ä¸ªå‡½æ•°æ•°ç»„æ—¶,å®ƒå°†åŒ¹é…å…ƒç´ çš„é˜Ÿåˆ—ç”¨æ–°çš„ä¸€ä¸ªé˜Ÿåˆ—æ¥ä»£æ›¿(å‡½æ•°æ•°ç»„).å¯èƒ½, è¿™ä¸ªç†è§£èµ·æ¥æœ‰ç‚¹æ™•, ç¨å, åé¢ä¼šæœ‰ç‚¹æ­¤æŸ¥çœ‹DEMO.
+dequeue(name): è¿™ä¸ªå¥½ç†è§£, å°±æ˜¯ä»é˜Ÿåˆ—æœ€å‰ç«¯ç§»é™¤ä¸€ä¸ªé˜Ÿåˆ—å‡½æ•°, å¹¶æ‰§è¡Œå®ƒ.
+clearQueue([queueName]):è¿™æ˜¯1.4æ–°å¢çš„æ–¹æ³•. æ¸…ç©ºå¯¹è±¡ä¸Šå°šæœªæ‰§è¡Œçš„æ‰€æœ‰é˜Ÿåˆ—. å‚æ•°å¯é€‰,é»˜è®¤ä¸ºfx.
 */
 /*******************************
  * @author Mr.Think
  * @author blog http://mrthink.net/
  * @2010.11.16
- * @¿É×ÔÓÉ×ªÔØ¼°Ê¹ÓÃ,µ«Çë×¢Ã÷°æÈ¨¹éÊô
+ * @å¯è‡ªç”±è½¬è½½åŠä½¿ç”¨,ä½†è¯·æ³¨æ˜ç‰ˆæƒå½’å±
  *******************************/
 $(function(){
-	//¿ÉÓÃanimate()·½·¨Èç´ËÑ£ÔÎµØÊµÏÖ
+	//å¯ç”¨animate()æ–¹æ³•å¦‚æ­¤çœ©æ™•åœ°å®ç°
 //	$('.one').delay(500).animate({top:'+=290px'},500,function(){
 //		$('.two').delay(500).animate({top:'+=290px'},500,function(){
 //			$('.three').delay(500).animate({top:'+=290px'},500,function(){
@@ -262,7 +262,7 @@ $(function(){
 //					$('.five').delay(500).animate({top:'+=290px'},500,function(){
 //						$('.six').delay(500).animate({top:'+=290px'},500,function(){
 //							$('.seven').animate({top:'+=290px'},500,function(){
-//								alert('°´ĞòÂäÌåÔË¶¯½áÊø! Yeah!')
+//								alert('æŒ‰åºè½ä½“è¿åŠ¨ç»“æŸ! Yeah!')
 //							});
 //						});
 //					});
@@ -271,9 +271,9 @@ $(function(){
 //		});
 //	});
 
-	//»¹¿ÉÒÔÀûÓÃqueue()·½·¨¼òÃ÷×ÔÈçµÄÊµÏÖ
+	//è¿˜å¯ä»¥åˆ©ç”¨queue()æ–¹æ³•ç®€æ˜è‡ªå¦‚çš„å®ç°
 	var _slideFun=[
-		//°ÑÒªÖ´ĞĞµÄ¶¯»­ÒÀ´Î·ÅÈëÒ»¸öÊı×é
+		//æŠŠè¦æ‰§è¡Œçš„åŠ¨ç”»ä¾æ¬¡æ”¾å…¥ä¸€ä¸ªæ•°ç»„
 		function(){$('.one').delay(2000).animate({top:'+=270px'},500,_takeOne);},
 		function(){$('.two').delay(300).animate({top:'+=270px'},500,_takeOne);},
 		function(){$('.three').delay(300).animate({top:'+=270px'},500,_takeOne);},
@@ -281,21 +281,21 @@ $(function(){
 		function(){$('.five').delay(300).animate({top:'+=270px'},500,_takeOne);},
 		function(){$('.six').delay(300).animate({top:'+=270px'},500,_takeOne);},
 		function(){$('.seven').delay(300).animate({top:'+=270px'},500,function(){
-			console.log('°´ĞòÂäÌåÔË¶¯½áÊø! Yeah!');
+			console.log('æŒ‰åºè½ä½“è¿åŠ¨ç»“æŸ! Yeah!');
 		});}
 	];
-	//½«º¯ÊıÊı×é·ÅÈëslideList¶¯»­¶ÓÁĞ
+	//å°†å‡½æ•°æ•°ç»„æ”¾å…¥slideListåŠ¨ç”»é˜Ÿåˆ—
 	$('#demo').queue('slideList',_slideFun);
 	var _takeOne=function(){
-		//È¡³öµÚÒ»¸öº¯Êı,²¢Ö´ĞĞËü
+		//å–å‡ºç¬¬ä¸€ä¸ªå‡½æ•°,å¹¶æ‰§è¡Œå®ƒ
 		$('#demo').dequeue('slideList');
 	};
-	//³õÊ¼Ö´ĞĞµÚÒ»¸öº¯Êı
+	//åˆå§‹æ‰§è¡Œç¬¬ä¸€ä¸ªå‡½æ•°
 	_takeOne();
 	
 	$('[data-queue="queue"]').click(function(){
-		$(this).val('Ë¢ĞÂÖØÊÔ').attr('disabled',true).css('color','#ccc');
-		//Í£Ö¹Ò²¿ÉÓÃÔØÈë¿ÕÊı×éÊµÏÖ$('#demo').queue('slideList',[]);
+		$(this).val('åˆ·æ–°é‡è¯•').attr('disabled',true).css('color','#ccc');
+		//åœæ­¢ä¹Ÿå¯ç”¨è½½å…¥ç©ºæ•°ç»„å®ç°$('#demo').queue('slideList',[]);
 		$('#demo').clearQueue('slideList');
 		 
 	});
@@ -303,7 +303,7 @@ $(function(){
 $("[data-mutil='lot']")	.on("click",function(){
      $('[data-type=total]').siblings().css("color","red");
 	 
-	console.log($('[data-type=total]').siblings().length);//26  Á½ĞĞ¶¼ÓĞdata-type=total »á±»Í¬Ê±Ñ¡ÖĞ£¬ÀÛ¼Óµ½Ò»Æğ³ÉÎªÒ»¸ö¼¯ºÏ£¬13+13=26
+	console.log($('[data-type=total]').siblings().length);//26  ä¸¤è¡Œéƒ½æœ‰data-type=total ä¼šè¢«åŒæ—¶é€‰ä¸­ï¼Œç´¯åŠ åˆ°ä¸€èµ·æˆä¸ºä¸€ä¸ªé›†åˆï¼Œ13+13=26
 	
 	$('[data-type=total]').siblings().each(function(index, elem){
 		        	 
@@ -315,14 +315,14 @@ $("[data-mutil='lot']")	.on("click",function(){
 });
 </script>
 
- <h3>------------------------------Ñ¡ÔñÆ÷Ñ¡ÖĞ¶à¸öµØ·½µÄÇé¿ö-------------------------------------</h3>
-<input type="button" value="²âÊÔ¶à¸öÑ¡ÔñµÄÇé¿ö"  data-mutil="lot"/>
+ <h3>------------------------------é€‰æ‹©å™¨é€‰ä¸­å¤šä¸ªåœ°æ–¹çš„æƒ…å†µ-------------------------------------</h3>
+<input type="button" value="æµ‹è¯•å¤šä¸ªé€‰æ‹©çš„æƒ…å†µ"  data-mutil="lot"/>
 
 <table id="detailTable" class="table table-bordered table-hover detailTable dataTable no-footer" width="100%" role="grid" border="1" style="width: 100%;">
  
 	<tbody>
 	 	<tr class="even" role="row">
-		<td>Ê§Òµ±£ÏÕ</td>
+		<td>å¤±ä¸šä¿é™©</td>
 		<td>4</td>
 		<td>5</td>
 		<td>6.00</td>
@@ -354,7 +354,7 @@ $("[data-mutil='lot']")	.on("click",function(){
 			<td>61.00</td>
 		</tr>
 		<tr class="even" role="row">
-			<td colspan="9" data-type="total">¹«»ı½ğ</td>
+			<td colspan="9" data-type="total">å…¬ç§¯é‡‘</td>
 			<td> </td>
 			<td> </td>
 			<td> </td>

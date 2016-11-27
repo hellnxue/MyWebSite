@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
  function num(num1,num2){
@@ -12,9 +12,9 @@
    return num1+num2;
  }
  var num1=num;
- num=null;//Ïú»ÙnumÖ¸Õë
+ num=null;//é”€æ¯numæŒ‡é’ˆ
  
- //¹¹Ôìº¯Êı
+ //æ„é€ å‡½æ•°
  function Person(name){
      this.name=name;
  }
@@ -23,46 +23,46 @@
 $(function(){
 
 /*
-  ¶ÔÏóºÍº¯Êı
-  ObjectºÍFunctionÊÇÁ½ÖÖÒıÓÃÀàĞÍ°Â~
+  å¯¹è±¡å’Œå‡½æ•°
+  Objectå’ŒFunctionæ˜¯ä¸¤ç§å¼•ç”¨ç±»å‹å¥¥~
 */
 $("#f1").on("click",function(){
    //console.log(num(1,2));
     console.log(num1(1,2));//3
    
-    /*typeof·Ö±ğ¼ì²âÊµÀıºÍº¯Êı£¬µÃµ½µÄ½á¹û£º¶ÔÏóÊµÀı¶¼ÊÇobjectÀàĞÍµÄ£¬¶øº¯ÊıÊÇfunctionÀàĞÍµÄ
-	  jsÖĞº¯ÊıÒ²ÊÇ¶ÔÏó£¬µ«ÊÇº¯ÊıÓĞÒ»Ğ©ÌØÊâµÄÊôĞÔ£¬Òò´Ë¹éÎªfunctionÀàĞÍ¡£
+    /*typeofåˆ†åˆ«æ£€æµ‹å®ä¾‹å’Œå‡½æ•°ï¼Œå¾—åˆ°çš„ç»“æœï¼šå¯¹è±¡å®ä¾‹éƒ½æ˜¯objectç±»å‹çš„ï¼Œè€Œå‡½æ•°æ˜¯functionç±»å‹çš„
+	  jsä¸­å‡½æ•°ä¹Ÿæ˜¯å¯¹è±¡ï¼Œä½†æ˜¯å‡½æ•°æœ‰ä¸€äº›ç‰¹æ®Šçš„å±æ€§ï¼Œå› æ­¤å½’ä¸ºfunctionç±»å‹ã€‚
 	*/
   
-    //º¯ÊıÀàĞÍ
+    //å‡½æ•°ç±»å‹
 	console.log("typeof num1: "+typeof num1);		//function
 	
-	//ÁíÒ»ÖÖ´´½¨º¯ÊıµÄ·½Ê½
+	//å¦ä¸€ç§åˆ›å»ºå‡½æ•°çš„æ–¹å¼
 	var num6=new Function("num1","num2","return num1+num2");
-	console.log("typeof num6: "+typeof num6);//function  ¼ì²âÊÇFunctionÀàĞÍ°¥
+	console.log("typeof num6: "+typeof num6);//function  æ£€æµ‹æ˜¯Functionç±»å‹å“
 	
-	//´´½¨¶ÔÏó
+	//åˆ›å»ºå¯¹è±¡
 	var strObj=new String("123");  //typeof strObj =object
     var obj=new Object();			//typeof obj =object
 	
-	//ÓÃ¹¹Ôìº¯Êı´´½¨¶ÔÏó
+	//ç”¨æ„é€ å‡½æ•°åˆ›å»ºå¯¹è±¡
 	var p1=new Person("Nichols");//typeof p1=object
 	console.log("typeof p1: "+typeof p1);//object
 	
-	//Ö´ĞĞµÚÈıÖÖº¯Êı
+	//æ‰§è¡Œç¬¬ä¸‰ç§å‡½æ•°
 	console.log(num6(2,2));//4
 	 
     
   
 })
-//console.log(num2()); »á±¨´í£¬Ô­ÒòÊÇnum2ÊÇº¯Êı±í´ïÊ½£¬»¹Î´±»³õÊ¼»¯
+//console.log(num2()); ä¼šæŠ¥é”™ï¼ŒåŸå› æ˜¯num2æ˜¯å‡½æ•°è¡¨è¾¾å¼ï¼Œè¿˜æœªè¢«åˆå§‹åŒ–
 var num2=function(){
-   return "hello world£¡";
+   return "hello worldï¼";
 }
  console.log(num2());
- console.log("µ÷ÓÃº¯Êınum3()=="+num3());
-  console.log("È¡º¯ÊıÖ¸Õë£¬µ«²»µ÷ÓÃnum3=="+num3);
- //º¯ÊıÉùÃ÷
+ console.log("è°ƒç”¨å‡½æ•°num3()=="+num3());
+  console.log("å–å‡½æ•°æŒ‡é’ˆï¼Œä½†ä¸è°ƒç”¨num3=="+num3);
+ //å‡½æ•°å£°æ˜
  function num3(){
    return "hello world1!";
  }
@@ -75,7 +75,7 @@ function pf(n1,n2){
   return al;
 }
 
-//µİ¹é
+//é€’å½’
 function factorial(num){
 	if(num<=1){
 		return num;
@@ -88,22 +88,22 @@ function factorial(num){
 
 
 function test1(){
-   //º¯Êı²ÎÊı¸öÊıarguments.length
+   //å‡½æ•°å‚æ•°ä¸ªæ•°arguments.length
    console.log(pf(1));//1
    console.log(pf(5,2));//2
    
-   //²âÊÔµİ¹é
+   //æµ‹è¯•é€’å½’
    var factorial2=factorial;
    console.log(factorial2(3));//6
    
-   //²âÊÔthis
-   sayColor();//red thisÖ¸Ïòwindow
+   //æµ‹è¯•this
+   sayColor();//red thisæŒ‡å‘window
    
-   sayColor.call(o);//blue thisÖ¸Ïò¶ÔÏóo
+   sayColor.call(o);//blue thisæŒ‡å‘å¯¹è±¡o
    
 
 }
-/*call()ºÍapply()¿ÉÒÔÀ©Õ¹º¯ÊıÀµÒÔÔËĞĞµÄ×÷ÓÃÓò*/
+/*call()å’Œapply()å¯ä»¥æ‰©å±•å‡½æ•°èµ–ä»¥è¿è¡Œçš„ä½œç”¨åŸŸ*/
 
 function sayEng(num){
   return "hello "+num;
@@ -131,27 +131,27 @@ function sayColor(){
 
 
 function test2(a,b,c){
-  // º¯ÊıµÄÊôĞÔlength-Í¬º¯ÊıµÄÄÚ²¿¶ÔÏóargumentsµÄÊôĞÔ£ºarguments.length
+  // å‡½æ•°çš„å±æ€§length-åŒå‡½æ•°çš„å†…éƒ¨å¯¹è±¡argumentsçš„å±æ€§ï¼šarguments.length
   console.log(factorial.length);//1
   console.log(sayColor.length);//0
   
    sayColor.call(this);// red
    
-   sayColor.call(o);//blue ÔÚ¶ÔÏóoµÄ×÷ÓÃÓòµ÷ÓÃº¯ÊısayColor£¬thisµ±È»Ö¸Ïò¶ÔÏóo
+   sayColor.call(o);//blue åœ¨å¯¹è±¡oçš„ä½œç”¨åŸŸè°ƒç”¨å‡½æ•°sayColorï¼Œthiså½“ç„¶æŒ‡å‘å¯¹è±¡o
    
    sayColor.apply(this);// red
    
    sayColor.apply(o);//blue
    
-   /*jQueryµÄ$.proxy·½·¨¿ÉÒÔÌæ´újsµÄcall À´¸Ä±äthisµÄÖµ°Â*/
+   /*jQueryçš„$.proxyæ–¹æ³•å¯ä»¥æ›¿ä»£jsçš„call æ¥æ”¹å˜thisçš„å€¼å¥¥*/
    var newSayColor=$.proxy(sayColor,window);
   newSayColor();//blue
   
-  console.log(callYy("tom"));//hello tom  thisÖ¸ÏòÈ«¾Ö¶ÔÏówindow  ÒòÎªÊó±êµØµã»÷test2Ê±£¬ÊµÔÚÈ«¾Ö»·¾³ÖĞÔËĞĞßÕ
+  console.log(callYy("tom"));//hello tom  thisæŒ‡å‘å…¨å±€å¯¹è±¡window  å› ä¸ºé¼ æ ‡åœ°ç‚¹å‡»test2æ—¶ï¼Œå®åœ¨å…¨å±€ç¯å¢ƒä¸­è¿è¡Œå“’
   console.log(applyYy("jack"));//hello jack
   
   
-  console.log(arguments.callee.length);//   3  length¿ÉÒÔ»ñÈ¡º¯ÊıµÄ²ÎÊı¸öÊı 
+  console.log(arguments.callee.length);//   3  lengthå¯ä»¥è·å–å‡½æ•°çš„å‚æ•°ä¸ªæ•° 
   
   
   
@@ -166,7 +166,7 @@ function sayCall(){
   console.log(this);
 }
 
-/*ÔõÃ´thisµÄ½á¹û¶¼Ö¸ÏòÁËwindow°¥*/
+/*æ€ä¹ˆthisçš„ç»“æœéƒ½æŒ‡å‘äº†windowå“*/
 function test22(){
    
    
@@ -200,7 +200,7 @@ function test3(){
    
    eat.say();//bread
    
-  /*¸Ä±äº¯ÊıµÄÖ´ĞĞ»·¾³ºó £¬thisÖ¸Ïòdrink*/
+  /*æ”¹å˜å‡½æ•°çš„æ‰§è¡Œç¯å¢ƒå ï¼ŒthisæŒ‡å‘drink*/
   var newSay= $.proxy(eat.say,drink);
   
   newSay();//milk
@@ -222,13 +222,13 @@ function test4(){
 	console.log(aa);
 	*/
 	
-	var name="ËÎ¼ÑºÎ";
-	var nn=name.substr(name.indexOf("¼Ñ"),name.indexOf("¼Ñ"));
-	var na=name.substr(name.indexOf("¼ÑºÎ"),"¼ÑºÎ".length);
+	var name="å®‹ä½³ä½•";
+	var nn=name.substr(name.indexOf("ä½³"),name.indexOf("ä½³"));
+	var na=name.substr(name.indexOf("ä½³ä½•"),"ä½³ä½•".length);
 	console.log(nn);
 	console.log(na);
 	
-	var cc=name.replace("¼Ñ","h");
+	var cc=name.replace("ä½³","h");
 	console.log(cc);
 }
 
@@ -241,7 +241,7 @@ $(function(){
   
  
   
-     /*$("#testcall").on("click",eat.say );*/  //²âÊÔcall·½·¨
+     /*$("#testcall").on("click",eat.say );*/  //æµ‹è¯•callæ–¹æ³•
 	 
 	 $("#testcall").on("click",$.proxy(eat.say,eat) );//bread
 
@@ -261,25 +261,25 @@ function test5(){
 </head>
 
 <body>
-<input type="button"  name="f1" id="f1" value="¶ÔÏóObjectÀàĞÍºÍº¯ÊıFunctionÀàĞÍ"/></br>
-<input type="button"   value="º¯ÊıÄÚ²¿¶ÔÏó£ºargumentsºÍthis" onclick="test1()"/></br>
-<input type="button"   value="º¯ÊıµÄÊôĞÔºÍ·½·¨" onclick="test2()"/></br>
+<input type="button"  name="f1" id="f1" value="å¯¹è±¡Objectç±»å‹å’Œå‡½æ•°Functionç±»å‹"/></br>
+<input type="button"   value="å‡½æ•°å†…éƒ¨å¯¹è±¡ï¼šargumentså’Œthis" onclick="test1()"/></br>
+<input type="button"   value="å‡½æ•°çš„å±æ€§å’Œæ–¹æ³•" onclick="test2()"/></br>
 
-<input type="button"   value="º¯ÊıµÄÊôĞÔºÍ·½·¨-call()" onclick="test22()"/></br>
+<input type="button"   value="å‡½æ•°çš„å±æ€§å’Œæ–¹æ³•-call()" onclick="test22()"/></br>
 
 <input type="button"   value="call()" onclick="test3()"/></br>
 
-<input type="button"   value="²âÊÔcall·½·¨"     id="testcall"/></br>
+<input type="button"   value="æµ‹è¯•callæ–¹æ³•"     id="testcall"/></br>
 
-<input type="button"   value="¿Õ×Ö·û´®µÄ³¤¶È"      onclick="test4()"/></br>
+<input type="button"   value="ç©ºå­—ç¬¦ä¸²çš„é•¿åº¦"      onclick="test4()"/></br>
 
-<input type="button"   value="²»³¤Ê¹ÓÃµÄ¶¨Òåº¯ÊıµÄ·½Ê½"      onclick="test5()"/></br>
+<input type="button"   value="ä¸é•¿ä½¿ç”¨çš„å®šä¹‰å‡½æ•°çš„æ–¹å¼"      onclick="test5()"/></br>
 
-<input type="button"   value="×Ö·û´®Ñ­»·Ä£°åÄ£Äâ"      onclick="test6()"/></br>
+<input type="button"   value="å­—ç¬¦ä¸²å¾ªç¯æ¨¡æ¿æ¨¡æ‹Ÿ"      onclick="test6()"/></br>
 
 <div id="results">template..........</div>
 
-<!--Ä£°å-->
+<!--æ¨¡æ¿-->
 <script type="text/html" id="user_tmpl">
    <ul>
      <% for ( var i=0; i< users.length;i++){ %>
@@ -317,7 +317,7 @@ function test5(){
 	   
    */
    
-  //×Ô¼º±àĞ´µÄÄ£°åäÖÈ¾·½·¨
+  //è‡ªå·±ç¼–å†™çš„æ¨¡æ¿æ¸²æŸ“æ–¹æ³•
   function templ(id,data){
      var html=$(id)[0].innerHTML;
 	 console.log("html:"+html);
@@ -374,7 +374,7 @@ function test7(){
 </script>
 
 
-<input type="button"   value="ÕıÔò"      onclick="test7()"/></br>
+<input type="button"   value="æ­£åˆ™"      onclick="test7()"/></br>
 
 </body>
 </html>

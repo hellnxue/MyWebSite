@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../pin.js"></script>
 <script type="text/javascript">
-/* ±È½Ï·½·¨£¬½µĞò*/
+/* æ¯”è¾ƒæ–¹æ³•ï¼Œé™åº*/
 function campare1(v1,v2){
   if(v1>v2){
   	return -1;
@@ -16,25 +16,25 @@ function campare1(v1,v2){
     return 0;
   }
 }
-/* ±È½ÏÊıÖµÊı×éÌØÓÃ£¬ÉıĞò*/
+/* æ¯”è¾ƒæ•°å€¼æ•°ç»„ç‰¹ç”¨ï¼Œå‡åº*/
 function campare2(v1,v2){
   return v1-v2;
 }
 
- /*¶ÔÏóÊı×éµ¹ĞğÅÅĞò */
+ /*å¯¹è±¡æ•°ç»„å€’å™æ’åº */
 function campare3(v1,v2){
   return Number(v2.date)-Number(v1.date);
 }
 
- /*¶ÔÏóÊı×éµ¹ĞğÅÅĞò */
+ /*å¯¹è±¡æ•°ç»„å€’å™æ’åº */
 function campare4(v1,v2){
   return Number(v2.date.replace(/-/,""))-Number(v1.date.replace(/-/,""));
 }
 $(function(){
 
-var pinyin = codefans_net_CC2PY("ÁõÑ©Æ¼").toUpperCase();
-console.log("ºº×Ö×ªÎªÆ´Òô=="+pinyin);
-console.log("Default User×ªÎªÆ´Òô=="+codefans_net_CC2PY("Default User").toUpperCase());
+var pinyin = codefans_net_CC2PY("åˆ˜é›ªè").toUpperCase();
+console.log("æ±‰å­—è½¬ä¸ºæ‹¼éŸ³=="+pinyin);
+console.log("Default Userè½¬ä¸ºæ‹¼éŸ³=="+codefans_net_CC2PY("Default User").toUpperCase());
 console.log(codefans_net_CC2PY("DEFAULT USER"));
 
 console.log("Default User"==="Default User");
@@ -45,7 +45,7 @@ $("#ta1").on("click",function(){
 	console.log(cl);
 	console.log(colors);
 	
-	//È¡µÃ×îºóÌí¼ÓµÄÒ»Ïî
+	//å–å¾—æœ€åæ·»åŠ çš„ä¸€é¡¹
 	var lc=colors.pop();
 	console.log(lc);
 	console.log(colors);
@@ -57,16 +57,16 @@ $("#ta2").on("click",function(){
 	console.log(cl);
 	console.log(colors);
 	
-	//È¡µÃµÚÒ»Ïî
-	var lc=colors.shift();//»ñµÃ×îÇ°¶ËµÄÒ»Ïî²¢É¾³ı
+	//å–å¾—ç¬¬ä¸€é¡¹
+	var lc=colors.shift();//è·å¾—æœ€å‰ç«¯çš„ä¸€é¡¹å¹¶åˆ é™¤
 	console.log(lc);
 	console.log(colors);
 	
-	var lu=colors.unshift("pinck");//ÔÚ×îÇ°¶ËÌí¼ÓÒ»Ïî
+	var lu=colors.unshift("pinck");//åœ¨æœ€å‰ç«¯æ·»åŠ ä¸€é¡¹
 	console.log(lu);
 	console.log(colors);
 	
-	var ll=colors.pop();//»ñµÃ×îºóÒ»Ïî²¢É¾³ı
+	var ll=colors.pop();//è·å¾—æœ€åä¸€é¡¹å¹¶åˆ é™¤
 	console.log(ll);
 	console.log(colors);
 	
@@ -90,7 +90,7 @@ $("#ta2").on("click",function(){
 	
 	
 	
-     var name="À¯±ÊĞ¡ĞÂ";
+     var name="èœ¡ç¬”å°æ–°";
 	 console.log(name.substr(1,1));
 	 console.log(name.length);
 	 var xx=subName1(name);
@@ -152,9 +152,9 @@ $("#ta2").on("click",function(){
   
    $("#ta13").on("click",function(){
        var markerArr = [  
-				{ title: "Ãû³Æ£ºÉÏº£»ğ³µÕ¾", point: "121.462056,31.25592", address: "ÉÏº£ÊĞ»ğ³µÕ¾", tel: "12306" },  
-				{ title: "Ãû³Æ£ºÊÀ¼Í´óµÀ", point: "121.533435,31.23485", address: "ÉÏº£ÊĞÊÀ½ç´óµÀ", tel: "18500000000" },  
-				{ title: "Ãû³Æ£ºÆÕÍÓÇøĞÂ´åÂ·423ÅªÂÌµØÉÌÎñ¹ã³¡1ºÅÂ¥409ÊÒ", point: "121.433945,31.27221", address: "ÉÏº£ÊĞÆÕÍÓÇøĞÂ´åÂ·423ÅªÂÌµØÉÌÎñ¹ã³¡1ºÅÂ¥", tel: "18500000000" }
+				{ title: "åç§°ï¼šä¸Šæµ·ç«è½¦ç«™", point: "121.462056,31.25592", address: "ä¸Šæµ·å¸‚ç«è½¦ç«™", tel: "12306" },  
+				{ title: "åç§°ï¼šä¸–çºªå¤§é“", point: "121.533435,31.23485", address: "ä¸Šæµ·å¸‚ä¸–ç•Œå¤§é“", tel: "18500000000" },  
+				{ title: "åç§°ï¼šæ™®é™€åŒºæ–°æ‘è·¯423å¼„ç»¿åœ°å•†åŠ¡å¹¿åœº1å·æ¥¼409å®¤", point: "121.433945,31.27221", address: "ä¸Šæµ·å¸‚æ™®é™€åŒºæ–°æ‘è·¯423å¼„ç»¿åœ°å•†åŠ¡å¹¿åœº1å·æ¥¼", tel: "18500000000" }
 				
 			]; 
 			
@@ -190,7 +190,7 @@ $("#ta2").on("click",function(){
   });
   
 });
- //Ñ­»·½ØÈ¡µ¥¸ö×Ö·û£¬²¢×ª»»³ÉÆ´Òô¸ñÊ½µÄ,²¢·ÅÈëÊı×éÖĞ
+ //å¾ªç¯æˆªå–å•ä¸ªå­—ç¬¦ï¼Œå¹¶è½¬æ¢æˆæ‹¼éŸ³æ ¼å¼çš„,å¹¶æ”¾å…¥æ•°ç»„ä¸­
  function subName(name){
      var zmArray=new Array();
      var nl=name.length;
@@ -206,7 +206,7 @@ $("#ta2").on("click",function(){
 	   return zmArray;
 	 }
  } 
-//Ñ­»·½ØÈ¡µ¥¸ö×Ö·û£¬²¢×ª»»³ÉÆ´Òô¸ñÊ½µÄ,²¢·ÅÈëÊı×éÖĞ
+//å¾ªç¯æˆªå–å•ä¸ªå­—ç¬¦ï¼Œå¹¶è½¬æ¢æˆæ‹¼éŸ³æ ¼å¼çš„,å¹¶æ”¾å…¥æ•°ç»„ä¸­
  function subName1(name){
      var zmArray="";
      var nl=name.length;
@@ -223,12 +223,12 @@ $("#ta2").on("click",function(){
 	 }
  } 
  
-  //¸ù¾İ×ÖÄ¸È¡³öºº×Ö
+  //æ ¹æ®å­—æ¯å–å‡ºæ±‰å­—
  function marry1(){
     var zmGroup1="LX";
 	
-	var  tempName1="ÁõÑ©Ğù".substr(0,zmGroup1.length);
-	var endName="ÁõÑ©Ğù".substring(tempName1.length);
+	var  tempName1="åˆ˜é›ªè½©".substr(0,zmGroup1.length);
+	var endName="åˆ˜é›ªè½©".substring(tempName1.length);
 	
 	console.log("tempName1======"+tempName1);
 	console.log("endName======"+endName);
@@ -240,11 +240,11 @@ $("#ta2").on("click",function(){
  }
  
  
-  //ÊäÈëÈ«Æ´Æ´ÒôÊ±È«Æ´Æ´ÒôË³ĞòÆ¥Åä³öºº×Ö     liuxue  Æ¥Åä ÁõÑ©
+  //è¾“å…¥å…¨æ‹¼æ‹¼éŸ³æ—¶å…¨æ‹¼æ‹¼éŸ³é¡ºåºåŒ¹é…å‡ºæ±‰å­—     liuxue  åŒ¹é… åˆ˜é›ª
  function marry2(){
-    // var inputVal="LIUxue".toUpperCase();//ÊäÈëµÄÖµ
-	//var inputVal="LIUXUEPING";//ÊäÈëµÄÖµ
-	//var tempName="ÁõÑ©Æ¼";
+    // var inputVal="LIUxue".toUpperCase();//è¾“å…¥çš„å€¼
+	//var inputVal="LIUXUEPING";//è¾“å…¥çš„å€¼
+	//var tempName="åˆ˜é›ªè";
 	
 	var inputVal="default user".toUpperCase();
 	var tempName="Default User".toUpperCase();
@@ -256,7 +256,7 @@ $("#ta2").on("click",function(){
 	  
 	   var subSingleName=tempName.substr(0,i+1);
 	   console.log("subSingleName=="+subSingleName);
-	   //Èç¹ûÕæÊµÃû×ÖÈ«ÊÇÓ¢ÎÄ£¬²»ĞèÒª×ª³ÉÈ«Æ´£¬²»È»»á³ö´í
+	   //å¦‚æœçœŸå®åå­—å…¨æ˜¯è‹±æ–‡ï¼Œä¸éœ€è¦è½¬æˆå…¨æ‹¼ï¼Œä¸ç„¶ä¼šå‡ºé”™
 	   var tempsubSingleName=subSingleName;
 	   
 	   if(!checkIsZimu(tempName)){
@@ -280,12 +280,12 @@ $("#ta2").on("click",function(){
  
  
  
- //¸ù¾İ×ÖÄ¸È¡³öºº×Ö
+ //æ ¹æ®å­—æ¯å–å‡ºæ±‰å­—
  function marry1(){
     var zmGroup1="LX";
 	
-	var  tempName1="ÁõÑ©Ğù".substr(0,zmGroup1.length);
-	var endName="ÁõÑ©Ğù".substring(tempName1.length);
+	var  tempName1="åˆ˜é›ªè½©".substr(0,zmGroup1.length);
+	var endName="åˆ˜é›ªè½©".substring(tempName1.length);
 	
 	console.log("tempName1======"+tempName1);
 	console.log("endName======"+endName);
@@ -297,24 +297,24 @@ $("#ta2").on("click",function(){
  }
  
  
-  //ÊäÈëÈ«Æ´Æ´ÒôÊ±È«Æ´Æ´ÒôË³ĞòÆ¥Åä³öºº×Ö     liuxue  Æ¥Åä ÁõÑ©
+  //è¾“å…¥å…¨æ‹¼æ‹¼éŸ³æ—¶å…¨æ‹¼æ‹¼éŸ³é¡ºåºåŒ¹é…å‡ºæ±‰å­—     liuxue  åŒ¹é… åˆ˜é›ª
  function marry3(){
  
     /**
-	  ÊäÈëºº×ÖÈ«Æ´µÄÇé¿öÏÂ
+	  è¾“å…¥æ±‰å­—å…¨æ‹¼çš„æƒ…å†µä¸‹
 	**/
-     var inputVal="LIUxue".toUpperCase();//ÊäÈëµÄÖµ
-	//var inputVal="LIUXUEPING";//ÊäÈëµÄÖµ
-	var tempName="ÁõÑ©Æ¼";
+     var inputVal="LIUxue".toUpperCase();//è¾“å…¥çš„å€¼
+	//var inputVal="LIUXUEPING";//è¾“å…¥çš„å€¼
+	var tempName="åˆ˜é›ªè";
 	
    /**
-	  ÕæÊµÃû×ÖÈôÊÇ´¿Ó¢ÎÄ£¬ÊäÈëÓ¢ÎÄµÄÇé¿öÏÂ
+	  çœŸå®åå­—è‹¥æ˜¯çº¯è‹±æ–‡ï¼Œè¾“å…¥è‹±æ–‡çš„æƒ…å†µä¸‹
 	**/
 	//var inputVal="defa".toUpperCase();
 	//var tempName="Default User".toUpperCase();
 	var tempNameLength=tempName.length;
 	
-	//¸ù¾İÕæÊµÃû×ÖÊÇÓ¢ÎÄ»¹ÊÇÖĞÎÄÅĞ¶Ï²Ù×÷·½·¨£¬Ó¢ÎÄÖ±½Ó½ØÈ¡£¬ÖĞÎÄĞèÒª¸ù¾İµ¥¸öºº×ÖÖğ¸öÑ­»·ºóÆ´³ÉµÄÆ´ÒôÈ«Æ´²Ù×÷
+	//æ ¹æ®çœŸå®åå­—æ˜¯è‹±æ–‡è¿˜æ˜¯ä¸­æ–‡åˆ¤æ–­æ“ä½œæ–¹æ³•ï¼Œè‹±æ–‡ç›´æ¥æˆªå–ï¼Œä¸­æ–‡éœ€è¦æ ¹æ®å•ä¸ªæ±‰å­—é€ä¸ªå¾ªç¯åæ‹¼æˆçš„æ‹¼éŸ³å…¨æ‹¼æ“ä½œ
 	if(checkIsZimu(tempName)){
 	    var rname=tempName.substring(0,inputVal.length);
 		return rname;
@@ -324,7 +324,7 @@ $("#ta2").on("click",function(){
 	  
 	   var subSingleName=tempName.substr(0,i+1);
 	   //console.log("subSingleName=="+subSingleName);
-	   //Èç¹ûÕæÊµÃû×ÖÈ«ÊÇÓ¢ÎÄ£¬²»ĞèÒª×ª³ÉÈ«Æ´£¬²»È»»á³ö´í
+	   //å¦‚æœçœŸå®åå­—å…¨æ˜¯è‹±æ–‡ï¼Œä¸éœ€è¦è½¬æˆå…¨æ‹¼ï¼Œä¸ç„¶ä¼šå‡ºé”™
 	   if(codefans_net_CC2PY(subSingleName).toUpperCase()===inputVal){
 	      console.log("oh    yes  you are smart");
 		  var resultName=subSingleName;
@@ -338,13 +338,13 @@ $("#ta2").on("click",function(){
  }
  
  function x3(){
-    var a="ÁõÑ©Æ¼";
-	var b="ÁõÑ©";
+    var a="åˆ˜é›ªè";
+	var b="åˆ˜é›ª";
 	var c=a.substring(b.length);
 	console.log(c);
  
  }
- //Ë³ĞòÆ¥Åä×Ö·ûÊ±ÓÃindexOf»á³ö´í£¬Ìæ´ú·½·¨ÈçÏÂ
+ //é¡ºåºåŒ¹é…å­—ç¬¦æ—¶ç”¨indexOfä¼šå‡ºé”™ï¼Œæ›¿ä»£æ–¹æ³•å¦‚ä¸‹
  function x4(){
     var a="zcc";
 	var b="cc";
@@ -353,10 +353,10 @@ $("#ta2").on("click",function(){
  }
  
  /**
-	      ÕıÔò ÅĞ¶ÏÊÇ·ñÊÇ×ÖÄ¸
+	      æ­£åˆ™ åˆ¤æ–­æ˜¯å¦æ˜¯å­—æ¯
 	 **/
 	function checkIsZimu(str) {
-		//Èç¹ûÖµÎª¿Õ£¬Í¨¹ıĞ£Ñé
+		//å¦‚æœå€¼ä¸ºç©ºï¼Œé€šè¿‡æ ¡éªŒ
 		if (str === " "||str === "") {
 			return false;
 		}
@@ -369,7 +369,7 @@ $("#ta2").on("click",function(){
 
 	}
 	
-	//´¦ÀíÆ´½Óhtml
+	//å¤„ç†æ‹¼æ¥html
 	function handleEnglish(){
 	  var tempval1="Default User";
 	  var tempval2="Default User";
@@ -387,81 +387,81 @@ $("#ta2").on("click",function(){
 
 
 <body>
-<input type="button" id="ta1" value="²âÊÔÕ»"/></br>
-<input type="button" id="ta2" value="²âÊÔ¶ÓÁĞ"/></br>
-<input type="button" id="ta3" value="ÆÕÍ¨ÅÅĞò"/></br>
-<input type="button" id="ta4" value="ÖØĞ´Êı×éÅÅĞòcampare"/></br>
-<input type="button" data-filter value="¶ÔÏóÊı×éÅÅĞò"  onclick="ObjAry()"/><br />
-<input type="button" data-filter value="ÖØĞ´¶ÔÏóÊı×éÅÅĞò£¬¸ñÊ½»¯Öµ"  onclick="ObjAryTwo()"/><br />
-<input type="button" id="ta5" value="ºº×Ö·Ö½â"/></br>
+<input type="button" id="ta1" value="æµ‹è¯•æ ˆ"/></br>
+<input type="button" id="ta2" value="æµ‹è¯•é˜Ÿåˆ—"/></br>
+<input type="button" id="ta3" value="æ™®é€šæ’åº"/></br>
+<input type="button" id="ta4" value="é‡å†™æ•°ç»„æ’åºcampare"/></br>
+<input type="button" data-filter value="å¯¹è±¡æ•°ç»„æ’åº"  onclick="ObjAry()"/><br />
+<input type="button" data-filter value="é‡å†™å¯¹è±¡æ•°ç»„æ’åºï¼Œæ ¼å¼åŒ–å€¼"  onclick="ObjAryTwo()"/><br />
+<input type="button" id="ta5" value="æ±‰å­—åˆ†è§£"/></br>
 
-<input type="button" id="ta66" value="Æ´½Ó²âÊÔ"/></br>
+<input type="button" id="ta66" value="æ‹¼æ¥æµ‹è¯•"/></br>
 
 test append():</br>
 <p id="pp" style="color:pink;"><span>I would like to say:</span> </p>
 
-<input type="button" id="ta6" value="append-ÄÚ²¿²åÈë"/></br>
+<input type="button" id="ta6" value="append-å†…éƒ¨æ’å…¥"/></br>
 
 test appendTo():</br>
 <p id="ppt" style="color:pink;">I would like to say: </p>
 
-<input type="button" id="ta11" value="appendTo-ÄÚ²¿²åÈë"/></br>
+<input type="button" id="ta11" value="appendTo-å†…éƒ¨æ’å…¥"/></br>
 
 test after():</br>
 <p id="af" style="color:pink;">I would like to say: </p>
 
 </br>
-<input type="button" id="ta9" value="after-Íâ²¿²åÈë"/></br>
+<input type="button" id="ta9" value="after-å¤–éƒ¨æ’å…¥"/></br>
 
 
 test before():</br>
 <p id="bf" style="color:pink;">I would like to say: </p>
 
 </br>
-<input type="button" id="ta10" value="befor-Íâ²¿²åÈë"/></br>
+<input type="button" id="ta10" value="befor-å¤–éƒ¨æ’å…¥"/></br>
 
 
 test empty():</br>
 <p id="ety" style="color:pink;"><span>I would like to say:</span> </p>
 
 </br>
-<input type="button" id="ta12" value="empty-Çå¿Õ"/></br>
-<input type="button" id="ta7" value="Æ´½Ó²âÊÔ"/></br>
-<input type="button" id="ta8" value="½ØÈ¡"/></br>
+<input type="button" id="ta12" value="empty-æ¸…ç©º"/></br>
+<input type="button" id="ta7" value="æ‹¼æ¥æµ‹è¯•"/></br>
+<input type="button" id="ta8" value="æˆªå–"/></br>
 <div id="hleh"><ul></ul></div>
 
 
 </br>
-<input type="button" id="ta13" value="befor-Íâ²¿²åÈë"/></br>
+<input type="button" id="ta13" value="befor-å¤–éƒ¨æ’å…¥"/></br>
 
 <div id="ttt"></div>
 
 
 </br>
-<input type="button" id="ta15" value="²âÊÔsomeº¯Êı"/></br>
-<input type="button" id="ta115" value="²âÊÔforÑ­»·ÖĞµÄ×÷ÓÃÓò"/></br>
+<input type="button" id="ta15" value="æµ‹è¯•someå‡½æ•°"/></br>
+<input type="button" id="ta115" value="æµ‹è¯•forå¾ªç¯ä¸­çš„ä½œç”¨åŸŸ"/></br>
 
-<input type="button" id="ta116" value="²âÊÔfor-in" onclick="testForIn()"/></br>
+<input type="button" id="ta116" value="æµ‹è¯•for-in" onclick="testForIn()"/></br>
 
 <script>
   function testForIn(){
   
-    /*------------------ÓÃfor-inÑ­»·Êı×é-----------------------------*/
+    /*------------------ç”¨for-inå¾ªç¯æ•°ç»„-----------------------------*/
      var arrs=["hello","world","sir"];
 	 
-	 for(var i in arrs){//iÊÇË÷Òı
+	 for(var i in arrs){//iæ˜¯ç´¢å¼•
 	   console.log(i+"=="+arrs[i]);
 	 }  
 	 
 	 
 	 
-	 /*------------------ÓÃfor-inÑ­»·±éÀú¶ÔÏó-----------------------------*/
+	 /*------------------ç”¨for-inå¾ªç¯éå†å¯¹è±¡-----------------------------*/
 	 var obj={
 	    "2016":"hello",
 		"2015":"world"
 	 }
 	 
-	 for(var i in obj){//iÊÇ¶ÔÏóµÄkey
+	 for(var i in obj){//iæ˜¯å¯¹è±¡çš„key
 	    console.log(i+"="+obj[i]);
 		
 	 }
@@ -473,26 +473,26 @@ test empty():</br>
   
   function getLastItem(){
     var array=[0,1,4,0,5];
-	var lastItem=array[array.length-1];//»ñÈ¡×îºóÒ»Ïî
+	var lastItem=array[array.length-1];//è·å–æœ€åä¸€é¡¹
 	console.log(array);
-	var removeLast=array.pop();//Êı×éµÄpop()·½·¨ÓÃÓÚÒÆ³ıÊı×éµÄ×îºóÒ»Ïî²¢·µ»Ø±»ÒÆ³ıÏîµÄÖµ
+	var removeLast=array.pop();//æ•°ç»„çš„pop()æ–¹æ³•ç”¨äºç§»é™¤æ•°ç»„çš„æœ€åä¸€é¡¹å¹¶è¿”å›è¢«ç§»é™¤é¡¹çš„å€¼
 	
-	console.log("È¡µÃÊı×éµÄ×îºóÒ»Ïî£ºarray[array.length-1]="+lastItem);
-	console.log("ÒÆ³ıÊı×éµÄ×îºóÒ»Ïî£ºarray.pop()="+removeLast);
+	console.log("å–å¾—æ•°ç»„çš„æœ€åä¸€é¡¹ï¼šarray[array.length-1]="+lastItem);
+	console.log("ç§»é™¤æ•°ç»„çš„æœ€åä¸€é¡¹ï¼šarray.pop()="+removeLast);
 	console.log(array);
 	
-	var removeFirst=array.shift();//shift()ÓÃÓÚÒÆ³ıÊı×éµÄµÚÒ»Ïî²¢·µ»ØÒÆ³ıÏîµÄÖµ
-	console.log("ÒÆ³ıÊı×éµÄµÚÒ»Ïî array.shift():"+array.shift());
-	console.log(array);//[0,4] Óëµ÷ÓÃvalueOf()·½·¨·µ»ØµÄ½á¹ûÒ»ÖÂ£¬¶¼ÊÇÊä³öÊı×é±¾Éí
+	var removeFirst=array.shift();//shift()ç”¨äºç§»é™¤æ•°ç»„çš„ç¬¬ä¸€é¡¹å¹¶è¿”å›ç§»é™¤é¡¹çš„å€¼
+	console.log("ç§»é™¤æ•°ç»„çš„ç¬¬ä¸€é¡¹ array.shift():"+array.shift());
+	console.log(array);//[0,4] ä¸è°ƒç”¨valueOf()æ–¹æ³•è¿”å›çš„ç»“æœä¸€è‡´ï¼Œéƒ½æ˜¯è¾“å‡ºæ•°ç»„æœ¬èº«
 	
-	//array.valueOf()Êä³öÊı×é±¾Éí
+	//array.valueOf()è¾“å‡ºæ•°ç»„æœ¬èº«
 	console.log(array.valueOf());//[1,4]    
 	
-	//alert()½ÓÊÕÒ»¸ö×Ö·û´®×÷Îª²ÎÊı£¬Òò´Ë´«ÈëÊı×éºó£¬Êı×éÔÚºóÌ¨»áÎªÃ¿Ò»Ïîµ÷ÓÃtoString()·½·¨·µ»Ø×îºóÆ´³ÉµÄ×Ö·û´®£¨Ä¬ÈÏÓÃ¶ººÅ·Ö¸ô£©
+	//alert()æ¥æ”¶ä¸€ä¸ªå­—ç¬¦ä¸²ä½œä¸ºå‚æ•°ï¼Œå› æ­¤ä¼ å…¥æ•°ç»„åï¼Œæ•°ç»„åœ¨åå°ä¼šä¸ºæ¯ä¸€é¡¹è°ƒç”¨toString()æ–¹æ³•è¿”å›æœ€åæ‹¼æˆçš„å­—ç¬¦ä¸²ï¼ˆé»˜è®¤ç”¨é€—å·åˆ†éš”ï¼‰
 	alert(array);//1,4 
 	console.log(array.valueOf()+"");//1,4  
 	
-	// array.join()·½·¨·µ»ØÖ¸¶¨×Ö·ûÆ´³ÉµÄÊı×éÏî×Ö·û´®
+	// array.join()æ–¹æ³•è¿”å›æŒ‡å®šå­—ç¬¦æ‹¼æˆçš„æ•°ç»„é¡¹å­—ç¬¦ä¸²
 	console.log(array.join(",")+"\n"+typeof array.join(","));//1,4  string   
 	
   }
@@ -522,19 +522,19 @@ test empty():</br>
 	 
 	 array.sort(campare3);
 	 
-	 console.log("°´ÕÕnumberÀàĞÍµÄÈÕÆÚÅÅĞò£º");
+	 console.log("æŒ‰ç…§numberç±»å‹çš„æ—¥æœŸæ’åºï¼š");
 	 for(var i in array){
 	     
 	    console.log("name="+array[i].name+" date="+array[i].date)
 	 }
 	 
-	 console.log("Ö¸¶¨×Ö¶ÎnameÅÅĞò£º");
+	 console.log("æŒ‡å®šå­—æ®µnameæ’åºï¼š");
 	 array.sort(createComparisonFunction("name"));
 	  for(var i in array){
 	    console.log("name="+array[i].name+" date="+array[i].date)
 	 }
 	 
-	  console.log("Ö¸¶¨×Ö¶ÎnameÅÅĞò£º");
+	  console.log("æŒ‡å®šå­—æ®µnameæ’åºï¼š");
 	 array.sort(createComparisonFunction("name"));
 	  for(var i in array){
 	    console.log("name="+array[i].name+" date="+array[i].date)
@@ -544,7 +544,7 @@ test empty():</br>
 	 
   }
   
-  //ÔÚÖØĞ´ÅÅĞò·½·¨µÄÍ¬Ê±¸ñÊ½»¯¶ÔÏóÖµ
+  //åœ¨é‡å†™æ’åºæ–¹æ³•çš„åŒæ—¶æ ¼å¼åŒ–å¯¹è±¡å€¼
  function ObjAryTwo(){
     var array= [
              
@@ -568,7 +568,7 @@ test empty():</br>
             }
         ];
 		
-		//ÖØĞÂÅÅĞòÅÅĞò-½µĞòÅÅĞò v2-v1  ÉıĞòÅÅĞòv1-v2
+		//é‡æ–°æ’åºæ’åº-é™åºæ’åº v2-v1  å‡åºæ’åºv1-v2
 	   //array.sort(campare4);
 	   array.sort(function(v1,v2){
 		    return Number(v2.date.replace(/-/,""))-Number(v1.date.replace(/-/,""));
@@ -603,7 +603,7 @@ function emptyArray(){
 	var b=[];
 	var v2=b.toString();
 	console.log(b);//[]
-	console.log(v2);//¿Õ×Ö·û´®°¥
+	console.log(v2);//ç©ºå­—ç¬¦ä¸²å“
 	 
 	 
 	 
@@ -616,11 +616,11 @@ function testConsole(){
 }
 
 
-/*forEach()º¯ÊıÀàËÆÓÚforÑ­»·±éÀúÊı×é*/ 
+/*forEach()å‡½æ•°ç±»ä¼¼äºforå¾ªç¯éå†æ•°ç»„*/ 
 function testMap(){
     var ary=[3,5,2,1];
 	
-	/*¶ÔÊı×éµÄÃ¿Ò»ÏîÔËĞĞ¸ø¶¨µÄº¯Êı£¬·µ»ØÃ¿´Îº¯Êıµ÷ÓÃµÄ½á¹û×é³ÉµÄÊı×é*/
+	/*å¯¹æ•°ç»„çš„æ¯ä¸€é¡¹è¿è¡Œç»™å®šçš„å‡½æ•°ï¼Œè¿”å›æ¯æ¬¡å‡½æ•°è°ƒç”¨çš„ç»“æœç»„æˆçš„æ•°ç»„*/
 	var mapResult=ary.map(function(item,index,arry){
 	  
 	  return item*2;
@@ -628,21 +628,21 @@ function testMap(){
 	
 	console.log(mapResult);
 	
-	/*¶ÔÊı×éµÄÃ¿Ò»ÏîÔËĞĞ¸ø¶¨µÄº¯Êı£¬Èç¹û¸Ãº¯Êı¶ÔÃ¿Ò»Ïî¶¼·µ»Øtrue£¬Ôò·µ»Øtrue*/
+	/*å¯¹æ•°ç»„çš„æ¯ä¸€é¡¹è¿è¡Œç»™å®šçš„å‡½æ•°ï¼Œå¦‚æœè¯¥å‡½æ•°å¯¹æ¯ä¸€é¡¹éƒ½è¿”å›trueï¼Œåˆ™è¿”å›true*/
 	var flagEvery=ary.every(function(item,index,arry){
 	    return item>2;
 	});
 
 	console.log(flagEvery);
 	
-	/*¶ÔÊı×éµÄÃ¿Ò»ÏîÔËĞĞ¸ø¶¨µÄº¯Êı£¬Èç¹û¸Ãº¯Êı¶ÔÈÎÒ»Ïî ·µ»Øtrue£¬Ôò·µ»Øtrue*/
+	/*å¯¹æ•°ç»„çš„æ¯ä¸€é¡¹è¿è¡Œç»™å®šçš„å‡½æ•°ï¼Œå¦‚æœè¯¥å‡½æ•°å¯¹ä»»ä¸€é¡¹ è¿”å›trueï¼Œåˆ™è¿”å›true*/
 	var flagSome=ary.some(function(item,index,arry){
 	   return item>3
 	});
 	
 	console.log(flagSome);
 	
-	/*¶ÔÊı×éµÄÃ¿Ò»ÏîÔËĞĞ¸ø¶¨µÄº¯Êı£¬ ¸Ãº¯Êı·µ»ØtrueÏî×é³ÉµÄÊı×é*/
+	/*å¯¹æ•°ç»„çš„æ¯ä¸€é¡¹è¿è¡Œç»™å®šçš„å‡½æ•°ï¼Œ è¯¥å‡½æ•°è¿”å›trueé¡¹ç»„æˆçš„æ•°ç»„*/
 	var filterArry=ary.filter(function(item,index,arry){
 	   return item>2
 	});
@@ -651,11 +651,11 @@ function testMap(){
 	
 }
 /* 
-jQuery.map()µÄ×÷ÓÃµÈÍ¬ÓÚjsÊı×é×Ô´øµÄ·½·¨map()£¨Ö»²»¹ıÕâ¸ömapÊÇjsÓÃÓÚ´¦ÀíÊı×éµÄ°¥£¬jQuery.map()´¦ÀíÊı×é»ò¶ÔÏó¶¼¿ÉÒÔßÕ£©
-jQuery.map()½«Ò»¸öÊı×éÖĞµÄËùÓĞÔªËØ×ª»»µ½ÁíÒ»¸öÊı×éÖĞ¡£*/
+jQuery.map()çš„ä½œç”¨ç­‰åŒäºjsæ•°ç»„è‡ªå¸¦çš„æ–¹æ³•map()ï¼ˆåªä¸è¿‡è¿™ä¸ªmapæ˜¯jsç”¨äºå¤„ç†æ•°ç»„çš„å“ï¼ŒjQuery.map()å¤„ç†æ•°ç»„æˆ–å¯¹è±¡éƒ½å¯ä»¥å“’ï¼‰
+jQuery.map()å°†ä¸€ä¸ªæ•°ç»„ä¸­çš„æ‰€æœ‰å…ƒç´ è½¬æ¢åˆ°å¦ä¸€ä¸ªæ•°ç»„ä¸­ã€‚*/
 function testJQueryMap(){
 
-   /*´¦ÀíÊı×é£¬·µ»ØĞÂµÄÏî×é³ÉµÄÊı×é*/
+   /*å¤„ç†æ•°ç»„ï¼Œè¿”å›æ–°çš„é¡¹ç»„æˆçš„æ•°ç»„*/
    var ary=[3,5,2,1];
    var result=$.map(ary,function(item,index){
        return item*2;
@@ -663,14 +663,14 @@ function testJQueryMap(){
    console.log(result);//[6, 10, 4, 2]
    
    
-   /*´¦Àí¶ÔÏó£¬·µ»ØĞÂµÄÏî×é³ÉµÄÊı×é*/
+   /*å¤„ç†å¯¹è±¡ï¼Œè¿”å›æ–°çš„é¡¹ç»„æˆçš„æ•°ç»„*/
    var obj={
      name:"helln",
 	 age:20
    }; 
   console.log("-----------------------------");
   
-  /*itemÊÇ¶ÔÏóµÄÖµ£¬keyÊÇ¶ÔÏóµÄ¼üÃû*/
+  /*itemæ˜¯å¯¹è±¡çš„å€¼ï¼Œkeyæ˜¯å¯¹è±¡çš„é”®å*/
   var newObje= $.map(obj,function(item,key){
       return obj[key]=item+" world";
    });
@@ -680,7 +680,7 @@ function testJQueryMap(){
    
    console.log(typeof q);
    
-   /*$.map()ÓëjsµÄÊı×éµÄmap·½·¨¶¼¿ÉÒÔ½«´¦ÀíÍêµÄ½á¹û×é³ÉÒ»¸öĞÂµÄÊı×é*/
+   /*$.map()ä¸jsçš„æ•°ç»„çš„mapæ–¹æ³•éƒ½å¯ä»¥å°†å¤„ç†å®Œçš„ç»“æœç»„æˆä¸€ä¸ªæ–°çš„æ•°ç»„*/
    var obja=[{name:"a",age:10},{name:"b",age:20},{name:"c",age:30}];
    
    var rt1=obja.map(function(item,index,ary){
@@ -701,9 +701,9 @@ function testProperty(){
  
   
  var data=  [{"contractID":265,"isTrial":"1","planPositiveDate":"2016-09-02 00:00:00","personId"
-:1675,"employeeName":"Â··É","last_modify_date":"2016-08-23 14:06:23"},{"contractID":266,"isTrial":"0","planPositiveDate":"2016-09-02 00:00:00","personId"
-:1676,"employeeName":"Â·Ìø","last_modify_date":"2016-08-23 14:06:23"},{"contractID":267,"isTrial":"1","planPositiveDate":"2016-09-02 00:00:00","personId"
-:1677,"employeeName":"Â·Æó","last_modify_date":"2016-08-23 14:06:23"}
+:1675,"employeeName":"è·¯é£","last_modify_date":"2016-08-23 14:06:23"},{"contractID":266,"isTrial":"0","planPositiveDate":"2016-09-02 00:00:00","personId"
+:1676,"employeeName":"è·¯è·³","last_modify_date":"2016-08-23 14:06:23"},{"contractID":267,"isTrial":"1","planPositiveDate":"2016-09-02 00:00:00","personId"
+:1677,"employeeName":"è·¯ä¼","last_modify_date":"2016-08-23 14:06:23"}
 
 ];
 
@@ -736,7 +736,7 @@ console.log(tipPerson);
 }
 
 
-/*×Ö·û´®ÓëÊı×éµÄ»¥Ïà×ª»»*/
+/*å­—ç¬¦ä¸²ä¸æ•°ç»„çš„äº’ç›¸è½¬æ¢*/
 
 function interreaction(){
 
@@ -753,13 +753,13 @@ function interreaction(){
   console.log( newObje);
 }
 
-/*É¾³ıÊı×éÖĞµÄÖ¸¶¨ÔªËØ*/
+/*åˆ é™¤æ•°ç»„ä¸­çš„æŒ‡å®šå…ƒç´ */
 function  removeElement (){
    var ary= [1159, 1676, 1693];
   
-  var index=ary.indexOf(1676);//Ö¸¶¨ÔªËØµÄÎ»ÖÃ
+  var index=ary.indexOf(1676);//æŒ‡å®šå…ƒç´ çš„ä½ç½®
    
-  var delItem=ary.splice(index,1);//splice()·½·¨·µ»ØÉ¾³ıµÄÏî×é³ÉµÄÊı×é£¬Èç¹ûÃ»ÓĞÉ¾³ıÈÎºÎÒ»ÏîÔò·µ»Ø¿ÕÊı×é
+  var delItem=ary.splice(index,1);//splice()æ–¹æ³•è¿”å›åˆ é™¤çš„é¡¹ç»„æˆçš„æ•°ç»„ï¼Œå¦‚æœæ²¡æœ‰åˆ é™¤ä»»ä½•ä¸€é¡¹åˆ™è¿”å›ç©ºæ•°ç»„
   
   console.log( delItem);//[ 1676 ]
   
@@ -770,56 +770,56 @@ function  removeElement (){
 function copyAry(){
    var ary= [1159, 1676, 1693];
    var newAry=ary;
-   console.log("Ô­Ê¼Êı×é£º"+ary.join(","));//1159, 1676, 1693
+   console.log("åŸå§‹æ•°ç»„ï¼š"+ary.join(","));//1159, 1676, 1693
    
-   newAry.splice(1,1);//É¾³ıµÚ¶ş¸öÎ»ÖÃµÄÔªËØ
+   newAry.splice(1,1);//åˆ é™¤ç¬¬äºŒä¸ªä½ç½®çš„å…ƒç´ 
    
-   console.log("Ô­Ê¼Êı×é£º"+ary.join(","));//1159, 1693 Êı×éÊÇÒıÓÃÀàĞÍ£¬¼´Ê¹¸³Öµ¸øÁËĞÂµÄ±äÁ¿£¬ĞÂµÄ±äÁ¿»¹ÊÇ»áÒıÓÃÄÚ´æµØÖ·ÖĞ´æµÄÄÇ¸öÊı×é£¬¼´ary
+   console.log("åŸå§‹æ•°ç»„ï¼š"+ary.join(","));//1159, 1693 æ•°ç»„æ˜¯å¼•ç”¨ç±»å‹ï¼Œå³ä½¿èµ‹å€¼ç»™äº†æ–°çš„å˜é‡ï¼Œæ–°çš„å˜é‡è¿˜æ˜¯ä¼šå¼•ç”¨å†…å­˜åœ°å€ä¸­å­˜çš„é‚£ä¸ªæ•°ç»„ï¼Œå³ary
    
-   console.log("±äÁ¿Êı×é£º"+newAry.join(","));//1159, 1693
+   console.log("å˜é‡æ•°ç»„ï¼š"+newAry.join(","));//1159, 1693
    
    
    
-   /*»ùÓÚÒ»¸öÖ¸¶¨Êı×éµÄËùÓĞÏî´´½¨Ò»¸öĞÂµÄÊı×é£¬¿ÉÒÔ±£Ö¤²Ù×÷Êı×éÊ±²»ÆÆ»µÔ­Ê¼Êı×é°Â~3~*/
+   /*åŸºäºä¸€ä¸ªæŒ‡å®šæ•°ç»„çš„æ‰€æœ‰é¡¹åˆ›å»ºä¸€ä¸ªæ–°çš„æ•°ç»„ï¼Œå¯ä»¥ä¿è¯æ“ä½œæ•°ç»„æ—¶ä¸ç ´ååŸå§‹æ•°ç»„å¥¥~3~*/
    
-   //Ô­Ê¼Êı×é
+   //åŸå§‹æ•°ç»„
    var  original= [1159, 1676, 1693];
    
-   /*1¡¢×Ô¼ºĞ´µÄcopyÊı×éµÄ·½·¨ »á¸Ä±äÊı×éÔªËØµÄÊı¾İÀàĞÍ£¬numberµÄ»á±ä³Éstring°¥£¬²»½¨ÒéÊ¹ÓÃ*/
+   /*1ã€è‡ªå·±å†™çš„copyæ•°ç»„çš„æ–¹æ³• ä¼šæ”¹å˜æ•°ç»„å…ƒç´ çš„æ•°æ®ç±»å‹ï¼Œnumberçš„ä¼šå˜æˆstringå“ï¼Œä¸å»ºè®®ä½¿ç”¨*/
    var copy=original.join(",").split(",");
    
    console.log(typeof copy[0]);//string
    console.log(typeof original[0]);//number
    copy.splice(1,1);
    
-    console.log("Ô­Ê¼Êı×é£º"+original.join(","));      //1159, 1676, 1693
-    console.log("±äÁ¿Êı×é£º"+copy.join(","));//1159, 1693
+    console.log("åŸå§‹æ•°ç»„ï¼š"+original.join(","));      //1159, 1676, 1693
+    console.log("å˜é‡æ•°ç»„ï¼š"+copy.join(","));//1159, 1693
 	
 	console.log("------------------concat()-------------------------------");
 	
-	//2¡¢Ê¹ÓÃÊı×é×Ô´øµÄconcat()·½·¨£¬²»´«ÈëÈÎºÎ²ÎÊıµÄÊ±ºò»á¸´ÖÆÒ»¸öÊı×éµÄ¸±±¾£¬´«Èë²ÎÊıÊ±»á°Ñ²ÎÊı´«Èëµ½¸±±¾Êı×éµÄÄ©Î²£¬³ÉÎªÒ»¸öĞÂÊı×é*/
+	//2ã€ä½¿ç”¨æ•°ç»„è‡ªå¸¦çš„concat()æ–¹æ³•ï¼Œä¸ä¼ å…¥ä»»ä½•å‚æ•°çš„æ—¶å€™ä¼šå¤åˆ¶ä¸€ä¸ªæ•°ç»„çš„å‰¯æœ¬ï¼Œä¼ å…¥å‚æ•°æ—¶ä¼šæŠŠå‚æ•°ä¼ å…¥åˆ°å‰¯æœ¬æ•°ç»„çš„æœ«å°¾ï¼Œæˆä¸ºä¸€ä¸ªæ–°æ•°ç»„*/
 	var concatArray=original.concat(); 
 	
-	//É¾³ıĞÂÊı×éµÄµÚÒ»¸öÔªËØ
+	//åˆ é™¤æ–°æ•°ç»„çš„ç¬¬ä¸€ä¸ªå…ƒç´ 
 	var temp=concatArray.splice(0,1);
 	
-	console.log("Ô­Ê¼Êı×é£º"+original);//1159,1676,1693
-	console.log("±äÁ¿Êı×é:"+concatArray);//1676,1693
+	console.log("åŸå§‹æ•°ç»„ï¼š"+original);//1159,1676,1693
+	console.log("å˜é‡æ•°ç»„:"+concatArray);//1676,1693
 	
 	console.log("------------------slice()-------------------------------");
 	
-	//3¡¢slice()ÄÜ»ùÓÚµ±Ç°Êı×éµÄÒ»¸ö»ò¶à¸öÏî´´½¨Ò»¸öĞÂÊı×é£¬Í¨¹ı´«ÈëÏÂ±êÀ´´´½¨ĞÂÊı×é£¬¿ªÊ¼ºÍ½áÊø£¬Ö»´«ÈëÒ»¸ö²ÎÊı´ú±íslice()·µ»Ø´ÓÖ¸¶¨Î»ÖÃ¿ªÊ¼µ½µ±Ç°Êı×éÄ©Î²µÄËùÓĞÏî*/
-	var sliceArray=original.slice(0); //´ÓÊı×é¿ªÊ¼µ½Êı×é½áÎ²£¬ÍêÕûµÄ¸´ÖÆÁËÔ­Ê¼Êı×é
+	//3ã€slice()èƒ½åŸºäºå½“å‰æ•°ç»„çš„ä¸€ä¸ªæˆ–å¤šä¸ªé¡¹åˆ›å»ºä¸€ä¸ªæ–°æ•°ç»„ï¼Œé€šè¿‡ä¼ å…¥ä¸‹æ ‡æ¥åˆ›å»ºæ–°æ•°ç»„ï¼Œå¼€å§‹å’Œç»“æŸï¼Œåªä¼ å…¥ä¸€ä¸ªå‚æ•°ä»£è¡¨slice()è¿”å›ä»æŒ‡å®šä½ç½®å¼€å§‹åˆ°å½“å‰æ•°ç»„æœ«å°¾çš„æ‰€æœ‰é¡¹*/
+	var sliceArray=original.slice(0); //ä»æ•°ç»„å¼€å§‹åˆ°æ•°ç»„ç»“å°¾ï¼Œå®Œæ•´çš„å¤åˆ¶äº†åŸå§‹æ•°ç»„
 	
-	//É¾³ıĞÂÊı×éµÄµÚÒ»¸öÔªËØ
+	//åˆ é™¤æ–°æ•°ç»„çš„ç¬¬ä¸€ä¸ªå…ƒç´ 
 	var temp=sliceArray.splice(0,1);
 	
-	console.log("Ô­Ê¼Êı×é£º"+original);//1159,1676,1693
-	console.log("±äÁ¿Êı×é:"+sliceArray);//1676,1693
+	console.log("åŸå§‹æ•°ç»„ï¼š"+original);//1159,1676,1693
+	console.log("å˜é‡æ•°ç»„:"+sliceArray);//1676,1693
    
 }
 /*
-	¿ÉÒÔÀûÓÃº¯Êı·Ç¼Ì³ĞµÄ·½·¨applyÖ´ĞĞmax»òmin·½·¨£¬apply·½·¨µÄµÚ¶ş¸ö²ÎÊı¿ÉÒÔ´«ÈëÒ»¸öÊı×é
+	å¯ä»¥åˆ©ç”¨å‡½æ•°éç»§æ‰¿çš„æ–¹æ³•applyæ‰§è¡Œmaxæˆ–minæ–¹æ³•ï¼Œapplyæ–¹æ³•çš„ç¬¬äºŒä¸ªå‚æ•°å¯ä»¥ä¼ å…¥ä¸€ä¸ªæ•°ç»„
 */
 function maxAry(){
     var ary=[3,9,5,3,2,1];
@@ -830,7 +830,7 @@ function maxAry(){
 	console.log(minValue);
 }
 
-/*½«ÀàÊı×é¶ÔÏóargumentsÓÃArry.prototype.slice.call×ª»»³ÉÊı×é,ÎÒÔõÃ´Ã»¿´µ½¹ıÕâ¸öÊ¹ÓÃ·½·¨°Â....*/
+/*å°†ç±»æ•°ç»„å¯¹è±¡argumentsç”¨Arry.prototype.slice.callè½¬æ¢æˆæ•°ç»„,æˆ‘æ€ä¹ˆæ²¡çœ‹åˆ°è¿‡è¿™ä¸ªä½¿ç”¨æ–¹æ³•å¥¥....*/
 function convertAry(a,b){
 
 	var len=arguments.length;//2
@@ -865,7 +865,7 @@ function convertAry(a,b){
 	 console.log(flag);
 	 
 	 
-	 /*´Ó¶ÔÏóÊı×éÖĞÉ¸Ñ¡³ö·ûºÏÌõ¼şµÄÏî£¬×é³ÉÒ»¸öĞÂµÄÊı×é*/
+	 /*ä»å¯¹è±¡æ•°ç»„ä¸­ç­›é€‰å‡ºç¬¦åˆæ¡ä»¶çš„é¡¹ï¼Œç»„æˆä¸€ä¸ªæ–°çš„æ•°ç»„*/
 	 var xry=$.map(ary,function(item,index){
 	 
 	    if("a"==item.y){
@@ -880,29 +880,29 @@ function convertAry(a,b){
   
 </script>
 
-<input type="button" data-filter value="È¡µÃÊı×éµÄ×îºóÒ»Ïî"  onclick="getLastItem()"/><br />
+<input type="button" data-filter value="å–å¾—æ•°ç»„çš„æœ€åä¸€é¡¹"  onclick="getLastItem()"/><br />
  
-<input type="button" data-filter value="¿ÕÊı×éµ÷ÓÃtoString()·½·¨»á·µ»Ø¿Õ×Ö·û´®"  onclick="emptyArray()"/><br />
+<input type="button" data-filter value="ç©ºæ•°ç»„è°ƒç”¨toString()æ–¹æ³•ä¼šè¿”å›ç©ºå­—ç¬¦ä¸²"  onclick="emptyArray()"/><br />
  
 <input type="button" data-filter value="console.log();"  onclick="testConsole()"/><br />
  
-<input type="button" data-filter value="µü´úº¯Êı²âÊÔ"  onclick="testMap()"/><br />
+<input type="button" data-filter value="è¿­ä»£å‡½æ•°æµ‹è¯•"  onclick="testMap()"/><br />
 
-<input type="button" data-filter value="jqueryµÄ$.map()º¯Êı´¦ÀíÊı×é»ò¶ÔÏó£¬·µ»ØĞÂÊı×é"  onclick="testJQueryMap()"/><br />
+<input type="button" data-filter value="jqueryçš„$.map()å‡½æ•°å¤„ç†æ•°ç»„æˆ–å¯¹è±¡ï¼Œè¿”å›æ–°æ•°ç»„"  onclick="testJQueryMap()"/><br />
 
-<input type="button" data-filter value="$.eachÉ¸Ñ¡²âÊÔ"  onclick="testProperty()"/><br />
+<input type="button" data-filter value="$.eachç­›é€‰æµ‹è¯•"  onclick="testProperty()"/><br />
 
-<input type="button" data-filter value="Êı×éºÍ×Ö·û´®µÄ»¥Ïà×ª»»"  onclick="interreaction()"/><br />
+<input type="button" data-filter value="æ•°ç»„å’Œå­—ç¬¦ä¸²çš„äº’ç›¸è½¬æ¢"  onclick="interreaction()"/><br />
 
-<input type="button" data-filter value="É¾³ıÊı×éÖĞµÄÖ¸¶¨ÔªËØ"  onclick="removeElement()"/><br />
+<input type="button" data-filter value="åˆ é™¤æ•°ç»„ä¸­çš„æŒ‡å®šå…ƒç´ "  onclick="removeElement()"/><br />
 
-<input type="button" data-filter value="»ùÓÚÒ»¸öÊı×é¿½±´³öÒ»¸öĞÂµÄÊı×é"  onclick="copyAry()"/><br />
+<input type="button" data-filter value="åŸºäºä¸€ä¸ªæ•°ç»„æ‹·è´å‡ºä¸€ä¸ªæ–°çš„æ•°ç»„"  onclick="copyAry()"/><br />
 
-<input type="button" data-filter value="´ÓÒ»×éÊıÖµÊı×éÖĞÑ¡³ö×î´óÖµ"  onclick="maxAry()"/><br />
+<input type="button" data-filter value="ä»ä¸€ç»„æ•°å€¼æ•°ç»„ä¸­é€‰å‡ºæœ€å¤§å€¼"  onclick="maxAry()"/><br />
 
-<input type="button" data-filter value="½«ÀàÊı×é¶ÔÏóargumentsÓÃArry.prototype.slice.call×ª»»³ÉÊı×é"  onclick="convertAry(type,name)" name="convertBtn"/><br />
+<input type="button" data-filter value="å°†ç±»æ•°ç»„å¯¹è±¡argumentsç”¨Arry.prototype.slice.callè½¬æ¢æˆæ•°ç»„"  onclick="convertAry(type,name)" name="convertBtn"/><br />
 
-<input type="button" data-filter value="´ÓÒ»×é¶ÔÏóÊıÖµÊı×éÖĞÑ¡³ö×îĞ¡Öµ"  onclick="maxAryObj()"/><br />
+<input type="button" data-filter value="ä»ä¸€ç»„å¯¹è±¡æ•°å€¼æ•°ç»„ä¸­é€‰å‡ºæœ€å°å€¼"  onclick="maxAryObj()"/><br />
 
 
 

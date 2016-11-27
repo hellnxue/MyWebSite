@@ -1,10 +1,10 @@
 <!DOCTYPE html >
 <html  >
 <head>
-<meta charset= "gb2312" />
+<meta charset= "utf-8" />
 
  
-<title>URI±àÂë·½·¨</title>
+<title>URIç¼–ç æ–¹æ³•</title>
 <style>
  .container *{
  	box-sizing:border-box;
@@ -91,11 +91,11 @@
 
 <body>
 	<div class="container">
-		<header><h3>JS ±àÂë&½âÂë</h3></header>
+		<header><h3>JS ç¼–ç &è§£ç </h3></header>
 	   <div class="panel">
 		   <input type="button" value="encodeURI" onClick="encodeURITest()" class="btn"/>
 		   <input type="text" value="" name="encode" class="form-control">
-		   <input type="button" value="¶Ô×ªÂëµÄURL½âÂë" onClick="decodeURIEvent(event)" class="btn"/>
+		   <input type="button" value="å¯¹è½¬ç çš„URLè§£ç " onClick="decodeURIEvent(event)" class="btn"/>
 		   <div>result:</div>
 	   </div>
 		
@@ -106,43 +106,43 @@
  
 	<script>
 	  /*
-	    escape²»±àÂë×Ö·ûÓĞ69¸ö£º*£¬+£¬-£¬.£¬/£¬@£¬_£¬0-9£¬a-z£¬A-Z
+	    escapeä¸ç¼–ç å­—ç¬¦æœ‰69ä¸ªï¼š*ï¼Œ+ï¼Œ-ï¼Œ.ï¼Œ/ï¼Œ@ï¼Œ_ï¼Œ0-9ï¼Œa-zï¼ŒA-Z
 
-		encodeURI²»±àÂë×Ö·ûÓĞ82¸ö£º!£¬#£¬$£¬&£¬'£¬(£¬)£¬*£¬+£¬,£¬-£¬.£¬/£¬:£¬;£¬=£¬?£¬@£¬_£¬~£¬0-9£¬a-z£¬A-Z
+		encodeURIä¸ç¼–ç å­—ç¬¦æœ‰82ä¸ªï¼š!ï¼Œ#ï¼Œ$ï¼Œ&ï¼Œ'ï¼Œ(ï¼Œ)ï¼Œ*ï¼Œ+ï¼Œ,ï¼Œ-ï¼Œ.ï¼Œ/ï¼Œ:ï¼Œ;ï¼Œ=ï¼Œ?ï¼Œ@ï¼Œ_ï¼Œ~ï¼Œ0-9ï¼Œa-zï¼ŒA-Z
 
-		encodeURIComponent²»±àÂë×Ö·ûÓĞ71¸ö£º!£¬ '£¬(£¬)£¬*£¬-£¬.£¬_£¬~£¬0-9£¬a-z£¬A-Z
+		encodeURIComponentä¸ç¼–ç å­—ç¬¦æœ‰71ä¸ªï¼š!ï¼Œ 'ï¼Œ(ï¼Œ)ï¼Œ*ï¼Œ-ï¼Œ.ï¼Œ_ï¼Œ~ï¼Œ0-9ï¼Œa-zï¼ŒA-Z
 		
 		
 		
 		
-		URLÌØÊâ·ûºÅ¼°¶ÔÓ¦µÄÊ®Áù½øÖÆÖµ±àÂë£º   
+		URLç‰¹æ®Šç¬¦å·åŠå¯¹åº”çš„åå…­è¿›åˆ¶å€¼ç¼–ç ï¼š   
  
-		1. +  URL ÖĞ+ºÅ±íÊ¾¿Õ¸ñ %2B   
-		2. ¿Õ¸ñ URLÖĞµÄ¿Õ¸ñ¿ÉÒÔÓÃ+ºÅ»òÕß±àÂë %20   
-		3. /  ·Ö¸ôÄ¿Â¼ºÍ×ÓÄ¿Â¼ %2F    
-		4. ?  ·Ö¸ôÊµ¼ÊµÄ URL ºÍ²ÎÊı %3F    
-		5. % Ö¸¶¨ÌØÊâ×Ö·û %25    
-		6. # ±íÊ¾ÊéÇ© %23    
-		7. & URL ÖĞÖ¸¶¨µÄ²ÎÊı¼äµÄ·Ö¸ô·û %26    
-		8. = URL ÖĞÖ¸¶¨²ÎÊıµÄÖµ %3D  
+		1. +  URL ä¸­+å·è¡¨ç¤ºç©ºæ ¼ %2B   
+		2. ç©ºæ ¼ URLä¸­çš„ç©ºæ ¼å¯ä»¥ç”¨+å·æˆ–è€…ç¼–ç  %20   
+		3. /  åˆ†éš”ç›®å½•å’Œå­ç›®å½• %2F    
+		4. ?  åˆ†éš”å®é™…çš„ URL å’Œå‚æ•° %3F    
+		5. % æŒ‡å®šç‰¹æ®Šå­—ç¬¦ %25    
+		6. # è¡¨ç¤ºä¹¦ç­¾ %23    
+		7. & URL ä¸­æŒ‡å®šçš„å‚æ•°é—´çš„åˆ†éš”ç¬¦ %26    
+		8. = URL ä¸­æŒ‡å®šå‚æ•°çš„å€¼ %3D  
 	  
 	  
 	  */
-	 /*+ºÅÊÇÌØÊâ×Ö·ûÂğ£¿*/
+	 /*+å·æ˜¯ç‰¹æ®Šå­—ç¬¦å—ï¼Ÿ*/
 	function encodeURITest(){
 		var paramt="+/z//v38/PT1//31/fz9/fz0";
-		var paramz="Ğ¡ĞÂ";
+		var paramz="å°æ–°";
 		var pencode=encodeURI(paramt);
 		var tencode=encodeURI(paramz);
 		var cc=encodeURI("hello");
 		var tencodeec=encodeURIComponent(paramt);
 		var c=encodeURIComponent(paramz);
 		
-		console.log("encodeURI(+/z//v38/PT1//31/fz9/fz0)£º"+pencode);	//+/z//v38/PT1//31/fz9/fz0   
-		console.log("encodeURI(Ğ¡ĞÂ)£º"+tencode);						//%E5%B0%8F%E6%96%B0
-		console.log("encodeURI(hello)£º"+cc);						// 
-		console.log("encodeURIComponent(+/z//v38/PT1//31/fz9/fz0)£º"+tencodeec);//%2B%2Fz%2F%2Fv38%2FPT1%2F%2F31%2Ffz9%2Ffz0
-		console.log("encodeURIComponent(Ğ¡ĞÂ)£º"+c);					//%E5%B0%8F%E6%96%B0	
+		console.log("encodeURI(+/z//v38/PT1//31/fz9/fz0)ï¼š"+pencode);	//+/z//v38/PT1//31/fz9/fz0   
+		console.log("encodeURI(å°æ–°)ï¼š"+tencode);						//%E5%B0%8F%E6%96%B0
+		console.log("encodeURI(hello)ï¼š"+cc);						// 
+		console.log("encodeURIComponent(+/z//v38/PT1//31/fz9/fz0)ï¼š"+tencodeec);//%2B%2Fz%2F%2Fv38%2FPT1%2F%2F31%2Ffz9%2Ffz0
+		console.log("encodeURIComponent(å°æ–°)ï¼š"+c);					//%E5%B0%8F%E6%96%B0	
 		
 		console.log(decodeURIComponent(tencodeec)); 
 		
@@ -153,8 +153,8 @@
 		
 		console.log(dtemp);
 		
-		console.log("encodeURI(encodeURI(Ğ¡ĞÂ))£º"+encodeURI(encodeURI("Ğ¡ĞÂ")));	
-		console.log("decodeURI(decodeURI(Ğ¡ĞÂ))£º"+decodeURI(  "Ğ¡ĞÂ" ));	
+		console.log("encodeURI(encodeURI(å°æ–°))ï¼š"+encodeURI(encodeURI("å°æ–°")));	
+		console.log("decodeURI(decodeURI(å°æ–°))ï¼š"+decodeURI(  "å°æ–°" ));	
 		
 	}
 	

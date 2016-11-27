@@ -1,14 +1,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
-<title>ÎŞ±êÌâÎÄµµ</title>
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript">
 function test1(){
   var num=10;
   var num1=10.09;
-  var n1=num.toFixed(2);//toFixed(n) Ö¸¶¨ÊıÖµºó¸ú¼¸Î»Ğ¡Êı,»áËÄÉáÎåÈë
+  var n1=num.toFixed(2);//toFixed(n) æŒ‡å®šæ•°å€¼åè·Ÿå‡ ä½å°æ•°,ä¼šå››èˆäº”å…¥
   var n2=num.toFixed(1);
   var n3=num1.toFixed(1);
   console.log("toFixed2="+typeof(num));
@@ -26,10 +26,10 @@ function test2(){
   var a2=aa.charAt(1);
   var a3=aa.charCodeAt(1);
   var a4=aa.concat("!");
-  console.log("aa[1]="+a1);//×Ö·û´®ÀàĞÍ¿ÉÒÔÖ±½ÓÏñÊı×éÒ»Ñù¸ù¾İË÷ÒıÈ¡×Ö·û
-   console.log("aa.charAt(1)="+a2);//Êä³öÖ¸¶¨Î»ÖÃµÄ×Ö·û
-	console.log("aa.charCodeAt(1)="+a3);//Êä³öÖ¸¶¨×Ö·ûµÄ×Ö·û±àÂë
-	  console.log("aa.concat(\"!\")="+a4);//Æ´½Ó×Ö·û£¬¸ú+ºÅÀà×÷ÓÃÒ»Ñù
+  console.log("aa[1]="+a1);//å­—ç¬¦ä¸²ç±»å‹å¯ä»¥ç›´æ¥åƒæ•°ç»„ä¸€æ ·æ ¹æ®ç´¢å¼•å–å­—ç¬¦
+   console.log("aa.charAt(1)="+a2);//è¾“å‡ºæŒ‡å®šä½ç½®çš„å­—ç¬¦
+	console.log("aa.charCodeAt(1)="+a3);//è¾“å‡ºæŒ‡å®šå­—ç¬¦çš„å­—ç¬¦ç¼–ç 
+	  console.log("aa.concat(\"!\")="+a4);//æ‹¼æ¥å­—ç¬¦ï¼Œè·Ÿ+å·ç±»ä½œç”¨ä¸€æ ·
 	  
 	  console.log($("#pp").css("display"));
 
@@ -38,20 +38,20 @@ function test2(){
 function test3(){
   console.log("random="+Math.random());
   
-  var n=Math.floor(Math.random()*10+1);//È¡1-10Ö®¼äµÄËæ»úµÄÒ»¸öÊı×Ö
-   console.log("È¡1µ½10µÄËæ»úÖµ="+n);
-    var nn=Math.floor(Math.random()*9+2);//È¡2-10Ö®¼äµÄËæ»úµÄÒ»¸öÊı×Ö
-   console.log("È¡2µ½10µÄËæ»úÖµ="+nn);
+  var n=Math.floor(Math.random()*10+1);//å–1-10ä¹‹é—´çš„éšæœºçš„ä¸€ä¸ªæ•°å­—
+   console.log("å–1åˆ°10çš„éšæœºå€¼="+n);
+    var nn=Math.floor(Math.random()*9+2);//å–2-10ä¹‹é—´çš„éšæœºçš„ä¸€ä¸ªæ•°å­—
+   console.log("å–2åˆ°10çš„éšæœºå€¼="+nn);
    
    var numbers=getDistrictnum(10,3);
-   console.log("È¡µÃÇø¼äÖĞµÄËæ»úÖµ="+numbers);
+   console.log("å–å¾—åŒºé—´ä¸­çš„éšæœºå€¼="+numbers);
    
    var colors=["red","blue","black","white","pinck"];
    var color=colors[getDistrictnum(colors.length-1,0)];
-   console.log("Ëæ»úÈ¡µÃµÄÊı×éÖµ="+color);
+   console.log("éšæœºå–å¾—çš„æ•°ç»„å€¼="+color);
 }
 
-//»ñµÃÖ¸¶¨Çø¼äµÄËæ»úÒ»¸öÖµ
+//è·å¾—æŒ‡å®šåŒºé—´çš„éšæœºä¸€ä¸ªå€¼
 function getDistrictnum(uppervalue,lowervalue){
    var total=uppervalue-lowervalue+1;
    var number=Math.floor(Math.random()*total+lowervalue);
@@ -61,16 +61,16 @@ function getDistrictnum(uppervalue,lowervalue){
 function test4(){
   console.log(Number("0"));//0
  console.log(Number("100.00"));//100
- console.log(Number("02.20"))//2.2 »áºöÂÔÇ°µ¼µÄ0
- console.log(parseFloat("02.20"));//2.2  »áºöÂÔÇ°µ¼µÄ0
+ console.log(Number("02.20"))//2.2 ä¼šå¿½ç•¥å‰å¯¼çš„0
+ console.log(parseFloat("02.20"));//2.2  ä¼šå¿½ç•¥å‰å¯¼çš„0
  console.log(parseInt("02.20"));//2
  console.log(Number("0.20"));//0.2
- console.log(Number("020"));//20   »áºöÂÔÇ°µ¼µÄ0
+ console.log(Number("020"));//20   ä¼šå¿½ç•¥å‰å¯¼çš„0
  console.log(parseInt("070"));//70
  
  console.log(parseInt("10",2));
  console.log(parseInt("0101",10));
- var number=Number("");//0 Number()¿ÉÒÔ½«ÈÎÒâÀàĞÍ×ª»»³ÉÊı×Ö
+ var number=Number("");//0 Number()å¯ä»¥å°†ä»»æ„ç±»å‹è½¬æ¢æˆæ•°å­—
  var pInt=parseInt("");//NaN
  var pFloat=parseFloat("");//NaN
  $("#nift").html("Number(\"\"):"+number+"\n   parseInt(\"\"):"+pInt+"\n   parseFloat(\"\"):"+pFloat);
@@ -86,17 +86,17 @@ function test4(){
 	console.log(parseFloat(""));
 	console.log(312+190.92);// 502.91999999999996*/
 	
-	var indMoney=parseFloat("2858")*parseFloat(0.08);//½ÉÄÉ½ğ¶î(Ôª)	¸öÈË
+	var indMoney=parseFloat("2858")*parseFloat(0.08);//ç¼´çº³é‡‘é¢(å…ƒ)	ä¸ªäºº
 	console.log(indMoney.toFixed(2));
 }
 
 function test5(){
   var i=1.6;
-  var j=i.toFixed(0);//2 ÊéÉÏËùËµµÄIE8²»ÄÜÉáÈëµÄ·¶Î§Ã»²â³öÀ´°¥
+  var j=i.toFixed(0);//2 ä¹¦ä¸Šæ‰€è¯´çš„IE8ä¸èƒ½èˆå…¥çš„èŒƒå›´æ²¡æµ‹å‡ºæ¥å“
   console.log("j:"+j);
   
   var z=100;
-  var s=z.toExponential(1);//1.0e+2 ²ÎÊı´ú±íÒªÏÔÊ¾µÄĞ¡ÊıÎ»Êı
+  var s=z.toExponential(1);//1.0e+2 å‚æ•°ä»£è¡¨è¦æ˜¾ç¤ºçš„å°æ•°ä½æ•°
   console.log(s);
 }
 
@@ -111,10 +111,10 @@ function test6(){
 
 <body>
 <div id="pp" style="display:block">hello</div>
-<input type="button" value="²âÊÔNumber" onClick="test1()"/></br>
-<input type="button" value="²âÊÔString" onClick="test2()"/></br>
-<input type="button" value="²âÊÔNumber2" onClick="test3()"/></br>
-<input type="button" value="Êı×Ö²âÊÔ" onClick="test4()"/></br>
+<input type="button" value="æµ‹è¯•Number" onClick="test1()"/></br>
+<input type="button" value="æµ‹è¯•String" onClick="test2()"/></br>
+<input type="button" value="æµ‹è¯•Number2" onClick="test3()"/></br>
+<input type="button" value="æ•°å­—æµ‹è¯•" onClick="test4()"/></br>
 <input type="button" value="toExponential()" onClick="test5()"/></br>
 <input type="button" value="toPrecision()" onClick="test6()"/></br>
 <h3>input:</h3><div id="nift"></div>

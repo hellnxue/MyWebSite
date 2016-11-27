@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script>
 $(function(){
@@ -11,40 +11,40 @@ $(function(){
 
 })
 function tests(){
-  //$("#tp")[0].scrollIntoView(true);//ÔÚä¯ÀÀÆ÷ÓĞ¹ö¶¯Ìõ¶øÔªËØ$("#tp")µÄdivÃ»ÓĞ³öÏÖÔÚÊÓÒ°·¶Î§ÄÚÊ±£¬scrollIntoView()·½·¨»á½«Ö®ÏÔÊ¾ÔÚÊÓ¿ÚÖĞ£¬Èç¹û¸ÃÔªËØ±¾Éí¾ÍÔÚÊÓ¿ÚÖĞ£¬Ôò²»»áÓĞĞ§¹û
+  //$("#tp")[0].scrollIntoView(true);//åœ¨æµè§ˆå™¨æœ‰æ»šåŠ¨æ¡è€Œå…ƒç´ $("#tp")çš„divæ²¡æœ‰å‡ºç°åœ¨è§†é‡èŒƒå›´å†…æ—¶ï¼ŒscrollIntoView()æ–¹æ³•ä¼šå°†ä¹‹æ˜¾ç¤ºåœ¨è§†å£ä¸­ï¼Œå¦‚æœè¯¥å…ƒç´ æœ¬èº«å°±åœ¨è§†å£ä¸­ï¼Œåˆ™ä¸ä¼šæœ‰æ•ˆæœ
    
    
    /*document.getElementById("tbtn").blur();
  
    var x=document.getElementById("tp1");
-   x.focus();//ÎªÉ¶¸ø²»ÊÇbuttonµÄÔªËØÉèÖÃ»ñµÃ½¹µã£¬²»¹ÜÓÃÄØ£¬Ææ¹Ö
+   x.focus();//ä¸ºå•¥ç»™ä¸æ˜¯buttonçš„å…ƒç´ è®¾ç½®è·å¾—ç„¦ç‚¹ï¼Œä¸ç®¡ç”¨å‘¢ï¼Œå¥‡æ€ª
    
-   console.log( document.activeElement);//body  »ñµÃÎÄµµÖĞ»ñµÃÁË½¹µãµÄÔªËØDOM¶ÔÏó*/
+   console.log( document.activeElement);//body  è·å¾—æ–‡æ¡£ä¸­è·å¾—äº†ç„¦ç‚¹çš„å…ƒç´ DOMå¯¹è±¡*/
   
    var button=document.getElementById("tpbtn");
-   button.focus();//Í¬$("#tp")[0].scrollIntoView(true);
+   button.focus();//åŒ$("#tp")[0].scrollIntoView(true);
    console.log( document.activeElement); 
    
 }
 
 function goForward(){
      console.log("hehe");
-     window.history.forward("²âÊÔ.html");
+     window.history.forward("æµ‹è¯•.html");
   }
 </script>
 </head>
 
 <body>
 
- <input type="button" id="tbtn" value="scrollIntoView·½·¨²âÊÔ" onclick="tests()"/>
+ <input type="button" id="tbtn" value="scrollIntoViewæ–¹æ³•æµ‹è¯•" onclick="tests()"/>
   <div id="test">
    <span>hello helln</span><br/>
 <span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/>
 </div>
-	<p style="color:pink">·ÇÊÓ¿ÚÔªËØ</p>
+	<p style="color:pink">éè§†å£å…ƒç´ </p>
    <p id="tp"><h3>hello world</h3></p>
    <p id="tp1"> hello world </p>
-   <input type="button" id="tpbtn" value="±¾ÔÚ¹ö¶¯Ìõ¹ö¶¯µ½µ×²¿Ê±²Å³öÏÖµÄ°´Å¥°Â"/><br />
+   <input type="button" id="tpbtn" value="æœ¬åœ¨æ»šåŠ¨æ¡æ»šåŠ¨åˆ°åº•éƒ¨æ—¶æ‰å‡ºç°çš„æŒ‰é’®å¥¥"/><br />
 
    <input type="button" value="Forward" onclick="goForward()" />
 

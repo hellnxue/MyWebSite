@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>Ч��С��</title>
+<meta charset="utf-8" />
+<title>效果小计</title>
 <link href="../../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <link href="../../CSS/noteCSS.css" rel="stylesheet" type="text/css"/>
 <style>
   
 </style>
 
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 
-<h3>--- �������ϲ�����ʽ----</h3>
+<h3>--- 评论栏上部的样式----</h3>
  
 <div  class="cmt-wrapper">
 	<div class="cmt-list-type">
 	
         <ul class="type-lists">
-            <li class="type-list active">����</li>   
+            <li class="type-list active">评论</li>   
         </ul>
 
         <div class="cmt-list-border"></div>
 
         <div class="cmt-list-number">
-            <span class="comment-number"><span class="number">1410</span>�˲���,<span class="number">798</span>������</span>
+            <span class="comment-number"><span class="number">1410</span>人参与,<span class="number">798</span>条评论</span>
         </div>
     </div>
 
 </div>
 
-<h3>--- ���ۿ򲿷�----</h3>
+<h3>--- 评论框部分----</h3>
  
 <div  class="cmt-wrapper" style="position: relative;margin-top: 50px;">
-    <div class="rounded">��¼</div>
+    <div class="rounded">登录</div>
     <div class="post-wrap-w">
 
         <div class="post-wrap-border-l"></div>
@@ -50,7 +50,7 @@
 
             <div class="wrap-area-w">
                 <div class="area-textarea-w">
-                    <textarea node-type="textarea" name="" class="textarea-fw textarea-bf" >����û��˵����... </textarea>
+                    <textarea node-type="textarea" name="" class="textarea-fw textarea-bf" >有事没事说两句... </textarea>
                 </div>
             </div>
 
@@ -59,19 +59,19 @@
     </div>
 
 </div>
- <textarea node-type="textarea" name="" class="textarea-fw textarea-bf" >����û��˵����... </textarea>
+ <textarea node-type="textarea" name="" class="textarea-fw textarea-bf" >有事没事说两句... </textarea>
  
 
 
- <h3>--- �ø������԰�Χ�������������ȵ���Ԫ��(��Ҫ��ʾ���˹��ܵ�ǰ���ǣ���Ԫ�ص����ݵĿ��Ȳ��ǰٷֱȣ�������Ԫ�ص����ݱ���Ԫ�ػ�Ҫ����������Ԫ�ص����ݿ������������ص�����²Ź��õģ����忴�����ǿ��ȵ���������ɡ�����)----</h3>
+ <h3>--- 用浮动属性包围超出父容器宽度的子元素(重要提示：此功能的前提是，子元素的内容的宽度不是百分比，或者子元素的内容比子元素还要宽，或者子元素的内容宽度设置了像素的情况下才管用的，具体看浮动非宽度的两种情况吧。。。)----</h3>
  <div class="ctm-f-wrapper clearfix">
      <div>
-          <!-- f1�Ŀ���Ϊ100% -->
+          <!-- f1的宽度为100% -->
           <div class="f1 commona">short width</div>
 
           <!-- <div class="f2">long width</div> -->
 
-          <!-- div f3�Ŀ���Ϊ100%������img�Ŀ���Ϊ���أ��ҳ�����ֱ�Ӹ�����div�Ŀ���ʱ -->
+          <!-- div f3的宽度为100%，但是img的宽度为像素，且超出了直接父容器div的宽度时 -->
           <div class="f3 commonb">
               <img src="../../img/test.PNG" style="height: 50px; width: 1400px;">
 
@@ -83,7 +83,7 @@
 
 
 
- <h3>--- һ������û�п��ȵ�Ԫ�� ֮ ��Ԫ�ؿ���Ϊ�ٷֱȵ����----</h3>
+ <h3>--- 一、浮动没有宽度的元素 之 子元素宽度为百分比的情况----</h3>
  <div class="ctm-f-wrapper clearfix ff">
      <div>
           
@@ -95,7 +95,7 @@
  </div>
 
 
- <h3>--- ��������û�п��ȵ�Ԫ�� ֮ ��Ԫ�ؿ���Ϊ�������----</h3>
+ <h3>--- 二、浮动没有宽度的元素 之 子元素宽度为像素情况----</h3>
  <div class="ctm-f-wrapper clearfix ff">
      <div>
           
@@ -106,9 +106,21 @@
     
  </div>
 
-<h3>--- �����Ĭ�Ͽ鼶Ԫ��ռ��һ��,��Ԫ��width:100%���븸��������һ��----</h3>
+<h3>--- 浏览器默认块级元素占满一行,子元素width:100%即与父容器宽度一致----</h3>
 <div style="background-color: pink; min-height: 100px;">
     <div style="background-color: yellow; width: 106%;">hello world</div>
+
+</div>
+
+
+<h3>--- 定位上下文的问题.当一个元素是绝对定位时，它的定位上下文除了是position:relative外，还可以是
+position:absulute哎----</h3>
+<div class="pt-wrapper">
+    <div class="A">
+      pink-绝对定位
+      <div class="B">yellow-绝对定位</div>
+
+    </div>
 
 </div>
 </body>

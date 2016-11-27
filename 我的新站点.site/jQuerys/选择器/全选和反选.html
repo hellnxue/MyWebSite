@@ -1,8 +1,8 @@
 <!DOCTYPE html >
 <html >
 <head>
-<meta charset=gb2312/>
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta charset="utf-8"/>
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <style type="text/css">
  
   .test{
@@ -14,9 +14,9 @@
 $(function(){
 
   /**
-	 * jQueryÀ©Õ¹²å¼ş£¬½«form±íµ¥ÄÚÈİĞòÁĞ»¯ÎªObject
-	 * Ê¹ÓÃ·½Ê½£º$("Ñ¡ÔñÆ÷").serializeObject();
-	   this´ú±íÓÃ´Ë·½·¨µÄ±íµ¥µÄjQuery¶ÔÏó£¬²»ÊÇDOM¶ÔÏó
+	 * jQueryæ‰©å±•æ’ä»¶ï¼Œå°†formè¡¨å•å†…å®¹åºåˆ—åŒ–ä¸ºObject
+	 * ä½¿ç”¨æ–¹å¼ï¼š$("é€‰æ‹©å™¨").serializeObject();
+	   thisä»£è¡¨ç”¨æ­¤æ–¹æ³•çš„è¡¨å•çš„jQueryå¯¹è±¡ï¼Œä¸æ˜¯DOMå¯¹è±¡
 	 */
 	$.fn.extend({
 		serializeObject:function(){
@@ -34,13 +34,13 @@ $(function(){
 
  var a=document.getElementById("hhhhhhh");
   console.log("ppppppppppppppppp"+$("#hhhhhhhhhhhh")+"\n"+a);
-//µã»÷È«Ñ¡¸´Ñ¡¿ò´¦Àí½á¹û
+//ç‚¹å‡»å…¨é€‰å¤é€‰æ¡†å¤„ç†ç»“æœ
  $(":checkbox[name=alls]").click(function(){
-	 //alert($(this).attr("checked"));//Êä³öchecked
-	 //alert($(this).prop("checked"));//Êä³öbooleanÀàĞÍ
+	 //alert($(this).attr("checked"));//è¾“å‡ºchecked
+	 //alert($(this).prop("checked"));//è¾“å‡ºbooleanç±»å‹
 	 
 	 /*
-	    //thisÎªDOM¶ÔÏñ,$(this)Îªjquery¶ÔÏó 
+	    //thisä¸ºDOMå¯¹åƒ,$(this)ä¸ºjqueryå¯¹è±¡ 
 	 */
      if($(this).prop("checked")){
 	    $(":checkbox[name=instr]").each(function(){this.checked=true});  
@@ -49,10 +49,10 @@ $(function(){
 	 }
    
  });
- //µã»÷×Ó¸´Ñ¡¿ò¶ÔÈ«Ñ¡¸´Ñ¡¿òµÄ´¦Àí½á¹û
+ //ç‚¹å‡»å­å¤é€‰æ¡†å¯¹å…¨é€‰å¤é€‰æ¡†çš„å¤„ç†ç»“æœ
  $(":checkbox[name=instr]").click(function(){
-    var a1=$(":checked[name=instr]").length;//»ñµÃÑ¡ÖĞµÄ³¤¶È
-	var a2=$(":checkbox[name=instr]").length;//»ñµÃ¸´Ñ¡¿ò×éµÄ×Ü³¤¶È
+    var a1=$(":checked[name=instr]").length;//è·å¾—é€‰ä¸­çš„é•¿åº¦
+	var a2=$(":checkbox[name=instr]").length;//è·å¾—å¤é€‰æ¡†ç»„çš„æ€»é•¿åº¦
 	//alert(a1);
 	if(a1==a2){
 	  $(":checkbox[name=alls]").attr("checked",true);
@@ -63,15 +63,15 @@ $(function(){
  
  });
  
- /*parentÓëclosestµÄÇø±ğ*/
+ /*parentä¸closestçš„åŒºåˆ«*/
  $("#test").on("click",function(){
  
-	//console.log($(this).closest("div").html());//Êä³ödiv°üº¬µÄhtmlÔªËØ´úÂë
+	//console.log($(this).closest("div").html());//è¾“å‡ºdivåŒ…å«çš„htmlå…ƒç´ ä»£ç 
 	//console.log($(this).parent("span").html());
 	//console.log($(this).parent("div").html());//null  
-	//console.log($(this).parent("#testPC").html());//null  parent()Ö»»áËÑË÷µ½Ö±½Ó¸¸ÔªËØ±ãÖÕÖ¹ËÑË÷£¬¶øcloset()»á¼ÌĞøÏòÉÏµİ¹éËÑË÷£¬ÖªµÀËÑµ½ÎªÖ¹
-	//console.log($(this).closest("#testPC").html());//Êä³ödiv°üº¬µÄhtmlÔªËØ´úÂë
- 	$(this).closest(".testpp").css("color","red");//closet£¨£©»áÒÔ×ÔÉíÎª¿ªÊ¼½øĞĞµİ¹éËÑË÷£¬Èç¹û×ÔÉí·ûºÏÒª²éÕÒµÄÑ¡ÔñÆ÷£¬ÄÇÑ¡ÔñµÄ¾ÍÊÇ×ÔÉíÔªËØÁË£¬¿ÉÊÇ°ïÖúÎÄµµÉÏËµÕâ¸ö·½·¨»á¹ıÊ±£¬ÄÇÎªÉ¶AmazeUIµÄ±íµ¥ÑéÖ¤»áÓÃµ½Õâ¸ö·½·¨ÄØ£¿
+	//console.log($(this).parent("#testPC").html());//null  parent()åªä¼šæœç´¢åˆ°ç›´æ¥çˆ¶å…ƒç´ ä¾¿ç»ˆæ­¢æœç´¢ï¼Œè€Œcloset()ä¼šç»§ç»­å‘ä¸Šé€’å½’æœç´¢ï¼ŒçŸ¥é“æœåˆ°ä¸ºæ­¢
+	//console.log($(this).closest("#testPC").html());//è¾“å‡ºdivåŒ…å«çš„htmlå…ƒç´ ä»£ç 
+ 	$(this).closest(".testpp").css("color","red");//closetï¼ˆï¼‰ä¼šä»¥è‡ªèº«ä¸ºå¼€å§‹è¿›è¡Œé€’å½’æœç´¢ï¼Œå¦‚æœè‡ªèº«ç¬¦åˆè¦æŸ¥æ‰¾çš„é€‰æ‹©å™¨ï¼Œé‚£é€‰æ‹©çš„å°±æ˜¯è‡ªèº«å…ƒç´ äº†ï¼Œå¯æ˜¯å¸®åŠ©æ–‡æ¡£ä¸Šè¯´è¿™ä¸ªæ–¹æ³•ä¼šè¿‡æ—¶ï¼Œé‚£ä¸ºå•¥AmazeUIçš„è¡¨å•éªŒè¯ä¼šç”¨åˆ°è¿™ä¸ªæ–¹æ³•å‘¢ï¼Ÿ
 	
  });
  
@@ -84,7 +84,7 @@ $(function(){
 
 $("#tc").on("click",function(){
   var html=$(".hehe").clone(true);
-  html.attr("name","newName");//Õâ¸öhtml¶ÔÏó±¾Éí¾ÍÊÇjQuery¶ÔÏóÂğ£¿ $(html)Ò²ºÃÓÃ°¥£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿
+  html.attr("name","newName");//è¿™ä¸ªhtmlå¯¹è±¡æœ¬èº«å°±æ˜¯jQueryå¯¹è±¡å—ï¼Ÿ $(html)ä¹Ÿå¥½ç”¨å“ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
   $(html).attr("data-name","dataNew");
   $("#hihi").after(html);
 
@@ -96,8 +96,8 @@ $("#tc").on("click",function(){
  });
  
   $("#trm").on("click",function(){
-     $(".ccrm").remove();//»á°ÑÕû¸öspanÔªËØ°üÀ¨ÔªËØÖĞµÄÄÚÈİÒ»²¢É¾³ı
-	 // $(".ccrm").empty();//Ö»Çå¿ÕspanÔªËØÖĞµÄÄÚÈİ£¬spanÔªËØÒÀ¾É´æÔÚ
+     $(".ccrm").remove();//ä¼šæŠŠæ•´ä¸ªspanå…ƒç´ åŒ…æ‹¬å…ƒç´ ä¸­çš„å†…å®¹ä¸€å¹¶åˆ é™¤
+	 // $(".ccrm").empty();//åªæ¸…ç©ºspanå…ƒç´ ä¸­çš„å†…å®¹ï¼Œspanå…ƒç´ ä¾æ—§å­˜åœ¨
  });
  
  
@@ -105,7 +105,7 @@ $("#tc").on("click",function(){
  $("#animate").click(function(){
    
        if ( $(this).hasClass("protected") ){
-	      console.log(this.className);//»ñµÃDOMÔªËØµÄclass  classNameÎªhtmlÔªËØµÄDOMÊôĞÔ
+	      console.log(this.className);//è·å¾—DOMå…ƒç´ çš„class  classNameä¸ºhtmlå…ƒç´ çš„DOMå±æ€§
 	   }
         
     });
@@ -117,7 +117,7 @@ $("#tc").on("click",function(){
 	 if(i<4){
 	   console.log("i="+i);
 	   //$("#tfilter li").eq(i).css("color","pink");
-		$("#tfilter li:eq("+i+")").css("color","pink");//ÀàËÆµÄ¹¦ÄÜ
+		$("#tfilter li:eq("+i+")").css("color","pink");//ç±»ä¼¼çš„åŠŸèƒ½
 		
 	 }
 	 
@@ -129,8 +129,8 @@ $("#tc").on("click",function(){
     $("#tfl1").on("click",function(){
 	  
 		
-		 console.log($("#tfilter1 li").eq(i));//»ñÈ¡jquery¶ÔÏó
-		 console.log($("#tfilter1 li").get(i));//»ñÈ¡DOM¶ÔÏó
+		 console.log($("#tfilter1 li").eq(i));//è·å–jqueryå¯¹è±¡
+		 console.log($("#tfilter1 li").get(i));//è·å–DOMå¯¹è±¡
 		 console.log($("#tfilter1 li").get(i).style);
 		 
 		console.log($("#tfilter1 li").get(i).nodeName);
@@ -145,9 +145,9 @@ $("#tc").on("click",function(){
  
   
    $("#tf2").on("click",function(){
-	 $("#flt p").filter(".selected,:first").css("color","pink");//¹ıÂËÑ¡ÔñµÄp±êÇ©
+	 $("#flt p").filter(".selected,:first").css("color","pink");//è¿‡æ»¤é€‰æ‹©çš„pæ ‡ç­¾
 	 
-	 //Õâ¸ö·½·¨²»ºÃÓÃ°¥
+	 //è¿™ä¸ªæ–¹æ³•ä¸å¥½ç”¨å“
 	 /* var obj=$("#flt p").filter(function(){
 		 return $("span",this).length==0;
 	  
@@ -161,7 +161,7 @@ $("#tc").on("click",function(){
  
 	 var is2=$(this).is(function(index){
 	    
-		return $("strong",this).length==2;//$("strong",this)»ñÈ¡µ±Ç°DOM¶ÔÏó(Ö¸µã»÷µÄli)ÖĞµÄstrongµÄjquery¶ÔÏó£¬lengthÊôĞÔÎªjquery¶ÔÏó(strong)µÄ¸öÊı
+		return $("strong",this).length==2;//$("strong",this)è·å–å½“å‰DOMå¯¹è±¡(æŒ‡ç‚¹å‡»çš„li)ä¸­çš„strongçš„jqueryå¯¹è±¡ï¼Œlengthå±æ€§ä¸ºjqueryå¯¹è±¡(strong)çš„ä¸ªæ•°
 	 
 	 });
 	 console.log(is2);
@@ -178,13 +178,13 @@ $("#tc").on("click",function(){
 	 $("#jqybtn").on("click",function(){
 	     console.log("hehe");
 	     var dom=document.getElementById("jqy");
-		 $("span :first",dom).css("color","green");//ÔÚDOMÖĞÑ¡Ôñ·ûºÏÌõ¼şµÄjquery¶ÔÏó
+		 $("span :first",dom).css("color","green");//åœ¨DOMä¸­é€‰æ‹©ç¬¦åˆæ¡ä»¶çš„jqueryå¯¹è±¡
 	 
 	  });    
 	  
 	  
 	  $("#jqy span").on("click",function(){
-	      $("i",this).css("color","green");//Ñ¡Ôñµ±Ç°DOMÖĞµÄiµÄjquery¶ÔÏó
+	      $("i",this).css("color","green");//é€‰æ‹©å½“å‰DOMä¸­çš„içš„jqueryå¯¹è±¡
 		  
 		  console.log($(this).eq(0).is($(this).first()));
 		 
@@ -193,8 +193,8 @@ $("#tc").on("click",function(){
 	  
 	   $("#warpbtn").on("click",function(){
 	      
-		  //$("#twarp").wrap("<div style=\"color:green;font-size:20px;\"></div>");//½«Æ¥ÅäµÄÔªËØÓÃĞÂµÄ±êÇ©ÔªËØ°ü¹üÆğÀ´
-		  // $("#twarp").wrap($("#th1")[0]);//½«Æ¥ÅäµÄÔªËØÓÃÖ¸¶¨µÄDOMÔªËØÆ¥ÅäÆğÀ´
+		  //$("#twarp").wrap("<div style=\"color:green;font-size:20px;\"></div>");//å°†åŒ¹é…çš„å…ƒç´ ç”¨æ–°çš„æ ‡ç­¾å…ƒç´ åŒ…è£¹èµ·æ¥
+		  // $("#twarp").wrap($("#th1")[0]);//å°†åŒ¹é…çš„å…ƒç´ ç”¨æŒ‡å®šçš„DOMå…ƒç´ åŒ¹é…èµ·æ¥
 		  
 		  $('.inner').wrap(function() {
 			   return '<div class="' + $(this).text() + '" />';
@@ -233,14 +233,14 @@ $("#tc").on("click",function(){
 		   like:"eat"
 		 };
 		 
-		 console.log("¶ÔÏó³ÉÔ±¸öÊı=="+"\n"+objt);
+		 console.log("å¯¹è±¡æˆå‘˜ä¸ªæ•°=="+"\n"+objt);
 		 
 	 
 	  });
 	  
 	  $("#nextbtn").on("click",function(){
 	  
-	    $("#tnext").next("p").css("color","red");//»ñµÃÓë$("#tnext")½ôÁÚµÄÍ¬±²½Úµã¶ÔÏó
+	    $("#tnext").next("p").css("color","red");//è·å¾—ä¸$("#tnext")ç´§é‚»çš„åŒè¾ˆèŠ‚ç‚¹å¯¹è±¡
 		//$("#tnext").nextAll("p").css("color","red");
 	  
 	  });
@@ -254,7 +254,7 @@ $("#tc").on("click",function(){
 	  
 	   $("#openbtn").on("click",function(){
 	  
-	      window.open("tree.html");//´ò¿ªÒ»¸öÁ´½Ó
+	      window.open("tree.html");//æ‰“å¼€ä¸€ä¸ªé“¾æ¥
 	  
 	  });
 	   $("#selectbtn").on("click",function(){
@@ -269,7 +269,7 @@ $("#tc").on("click",function(){
 	  
 	$(".multipleClick :button").on("click",function(){
   
-	   alert(this.value);//µã»÷ÄÄ¸öµ¯³öÄÄ¸öµÄvalue£¬Ã»ÓĞÒì³£°¡
+	   alert(this.value);//ç‚¹å‡»å“ªä¸ªå¼¹å‡ºå“ªä¸ªçš„valueï¼Œæ²¡æœ‰å¼‚å¸¸å•Š
 	  
 	  
   });
@@ -284,7 +284,7 @@ $("#tc").on("click",function(){
    
   
    $("#toggleClasst").toggleClass("test"); 
-   thiss.scrollIntoView();//Ê¼ÖÕÈÃ°´Å¥³öÏÖÔÚÊÓ¿ÚÖĞ Í¬thiss.foucus();
+   thiss.scrollIntoView();//å§‹ç»ˆè®©æŒ‰é’®å‡ºç°åœ¨è§†å£ä¸­ åŒthiss.foucus();
 	
  
  }
@@ -299,10 +299,10 @@ $("#tc").on("click",function(){
  }
 
 
-/*jQueryµÄdata()·½·¨£¬´æÈ¡Êı¾İ*/ 
+/*jQueryçš„data()æ–¹æ³•ï¼Œå­˜å–æ•°æ®*/ 
  function tttt(ts){
  
-    console.log($(ts).data("billid"));//data-billId»á×Ô¶¯×ªÎªĞ¡Ğ´ data-billid°¥
+    console.log($(ts).data("billid"));//data-billIdä¼šè‡ªåŠ¨è½¬ä¸ºå°å†™ data-billidå“
    
    var variable=$(ts).data("actionMove");
    console.log(variable);//actions
@@ -312,28 +312,28 @@ $("#tc").on("click",function(){
      name:"helln",
 	 age:"20"
    };
-   /*.data()´æÈ¡Ê±µÄÊıÖµÀàĞÍ¶¼»á±£³ÖÒ»ÖÂ*/
+   /*.data()å­˜å–æ—¶çš„æ•°å€¼ç±»å‹éƒ½ä¼šä¿æŒä¸€è‡´*/
    $(ts).data("temp",temp);
    
    var gettemp=$(ts).data("temp");
    console.log(gettemp);// Object { name="helln",  age="20"}
    console.log(gettemp instanceof Object);//true
    
-   /* HTML5×Ô¶¨ÒåÊôĞÔ¶ÔÏóDataset ´æÖµ£¬È¡ÖµÊ±»á¸Ä±äÖµµÃÀàĞÍ°¥£¬jqueryµÄdata()¾Í²»»áµÄ*/
+   /* HTML5è‡ªå®šä¹‰å±æ€§å¯¹è±¡Dataset å­˜å€¼ï¼Œå–å€¼æ—¶ä¼šæ”¹å˜å€¼å¾—ç±»å‹å“ï¼Œjqueryçš„data()å°±ä¸ä¼šçš„*/
    th.dataset.test=[1,2];
    console.log(th.dataset.test);//1,2
  }
  
- /*<div data-dom-test="div" data-typeof-test="div" data-role="page" data-last-value="43" data-hidden="true" data-options='{"name":"John"}' data-test='100.0'>data()´æÈ¡¸÷ÖÖÀàĞÍµÄÖµ</div>
+ /*<div data-dom-test="div" data-typeof-test="div" data-role="page" data-last-value="43" data-hidden="true" data-options='{"name":"John"}' data-test='100.0'>data()å­˜å–å„ç§ç±»å‹çš„å€¼</div>
 */
  function testData(){
  
-    /*data()½«Êı¾İ´æ´¢ÔÚÑ¡ÔñµÄÔªËØÉÏ£¬Ö»Òª¶¨Î»´ËÔªËØ¾Í¿ÉÒÔÈ¡³öÏàÓ¦µÄÊı¾İ£¬²»±Ø·ÇµÃÓÃ´æ´¢Ê±Ñ¡ÔñµÄÄÇ¸öÔªËØ£¬±ÈÈç$dºÍ$e´ú±íµÄ¾ÍÊÇÓÃdata()´æ´¢Êı¾İµÄÍ¬Ò»¸öÔªËØ*/
+    /*data()å°†æ•°æ®å­˜å‚¨åœ¨é€‰æ‹©çš„å…ƒç´ ä¸Šï¼Œåªè¦å®šä½æ­¤å…ƒç´ å°±å¯ä»¥å–å‡ºç›¸åº”çš„æ•°æ®ï¼Œä¸å¿…éå¾—ç”¨å­˜å‚¨æ—¶é€‰æ‹©çš„é‚£ä¸ªå…ƒç´ ï¼Œæ¯”å¦‚$då’Œ$eä»£è¡¨çš„å°±æ˜¯ç”¨data()å­˜å‚¨æ•°æ®çš„åŒä¸€ä¸ªå…ƒç´ */
     var $d=$('[data-typeof-test="div"]');
 	var $e=$('[data-dom-test="div"]');
 	
 	var num=$d.data("test");//100.0
-	console.log(typeof num);//string  100.0²»»á×ª»»ÊıÖµÀàĞÍ£¬ÓÃ×Ö·û´®±íÊ¾
+	console.log(typeof num);//string  100.0ä¸ä¼šè½¬æ¢æ•°å€¼ç±»å‹ï¼Œç”¨å­—ç¬¦ä¸²è¡¨ç¤º
 	
 	var nm=$d.data("lastValue");//43  
 	console.log(typeof nm);//number
@@ -361,7 +361,7 @@ $("#tc").on("click",function(){
  function testSerialize(){
  
     var sObject=$("form.serialize").serializeObject();
-	var jsonObject=JSON.stringify(sObject);//½«js¶ÔÏó×ª³ÉJSON¶ÔÏó
+	var jsonObject=JSON.stringify(sObject);//å°†jså¯¹è±¡è½¬æˆJSONå¯¹è±¡
 	
     $("#results1").append( "<tt>" + decodeURI($("form.serialize").serialize()) + "</tt>" );
 	$("#results2").append( "<tt>" + jsonObject + "</tt>" );
@@ -369,8 +369,8 @@ $("#tc").on("click",function(){
  }
  
  function testParents(){
-    // $("span").parents("p").css("color","green");//Ò»²ãÊ±£¬²»Í¬µã¿´²»³öÀ´£¬µ±Á½²ãÒÔÉÏÊ±£¬²éÕÒ¸¸ÔªËØ²Å»á¿´µÃ³öÀ´°Â
-    $("#prt").parents("div").css("color","green");// $("#prt").parent("div").css("color","green")ÔòÑ¡Ôñ²»µ½div,ÒòÎªparent()ÊÇ²éÕÒÆ¥ÅäÔªËØµÄÎ¨Ò»¸¸ÔªËØµÄ(Æ¥ÅäÔªËØµÄÖ±½Ó¸¸ÔªËØ°Â)£¬¶øparents()Óëclosest()¹¦ÄÜÀàËÆ£¬»áÖğ¼¶ÏòÉÏ²éÕÒÆ¥ÅäÔªËØµÄ¸¸ÔªËØ
+    // $("span").parents("p").css("color","green");//ä¸€å±‚æ—¶ï¼Œä¸åŒç‚¹çœ‹ä¸å‡ºæ¥ï¼Œå½“ä¸¤å±‚ä»¥ä¸Šæ—¶ï¼ŒæŸ¥æ‰¾çˆ¶å…ƒç´ æ‰ä¼šçœ‹å¾—å‡ºæ¥å¥¥
+    $("#prt").parents("div").css("color","green");// $("#prt").parent("div").css("color","green")åˆ™é€‰æ‹©ä¸åˆ°div,å› ä¸ºparent()æ˜¯æŸ¥æ‰¾åŒ¹é…å…ƒç´ çš„å”¯ä¸€çˆ¶å…ƒç´ çš„(åŒ¹é…å…ƒç´ çš„ç›´æ¥çˆ¶å…ƒç´ å¥¥)ï¼Œè€Œparents()ä¸closest()åŠŸèƒ½ç±»ä¼¼ï¼Œä¼šé€çº§å‘ä¸ŠæŸ¥æ‰¾åŒ¹é…å…ƒç´ çš„çˆ¶å…ƒç´ 
   // $("#prt").closest("div").css("color","green");
  }
 </script>
@@ -378,14 +378,14 @@ $("#tc").on("click",function(){
 
 <body>
  <div style="width:968px; margin:0 auto; text-align:center; font-size:x-large;">
-     <a href="#bottom">Ìøµ½µ×²¿</a>
+     <a href="#bottom">è·³åˆ°åº•éƒ¨</a>
  </div>
 
 
 
 
 
-<h3>È«Ñ¡:<input type="checkbox" name="alls"/><br/></h3>
+<h3>å…¨é€‰:<input type="checkbox" name="alls"/><br/></h3>
 <input type="checkbox"  name="instr" value="apple" />apple<br/>
 <input type="checkbox"  name="instr" value="banana" />banana<br/>
 <input type="checkbox"  name="instr" value="orange" />orange<br/>
@@ -395,11 +395,11 @@ $("#tc").on("click",function(){
 
  <div id="testPC" class="testpp">
     <span >
-	<input type="button" value="parent()Óëcloset()µÄÇø±ğ" id="test" class="testpp"/>
+	<input type="button" value="parent()ä¸closet()çš„åŒºåˆ«" id="test" class="testpp"/>
     </span>
  </div>
  <br />
-<p>------------------clone(true)·½·¨¸´ÖÆµÄÊ±ºò£¬´øÓĞÊÂ¼ş-----------------------------</p>
+<p>------------------clone(true)æ–¹æ³•å¤åˆ¶çš„æ—¶å€™ï¼Œå¸¦æœ‰äº‹ä»¶-----------------------------</p>
 <div class="hehe">
    hello1
 </div><br />
@@ -407,55 +407,55 @@ $("#tc").on("click",function(){
 <div class="hehe">
    hello2
 </div><br />
-<input type="button" value="²âÊÔclone" id="tc"/><br />
+<input type="button" value="æµ‹è¯•clone" id="tc"/><br />
 <div  id="hihi">
 hihi
 </div>
 
-<p>------------------clone(true)·½·¨¸´ÖÆµÄÊ±ºò£¬´øÓĞÊÂ¼ş222222222-----------------------------</p>
-<input  type="button" value="htmlÊÂ¼ş´¦Àí³ÌĞò" id="htmlEventTest" onClick="alert('hello new element');"/><br>
+<p>------------------clone(true)æ–¹æ³•å¤åˆ¶çš„æ—¶å€™ï¼Œå¸¦æœ‰äº‹ä»¶222222222-----------------------------</p>
+<input  type="button" value="htmläº‹ä»¶å¤„ç†ç¨‹åº" id="htmlEventTest" onClick="alert('hello new element');"/><br>
 <div id ="clotest"></div>
-<input type="button" value="²âÊÔclone" id="clo"/><br />
+<input type="button" value="æµ‹è¯•clone" id="clo"/><br />
 
 
-<p>------------------cloneµÄ»ù´¡ÉÏÔÙ¶¯Ì¬¶Ô¸´ÖÆºóµÄÔªËØ½øĞĞÏà¹Ø²Ù×÷£¨Ìí¼ÓÒ»¸öclassÊôĞÔÖµ£©£¬²»»áÓ°ÏìÔ­Ê¼µÄÔªËØ-----------------------------</p>
+<p>------------------cloneçš„åŸºç¡€ä¸Šå†åŠ¨æ€å¯¹å¤åˆ¶åçš„å…ƒç´ è¿›è¡Œç›¸å…³æ“ä½œï¼ˆæ·»åŠ ä¸€ä¸ªclasså±æ€§å€¼ï¼‰ï¼Œä¸ä¼šå½±å“åŸå§‹çš„å…ƒç´ -----------------------------</p>
 <div  id="kiki">
    <span id="ll">hello world</span>
 </div><br />
-<input type="button" value="¶Ô¿ËÂ¡ºóµÄ¸±±¾Ìí¼Ó²Ù×÷" id="tcc"/><br />
+<input type="button" value="å¯¹å…‹éš†åçš„å‰¯æœ¬æ·»åŠ æ“ä½œ" id="tcc"/><br />
 
-<p>------------------²âÊÔremove()-----------------------------</p>
+<p>------------------æµ‹è¯•remove()-----------------------------</p>
 
 <div>This's div area.....<span style="color:red;" class="ccrm">This's span area.........</span></div><br />
-<input type="button" value="²âÊÔremove()·½·¨" id="trm"/><br />
+<input type="button" value="æµ‹è¯•remove()æ–¹æ³•" id="trm"/><br />
 
 
-<p>------------------¹ıÂË·½·¨ £ºhasClass(£©·½·¨²âÊÔ -----------------------------</p>
+<p>------------------è¿‡æ»¤æ–¹æ³• ï¼šhasClass(ï¼‰æ–¹æ³•æµ‹è¯• -----------------------------</p>
 
 <div class="protected" id="animate">sss</div><div></div>
 
-<p>------------------¹ıÂË·½·¨ £ºeq(£©·½·¨²âÊÔ -----------------------------</p>
+<p>------------------è¿‡æ»¤æ–¹æ³• ï¼šeq(ï¼‰æ–¹æ³•æµ‹è¯• -----------------------------</p>
 <ul id="tfilter">
     <li>one</li>
 	<li>tow</li>
 	<li>three</li>
 	<li>four</li>
 </ul><br>
-<input type="button" value="¹ıÂË·½·¨:eq()" id="tfl"/><br />
+<input type="button" value="è¿‡æ»¤æ–¹æ³•:eq()" id="tfl"/><br />
 
 
-<p>------------------ºËĞÄ·½·¨ £ºget(£©·½·¨[»ñÈ¡DOM¶ÔÏó] -----------------------------</p>
+<p>------------------æ ¸å¿ƒæ–¹æ³• ï¼šget(ï¼‰æ–¹æ³•[è·å–DOMå¯¹è±¡] -----------------------------</p>
 <ul id="tfilter1">
     <li style="color:yellow;">one</li>
 	<li>tow</li>
 	<li>three</li>
 	<li>four</li>
 </ul><br>
-<input type="button" value="ºËĞÄget()" id="tfl1"/><br />
+<input type="button" value="æ ¸å¿ƒget()" id="tfl1"/><br />
 
 
 
-<p>------------------¹ıÂË·½·¨ £ºfilter(£©·½·¨²âÊÔ -----------------------------</p>
+<p>------------------è¿‡æ»¤æ–¹æ³• ï¼šfilter(ï¼‰æ–¹æ³•æµ‹è¯• -----------------------------</p>
 
 <div id="flt">
    <p><span>Hello</span></p>
@@ -463,58 +463,58 @@ hihi
    <p class="selected">And Again</p>
 </div>
 
-<input type="button" value="¹ıÂË·½·¨:filter()" id="tf2"/><br />
+<input type="button" value="è¿‡æ»¤æ–¹æ³•:filter()" id="tf2"/><br />
 
-<p>------------------¹ıÂË·½·¨ £ºis(£©·½·¨²âÊÔ ÅĞ¶Ï£¬·µ»Øtrue»òfalse -----------------------------</p>
+<p>------------------è¿‡æ»¤æ–¹æ³• ï¼šis(ï¼‰æ–¹æ³•æµ‹è¯• åˆ¤æ–­ï¼Œè¿”å›trueæˆ–false -----------------------------</p>
 <ul id="tis">
     <li>one</li>
 	<li>tow</li>
 	<li><strong>three</strong><strong>hello</strong></li>
 	<li>four</li>
 </ul><br>
-<input type="button" value="¹ıÂË·½·¨:is()" id="tf2"/><br />
+<input type="button" value="è¿‡æ»¤æ–¹æ³•:is()" id="tf2"/><br />
 
 
 
-<p>------------------²âÊÔ·½·¨ jQuery([selector,[context]])-----------------------------</p>
-<!--Ä¬ÈÏÇé¿öÏÂ, Èç¹ûÃ»ÓĞÖ¸¶¨context²ÎÊı£¬$()½«ÔÚµ±Ç°µÄ HTML documentÖĞ²éÕÒ DOM ÔªËØ£»Èç¹ûÖ¸¶¨ÁË context ²ÎÊı£¬ÈçÒ»¸ö DOM ÔªËØ¼¯»ò jQuery ¶ÔÏó£¬ÄÇ¾Í»áÔÚÕâ¸ö context ÖĞ²éÕÒ¡£ÔÚjQuery 1.3.2ÒÔºó£¬Æä·µ»ØµÄÔªËØË³ĞòµÈÍ¬ÓÚÔÚcontextÖĞ³öÏÖµÄÏÈºóË³Ğò¡£-->
+<p>------------------æµ‹è¯•æ–¹æ³• jQuery([selector,[context]])-----------------------------</p>
+<!--é»˜è®¤æƒ…å†µä¸‹, å¦‚æœæ²¡æœ‰æŒ‡å®šcontextå‚æ•°ï¼Œ$()å°†åœ¨å½“å‰çš„ HTML documentä¸­æŸ¥æ‰¾ DOM å…ƒç´ ï¼›å¦‚æœæŒ‡å®šäº† context å‚æ•°ï¼Œå¦‚ä¸€ä¸ª DOM å…ƒç´ é›†æˆ– jQuery å¯¹è±¡ï¼Œé‚£å°±ä¼šåœ¨è¿™ä¸ª context ä¸­æŸ¥æ‰¾ã€‚åœ¨jQuery 1.3.2ä»¥åï¼Œå…¶è¿”å›çš„å…ƒç´ é¡ºåºç­‰åŒäºåœ¨contextä¸­å‡ºç°çš„å…ˆåé¡ºåºã€‚-->
 <div id="jqy">
   <span>jquery1</span>
   <span><label>jquery2</label></span>
   <span>jquery4</span>
   <span><i>jquery5</i></span>
 </div>
-<input type="button" value="²âÊÔJQuery" id="jqybtn"/><br />
+<input type="button" value="æµ‹è¯•JQuery" id="jqybtn"/><br />
 
 
-<p>------------------°ü¹ü·½·¨ warp()-----------------------------</p>
+<p>------------------åŒ…è£¹æ–¹æ³• warp()-----------------------------</p>
 <p id="th1">hello  </p>
 <span id="twarp">hello world</span><br>
-<input type="button" value="²âÊÔwarp" id="warpbtn"/><br />
+<input type="button" value="æµ‹è¯•warp" id="warpbtn"/><br />
 
 <div class="container">
   <div class="inner">Hello</div>
   <div class="inner">Goodbye</div>
 </div><br>
 
-<p>------------------´®Áª·½·¨ add()---£¿£¿£¿ÓĞ´ıÑĞ¾¿--------------------------</p>
+<p>------------------ä¸²è”æ–¹æ³• add()---ï¼Ÿï¼Ÿï¼Ÿæœ‰å¾…ç ”ç©¶--------------------------</p>
 
 <p id="tadd">Hello</p>
 <span id="sadd">Hello Again</span>
 <br>
-<input type="button" value="²âÊÔadd()" id="addbtn"/><br />
+<input type="button" value="æµ‹è¯•add()" id="addbtn"/><br />
 
 
-<p>------------------É¸Ñ¡·½·¨  next()-----------------------------</p>
+<p>------------------ç­›é€‰æ–¹æ³•  next()-----------------------------</p>
 <div id="tnext"> </div>
 <p>one</p>
 <p>two</p>
 <p>three</p>
 <br>
-<p id="tnext1">Hello</p><p>Hello Again</p><div><p>ÕâÊÇ²»»á±äºìµÄ£¬Óëp²»ÊÇÍ¬±²ÔªËØ</p><span>And Again</span></div>
+<p id="tnext1">Hello</p><p>Hello Again</p><div><p>è¿™æ˜¯ä¸ä¼šå˜çº¢çš„ï¼Œä¸pä¸æ˜¯åŒè¾ˆå…ƒç´ </p><span>And Again</span></div>
 
-<input type="button" value="²âÊÔnext" id="nextbtn"/><br />
-<p>------------------idÎª¶à¸öµÄpÔªËØ£¬²âÊÔ½á¹ûÑ¡ÔñµÄÊÇµÚÒ»¸ö-----------------------------</p>
+<input type="button" value="æµ‹è¯•next" id="nextbtn"/><br />
+<p>------------------idä¸ºå¤šä¸ªçš„på…ƒç´ ï¼Œæµ‹è¯•ç»“æœé€‰æ‹©çš„æ˜¯ç¬¬ä¸€ä¸ª-----------------------------</p>
 <div>
   <p id="tids">hello helln</p>
   <p id="tids">hello world</p>
@@ -523,34 +523,34 @@ hihi
 
 <input type="button" value="open" id="openbtn"/><br />
  
-<p>------------------Ñ¡ÔñÖ¸¶¨ÑùÊ½»òÖ¸¶¨idµÄpÔªËØ<-----------------------------</p>
+<p>------------------é€‰æ‹©æŒ‡å®šæ ·å¼æˆ–æŒ‡å®šidçš„på…ƒç´ <-----------------------------</p>
 <p class="ts">hello helln sssssssssssss</p>
-<input type="button" value="²âÊÔÑ¡Ôñ" id="selectbtn"/><br />
+<input type="button" value="æµ‹è¯•é€‰æ‹©" id="selectbtn"/><br />
 
 
-<p>------------------toggleClass£¨£©·½·¨ÇĞ»»ÑùÊ½£¬ÏÔÊ¾ºÍÒş²Ø-----------------------------</p>
+<p>------------------toggleClassï¼ˆï¼‰æ–¹æ³•åˆ‡æ¢æ ·å¼ï¼Œæ˜¾ç¤ºå’Œéšè—-----------------------------</p>
 <p id="toggleClasst">hello helln</p><br />
 <input type="button" value="toggleClass" onClick="testToggleClass(this)"/><br />
 
 
-<p>------------------Ñ¡ÔñÆ÷£º[attribute]  Æ¥Åä°üº¬¸ø¶¨ÊôĞÔµÄÔªËØ-----------------------------</p>
+<p>------------------é€‰æ‹©å™¨ï¼š[attribute]  åŒ¹é…åŒ…å«ç»™å®šå±æ€§çš„å…ƒç´ -----------------------------</p>
 <p id="attribute" data-attr="hehe"><span>hello world</span><span id="san">hello helln</span></p><br />
-<input type="button" value="ÊôĞÔÑ¡ÔñÆ÷[attribute]" onClick="testAttribute(this)"/><br />
+<input type="button" value="å±æ€§é€‰æ‹©å™¨[attribute]" onClick="testAttribute(this)"/><br />
 
-<h3>------------------jqueryµÄdata()·½·¨ÄÜ»ñÈ¡ÓÉdata×Ô¶¨ÒåµÄÊôĞÔÖµ°Â£¬ĞÂÆæ°¡£¬DOMÖĞÊÇdataset°¡-----------------------------</h3>
+<h3>------------------jqueryçš„data()æ–¹æ³•èƒ½è·å–ç”±dataè‡ªå®šä¹‰çš„å±æ€§å€¼å¥¥ï¼Œæ–°å¥‡å•Šï¼ŒDOMä¸­æ˜¯datasetå•Š-----------------------------</h3>
 <div data-action-move="actions" data-billId="hello" onClick="tttt(this)" >Clike me you can see data-action-move's value </div><br>
 
-<div data-dom-test="div" data-typeof-test="div" data-role="page" data-last-value="43" data-hidden="true" data-options='{"name":"John"}' data-test='100.0'>data()´æÈ¡¸÷ÖÖÀàĞÍµÄÖµ</div>
+<div data-dom-test="div" data-typeof-test="div" data-role="page" data-last-value="43" data-hidden="true" data-options='{"name":"John"}' data-test='100.0'>data()å­˜å–å„ç§ç±»å‹çš„å€¼</div>
 
-<input type="button" value="²âÊÔdata()´æÈ¡µÄÊı¾İÖµÀàĞÍ" onClick="testData()"/><br />
-
-
+<input type="button" value="æµ‹è¯•data()å­˜å–çš„æ•°æ®å€¼ç±»å‹" onClick="testData()"/><br />
 
 
-<p>------------------jquery±íµ¥ĞòÁĞ»¯Ö®½«Ò»¸ö±íµ¥ĞòÁĞ»¯³É¶ÔÏóObject,ÓÃ×Ô¶¨Òå²å¼ş·½·¨serializeObject() -----------------------------</p>
 
-<p id="results1"><b>Results(±íµ¥ĞòÁĞ»¯): </b> </p>
-<p id="results2"><b>Results(±íµ¥ĞòÁĞ»¯³É¶ÔÏó): </b> </p>
+
+<p>------------------jqueryè¡¨å•åºåˆ—åŒ–ä¹‹å°†ä¸€ä¸ªè¡¨å•åºåˆ—åŒ–æˆå¯¹è±¡Object,ç”¨è‡ªå®šä¹‰æ’ä»¶æ–¹æ³•serializeObject() -----------------------------</p>
+
+<p id="results1"><b>Results(è¡¨å•åºåˆ—åŒ–): </b> </p>
+<p id="results2"><b>Results(è¡¨å•åºåˆ—åŒ–æˆå¯¹è±¡): </b> </p>
 <form class="serialize">
   <select name="single">
     <option>Single</option>
@@ -563,55 +563,55 @@ hihi
   </select><br/>
   
   <input type="checkbox" name="check" value="check1"/> check1
-  <input type="checkbox" name="check" value="Ñ¡Ôñ2" checked="checked"/> check2
+  <input type="checkbox" name="check" value="é€‰æ‹©2" checked="checked"/> check2
   
   <input type="radio" name="radio" value="radio1" checked="checked"/> radio1
   <input type="radio" name="radio" value="radio2"/> radio2
-  <!--ÉÏ´«±íµ¥²»»á³öÏÖÔÚĞòÁĞ»¯ÍêµÄ½á¹ûÖĞ-->
+  <!--ä¸Šä¼ è¡¨å•ä¸ä¼šå‡ºç°åœ¨åºåˆ—åŒ–å®Œçš„ç»“æœä¸­-->
   <input type="file" name="myfiles"  />
   <br>
-  ÆÕÍ¨text¿Ø¼ş£º
+  æ™®é€štextæ§ä»¶ï¼š
    <input type="text" name="num" value="200"   />
    <br>
-  Ö»¶Á¿Ø¼ş£º
-  <!--Ö»¶Á¿Ø¼ş¿ÉÒÔ±»ĞòÁĞ»¯-->
-  <input type="text" name="stuName" value="Ğ¡ĞÂ" readonly="readonly"  />
+  åªè¯»æ§ä»¶ï¼š
+  <!--åªè¯»æ§ä»¶å¯ä»¥è¢«åºåˆ—åŒ–-->
+  <input type="text" name="stuName" value="å°æ–°" readonly="readonly"  />
   <br>
-  ½ûÓÃµÄ¿Ø¼ş£º
-  <!--½ûÓÃ¿Ø¼ş²»»á³öÏÖÔÚĞòÁĞ»¯½á¹ûÖĞ-->
+  ç¦ç”¨çš„æ§ä»¶ï¼š
+  <!--ç¦ç”¨æ§ä»¶ä¸ä¼šå‡ºç°åœ¨åºåˆ—åŒ–ç»“æœä¸­-->
    <input type="text" name="age" value="20"  disabled="disabled"/>
    <br>
-  <input type="button" value="±íµ¥ĞòÁĞ»¯" onClick="testSerialize()"/><br />
+  <input type="button" value="è¡¨å•åºåˆ—åŒ–" onClick="testSerialize()"/><br />
 
 </form><br>
-<p>------------------Ñ¡ÔñÆ÷£ºparent()Óëparents()µÄÇø±ğ-----------------------------</p>
+<p>------------------é€‰æ‹©å™¨ï¼šparent()ä¸parents()çš„åŒºåˆ«-----------------------------</p>
 <div>
 <p><span id="prt">Hello</span></p>
 <span>Hello Again</span>
 </div>
-<input type="button" value="Ñ¡ÔñÆ÷£ºparent()Óëparents()" onClick="testParents(this)"/><br />
+<input type="button" value="é€‰æ‹©å™¨ï¼šparent()ä¸parents()" onClick="testParents(this)"/><br />
 
 
-<p>------------------¶à¸ö°ó¶¨click£¬¸÷×ÔÖ´ĞĞ-----------------------------</p>
+<p>------------------å¤šä¸ªç»‘å®šclickï¼Œå„è‡ªæ‰§è¡Œ-----------------------------</p>
 <div class="multipleClick">
-  <input type="button" value="°´Å¥1"  /><br />
-  <input type="button" value="°´Å¥12"  /><br />
-  <input type="button" value="°´Å¥13" /><br />
+  <input type="button" value="æŒ‰é’®1"  /><br />
+  <input type="button" value="æŒ‰é’®12"  /><br />
+  <input type="button" value="æŒ‰é’®13" /><br />
 </div>
 
 <div class="multipleClick">
-  <input type="button" value="°´Å¥11"  /><br />
-  <input type="button" value="°´Å¥112"  /><br />
-  <input type="button" value="°´Å¥113" /><br />
+  <input type="button" value="æŒ‰é’®11"  /><br />
+  <input type="button" value="æŒ‰é’®112"  /><br />
+  <input type="button" value="æŒ‰é’®113" /><br />
 </div>
-<input type="button" value="Ñ¡ÔñÆ÷£ºparent()Óëparents()" onClick="testParents(this)"/><br />
+<input type="button" value="é€‰æ‹©å™¨ï¼šparent()ä¸parents()" onClick="testParents(this)"/><br />
 
-<p>------------------ÊÂ¼ş-click£ºÍ¨¹ıµã»÷µÄÔªËØ£¬¸øÖ¸¶¨ÔªËØ°ó¶¨ÊÂ¼ş´¦Àí³ÌĞò-----------------------------</p>
+<p>------------------äº‹ä»¶-clickï¼šé€šè¿‡ç‚¹å‡»çš„å…ƒç´ ï¼Œç»™æŒ‡å®šå…ƒç´ ç»‘å®šäº‹ä»¶å¤„ç†ç¨‹åº-----------------------------</p>
  
 <p id="clickTest"> </p>
  
-<input type="file" value="´ı°ó¶¨click" id="clickBtn"  /><br />
-<input type="button" value="°ó¶¨click"  onClick="$(this).siblings(':input#clickBtn').click()" /><br />
+<input type="file" value="å¾…ç»‘å®šclick" id="clickBtn"  /><br />
+<input type="button" value="ç»‘å®šclick"  onClick="$(this).siblings(':input#clickBtn').click()" /><br />
 <script>
 //onClick="hk()"
 function hk(){
@@ -622,8 +622,8 @@ var v="http://image.hrofirst.com/101/201602/cadf74ef-f5c3-4549-955e-8aa4db4cd337
 </script>
 
 
-<p>------------------:nth-child Æ¥ÅäÆä¸¸ÔªËØÏÂµÄµÚN¸ö×Ó»òÆæÅ¼ÔªËØ-----------------------------</p>
-<p>-------------:eq(index)' Ö»Æ¥ÅäÒ»¸öÔªËØ£¬¶øÕâ¸ö½«ÎªÃ¿Ò»¸ö¸¸ÔªËØÆ¥Åä×ÓÔªËØ¡£:nth-child´Ó1¿ªÊ¼µÄ£¬¶ø:eq()ÊÇ´Ó0ËãÆğµÄ------------</p>
+<p>------------------:nth-child åŒ¹é…å…¶çˆ¶å…ƒç´ ä¸‹çš„ç¬¬Nä¸ªå­æˆ–å¥‡å¶å…ƒç´ -----------------------------</p>
+<p>-------------:eq(index)' åªåŒ¹é…ä¸€ä¸ªå…ƒç´ ï¼Œè€Œè¿™ä¸ªå°†ä¸ºæ¯ä¸€ä¸ªçˆ¶å…ƒç´ åŒ¹é…å­å…ƒç´ ã€‚:nth-childä»1å¼€å§‹çš„ï¼Œè€Œ:eq()æ˜¯ä»0ç®—èµ·çš„------------</p>
 <div id="nth-child">
 	 <ul>
 	  <li>John</li>
@@ -636,7 +636,7 @@ var v="http://image.hrofirst.com/101/201602/cadf74ef-f5c3-4549-955e-8aa4db4cd337
 	  <li>Ralph</li>
 	</ul>
 </div><br>
-<input type="button" id="nth-child-btn" value="²âÊÔnth-child" onClick="nthChildTest();"/>
+<input type="button" id="nth-child-btn" value="æµ‹è¯•nth-child" onClick="nthChildTest();"/>
 <script>
  function nthChildTest(){
    var xx="";
@@ -646,7 +646,7 @@ var v="http://image.hrofirst.com/101/201602/cadf74ef-f5c3-4549-955e-8aa4db4cd337
    console.log("nth-child="+xx);
    
    var yy="";
-   $("#nth-child ul li:eq(2)").each(function(){//eqÖ»Æ¥ÅäµÚÒ»¸ö¸¸ÔªËØµ×ÏÂµÄµÚÈı¸ö
+   $("#nth-child ul li:eq(2)").each(function(){//eqåªåŒ¹é…ç¬¬ä¸€ä¸ªçˆ¶å…ƒç´ åº•ä¸‹çš„ç¬¬ä¸‰ä¸ª
       yy+=$(this).html();
    });
    console.log("eq="+yy);
@@ -655,7 +655,7 @@ var v="http://image.hrofirst.com/101/201602/cadf74ef-f5c3-4549-955e-8aa4db4cd337
 
 
 
-<p>-------------:eq(index)' Ö»Æ¥ÅäÒ»¸öÔªËØ£¬¶øÕâ¸ö½«ÎªÃ¿Ò»¸ö¸¸ÔªËØÆ¥Åä×ÓÔªËØ¡£:nth-child´Ó1¿ªÊ¼µÄ£¬¶ø:eq()ÊÇ´Ó0ËãÆğµÄ------------</p>
+<p>-------------:eq(index)' åªåŒ¹é…ä¸€ä¸ªå…ƒç´ ï¼Œè€Œè¿™ä¸ªå°†ä¸ºæ¯ä¸€ä¸ªçˆ¶å…ƒç´ åŒ¹é…å­å…ƒç´ ã€‚:nth-childä»1å¼€å§‹çš„ï¼Œè€Œ:eq()æ˜¯ä»0ç®—èµ·çš„------------</p>
  
 <script type="text/javascript">
 $(function () {
@@ -663,7 +663,7 @@ $("#btnTesta").change(function () { alert('aa'); });
 $("#btna").click(function () {
  
  
-//ÅĞ¶ÏÊÇ·ñ°ó¶¨ÁËclickÊÂ¼ş
+//åˆ¤æ–­æ˜¯å¦ç»‘å®šäº†clickäº‹ä»¶
 var objEvt = $._data($("#btnTesta")[0], "events");
 if (objEvt && objEvt["change"]) {
 //console.info(objEvt["click"]);
@@ -678,12 +678,12 @@ alert("Not bind click");
 </script>
 </head>
 <body>
-<input type="button" id="btna" value="²âÊÔÊÇ·ñ°ó¶¨ÊÂ¼ş" />
-<input type="button" id="btnTesta" value="±»²âÊÔ°´Å¥" />
+<input type="button" id="btna" value="æµ‹è¯•æ˜¯å¦ç»‘å®šäº‹ä»¶" />
+<input type="button" id="btnTesta" value="è¢«æµ‹è¯•æŒ‰é’®" />
 
 
-<p>--------------------------jQuery´®Áª·½·¨£ºadd()£º°ÑÓë±í´ïÊ½Æ¥ÅäµÄÔªËØÌí¼Óµ½jQuery¶ÔÏóÖĞ¡£¿ÉÒÔÑ¡Ôñ¶à¸ö¶ÔÏóºóÌí¼ÓÍ¬Ò»¸öÊÂ¼şµÈ£¬²»ÓÃÑ¡ÔñÒ»¸ö¶ÔÏóÔÙ°ó¶¨Ò»¸öÊÂ¼ş--------------------------------</p>
-<p>---------------¸øÁ½¸ö°´Å¥¶¼°ó¶¨clickÊÂ¼ş,°ó¶¨Í¬Ò»¸öÊÂ¼ş------------------------------</p>
+<p>--------------------------jQueryä¸²è”æ–¹æ³•ï¼šadd()ï¼šæŠŠä¸è¡¨è¾¾å¼åŒ¹é…çš„å…ƒç´ æ·»åŠ åˆ°jQueryå¯¹è±¡ä¸­ã€‚å¯ä»¥é€‰æ‹©å¤šä¸ªå¯¹è±¡åæ·»åŠ åŒä¸€ä¸ªäº‹ä»¶ç­‰ï¼Œä¸ç”¨é€‰æ‹©ä¸€ä¸ªå¯¹è±¡å†ç»‘å®šä¸€ä¸ªäº‹ä»¶--------------------------------</p>
+<p>---------------ç»™ä¸¤ä¸ªæŒ‰é’®éƒ½ç»‘å®šclickäº‹ä»¶,ç»‘å®šåŒä¸€ä¸ªäº‹ä»¶------------------------------</p>
  
 <input type="button" value="add1" data-id="addBtn1" />
 <input type="button" value="add2" data-id="addBtn2" />
@@ -691,7 +691,7 @@ alert("Not bind click");
 
 <script>
    $(function(){
-   // $("[data-id='addBtns']").add("[data-id='addBtn2']") ¼´Ê¹ÕâÑùÒ²ÄÜÎª´æÔÚµÄjquery¶ÔÏóÌí¼ÓÉÏÊÂ¼ş
+   // $("[data-id='addBtns']").add("[data-id='addBtn2']") å³ä½¿è¿™æ ·ä¹Ÿèƒ½ä¸ºå­˜åœ¨çš„jqueryå¯¹è±¡æ·»åŠ ä¸Šäº‹ä»¶
       $("[data-id='addBtn1']").add("[data-id='addBtn2']").on("click",function(){
 	  
 	    console.log(123);
@@ -713,20 +713,20 @@ alert("Not bind click");
 	     
 		 
 		 $("[data-mulClass='oo']").click(function(){
-		  $(".hello.world").css("font-weight","bold");//Ñ¡ÔñÓĞ¶à¸öclassµÄÔªËØ
+		  $(".hello.world").css("font-weight","bold");//é€‰æ‹©æœ‰å¤šä¸ªclassçš„å…ƒç´ 
 		  
 		  console.log($(".hello sishdiddjddk").get(0));
 		});
 		
 		 $('[data-select="set"]').click(function(){
-		  $("#zy-mobile-register-type").val("4");//Ñ¡ÔñÓĞ¶à¸öclassµÄÔªËØ
+		  $("#zy-mobile-register-type").val("4");//é€‰æ‹©æœ‰å¤šä¸ªclassçš„å…ƒç´ 
 		});
 		
 		
 		/*
 		------------------.map()------------------------------
-		Í¨¹ıÒ»¸öº¯ÊıÆ¥Åäµ±Ç°¼¯ºÏÖĞµÄÃ¿¸öÔªËØ,²úÉúÒ»¸ö°üº¬ĞÂµÄjQuery¶ÔÏó
-		ÓÉÓÚ·µ»ØÖµÊÇÒ»¸öjQuery°ü¹üµÄÊı×é£¬ËùÒÔÍ¨³£»áÊ¹ÓÃget()·½·¨½«Æä×ª»»³ÉÆÕÍ¨µÄÊı×é¡£
+		é€šè¿‡ä¸€ä¸ªå‡½æ•°åŒ¹é…å½“å‰é›†åˆä¸­çš„æ¯ä¸ªå…ƒç´ ,äº§ç”Ÿä¸€ä¸ªåŒ…å«æ–°çš„jQueryå¯¹è±¡
+		ç”±äºè¿”å›å€¼æ˜¯ä¸€ä¸ªjQueryåŒ…è£¹çš„æ•°ç»„ï¼Œæ‰€ä»¥é€šå¸¸ä¼šä½¿ç”¨get()æ–¹æ³•å°†å…¶è½¬æ¢æˆæ™®é€šçš„æ•°ç»„ã€‚
 		*/
 		$('[data-function-map="map"] + :button').click(function(){
 		   var ary=$('[data-function-map="map"] input').map(function(){
@@ -736,27 +736,27 @@ alert("Not bind click");
 			   
 		  }); 
 		  
-		  /*Í¨¹ıÒ»¸öº¯ÊıÆ¥Åäµ±Ç°¼¯ºÏÖĞµÄÃ¿¸öÔªËØ,²úÉúÒ»¸ö°üº¬ĞÂµÄjQuery¶ÔÏó ¿ÉÒÔÓÃ.get()×ªÎªjs¶ÔÏó£¬Ò²¾ÍÊÇÊı×é*/
+		  /*é€šè¿‡ä¸€ä¸ªå‡½æ•°åŒ¹é…å½“å‰é›†åˆä¸­çš„æ¯ä¸ªå…ƒç´ ,äº§ç”Ÿä¸€ä¸ªåŒ…å«æ–°çš„jQueryå¯¹è±¡ å¯ä»¥ç”¨.get()è½¬ä¸ºjså¯¹è±¡ï¼Œä¹Ÿå°±æ˜¯æ•°ç»„*/
 		  var newArray=$('[data-function-map="map"] input').map(function(){
 		      return  $(this).val();
 		  });
 		  
-		  console.log(newArray.get());// ["John", "password", "http://ejohn.org/"]     ×¢£ºary.[0]»áÖ»»ñÈ¡jQueryÊı×éµÄµÚÒ»¸öÔªËØ  
+		  console.log(newArray.get());// ["John", "password", "http://ejohn.org/"]     æ³¨ï¼šary.[0]ä¼šåªè·å–jQueryæ•°ç»„çš„ç¬¬ä¸€ä¸ªå…ƒç´   
 		  
 		  console.log(newArray.get().join());//John,password,http://ejohn.org/
 		  
 		});
 		
-		/*×Ô¼ºÀ©Õ¹µÄjQuery²å¼ş£¬Æ½¾ù»¯divµÄ¸ß¶È£¬ÒÔ×î¸ßµÄÎª×¼
-		  thisÖ¸Ïò±»Ñ¡ÔñÔªËØµÄjQuery¶ÔÏó
+		/*è‡ªå·±æ‰©å±•çš„jQueryæ’ä»¶ï¼Œå¹³å‡åŒ–divçš„é«˜åº¦ï¼Œä»¥æœ€é«˜çš„ä¸ºå‡†
+		  thisæŒ‡å‘è¢«é€‰æ‹©å…ƒç´ çš„jQueryå¯¹è±¡
 		*/
 		$.fn.equalizeHeights = function() {
-		  /*iÊÇÏÂ±ê£¬eÊÇ±éÀúµÄÑ¡ÔñÔªËØµÄDOM¶ÔÏó*/
+		  /*iæ˜¯ä¸‹æ ‡ï¼Œeæ˜¯éå†çš„é€‰æ‹©å…ƒç´ çš„DOMå¯¹è±¡*/
 		  var maxHeight = this.map(function(i,e) {
 			return $(e).height();
 		  }).get();
 		 
-		  return this.height( Math.max.apply(this, maxHeight) );//´«¸øapply·½·¨µÄµÚÒ»¸ö²ÎÊı±ØĞëÊÇthis°¥£¬Math²»¿ÉÒÔ  and..why????
+		  return this.height( Math.max.apply(this, maxHeight) );//ä¼ ç»™applyæ–¹æ³•çš„ç¬¬ä¸€ä¸ªå‚æ•°å¿…é¡»æ˜¯thiså“ï¼ŒMathä¸å¯ä»¥  and..why????
 		};
 		
 	  $('[data-math="math"]').click(function(){
@@ -771,38 +771,38 @@ alert("Not bind click");
      
 
 	var st=$(ts).next("div").scrollTop( );
-	var os=ts.offsetTop;//divÔªËØ¾àÀëÒ³Ãæ¶¥²¿µÄÎ»ÖÃ
+	var os=ts.offsetTop;//divå…ƒç´ è·ç¦»é¡µé¢é¡¶éƒ¨çš„ä½ç½®
 	 
 	 console.log(st);
 	  
 	   
-	  console.log("$(document).scrollTop():"+$(document).scrollTop());//µ±Ç°ÎÄµµµÄ»¬¿éµÄÎ»ÖÃ
+	  console.log("$(document).scrollTop():"+$(document).scrollTop());//å½“å‰æ–‡æ¡£çš„æ»‘å—çš„ä½ç½®
 	  console.log("ts.offsetTop:"+os);
 	  
-	  //ÉèÖÃÒ³ÃæÎÄµµµÄ¹ö¶¯ÌõµÄÎ»ÖÃ
+	  //è®¾ç½®é¡µé¢æ–‡æ¡£çš„æ»šåŠ¨æ¡çš„ä½ç½®
 	  //$(document).scrollTop($(document).scrollTop()-500)
   } 
    
 </script>
-<h3>---------------jQueryÑ¡ÔñÆ÷»ù´¡£ºselector1,selector2,selectorN.Ò»´ÎÑ¡Ôñ¶à¸öÑ¡ÔñÆ÷£¬·½±ãÈ¥×öÍ¬Ò»¼şÊÂ¡£±Èadd()·½·¨¼ò½à£¬µ±È»add()·½·¨ÓÃÔÚÊÊµ±µÄµØ·½»¹ÊÇÂùºÃÓÃµÄ£¬ÌØ±ğÊÇ·½·¨ÖĞ£¬Öğ¸öÌí¼ÓÑ¡ÔñÆ÷µ½Ò»Æğ¡£------------------------------</h3>
+<h3>---------------jQueryé€‰æ‹©å™¨åŸºç¡€ï¼šselector1,selector2,selectorN.ä¸€æ¬¡é€‰æ‹©å¤šä¸ªé€‰æ‹©å™¨ï¼Œæ–¹ä¾¿å»åšåŒä¸€ä»¶äº‹ã€‚æ¯”add()æ–¹æ³•ç®€æ´ï¼Œå½“ç„¶add()æ–¹æ³•ç”¨åœ¨é€‚å½“çš„åœ°æ–¹è¿˜æ˜¯è›®å¥½ç”¨çš„ï¼Œç‰¹åˆ«æ˜¯æ–¹æ³•ä¸­ï¼Œé€ä¸ªæ·»åŠ é€‰æ‹©å™¨åˆ°ä¸€èµ·ã€‚------------------------------</h3>
  
 <p id="oneId">selector1</p>
 <p  id="twoId">selector1</p>
-<input type="button" value="µã»÷¸ø¶à¸ö¶ÎÂäÌí¼ÓÑùÊ½ºÍtitle--¶à¸öID" data-ids="oo" /><br>
+<input type="button" value="ç‚¹å‡»ç»™å¤šä¸ªæ®µè½æ·»åŠ æ ·å¼å’Œtitle--å¤šä¸ªID" data-ids="oo" /><br>
 
-<h3>--------------------Ñ¡ÔñÓĞ¶à¸öclassµÄÔªËØ°Â-----------------------------------</h3>
+<h3>--------------------é€‰æ‹©æœ‰å¤šä¸ªclassçš„å…ƒç´ å¥¥-----------------------------------</h3>
 <p  class="hello world">selector1</p>
  
-<input type="button" value="ÉÏÃæ¶ÎÂä»á±ä´Ö" data-mulClass="oo" /><br>
+<input type="button" value="ä¸Šé¢æ®µè½ä¼šå˜ç²—" data-mulClass="oo" /><br>
 
-<h3>--------------------¸øÏÂÏÂÀ­²Ëµ¥¸³Öµ val(ÏÂÀ­¿òµÄvalueÖµ)-----------------------------------</h3>
+<h3>--------------------ç»™ä¸‹ä¸‹æ‹‰èœå•èµ‹å€¼ val(ä¸‹æ‹‰æ¡†çš„valueå€¼)-----------------------------------</h3>
 <select id="zy-mobile-register-type"   name="registerType" >
-	<option value="1">Æ»¹û</option>
-	<option value="2">éÙ×Ó</option>
-	<option value="3">Î÷¹Ï</option>
-	<option value="4">ÌÒ×Ó</option>
+	<option value="1">è‹¹æœ</option>
+	<option value="2">æ©˜å­</option>
+	<option value="3">è¥¿ç“œ</option>
+	<option value="4">æ¡ƒå­</option>
 </select>
-<input type="button" value="val()¿ÉÒÔ¸øÏÂÀ­²Ëµ¥¸³Öµ" data-select="set"  /><br>
+<input type="button" value="val()å¯ä»¥ç»™ä¸‹æ‹‰èœå•èµ‹å€¼" data-select="set"  /><br>
  
  <h3>--------------------.map()-----------------------------------</h3>
  <p data-map-p="p"><b>Values: </b></p>
@@ -812,11 +812,11 @@ alert("Not bind click");
   <input type="text" name="url" value="http://ejohn.org/"/>
   
 </form>
-<input type="button" value="$.map()º¯Êı" data-map="map"   /><br>
+<input type="button" value="$.map()å‡½æ•°" data-map="map"   /><br>
  
  
  
- <h3>--------------------.mapµÄÊµÀı£¬Í¨¹ı¶ÔÑ¡ÔñÔªËØ·µ»ØÖ¸¶¨µÄÖµÆ´³ÉµÄÊı×é£¬Æ½ºâdivµÄ¸ß¶È-----------------------------------</h3>
+ <h3>--------------------.mapçš„å®ä¾‹ï¼Œé€šè¿‡å¯¹é€‰æ‹©å…ƒç´ è¿”å›æŒ‡å®šçš„å€¼æ‹¼æˆçš„æ•°ç»„ï¼Œå¹³è¡¡divçš„é«˜åº¦-----------------------------------</h3>
     <input type="button" value="equalize div heights" data-math="math">
  
 	<div class="math">
@@ -829,14 +829,14 @@ alert("Not bind click");
  
  
  
- <h3>--------------------.scrollTop() »ñÈ¡Æ¥ÅäµÄÔªËØ¼¯ºÏÖĞµÚÒ»¸öÔªËØµÄµ±Ç°´¹Ö±¹ö¶¯ÌõµÄÎ»ÖÃ»òÉèÖÃÃ¿¸öÆ¥ÅäÔªËØµÄ´¹Ö±¹ö¶¯ÌõÎ»ÖÃ--------- -</h3>
+ <h3>--------------------.scrollTop() è·å–åŒ¹é…çš„å…ƒç´ é›†åˆä¸­ç¬¬ä¸€ä¸ªå…ƒç´ çš„å½“å‰å‚ç›´æ»šåŠ¨æ¡çš„ä½ç½®æˆ–è®¾ç½®æ¯ä¸ªåŒ¹é…å…ƒç´ çš„å‚ç›´æ»šåŠ¨æ¡ä½ç½®--------- -</h3>
  
  <input type="button" value="scrollTop()"  onClick="testScrollTop(this)">
  <div data-scroll-top="scroll" style="width:300px; height:300px; margin:10px auto; padding:10px; background-color:#eee; overflow:auto; border:1px solid #FFFF00;">
-  <h3 style="text-align:center;">ÓĞ¹ö¶¯ÌõµÄdivÔªËØ</h3>
+  <h3 style="text-align:center;">æœ‰æ»šåŠ¨æ¡çš„divå…ƒç´ </h3>
   <div style="width:600px; height:600px; margin:10px auto; text-indent:30px;">
   
-       ÍÏ¶¯¹ö¶¯Ìõ£¬È»ºóµã»÷°´Å¥²âÊÔdivÔªËØµÄ¹ö¶¯ÌõµÄ´¹Ö±Î»ÖÃ¡£ »ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ»ñÈ¡µ±Ç°ÔªËØ¹ö¶¯ÌõµÄÎ»ÖÃ
+       æ‹–åŠ¨æ»šåŠ¨æ¡ï¼Œç„¶åç‚¹å‡»æŒ‰é’®æµ‹è¯•divå…ƒç´ çš„æ»šåŠ¨æ¡çš„å‚ç›´ä½ç½®ã€‚ è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®è·å–å½“å‰å…ƒç´ æ»šåŠ¨æ¡çš„ä½ç½®
  
   </div>
     
@@ -854,10 +854,10 @@ alert("Not bind click");
  
  
  
-  <a name="bottom" style=" opacity:0;">»Øµ½¶¥²¿</a>
+  <a name="bottom" style=" opacity:0;">å›åˆ°é¡¶éƒ¨</a>
  <div style="width:968px; margin:0 auto; text-align:center; font-size:x-large;">
  	
-     <a href="#">»Øµ½¶¥²¿</a>
+     <a href="#">å›åˆ°é¡¶éƒ¨</a>
  </div>
 
 </body>

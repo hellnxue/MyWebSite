@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£ä½ è¯´</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 function test1(){
@@ -56,28 +56,28 @@ function test2(){
   var a2=aa.charAt(1);
   var a3=aa.charCodeAt(1);
   var a4=aa.concat("!");
-  console.log("aa[1]="+a1);//×Ö·û´®ÀàĞÍ¿ÉÒÔÖ±½ÓÏñÊı×éÒ»Ñù¸ù¾İË÷ÒıÈ¡×Ö·û
-   console.log("aa.charAt(1)="+a2);//Êä³öÖ¸¶¨Î»ÖÃµÄ×Ö·û
-	console.log("aa.charCodeAt(1)="+a3);//Êä³öÖ¸¶¨×Ö·ûµÄ×Ö·û±àÂë
-	  console.log("aa.concat(\"!\")="+a4);//Æ´½Ó×Ö·û£¬¸ú+ºÅÀà×÷ÓÃÒ»Ñù
+  console.log("aa[1]="+a1);//å­—ç¬¦ä¸²ç±»å‹å¯ä»¥ç›´æ¥åƒæ•°ç»„ä¸€æ ·æ ¹æ®ç´¢å¼•å–å­—ç¬¦
+   console.log("aa.charAt(1)="+a2);//è¾“å‡ºæŒ‡å®šä½ç½®çš„å­—ç¬¦
+	console.log("aa.charCodeAt(1)="+a3);//è¾“å‡ºæŒ‡å®šå­—ç¬¦çš„å­—ç¬¦ç¼–ç 
+	  console.log("aa.concat(\"!\")="+a4);//æ‹¼æ¥å­—ç¬¦ï¼Œè·Ÿ+å·ç±»ä½œç”¨ä¸€æ ·
 
 }
 
 function substring1(){
   var cname="hello world";
-  var result=cname.substring(0,3);//substringÈ¡µÃÁ½¸öÖ¸¶¨ÏÂ±êÖ®¼äµÄ×Ö·û£¬µÚ¶ş¸ö²ÎÊıÄÇ¸öÎ»ÖÃµÄ×Ö·û½ØÈ¡²»µ½µÄ
+  var result=cname.substring(0,3);//substringå–å¾—ä¸¤ä¸ªæŒ‡å®šä¸‹æ ‡ä¹‹é—´çš„å­—ç¬¦ï¼Œç¬¬äºŒä¸ªå‚æ•°é‚£ä¸ªä½ç½®çš„å­—ç¬¦æˆªå–ä¸åˆ°çš„
   console.log("test substring=="+result);//hel
   
-  var resultsub=cname.substr(0,3);//substrÈ¡µÃ´ÓstartÏÂ±ê¿ªÊ¼µÄÖ¸¶¨³¤¶ÈµÄ×Ö·û
+  var resultsub=cname.substr(0,3);//substrå–å¾—ä»startä¸‹æ ‡å¼€å§‹çš„æŒ‡å®šé•¿åº¦çš„å­—ç¬¦
   console.log("test substr=="+resultsub);//hel
   
-  console.log(cname.substr(2));//llo world µ¥¶ÀÒ»¸ö²ÎÊı´ú±í´ÓÄÄ¸öÎ»ÖÃ¿ªÊ¼½ØÈ¡ºóÃæËùÓĞµÄ×Ö·û
+  console.log(cname.substr(2));//llo world å•ç‹¬ä¸€ä¸ªå‚æ•°ä»£è¡¨ä»å“ªä¸ªä½ç½®å¼€å§‹æˆªå–åé¢æ‰€æœ‰çš„å­—ç¬¦
   
-  console.log("ÁõÑ©Æ¼".substring(3));//´ÓË÷ÒıÎª3µÄÎ»ÖÃ½ØÈ¡µ½×îºó
+  console.log("åˆ˜é›ªè".substring(3));//ä»ç´¢å¼•ä¸º3çš„ä½ç½®æˆªå–åˆ°æœ€å
 }
 
 
-//²âÊÔbreak 
+//æµ‹è¯•break 
 function testbreak(){
   var num=0;
   
@@ -88,14 +88,14 @@ function testbreak(){
 	  console.log("i===="+i);
 	  
 	  if(i==3){
-	    break;// breakÊÇÌø³öËüËùÔÚµÄµ±Ç°Ñ­»·£¬¼ÌĞøÖ´ĞĞÑ­»·ºóµÄ´úÂë£¬Èç¹ûËü±»¶à²ãÑ­»·°üº¬£¬»á¼ÌĞøÖ´ĞĞÍâ²ãÑ­»·
+	    break;// breakæ˜¯è·³å‡ºå®ƒæ‰€åœ¨çš„å½“å‰å¾ªç¯ï¼Œç»§ç»­æ‰§è¡Œå¾ªç¯åçš„ä»£ç ï¼Œå¦‚æœå®ƒè¢«å¤šå±‚å¾ªç¯åŒ…å«ï¼Œä¼šç»§ç»­æ‰§è¡Œå¤–å±‚å¾ªç¯
 	  }
 	  num++;
 	}
 	
   }
   
-  console.log(num);//½á¹ûÎª20£¬µ±iÎª3Ê±£¬ÓÃbreakÌø³öÁËÀï²ãµÄforÑ­»·£¨var=jµÄ£©,¼ÌĞøÖ´ĞĞ×îÍâ²ãÑ­»·£¬×Ü¹²Ö´ĞĞ4´ÎÍâ²ãÑ­»·£¬Ã¿´ÎÍâ²ãÑ­»·¶¼°üº¬ÓĞ5´ÎÄÚ²ãÑ­»·£¬4*5=20
+  console.log(num);//ç»“æœä¸º20ï¼Œå½“iä¸º3æ—¶ï¼Œç”¨breakè·³å‡ºäº†é‡Œå±‚çš„forå¾ªç¯ï¼ˆvar=jçš„ï¼‰,ç»§ç»­æ‰§è¡Œæœ€å¤–å±‚å¾ªç¯ï¼Œæ€»å…±æ‰§è¡Œ4æ¬¡å¤–å±‚å¾ªç¯ï¼Œæ¯æ¬¡å¤–å±‚å¾ªç¯éƒ½åŒ…å«æœ‰5æ¬¡å†…å±‚å¾ªç¯ï¼Œ4*5=20
 }
 
 function testlablebreak(){
@@ -108,7 +108,7 @@ function testlablebreak(){
 	  console.log("i===="+i);
 	  
 	  if(i==3){
-	    break cases;//Ìø³öÓĞcases±ê¼ÇµÄÄÇ¸öforÑ­»·
+	    break cases;//è·³å‡ºæœ‰casesæ ‡è®°çš„é‚£ä¸ªforå¾ªç¯
 	  }
 	  num++;
 	}
@@ -121,7 +121,7 @@ function testlablebreak(){
 }
 
  function test11(){
-    var string="Java¹¤³ÌÊ¦ÃæÊÔÌâ(Èı´ó¿ò¼ÜSSH).txt";
+    var string="Javaå·¥ç¨‹å¸ˆé¢è¯•é¢˜(ä¸‰å¤§æ¡†æ¶SSH).txt";
 	 
 	var r=string.replace(string.substring(10,string.indexOf(".")-4),"...")
     console.log(r);
@@ -141,7 +141,7 @@ function testlablebreak(){
 	console.log(myarray);
  }
  
- /*×Ö·û´®µÄÄ£Ê½Æ¥Åä·½·¨*/
+ /*å­—ç¬¦ä¸²çš„æ¨¡å¼åŒ¹é…æ–¹æ³•*/
  function matchTest(){
   /* var text="cat,bat,sat,fat";
    var pattern=/.at/g;
@@ -191,14 +191,14 @@ function testlablebreak(){
  
  }
 
- /*ÓÃÕıÔòÌæ»»×Ó×Ö·û´®ÖĞËùÓĞÆ¥ÅäµÄÏî*/
+ /*ç”¨æ­£åˆ™æ›¿æ¢å­å­—ç¬¦ä¸²ä¸­æ‰€æœ‰åŒ¹é…çš„é¡¹*/
  function replaceAllTest(){
      var str="hello world world";
-     var a=str.replace("h","H");//Ö»ÄÜÌæ»»µÚÒ»¸ö×Ó×Ö·û
+     var a=str.replace("h","H");//åªèƒ½æ›¿æ¢ç¬¬ä¸€ä¸ªå­å­—ç¬¦
     // console.log(a);
 
      var temp="d";
-     /*ÓÃÕıÔòRegExpÀàĞÍ¿ÉÒÔ´«Èë±äÁ¿£¬¶¯Ì¬Ìæ»»À²*/
+     /*ç”¨æ­£åˆ™RegExpç±»å‹å¯ä»¥ä¼ å…¥å˜é‡ï¼ŒåŠ¨æ€æ›¿æ¢å•¦*/
      var b=str.replace(new RegExp(temp,'gm'),"D");
      console.log(b);
  }
@@ -208,25 +208,25 @@ function testlablebreak(){
 </head>
 
 <body style="width:">
-<input type="button" value="²âÊÔ1" onClick="test1()"/></br>
-<input type="button" value="²âÊÔ2" onClick="test2()"/></br>
-<input type="button" value="½ØÈ¡substring()" onClick="substring1()"/></br>
+<input type="button" value="æµ‹è¯•1" onClick="test1()"/></br>
+<input type="button" value="æµ‹è¯•2" onClick="test2()"/></br>
+<input type="button" value="æˆªå–substring()" onClick="substring1()"/></br>
 
 
-<input type="button" value="Ìø³öµ±Ç°forÑ­»·-break" onClick="testbreak()"/></br>
+<input type="button" value="è·³å‡ºå½“å‰forå¾ªç¯-break" onClick="testbreak()"/></br>
 
-<input type="button" value="Ìø³ö×îÍâ²ãÑ­»·-lable break" onClick="testlablebreak()"/></br>
+<input type="button" value="è·³å‡ºæœ€å¤–å±‚å¾ªç¯-lable break" onClick="testlablebreak()"/></br>
 
-<input type="button" value="³¤Ãû×ÖÖĞ¼äÓÃµã±íÊ¾" onclick="test11()"/>
-<p>--------------indexOf()È¡×Ö·ûµÄÎ»ÖÃÊÇ´ÓÇ°ÏòºóÈ¡£¬lastIndexOf()ÊÇ´ÓºóÏòÇ°È¡------------------------------</p>
-<input type="button" value="lastIndexOf()·½·¨²âÊÔ" onclick="test12()"/>
+<input type="button" value="é•¿åå­—ä¸­é—´ç”¨ç‚¹è¡¨ç¤º" onclick="test11()"/>
+<p>--------------indexOf()å–å­—ç¬¦çš„ä½ç½®æ˜¯ä»å‰å‘åå–ï¼ŒlastIndexOf()æ˜¯ä»åå‘å‰å–------------------------------</p>
+<input type="button" value="lastIndexOf()æ–¹æ³•æµ‹è¯•" onclick="test12()"/>
 
-<input type="button" value="split()¸ù¾İ¶à¸ö×Ö·û½øĞĞ·Ö¸î" onclick="splitTest()"  style="display:block;"/>
+<input type="button" value="split()æ ¹æ®å¤šä¸ªå­—ç¬¦è¿›è¡Œåˆ†å‰²" onclick="splitTest()"  style="display:block;"/>
 
 
-<input type="button" value="×Ö·û´®µÄÄ£Ê½Æ¥Åä·½·¨" onclick="matchTest()"  style="display:block;"/>
+<input type="button" value="å­—ç¬¦ä¸²çš„æ¨¡å¼åŒ¹é…æ–¹æ³•" onclick="matchTest()"  style="display:block;"/>
 
- <input type="button" value="Ìæ»»·½·¨replaceµÄ²ÎÊıÎª±äÁ¿Ê±Ìæ»»ËùÓĞÆ¥ÅäµÄÏî" onclick="replaceAllTest()"  style="display:block;"/>
+ <input type="button" value="æ›¿æ¢æ–¹æ³•replaceçš„å‚æ•°ä¸ºå˜é‡æ—¶æ›¿æ¢æ‰€æœ‰åŒ¹é…çš„é¡¹" onclick="replaceAllTest()"  style="display:block;"/>
 
 </body>
 </html>

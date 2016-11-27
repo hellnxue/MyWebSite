@@ -1,17 +1,17 @@
 <!DOCTYPE html >
 <html >
 <head>
-<metacharset="gb2312" />
+<meta charset="utf-8" />
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 
-<title>ÎŞ±êÌâÎÄµµ</title>
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 
 </head>
 
 <body>
 <p id="scroll">hello world</p>
 <p id="pp">test p</p>
-<input type="button" value="bodyµÄ°´Å¥ÊÂ¼ş" id="bd" onClick="null"/><br />
+<input type="button" value="bodyçš„æŒ‰é’®äº‹ä»¶" id="bd" onClick="null"/><br />
 
 <div id="myDiv">querySelector</div><br />
 <input type="button" value="querySelector" id="bq" onClick="test1();"/><br />
@@ -24,24 +24,24 @@
 
 <div class="myClass1">getElementsByClassName1</div><br />
 <div class="myClass2">getElementsByClassName1</div><br />
-<input type="button" value="getElementsByClassName·½·¨" id="bq" onClick="test2();"/><br />
+<input type="button" value="getElementsByClassNameæ–¹æ³•" id="bq" onClick="test2();"/><br />
 
-<p  style="color:#FF99FF">--------------------------innerHTMLÊôĞÔ-----------------------------</p>
+<p  style="color:#FF99FF">--------------------------innerHTMLå±æ€§-----------------------------</p>
 <div id="tinhl"><span>hello innerHTML</span></div><br><br>
 <div id="tinhl2">hello&welcome,"reader"!</div>
-<input type="button" value="innerHTML²âÊÔ" id="tinhlbtn" onClick="test3();"/><br />
+<input type="button" value="innerHTMLæµ‹è¯•" id="tinhlbtn" onClick="test3();"/><br />
 <table id="table">
   <tr>
     <td>hello</td>
   </tr>
 </table><br>
 
-<p  style="color:#FF99FF">--------------------------outerHTMLÊôĞÔ-----------------------------</p>
+<p  style="color:#FF99FF">--------------------------outerHTMLå±æ€§-----------------------------</p>
 <div id="outt"><span>hello outerHTML</span></div><br><br>
 input:<div id="inputs"></div>
-<input type="button" value="outerHTML²âÊÔ" id="outbtn" onClick="test4();"/><br />
+<input type="button" value="outerHTMLæµ‹è¯•" id="outbtn" onClick="test4();"/><br />
 
-<p  style="color:#FF99FF">--------------------------childernÊôĞÔ-----------------------------</p>
+<p  style="color:#FF99FF">--------------------------childernå±æ€§-----------------------------</p>
 
 <div id="childt">
    <span>hello childern</span><br>
@@ -49,10 +49,10 @@ input:<div id="inputs"></div>
    <span>hello childern</span>
 </div><br> 
 input:<div id="childi"></div>
-<input type="button" value="childernÊôĞÔ²âÊÔ" id="childbtn" onClick="test5();"/><br />
+<input type="button" value="childernå±æ€§æµ‹è¯•" id="childbtn" onClick="test5();"/><br />
  
  
- <p  style="color:#FF99FF">--------------------------innerTextÎÄ±¾ÊôĞÔ-----------------------------</p>
+ <p  style="color:#FF99FF">--------------------------innerTextæ–‡æœ¬å±æ€§-----------------------------</p>
 <div id="innert">
    hello innerText
    <span>innerText1</span><br>
@@ -60,7 +60,7 @@ input:<div id="childi"></div>
    <span>innerText2</span><br>
 </div><br> 
 input:<div id="inneri"></div>
-<input type="button" value="innerTextÎÄ±¾ÊôĞÔ" id="innerbtn" onClick="test6();"/><br />
+<input type="button" value="innerTextæ–‡æœ¬å±æ€§" id="innerbtn" onClick="test6();"/><br />
  
  
 
@@ -70,16 +70,16 @@ input:<div id="inneri"></div>
     
  });
 
- //querySelector·½·¨
+ //querySelectoræ–¹æ³•
  function test1(){
 
     var divDom=$("[data-type='querySelector']")[0];
-    /*È¡µÃdivµÄºó´úÔªËØpµÄDOMµÄÒıÓÃ£¬²¢ÇÒÊÇÈ¡µÃµÚÒ»¸öPÔªËØµÄÒıÓÃ*/
+    /*å–å¾—divçš„åä»£å…ƒç´ pçš„DOMçš„å¼•ç”¨ï¼Œå¹¶ä¸”æ˜¯å–å¾—ç¬¬ä¸€ä¸ªPå…ƒç´ çš„å¼•ç”¨*/
     var pDom=divDom.querySelector("p");
     var pName=pDom.nodeName;//P
     var cLen=pDom.childNodes.length;//1
 
-    /*PÔªËØµÄ×Ó½Úµã¾ÍÊÇTextÀàĞÍ½Úµã£¬Ö»ÓĞText½ÚµãµÄnodeValueÓĞÖµ£¬Öµ¾ÍÊÇÎÄ±¾*/
+    /*På…ƒç´ çš„å­èŠ‚ç‚¹å°±æ˜¯Textç±»å‹èŠ‚ç‚¹ï¼Œåªæœ‰TextèŠ‚ç‚¹çš„nodeValueæœ‰å€¼ï¼Œå€¼å°±æ˜¯æ–‡æœ¬*/
     var cNd=pDom.childNodes[0].nodeValue;//hello 1 
     var cType=pDom.childNodes[0].nodeType;//3
 
@@ -89,37 +89,37 @@ input:<div id="inneri"></div>
     console.log(cLen);
     console.log(cNd);
     console.log(cType);
-    //console.log("div"=="div");//×ÖÄ¸×Ö·û´®ÖµÇø·Ö´óĞ¡Ğ´
+    //console.log("div"=="div");//å­—æ¯å­—ç¬¦ä¸²å€¼åŒºåˆ†å¤§å°å†™
 
     
 
  }
  
  function test2(){
-    var div=document.getElementsByClassName("myClass myClass2");//Õâ¸ö·½·¨²»ÄÜÍ¬Ê±Ñ¡È¡¶à¸öclass°¥
+    var div=document.getElementsByClassName("myClass myClass2");//è¿™ä¸ªæ–¹æ³•ä¸èƒ½åŒæ—¶é€‰å–å¤šä¸ªclasså“
   console.log(div);
   console.log(div[0].firstChild.nodeValue);
  }
  
  function test3(){
-     var html=$("#tinhl")[0].innerHTML;//»ñÈ¡×ÓÊ÷µÄhtml
+     var html=$("#tinhl")[0].innerHTML;//è·å–å­æ ‘çš„html
      console.log(html);
-     $("#tinhl")[0].innerHTML="<div>hello world</div>";//ÉèÖÃĞÂµÄhtmlÌæ»»Ô­À´µÄ×ÓDOMÊ÷
+     $("#tinhl")[0].innerHTML="<div>hello world</div>";//è®¾ç½®æ–°çš„htmlæ›¿æ¢åŸæ¥çš„å­DOMæ ‘
      console.log($("#tinhl")[0].innerHTML);
    
-   $("#tinhl")[0].innerHTML="hello&welcome,<b>\"reader\"!</b>";//ÉèÖÃĞÂµÄhtml
-   console.log($("#tinhl")[0].innerHTML);//½á¹ûÎª hello&amp;welcome,<b>"reader"!</b>
+   $("#tinhl")[0].innerHTML="hello&welcome,<b>\"reader\"!</b>";//è®¾ç½®æ–°çš„html
+   console.log($("#tinhl")[0].innerHTML);//ç»“æœä¸º hello&amp;welcome,<b>"reader"!</b>
    
    console.log($("#tinhl2")[0].innerHTML);
    
-    $("#tinhl")[0].innerHTML="_<script defer>alert(123);<\/script>";//ÓÃinnerHTMLÉèÖÃscript½Å±¾Ã»×÷ÓÃĞ§¹û
-    $("#tinhl")[0].innerHTML="<style type=\"text/css\">body {background-color:red;}<\/style>";//innerHTMLÖ§³Ö²åÈë<style>ÔªËØ£¨ÊÇÖ¸¿ÉÒÔÍ¨¹ıÕâ¸öÔªËØäÖÈ¾Ò³Ãæ£©
+    $("#tinhl")[0].innerHTML="_<script defer>alert(123);<\/script>";//ç”¨innerHTMLè®¾ç½®scriptè„šæœ¬æ²¡ä½œç”¨æ•ˆæœ
+    $("#tinhl")[0].innerHTML="<style type=\"text/css\">body {background-color:red;}<\/style>";//innerHTMLæ”¯æŒæ’å…¥<style>å…ƒç´ ï¼ˆæ˜¯æŒ‡å¯ä»¥é€šè¿‡è¿™ä¸ªå…ƒç´ æ¸²æŸ“é¡µé¢ï¼‰
     
-    $("#table").innerHTML="hello table";//table±êÇ©²»Ö§³ÖinnerHTMLµÄ°¥
+    $("#table").innerHTML="hello table";//tableæ ‡ç­¾ä¸æ”¯æŒinnerHTMLçš„å“
  }
  
  function test4(){
-   var html=$("#outt")[0].outerHTML;//·µ»Øµ÷ÓÃÔªËØ±¾ÉíÒÔ¼°×ÓÔªËØµÄhtml
+   var html=$("#outt")[0].outerHTML;//è¿”å›è°ƒç”¨å…ƒç´ æœ¬èº«ä»¥åŠå­å…ƒç´ çš„html
    $("#inputs").html(html);
    
    $("#outt")[0].outerHTML="<span style=\"color:green\">new html</span>";
@@ -132,7 +132,8 @@ input:<div id="inneri"></div>
  
   $("#childi").html("length:"+child+"\n secondChild:"+secondChild);
   var x=10;
-  console.log(x.toString(2));//·µ»ØÊı×ÖµÄ¶ş½øÖÆ±íÊ¾
+  console.log(x.toString(2));//è¿”å›æ•°å­—çš„äºŒè¿›åˆ¶è¡¨ç¤º
+
   var y=~x;
   console.log(y);
   console.log(null+"");
@@ -142,20 +143,20 @@ input:<div id="inneri"></div>
  
  function test6(){
    var text=$("#innert")[0].textContent;
-  // console.log(text);//  ½á¹û¾ÓÈ»ÊÇundefined°¥£¬ »ğºü²»Ö§³Ö´ËÊôĞÔ
+  // console.log(text);//  ç»“æœå±…ç„¶æ˜¯undefinedå“ï¼Œ ç«ç‹ä¸æ”¯æŒæ­¤å±æ€§
   // console.log(document.getElementById("innert").innerText);
    
    $("#inneri").html(getInnerText($("#innert")[0]));
-   //document.getElementById("innert").textContent="hello & world \"kk\"hhhhh";//NO ¡£¡£¡£¡£
+   //document.getElementById("innert").textContent="hello & world \"kk\"hhhhh";//NO ã€‚ã€‚ã€‚ã€‚
    
    setInnerText($("#innert")[0],"hello helln");
  }
  
- //Ö§³Ö»ğºüºÍIEµÄ»ñÈ¡ÎÄ±¾ÄÚÈİµÄ·½·¨
+ //æ”¯æŒç«ç‹å’ŒIEçš„è·å–æ–‡æœ¬å†…å®¹çš„æ–¹æ³•
  function getInnerText(elementDOM){
    return (typeof elementDOM.textContent=="string" )?elementDOM.textContent:elementDOM.innerText;
  }
- //Ö§³Ö»ğºüºÍIEµÄÉèÖÃÎÄ±¾ÄÚÈİµÄ·½·¨
+ //æ”¯æŒç«ç‹å’ŒIEçš„è®¾ç½®æ–‡æœ¬å†…å®¹çš„æ–¹æ³•
  function setInnerText(elementDOM,content){
     (typeof elementDOM.textContent=="string")?elementDOM.textContent=content:elementDOM.innerText=content;
  }

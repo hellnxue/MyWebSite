@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
    var person={
@@ -12,10 +12,10 @@
    
    function testObj(){
      console.log(person.age);
-	 //ÌØÊâÊôĞÔµÄ·ÃÎÊĞÎÊ½
+	 //ç‰¹æ®Šå±æ€§çš„è®¿é—®å½¢å¼
 	 console.log(person["first name"]);
-	 person["sex"]="ÄĞ";//¶ÔÏóÔö¼ÓĞÂµÄÊôĞÔ&ÖµµÄÁíÒ»ÖÖ·½Ê½  Í¬ person.sex="ÄĞ"
-	 //±éÀú¶ÔÏóÖµ
+	 person["sex"]="ç”·";//å¯¹è±¡å¢åŠ æ–°çš„å±æ€§&å€¼çš„å¦ä¸€ç§æ–¹å¼  åŒ person.sex="ç”·"
+	 //éå†å¯¹è±¡å€¼
 	 $.each(person,function(a,b){
 	   console.log(a+"="+b);
 	 });
@@ -33,22 +33,22 @@
    
    function testArr(){
      var color=["red","blue","black"];
-	 //°´ÕÕË÷Òı·ÃÎÊÊı×éÖµ
+	 //æŒ‰ç…§ç´¢å¼•è®¿é—®æ•°ç»„å€¼
      console.log(color[0]);
 	 
-	 //ĞŞ¸ÄÊı×éÖµ
+	 //ä¿®æ”¹æ•°ç»„å€¼
 	 color[1]="pinck";
 	 console.log(color[1]);
-	 console.log("Ìí¼ÓÊı×éÖµÖ®Ç°µÄlength= "+color.length);
+	 console.log("æ·»åŠ æ•°ç»„å€¼ä¹‹å‰çš„length= "+color.length);
 	 
-	 //Ìí¼ÓÊı×éµÄÖµ
+	 //æ·»åŠ æ•°ç»„çš„å€¼
 	 color[3]="yellow";
-	 console.log("Ìí¼ÓÍêÒ»¸öÖµºóµÄlength= "+color.length);
+	 console.log("æ·»åŠ å®Œä¸€ä¸ªå€¼åçš„length= "+color.length);
 	 
-	 //ÉèÖÃÊı×éµÄlengthÀ´¼õÉÙÊı×éµÄ³¤¶È
+	 //è®¾ç½®æ•°ç»„çš„lengthæ¥å‡å°‘æ•°ç»„çš„é•¿åº¦
 	 color.length=1;
-	 console.log("color.length=1ºóµÄcolor[0] "+color[0]);
-	 console.log("color.length=1ºóµÄcolor[1] "+color[1]);
+	 console.log("color.length=1åçš„color[0] "+color[0]);
+	 console.log("color.length=1åçš„color[1] "+color[1]);
 	
    }
    function gobals(){
@@ -62,8 +62,8 @@
 	console.log(ct.split(/[^\,]+/));//?    ["", ",", ",", ",", ""]
 	
 	var mharr=[2,4,1,56,22,1];
-	console.log("ÇóÊı×éÖĞµÄ×î´óÖµ£º"+Math.max.apply(Math,mharr));
-	console.log("ÇóÊı×éÖĞµÄ×îĞ¡Öµ£º"+Math.min.apply(Math,mharr));
+	console.log("æ±‚æ•°ç»„ä¸­çš„æœ€å¤§å€¼ï¼š"+Math.max.apply(Math,mharr));
+	console.log("æ±‚æ•°ç»„ä¸­çš„æœ€å°å€¼ï¼š"+Math.min.apply(Math,mharr));
 	//console.log("gobals="+gobals);
    
    }
@@ -79,7 +79,7 @@
 	    console.log("value=="+objt[key]);
 	    num++;
 	 }
-	 console.log("¶ÔÏó³ÉÔ±¸öÊı=="+num+"\n"+objt);
+	 console.log("å¯¹è±¡æˆå‘˜ä¸ªæ•°=="+num+"\n"+objt);
 	 
 	 
 	  var c={
@@ -88,7 +88,7 @@
 			 hello:"hehe"
 		   };
 		   
-		  delete c.age;//É¾³ı¶ÔÏóÖĞµÄÖ¸¶¨ÊôĞÔ
+		  delete c.age;//åˆ é™¤å¯¹è±¡ä¸­çš„æŒ‡å®šå±æ€§
 		console.log(c);
    
    }
@@ -97,13 +97,13 @@
 </head>
 
 <body>
-<input type="button" value="²âÊÔObject" onClick="testObj()"/></br>
-<input type="button" value="²âÊÔArray" onClick="testArr()"/></br>
-<input type="button" value="²âÊÔArray" onClick="testType()"/></br>
-<input type="button" value="²âÊÔMath" onClick="testMath()"/></br>
+<input type="button" value="æµ‹è¯•Object" onClick="testObj()"/></br>
+<input type="button" value="æµ‹è¯•Array" onClick="testArr()"/></br>
+<input type="button" value="æµ‹è¯•Array" onClick="testType()"/></br>
+<input type="button" value="æµ‹è¯•Math" onClick="testMath()"/></br>
  
 
-<input type="button" value="»ñµÃÒ»¸ö¶ÔÏóÖĞ³ÉÔ±µÄ¸öÊı" onClick="getObjectlength()"/></br>
+<input type="button" value="è·å¾—ä¸€ä¸ªå¯¹è±¡ä¸­æˆå‘˜çš„ä¸ªæ•°" onClick="getObjectlength()"/></br>
 <em>hello world!</em>
 </body>
 </html>

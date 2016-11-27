@@ -71,6 +71,8 @@ input.ph-color::-ms-input-placeholder {
 
 11.绝对定位同时设置top和bottom，然后bottom设置为0，会是什么效果的呢？
 
+   绝对定位的元素垂直方向会拉伸到定位上下文的底部的。
+
 12.绝对定位的元素用display:table-cell + vertical-align:middle;让子元素垂直居中也不好用了哎
 
 13.DOM的classname属性
@@ -92,13 +94,14 @@ box-sizing: content-box;？
  
  
  16 设置背景图片问题，页面所答缩小时，背景图会变的很难看的问题
+     http://bbs.blueidea.com/forum.php?mod=viewthread&tid=3114168
  
  17 页面字体大小问题，缩大或缩小页面时，所有元素们的的设置的宽高为相对单位
  
- 18 在手机浏览器中，curosr:pointer会加上默认的蓝底，去掉即可
+ 18 在手机浏览器中，curosr:pointer会导致点击区域在点击时默认加上蓝底，改为curosr:default即可。
  
  -------------------------------------JavaScript-----------------------------------------------
- 一、动态替换所有匹配项
+ 一、变量动态替换所有匹配项
    var str="hello world world";
      var a=str.replace("h","H");//只能替换第一个子字符
     // console.log(a);
@@ -107,17 +110,6 @@ box-sizing: content-box;？
      /*用正则RegExp类型可以传入变量，动态替换啦*/
      var b=str.replace(new RegExp(temp,'gm'),"D");
      console.log(b);
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -160,3 +152,22 @@ Preferences-Key Bindlings打开编辑页User输入下面的内容即可
 "preview_on_click": false
 
 list-style: outside none none;
+
+
+
+
+---sublime-text 打开文件时自动添加一个.dump文件解决办法：
+http://caibaojian.com/sublime-text2-dump.html
+
+
+
+--setting-users配置
+{
+	"color_scheme": "Packages/Color Scheme - Default/Mac Classic.tmTheme",
+	"font_size": 13,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"preview_on_click": false
+}

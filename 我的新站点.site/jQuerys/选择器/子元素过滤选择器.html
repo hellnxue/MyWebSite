@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
     $(function(){
@@ -33,7 +33,7 @@
 	   $("#btn110").click(function(){
 	  
 	     var len=$("#form1 input:checked").length;
-		 console.log("»ñµÃÑ¡ÖĞµÄ¸´Ñ¡¿òµÄ¸öÊı£º"+len);
+		 console.log("è·å¾—é€‰ä¸­çš„å¤é€‰æ¡†çš„ä¸ªæ•°ï¼š"+len);
 	  })
 	  
 	   $("#btn12").click(function(){
@@ -43,13 +43,13 @@
 	  })
 	  
 	   $("#btn33").click(function(){
-	        //$("#ttid div").css({"color":"blue","font-size":"30px"})//ÏÔÊ¾divÖĞµÄËùÓĞspan
-			 $("#ttid > div").css({"color":"blue","font-size":"30px"})//ÏÔÊ¾#ttidÏÂµÄËùÓĞ×ÓÔªËØdiv
-		  // $("#ttid>div:first").css({"color":"blue","font-size":"30px"});//Æ¥ÅädivÏÂµÄÖ±½Ó×ÓÔªËØ'ºÇºÇ'
-	      //$("#ttid").next().css({"color":"blue","font-size":"30px"});//ÀàËÆÓÚ $("#ttid+div")  ÊÇÈ¡µÃÑ¡ÔñÔªËØµÄ½ôÁÙµÄÏÂÒ»¸öĞÖµÜÔªËØ
-		  // $("#ttid").nextAll().css({"color":"blue","font-size":"30px"});//Æ¥Åä#ttidºóµÄËùÓĞĞÖµÜÔªËØdiv  $("#ttid~div")
-		   //$("#ttid").siblings().css({"color":"blue","font-size":"30px"});//Æ¥Åä#ttidµÄÇ°ºóËùÓĞÏàÁÚÔªËØ
-		    //$("#ttid").siblings("div").css({"color":"blue","font-size":"30px"});//Æ¥Åä#ttidµÄÇ°ºóËùÓĞÏàÁÚµÄdivÔªËØ
+	        //$("#ttid div").css({"color":"blue","font-size":"30px"})//æ˜¾ç¤ºdivä¸­çš„æ‰€æœ‰span
+			 $("#ttid > div").css({"color":"blue","font-size":"30px"})//æ˜¾ç¤º#ttidä¸‹çš„æ‰€æœ‰å­å…ƒç´ div
+		  // $("#ttid>div:first").css({"color":"blue","font-size":"30px"});//åŒ¹é…divä¸‹çš„ç›´æ¥å­å…ƒç´ 'å‘µå‘µ'
+	      //$("#ttid").next().css({"color":"blue","font-size":"30px"});//ç±»ä¼¼äº $("#ttid+div")  æ˜¯å–å¾—é€‰æ‹©å…ƒç´ çš„ç´§ä¸´çš„ä¸‹ä¸€ä¸ªå…„å¼Ÿå…ƒç´ 
+		  // $("#ttid").nextAll().css({"color":"blue","font-size":"30px"});//åŒ¹é…#ttidåçš„æ‰€æœ‰å…„å¼Ÿå…ƒç´ div  $("#ttid~div")
+		   //$("#ttid").siblings().css({"color":"blue","font-size":"30px"});//åŒ¹é…#ttidçš„å‰åæ‰€æœ‰ç›¸é‚»å…ƒç´ 
+		    //$("#ttid").siblings("div").css({"color":"blue","font-size":"30px"});//åŒ¹é…#ttidçš„å‰åæ‰€æœ‰ç›¸é‚»çš„divå…ƒç´ 
 		 
 	  })
    });
@@ -69,7 +69,7 @@
    <li>item-3</li>
    <li>item-4</li>
 </ul><br/>
-<div>prev()µÄÓÃ·¨:</div><br/>
+<div>prev()çš„ç”¨æ³•:</div><br/>
   <p>Hello</p>
   <div id="prev">Hello Again</div>
   <p class="prev">And Again</p>
@@ -84,42 +84,42 @@
 <ul>
    <li>item-33</li>
 </ul>
-<input type="button" value="»ñÈ¡liµÄµÚ¶ş¸öÔªËØ"  id="btn1"/>
-<input type="button" value="»ñÈ¡liµÄµÚÈı¸öÔªËØµÄÇ°Ò»¸öÔªËØ"  id="btn11"/>
-<input type="button" value="»ñµÃÔªËØPÇ°ÃæµÄÒ»¸ö½ôÁÚÔªËØ"  id="btn111"/>
-<input type="button" value="»ñµÃÔªËØPÇ°ÃæµÄ,idÎªprevµÄ½ôÁÚÔªËØ"  id="btn1111"/>
-<input type="button" value="»ñÈ¡liµÄµÚÒ»¸öÔªËØ"  id="btn2"/>
-<input type="button" value="»ñÈ¡liµÄ×îºóÒ»¸öÔªËØ"  id="btn3"/>
-<input type="button" value="»ñÈ¡½öÓĞÒ»¸öliµÄÔªËØ"  id="btn4"/>
+<input type="button" value="è·å–liçš„ç¬¬äºŒä¸ªå…ƒç´ "  id="btn1"/>
+<input type="button" value="è·å–liçš„ç¬¬ä¸‰ä¸ªå…ƒç´ çš„å‰ä¸€ä¸ªå…ƒç´ "  id="btn11"/>
+<input type="button" value="è·å¾—å…ƒç´ På‰é¢çš„ä¸€ä¸ªç´§é‚»å…ƒç´ "  id="btn111"/>
+<input type="button" value="è·å¾—å…ƒç´ På‰é¢çš„,idä¸ºprevçš„ç´§é‚»å…ƒç´ "  id="btn1111"/>
+<input type="button" value="è·å–liçš„ç¬¬ä¸€ä¸ªå…ƒç´ "  id="btn2"/>
+<input type="button" value="è·å–liçš„æœ€åä¸€ä¸ªå…ƒç´ "  id="btn3"/>
+<input type="button" value="è·å–ä»…æœ‰ä¸€ä¸ªliçš„å…ƒç´ "  id="btn4"/>
 
 <hr/>
-±íµ¥ÔªËØÊôĞÔ¹ıÂË
+è¡¨å•å…ƒç´ å±æ€§è¿‡æ»¤
 <form id="form1">
-  <input type="checkbox" value="1" checked="checked" />Ñ¡ÖĞµÄ<br/>
-  <input type="checkbox" value="0"  />Î´Ñ¡ÖĞµÄ<br/>
+  <input type="checkbox" value="1" checked="checked" />é€‰ä¸­çš„<br/>
+  <input type="checkbox" value="0"  />æœªé€‰ä¸­çš„<br/>
   
   <input type="radio" />
   <input type="radio"/>
   <ul id="tu">
      <li>English</li>
-      <li>ÖĞÎÄ</li>
-	   <li>»¯Ñ§</li>
-	    <li>ÎïÀí</li>
-		 <li>ÕşÖÎ</li>
-		  <li>µØÀí</li>
-		   <li>ÊıÑ§</li>
+      <li>ä¸­æ–‡</li>
+	   <li>åŒ–å­¦</li>
+	    <li>ç‰©ç†</li>
+		 <li>æ”¿æ²»</li>
+		  <li>åœ°ç†</li>
+		   <li>æ•°å­¦</li>
   </ul>
-   <input type="button" value="»ñÈ¡Ñ¡ÖĞµÄµ¥Ñ¡°´Å¥µÄÔªËØ¸öÊı"   onclick="getRadio()"/>
-  <input type="button" value="»ñÈ¡Ñ¡ÖĞµÄ¸´Ñ¡¿òÔªËØ¸öÊı"  id="btn110"/>
-  <input type="button" value="½«´óÓÚ3µÄÔªËØ²¢ÇÒ²»ÊÇ×îºóÒ»¸öliµÄÔªËØÖµÒş²Ø"  id="btn12"/>
+   <input type="button" value="è·å–é€‰ä¸­çš„å•é€‰æŒ‰é’®çš„å…ƒç´ ä¸ªæ•°"   onclick="getRadio()"/>
+  <input type="button" value="è·å–é€‰ä¸­çš„å¤é€‰æ¡†å…ƒç´ ä¸ªæ•°"  id="btn110"/>
+  <input type="button" value="å°†å¤§äº3çš„å…ƒç´ å¹¶ä¸”ä¸æ˜¯æœ€åä¸€ä¸ªliçš„å…ƒç´ å€¼éšè—"  id="btn12"/>
 </form>
 <hr/>
-²ã´ÎÑ¡ÔñÆ÷
+å±‚æ¬¡é€‰æ‹©å™¨
 <div id="left">left</div>
 
 <div id="ttid" style="border:dotted red">
-    <div style="border:dashed black;background-color:pink;">ºÇºÇ1<div style="border:dashed yellow;;background-color:yellow;">¹ş¹ş2</div></div>
-	 <div>¹ş¹ş3</div>
+    <div style="border:dashed black;background-color:pink;">å‘µå‘µ1<div style="border:dashed yellow;;background-color:yellow;">å“ˆå“ˆ2</div></div>
+	 <div>å“ˆå“ˆ3</div>
 </div>
 <div id="thid">
    right_1
@@ -127,6 +127,6 @@
 <div id="thhd">
    right_2
 </div>
- <input type="button" value="²ã´ÎÑ¡ÔñÆ÷"  id="btn33"/>
+ <input type="button" value="å±‚æ¬¡é€‰æ‹©å™¨"  id="btn33"/>
 </body>
 </html>

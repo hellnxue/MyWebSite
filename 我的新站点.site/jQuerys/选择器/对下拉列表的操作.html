@@ -1,29 +1,29 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript">
   $(document).ready(function(){
      $("#dj").click(function(){
 	   //alert( $(":selected").val());
 	   //alert($("#tt").find("option:selected").val());
-	   var selvalue=$("#tt").find("option:selected");                  //»ñµÃÑ¡ÖĞµÄÏÂÀ­ÁĞ±í 
-	   $("#t1").html("ÏÂÀ­¿òÑ¡ÖĞÏîµÄvalueÖµÊÇ£º  "+selvalue.val());    //ÏÂÀ­ÁĞ±íµÄvalueÖµ
-	   $("#t1").append("   ÏÂÀ­¿òÑ¡ÖĞÏîµÄtextÖµÊÇ£º  "+selvalue.text());//ÏÂÀ­ÁĞ±íµÄÎÄ±¾Öµ
-	   $("#t1").append("   ÏÂÀ­ÁĞ±íµÄ³¤¶È£º  "+$("#tt option").length);//ÏÂÀ­ÁĞ±íµÄ³¤¶È
+	   var selvalue=$("#tt").find("option:selected");                  //è·å¾—é€‰ä¸­çš„ä¸‹æ‹‰åˆ—è¡¨ 
+	   $("#t1").html("ä¸‹æ‹‰æ¡†é€‰ä¸­é¡¹çš„valueå€¼æ˜¯ï¼š  "+selvalue.val());    //ä¸‹æ‹‰åˆ—è¡¨çš„valueå€¼
+	   $("#t1").append("   ä¸‹æ‹‰æ¡†é€‰ä¸­é¡¹çš„textå€¼æ˜¯ï¼š  "+selvalue.text());//ä¸‹æ‹‰åˆ—è¡¨çš„æ–‡æœ¬å€¼
+	   $("#t1").append("   ä¸‹æ‹‰åˆ—è¡¨çš„é•¿åº¦ï¼š  "+$("#tt option").length);//ä¸‹æ‹‰åˆ—è¡¨çš„é•¿åº¦
 	 
 	 });
 	 
-	 /*»ñÈ¡Ñ¡ÖĞÏîµÄvalue¡¢text¡¢ËùÔÚoption×éÖĞµÃÏÂ±ê*/
+	 /*è·å–é€‰ä¸­é¡¹çš„valueã€textã€æ‰€åœ¨optionç»„ä¸­å¾—ä¸‹æ ‡*/
 	 $("#tt").change(function(){
 	 
 		
-		  $("#t1").html("ÏÂÀ­¿òÑ¡ÖĞµÄÏîvalueÊÇ£º"+$(this).val());
-		  $("#t1").append("</br> ÏÂÀ­¿òÑ¡ÖĞµÄÏîtextÊÇ£º"+$(this).find("option:selected").text());
-		  $("#t1").append("</br> ÏÂÀ­¿òÑ¡ÖĞÏîµÄĞòÁĞÊÇ£º"+$("#tt").get(0).options.selectedIndex);
-		  $("#t1").append("</br> ÏÂÀ­¿òÑ¡ÖĞÏîµÄĞòÁĞÊÇ£º"+$(this).find("option:selected").index());
+		  $("#t1").html("ä¸‹æ‹‰æ¡†é€‰ä¸­çš„é¡¹valueæ˜¯ï¼š"+$(this).val());
+		  $("#t1").append("</br> ä¸‹æ‹‰æ¡†é€‰ä¸­çš„é¡¹textæ˜¯ï¼š"+$(this).find("option:selected").text());
+		  $("#t1").append("</br> ä¸‹æ‹‰æ¡†é€‰ä¸­é¡¹çš„åºåˆ—æ˜¯ï¼š"+$("#tt").get(0).options.selectedIndex);
+		  $("#t1").append("</br> ä¸‹æ‹‰æ¡†é€‰ä¸­é¡¹çš„åºåˆ—æ˜¯ï¼š"+$(this).find("option:selected").index());
 		  
 		 console.log($(this).find("option").index($(this).find("option:selected")));
 		  
@@ -32,16 +32,16 @@
 	 
 	 $("#dp").click(function(){
 	  
-	  // DOM»ñµÃoptionµÄ³¤¶È
+	  // DOMè·å¾—optionçš„é•¿åº¦
 	  /*
 	   var op=document.getElementById("tt");
 	   op.options.length=0;*/
 	   
-	  //jQuery»ñµÃoptionµÄ³¤¶È
+	  //jQueryè·å¾—optionçš„é•¿åº¦
 	   var oplength1=$("#tt>option").length;
 	   var oplength2=$("#tt").find("option").length;
 	  
-	   //jQueryÉ¾³ıÏÂÀ­ÁĞ±í
+	   //jQueryåˆ é™¤ä¸‹æ‹‰åˆ—è¡¨
 	   $("#tt").empty();
 	   
 	 
@@ -59,18 +59,18 @@
 </head>
 
 <body>
-<input type="button" value="²âÊÔ" id="dj"/></br>
-<input type="button" value="Çå¿ÕÏÂÀ­ÁĞ±í" id="dp"/></br>
+<input type="button" value="æµ‹è¯•" id="dj"/></br>
+<input type="button" value="æ¸…ç©ºä¸‹æ‹‰åˆ—è¡¨" id="dp"/></br>
 <select id="tt">
-  <option selected="selected" value="1">´óÃ×</option>
-  <option  value="2">Ğ¡Ã×</option>
-  <option  value="3">Æ»¹û</option>
-  <option  value="4">Ïã½¶</option>
+  <option selected="selected" value="1">å¤§ç±³</option>
+  <option  value="2">å°ç±³</option>
+  <option  value="3">è‹¹æœ</option>
+  <option  value="4">é¦™è•‰</option>
 </select><br/>
 <div id="t1"></div><br/>
 <div id="t2"></div>
 
-<!--:emptyÑ¡ÔñÆ÷Æ¥ÅäÃ»ÓĞ×ÓÔªËØ(°üÀ¨Ã»ÓĞÎÄ±¾)µÄÔªËØ-->
-<div id="ett" onclick="ett(this);"  style="cursor:pointer;">µã»÷²âÊÔjQueryÑ¡ÔñÆ÷:empty<label></label></div>
+<!--:emptyé€‰æ‹©å™¨åŒ¹é…æ²¡æœ‰å­å…ƒç´ (åŒ…æ‹¬æ²¡æœ‰æ–‡æœ¬)çš„å…ƒç´ -->
+<div id="ett" onclick="ett(this);"  style="cursor:pointer;">ç‚¹å‡»æµ‹è¯•jQueryé€‰æ‹©å™¨:empty<label></label></div>
 </body>
 </html>

@@ -1,19 +1,19 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
 $("#d1").on("click",function(){
   var date=new Date();
    console.log("date=="+date);
-   console.log("date.getTime()=="+date.getTime());//ÈÕÆÚµÄºÁÃëÖµ£¬Ê±¼ä´Á
-   console.log("date.getFullYear()=Äê="+date.getFullYear());
-   console.log("date.getMonth()=ÔÂ="+Number(date.getMonth()+1));
-   console.log("date.getDate()=ÈÕ="+date.getDate());
-   console.log("date.getDay()=ĞÇÆÚ="+date.getDay());
+   console.log("date.getTime()=="+date.getTime());//æ—¥æœŸçš„æ¯«ç§’å€¼ï¼Œæ—¶é—´æˆ³
+   console.log("date.getFullYear()=å¹´="+date.getFullYear());
+   console.log("date.getMonth()=æœˆ="+Number(date.getMonth()+1));
+   console.log("date.getDate()=æ—¥="+date.getDate());
+   console.log("date.getDay()=æ˜ŸæœŸ="+date.getDay());
    console.log("");
 });
 
@@ -42,7 +42,7 @@ $("#d3").on("click",function(){
 });
 
 });
-//Ê±¼ä¸ñÊ½»¯------¸ù¾İÊ±¼äµÄºÁÃëÖµ´¦ÀíÊ±¼ä»ñµÃÄêÔÂÈÕ
+//æ—¶é—´æ ¼å¼åŒ–------æ ¹æ®æ—¶é—´çš„æ¯«ç§’å€¼å¤„ç†æ—¶é—´è·å¾—å¹´æœˆæ—¥
 function getHandleDate(ms){
    var date=new Date(ms);
    var month= date.getMonth()+1 +"";
@@ -57,26 +57,26 @@ function getHandleDate(ms){
   var handleDate=date.getFullYear()+"-"+month+"-"+day;
   return handleDate;
 }
-//Ê±¼ä¸ñÊ½»¯-----½«¸ñÊ½Îª2015-12-04 15:49:03µÄÖ»ÒªÄêÔÂÈÕ
+//æ—¶é—´æ ¼å¼åŒ–-----å°†æ ¼å¼ä¸º2015-12-04 15:49:03çš„åªè¦å¹´æœˆæ—¥
 function getHandleDateYMD(ymdhhmmss){
 	 
 	  return ymdhhmmss.split(" ")[0];
 	
 };
 
-/*¸ñÊ½»¯new Date().toString()»ñµÃµÄÊ±¼ä*/
+/*æ ¼å¼åŒ–new Date().toString()è·å¾—çš„æ—¶é—´*/
 function formdate(date,format){
  
   var date = new Date(date);
 
     var map = {
-        "M": date.getMonth() + 1, //ÔÂ·İ 
-        "d": date.getDate(), //ÈÕ 
-        "h": date.getHours(), //Ğ¡Ê± 
-        "m": date.getMinutes(), //·Ö 
-        "s": date.getSeconds(), //Ãë 
-        "q": Math.floor((date.getMonth() + 3) / 3), //¼¾¶È 
-        "S": date.getMilliseconds() //ºÁÃë 
+        "M": date.getMonth() + 1, //æœˆä»½ 
+        "d": date.getDate(), //æ—¥ 
+        "h": date.getHours(), //å°æ—¶ 
+        "m": date.getMinutes(), //åˆ† 
+        "s": date.getSeconds(), //ç§’ 
+        "q": Math.floor((date.getMonth() + 3) / 3), //å­£åº¦ 
+        "S": date.getMilliseconds() //æ¯«ç§’ 
     };
     format = format.replace(/([yMdhmsqS])+/g, function(all, t){
 	    
@@ -99,37 +99,37 @@ function formdate(date,format){
 	
 function formatDate(){
    
-   //¸ñÊ½»¯Ê±¼ä  ÄêÔÂÈÕ£¬Ê±·ÖÃë
-   var result=formdate(new Date().toString(),"yyyyÄê MMÔÂ ddÈÕ hh:mm:ss");
+   //æ ¼å¼åŒ–æ—¶é—´  å¹´æœˆæ—¥ï¼Œæ—¶åˆ†ç§’
+   var result=formdate(new Date().toString(),"yyyyå¹´ MMæœˆ ddæ—¥ hh:mm:ss");
    console.log(result);
    
    
-   //Ê±¼ä´Á×ª³ÉÊ±¼ä
-   var result=formdate(new Date(1474537128000).toString(),"yyyyÄê MMÔÂ ddÈÕ hh:mm:ss");
-   console.log(result);//2016Äê 09ÔÂ 22ÈÕ 17:38:48
+   //æ—¶é—´æˆ³è½¬æˆæ—¶é—´
+   var result=formdate(new Date(1474537128000).toString(),"yyyyå¹´ MMæœˆ ddæ—¥ hh:mm:ss");
+   console.log(result);//2016å¹´ 09æœˆ 22æ—¥ 17:38:48
    
-  //¸ù¾İÖ¸¶¨µÄºÁÃëÖµ»ñÈ¡ÄêÔÂÈÕ£¬Ê±·ÖÃë
-  var s=new Date(parseInt(1474537128000)).toLocaleString('chinese',{hour12:false}).replace(/Äê|ÔÂ/g, "-").replace(/ÈÕ/g, " ");
+  //æ ¹æ®æŒ‡å®šçš„æ¯«ç§’å€¼è·å–å¹´æœˆæ—¥ï¼Œæ—¶åˆ†ç§’
+  var s=new Date(parseInt(1474537128000)).toLocaleString('chinese',{hour12:false}).replace(/å¹´|æœˆ/g, "-").replace(/æ—¥/g, " ");
    
-   //¸ù¾İÖ¸¶¨µÄºÁÃëÖµ»ñÈ¡ÄêÔÂÈÕ£¬Ê±·ÖÃë
+   //æ ¹æ®æŒ‡å®šçš„æ¯«ç§’å€¼è·å–å¹´æœˆæ—¥ï¼Œæ—¶åˆ†ç§’
   var d=new Date(new Date().getTime()).toLocaleString('chinese',{hour12:false}).replace(/\//g,"-");//2016-9-28 10:26:34
   
   console.log(s);//2016/9/22 17:38:48
   
   var x="2016/9/22 17:38:48";
   
-  //Ìæ»»È«²¿µÄ/
+  //æ›¿æ¢å…¨éƒ¨çš„/
   var hx=x.replace(/\//g,"-");
   console.log(hx);
 }
 
 function getTimes(){
  
- /*»ñÈ¡µÄÊ±¼ä´ÁÊÇ°ÑºÁÃë¸Ä³É000ÏÔÊ¾*/
+ /*è·å–çš„æ—¶é—´æˆ³æ˜¯æŠŠæ¯«ç§’æ”¹æˆ000æ˜¾ç¤º*/
 var timestamp1 = Date.parse(new Date());
 
 
-/*µÚ¶şÖÖºÍµÚÈıÖÖÊÇ»ñÈ¡ÁËµ±Ç°ºÁÃëµÄÊ±¼ä´Á¡£*/
+/*ç¬¬äºŒç§å’Œç¬¬ä¸‰ç§æ˜¯è·å–äº†å½“å‰æ¯«ç§’çš„æ—¶é—´æˆ³ã€‚*/
 var timestamp2 = (new Date()).valueOf();
 
 
@@ -169,7 +169,7 @@ function testrr(){
    console.log(   date.toString());*/
    
    
-   var result=formdate(new Date().toString(),"yyyyÄê MMÔÂ ddÈÕ hh:mm:ss");
+   var result=formdate(new Date().toString(),"yyyyå¹´ MMæœˆ ddæ—¥ hh:mm:ss");
    console.log(new Date().toString());
    console.log(result);
    console.log(  new Date(new Date().getTime()).toLocaleString('chinese',{hour12:false}).replace(/\//g,"-"));
@@ -178,11 +178,11 @@ function testrr(){
 </head>
 
 <body>
-<input type="button"  name="d1" id="d1" value="·Ö±ğ»ñÈ¡ÈÕÆÚµÄÊ±¼ä´Á¡¢Äê¡¢ÔÂ¡¢ÈÕ"/></br>
-<input type="button"  name="d2" id="d2" value="¸ù¾İÊ±¼äµÄºÁÃëÖµ´¦ÀíÊ±¼ä»ñµÃÄêÔÂÈÕ"/></br>
-<input type="button"  name="d2" id="d3" value="Ê±¼ä¸ñÊ½»¯"/></br>
-<input type="button"    value="Ê±¼ä¸ñÊ½»¯" onclick="formatDate()"/></br>
-<input type="button"    value="»ñÈ¡Ê±¼ä´Á" onclick="getTimes()"/></br>
-<input type="button"    value="²âÊÔÈÕÆÚ" onclick="testrr()"/></br>
+<input type="button"  name="d1" id="d1" value="åˆ†åˆ«è·å–æ—¥æœŸçš„æ—¶é—´æˆ³ã€å¹´ã€æœˆã€æ—¥"/></br>
+<input type="button"  name="d2" id="d2" value="æ ¹æ®æ—¶é—´çš„æ¯«ç§’å€¼å¤„ç†æ—¶é—´è·å¾—å¹´æœˆæ—¥"/></br>
+<input type="button"  name="d2" id="d3" value="æ—¶é—´æ ¼å¼åŒ–"/></br>
+<input type="button"    value="æ—¶é—´æ ¼å¼åŒ–" onclick="formatDate()"/></br>
+<input type="button"    value="è·å–æ—¶é—´æˆ³" onclick="getTimes()"/></br>
+<input type="button"    value="æµ‹è¯•æ—¥æœŸ" onclick="testrr()"/></br>
 </body>
 </html>

@@ -1,18 +1,16 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎÞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
-
-
    var isTrue=false;
-    //ÑéÖ¤¹«¹²º¯Êý 
+    //验证公共函数
 	function validatorUtil(id,errMsg){
 		
 		if(arguments.length==2){
-			$(id).after("<label id=\"errInfo\" style=\"color:#f60\">"+errMsg+"£¡<label>");
+			$(id).after("<label id=\"errInfo\" style=\"color:#f60\">"+errMsg+"！<label>");
 			isTrue=true;
 			return false;
 			
@@ -23,9 +21,6 @@
 		
 		
 	}
-	
-var regIntPattern=/^[0-9]*[1-9][0-9]*$/;
-
 $(function(){
 	  $("#reg1").on("click",function(){
 		   
@@ -36,11 +31,11 @@ $(function(){
 		  
 		  
 		  var pt2=/.{4}/;
-		  var str1="201507";//Æ¥Åä2015
+		  var str1="201507";//匹配2015
 		  console.log(pt2.test(str1));
 		  console.log(str1.replace(pt2,"a"));//a07
 		   
-		  //²âÊÔ²¶»ñ×é
+		  //测试捕获组
 		  var str2=str1.replace(/(.{2})/g, '$1-');
 		  var str3=str1.replace(/(.{3})/g, '$1-');
 		  var str4=str1.replace(/(.{4})/g, '$1-');
@@ -50,21 +45,18 @@ $(function(){
 		  console.log("str2=="+str2);
 		  console.log("str3=="+str3);
 		  console.log("str4=="+str4);
-		  console.log("str5=="+str5);//07-£¨°´Ë³Ðò²¶»ñ£¬(.{4})Æ¥ÅäÁË2015£¬Ê£ÏÂµÄ(.{2})È¥Æ¥Åä07£©
-		  console.log("str6=="+str6);//201507£¨(.{5})Æ¥Åä20150£¬Ê£ÏÂµÄ7ÓÃ(.{2})²¶»ñ×éÈ¥Æ¥ÅäÊ±£¬²»¹»Êý£¬Òò´Ë'$2-'´ú±íÒ»¸ö¿ÕÖµ£¬¼´²»Æ¥Åä£©
+		  console.log("str5=="+str5);//07-（按顺序捕获，(.{4})匹配了2015，剩下的(.{2})去匹配07）
+		  console.log("str6=="+str6);//201507（(.{5})匹配20150，剩下的7用(.{2})捕获组去匹配时，不够数，因此'$2-'代表一个空值，即不匹配）
 		  
 		  console.log("kkkkk="+$("#hihi")[0]);
 		  if($("#hihi").val()){
 		      console.log("llllllllllllllllllllllllllll");
 		  }
 	});
-
-
-
 	 $("#intFloat").on("keyup",function(){
 	    
-		var regInt=/^[0-9]*[1-9][0-9]*$/;//ÕýÕûÊýÕýÔò   ÊäÈë0²»ÔÚÕûÊý·¶Î§ÄÚ°¥
-		var regFloat=/^\d{1,}\.{0,1}\d{1,}$/;//¸¡µãÕýÔò
+		var regInt=/^[0-9]*[1-9][0-9]*$/;//正整数正则
+		var regFloat=/^\d{1,}\.{0,1}\d{1,}$/;//浮点正则
 		var js=$("#intFloat").val();
 		
 		 var hjs=parseFloat(js);
@@ -79,13 +71,13 @@ $(function(){
 		
 		if(js==""){
 			
-		   validatorUtil(id,"ÇëÌîÐ´»ùÊý");
+		   validatorUtil(id,"请填写基数");
 			   
 		}else if( regInt.test(js)){
 			console.log("int");
  			if(ijs<imin||ijs>imax){
 				 
-				validatorUtil(id,"»ùÊý·¶Î§"+fmin+"~"+fmax);
+				validatorUtil(id,"基数范围"+fmin+"~"+fmax);
 				
 			}else{
 				
@@ -96,7 +88,7 @@ $(function(){
 			console.log("float");
 			 if(hjs<fmin||hjs>fmax){
 				
-				validatorUtil(id,"»ùÊý·¶Î§"+fmin+"~"+fmax);
+				validatorUtil(id,"基数范围"+fmin+"~"+fmax);
 				
 			}else{
 				
@@ -115,58 +107,30 @@ $(function(){
 		}
 		 
 	});
-
-
-
-	 /*Ö»ÄÜÊäÈëÕýÕûÊýµÄÇé¿ö£¬Ö»ÊäÈë0¶¼²»ÐÐ°¥*/
-
-	$('input[data-money="fix"]').on("blur",function(){
-		var $value=$(this).val();
-		if( $value!=""){
-			$(this).val($value.replace(/Ôª/g,"")+"Ôª");
-		}
-		
-	}).on("keyup",function(){
-		
-		var $value=$(this).val();
-		var nbm=Number($value);
-		
-		if(isNaN(nbm)){
-			$(this).val("");
-		}else if(!regIntPattern.test(nbm)){
-			$(this).val("");
-		}else if($value.indexOf(".")!=-1){
-			$(this).val("");
-		}
-    	
-    });
 });
-
-/*ÓÃÕýÔò½øÐÐ·Ö¸î*/
+/*用正则进行分割*/
 function regExpSplit(){
-
-   var pattern=/[^\,]/;//ÒÔ²»ÊÇ,µÄÃ¿¸ö×ÖÄ¸½øÐÐ·Ö¸î£¬³ýÁË¶ººÅ£¬×ÖÄ¸¶¼ÊÇ·Ö¸ô·û  ÕýÔòÄ£Ê½Ò²¿ÉÒÔÓÃ/[^,]/ ²»ÖªµÀÎªÉ¶Òª¼ÓÉÏ¸ö\  ¶ººÅÓÖ²»ÐèÒª½øÐÐ×ªÒå......
+   var pattern=/[^\,]/;//以不是,的每个字母进行分割，除了逗号，字母都是分隔符  正则模式也可以用/[^,]/ 不知道为啥要加上个\  逗号又不需要进行转义......
    var colorText="red,blue,green,yellow";
    var colors=colorText.split(pattern);//===,====,=====,======
    $("#split").html(colors.join("="));
    console.log(colors.length);//19
    console.log(pattern.test(colorText));//true
 }
-
 function regTest(th){
   
-  var reg=/<.*?>/g;//¼ÓÉÏ?ºóÊÇ·ÇÌ°À·Ä£Ê½£¬¿ÉÒÔÆ¥Åä<h1>ºÍ</h1>  ²»¼Ó?ÊÇÌ°À·Ä£Ê½£¬»áÆ¥ÅäËùÓÐµÄ´øÓÐ<>µÄ×Ö·û´®
+  var reg=/<.*?>/g;//加上?后是非贪婪模式，可以匹配<h1>和</h1>  不加?是贪婪模式，会匹配所有的带有<>的字符串
   var str="<h1>hello world</h1>";
   var rlt=str.replace(reg,"A");//Ahello worldA
   console.log(rlt);
   
-  /*ÎªÊ²Ã´ºÍÊéÉÏËµµÄ½á¹û²»Ò»ÑùÄØ? ÕýÔò×ÖÃæÁ¿ÓëÕýÔòÊµÀýÊÇ²»Ò»ÑùµÄ£¬ÕýÔò×ÖÃæÁ¿ÊÇ¹²ÏíµÄ£¬¶øÊµÀýÃ¿´Î¶¼²»Í¬£¬bug....ÏÂÃæµÄÑ­»·È´¶¼ÊÇtrue*/
+  /*为什么和书上说的结果不一样呢? 正则字面量与正则实例是不一样的，正则字面量是共享的，而实例每次都不同，bug....下面的循环却都是true*/
   var str="catastrcathe";
   var re=null;
   for(var i=0;i<5;i++){
       re=/cat/g;
 	   console.log( re.lastIndex);
-      console.log(re.test("catastroate"));//¶¼ÊÇtrue°¥
+      console.log(re.test("catastroate"));//都是true哎
 	   console.log( re.lastIndex);
 	// console.log(str.replace(re,"A"));
   }
@@ -180,12 +144,10 @@ function regTest(th){
   
   
 }
-
-/*ÕýÔòµÄexec()·½·¨£¬·µ»ØÊý×éµÄµÚÒ»¸öÔªËØÎªÆ¥ÅäµÄ×Ó×Ö·û´®£¬µÚ¶þ¸öÎª²¶»ñ×éµÄ½á¹û£¬Ò²¾ÍÊÇ()ÀïÆ¥ÅäµÄÒ»¸öÕûÌå£¬Èç¹û()Àï²»ÊÇ¼òµ¥µÄ×Ö·û£¬ÊÇÔª×Ö·û£¬»¹Òª¸ù¾Ý¾ßÌåµÄÕýÔò¹æÔòÈ·¶¨¸ÃÔªËØ£¬ result1[1]µÄ½á¹ûÊÇo£¬ÊÇÕýÔò(\w)+\bÆ¥ÅäµÄ½á¹û*/
+/*正则的exec()方法，返回数组的第一个元素为匹配的子字符串，第二个为捕获组的结果，也就是()里匹配的一个整体，如果()里不是简单的字符，是元字符，还要根据具体的正则规则确定该元素， result1[1]的结果是o，是正则(\w)+\b匹配的结果*/
 function regTest1(th){
   var testString = 'Hello World',
 	reg1 = /\b(\w)+\b/;
-
   var result1 = reg1.exec(testString);
   var first=result1[0];//hello
   var second=result1[1];//o  
@@ -193,11 +155,9 @@ function regTest1(th){
   console.log(result1);//[hello, o]
   console.log(reg1.lastIndex); //0
   console.log(result1.index); //0 
-
     
   
 }
-
 function regTest2(th){
   var testString = 'Hello World',
 	reg = /\b(\w)+\b/g;
@@ -207,7 +167,6 @@ function regTest2(th){
 	   console.log(reg.lastIndex);  
 	   console.log(myAry.index); 
   }
-
     
   
 }
@@ -215,28 +174,25 @@ function regTest2(th){
 </head>
 
 <body>
-<input type="button" id="reg1" value="²âÊÔ±êÖ¾"/><br />
-<p>¸¡µãÐÍºÍÕûÐÍÕýÔò</p>
+<input type="button" id="reg1" value="测试标志"/><br />
+<p>浮点型和整型正则</p>
 
 <input type="text" id="intFloat" data-min="1000" data-max="2000"/><br />
 
-<p>----------------------------------------------²âÊÔÓÃÕýÔò×÷ÎªsplitµÄ·½·¨²ÎÊý----------------------------------------</p>
+<p>----------------------------------------------测试用正则作为split的方法参数----------------------------------------</p>
 <span id="split"></span>
 <br />
 
-<input type="button" id="intFloat"  value="²âÊÔÓÃÕýÔò·Ö¸î" onclick="regExpSplit()"/><br />
+<input type="button" id="intFloat"  value="测试用正则分割" onclick="regExpSplit()"/><br />
 
 
-<input type="button"    value="ÕýÔòÆ¥Åä²âÊÔ"   onclick="regTest(this)"/><br />
+<input type="button"    value="正则匹配测试"   onclick="regTest(this)"/><br />
 
 
-<input type="button"    value="Ä£Ê½Æ¥Åä·½·¨exec()£¬·ÇÈ«¾ÖµÄ"   onclick="regTest1(this)"/><br />
+<input type="button"    value="模式匹配方法exec()，非全局的"   onclick="regTest1(this)"/><br />
 
  
- <input type="button"    value="Ä£Ê½Æ¥Åä·½·¨exec()£¬È«¾ÖµÄ"   onclick="regTest2(this)"/>
-
- <p>---------------------------Ö»ÄÜÊäÈëÕýÕûÊýµÄÇé¿ö£¬Ö»ÊäÈë0¶¼²»ÐÐ°¥-------------------------------------</p>
-  <input type="text" class="form-control ph-color" id="monSalary" placeholder="ÇëÊäÈëÄúµÄÔÂÊÕÈë" data-money="fix" autocomplete="off"/>
+ <input type="button"    value="模式匹配方法exec()，全局的"   onclick="regTest2(this)"/>
  
 </body>
 </html>

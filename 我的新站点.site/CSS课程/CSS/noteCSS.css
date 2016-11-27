@@ -340,3 +340,30 @@ ul.type-lists li{
    width: 800px;
 
 }
+
+
+/*定位上下文的问题.当一个元素是绝对定位时，它的定位上下文除了是position:relative外，
+还可以是position:absulute哎*/
+.pt-wrapper {
+    background-color: #edf4fe;
+    margin: 0 auto;
+    min-height: 100px;
+    position: relative;
+    width: 80%;
+}
+
+.pt-wrapper .A {
+    background-color: pink;
+    min-height: 70px;
+    position: absolute;
+    top: 20%;
+    width: 80%;
+}
+
+.pt-wrapper .B {
+    background-color: yellow;
+    bottom: 0;
+    min-height: 20px;
+    position: absolute;
+    width: 80%;
+}

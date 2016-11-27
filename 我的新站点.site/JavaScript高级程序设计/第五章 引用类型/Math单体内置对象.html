@@ -1,10 +1,10 @@
 <!DOCTYPE html >
 <html  >
 <head>
-<meta charset= "gb2312" />
+<meta charset= "utf-8" />
 
  
-<title>ÊÂ¼ş´¦Àí³ÌĞò</title>
+<title>äº‹ä»¶å¤„ç†ç¨‹åº</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
   
 </head>
@@ -16,28 +16,27 @@
   <input type="text" name="formInput" />
    
   <input type="button" value="random" onClick="rdmTest()"/>
-  
-   <input type="button" value="È¡³ö´«Èëmath·½·¨µÄ²ÎÊıµÄ×î´óÖµ£¬»òÕßÒ»×éÊı×éµÄ×î´óÖµ" onClick="maxTest()" style="display:block;"/>
+  <input type="button" value="ä»ä¸¤ä¸ªæ•´æ•°èŒƒå›´å†…è·å–ä¸€ä¸ªéšæœºæ•´æ•°" onClick="selectFromTest()"/>
+   <input type="button" value="å–å‡ºä¼ å…¥mathæ–¹æ³•çš„ä¸€ç»„å‚æ•°çš„æœ€å¤§å€¼ï¼Œæˆ–è€…ä»æ•°ç»„ä¸­å–å‡ºçš„æœ€å¤§å€¼" onClick="maxTest()" style="display:block;"/>
 </form>
 <script>
   
 
-/*´ÓÄ³¸öÖ¤Êé·¶Î§ÄÚËæ»úÑ¡ÔñÒ»¸öÖ»  ¹«Ê½£ºÖµ=Math.floor(Math.random() * ¿ÉÄÜÖµµÃ×ÜÊı+ µÚÒ»¸ö¿ÉÄÜµÄÖµ)*/
-/*Àı£ºÈ¡0-2·¶Î§ÄÚµÄËæ»úÕûÊı*/
+/*ä»æŸä¸ªè¯ä¹¦èŒƒå›´å†…éšæœºé€‰æ‹©ä¸€ä¸ªå€¼  å…¬å¼ï¼šå€¼=Math.floor(Math.random() * å¯èƒ½å€¼å¾—æ€»æ•°+ ç¬¬ä¸€ä¸ªå¯èƒ½çš„å€¼)*/
+/*ä¾‹ï¼šå–0-2èŒƒå›´å†…çš„éšæœºæ•´æ•°*/
 function rdmTest(){
-		/*var quotes = new Array;
+		var quotes = new Array;
         var a =Math.floor( Math.random()*3 +0);
 		 
 	    var rand1 = Math.floor( Math.random()*3 +0);
 	 
 		
-		quotes[0] = "ÕıÔÚ½øĞĞ²ÄÁÏÉóºË,ÇëÄÍĞÄµÈ´ı£¡";
-		quotes[1] = "ÕıÔÚ½øĞĞµ÷²éÉóºË,ÇëÄÍĞÄµÈ´ı£¡";
-		quotes[2] = "ÉóºËÄâ¸åÖĞ,ÇëÄÍĞÄµÈ´ı£¡";
+		quotes[0] = "æ­£åœ¨è¿›è¡Œææ–™å®¡æ ¸,è¯·è€å¿ƒç­‰å¾…ï¼";
+		quotes[1] = "æ­£åœ¨è¿›è¡Œè°ƒæŸ¥å®¡æ ¸,è¯·è€å¿ƒç­‰å¾…ï¼";
+		quotes[2] = "å®¡æ ¸æ‹Ÿç¨¿ä¸­,è¯·è€å¿ƒç­‰å¾…ï¼";
 		var quote = quotes[rand1] 
-		console.log(quote);*/
-		var rdm=Math.random();
-		console.log(0.6105773050839782*3);
+		console.log(quote);
+		 
 }
 
 
@@ -49,6 +48,20 @@ function maxTest(){
   var maxNum=Math.max.apply(Math,ary);
   
   console.log(maxNum);//6
+}
+
+function selectFromTest(){
+
+	//éšæœºå–å¾—0-5ä¹‹é—´çš„æ•´æ•°
+	var num=selectFrom(0,5);
+	console.log(num);
+}
+
+
+/*ä»ä¸¤ä¸ªæ•´æ•°èŒƒå›´å†…å–å¾—ä¸€ä¸ªéšæœºæ•°ï¼Œå…¬å…±æ–¹æ³•*/
+function selectFrom(lowerValue,upperValue){
+	var choices=upperValue-lowerValue+1;
+	return Math.floor(Math.random()*choices+lowerValue);
 }
  
 </script>

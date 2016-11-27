@@ -1,17 +1,17 @@
 <!DOCTYPE html >
 <html >
 <head>
-<meta "charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script>
   $(function(){
     $("#btnsplice").on("click",function(){
 	  var array=["red","blue","green"];
-	  var a=array.splice(0,1);//´ÓÖ¸¶¨Î»ÖÃÉ¾³ın¸öÏî
-	  console.log(array+" \n É¾³ıµÄÏî="+a);//bule,green   red  
+	  var a=array.splice(0,1);//ä»æŒ‡å®šä½ç½®åˆ é™¤nä¸ªé¡¹
+	  console.log(array+" \n åˆ é™¤çš„é¡¹="+a);//bule,green   red  
 	  
-	  var b=array.splice(1,0,"yellow","pink");//´ÓÖ¸¶¨Î»ÖÃÏòÊı×éµÄÖĞ²¿²åÈëÈÎÒâÏî£¬
+	  var b=array.splice(1,0,"yellow","pink");//ä»æŒ‡å®šä½ç½®å‘æ•°ç»„çš„ä¸­éƒ¨æ’å…¥ä»»æ„é¡¹ï¼Œ
 	  
 	   console.log(array);//blue,yellow,pink,green 
 	   
@@ -39,15 +39,15 @@
 	})
   })
 </script>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
-<p style="color:#FF66FF">--------------¼ì²âÊı×éµÄ¾²Ì¬·½·¨Array.isArray(array)------------</p><br />
+<p style="color:#FF66FF">--------------æ£€æµ‹æ•°ç»„çš„é™æ€æ–¹æ³•Array.isArray(array)------------</p><br />
 input:<div id="arrayt"></div><br>
 
 <input type="button" value="Array.isArray(array)" id="btnArray"/><br>
-<p>--------------ArrayÀàĞÍµÄsplice·½·¨------------</p><br />
-<input type="button" value="splice²Ù×÷Êı×é" id="btnsplice"/><br>
+<p>--------------Arrayç±»å‹çš„spliceæ–¹æ³•------------</p><br />
+<input type="button" value="spliceæ“ä½œæ•°ç»„" id="btnsplice"/><br>
 <input type="button" value="ces" id="btnces"/><br>
 
 </body>
