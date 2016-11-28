@@ -95,6 +95,8 @@ box-sizing: content-box;？
  
  16 设置背景图片问题，页面所答缩小时，背景图会变的很难看的问题
      http://bbs.blueidea.com/forum.php?mod=viewthread&tid=3114168
+     
+     为什么把一张图片放在div中时可以包含全部，放在背景中就不可以呢？
  
  17 页面字体大小问题，缩大或缩小页面时，所有元素们的的设置的宽高为相对单位
  

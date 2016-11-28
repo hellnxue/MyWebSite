@@ -367,3 +367,27 @@ ul.type-lists li{
     position: absolute;
     width: 80%;
 }
+
+
+/**/
+.img-wrapper {
+    background-color: #edf4fe;
+    margin: 0 auto;
+    width: 20%;
+}
+
+ 
+.img-wrapper img {
+   
+     width: 100%;
+     display: block;/*去除图片底部与父容器的间隙（有间隙是因为图片默认是行内元素，行内
+元素的定位原则是与文本基线对齐，而不是与它们容器的底边对齐）*/
+}
+
+
+.bgImg-wrapper {
+    background: rgba(0, 0, 0, 0) url("../img/bill_bg@2x.png") no-repeat scroll 0 0 / 100% auto;
+    margin: 0 auto;
+    min-height: 100px;/*169px*/
+    width: 20%;
+}
