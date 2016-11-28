@@ -13,6 +13,14 @@
 
 <body>
 
+<!--页面导航-->
+<header class="ctm-header border-box ctm-default">
+    <a href="#" class="back-icon">
+		<em></em>
+	</a>
+	<h1 class="ctm-header-title">CSS效果小记</h1>
+</header>
+
 <h3>--- 评论栏上部的样式----</h3>
  
 <div  class="cmt-wrapper">
@@ -124,17 +132,26 @@ position:absulute哎----</h3>
 
 </div>
 
-<h3>--- 一张图片作为容器中width:100%的子元素，与作为背景图的区别----</h3>
+
+<!--图片的区别:作为容器中的img时，只要容器不剪裁溢出的图片，给图片只设置宽度的情况下，高度会自适应的-->
+<h3>--- 一张图片作为容器中width:100%的子元素，与作为背景图的区别:作为容器中的img时----</h3>
 <div class="img-wrapper">
     
       <img src="../../img/bill_bg@2x.png">
 </div>
 
-
-<h3>--- 一张图片作为容器中width:100%的子元素，与作为背景图的区别----</h3>
+<!--图片的宽高比不一致时，作为背景图就有问题了，不能很好的控制背景图全部覆盖背景的同时还要保持宽高比-->
+<h3>--- 一张图片作为容器中width:100%的子元素，与作为背景图的区别：作为容器的背景时----</h3>
 <div class="bgImg-wrapper">
-    
-     
 </div>
+
+
+<h3>---简单的居中：除了给有宽度的元素用margin:0 auto外，给没有宽度的元素设置margin:0 百分比;也可以达到居中的效果哎！----</h3>
+<div class="ele-center">
+</div>
+
+
+
+
 </body>
 </html>
