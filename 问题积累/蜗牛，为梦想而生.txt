@@ -173,3 +173,16 @@ http://caibaojian.com/sublime-text2-dump.html
 	],
 	"preview_on_click": false
 }
+
+
+
+----手机端手滑滚动插件
+http://www.internetke.com/effects/css3/2015/0309/1442.html
+
+--智阳官网
+http://www.ezhiyang.com/site/ezhiyang/index.html
+
+--Swiper中文文档
+http://www.swiper.com.cn/api/index.html
+
+
