@@ -99,6 +99,32 @@ function test6(){
   console.log("toPrecision(2)="+nu.toPrecision(2));
   console.log("toPrecision(3)="+nu.toPrecision(3))
 }
+
+
+function testMe(){
+var n=$("#me").attr("style");
+console.log(n);
+
+  var t="52.800000000000004px";
+$("#me").css("width",100+"px");
+
+var flag="";
+
+var s=flag?true:false;
+console.log(s);
+
+
+
+$("#my h2").eq(1).trigger("click");
+}
+
+$(function(){
+  $("#my h2").on("click",function(){
+
+      console.log($(this).next().find("span").html());
+  })
+
+})
 </script>
 </head>
 
@@ -111,5 +137,19 @@ function test6(){
 <input type="button" value="toExponential()" onClick="test5()"/></br>
 <input type="button" value="toPrecision()" onClick="test6()"/></br>
 <h3>input:</h3><div id="nift"></div>
+
+
+<p style="background-color: pink;" id="me">hello</p>
+
+<div id="my">
+  <h2>hello 1</h2>
+  <h2>hello 2</h2>
+  <h2>hello 3
+    <span>hla</span>
+    <span>hg</span>
+  </h2>
+
+</div>
+<input type="button" value="获取style属性" onClick="testMe()"/></br>
 </body>
 </html>

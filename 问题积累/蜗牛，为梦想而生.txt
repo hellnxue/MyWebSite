@@ -179,10 +179,24 @@ http://caibaojian.com/sublime-text2-dump.html
 ----手机端手滑滚动插件
 http://www.internetke.com/effects/css3/2015/0309/1442.html
 
+http://blog.csdn.net/playboyanta123/article/details/41803617
+
 --智阳官网
 http://www.ezhiyang.com/site/ezhiyang/index.html
 
 --Swiper中文文档
 http://www.swiper.com.cn/api/index.html
+
+-----------------------------------------学习网址-----------------------------------------------------------------
+1、html5移动端开发和响应式设计差别在哪里：
+https://zhidao.baidu.com/question/1768226686272952740.html
+
+2、屏幕适应器
+http://www.cnblogs.com/xiamer/p/5732473.html
+
+3、屏幕适配的思考
+http://www.mamicode.com/info-detail-1191565.html
+
+
 
 
