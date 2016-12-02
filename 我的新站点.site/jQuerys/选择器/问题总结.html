@@ -125,6 +125,12 @@ $(function(){
   })
 
 })
+
+function removeEvent(){
+
+  $("#my h2").off();
+
+}
 </script>
 </head>
 
@@ -151,5 +157,6 @@ $(function(){
 
 </div>
 <input type="button" value="获取style属性" onClick="testMe()"/></br>
+<input type="button" value="移除事件" onClick="removeEvent()"/></br>
 </body>
 </html>
