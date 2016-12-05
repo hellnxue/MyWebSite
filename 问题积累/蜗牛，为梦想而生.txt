@@ -40,6 +40,8 @@ input.ph-color::-ms-input-placeholder {
 
 8.CSS的not()选择器 OK
 
+9.CSS选择器，选择当前元素的前一个同辈节点
+
 
 -------------------绝对定位会让元素宽度收缩到包围子元素的宽度吗？OK------------------
 	绝对定位会让没有宽度的块级元素收缩到包围子元素的宽度
@@ -198,5 +200,19 @@ http://www.cnblogs.com/xiamer/p/5732473.html
 http://www.mamicode.com/info-detail-1191565.html
 
 
+5.placeholer怎么换行？？？
 
+6.line-height 不加单位
+
+7.margin-top 为负值 ，margin-bottom为正值的时候，怎么不好用，比如P元素
+
+
+
+
+-------------------------厂商前缀-----------------------------
+animation:shadeAnimation  0.2s  ; /* 0.15s */
+	-moz-animation:shadeAnimation  0.2s  ;
+	-webkit-animation:shadeAnimation  0.2s  ;
+	-ms-animation:shadeAnimation  0.2s  ;
+	-o-animation:shadeAnimation  0.2s  ;
 
