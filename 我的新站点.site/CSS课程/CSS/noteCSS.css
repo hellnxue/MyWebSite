@@ -448,3 +448,43 @@ ul.type-lists li{
 	min-height:20px;
 	margin:0 30%;
 }
+
+
+/*负的上边距和正的下外边距互相抵消效果测试*/
+.mtmb{
+	height: 44px;
+	border: 1px solid black;
+}
+
+.mtmb1,.mtmb2{
+	margin: 0;
+	background-color: pink;	 
+}
+
+.mtmb1 {
+    margin-bottom: 1px;
+    margin-top: -1px;
+}
+
+/*vertical-align:middle*/
+
+.lieh.lh {
+    border: 1px solid;
+    margin: 0 30%;
+  /*  min-height: 100px;*/
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+.lieh .h{
+
+	background-color: pink;
+}
+
+
+.lieh .hh2 {
+    display: inline-block;
+    height: 100%;/*为什么这里用height:100%没效果呢？ 是因为父元素没有设置height的缘故，只设置min-height是不行的*/
+    vertical-align: middle;
+    width: 21px;
+}

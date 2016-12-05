@@ -27,12 +27,12 @@ input.ph-color::-ms-input-placeholder {
 }
 
 
-3.bootstrap下拉框在页面底部显示组件？
+3.bootstrap下拉框在页面底部显示组件？ 用layer弹出层插件
 
 4.绝对定位的元素在父容器中总是居中的问题？？OK
 
 
-5.响应的页面字体大小也要用百分比吗？ 当页面ctrl+ 或ctrl-时字体用百分比or相对单位em
+5.响应的页面字体大小也要用百分比吗？ 当页面ctrl+ 或ctrl-时字体用百分比or相对单位em  是的，用js代码进行屏幕适配，就不会出现字体过大换行的情况了
 
 6.bootstrap每列的空隙即padding怎么去除？ 貌似bootstrap没有自带的去除左右padding样式
 
@@ -103,6 +103,21 @@ box-sizing: content-box;？
  17 页面字体大小问题，缩大或缩小页面时，所有元素们的的设置的宽高为相对单位
  
  18 在手机浏览器中，curosr:pointer会导致点击区域在点击时默认加上蓝底，改为curosr:default即可。
+ 
+ 
+ 19.利用line-height和vertical-align实现多行文字的垂直居中
+ http://blog.sina.com.cn/s/blog_74f1a3280102uzn3.html
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  -------------------------------------JavaScript-----------------------------------------------
  一、变量动态替换所有匹配项
