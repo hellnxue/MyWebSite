@@ -37,7 +37,25 @@
 	    console.log(array.join("/")+"    "+Array.isArray(array));
 	    $("#arrayt").html(array.join("/")+"\n"+Array.isArray(array));
 	})
-  })
+  });
+
+  function returnAry(){
+
+  	//对象数组中含有数组
+  	var ary=[{name:"helln",age:10,cc:[1,2]},{name:"hello",age:20,cc:[3,4]}];
+
+
+   var rlt=$.map(ary,function(item,index){
+
+    if(item.name=="helln"){
+      return item.cc;
+    }
+  });
+
+   console.log(Array.isArray(rlt));//true
+  console.log(rlt);//[1,2]
+
+  }
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
@@ -50,5 +68,8 @@ input:<div id="arrayt"></div><br>
 <input type="button" value="splice操作数组" id="btnsplice"/><br>
 <input type="button" value="ces" id="btnces"/><br>
 
+
+<p>--------------若对像数组中有数组，可用jQuery的$.map遍历对象数组，返回这个数组------------</p><br />
+<input type="button" value="用$.map返回一个数组" onclick="returnAry()"/><br>
 </body>
 </html>

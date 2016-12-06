@@ -2,20 +2,28 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
 <title>无标题文档</title>
 
 <style type="text/css">
   
    
-
- textarea::-webkit-input-placeholder:after{   
+/*  \A 表示换行  ？？？？？*/ 
+/* textarea::-webkit-input-placeholder:after{   
    display:block;   
-   content:"line@ \A hello  sir  line#";/*  \A 表示换行  */  
+   content:"line@ \A hello  sir  line#"; 
    color:red;   
  };
+ */
+
+ div.testMy h2{
+  cursor: pointer;
+  background-color: pink;
+ }
 
 </style>
+
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 function test1(){
   var num=10;
@@ -127,7 +135,12 @@ console.log(s);
 
 
 
-$("#my h2").eq(1).trigger("click");
+
+}
+
+function testTrigger(){
+  $("#my h2").eq(1).trigger("click");
+
 }
 
 $(function(){
@@ -144,29 +157,7 @@ function removeEvent(){
 
 }
 
-function testMap(){
-  var ary=[{name:"helln",age:10,cc:[1,2]},{name:"hello",age:20,cc:[3,4]}];
-
-  // var rlt=$.map(ary,function(item,index){
-
-  //   if(item.name=="helln"){
-  //     return item;
-  //   }
-  // });
-
-
-   var rlt=$.map(ary,function(item,index){
-
-    if(item.name=="helln"){
-      return item.cc;
-    }
-  });
-
-  console.log(rlt);
-
-
-
-}
+ 
 </script>
 </head>
 
@@ -180,10 +171,17 @@ function testMap(){
 <input type="button" value="toPrecision()" onClick="test6()"/></br>
 <h3>input:</h3><div id="nift"></div>
 
-
+<h3>----------获取style属性---------------</h3>
 <p style="background-color: pink;" id="me">hello</p>
+<input type="button" value="获取style属性" onClick="testMe()"/></br>
 
-<div id="my">
+
+<h3>----------在程序中触发点击事件---------------</h3>
+<input type="button" value="在程序中触发点击事件" onClick="testTrigger()"/></br>
+
+
+<h3>----------点击测试---------------</h3>
+<div id="my" class="testMy">
   <h2>hello 1</h2>
   <h2>hello 2</h2>
   <h2>hello 3
@@ -192,13 +190,12 @@ function testMap(){
   </h2>
 
 </div>
-<input type="button" value="获取style属性" onClick="testMe()"/></br>
+
+<h3>--------------------事件移除---------------</h3>
 <input type="button" value="移除事件" onClick="removeEvent()"/></br>
 
-<h3>placeholder换行</h3>
+<h3>-------------------placeholder换行？？？---------------</h3>
 <input type="text" name="hello" class="ph" placeholder=" hello world" title="hello world" style="height: 100px;">
-
-<button type="button" onclick="testMap();">测试$.map</button>
 
 <textarea placeholder="第1行  \n 第2行 <br> 第3行 \A 第4行 
 第5行"  class="ph" ></textarea>
