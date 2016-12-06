@@ -480,7 +480,11 @@ ul.type-lists li{
 
 	background-color: pink;
 }
-
+.lieh .hh1 {
+   
+    vertical-align: middle;
+    
+}
 
 .lieh .hh2 {
     display: inline-block;

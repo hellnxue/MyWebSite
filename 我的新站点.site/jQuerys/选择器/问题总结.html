@@ -140,7 +140,31 @@ $(function(){
 
 function removeEvent(){
 
-  $("#my h2").off();
+  $("#my h2").off("click");//or $("#my h2").off();
+
+}
+
+function testMap(){
+  var ary=[{name:"helln",age:10,cc:[1,2]},{name:"hello",age:20,cc:[3,4]}];
+
+  // var rlt=$.map(ary,function(item,index){
+
+  //   if(item.name=="helln"){
+  //     return item;
+  //   }
+  // });
+
+
+   var rlt=$.map(ary,function(item,index){
+
+    if(item.name=="helln"){
+      return item.cc;
+    }
+  });
+
+  console.log(rlt);
+
+
 
 }
 </script>
@@ -173,6 +197,8 @@ function removeEvent(){
 
 <h3>placeholder换行</h3>
 <input type="text" name="hello" class="ph" placeholder=" hello world" title="hello world" style="height: 100px;">
+
+<button type="button" onclick="testMap();">测试$.map</button>
 
 <textarea placeholder="第1行  \n 第2行 <br> 第3行 \A 第4行 
 第5行"  class="ph" ></textarea>
