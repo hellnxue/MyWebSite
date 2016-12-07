@@ -221,7 +221,11 @@ http://www.mamicode.com/info-detail-1191565.html
 
 7.margin-top 为负值 ，margin-bottom为正值的时候，怎么不好用，比如P元素
 
+8.template模板引入外部模板（暂时没有看到引入外部模板的，只知道引入同个页面的字模板）
+https://github.com/aui/artTemplate#%E4%BD%BF%E7%94%A8%E9%A2%84%E7%BC%96%E8%AF%91
 
+9.纯HTML页面怎么包含另外一个网页的内容
+http://bbs.csdn.net/topics/30320006
 
 
 -------------------------厂商前缀-----------------------------

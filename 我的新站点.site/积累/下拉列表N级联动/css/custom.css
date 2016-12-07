@@ -1,0 +1,762 @@
+/*自定义样式表*/
+
+ .clearfix:after {
+	content:".";
+	display:block;
+	height:0;
+	visibility:hidden;
+	clear:both;
+	}
+	
+/* header导航 */
+.ctm-icon-txt-r{
+	/* background-image: none;
+    right: 0.32rem;
+    left:auto;
+    width: 0.19rem;
+    height: 0.35rem; */
+   
+}	
+
+.ctm-icon-txt{
+	color: #fff;
+    font-size: 0.26rem;
+    line-height: 0.5rem;
+    position: relative;
+    right: 5%;
+	
+}
+
+
+	
+.ctm-ft{
+	padding-left: 0.36rem;
+	text-align:left;
+}
+
+.ctm-f-r{
+	float:right;
+}
+
+.ctm-cursor{
+	cursor:pointer;
+	
+	
+}
+
+.ctm-cursor-default{
+	cursor:default;
+	
+	
+}
+
+.ctm-cursor-none:focus,.ctm-cursor-none:hover{
+	 
+	
+	
+}
+
+
+
+.v-hidden{
+	visibility: hidden;
+}
+
+
+.text-left{
+	text-align:left;
+}
+
+.text-right{
+	text-align:right;
+}
+
+.text-center{
+	text-align:center;
+}
+/* ---------------------外边距--start------------------------- */
+.m-xxs {
+  margin: 0.02rem 0.04rem;
+}
+.m-xs {
+  margin: 0.05rem;
+}
+.m-sm {
+  margin: 0.1rem;
+}
+.m {
+  margin: 0.15rem;
+}
+.m-md {
+  margin: 0.2rem;
+}
+.m-lg {
+  margin: 0.3rem;
+}
+.m-xl {
+  margin: 0.5rem;
+}
+.m-n {
+  margin: 0 !important;
+}
+.m-l-none {
+  margin-left: 0;
+}
+.m-l-xs {
+  margin-left: 0.05rem;
+}
+.m-l-sm {
+  margin-left: 0.10rem;
+}
+.m-l {
+  margin-left: 0.15rem;
+}
+.m-l-md {
+  margin-left: 0.20rem;
+}
+.m-l-lg {
+  margin-left: 0.30rem;
+}
+.m-l-xl {
+  margin-left: 0.40rem;
+}
+.m-l-n-xxs {
+  margin-left: -0.01rem;
+}
+.m-l-n-xs {
+  margin-left: -0.05rem;
+}
+.m-l-n-sm {
+  margin-left: -0.10rem;
+}
+.m-l-n {
+  margin-left: -0.15rem;
+}
+.m-l-n-md {
+  margin-left: -0.20rem;
+}
+.m-l-n-lg {
+  margin-left: -0.30rem;
+}
+.m-l-n-xl {
+  margin-left: -0.40rem;
+}
+.m-t-none {
+  margin-top: 0;
+}
+.m-t-xxs {
+  margin-top: 0.01rem;
+}
+.m-t-xs {
+  margin-top: 0.05rem;
+}
+.m-t-sm {
+  margin-top: 0.10rem;
+}
+.m-t {
+  margin-top: 0.15rem;
+}
+.m-t-md {
+  margin-top: 0.20rem;
+}
+.m-t-lg {
+  margin-top: 0.30rem;
+}
+.m-t-xl {
+  margin-top: 0.40rem;
+}
+.m-t-xxl {
+  margin-top: 0.50rem;
+}
+.m-t-xxxl {
+  margin-top: 0.60rem;
+}
+.m-t-n-xxs {
+  margin-top: -0.01rem;
+}
+.m-t-n-xs {
+  margin-top: -0.05rem;
+}
+.m-t-n-sm {
+  margin-top: -0.10rem;
+}
+.m-t-n {
+  margin-top: -0.15rem;
+}
+.m-t-n-md {
+  margin-top: -0.20rem;
+}
+.m-t-n-lg {
+  margin-top: -0.30rem;
+}
+.m-t-n-xl {
+  margin-top: -0.40rem;
+}
+.m-r-none {
+  margin-right: 0;
+}
+.m-r-xxs {
+  margin-right: 0.01rem;
+}
+.m-r-xs {
+  margin-right: 0.05rem;
+}
+.m-r-sm {
+  margin-right: 0.10rem;
+}
+.m-r {
+  margin-right: 0.15rem;
+}
+.m-r-md {
+  margin-right: 0.20rem;
+}
+.m-r-lg {
+  margin-right: 0.30rem;
+}
+.m-r-xl {
+  margin-right: 0.40rem;
+}
+.m-r-n-xxs {
+  margin-right: -0.01rem;
+}
+.m-r-n-xs {
+  margin-right: -0.05rem;
+}
+.m-r-n-sm {
+  margin-right: -0.10rem;
+}
+.m-r-n {
+  margin-right: -0.15rem;
+}
+.m-r-n-md {
+  margin-right: -0.20rem;
+}
+.m-r-n-lg {
+  margin-right: -0.30rem;
+}
+.m-r-n-xl {
+  margin-right: -0.40rem;
+}
+.m-b-none {
+  margin-bottom: 0;
+}
+.m-b-xxs {
+  margin-bottom: 0.01rem;
+}
+.m-b-xs {
+  margin-bottom: 0.05rem;
+}
+.m-b-sm {
+  margin-bottom: 0.10rem;
+}
+.m-b {
+  margin-bottom: 0.15rem;
+}
+.m-b-md {
+  margin-bottom: 0.20rem;
+}
+.m-b-lg {
+  margin-bottom: 0.30rem;
+}
+.m-b-xl {
+  margin-bottom: 0.40rem;
+}
+.m-b-n-xxs {
+  margin-bottom: -0.01rem;
+}
+.m-b-n-xs {
+  margin-bottom: -0.05rem;
+}
+.m-b-n-sm {
+  margin-bottom: -0.10rem;
+}
+.m-b-n {
+  margin-bottom: -0.15rem;
+}
+.m-b-n-md {
+  margin-bottom: -0.20rem;
+}
+.m-b-n-lg {
+  margin-bottom: -0.30rem;
+}
+.m-b-n-xl {
+  margin-bottom: -0.40rem;
+}
+.space-15 {
+  margin: 0.15rem 0;
+}
+.space-20 {
+  margin: 0.20rem 0;
+}
+.space-25 {
+  margin: 0.25rem 0;
+}
+.space-30 {
+  margin: 0.30rem 0;
+}
+/* ---------------------外边距--end------------------------- */
+
+
+/* ---------------------内边距--end------------------------- */
+.p-t{
+	padding-top:15px;
+}
+
+/* ---------------------内边距--end------------------------- */
+.custom-col-6 {
+	width:50%;
+}
+
+.pull-left{
+	float:left;
+}
+
+.pull-right{
+	float:right;
+}
+
+
+/* ---------------------自定义公共样式 start------------------------- */
+
+.ctm-container{
+	padding-left: 15px;
+    padding-right: 15px;
+	
+}
+
+.custom-row{
+	margin-left: -15px;
+    margin-right: -15px;
+	
+}
+
+.ctm-img-wrapper{
+	padding-top: 30px;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+.custom-btn.disabled,
+.custom-btn.disabled:hover,
+.custom-btn.disabled:focus,
+.custom-btn.disabled:active,
+.custom-btn.disabled.active,
+.custom-btn[disabled],
+.custom-btn[disabled]:hover,
+.custom-btn[disabled]:focus,
+.custom-btn[disabled]:active,
+.custom-btn.active[disabled] {
+  background-color: #e4ebee;
+  border-color: #e4ebee;
+}
+
+
+.ctm-overflow-hidden{
+	overflow:hidden;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+/* ---------------------自定义公共样式 start------------------------- */
+
+
+
+.ctm-icon1{
+	position: relative; 
+	height: 0.2rem; 
+	top: 0.02rem;
+}
+
+.ctm-box-shadow-none,.btn.ctm-box-shadow-none{
+	box-shadow:none;
+	
+}
+
+.ctm-box-shadow,.btn-orange-plane, .btn-orange-circle.ctm-box-shadow{
+	box-shadow:0 2px 2px rgba(0,0,0,0.2);
+}
+
+
+
+
+
+/*弹框内部样式*/
+
+
+.custom-code-wrapper *{
+	 
+	box-sizing:border-box !important;
+	
+}
+.custom-code-wrapper{
+	 /* margin-bottom: 15px; */
+	
+}
+
+.custom-code-wrapper .lead{
+	color: #2e2e4a;
+    font-size: 0.28rem;
+    line-height: 0.4rem;
+}
+
+.custom-code-wrapper .c_orange{
+	color: #fa6e28;
+    
+}
+
+.wrpBorder{
+   
+   border: 0.05rem solid rgba(255, 165, 0, 1);
+    border-radius: 0.1rem;
+    height: 1rem;
+    line-height: 1rem;
+    padding: 0.1rem;
+ }
+ 
+ 
+ .custom-row .custom-col-l{
+   position: relative;
+   width:60%;
+   float:left;
+ }
+ 
+  .custom-row .custom-col-r{
+   position: relative;
+   width:40%;
+   float:right;
+ }
+ 
+ 
+    
+.custom-code-wrapper .codeBorder {
+   border-left: 0.03rem solid rgba(255, 165, 0, 1);
+    height: 0.7rem;
+    left: 0;
+    opacity: 0.7;
+    position: absolute;
+   
+}
+
+
+.custom-form-control {
+    
+    border: 0 none;
+    border-radius: 0.04rem;
+    color: #555;
+    display: block;
+    font-size: 0.28rem;
+    height: 0.8rem;
+    line-height: 1.42857;
+    padding: 0.04rem 0.12rem 0.06rem;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    width: 100%;
+}
+
+
+
+
+/*按钮*/
+.custom-btn{
+	height: 0.77rem;
+    line-height: 0.2rem;
+    width: 70%;
+  /*   box-shadow:none; */
+    background-color: #b9b9b9;
+	
+}
+
+.custom-btn:hover,.custom-btn:focus{
+ 	background-color: #ddd;
+    color: #fa6e28;}
+    
+/* .btn-orange.custom-btn-hfnone:hover,.btn-orange.custom-btn-hfnone:focus{
+ 	background-color: #ccc;
+    color: #999;}
+     */
+    
+.btn-orange{
+	color:#fff;
+	background-color:#fa6e28;
+	
+}
+
+
+
+.btn-orange:hover,.btn-orange:focus{
+ 	background-color: #ea6e00;
+    color:#fff;	
+     }
+    
+ .catch{
+ 	/* color:#767676; */
+ 	color: #767676;
+    font-size: 0.28rem;
+    line-height: 0.8rem;
+ }
+ 
+ 
+ 
+ 
+
+a.ctm-link:hover,
+a.ctm-link:focus {
+ /*  color: #34495e;
+  text-decoration: none; */
+  background-color:#fff;
+  border:none;
+   text-decoration: none;
+}
+ 
+ 
+/* 我的账单部分字体-start */
+.ctm-f-t .f-t-b{
+	
+	 font-size: 0.27rem;
+    line-height: 0.5rem;
+}
+
+.ctm-f-t .f-ct,.f-ct .form-group{
+	
+	font-size: 0.29rem;
+	line-height: 0.5rem;
+}
+
+.ctm-f-t .m-b-none{
+	margin-bottom:0;
+}  
+
+/* 我的账单部分字体-end */
+
+.ctm-bg{
+	background-color:#eee;
+}
+
+
+/* c_repat.jsp */
+
+.ctm-mx-m-t{
+	margin-top:2rem;
+}
+
+.btn.ctm-mx-btn{
+	font-size:0.32rem;
+	line-height: 0.32rem;
+	width:6.85rem;
+}
+
+/* 验证码弹出层 */
+ 
+
+.btn.ctm-layer-btn{
+	height: 0.75rem;
+    width: 3.05rem;
+}
+
+
+/* 借钱还信用卡 */
+.ctm-tip-p p{
+	color: #ddd;
+    font-size: 0.28rem;
+    padding-left: 10%;
+}
+
+
+
+/* ---------------滑动插件样式   productList---------------start */
+.swiper-container {
+ /*  width: 672px;
+  height: 241px; */
+  width: 6.72rem;
+  height: 3.5rem; 
+  color: #fff;
+  text-align: center;
+  overflow:visible !important;
+}
+
+.pd_area.sp{
+   /*  width: 672px;
+  height: 241px;  */ 
+  /* width: 6.72rem;
+  height: 2.41rem;  */
+  position:relative;
+  margin-left:0;
+  transform:none;
+/*   transition: all 1s linear 0s;   */
+  
+  
+}
+
+
+.pagination {
+ /*  position: absolute;
+  z-index: 20;
+  left: 10px;
+  bottom: 10px; */
+  bottom: 5px;
+  left: 50%;
+  margin-left: -10%;
+  position: absolute;
+  z-index: 20;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 8px;
+  background: #555;
+  margin-right: 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+
+div.sp.cur-scales{
+  transform:scale(1.04);
+  -ms-transform:scale(1.04); 	 
+  -moz-transform:scale(1.04); 	 
+  -webkit-transform:scale(1.04);  
+  -o-transform:scale(1.04); 	 
+  /* left:0.02rem; */
+  z-index:100
+}
+
+.cur-scales ~ .sp{
+	left:0.09rem;
+	
+}
+
+.right{
+	right:0.08rem;
+}
+
+/* div.sp.scales + div{
+  transform:scale(1.04);
+  left:0.02rem;
+  
+  
+}
+
+.scales ~ .sp{
+	left:0.05rem;
+	
+} */
+
+/* -----------------滑动插件样式  ---------------end */
+
+
+
+
+/*-----------------借钱还信用卡 productList --------------------start*/
+
+
+.ctm-produt-list{
+	
+	padding-bottom: 0.15rem;
+}
+.ctm-produt-list .pd_area_t{
+	
+	font-size:0.24rem;
+}
+
+.ctm-produt-list .control-label{
+	font-size:0.32rem;
+	color:#666;
+}
+
+
+.ctm-produt-list .form-control{
+	font-size:0.32rem;
+	color:#FE6F1A;
+}
+
+.ctm-produt-list .swiper-container{
+	margin-top:0.35rem;
+}
+
+.ctm-produt-list .pd_area{
+	
+	background: url("../images/main/pro_bg11@2x.png") no-repeat;
+	filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+	-moz-background-size: 6.72rem 3.5rem;
+	background-size: 6.72rem 3.5rem;
+}
+
+.ctm-produt-list .pd_area .t_lit:first-child{
+	/* margin-top:0.4rem; */
+	height: 1.5rem;  
+	line-height:1.5rem;
+	padding-top: 0.2rem;
+}
+.ctm-produt-list .pd_area .t_lit:nth-of-type(2){
+ 
+	height: 0.9rem; 
+	line-height:normal;
+	padding-top:0.33rem; 
+	 
+}
+.ctm-produt-list .pd_area .t_lit:last-child{
+	 
+	height: 1.1rem;  
+	line-height:1.1rem;
+	font-size:0.28rem;
+	color:#FE8534;
+}
+
+
+.ctm-produt-list .pd_area .t_lit> .p_n{
+	font-size:0.42rem;
+	color:#fff;
+}
+
+.ctm-produt-list .pd_area .t_lit> .p_d, .ctm-produt-list .pd_area .t_lit:nth-of-type(2)>span:first-child{
+	font-size:0.28rem;
+	color:#333;
+}
+
+.ctm-produt-list .pd_area .t_lit:nth-of-type(2)>span:not(:first-child){
+	font-size:0.22rem;
+	color:#666;
+}
+
+.ctm-produt-list .pd_area .t_lit .t_lit_p{
+	/* text-align: right; 
+	font-size: 0.22rem; 
+	line-height: 0.1; */
+	clear: both;
+	border-bottom: 1px solid #ddd;
+    font-size: 0.22rem;
+    margin-top: -5px;
+    padding-bottom: 2px;
+    text-align: right;
+    
+}
+
+.ctm-produt-list .orange{
+	color:orange;
+}
+
+.ctm-produt-list .qs_eare{
+	font-size:0.32rem;
+	color:#666;
+}
+
+.ctm-produt-list  span {
+	color: #fc7018;
+}
+
+
+
+/*--------------------借钱还信用卡 ----------------end*/

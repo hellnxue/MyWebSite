@@ -143,17 +143,26 @@ function testTrigger(){
 
 }
 
+//给选择器绑定事件的时候为什么不能用这种变量的方式呢？这种变量绑定没效果哎？？？？？
+var $selectors= $("#my h2");
 $(function(){
   $("#my h2").on("click",function(){
 
       console.log($(this).next().find("span").html());
   })
 
-})
+});
 
 function removeEvent(){
 
   $("#my h2").off("click");//or $("#my h2").off();
+
+}
+
+
+function argumentsCallee(){
+   console.log("hello arguments");
+   arguments.callee();
 
 }
 
@@ -199,5 +208,9 @@ function removeEvent(){
 
 <textarea placeholder="第1行  \n 第2行 <br> 第3行 \A 第4行 
 第5行"  class="ph" ></textarea>
+
+
+<h3>--------------------arguments.callee---------------</h3>
+<input type="button" value="arguments.callee" onClick="argumentsCallee()"/></br>
 </body>
 </html>

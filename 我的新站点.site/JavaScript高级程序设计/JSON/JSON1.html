@@ -1,32 +1,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 function test1(){
    var obj={
-     name:"helln",
-	 age:20
-   };
-   var objText=JSON.stringify(obj);//½«javascript¶ÔÏó×ª³Éjson£¬Ò»°ãÓÃÓÚÏò·şÎñÆ÷·¢ËÍÊı¾İÊ±´«Êäjson¸ñÊ½µÄÊı¾İ
+		 name:"helln",
+		 age:20
+    };
+   var objText=JSON.stringify(obj);//å°†javascriptå¯¹è±¡è½¬æˆjsonï¼Œä¸€èˆ¬ç”¨äºå‘æœåŠ¡å™¨å‘é€æ•°æ®æ—¶ä¼ è¾“jsonæ ¼å¼çš„æ•°æ®
    console.log(objText);
-   var jsonObject=JSON.parse(objText);
-   console.log(jsonObject);        //½«json½âÎö³Éjavascript¶ÔÏó£¬ÒÔ±ã¿ÉÒÔºÜ·½±ãµÄ²Ù×÷¶ÔÏóÊı¾İ
-   
-   var json1={"name":"hell","age":10};
-   console.log(eval("json1"));
-   
-   
-   
+   console.log(typeof objText);
 
 }
 
-//½«jsonµÄ×Ö·û´®½âÎö³ÉjsonÊı¾İ¸ñÊ½µÄÁ½ÖÖ·½Ê½
+
+function test11(){
+    var obj={
+		 name:"helln",
+		 age:20
+     };
+   var objText=JSON.stringify(obj);//å°†javascriptå¯¹è±¡è½¬æˆjsonï¼Œä¸€èˆ¬ç”¨äºå‘æœåŠ¡å™¨å‘é€æ•°æ®æ—¶ä¼ è¾“jsonæ ¼å¼çš„æ•°æ®
+   
+   //æ–¹æ³•ï¼šç”¨JSON.parse()
+   var jsonObject=JSON.parse(objText);
+   console.log(jsonObject);        //å°†jsonè§£ææˆjavascriptå¯¹è±¡ï¼Œä»¥ä¾¿å¯ä»¥å¾ˆæ–¹ä¾¿çš„æ“ä½œå¯¹è±¡æ•°æ®
+   console.log(typeof jsonObject);  
+	
+   //å‡½æ•°eval()å…·ä½“æ˜¯æ€ä¹ˆç”¨çš„å‘¢ï¼Ÿ
+   var json1={"name":"hell","age":10};
+   console.log(eval("json1"));
+}
+
+//å°†jsonçš„å­—ç¬¦ä¸²è§£ææˆjsonæ•°æ®æ ¼å¼çš„ä¸¤ç§æ–¹å¼
 function test2(){
   
-   console.log(eval("{}"));//undefined   £¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿
+   console.log(eval("{}"));//undefined   ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
    console.log(eval("({})"));//object{}
   console.log(eval("({\"name\":1})"));
   
@@ -38,10 +49,10 @@ function test2(){
 
 function test3(){
     var obj={
-	    "ÉÏº£":["ÉÏº£Éç±£","ÉÏº£¹«»ı½ğ"],
-		"±±¾©":["±±¾©Éç±£","±±¾©¹«»ı½ğ"]
+	    "ä¸Šæµ·":["ä¸Šæµ·ç¤¾ä¿","ä¸Šæµ·å…¬ç§¯é‡‘"],
+		"åŒ—äº¬":["åŒ—äº¬ç¤¾ä¿","åŒ—äº¬å…¬ç§¯é‡‘"]
 	};
-	console.log(obj["ÉÏº£"]);
+	console.log(obj["ä¸Šæµ·"]);
 	
 	for(var i in obj){
 	   console.log("key:"+i+"  value:"+obj[i]);
@@ -51,16 +62,16 @@ function test3(){
 
 function test4(){
   var objArray=[
-  { city:{name:"ÉÏº£",value:"shagnhai"},
+  { city:{name:"ä¸Šæµ·",value:"shagnhai"},
     typeAry:[
-	      {name:"ÉÏº£Éç±£",value:"shagnhaishebao"},
-		  {name:"ÉÏº£¹«»ı½ğ",value:"sahgnhaigongjijin"}
+	      {name:"ä¸Šæµ·ç¤¾ä¿",value:"shagnhaishebao"},
+		  {name:"ä¸Šæµ·å…¬ç§¯é‡‘",value:"sahgnhaigongjijin"}
 		  ]
    },
-  {city:{name:"±±¾©",value:"beijing"},
+  {city:{name:"åŒ—äº¬",value:"beijing"},
    typeAry:[
-        {name:"±±¾©Éç±£",value:"beijingshebao"},
-		{name:"±±¾©¹«»ı½ğ",value:"beijinggongjijin"}
+        {name:"åŒ—äº¬ç¤¾ä¿",value:"beijingshebao"},
+		{name:"åŒ—äº¬å…¬ç§¯é‡‘",value:"beijinggongjijin"}
 		]
   }];
 }
@@ -80,13 +91,14 @@ function test5(){
 </head>
 
 <body>
-<input type="button"  name="d1" id="d1" value="json" onclick="test1()"/></br>
-<input type="button"  name="d1" id="d1" value="²âÊÔeval" onclick="test2()"/></br>
+<input type="button"  name="d1" id="d1" value="å°†ä¸€ä¸ªå¯¹è±¡è½¬æ¢æˆjsonå­—ç¬¦ä¸²" onclick="test1()"/></br>
+<input type="button"  name="d1" id="d1" value="è®²ä¸€ä¸ªjsonå­—ç¬¦ä¸²è½¬æ¢ä¸ºå¯¹è±¡" onclick="test11()"/></br>
+<input type="button"  name="d1" id="d1" value="æµ‹è¯•eval" onclick="test2()"/></br>
 
-<input type="button"   id="d2" value="µ±keyÎªÊı×Ö»ò×Ö·ûÊ±µÄObjectÔõÃ´»ñÈ¡keyµÄÖµ" onclick="test3()"/></br>
+<input type="button"   id="d2" value="å½“keyä¸ºæ•°å­—æˆ–å­—ç¬¦æ—¶çš„Objectæ€ä¹ˆè·å–keyçš„å€¼" onclick="test3()"/></br>
 
 <input type="button"   id="d2" value="hehe" onclick="test4()"/></br>
 
-<input type="button"    value="×ªjson´®" onclick="test5()"/></br>
+<input type="button"    value="è½¬jsonä¸²" onclick="test5()"/></br>
 </body>
 </html>
