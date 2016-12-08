@@ -166,6 +166,21 @@ function argumentsCallee(){
 
 }
 
+
+
+function lastIndexOfTest(){
+
+  var str="广东省|河源市|和平县|上海市浦东新区峨山路91弄58号B区4";
+  var lastIndex=str.lastIndexOf("|");
+  var subStrs=str.substring(lastIndex+1);
+  var startStr=str.substring(0,lastIndex);
+  // var repStr=startStr.replace(new RegExp("|","gm"),"0");
+   var repStr=startStr.replace( new RegExp("\\|","g") ," ");
+  console.log(subStrs);
+  console.log(startStr);
+   console.log(repStr);
+}
+
  
 </script>
 </head>
@@ -212,5 +227,8 @@ function argumentsCallee(){
 
 <h3>--------------------arguments.callee---------------</h3>
 <input type="button" value="arguments.callee" onClick="argumentsCallee()"/></br>
+
+<h3>--------------------截取最后一根"|"---------------</h3>
+<input type="button" value="arguments.callee" onClick="lastIndexOfTest()"/></br>
 </body>
 </html>
