@@ -77,15 +77,91 @@ function test4(){
 }
 
 function test5(){
+  //对象
   var ary=[
     {name:"a"},
-	{name:"b"}
+	  {
+      name:"b",
+      age:undefined,
+      sayhi:function(){
+
+        console.log("hi");
+      }
+    }
   ];
   
   var json=JSON.stringify(ary);
-  console.log(json);
+  var jsonToObj=JSON.parse(json);
+  console.log(json);//[{"name":"a"},{"name":"b"}]
+  console.log(jsonToObj)
   
   
+}
+
+function toJSONTest(){
+  var book={
+    title:"三生三世十里桃花",
+    authors:"唐七公子",
+    toJSON:function(){
+
+      return this.title;
+    }
+   }
+    var json=JSON.stringify(book);
+    console.log(json);//"三生三世十里桃花"
+
+   /*可以让toJSON返回任何值,这个对象序列化后获取的是toJSON()返回的值，而不是对象本身序列完后的结果
+     可以用toJSON()方法删除序列化结果对象中嵌套的某些对象，只要返回undefined即可*/
+   var fbook={
+        title:"三生三世",
+        authors:"唐七公子",
+        price:null  /*序列完的json字符串支持null的*/
+
+   }
+   var book1={
+        title:"三生三世十里桃花",
+        authors:"唐七公子",
+        toJSON:function(){
+
+          return undefined;
+        }
+
+   }
+
+   fbook.smallBook=book1;
+
+   var bookJson=JSON.stringify(fbook);
+   console.log(bookJson);//{"title":"三生三世","authors":"唐七公子","price":null}
+
+}
+
+function parseTest(){
+    var book={
+        title:"三生三世",
+        authors:"唐七公子",
+        releaseDate:new Date(2011,11,1)  
+
+   }
+
+   var jsonStr=JSON.stringify(book);
+   console.log(jsonStr);
+
+   var simpleParse=JSON.parse(jsonStr);
+   console.log(simpleParse);
+
+   var handelParse=JSON.parse(jsonStr,function(key,value){
+      if(key=="releaseDate"){
+
+        return new Date(value);
+      }else{
+
+        return value;
+      }
+
+   });
+
+   console.log(handelParse);
+   console.log(handelParse.releaseDate.getFullYear());/*正是因为releaseDate用parse()方法的第二个参数-函数处理后，由字符串转为了Date对象，此处才可以直接调用getFullYear()方法呢*/
 }
 </script>
 </head>
@@ -99,6 +175,14 @@ function test5(){
 
 <input type="button"   id="d2" value="hehe" onclick="test4()"/></br>
 
-<input type="button"    value="转json串" onclick="test5()"/></br>
+<input type="button"    value="对象转json串时忽略undefined和函数" onclick="test5()"/></br>
+
+<h3>------------------------对象自定义序列化json字符串方法：toJSON()------------------------</h3>
+<input type="button"    value="对象自定义序列方法" onclick="toJSONTest()"/></br>
+
+
+<h3>---------------解析选项：JSON.parse()方法也可以传入第二个参数-一个函数------------------</h3>
+<input type="button"    value="parse解析定义" onclick="parseTest()"/></br>
+
 </body>
 </html>
