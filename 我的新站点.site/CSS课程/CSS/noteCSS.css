@@ -492,3 +492,27 @@ ul.type-lists li{
     vertical-align: middle;
     width: 21px;
 }
+
+/*左右外边距为都为负值*/
+.mrl::after, .mrl::before {
+    content: " ";
+    display: table;
+}
+.mrl *::after, .mrl *::before {
+    box-sizing: border-box;
+}
+.mrl {
+    border: 1px solid black;
+    box-sizing: border-box;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.mrl  div{
+    border: 1px solid yellow;
+    box-sizing: border-box;
+    /*为啥左右margin都为负值确导致左移而不是两边均匀呢？*/
+    margin-left: -15px;
+    margin-right: -15px;
+    width: 100%;
+}
