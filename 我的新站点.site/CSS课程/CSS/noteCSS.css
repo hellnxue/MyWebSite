@@ -516,3 +516,25 @@ ul.type-lists li{
     margin-right: -15px;
     width: 100%;
 }
+
+
+/**/
+
+.f-ctr{
+
+	 box-sizing:border-box;
+	 width:80%; 
+	 background-color:#FFCCCC; 
+	 border:1px solid blue;
+	 margin:0 auto;
+	 padding:0 15px;
+ 
+}
+
+.f-ctr div{
+    background-color: yellow;
+    border: 1px solid;
+    margin:0 -15px;
+    
+  /*  width: 100%;*/  /*如果子元素有固定宽度，那么负外边距会使子元素向左移动，导致子元素的右边空出一块来，如果width为自适应的话就不会有这种情况了*/
+}

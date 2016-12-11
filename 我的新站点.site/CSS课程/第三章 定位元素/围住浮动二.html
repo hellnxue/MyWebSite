@@ -2,29 +2,39 @@
 <html  >
 <head>
  
-<meta charset="gb2312" />
-<title>Χס����Ԫ��</title>
+<meta charset="utf-8" />
+<title>围住浮动元素</title>
 <style>
-  /* ��������ͬʱ������Ԫ�� */
+  /* 方法二：同时浮动父元素 */
   
   /*
-  ����section �Ժ󣬲�������Ԫ���Ƿ񸡶�������������ذ�Χ��Ҳ������������ס
-������Ԫ�أ������ᵼ��section��������Ϊ��������img����ʹ��img�µĶ��䲻ȫ��ͼƬ�ұߣ�����һ�������ұߣ�һ�������·���footer��δ����float:left������»�Ʈ������section���ұߣ�����ˣ���Ҫ��width:100%����section �����������ͬ�������⣬��
-��section ����Ҳ�����ˣ�����footer ��Ŭ�����ϼ������Ա�ȥ(�ı��ᱻ����section�����棬����footer�����������ڸ���Ԫ�ص��������)��Ϊ��ǿ��footer
-��Ȼ����section �·���Ҫ����Ӧ��clear:left���������Ԫ�ز��ᱻ����������Ԫ
-�ص��Ա�
+  浮动section 以后，不管其子元素是否浮动，它都会紧紧地包围（也称收缩包裹）住
+它的子元素（这样会导致section宽度收缩为被包含的img宽，使得img下的段落不全在图片右边，而是一部分在右边，一部分在下方。footer若未设置float:left的情况下会飘到整个section的右边）。因此，需要用width:100%再让section 与浏览器容器同宽。另外，由
+于section 现在也浮动了，所以footer 会努力往上挤到它旁边去(文本会被挡在section的下面，但是footer的区域会出现在浮动元素的区域滴啦)。为了强制footer
+依然呆在section 下方，要给它应用clear:left。被清除的元素不会被提升到浮动元
+素的旁边
   */
   section{ border:2px solid blue; margin:0 0 10px 0; float:left; width:100%;}
   img{ border:1px solid yellow; float:left; }
   p{border:1px solid pink; margin:0px;}
   footer{ border:1px solid #000; clear:left}
+  
+  
+  .panel{
+    background-color: #abcdef;
+    height: 50px;
+}
 </style>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
-  
+
+
+<div class="panel" style="height:50px; background-color:#abcdef;"></div>
+ 
+ <!--虽然section是浮动的，但是它依然会在div的下方（如果div的宽度与浏览器同宽的话），而不会到处飘奥~-->
  <section>
-<img src="../../image/mxx/m2.jpg" alt="sorry" title="Сϣ"/>
+<img src="../../image/mxx/m2.jpg" alt="sorry" title="小希"/>
 <p>It's fun to float.It's fun to float.</p>
 </section>
 <footer> Here is the footer element that runs across the bottom of the page.</footer>

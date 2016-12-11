@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>Çå³ı¸¡¶¯</title>
+<meta charset="utf-8" />
+<title>æ¸…é™¤æµ®åŠ¨</title>
 <link type="text/css" rel="stylesheet" href="../CSS/CSSUtil.css"/>
 <style>
    /*
-     ÓÉÓÚµÚ¶ş¶ÎµÄÍ¼Æ¬¡¢¶ÎÂäÖĞ£¬¶ÎÂäµÄÎÄ×Ö±ÈÍ¼Æ¬µÄ¸ß¶ÈĞ¡£¬ËùÒÔÁôÏÂÁË¿Õ¼ä£¬µ¼ÖÂµ×²¿µÄ¸¡¶¯Í¼Æ¬»á¸¡¶¯µ½´Ë¡£
-	 ÓÃclearfix¹æÔò£¬ÔÚ¶ÎÂäÖĞ¼ÓÈëÄÚÈİ²¢Çå³ı¸¡¶¯£¬´íÂÒµÄĞ§¹û»á±»¸ÄÕı¡£
-	  ÓÃÎ±ÔªËØ::afterÉèÖÃÁËÄÚÈİ²¢ÉèÖÃÁËclear:bothºó£¬Õâ²¿·Ö»áÔÚ¸¡¶¯µÄÍ¼Æ¬ÏÂÃæÏÔÊ¾£¬¾ÍÈçÍ¬Õı³£µÄÎÄµµÁ÷¡£
-	  ¶ø¶ÎÂäP¿Ï¶¨»á°üº¬·Ç¸¡¶¯µÄÄÚÈİ£¬Òò´Ë²¼¾Ö²»»á´íÂÒ¡£
-	 ÔÚ¶ÎÂäÖĞµÄ×îºó¼ÓÈëÒ»¸ödivÔªËØ£¬²¢Çå³ı¸¡¶¯Ò²»áÊ¹Ò³ÃæµÄÕûÌå²¼¾Ö±äºÃ¡£ÒòÎª¶ÎÂä»á°üº¬Çå³ıÁË¸¡¶¯µÄÔªËØ(ÒÔ¼°Î´Çå³ı¸¡¶¯µÄÔªËØ)£¬ËùÒÔ·Ç¸¡¶¯ÔªËØ»áÔÚ¸¡¶¯Í¼Æ¬µÄµ×²¿Î»ÖÃÁôÏÂ£¬Òò´ËµÚÈı²¿·ÖµÄ¶ÎÂäºÍÍ¼Æ¬¾Í»áÕı³£²¼¾ÖÀ²¡£ÓĞµãÈÆ°Â -_-'
+     ç”±äºç¬¬äºŒæ®µçš„å›¾ç‰‡ã€æ®µè½ä¸­ï¼Œæ®µè½çš„æ–‡å­—æ¯”å›¾ç‰‡çš„é«˜åº¦å°ï¼Œæ‰€ä»¥ç•™ä¸‹äº†ç©ºé—´ï¼Œå¯¼è‡´åº•éƒ¨çš„æµ®åŠ¨å›¾ç‰‡ä¼šæµ®åŠ¨åˆ°æ­¤ã€‚
+	 ç”¨clearfixè§„åˆ™ï¼Œåœ¨æ®µè½ä¸­åŠ å…¥å†…å®¹å¹¶æ¸…é™¤æµ®åŠ¨ï¼Œé”™ä¹±çš„æ•ˆæœä¼šè¢«æ”¹æ­£ã€‚
+	  ç”¨ä¼ªå…ƒç´ ::afterè®¾ç½®äº†å†…å®¹å¹¶è®¾ç½®äº†clear:bothåï¼Œè¿™éƒ¨åˆ†ä¼šåœ¨æµ®åŠ¨çš„å›¾ç‰‡ä¸‹é¢æ˜¾ç¤ºï¼Œå°±å¦‚åŒæ­£å¸¸çš„æ–‡æ¡£æµã€‚
+	  è€Œæ®µè½Pè‚¯å®šä¼šåŒ…å«éæµ®åŠ¨çš„å†…å®¹ï¼Œå› æ­¤å¸ƒå±€ä¸ä¼šé”™ä¹±ã€‚
+	 åœ¨æ®µè½ä¸­çš„æœ€ååŠ å…¥ä¸€ä¸ªdivå…ƒç´ ï¼Œå¹¶æ¸…é™¤æµ®åŠ¨ä¹Ÿä¼šä½¿é¡µé¢çš„æ•´ä½“å¸ƒå±€å˜å¥½ã€‚å› ä¸ºæ®µè½ä¼šåŒ…å«æ¸…é™¤äº†æµ®åŠ¨çš„å…ƒç´ (ä»¥åŠæœªæ¸…é™¤æµ®åŠ¨çš„å…ƒç´ )ï¼Œæ‰€ä»¥éæµ®åŠ¨å…ƒç´ ä¼šåœ¨æµ®åŠ¨å›¾ç‰‡çš„åº•éƒ¨ä½ç½®ç•™ä¸‹ï¼Œå› æ­¤ç¬¬ä¸‰éƒ¨åˆ†çš„æ®µè½å’Œå›¾ç‰‡å°±ä¼šæ­£å¸¸å¸ƒå±€å•¦ã€‚æœ‰ç‚¹ç»•å¥¥ -_-'
    */
     section {width:400px; border:1px solid red;}
 	img {float:left;  margin:0 4px 4px 0;}
@@ -19,23 +19,23 @@
     .hehe{
       border:1px solid yellow;} 
 </style>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 	<section>
 		<img src="../../image/mxx/m5.jpg">
 		<p class="clearfix">
-			Fisrst:This text sits next to the image and because the¡­This text sits next to the image and because the¡­This text sits next to the image and because the¡­This text sits next to the image and because and becauseimage and because and because  the¡­
+			Fisrst:This text sits next to the image and because theâ€¦This text sits next to the image and because theâ€¦This text sits next to the image and because theâ€¦This text sits next to the image and because and becauseimage and because and because  theâ€¦
 		
 		 </p>
 		<img src="../../image/mxx/m6.jpg">
 		<p class="clearfix hehe" >
-			Second:This text is short, so the next image can float up¡­
+			Second:This text is short, so the next image can float upâ€¦
 			<!--<h3>hehe</h3>-->
 		</p>
 		<img src="../../image/mxx/m7.jpg">
 		<p class="clearfix">
-			Three:Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­Because the previous image¡¯s text does not¡­
+			Three:Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦Because the previous imageâ€™s text does notâ€¦
 		</p>
 	</section>
 </body>

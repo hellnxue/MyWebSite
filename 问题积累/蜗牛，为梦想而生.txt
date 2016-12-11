@@ -42,6 +42,11 @@ input.ph-color::-ms-input-placeholder {
 
 9.CSS选择器，选择当前元素的前一个同辈节点
 
+10.  background: rgba(0,0,0,0)  url("../images/main/v1/index_bg@2x.png"); 
+  filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";//这个filter是啥？？
+  -moz-background-size: 7.5rem 1.6rem;
+  background-size: 7.5rem 1.6rem;
+
 
 -------------------绝对定位会让元素宽度收缩到包围子元素的宽度吗？OK------------------
 	绝对定位会让没有宽度的块级元素收缩到包围子元素的宽度
@@ -201,8 +206,13 @@ http://blog.csdn.net/playboyanta123/article/details/41803617
 --智阳官网
 http://www.ezhiyang.com/site/ezhiyang/index.html
 
---Swiper中文文档
+--滑动插件Swiper中文文档
 http://www.swiper.com.cn/api/index.html
+
+--MUI 手机页面网址
+http://dev.dcloud.net.cn/mui/ui/
+
+
 
 -----------------------------------------学习网址-----------------------------------------------------------------
 1、html5移动端开发和响应式设计差别在哪里：

@@ -2,32 +2,32 @@
 <html  >
 <head>
  
-<meta charset="gb2312" />
-<title>Χס����Ԫ����</title>
+<meta charset="utf-8" />
+<title>围住浮动元素三</title>
 <style>
-  /* �����������ӷǸ��������Ԫ��
-         ������ǿ�Ƹ�Ԫ�ذ����両����Ԫ�صķ��������Ǹ���Ԫ������һ���Ǹ�������Ԫ�أ�Ȼ�������Ԫ�أ��������������clear��left�������ڰ���Ԫ��һ�����Χ�Ǹ�������Ԫ�أ�����������������Ԫ��λ�ڸ���Ԫ�ص��·�����˰���Ԫ��һ������������Ԫ�ء����Լ�ǰ��ĸ���Ԫ�ء��ڰ���Ԫ�����������Ԫ����Ϊ���Ԫ�صķ�ʽ������...
+  /* 方法三：添加非浮动的清除元素
+         第三种强制父元素包含其浮动子元素的方法，就是给父元素添加一个非浮动的子元素，然后清除该元素（就是清除浮动，clear：left）。由于包含元素一定会包围非浮动的子元素，而且清除会让这个子元素位于浮动元素的下方，因此包含元素一定会包含这个子元素——以及前面的浮动元素。在包含元素最后添加子元素作为清除元素的方式有两种...
   */
   
   section{ border:2px solid blue; margin:0 0 10px 0;  }
   img{ border:1px solid yellow; float:left; }
   p{border:1px solid pink; margin:0px;}
   /*
-      ��ʽһ��
+      方式一：
 	  
-      ��һ�ַ�ʽ��̫���룬Ҳ���Ǽ򵥵���HTML ���������һ����Ԫ�أ�������Ӧ��
-clear ���ԡ�����û��Ĭ�ϵ���ʽ�������������ռ䣬div Ԫ�غ��ʺ����Ŀ�ġ�
+      第一种方式不太理想，也就是简单地在HTML 标记中添加一个子元素，并给它应用
+clear 属性。由于没有默认的样式，不会引入多余空间，div 元素很适合这个目的。
   */
   .clear_me{ clear:left;} 
    footer{ border:1px solid #000; }
  
 </style>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
   
 <section>
-	<img src="../../image/mxx/m3.jpg" alt="sorry" title="Сϣ"/>
+	<img src="../../image/mxx/m3.jpg" alt="sorry" title="小希"/>
 	<p>It's fun to float.</p>
 	<div class="clear_me"></div>
 </section>
