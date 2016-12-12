@@ -181,6 +181,12 @@ function lastIndexOfTest(){
    console.log(repStr);
 }
 
+function oth(){
+
+  var dm=$("#oth")[0];
+  console.log(dm.offsetHeight);
+}
+
  
 </script>
 </head>
@@ -230,5 +236,9 @@ function lastIndexOfTest(){
 
 <h3>--------------------截取最后一根"|"---------------</h3>
 <input type="button" value="arguments.callee" onClick="lastIndexOfTest()"/></br>
+
+<h3>--------------------获取offsetHeight---------------</h3>
+<div style="width: 200px;height: 200px;background-color: yellow;margin: 0 auto" id="oth">hello</div>
+<input type="button" value="获取offsetHeight" onClick="oth()"/></br>
 </body>
 </html>
