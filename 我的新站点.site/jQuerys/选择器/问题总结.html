@@ -187,6 +187,14 @@ function oth(){
   console.log(dm.offsetHeight);
 }
 
+
+function substrs(){
+
+  var str="hello world";
+  var a=str.substr(str.length-4);
+  console.log(a);
+}
+
  
 </script>
 </head>
@@ -240,5 +248,10 @@ function oth(){
 <h3>--------------------获取offsetHeight---------------</h3>
 <div style="width: 200px;height: 200px;background-color: yellow;margin: 0 auto" id="oth">hello</div>
 <input type="button" value="获取offsetHeight" onClick="oth()"/></br>
+
+
+<h3>--------------------截取任意后四位---------------</h3>
+ 
+<input type="button" value="截取任意后四位" onClick="substrs()"/></br>
 </body>
 </html>
