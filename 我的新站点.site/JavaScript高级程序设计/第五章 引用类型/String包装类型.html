@@ -203,7 +203,12 @@ function testlablebreak(){
      console.log(b);
  }
  
- 
+ function substrs(){
+
+  var str="hello world";
+  var a=str.substr(str.length-4);
+  console.log(a);//orld
+}
 </script>
 </head>
 
@@ -227,6 +232,10 @@ function testlablebreak(){
 <input type="button" value="字符串的模式匹配方法" onclick="matchTest()"  style="display:block;"/>
 
  <input type="button" value="替换方法replace的参数为变量时替换所有匹配的项" onclick="replaceAllTest()"  style="display:block;"/>
+
+ <h3>--------------------截取任意后四位---------------</h3>
+ 
+<input type="button" value="截取任意后四位" onClick="substrs()"/></br>
 
 </body>
 </html>
