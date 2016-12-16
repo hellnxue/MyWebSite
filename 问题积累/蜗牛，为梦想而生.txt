@@ -40,7 +40,7 @@ input.ph-color::-ms-input-placeholder {
 
 8.CSS的not()选择器 OK
 
-9.CSS选择器，选择当前元素的前一个同辈节点
+9.CSS选择器，选择当前元素的前一个同辈节点,or 当前元素的所有同辈元素
 
 10.  background: rgba(0,0,0,0)  url("../images/main/v1/index_bg@2x.png"); 
   filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";//这个filter是啥？？
@@ -115,7 +115,8 @@ box-sizing: content-box;？
  
  
  
- 
+ 20.手机浏览器wap网页点击链接触发颜色区块的问题解决办法
+ http://www.luoxiao123.cn/1487-2.html
  
  
  

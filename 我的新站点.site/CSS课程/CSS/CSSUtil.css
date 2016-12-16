@@ -1,13 +1,14 @@
+@charset "utf-8";
 /* CSS Document */
 
 
-/*����������ʽ����Ƕ��ʽ����ʽ�����ֿ�Ϊҳ��������ʽ�ķ�ʽ�⣬�����־�������ʽ������@import������һ����ʽ�ļ�
-Ҫע����ǣ�@import ָ������������ʽ����������ʽ֮ǰ������@import ���õ���ʽ��
-���ᱻ���ء� try��һ�£���������������������
+/*除了行内样式，内嵌样式，样式表三种可为页面添加样式的方式外，第三种就是在样式表中用@import导入两一个样式文件
+要注意的是，@import 指令必须出现在样式表中其他样式之前，否则@import 引用的样式表
+不会被加载。 try了一下，还真是这样。。。。。
 */
 @import url(importTest.css);
 
-/*���������ʽ*/
+/*清除浮动样式*/
  .clearfix:after {
 	content:".";
 	display:block;
@@ -18,19 +19,26 @@
 
 html body p#ice{
 	color:pink;}
-/*��֪��Ϊʲô����������ֻ���ļ�ֻ�ܷ���ͬ��Ŀ¼��ֱ�����ã�why?���Ŀ¼���𶼲��а���*/	
+/*不知道为什么，引用字体只能文件只能放在同级目录里直接引用，why?多个目录级别都不行哎。*/	
 /*@font-face {
   font-family: 'CrimsonRoman' ;
   src: url('Fonts/Crimson-Roman.otf');
   font-style: normal;
   font-weight: normal; 
 }*/
-/*��д��*/
+/*手写体*/
 /*@font-face {
   font-family: 'AlexBrushRegular' ;
   src: url('Fonts/AlexBrush-Regular.ttf');
   font-style: normal;
   font-weight: 400; 
 }*/
+
+
+html{
+    /*手机浏览器wap网页点击链接触发颜色区块的问题解决办法*/
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0.0196078);
+
+}
 	
  

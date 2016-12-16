@@ -1,3 +1,4 @@
+@charset "utf-8";
 /* CSS Document */
 
 /*公共部分*/
@@ -550,3 +551,14 @@ ul.type-lists li{
 	padding:10px;
 
 }
+
+
+
+
+/*设置选中文字颜色*/
+.selectionColor{
+	text-align:center;}
+.selectionColor::selection { background:yellow; color:#333; }
+.selectionColor::-moz-selection    { background:yellow; color:#333; }
+.selectionColor::-webkit-selection { background:yellow; color:#333;}
+ 
