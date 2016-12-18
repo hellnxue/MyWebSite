@@ -6,16 +6,41 @@
 <link href="../../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <link href="../../CSS/noteCSS.css" rel="stylesheet" type="text/css"/>
 <style>
-  
+
+.error{
+	border:1px solid red;
+	background-color:pink;}
+	
+	
+.ter .error:nth-of-type(1){
+	background-color:#FFFF99;}
+ 
+ .ter .error:nth-of-type(2){
+	border-width:2px;
+	font-size:22px;}
+	
+	
+#hh .error{
+	color:red;}
+ 
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 
-<h3>--- 评论栏上部的样式----</h3>
+<h3>---.error样式分散在样式表的不同地方----</h3>
+
+<div class="ter">
+  <p class="error">hello world P</p>
+  <p class="error">hello world DIV</p>
+</div>
+
+<div id="hh">
+   <p class="error">hehehehee</p>
+</div>
  
-<input type="text" name="">
+
 
  
 </body>
