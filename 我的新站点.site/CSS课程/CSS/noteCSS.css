@@ -1,3 +1,4 @@
+@charset "utf-8";
 /* CSS Document */
 
 /*公共部分*/
@@ -538,3 +539,26 @@ ul.type-lists li{
     
   /*  width: 100%;*/  /*如果子元素有固定宽度，那么负外边距会使子元素向左移动，导致子元素的右边空出一块来，如果width为自适应的话就不会有这种情况了*/
 }
+
+
+
+.fixed-height{
+	box-sizing: border-box;
+	height: 50px;
+	margin: 0 30%;
+	background-color: #abcdef;
+	border: 1px solid yellow;
+	padding:10px;
+
+}
+
+
+
+
+/*设置选中文字颜色*/
+.selectionColor{
+	text-align:center;}
+.selectionColor::selection { background:yellow; color:#333; }
+.selectionColor::-moz-selection    { background:yellow; color:#333; }
+.selectionColor::-webkit-selection { background:yellow; color:#333;}
+ 

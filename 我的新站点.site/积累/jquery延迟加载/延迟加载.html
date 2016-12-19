@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
-<title>ÎŞ±êÌâÎÄµµ</title>
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript">
 var flag=true;
 $(function(){
      
- //ÑÓ³Ù¼ÓÔØ£¨ÓÉÓÚscrollÊÂ¼ş×ÔÉí»áÓĞÖØ¸´Ö´ĞĞµÄÎÊÌâ£¬ËùÒÔ£¬ÓÃ³¬Ê±º¯ÊıÓë²¼¶ûÖµÈ¥×èÖ¹¹ö¶¯Ê±µÄÖØ¸´£©
+ //å»¶è¿ŸåŠ è½½ï¼ˆç”±äºscrolläº‹ä»¶è‡ªèº«ä¼šæœ‰é‡å¤æ‰§è¡Œçš„é—®é¢˜ï¼Œæ‰€ä»¥ï¼Œç”¨è¶…æ—¶å‡½æ•°ä¸å¸ƒå°”å€¼å»é˜»æ­¢æ»šåŠ¨æ—¶çš„é‡å¤ï¼‰
 $(window).scroll(function() {
 	 
-  	var  documentHeight = $(document).height(); //µ±Ç°Ò³ÃæµÄ×Ü¸ß¶È£¨Òş²ØÇøºÍ¿ÉÊÓÇø£© bodyÔªËØµÄºĞ×Ó¸ß¶È
+  	var  documentHeight = $(document).height(); //å½“å‰é¡µé¢çš„æ€»é«˜åº¦ï¼ˆéšè—åŒºå’Œå¯è§†åŒºï¼‰ bodyå…ƒç´ çš„ç›’å­é«˜åº¦
 	
-	var  scrollTop = $(window).scrollTop(); //¹ö¶¯Ìõ¾àÀë¶¥²¿µÄ¸ß¶È(¼´Í¨¹ıÍÏ¶¯¹ö¶¯ÌõÒş²ØÆğÀ´µÄÄÇ²¿·ÖÒ³Ãæ) Ò²¿ÉÒÔÓÃ$(document).scrollTop()
+	var  scrollTop = $(window).scrollTop(); //æ»šåŠ¨æ¡è·ç¦»é¡¶éƒ¨çš„é«˜åº¦(å³é€šè¿‡æ‹–åŠ¨æ»šåŠ¨æ¡éšè—èµ·æ¥çš„é‚£éƒ¨åˆ†é¡µé¢) ä¹Ÿå¯ä»¥ç”¨$(document).scrollTop()
 	
-	var  windowHeight = $(window).height(); //µ±Ç°¿ÉÊÓµÄÒ³Ãæ¸ß¶È £¨¿ÉÊÓ»¯´°¿ÚµÄ¸ß¶È£©
+	var  windowHeight = $(window).height(); //å½“å‰å¯è§†çš„é¡µé¢é«˜åº¦ ï¼ˆå¯è§†åŒ–çª—å£çš„é«˜åº¦ï¼‰
 	
-	if ((scrollTop + windowHeight >= documentHeight)) { //¾àÀë¶¥²¿+µ±Ç°¿ÉÊÓ¸ß¶È >=ÎÄµµ×Ü¸ß¶È ¼´´ú±í»¬¶¯µ½µ×²¿
+	if ((scrollTop + windowHeight >= documentHeight)) { //è·ç¦»é¡¶éƒ¨+å½“å‰å¯è§†é«˜åº¦ >=æ–‡æ¡£æ€»é«˜åº¦ å³ä»£è¡¨æ»‘åŠ¨åˆ°åº•éƒ¨
 			
 	   if(flag){
 	     flag=false;
@@ -27,7 +27,7 @@ $(window).scroll(function() {
 		
 	}
 }); 
-/*¹ØÓÚÒ³ÃæË¢ĞÂºóhtml»áappendÁ½´ÎµÄ½âÊÍ£º setTimeout("ajaxRed()",1000); Èô¹ö¶¯ÌõÔÚµ×²¿£¬Ë¢ĞÂÒ³ÃæºóµÚÒ»´ÎappendÊ±£¬¹ö¶¯Ìõ¹ö¶¯ÁË£¬µ«Ôö¼ÓµÄÊÇscrollTopµÄ³¤¶È£¬¼´¹ö¶¯Ìõ»¹ÊÇÔÚ×îµ×²¿£¬ÇÒflagÔÚÖ´ĞĞÍêµÚÒ»±éajaxRed()ºó¸ÄÎªtrue£¬·ûºÏÁ½¸öÌõ¼ş£¬Òò´ËÓÖ½ô½Ó×ÅÖ´ĞĞÁËÒ»´Îappend¡£´ËºóÊÖ¶¯ÏÂÀ­¹ö¶¯Ìõ¾ÍÖ»»áÖ´ĞĞÒ»´ÎajaxRed·½·¨ÁË°Â~*/
+/*å…³äºé¡µé¢åˆ·æ–°åhtmlä¼šappendä¸¤æ¬¡çš„è§£é‡Šï¼š setTimeout("ajaxRed()",1000); è‹¥æ»šåŠ¨æ¡åœ¨åº•éƒ¨ï¼Œåˆ·æ–°é¡µé¢åç¬¬ä¸€æ¬¡appendæ—¶ï¼Œæ»šåŠ¨æ¡æ»šåŠ¨äº†ï¼Œä½†å¢åŠ çš„æ˜¯scrollTopçš„é•¿åº¦ï¼Œå³æ»šåŠ¨æ¡è¿˜æ˜¯åœ¨æœ€åº•éƒ¨ï¼Œä¸”flagåœ¨æ‰§è¡Œå®Œç¬¬ä¸€éajaxRed()åæ”¹ä¸ºtrueï¼Œç¬¦åˆä¸¤ä¸ªæ¡ä»¶ï¼Œå› æ­¤åˆç´§æ¥ç€æ‰§è¡Œäº†ä¸€æ¬¡appendã€‚æ­¤åæ‰‹åŠ¨ä¸‹æ‹‰æ»šåŠ¨æ¡å°±åªä¼šæ‰§è¡Œä¸€æ¬¡ajaxRedæ–¹æ³•äº†å¥¥~*/
 });
 var i=0; 
 function ajaxRed(){
@@ -35,7 +35,7 @@ function ajaxRed(){
   i++;
   $("#test").append("<div style='color:blue'>welcome to china!"+i+"</div>");
   
-  //$("#test div").last().get(0).scrollIntoView();//ÈÃ×îºóÌí¼ÓµÄdivÒ»Ö±³öÏÖµÄ¿ÉÊÓ·¶Î§ÄÚ£¬»áµ¼ÖÂappend·½·¨Ò»Ö±Ö´ĞĞ
+  //$("#test div").last().get(0).scrollIntoView();//è®©æœ€åæ·»åŠ çš„divä¸€ç›´å‡ºç°çš„å¯è§†èŒƒå›´å†…ï¼Œä¼šå¯¼è‡´appendæ–¹æ³•ä¸€ç›´æ‰§è¡Œ
 }
 
 function test(){
@@ -56,10 +56,10 @@ function test(){
 <head>
 <body>
 <div id="test">
-<button type="button" onClick="test()">Î»ÖÃ²âÊÔ</button>
+<button type="button" onClick="test()">ä½ç½®æµ‹è¯•</button>
    <span>hello helln</span><br/>
 <span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/><span>hello helln</span><br/>
-<button type="button" onClick="test()" style="display:block;">Î»ÖÃ²âÊÔ</button>
+<button type="button" onClick="test()" style="display:block;">ä½ç½®æµ‹è¯•</button>
 </div>
 </body>
 </html>

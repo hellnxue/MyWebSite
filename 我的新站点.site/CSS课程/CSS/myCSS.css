@@ -1,3 +1,4 @@
+@charset "utf-8";
 /* CSS Document */
 
 .transiationBorder{
@@ -25,7 +26,7 @@
 
 }
 
-/*³õÊ¼»¯±ß¿ò*/
+/*ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ß¿ï¿½*/
 
 .x-top-left{
 	top:0;
@@ -49,7 +50,7 @@
 	left:0;
 }
 
-/*½¥±äÑùÊ½*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½*/
  
 .transiationBorder:hover .x-top-left {
   width:100%;
