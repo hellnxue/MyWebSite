@@ -562,3 +562,9 @@ ul.type-lists li{
 .selectionColor::-moz-selection    { background:yellow; color:#333; }
 .selectionColor::-webkit-selection { background:yellow; color:#333;}
  
+/*line-height除了可以让有高度的容器中的文字在父容器中垂直居中外，还可以使行内元素垂直居中的*/
+ .lieh{
+    border: 1px solid pink;
+    height: 50px;
+    line-height: 50px;
+}

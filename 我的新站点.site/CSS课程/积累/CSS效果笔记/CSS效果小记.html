@@ -156,10 +156,12 @@ position:absulute哎----</h3>
   <p class="mtmb2">hello margin-top + margin-bottom</p>
 </div>
 
-<h3>---line-height会让行内元素垂直居中吗？----</h3>
+<h3>---line-height会让行内元素垂直居中，也能让display:inline-block的元素垂直居中奥----</h3>
 <div class="lieh">
-  <span class="h">hello margin-top + margin-bottom</span>
-  
+  <span class="h" style="display:inline-block">hello margin-top + margin-bottom</span>
+  <span class="h" style="display: inline;">hello margin-top + margin-bottom</span>
+  <span class="h" style="display:inline-block">hello margin-top + margin-bottom</span>
+  <span class="h" style="display:inline-block">hello margin-top + margin-bottom</span>
 </div>
 
 <div class="lieh">
@@ -174,13 +176,16 @@ position:absulute哎----</h3>
   <span class="h hh2"  >hello</span>
 </div>
 
-<h3>---vertical-align:middle让元素在父元素中垂直居中----</h3>
+
+
+<!--如果子元素有固定宽度，那么负外边距会使子元素向左移动，导致子元素的右边空出一块来，如果width为自适应的话就不会有这种情况了-->
+
+<h3>---父元素中得子元素有负外边距时，子元素加宽度与不加宽度的区别之有宽度的子元素----</h3>
 <div class="mrl"  >
   <div  >hehe</div>
 </div>
 
-<!--如果子元素有固定宽度，那么负外边距会使子元素向左移动，导致子元素的右边空出一块来，如果width为自适应的话就不会有这种情况了-->
-<h3>---父元素中得子元素有负外边距时，子元素加宽度与不加宽度的区别----</h3>
+<h3>---父元素中得子元素有负外边距时，子元素加宽度与不加宽度的区别之子元素宽度自适应，因为没有宽度的子元素，它的宽度总是占满父元素的宽度（指块级元素奥~）----</h3>
 <div class="f-ctr"   >
 	<div >左右都有负外边距的时候</div>
 </div>
