@@ -46,6 +46,8 @@ input.ph-color::-ms-input-placeholder {
   filter:"progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";//这个filter是啥？？
   -moz-background-size: 7.5rem 1.6rem;
   background-size: 7.5rem 1.6rem;
+  
+11.word-break:break-all;
 
 
 -------------------绝对定位会让元素宽度收缩到包围子元素的宽度吗？OK------------------

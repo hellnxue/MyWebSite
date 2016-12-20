@@ -568,3 +568,88 @@ ul.type-lists li{
     height: 50px;
     line-height: 50px;
 }
+
+
+
+
+/*底部弹出层  start*/
+
+.hidden{
+	display: none;
+}
+
+.show{
+	display: block;
+}
+
+
+/*弹出层的遮罩*/
+.layer-outer{
+	background-color: rgba(0,0,0,0.7);
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+}
+
+
+/*底部弹框*/
+.my-layer {
+    background-color: rgba(255, 255, 255, 1);
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    height: 200px;
+    width: 100%;
+    z-index: 2000;
+    animation: myLayer 0.1s linear ;/*如果加上延迟，动画会一开始从bottom为0到-200，再到0，so,看上去的样子就是
+    弹出层都出来了后再从底部滑动出来，这样感觉不对，还是不加延迟了*/
+	-moz-animation:myLayer 0.1s linear ;
+	-webkit-animation:myLayer 0.1s linear ;
+	-ms-animation:myLayer 0.1s linear ;
+	-o-animation:myLayer 0.1s linear ;
+}
+
+
+/*动画定义*/
+@-webkit-keyframes  myLayer{
+
+	0%{
+		bottom: -200px;
+	}
+ 
+
+	100%{
+		bottom: 0;
+	}
+}
+
+ @-moz-keyframes  myLayer{
+
+	0%{
+		bottom: -200px;
+	}
+ 
+
+	100%{
+		bottom: 0;
+	}
+}
+
+@-o-keyframes  myLayer{
+
+	0%{
+		bottom: -200px;
+	}
+ 
+
+	100%{
+		bottom: 0;
+	}
+}
+
+
+
+/*底部弹出层  end*/
