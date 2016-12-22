@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>��̬��λ</title>
+<meta charset="utf-8" />
+<title>静态定位</title>
 <style>
- /*��û������position���ԵĶ�������top��left��right��bottom�ǲ����õΡ�*/
+ /*给没有设置position属性的段落设置top、left、right、bottom是不管用滴。*/
  .second{
      border:1px solid pink;
 	  top:25px;
 	 left:30px;}
 	 
-  /*��ʵԪ����Ĭ��״̬�¾��Ǿ�̬��λ��So....����top��left��right��bottom�ǲ�����.*/
+  /*其实元素在默认状态下就是静态定位，So....设置top、left、right、bottom是不管用.*/
   p#specialpara {
      position:static;
 	 top:25px;
@@ -21,7 +21,7 @@
      margin-top:30px;
     }
 </style>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>���Զ�λ</title>
+<meta charset="utf-8" />
+<title>绝对定位</title>
 <style>
- /*��û������position���ԵĶ�������top��left��right��bottom�ǲ����õΡ�*/
+ /*给没有设置position属性的段落设置top、left、right、bottom是不管用滴。*/
  .second{
      border:1px solid pink;
 	  top:25px;
 	 left:30px;}
 	 
-  /*��Զ�λ��Ե�����ԭ�����ĵ����е�λ�ã�����Ĭ��λ�ã�
-    ���Զ�λ��Ԫ�� ��ȫ�����˳����ĵ�����������������ڶ���Ԫ�� body �ڶ�λ������ʹ����Ϊ���Զ�λ��Ԫ���и�Ԫ�أ����ĸ�Ԫ����û������Ϊrelative������£�����Ȼ��bodyΪ��Զ�λԪ�أ�*/
+  /*相对定位相对的是它原来在文档流中的位置（或者默认位置）
+    绝对定位的元素 完全脱离了常规文档流，它现在是相对于顶级元素 body 在定位。（即使设置为绝对定位的元素有父元素，它的父元素在没有设置为relative的情况下，它依然以body为相对定位元素）*/
   p#specialpara {
      position:absolute;
 	 top:25px;
@@ -23,7 +23,7 @@
 	
 	} 
 </style>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 <div>
@@ -31,6 +31,11 @@
 	<p class="second">Second Paragraph</p>
 	<p id="specialpara">Third Paragraph (with ID)</p>
 	<p class="four">Fourth Paragraph</p>
+</div>
+
+
+<div style="width:50%; margin:0 auto; background-color:#abcdef;">
+  	<label>hello</label><label> world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world </label>
 </div>
 
 

@@ -214,6 +214,20 @@ position:absulute哎----</h3>
 
 </div>
 
+<h3 class="yellow_gradient">---绝对定位对于行内元素的应用--新发现:并排的一行的几个行内元素，若其中有定位称absolute的，它依然在原来位置，而且内容换行时也在自己的位置区域，不会在一行的下面。----</h3>
+
+<h3  >行内元素在一行，其中的有内容过多时的样子.......</h3>
+<div  class="discover-pos">
+    <label>hello inline element</label><label style="position: static;"> world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world </label>
+</div>
+
+<h3>行内元素在一行，其中某个用了position:absolute;的时候.......</h3>
+<div   class="discover-pos">
+    <label>hello inline element</label><label> world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world </label>
+</div>
+
+
+
 <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="../../js/myJs.js"></script>
 </body>

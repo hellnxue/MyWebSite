@@ -13,6 +13,10 @@ h3{
 	
 }
 
+.yellow_gradient{
+	background:-moz-linear-gradient(left,yellow, #FFF 50%, yellow);
+}
+
 
 .bootstrap-well{
 	min-height:20px;
@@ -653,3 +657,27 @@ ul.type-lists li{
 
 
 /*底部弹出层  end*/
+
+
+
+
+
+
+/*绝对定位应用给行内元素时的新发现*/
+.discover-pos{
+    background-color: #abcdef;
+    margin: 0 auto;
+    min-height: 100px;
+    width: 50%;
+}
+
+
+.discover-pos label:first-child{
+    background-color: yellow;
+    margin-right: 5px;
+}
+
+.discover-pos label:last-child{
+   position: absolute;
+
+}
