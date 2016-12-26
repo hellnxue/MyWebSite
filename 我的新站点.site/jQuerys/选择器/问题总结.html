@@ -195,6 +195,15 @@ function substrs(){
   console.log(a);
 }
 
+//判断某些值是否在数组中
+function arryTests(){
+  var ary=[{a:0,n:"1"},{a:2,n:"1"},{a:1,n:"1"},{a:3,n:"1"}];
+  var flag=ary.some(function(item,index){
+    return item.a==2||item.a==3;
+  });
+
+  console.log(flag);
+}
  
 </script>
 </head>
@@ -253,5 +262,9 @@ function substrs(){
 <h3>--------------------截取任意后四位---------------</h3>
  
 <input type="button" value="截取任意后四位" onClick="substrs()"/></br>
+
+<h3>--------------------截取任意后四位---------------</h3>
+ 
+<input type="button" value="判断某些值是否在数组中" onClick="arryTests()"/></br>
 </body>
 </html>
