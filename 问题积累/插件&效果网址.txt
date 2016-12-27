@@ -8,5 +8,17 @@
 js小区域文字上下循环滚动：http://www.51xuediannao.com/tags.php?/%E5%90%91%E4%B8%8A%E6%BB%9A%E5%8A%A8/
 
 
+MUI窗口管理-解决切面白屏问题： http://dev.dcloud.net.cn/mui/window/
 
 MUI教程：https://segmentfault.com/a/1190000005173713
+
+MUI的由来：
+http://ask.dcloud.net.cn/docs/#http://ask.dcloud.net.cn/article/91
+
+mui发布时的演讲视频：http://v.youku.com/v_show/id_XNzYyOTEyMjcy.html 
+
+
+前端资料：http://ask.dcloud.net.cn/docs/
+
+
+智行：http://pages.ctrip.com/commerce/promote/train/zxty/download.html?channel=zx 

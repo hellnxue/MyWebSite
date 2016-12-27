@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>CSS+HTML��ǩ�ʼ�</title>
+<meta charset="utf-8" />
+<title>CSS+HTML标签笔记</title>
 <link href="../CSS/CSSUtil.css"  rel="stylesheet" type="text/css"/>
 <style>
-/*���ۣ�
+/*积累：
    font:0/0 a;
-   �����д���ͣ�a�Ǹ���̵��������ƣ��������ܿͻ�����װ������Ƶ����壬ֻ������Ϊ��ͨ��css validation�ġ�����Ϊ�˼�д�����ͬʱ�����������壬������ͨ���������CSS��֤
+   字体简写解释：a是个最短的字体名称，但不可能客户端有装这个名称的字体，只是用来为了通过css validation的。就是为了简写字体的同时不想设置字体，但又想通过浏览器的CSS验证
 */
 h3{
 	margin:30px;
@@ -30,7 +30,7 @@ h3{
 	box-shadow:0 1px 1px rgba(0,0,0,0.05) inset;
 	background-color:#f5f5f5;}
 
-/*bootstrap�İ�ť*/
+/*bootstrap的按钮*/
 .btn{
 	display:inline-block;
 	margin-bottom:0;
@@ -46,7 +46,7 @@ h3{
 	white-space:nowrap;
 	cursor:pointer;}
 	
-/*bootstrap��Ϣ��ť*/
+/*bootstrap信息按钮*/
 .btn-info{
 	background-color:#5bc0de;
 	border-color:#46b8da;
@@ -101,7 +101,7 @@ h3{
 }
 
 
-/*bootstrap�ָ���*/
+/*bootstrap分隔器*/
 .divider{
 	background-color:#e5e5e5;
 	height:1px;
@@ -112,7 +112,7 @@ h3{
 vertical-align:middle;
 border:0 none;}
 
-/*bootstrapͼƬ*/
+/*bootstrap图片*/
 .img-rounded{
 	border-radius:6px;
 
@@ -121,7 +121,7 @@ border:0 none;}
 .img-circle{
 	border-radius:50%;}
 
-/*bootstrapͼƬ-����ͼ*/
+/*bootstrap图片-缩略图*/
 .img-thumbnail{
 	display:inlie-block;
 	max-width:100%;
@@ -173,12 +173,12 @@ div[data-border='feactur_border']{
 	border-color: pink blue red yellow;
     border-style: solid;
     border-width: 12px;
-   /* display: inline;  ������������û�����ÿ��ԣ����͸�����Ϊ0����ʹ�б߿��div��Ϊһ��С�����Ρ�������ʽ�����ÿ��߷�һ�𲻺���*/
+   /* display: inline;  这属性在这里没有作用可言，宽和高设置为0可以使有边框的div成为一个小正方形。行内样式和设置宽高放一起不合适*/
     height: 0;
     left: 50%;
     margin-left: -12px;
     margin-top: -12px;
-    position: absolute;/*��ʹͬʱ������display:inline;����Ϊ�о��Զ�λ��div��Ĭ�ϸ߶�Ҳ��ȡ���������档*/
+    position: absolute;/*即使同时设置了display:inline;，因为有绝对定位，div的默认高度也会取消，好神奇。*/
     top: 50%;
     width: 0;
 }
@@ -194,21 +194,21 @@ div[data-border='feactur_border']{
 	list-style-type:none;
 	}
 
-	/* <!-- ��֣�ֻҪul�µ��б������ˣ��ڸ�Ԫ��nav������text-align��Ԫ��ul��û������-->*/
+	/* <!-- 奇怪，只要ul下的列表浮动了，在父元素nav上设置text-align子元素ul就没作用了-->*/
 	 
-/*�ñ߿�����������*/
+/*用边框制造三角形*/
 [data-triangle="two"]{
      background-color:rgba(0,0,0,0);
 	 width:200px;
   	 height:200px;
-     margin:0 auto;/*��������������о���*/
-     line-height:200px;/*�������е�Ԫ�ش�ֱ����*/
-	 text-align:center;/*�������е�Ԫ��ˮƽ����*/
+     margin:0 auto;/*让容器在浏览器中居中*/
+     line-height:200px;/*让容器中得元素垂直居中*/
+	 text-align:center;/*让容器中得元素水平居中*/
 	 border:1px solid pink;
 }
 
 [data-triangle="two"] div{
-   display:inline-block;/*div��Ϊ�����ÿ��Ⱥ͸߶ȵ�������ʽ�������ⲿ������text-align����������ע������display:inlineʱ����ʹdivԪ����Ĭ�ϵĸ߶ȣ�22px,��ʱ������height:0��divҲ����Ĭ�ϸ߶ȡ�*/
+   display:inline-block;/*div变为可设置宽度和高度的行内样式，方便外部容器用text-align来居中它，注：设置display:inline时，会使div元素有默认的高度，22px,及时设置了height:0，div也会有默认高度。*/
    width:0; 
    height:0; 
    border:10px solid ; 
@@ -235,24 +235,24 @@ div[data-border='feactur_border']{
   text-align:left;}  
   
   
-  /*--------------------------------�ÿ��ı�����ʽ��-------------------------------------*/
+  /*--------------------------------好看的表格样式奥-------------------------------------*/
   
   .table{
   margin-bottom:20px;
   min-width:100%;
   width:100%;
   background-color:transparent;
-  /*border-collapse �������ñ���ı߿��Ƿ񱻺ϲ�Ϊһ����һ�ı߿򣬻������ڱ�׼�� HTML �������ֿ���ʾ��
-  separate 	Ĭ��ֵ���߿�ᱻ�ֿ���������� border-spacing �� empty-cells ���ԡ�
-  collapse 	������ܣ��߿��ϲ�Ϊһ����һ�ı߿򡣻���� border-spacing �� empty-cells ���ԡ�*/
+  /*border-collapse 属性设置表格的边框是否被合并为一个单一的边框，还是象在标准的 HTML 中那样分开显示。
+  separate 	默认值。边框会被分开。不会忽略 border-spacing 和 empty-cells 属性。
+  collapse 	如果可能，边框会合并为一个单一的边框。会忽略 border-spacing 和 empty-cells 属性。*/
   border-collapse:collapse;
   
-  /*border-spacing �����������ڵ�Ԫ��ı߿��ľ��루�����ڡ��߿���롱ģʽ �� border-collapse:separate;����*/
-  border-spacing:0;/*�о��������Ҳ�Ƕ���ģ���Ϊborder-collapse���Ƿ���ģʽ��*/
+  /*border-spacing 属性设置相邻单元格的边框间的距离（仅用于“边框分离”模式 即 border-collapse:separate;）。*/
+  border-spacing:0;/*感觉这个加上也是多余的，因为border-collapse不是分离模式的*/
   }
   
   th{
-  text-align:left;/*��ͷth�������Ĭ��ˮƽ���У�Ҫ����һ��*/
+  text-align:left;/*表头th里的内容默认水平居中，要重置一下*/
   }
   
   td,th{
@@ -265,7 +265,7 @@ div[data-border='feactur_border']{
   
   .table > thead >tr >th{
   border-bottom:2px solid #ddd;
-  vertical-align:bottom;/*ΪʲôҪ������أ�*/
+  vertical-align:bottom;/*为什么要用这个呢？*/
   
   }
   
@@ -273,31 +273,31 @@ div[data-border='feactur_border']{
    .table > tbody >tr >th, .table > tbody >tr >td{
    border-top:1px solid #ddd;
    padding:8px;
-   vertical-align:top;/*ΪʲôҪ������أ�*/
-   line-height:1.4;/*�������������*/}
+   vertical-align:top;/*为什么要加这个呢？*/
+   line-height:1.4;/*还有这个。。。*/}
    
    
-   /*Ϊ������������*/
+   /*为表格添加条纹*/
    .table-striped tbody tr:nth-of-type(odd){
    background-color:#f9f9f9;
    }
    
  
    
-   /*�����ͣʱ��һ�е���ɫ�仯*/
+   /*鼠标悬停时，一行的颜色变化*/
    .table-hover tbody tr:hover{
    background-color:#f5f5f5;}
    
    
-   /*�������ѹ���˵����Ӱ�*/
+   /*精简表格，压缩了的样子哎*/
    .table-condensed > tbody > tr > td, .table-condensed > tbody > tr > th, .table-condensed > tfoot > tr > td, .table-condensed > tfoot > tr > th, .table-condensed > thead > tr > td, .table-condensed > thead > tr > th {
     padding: 5px;
 }
 
 
-/*--------------------------------ģ��bootstrap�ı���-------------------------------------*/
+/*--------------------------------模仿bootstrap的表单-------------------------------------*/
 /*
-ʹ�� class .sr-only���������������������ı�ǩ*/
+使用 class .sr-only，您可以隐藏内联表单的标签*/
 .sr-only {
     border: 0 none;
     clip: rect(0px, 0px, 0px, 0px);
@@ -309,7 +309,7 @@ div[data-border='feactur_border']{
     width: 1px;
 }
 
-/*���������ı����鼶*/
+/*表单帮助文本，块级*/
 .help-block{
 display:block;
 margin-top:5px;
@@ -323,7 +323,7 @@ color:#737373;}
 	margin-right:auto;
 	padding-left:15px;
 	padding-right:15px;
-	box-sizing:border-box;/*�ú��ӿ��ȵ������ݿ���*/
+	box-sizing:border-box;/*让盒子宽度等于内容宽度*/
  }
  
  .form-group{
@@ -351,7 +351,7 @@ color:#737373;}
    background-color:#fff;
    font-size:14px;
    line-height:1.4;
-   box-sizing:border-box;/*����ǹؼ������ú��Ӹ߶ȵ��ں������ݸ߶�֮�ͣ��Ӷ�input��������ϸ��������*/
+   box-sizing:border-box;/*这个是关键，会让盒子高度等于盒子内容高度之和，从而input看起来更细，更美观*/
    transition:border-color 0.15s ease-in-out 0s,box-shadow 0.15s ease-in-out 0s;
    
    }
@@ -363,7 +363,7 @@ color:#737373;}
    border-color:#66afe9;
    box-shadow:0 1px 1px rgba(0,0,0,0.075) inset,0 0 8px rgba(102, 175, 233, .6) ;}
    
-   /*��ռλ��������ʽ��Ҫ�г���ǰ׺*/
+   /*给占位符添加样式，要有厂商前缀*/
    .form-control::-moz-placeholder{
    color:#999;
    opacity:1;}
@@ -393,7 +393,7 @@ color:#737373;}
     min-height: 20px;
     padding-left: 20px;
 }
-/* Ϊ���ø�ѡ�������ֶ��룬���˾��Զ�λ�͸�����߾࣬���Զ�λ������߾�������������һ��ˮƽ���Ͽ����������ˡ�������������þ��Զ�λ������������߾�ʱ��ѡ������ֻ�һ���ƶ����õ�margin-top�ľ���*/
+/* 为了让复选框与文字对齐，用了绝对定位和负左外边距，绝对定位和上外边距让它和文字在一条水平线上看起来对齐了。。。，如果不用绝对定位，设置了上外边距时复选框和文字会一块移动设置的margin-top的距离*/
 .checkbox input[type="checkbox"],.radio input[type="radio"]{
 	position:absolute;
 	margin:4px 0 0 -20px;}
@@ -409,7 +409,7 @@ color:#737373;}
 .checkbox-inline input[type="checkbox"], .radio-inline[type="radio"]{
 	position:absolute;
 	margin:4px 0 0 -20px;}	
-/*-----------------------------��������--------------*/	
+/*-----------------------------内联表单--------------*/	
 .form-inline .form-group{
 	display:inline-block;
 	margin-bottom:0;
@@ -431,7 +431,7 @@ color:#737373;}
 	
 	
 	
-/*---CSS����clip �Ծ��Զ�λ��Ԫ�ؽ��м���rect(top, right, bottom, left) �������飬ֻ����right��bottomԪ�ؾͿ��Լ��ó���-------*/
+/*---CSS属性clip 对绝对定位的元素进行剪裁rect(top, right, bottom, left) 经过试验，只设置right和bottom元素就可以剪裁出来-------*/
 .clip-absolute{
     background-color: #eee;
     cursor: pointer;
@@ -452,7 +452,7 @@ color:#737373;}
     width: 400px;
 }
 
-/*CSS��ò��û������jQuery��sibiling()��������ѡ��һ��Ԫ�ص�����ͬ��Ԫ�� ��ֻ����:not()������ඡ�����*/
+/*CSS中貌似没有类似jQuery的sibiling()方法可以选择一个元素的所有同辈元素 ，只好用:not()来代替喽。。。*/
 #sibilings p{
    margin:5px 0 0 0;
 }
@@ -462,7 +462,7 @@ color:#737373;}
 }
 
 
-/*--------------------------�������ı���һ����ʾ----------------------------------------*/
+/*--------------------------让两段文本在一行显示----------------------------------------*/
 .tryme .textLeft{
     display: inline-block;
     float: left;
@@ -476,19 +476,19 @@ color:#737373;}
     width: 50%;
 }
 
-/*������С���ǣ��е���������ʽ������*/
+/*倒立的小三角，有点像下拉样式的那种*/
 .caret {
-	display: inline-block;/*�˴�Ҫ���óɿ����ø߿��ĺ��ӣ�span��������ʽ��������ʽ���ø߿��ǲ����õ�*/
+	display: inline-block;/*此处要设置成可设置高宽的盒子，span是行内样式，行内样式设置高宽是不管用的*/
     width: 0;
     height: 0;
    /* 
-    ��һ�ַ�����
+    第一种方法：
     border: 6px solid #2bdeef;
     border-left-color: transparent;
     border-right-color: transparent;
     border-bottom: transparent;*/
 	
-	/*��������ֻ����left��right��top������top�ǹؼ�����Ȼ�Ͳ���ʾ*/
+	/*方法二：只设置left、right和top，其中top是关键，不然就不显示*/
 	border-left:6px solid transparent;
 	border-right:6px solid transparent;
 	border-top:6px solid gold;
@@ -506,10 +506,10 @@ color:#737373;}
     background-color: #3cffcc;
     height: 20px;
     width: 20px;
-	display:inline-block;/*�����inline-block �Ǵ˴���div���div�ڵ����ַ��룬���ִ�ֱ���У�div���ᡣ���ߴ˴�����Ϊdisplay:inline,div�ڵ�����Ϊ�գ���ʱdiv�Ǵ�ֱ���е�*/
+	display:inline-block;/*如果是inline-block 那此处的div会和div内的文字分离，文字垂直居中，div不会。或者此处设置为display:inline,div内的内容为空，这时div是垂直居中的*/
 }
 
-/*-----��display:inline-block������Ԫ����һ����ʾ��ʵ���븡����ͬ��Ч����,�м���п�϶(�����϶�ᵼ����������Ϊ50%����Ԫ�ز���һ��ˮƽ���ϣ��ڶ�������Ϊʣ�����̫խ���������һ����Ԫ�ش�ֱ����)����һ��Ԫ�ظ�������������Ĭ�ϵĿ�϶--*/
+/*-----用display:inline-block让两个元素在一行显示，实现与浮动等同的效果哎,中间会有空隙(这个空隙会导致两个宽度为50%的子元素不在一条水平线上，第二个会因为剩余宽度太窄而下落与第一个子元素垂直排列)，第一个元素浮动可以清除这个默认的空隙--*/
 .fheader {
     background-color: #fff;
     border: 1px solid #999;
@@ -548,7 +548,7 @@ color:#737373;}
 }
 
 
-/*-----------��display:inline-block������Ԫ����һ����ʾ--------------------*/
+/*-----------用display:inline-block让两个元素在一行显示--------------------*/
 
 .fheader1 {
     background-color: #fff;
@@ -558,7 +558,7 @@ color:#737373;}
     padding: 10px 6px 5px 5px;
     width: 80%;
     font-size:0;
-    letter-spacing:-4px; /*ʵ������� -4���ֵ���ܻ�Ҫ����*/
+    letter-spacing:-4px; /*实际情况下 -4这个值可能还要调整*/
     word-spacing:-4px; 
 }
 
@@ -569,7 +569,7 @@ color:#737373;}
   vertical-align:middle;
   zoom:1;
   
-  /*ȥ������display:inline-block ��div֮��Ŀ�϶*/
+  /*去除两个display:inline-block 的div之间的空隙*/
   font-size:16px;
   letter-spacing:normal;
   word-spacing:normal;
@@ -597,11 +597,11 @@ color:#737373;}
 }
 
 
-/*display:inline-blockҲ�ܰ�Χ��������Ԫ�� 
+/*display:inline-block也能包围浮动的子元素 
 */
 
 .wrap-float{
-	display:inline-block;/*��Χס��������Ԫ�أ�����inline�����������ܰɣ����ᵼ�� ��margin:0 auto������Ԫ����Ч��������������ٰ�Χһ��div,������text-align:center����*/
+	display:inline-block;/*包围住浮动的子元素，可能inline具有收缩功能吧，但会导致 用margin:0 auto来居中元素无效，解决方法就是再包围一层div,并设置text-align:center即可*/
 	width:80%;
 	margin:0 auto;
 	border:1px solid #abdddd;}
@@ -612,7 +612,7 @@ color:#737373;}
 	 
 	 }
 	 
-/*margin�����ص�����*/
+/*margin左右重叠测试*/
  
 .mt{
 	display:inline-block;
@@ -624,7 +624,7 @@ color:#737373;}
 
 }
 
- /*��Ե�λem�ļ������*/
+ /*相对单位em的计算规则*/
  
  .emTest{
     background-color: #ffffcc;
@@ -643,12 +643,12 @@ color:#737373;}
 }
  
  .emTest div span {
-    font-size: 2em;/* �˴����ݸ�Ԫ�ص����������С��� ����������14px  2em*14px=28px;*/
-    line-height: 1.14em; /*�˴������Լ�Ԫ�����õ������С�������������Ļ�����28px��1.14em*28px=31.9px;*/
+    font-size: 2em;/* 此处依据父元素的字体基数大小算的 ，即基数是14px  2em*14px=28px;*/
+    line-height: 1.14em; /*此处依据自己元素设置的字体大小，即上面计算出的基数是28px，1.14em*28px=31.9px;*/
 }
 
 
-/*Ԫ�ؾ��Զ�λ��Ŀ�������*/
+/*元素绝对定位后的宽度问题*/
 .absoluteWidth{
     background-color: #ffffcc;
     height: 100px;
@@ -663,7 +663,7 @@ color:#737373;}
 	} 
 	
 	
-/*Ԫ�ؾ��Զ�λ�������������Ǿ��е�����------��λԪ�������ؿ��ȵ����*/
+/*元素绝对定位后在容器中总是居中的问题------定位元素是像素宽度的情况*/
 
 .pc-wrapper,.pct-wrapper{
 	text-align:center;
@@ -689,11 +689,11 @@ color:#737373;}
 
 
 
-/*Ԫ�ؾ��Զ�λ�������������Ǿ��е�����------��λԪ���ǰٷֱȿ��ȵĶ����*/
-/*  С�᣺
-1�������λԪ�صĿ��ȵ�λ��px���Ǿ���ʱ��left:50%��margin-leftҪ����Ϊ���ȵ�һ�룬��λҲ��px
-2�������λԪ�صĿ��ȵ�λ��%���Ǿ���ʱ��left:50%��margin-leftҪ����Ϊ���ȵ�һ�룬��λҲ��%
-   ��Ȼ����ֲ����е������~~
+/*元素绝对定位后在容器中总是居中的问题------定位元素是百分比宽度的额情况*/
+/*  小结：
+1、如果定位元素的宽度单位是px，那居中时，left:50%后，margin-left要设置为宽度的一半，单位也是px
+2、如果定位元素的宽度单位是%，那居中时，left:50%后，margin-left要设置为宽度的一半，单位也是%
+   不然会出现不居中的情况哎~~
 */
 .pct-wrapper {
     background-color: #ffffcc;
@@ -714,7 +714,7 @@ color:#737373;}
    
 }
 
-/* ��һ��ͼƬ�Ϸž��Զ�λ��div*/ 
+/* 在一张图片上放绝对定位的div*/ 
 .pm-wrapper{
 	position:relative;
 	background-color: #ffffcc;
@@ -731,7 +731,7 @@ color:#737373;}
 }
 
 .pm-wrapper img {
-    display: block;/*��Ϊimg������Ԫ�أ�����Ԫ�ص�Ĭ�϶��䷽ʽ�ǻ��ߣ���display���ó�block�����������⡣bootstrap�õ���vertical-align:middle��....?*/
+    display: block;/*因为img是行内元素，行内元素的默认对其方式是基线，将display设置成block后会解决这个问题。bootstrap用的是vertical-align:middle哎....?*/
     width: 100%;
 }
 
@@ -750,7 +750,7 @@ color:#737373;}
 
 
 
-/* ���Զ�λ����*/ 
+/* 绝对定位问题*/ 
 .pmtb-wrapper {
     background-color: #ffffcc;
     border: 2px inset #ddd;
@@ -764,14 +764,14 @@ color:#737373;}
 
 .pmtb-wrapper > div {
     position: absolute;
-/*	margin: 0 auto;*//* position: absolute;���Զ�λ��ʹ������߾���Ԫ���ڸ������о���ʧЧ��*/
+/*	margin: 0 auto;*//* position: absolute;绝对定位会使得用外边距让元素在父容器中居中失效哎*/
     top: 10px;
-	bottom: 0;/*ͬʱ������top��bottom:0,��λԪ�صĵײ��������������������pmtb-wrapper�������ĵײ����룬�����˸߶ȣ�������λԪ�صĸ߶Ⱦ���������Զ�λ�����ĸ߶�����*/
+	bottom: 0;/*同时设置了top和bottom:0,定位元素的底部会与相对容器（这里是pmtb-wrapper容器）的底部对齐，拉大了高度，这样定位元素的高度就能随着相对定位容器的高度走了*/
 	width: 80%;
 	height: auto;
     background-color: #abcdef;
 	
-	/*����:���Զ�λ��Ԫ����display:table-cell + vertical-align:middle;����Ԫ�ش�ֱ����Ҳ�������˰�*/
+	/*番外:绝对定位的元素用display:table-cell + vertical-align:middle;让子元素垂直居中也不好用了哎*/
 	/*display:table-cell;
 	vertical-align:middle;*/
    
@@ -780,7 +780,7 @@ color:#737373;}
 
 
 /*
-  ��Ԫ�ذ�Χ����Ԫ�ص�һ�֣������������������ݱȸ�������ĸ���Ԫ�ظ�ʱ�����������������ǰ�Χ�˸�������Ԫ�أ���ˣ����һ���Ӿ��ϵļ�����ѣ������Ժ���....
+  父元素包围浮动元素的一种：当父容器的其它内容比父容器里的浮动元素高时父容器看起来就像是包围了浮动的子元素，因此，造成一种视觉上的假象而已，差点搞迷糊了....
 */
 .pmfloat-wrapper{
    width: 200px;
@@ -792,7 +792,7 @@ color:#737373;}
 
 }
 
-/*��������Ԫ�� div*/
+/*浮动的子元素 div*/
 .pmfloat-wrapper >div{
 
   float: left;
@@ -803,35 +803,35 @@ color:#737373;}
 }
 
 </style>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 
- <h3>blockquote��ǩ���������</h3>
-  <!--<blockquote> ��ǩ��������á����峤���ֵ�����
+ <h3>blockquote标签定义块引用</h3>
+  <!--<blockquote> 标签定义块引用。定义长文字的引用
 
-  <blockquote> �� </blockquote> ֮��������ı�����ӳ����ı��з�����������������������߽���������������߾ࣩ��������ʱ��ʹ��б�塣Ҳ����˵��������ӵ�������Լ��Ŀռ䡣
-  <q> ��ǩ����̵����á�  ��������������õ�������Χ�������š�
-  <q> ��ǩ�ڱ������� <blockquote> ��һ���ġ���֮ͬ���������ǵ���ʾ��Ӧ�á�<q> ��ǩ���ڼ�̵��������á�
-  �����Ҫ����Χ���ݷ�������Ƚϳ��Ĳ��֣�ͨ����ʾΪ�����Ŀ飩����ʹ�� <blockquote> ��ǩ��
+  <blockquote> 与 </blockquote> 之间的所有文本都会从常规文本中分离出来，经常会在左、右两边进行缩进（增加外边距），而且有时会使用斜体。也就是说，块引用拥有它们自己的空间。
+  <q> 标签定义短的引用。  浏览器经常在引用的内容周围添加引号。
+  <q> 标签在本质上与 <blockquote> 是一样的。不同之处在于它们的显示和应用。<q> 标签用于简短的行内引用。
+  如果需要从周围内容分离出来比较长的部分（通常显示为缩进的块），请使用 <blockquote> 标签。
   -->
   
   here's blockquote:
-  <blockquote cite="http://www.baidu.com">�ٶȵ�������Դ��<q>����Ѱ��ǧ�ٶȣ���Ȼ���ף�����ȴ�ڵƻ���ɺ����</q></blockquote> 
+  <blockquote cite="http://www.baidu.com">百度的名字起源于<q>众里寻他千百度，蓦然回首，那人却在灯火阑珊处。</q></blockquote> 
  
- <!--<article> ��ǩ�涨�������԰������ݡ� HTML5���±�ǩ-->
- <h3>article��ǩ</h3>
+ <!--<article> 标签规定独立的自包含内容。 HTML5的新标签-->
+ <h3>article标签</h3>
  <article>
   <h1>Internet Explorer 9</h1>
-  <p>Windows Internet Explorer 9����� IE9���� 2011 �� 3 �� 14 �շ���.....</p>
+  <p>Windows Internet Explorer 9（简称 IE9）于 2011 年 3 月 14 日发布.....</p>
  </article>
  
- <!--�ڽ������Լ�������վ�У����ⲻ������ҳ����ʾһЩ�����רҵ�ı�̴��룬������Ϊһ�д���ʱ����Ϳ���ʹ��<code>��ǩ�ˣ����������ӣ�-->
- <h3>code��ǩ</h3>
+ <!--在介绍语言技术的网站中，避免不了在网页中显示一些计算机专业的编程代码，当代码为一行代码时，你就可以使用<code>标签了，如下面例子：-->
+ <h3>code标签</h3>
   
- <p>���ǿ���֪��ˮƽ�����ʵ�֣�����������<code>{background-image:linear-gradient(left, red 100px, yellow 200px);}</code></p>
+ <p>我们可能知道水平渐变的实现，类似这样：<code>{background-image:linear-gradient(left, red 100px, yellow 200px);}</code></p>
  
- <h3>&lt;pre&gt;��ǩ preԪ�ؿ��Զ���Ԥ��ʽ���ı��� pre Ԫ���е��ı�ͨ���ᱣ���ո�ͻ��з������ı�Ҳ�����Ϊ�ȿ����塣&lt;pre&gt; ��ǩ��һ������Ӧ�þ���������ʾ�������Դ���롣</h3> 
+ <h3>&lt;pre&gt;标签 pre元素可以定义预格式化文本， pre 元素中的文本通常会保留空格和换行符。而文本也会呈现为等宽字体。&lt;pre&gt; 标签的一个常见应用就是用来表示计算机的源代码。</h3> 
  <code> code <small>small code</small> code</code>
  <code>This is a code element.</code>
   <p>This is a p element.</p>
@@ -841,19 +841,19 @@ color:#737373;}
   pre element. </pre>
 
 
- <h3>small��ǩ &lt;small&gt; ��ǩ����С������Ч��������Ƕ��ʹ�ã����������ø�С</h3>
+ <h3>small标签 &lt;small&gt; 标签呈现小号字体效果。可以嵌套使用，来把字体变得更小</h3>
  <p>This is a nice day today.</p>
  <p><small>small:This is a nice day today.  </small></p>
   <p><small> <small>very small:This is a nice day today.</small></small></p>
    <p><small> <small><small>very very small:This is a nice day today.</small></small></small></p>
 
-<!--<cite> ��ǩͨ����ʾ�����������ı���ĳ���ο����׵����ã������鼮������־�ı��⡣
-<cite> ��ǩ������Ʒ�������鼮����������Ӱ�����ӽ�Ŀ���滭�����ܵȵȣ��ı��⡣����������
+<!--<cite> 标签通常表示它所包含的文本对某个参考文献的引用，比如书籍或者杂志的标题。
+<cite> 标签定义作品（比如书籍、歌曲、电影、电视节目、绘画、雕塑等等）的标题。不包括人名
 -->
- <h3>cite��ǩ</h3>
- <p><cite>��˭͵���ҵ����ҡ�</cite>��һ�������仯�ǲ�����顣</p>
+ <h3>cite标签</h3>
+ <p><cite>《谁偷了我的奶酪》</cite>是一本讲述变化是不变的书。</p>
  
-  <h3>line-height�и�,���õ��и�ֵ��ƽ���������ı������·���</h3>
+  <h3>line-height行高,设置的行高值会平均分配在文本的上下方奥</h3>
  <div style="height:50px; border:1px solid yellow; ">
  
 	 <p style="line-height:50px; text-align:center;border:1px solid pink;margin:0px;">hello,sir</p>
@@ -861,48 +861,48 @@ color:#737373;}
 	 <img src="../../image/mxx/m1.jpg"/>
  </div>
 
-<h3 style="margin-top:200px;">dl��ǩ ����һ�������б���dl��ǩ�� dt ��������Ŀ/���֣��� dd ������ÿһ����Ŀ/���֣�һ��ʹ�á�</h3>
+<h3 style="margin-top:200px;">dl标签 定义一个描述列表。dl标签与 dt （定义项目/名字）和 dd （描述每一个项目/名字）一起使用。</h3>
 <div   id="dltd" class="bootstrap-well">
   <dl>
-  <dt >ˮ���������кܶ��֣��������µ���Щ</dt>
-  <dd >ƻ��</dd><!--Ĭ����40px������߾࣬������д��ʽȥ��Ĭ����ʽ-->
-  <dd>�㽶</dd>
-  <dt>��֭��ˮ��ը�����Ľ��</dt>
-  <dd>ƻ��֭</dd>
-  <dd>�㽶֭</dd> 
+  <dt >水果的种类有很多种，比如以下的这些</dt>
+  <dd >苹果</dd><!--默认有40px的左外边距，可以重写样式去掉默认样式-->
+  <dd>香蕉</dd>
+  <dt>果汁是水果炸到最后的结果</dt>
+  <dd>苹果汁</dd>
+  <dd>香蕉汁</dd> 
 </dl>
 </div>
 
 <!--
-<address>�ǿ鼶Ԫ��
+<address>是块级元素
 
-<address> ��ǩ�����ĵ�����/�����ߵ���ϵ��Ϣ��
+<address> 标签定义文档作者/所有者的联系信息。
 
-��� <address> Ԫ��λ�� <body> Ԫ���ڲ���������ʾ���ĵ�����/�����ߵ���ϵ��Ϣ��
+如果 <address> 元素位于 <body> 元素内部，则它表示该文档作者/所有者的联系信息。
 
-��� <address> Ԫ��λ�� <article> Ԫ���ڲ���������ʾ����������/�����ߵ���ϵ��Ϣ��
+如果 <address> 元素位于 <article> 元素内部，则它表示该文章作者/所有者的联系信息。
 
-<address> Ԫ�ص��ı�ͨ������Ϊб�塣�������������ڸ�Ԫ�ص�ǰ�����ӻ��С�-->
-<h3 >address��ǩ</h3>
+<address> 元素的文本通常呈现为斜体。大多数浏览器会在该元素的前后添加换行。-->
+<h3 >address标签</h3>
 <div style="text-align:center;">
-	<p>��д����ʽ֮���</p>
-	 <address style="font-style:normal; font-size:14px;"><!--Ĭ��Ϊб�壬������дĬ����ʽ-->
+	<p>重写了样式之后的</p>
+	 <address style="font-style:normal; font-size:14px;"><!--默认为斜体，可以重写默认样式-->
 		Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
 		Visit us at:<br>
 		Example.com<br>
 		Box 564, Disneyland<br>
 		USA
 	</address>
-	<p>Ĭ����ʽΪб��</p>
-	 <address  ><!--Ĭ��Ϊб�壬������дĬ����ʽ-->
+	<p>默认样式为斜体</p>
+	 <address  ><!--默认为斜体，可以重写默认样式-->
 		 007 street<br>
 		 Some City, State XXXXX
 	</address>
 </div>
  
- <h3>label��ǩ��for����</h3>
+ <h3>label标签的for属性</h3>
  <div  >
-   ����ı����Դ���ѡ��ѡ��ť����<br>
+   点击文本可以触发选择单选按钮动作<br>
 
    <label for="male">eat</label>
   <input type="radio" name="sex" id="male" /> <br>
@@ -910,19 +910,19 @@ color:#737373;}
   <label for="fmale">song</label>
   <input type="radio" name="sex" id="fmale" /> <br>
 
-   <!--label�а����ؼ��벻�����ؼ�����for����ָ��ؼ���ID��һ����Ч�������ǿ��Ե��label����ʹ�ؼ���ý���-->
+   <!--label中包含控件与不包含控件与有for属性指向控件的ID是一样的效果，都是可以点击label文字使控件获得焦点-->
   <label>User Name<input type="text" name="user_name" />
 	</label>
  
  </div>
  
- <h3>HTML5������������ �鼶Ԫ��</h3>
+ <h3>HTML5新增导航链接 块级元素</h3>
  <nav>
    <a href="#">helln</a>
    <a href="#">tom</a>
  </nav>
  
- <h3>ul�ǿ鼶Ԫ�ذ�</h3>
+ <h3>ul是块级元素奥</h3>
  <nav id="centerSun">
 	   <ul class="clearfix">
 		   <li>hellow world</li>
@@ -933,74 +933,74 @@ color:#737373;}
  
 
  
-<h3>����Ԫ��search,range</h3>
+<h3>表单元素search,range</h3>
 <input type="search"/>
 <input type="range"/>
 
-<h3>figure ��ǩ�涨�����������ݣ�ͼ��ͼ������Ƭ������ȵȣ�</h3>
-<p>��Сϣ��һ��Ŭ���ܽ��ĺú�ֽ��</p>
+<h3>figure 标签规定独立的流内容（图像、图表、照片、代码等等）</h3>
+<p>萌小希是一个努力奋进的好孩纸。</p>
 
 <figure> 
-  <figcaption>���ֵ���Сϣ</figcaption>
+  <figcaption>快乐的萌小希</figcaption>
   <img src="../../image/mxx/m4.jpg" />
 </figure>
 
 
-<h3>ͼƬ������Ԫ�ض��뷽ʽ��Ĭ�ϵײ������ı��Ļ���λ��</h3>
-<!--�����Աߴ���ͼƬʱ������ͼƬ�����ֿ��ϣ�ԭ��Ĭ�ϵ������ͼƬ�ײ�������ı����߶��룬����
-Ԫ�صĶ�λԭ�������ı����߶��룬�����������������ĵױ߶��룬���Ե���ͼƬ������������������룬��ͼƬ����vertical-align������ȥ��ͼƬ�ײ��Ļ��߿հװ�-->
+<h3>图片，行内元素对齐方式，默认底部对齐文本的基线位置</h3>
+<!--文字旁边搭配图片时，发现图片比文字靠上，原来默认的情况是图片底部相对于文本基线对齐，行内
+元素的定位原则是与文本基线对齐，而不是与它们容器的底边对齐，所以导致图片与包含它的容器不对齐，给图片设置vertical-align，可以去掉图片底部的基线空白奥-->
 <div style="text-decoration:underline; border:1px solid blue;">
- <img src="../../image/mxx/m6.jpg" style="vertical-align:text-bottom;"/>����English
+ <img src="../../image/mxx/m6.jpg" style="vertical-align:text-bottom;"/>中文English
 </div>
 
-<h3>Ԫ�ضѵ�����һ���������ͬ��Ԫ�ص������ڣ���Щͬ��Ԫ�ض��ṹ��һ���ѵ������ġ�������������У����ǵ���Ԫ�ػ����¶ѵ�������</h3>
-<!--ps��div���Ǿ��Զ�λ���������ĵ�������Ԫ�س���һ���߰����ÿ�����-->
-<span>Ĭ������£�div�еĵڶ���div��ѵ��ڵ�һ��div���Ϸ���z-indexĬ��ֵΪauto����Ϊ0��ͨ������һ��div����z-index:1 ���Դ���Ĭ�ϵĶѵ���ͳ��~</span>
+<h3>元素堆叠，在一个包含多个同辈元素的容器内，这些同辈元素都会构造一个堆叠上下文。在这个上下文中，它们的子元素会上下堆叠起来。</h3>
+<!--ps子div都是绝对定位后，脱离了文档流，父元素成了一条线哎，好可怜啊-->
+<span>默认情况下，div中的第二个div会堆叠在第一个div的上方，z-index默认值为auto，即为0，通过给第一个div设置z-index:1 可以打破默认的堆叠传统奥~</span>
 <div style="border:1px solid; position:relative; background-color:#FFFFCC;">
    <div style="position:absolute;z-index:1;"><img src="../../image/mxx/m3.jpg"></div>
    <div style="position:absolute;left:150px;"><img src="../../image/mxx/m5.jpg"></div>
 </div>
-<h3 style="margin-top:300px;">�ñ߿�����������</h3>
+<h3 style="margin-top:300px;">用边框制造三角形</h3>
 <div style="width:500px;margin:10px auto;position: relative;border: 1px solid gold;">
   <div data-border="feactur_border"> </div>
 
 <div  id="aftertest">hello sir</div>
 </div>
 
-<h3  >�ñ߿�����������2</h3>
+<h3  >用边框制造三角形2</h3>
 <div data-triangle="two">
   <div></div>
 </div>
 
 
-<h3>-----------------����Сͼ��--������С����--------------</h3>
+<h3>-----------------下拉小图标--倒立的小三角--------------</h3>
 <div style="width:200px; margin:0 auto;">
    <span class="caret"></span>
-   <button type="button" class="btn btn-info">������ʽ <span class="caret"></span></button>
+   <button type="button" class="btn btn-info">下拉样式 <span class="caret"></span></button>
 </div> 
 
 
 
-<!--��������Ԫ�أ�����margin��paddingֻ����ˮƽ�����ܿ������Ե�Ч��-->
-<h3  >display:inline����Ԫ��Ϊ����Ԫ�أ���ʹ��height:0 Ч����ʧ����Ϊ����Ԫ���ǲ��������ø߶ȵ�</h3>
+<!--对于行内元素，设置margin和padding只能在水平方向能看出明显的效果-->
+<h3  >display:inline设置元素为行内元素，会使得height:0 效果消失，因为行内元素是不可以设置高度的</h3>
 <div style="border: 1px solid; display: inline; height: 100px; margin: 20px; padding: 44px; width: 100px;">hello sir....</div>
  <div style="border:10px solid ; border-color:pink yellow red green; height:0; width: 0;"></div>
  
  
- <h3>-----------------����Ԫ��---------------</h3>
+ <h3>-----------------短语元素---------------</h3>
  
  <div class="bootstrap-well">
-    <em>ǿ����ǩ-em��</em>&nbsp;&nbsp;&nbsp;&nbsp;
-	<strong>��em����ǿ�����õ��ı�-strong��</strong>&nbsp;&nbsp;&nbsp;&nbsp;
-	<i>б���ı���ǩ-i��</i>&nbsp;&nbsp;&nbsp;&nbsp;
-	<dfn>����һ��������Ŀ-dfn��</dfn>&nbsp;&nbsp;&nbsp;&nbsp;
-	<code>�������������ı� hello world-code��</code>&nbsp;&nbsp;&nbsp;&nbsp;
+    <em>强调标签-em。</em>&nbsp;&nbsp;&nbsp;&nbsp;
+	<strong>比em根据强调作用的文本-strong。</strong>&nbsp;&nbsp;&nbsp;&nbsp;
+	<i>斜体文本标签-i。</i>&nbsp;&nbsp;&nbsp;&nbsp;
+	<dfn>定义一个定义项目-dfn。</dfn>&nbsp;&nbsp;&nbsp;&nbsp;
+	<code>定义计算机代码文本 hello world-code。</code>&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	�ַ����� <samp>ae</samp> ���ܻᱻת��Ϊ &aelig; �����ַ���&nbsp;&nbsp;&nbsp;&nbsp;
-	���� <kbd>quit</kbd> ���˳����򣬻��߼��� <kbd>menu</kbd> ���������˵���
+	字符序列 <samp>ae</samp> 可能会被转换为 &aelig; 连字字符。&nbsp;&nbsp;&nbsp;&nbsp;
+	键入 <kbd>quit</kbd> 来退出程序，或者键入 <kbd>menu</kbd> 来返回主菜单。
  </div>
 
-<h3>-----------------ģ��bootstrap���ı���---------------</h3> 
+<h3>-----------------模仿bootstrap画的表格---------------</h3> 
  <div>
  	 <table class="table table-striped table-hover table-condensed"  >
 	  <thead>
@@ -1035,71 +1035,71 @@ color:#737373;}
 
 
 
-<h3>-----------------ģ��bootstrap���ı�������ֱ& ��������---------------</h3> 
+<h3>-----------------模仿bootstrap画的表单：垂直& 基本表单---------------</h3> 
 <div class="container">
 		<div class="row">
 		  <form role="form">
 		     <div class="form-group">
-			   <label for="name">����</label>
-			   <input type="text" class="form-control" name="name" placeholder="��������"/>
+			   <label for="name">姓名</label>
+			   <input type="text" class="form-control" name="name" placeholder="输入姓名"/>
 			 </div>
 			 <div class="form-group">
-			   <label for="favorite"> ����</label>
-			    <input type="text" class="form-control" name="favorite" placeholder="���밮��"/>
+			   <label for="favorite"> 爱好</label>
+			    <input type="text" class="form-control" name="favorite" placeholder="输入爱好"/>
 			 </div>
 			  <div class="form-group">
-				<label class="sr-only" for="inputfile">�ļ�����</label>
+				<label class="sr-only" for="inputfile">文件输入</label>
 				<input type="file" id="inputfile">
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox"> ���
+					<input type="checkbox"> 请打勾
 				</label>
 			</div>
 			<div class="form-group">
 			    <label class="checkbox-inline">
-					<input type="checkbox"> �Է�
+					<input type="checkbox"> 吃饭
 				</label>
 				 <label class="checkbox-inline">
-					<input type="checkbox"> ˯��
+					<input type="checkbox"> 睡觉
 				</label>
 			</div>
-			<button type="submit" class="btn btn-default">�ύ</button>
+			<button type="submit" class="btn btn-default">提交</button>
 		  </form>
 	    </div>
  </div>
  
  
- <h3>-----------------ģ��bootstrap���ı�������������---------------</h3> 
+ <h3>-----------------模仿bootstrap画的表单：内联表单---------------</h3> 
 <div class="container">
 		<div class="row">
 		
 		  <form role="form " class="form-inline">
 		   
 		     <div class="form-group">
-			   <label for="name">����</label>
-			   <input type="text" class="form-control" name="name" placeholder="��������"/>
+			   <label for="name">姓名</label>
+			   <input type="text" class="form-control" name="name" placeholder="输入姓名"/>
 			 </div>
 			 <div class="form-group">
-			   <label for="favorite"> ����</label>
-			    <input type="text" class="form-control" name="favorite" placeholder="���밮��"/>
+			   <label for="favorite"> 爱好</label>
+			    <input type="text" class="form-control" name="favorite" placeholder="输入爱好"/>
 			 </div>
 			  <div class="form-group">
-				<label class="sr-only" for="inputfile">�ļ�����</label>
+				<label class="sr-only" for="inputfile">文件输入</label>
 				<input type="file" id="inputfile">
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox"> ���
+					<input type="checkbox"> 请打勾
 				</label>
 			</div>
-			<button type="submit" class="btn btn-default">�ύ</button>
+			<button type="submit" class="btn btn-default">提交</button>
 			
 		  </form>
 	    </div>
  </div>
  
- <h3>-----------------ģ��bootstrap�İ�ť---------------</h3> 
+ <h3>-----------------模仿bootstrap的按钮---------------</h3> 
   <a href="#"  class="btn btn-info">a button</a>
  <input type="button" class="btn btn-info" value="bootstrap"/>
  
@@ -1109,12 +1109,12 @@ color:#737373;}
 
  
  
-  <input type="button" class="btn btn-info disabled" value="���õİ�ť" id="try"/>
+  <input type="button" class="btn btn-info disabled" value="禁用的按钮" id="try"/>
  
  
  
  
-<h3>-----------------CSS����clip:rect(0px, 71px, 93px, 0px) �Ծ��Զ������Ԫ�ش�С�ȸ�Ԫ�ش����������м���---------------</h3> 
+<h3>-----------------CSS属性clip:rect(0px, 71px, 93px, 0px) 对绝对定义的子元素大小比父元素大的情况，进行剪裁---------------</h3> 
 
 <div   class="clip-absolute">
    <div  >hello absolute</div>
@@ -1122,7 +1122,7 @@ color:#737373;}
 </div>
 
 
-<h3>-----------------ģ��bootstrapͼƬ---------------</h3> 
+<h3>-----------------模仿bootstrap图片---------------</h3> 
 <img class="img img-rounded" src="../../image/mxx/m2.jpg"/>
 <img class="img img-circle" src="../../image/mxx/m2.jpg"/>
 <img class="img img-thumbnail" src="../../image/mxx/m2.jpg"/>
@@ -1130,7 +1130,7 @@ color:#737373;}
 
 
 
-<h3>-----------------CSS ͬ��ѡ���� ��:not()�����---------------</h3> 
+<h3>-----------------CSS 同辈选择器 用:not()代替吧---------------</h3> 
 <div id="sibilings" class="bootstrap-well">
    <p>one</p>
    <p>two</p>
@@ -1139,84 +1139,84 @@ color:#737373;}
    <p>five</p>
 </div>
 
-<h3>-----------------�������ı���һ����ʾ--------------</h3> 
+<h3>-----------------让两段文本在一行显示--------------</h3> 
 <div class="tryme bootstrap-well"  >
-  <span  class="textLeft">��Ʒ����</span>
-  <span  class="textRight">��������</span>
-  <span  class="textLeft">����ʱ��</span>
+  <span  class="textLeft">商品名称</span>
+  <span  class="textRight">哈利波特</span>
+  <span  class="textLeft">交易时间</span>
   <span  class="textRight">2016-09-22</span>
 </div>
 
-<h3>-----------------���� display:inline-block + float:left,����ʹ���м�ľ�п�϶--------------</h3> 
+<h3>-----------------横向 display:inline-block + float:left,浮动使得中间木有空隙--------------</h3> 
 <div class="fheader clearfix">
 	<div>
-		<span><strong>�ֽ��˻�</strong></span>
+		<span><strong>现金账户</strong></span>
 	</div>
 	<div>
-	   <span><strong>���</strong></span>
+	   <span><strong>余额</strong></span>
 	   <span><strong>$9999.00</strong></span>
-	   <span><button type="button" class="btn btn-info">��ֵ</button></span>
+	   <span><button type="button" class="btn btn-info">充值</button></span>
 	</div>
 </div>
-<h3>-----------------display:inline-block��Ԫ�ؿ�����һ����ʾ��ֻ����Ԫ��֮����Ĭ�ϵĿ�϶��--------------</h3> 
+<h3>-----------------display:inline-block的元素可以在一行显示，只不过元素之间有默认的空隙哎--------------</h3> 
 <div class="fheader1">
 	<div>
-		<span><strong>�ֽ��˻�</strong></span>
+		<span><strong>现金账户</strong></span>
 	</div>
 	<div>
-	   <span><strong>���</strong></span>
+	   <span><strong>余额</strong></span>
 	   <span><strong>$9999.00</strong></span>
-	   <span><button type="button" class="btn btn-primary">��ֵ</button></span>
+	   <span><button type="button" class="btn btn-primary">充值</button></span>
 	</div>
 </div>
 
-<h3>-----------------@import������ʽ������--------------</h3> 
+<h3>-----------------@import导入样式表测试--------------</h3> 
 <div class="bootstrap-well">
 	<p class="importTest">hello sir</p>
 </div>
 
-<h3>-----------------line-height�и߶Դ�ֱ���е�Ӱ�죬Ӱ���ı�������Ԫ�أ��Կ鼶Ԫ����Ч�գ�����line-height�ǻ�̳е�--------------</h3> 
+<h3>-----------------line-height行高对垂直居中的影响，影响文本和行内元素，对块级元素无效哒，不过line-height是会继承的--------------</h3> 
 <div   class="lineHeigh-Center">
 	<div >hello</div>
 </div>
 
-<h3>----------------.divider�ָ�����һ����ɫ�ĸ�1px����--------------</h3> 
+<h3>----------------.divider分隔器，一条灰色的高1px的线--------------</h3> 
 <div class="divider" style="width:50%; "></div>
  
 
 
-<h3>----------------��display:inline-block��Χ��������Ԫ��--------------</h3> 
-<div style="text-align:center;"><!--����display:inline-block����Ԫ��-->
+<h3>----------------用display:inline-block包围浮动的子元素--------------</h3> 
+<div style="text-align:center;"><!--居中display:inline-block的子元素-->
    <div class="wrap-float">
-	<button class="btn btn-info">��ťone</button>
-	<button class="btn btn-info">��ťtwo</button>
+	<button class="btn btn-info">按钮one</button>
+	<button class="btn btn-info">按钮two</button>
 </div>
 </div>
 
 
-<h3>--- margin�����Ƿ���ص� ��ֻ�������ص������margin���С��margin����----</h3> 
+<h3>--- margin左右是否会重叠 否，只会上下重叠，大的margin会把小的margin覆盖----</h3> 
 <div >
 	<div class="mt">Create a new jQuery object with elements added to the set of matched elements.</div>
 	<div class="mt">One or more elements to add to the set of matched elements.</div>
 </div>
 
 
-<h3>--- ��Ե�λem�ļ������----���ո�Ԫ�ص������СΪ���������Ԫ�ر��������������С�������Լ�Ԫ�ص������СΪ��������</h3> 
+<h3>--- 相对单位em的计算规则----按照父元素的字体大小为基数，如果元素本身设置了字体大小，就以自己元素的字体大小为基数计算</h3> 
 <div   class="emTest">
    <div  >
       <span  > hello world</span>
    </div>
 </div>
 
-<h3>--- δ���ÿ��ĵĿ鼶Ԫ�ؾ��Զ�λ�󣬿�����������</h3>
-<!--���Զ�λ����û�п��ȵĿ鼶Ԫ����������Χ��Ԫ�صĿ��ȣ���Ϊ��ı�display�����ԣ�������Ԫ��Ҳ��������ֿ������������--> 
+<h3>--- 未设置宽的的块级元素绝对定位后，宽度收缩问题</h3>
+<!--绝对定位会让没有宽度的块级元素收缩到包围子元素的宽度，因为会改变display的特性，浮动的元素也会出现这种宽度收缩的情况--> 
 <div   class="absoluteWidth">
    <div  >
        position:absolute about width
    </div>
 </div>
 
-<h3>--- ���Զ�λ��Ԫ�������������Ǿ��е����� (һ��)��λԪ�ؿ���Ϊ����</h3>
+<h3>--- 绝对定位的元素在容器中总是居中的问题 (一、)定位元素宽度为像素</h3>
  
 <div   class="pc-wrapper">
    <div  >
@@ -1224,7 +1224,7 @@ color:#737373;}
    </div>
 </div>
 
-<h3>--- ���Զ�λ��Ԫ�������������Ǿ��е����� (����)��λԪ�ؿ���Ϊ�ٷֱ�</h3>
+<h3>--- 绝对定位的元素在容器中总是居中的问题 (二、)定位元素宽度为百分比</h3>
  
 <div   class="pct-wrapper">
    <div  >
@@ -1236,7 +1236,7 @@ color:#737373;}
 
 
  
-<h3>--- ��һ��ͼƬ�Ϸž��Զ�λ��div ���Զ�λ��div�߶�����Ϊ100%֮����ͼƬ�߶�һֱ��ͬ----</h3>
+<h3>--- 在一张图片上放绝对定位的div 绝对定位的div高度设置为100%之后，与图片高度一直相同----</h3>
  
 <div  class="pm-wrapper">
     <div>
@@ -1244,30 +1244,30 @@ color:#737373;}
 	</div>
 	
 	<div>
-	    <p style="text-align:center;">��λԪ���е�����</p>
+	    <p style="text-align:center;">定位元素中的内容</p>
 	</div>
 </div>
 
 
-<h3>--- һ�����Զ�λ��div��������top��bottom:0֮������----</h3>
+<h3>--- 一个绝对定位的div，设置了top，bottom:0之后的情况----</h3>
  
 <div  class="pmtb-wrapper">
  
 	<div>
-	    <p style="text-align:center;">��λԪ���е�����</p>
+	    <p style="text-align:center;">定位元素中的内容</p>
 	</div>
 </div>
 
-<h3>--- ��Χ����Ԫ�صļ��󣬸�Ԫ�ذ�Χ����Ԫ�ص�һ�֣������������������ݱȸ�������ĸ���Ԫ�ظ�ʱ----</h3>
+<h3>--- 包围浮动元素的假象，父元素包围浮动元素的一种：当父容器的其它内容比父容器里的浮动元素高时----</h3>
  
 <div  class="pmfloat-wrapper">
  
   <div></div>
-  ��������
+  热门评论
 
 </div>
 
-<h3>--- ����display:inline-block��Ԫ�ض�����������߾࣬����ߵ��Ǹ�Ϊ׼��..����----</h3>
+<h3>--- 两个display:inline-block的元素都设置了上外边距，以最高的那个为准哎..神奇----</h3>
  
 <div style="width: 400px; margin: 0 auto; background-color: #abcdef; border: 1px solid yellow;">
   <div   style="display:inline-block;border: 1px solid yellow; margin-top: 50px;">
