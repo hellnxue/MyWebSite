@@ -681,3 +681,31 @@ ul.type-lists li{
    position: absolute;
 
 }
+
+
+
+/*line-height可以使固定高度元素内的行内元素垂直居中*/
+.leht-wrapper{
+    background-color: rgb(171, 205, 239);
+    height: 200px;
+    line-height: 200px;
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+}
+
+
+.leht-wrapper > span{
+    background-color: yellow;
+    display: inline-block;
+    height: 50px;
+    position: absolute;
+    width: 50px;
+}
+
+.leht-wrapper > span >label {
+    background-color: red;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+}

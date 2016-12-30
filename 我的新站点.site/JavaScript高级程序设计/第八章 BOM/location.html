@@ -1,22 +1,22 @@
 <!DOCTYPE html >
 <html >
 <head>
-  
-<title>ÎŞ±êÌâÎÄµµ</title>
+ <meta  charset="utf-8" />  
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script src="../../js/jquery-1.8.2.min.js"></script>
 <script>
 $(function(){
     $("#test1").on("click",function(){
-      location.search="?q=hello";  //ĞŞ¸Äµ±Ç°µÄURLÎª´øÓĞ"?q=hello"µÄ ¡£ Èç¹ûÓĞÖĞÎÄ²ÎÊı£¬»áµÄµ½×ªÂëÖ®ºóµÄÊı¾İ
+      location.search="?q=hello";  //ä¿®æ”¹å½“å‰çš„URLä¸ºå¸¦æœ‰"?q=hello"çš„ ã€‚ å¦‚æœæœ‰ä¸­æ–‡å‚æ•°ï¼Œä¼šçš„åˆ°è½¬ç ä¹‹åçš„æ•°æ®
   
     });
 	
 	$("#test2").on("click",function(){
-      location.replace("www.baidu.com");  //Ìø×ªurl£¬²»ÄÜ·µ»Ø
+      location.replace("www.baidu.com");  //è·³è½¬urlï¼Œä¸èƒ½è¿”å›
   
     });
 		$("#test3").on("click",function(){
-      //location.reload();  //Ìø×ªurl£¬²»ÄÜ·µ»Ø
+      //location.reload();  //è·³è½¬urlï¼Œä¸èƒ½è¿”å›
 	  location.reload(true);
 	  console.log("hello");
   
@@ -25,7 +25,7 @@ $(function(){
 	
 	$("#test4").on("click",function(){
 	 var paramObj={};
-     var str="?employeeId=18928&employeeName=ºî»Ô&reportMonth=201603";
+     var str="?employeeId=18928&employeeName=ä¾¯è¾‰&reportMonth=201603";
 	 var index=str.indexOf("?");
 	 var strl=str.substring(index+1);
 	 
@@ -48,7 +48,7 @@ $(function(){
    console.log(rel[1]);
    console.log(relstr);*/
    
-   var search="?idcard=+/z//v38/PT1//31/fz9/fz0&nickname=Íñ¶ù&headimgurl=http://wx.qlogo.cn/mmopen/JDDwYKEZ0CyMtNpZqVlpgGWLHmFicQ3NKkVAve0TkMOiaILQrlj9lPf9p2SkoV5hrEga8bY1ekviaibFj6lcIz9Hbg/0";
+   var search="?idcard=+/z//v38/PT1//31/fz9/fz0&nickname=å©‰å„¿&headimgurl=http://wx.qlogo.cn/mmopen/JDDwYKEZ0CyMtNpZqVlpgGWLHmFicQ3NKkVAve0TkMOiaILQrlj9lPf9p2SkoV5hrEga8bY1ekviaibFj6lcIz9Hbg/0";
    
     var rel=search.split("&");
     var relstr=rel[0].split("idcard");
@@ -56,16 +56,16 @@ $(function(){
    
  }
 </script>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 <h1>jack</h1>
-<input type="button"   value="²âÊÔsearch" id="test1"/><br/>
- <input type="button"   value="²âÊÔreplace" id="test2"/><br/>
-  <input type="button"   value="²âÊÔreload" id="test3"/><br/>
-  <p>--------------------------j½«location.search»ñµÃµÄµØÖ·À¸µÄÊı¾İ½ØÈ¡´¦Àí³ÉObject----------------------------------------------------</p>
-  <p>?employeeId=18928&employeeName=ºî»Ô&reportMonth=201603</p>
-    <input type="button"   value="´¦Àísearch»ñÈ¡µÄµØÖ·À¸Êı¾İ" id="test4"/><br/>
-	<input type="button" value="ÌØÊâ½ØÈ¡" id="test5" onClick="specialTest();"/>
+<input type="button"   value="æµ‹è¯•search" id="test1"/><br/>
+ <input type="button"   value="æµ‹è¯•replace" id="test2"/><br/>
+  <input type="button"   value="æµ‹è¯•reload" id="test3"/><br/>
+  <p>--------------------------jå°†location.searchè·å¾—çš„åœ°å€æ çš„æ•°æ®æˆªå–å¤„ç†æˆObject----------------------------------------------------</p>
+  <p>?employeeId=18928&employeeName=ä¾¯è¾‰&reportMonth=201603</p>
+    <input type="button"   value="å¤„ç†searchè·å–çš„åœ°å€æ æ•°æ®" id="test4"/><br/>
+	<input type="button" value="ç‰¹æ®Šæˆªå–" id="test5" onClick="specialTest();"/>
 </body>
 </html>

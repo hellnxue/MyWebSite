@@ -226,7 +226,45 @@ position:absulute哎----</h3>
     <label>hello inline element</label><label> world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world </label>
 </div>
 
+<h3>line-height可以使固定高度元素内的行内元素垂直居中</h3>
+<div class="leht-wrapper"   >
+    <span>
+      <label></label>
+    </span>
+</div>
 
+
+<h3>有固定宽高度的绝对定位的元素在容器中水平垂直居中---transform的应用。。。</h3>
+
+
+
+
+<h3>？？？？？绝对定位的情况:在一个块级元素上下都有绝对定位的时候，不设置left:0;top:0;时是不会叠加在一起的哎</h3>
+<div class="leht-wrapper"   >
+  <div style="position: absolute;width: 100px;height: 100px; background-color: yellow;"></div>
+  <p style="line-height: normal;">hello world hello world </p>
+  <div style="position: absolute;width: 100px;height: 100px; background-color: green;"></div>
+</div>
+
+<h3>绝对定位的情况:绝对定位的元素在一个位置时的情况，此时两个绝对定位的元素之间没有其它元素相隔</h3>
+<div class="leht-wrapper"   >
+
+  <div style="position: absolute;width: 100px;height: 100px; background-color: yellow;"></div>
+  <div style="position: absolute;width: 100px;height: 100px; background-color: green;"></div>
+
+</div>
+
+
+
+
+<h3>关于导航，左右图标浮动，中间元素为绝对定位(一个没有固定宽度的绝对定位的元素，用left和right可以把这个元素拉长)</h3>
+<div class="leht-wrapper"   >
+
+  <div style="background-color: yellow; height: 20px; width: 20px; float: left;"></div>
+  <p style="line-height: normal; position: absolute; margin: 0px; background: pink none repeat scroll 0% 0%; left: 40px; right: 40px; width: auto; text-align: center;">hello world   </p>
+  <div style="background-color: green; height: 20px; width: 20px; float: right;"></div>
+
+</div>
 
 <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="../../js/myJs.js"></script>

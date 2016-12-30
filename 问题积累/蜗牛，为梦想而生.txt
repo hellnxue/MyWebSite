@@ -300,7 +300,24 @@ animation:shadeAnimation  0.2s  ; /* 0.15s */
 	-o-animation:shadeAnimation  0.2s  ;
 
 
-
+-----------------------------------文档资料-----------------------------------------------------------------
+	
+	line-height和height相同时，会使文字垂直居中，那会使行内元素垂直居中吗？
+	
+	??多行文字垂直居中：http://www.cnblogs.com/zczhangcui/p/6081625.html
+	
+	line-height不能使display:inline-block的元素垂直居中的原因是啥呢？https://segmentfault.com/q/1010000003073257
+	
+	http://www.zhangxinxu.com/study/200911/image-center-new-method-test.html
+	
+	
+	HTML+css_CSS中的hack是什么：https://www.douban.com/group/topic/64249618/
+	
+	
+	
+	
+	
+--------------------------------------------------------------------------------------------------------
 
 
 常用地址：济南市高新区新泺大街1299号鑫盛大厦2号楼16层

@@ -2,20 +2,20 @@
 <html >
 <head>
   
-<title>ÎŞ±êÌâÎÄµµ</title>
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <style>
 a{
 text-decoration:none;}
 </style>
 <script src="../../js/jquery-1.8.2.min.js"></script>
 <script>
-/*window.nameÊÇä¯ÀÀÆ÷´°¿ÚµÄÃû×Ö£¬Í¨¹ıwindow.open()·½·¨Ö¸¶¨µÄµÚ¶ş¸ö²ÎÊı¾ÍÊÇĞÂ´ò¿ª´°¿ÚµÄname
- µ±ÊÖ¶¯ÉèÖÃÁËwindowµÄnameµÄÃû×Öºó£¬¼´Ê¹Ë¢ĞÂÒ³Ãæ£¬±¾´°¿ÚµÄÃû×ÖÒÀÈ»²»±ä£¬³ı·Ç¹Øµôä¯ÀÀÆ÷
+/*window.nameæ˜¯æµè§ˆå™¨çª—å£çš„åå­—ï¼Œé€šè¿‡window.open()æ–¹æ³•æŒ‡å®šçš„ç¬¬äºŒä¸ªå‚æ•°å°±æ˜¯æ–°æ‰“å¼€çª—å£çš„name
+ å½“æ‰‹åŠ¨è®¾ç½®äº†windowçš„nameçš„åå­—åï¼Œå³ä½¿åˆ·æ–°é¡µé¢ï¼Œæœ¬çª—å£çš„åå­—ä¾ç„¶ä¸å˜ï¼Œé™¤éå…³æ‰æµè§ˆå™¨
 */
 function windowName(){
    var name=window.name;
-   console.log(name);//¿Õ
-   window.name="window names";//µ±³¬Á´½ÓµÄtarget=_parent»òÕß_selfÊ±£¬´ò¿ªµÄĞÂ´°¿ÚµÄname¾ÍÊÇ´Ë´¦ÉèÖÃµÄÖµ  ³ıÁË_blankÊÇĞÂ´ò¿ªÒ»¸öä¯ÀÀÆ÷´°¿Ú£¬´ËÊ±Õâ¸ö´°¿ÚÃ»ÓĞÃû×Ö°Â
+   console.log(name);//ç©º
+   window.name="window names";//å½“è¶…é“¾æ¥çš„target=_parentæˆ–è€…_selfæ—¶ï¼Œæ‰“å¼€çš„æ–°çª—å£çš„nameå°±æ˜¯æ­¤å¤„è®¾ç½®çš„å€¼  é™¤äº†_blankæ˜¯æ–°æ‰“å¼€ä¸€ä¸ªæµè§ˆå™¨çª—å£ï¼Œæ­¤æ—¶è¿™ä¸ªçª—å£æ²¡æœ‰åå­—å¥¥
    console.log(window.name);//this's window name
 }
 
@@ -24,16 +24,16 @@ var color="red";
 window.age=28;
 
 
-//³¢ÊÔ·ÃÎÊÎ´ÉùÃ÷µÄ±äÁ¿ÔÚ·ÃÎÊ¸ÃÒ³ÃæÊ±js½Å±¾¾Í»á±¨´í£¬¿ÉÒÔÍ¨¹ıwindow.tt²éÑ¯Ä³¸ö±äÁ¿ÊÇ·ñ´æÔÚ
+//å°è¯•è®¿é—®æœªå£°æ˜çš„å˜é‡åœ¨è®¿é—®è¯¥é¡µé¢æ—¶jsè„šæœ¬å°±ä¼šæŠ¥é”™ï¼Œå¯ä»¥é€šè¿‡window.ttæŸ¥è¯¢æŸä¸ªå˜é‡æ˜¯å¦å­˜åœ¨
 //var t1=variable;
 var t2=window.variable;
 
 function test1(){
   delete window.color;
-  console.log(window.color);//ÔÚÈ«¾Ö»·¾³ÖĞÉùÃ÷µÄ±äÁ¿ËäÈ»»á¹éÎªwindowÊôĞÔ£¬µ«ÊÇ²»ÄÜÓÃdeleteÉ¾³ı£¬ÒòÎªÕâÊ±µÄwindowµÄConfigurableµÄÊôĞÔÊÇfalse
+  console.log(window.color);//åœ¨å…¨å±€ç¯å¢ƒä¸­å£°æ˜çš„å˜é‡è™½ç„¶ä¼šå½’ä¸ºwindowå±æ€§ï¼Œä½†æ˜¯ä¸èƒ½ç”¨deleteåˆ é™¤ï¼Œå› ä¸ºè¿™æ—¶çš„windowçš„Configurableçš„å±æ€§æ˜¯false
   
   delete window.age;
-  console.log(window.age);//ÓÃwindow¶¨ÒåµÄÊôĞÔ¿ÉÒÔÓÃdeleteÉ¾³ı
+  console.log(window.age);//ç”¨windowå®šä¹‰çš„å±æ€§å¯ä»¥ç”¨deleteåˆ é™¤
   
   
   console.log(window.variable);//undefined
@@ -43,19 +43,19 @@ function test2(){
   //window.moveBy(0,100);
  // window.resizeTo(100,50);
  // console.log(window.resizeTo(100,50));
- var openWindow=window.open("topFrame.html","hello","height:400,width:400,top:10,left:10,resizable=no");//ºÍÊéÉÏËµµÄ²»Ì«Ò»Ñù°¥£¬Õâ¸ö¿ÉÒÔÍÏ¶¯ÉèÖÃ´°¿Ú°¥£¬resizble=no²»ÊÇ²»ÄÜÉèÖÃÂğ£¿ÂúÄÔ×ÓµÄÎÊºÅ......
- console.log(openWindow.name);//hello  »ñµÃµÄÊÇ´«Èëwindow.open()µÄµÚ¶ş¸ö²ÎÊıtargetµÄÖµ
- //window.find( );//µ¯³öä¯ÀÀÆ÷²éÕÒ´°¿Ú
+ var openWindow=window.open("topFrame.html","hello","height:400,width:400,top:10,left:10,resizable=no");//å’Œä¹¦ä¸Šè¯´çš„ä¸å¤ªä¸€æ ·å“ï¼Œè¿™ä¸ªå¯ä»¥æ‹–åŠ¨è®¾ç½®çª—å£å“ï¼Œresizble=noä¸æ˜¯ä¸èƒ½è®¾ç½®å—ï¼Ÿæ»¡è„‘å­çš„é—®å·......
+ console.log(openWindow.name);//hello  è·å¾—çš„æ˜¯ä¼ å…¥window.open()çš„ç¬¬äºŒä¸ªå‚æ•°targetçš„å€¼
+ //window.find( );//å¼¹å‡ºæµè§ˆå™¨æŸ¥æ‰¾çª—å£
    
 }
 
 function test3(){
-//setTimeoutÎª³¬Ê±µ÷ÓÃ£¬Ö»ÔÚÖ¸¶¨µÄÊ±¼ä¹ıºóÖ´ĞĞÒ»´Î
-//ÒÔÏÂ´úÂë»áÔÚ³¬Ê±º¯ÊıÎ´Ö´ĞĞÊ±Ö±½ÓÈ¡Ïûµô³¬Ê±µ÷ÓÃ£¬½á¹û¾ÍÊÇÃ»ÓĞÖ´ĞĞ³¬Ê±µ÷ÓÃ¡£
+//setTimeoutä¸ºè¶…æ—¶è°ƒç”¨ï¼Œåªåœ¨æŒ‡å®šçš„æ—¶é—´è¿‡åæ‰§è¡Œä¸€æ¬¡
+//ä»¥ä¸‹ä»£ç ä¼šåœ¨è¶…æ—¶å‡½æ•°æœªæ‰§è¡Œæ—¶ç›´æ¥å–æ¶ˆæ‰è¶…æ—¶è°ƒç”¨ï¼Œç»“æœå°±æ˜¯æ²¡æœ‰æ‰§è¡Œè¶…æ—¶è°ƒç”¨ã€‚
  var t=setTimeout(function(){
   alert("1 second");
 },1000); 
-  clearTimeout(t);//È¡Ïû³¬Ê±µ÷ÓÃ
+  clearTimeout(t);//å–æ¶ˆè¶…æ—¶è°ƒç”¨
 }
 
 var i=0;
@@ -75,14 +75,14 @@ function stopTimeout(){
   });
 }
 function sub(){
-  var cname="ÁõÑ©Æ¼";
+  var cname="åˆ˜é›ªè";
   console.log(cname.substring(0,1));
   console.log(cname.substring( 1));
   
   
 }
 
-/*³õÊ¼»¯ÍêÒ³ÃæÊ±£¬µã»÷°´Å¥´ò¿ªĞÂ´°¿Ú£¬²¢ÔÚĞÂ´°¿ÚÔØÈëhrefÖ¸¶¨µÄÎÄµµÄÚÈİ(¼°Ò³ÃæÄÚÈİ)£¬ÔÚÕâÖ®ºóÔÙµã»÷¶¼Ö»»á¶ÔÕâ¸ö´ò¿ªµÄ´°¿ÚÖ´ĞĞÄ³Ğ©²Ù×÷°Â~*/
+/*åˆå§‹åŒ–å®Œé¡µé¢æ—¶ï¼Œç‚¹å‡»æŒ‰é’®æ‰“å¼€æ–°çª—å£ï¼Œå¹¶åœ¨æ–°çª—å£è½½å…¥hrefæŒ‡å®šçš„æ–‡æ¡£å†…å®¹(åŠé¡µé¢å†…å®¹)ï¼Œåœ¨è¿™ä¹‹åå†ç‚¹å‡»éƒ½åªä¼šå¯¹è¿™ä¸ªæ‰“å¼€çš„çª—å£æ‰§è¡ŒæŸäº›æ“ä½œå¥¥~*/
 var win=null;
 function opentest(){
   if(win){
@@ -90,30 +90,40 @@ function opentest(){
 	win.location.replace("mxxi.html"); */
 	win.close();
 	var flag=win.closed;
-	console.log("´°¿ÚÊÇ·ñ¹Ø±Õ£º"+flag);
+	console.log("çª—å£æ˜¯å¦å…³é—­ï¼š"+flag);
   }else{
      
      win=window.open("mxxm.html","hello","height:400,width:400,top:10,left:10,resizable=yes");
   }
 }
+
+
+function opentest2(){
+	 window.open("mxxm.html");
+}	 
+
+function opentest3(){
+	 
+	location="mxxm.html";
+}
 </script>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 <h1>jack</h1>
-<input type="button" onClick="windowName()" value="¸øµ±Ç°´°¿ÚÃüÃûname"/><br/>
-<input type="button" onClick="test1()" value="²âÊÔwindowÈ«¾Ö±äÁ¿"/><br/>
-<input type="button" onClick="test3()" value="È¡Ïû³¬Ê±µ÷ÓÃ"/></br>
-<input type="button" onClick="test2()" value="²âÊÔ¿ò¼Ü"/><br/>
+<input type="button" onClick="windowName()" value="ç»™å½“å‰çª—å£å‘½åname"/><br/>
+<input type="button" onClick="test1()" value="æµ‹è¯•windowå…¨å±€å˜é‡"/><br/>
+<input type="button" onClick="test3()" value="å–æ¶ˆè¶…æ—¶è°ƒç”¨"/></br>
+<input type="button" onClick="test2()" value="æµ‹è¯•æ¡†æ¶"/><br/>
 <a href="www.baidu.com" target="topFrame">hello world</a>
 <br/>
- <input type="button" onClick="testSetTimeout()" value="³¬Ê±µ÷ÓÃ"/><br/>
+ <input type="button" onClick="testSetTimeout()" value="è¶…æ—¶è°ƒç”¨"/><br/>
  <input type="text" value="" id="testst" onClick="stopTimeout()"/>
  <input type="button" onClick="sub()" value="substring"/><br/><br>
 
  
-  window.open()·½·¨²âÊÔ£º<input type="button" onClick="opentest()" value="window.open()"/><br/>
-  <h3>------------------³¬Á´½Ó×Ô´øµÄtarget£¬ÉèÖÃËûÃÇÊ±£¬ĞÂ´ò¿ªµÄÒ³ÃæÀïwindow.nameÎª¿Õ--------------</h3>
+  window.open()æ–¹æ³•æµ‹è¯•ï¼š<input type="button" onClick="opentest()" value="window.open()"/><br/>
+  <h3>------------------è¶…é“¾æ¥è‡ªå¸¦çš„targetï¼Œè®¾ç½®ä»–ä»¬æ—¶ï¼Œæ–°æ‰“å¼€çš„é¡µé¢é‡Œwindow.nameä¸ºç©º--------------</h3>
   <a href="topFrame.html" target="_blank">_blank</a>
   <br>
    <a href="topFrame.html" target="_parent">_parent</a>
@@ -128,6 +138,9 @@ function opentest(){
   
   
   
+ window.open()æ–¹æ³•æµ‹2è¯•ï¼š<input type="button" onClick="opentest2()"  value=" window.open()"/><br/>
+ locationæ–¹æ³•æµ‹è¯•ï¼š<input type="button" onClick="opentest3()"  value=" location"/><br/>
+ <a href="mxxm.html">è¶…é“¾æ¥</a>
 
 </body>
 </html>
