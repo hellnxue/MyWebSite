@@ -1,25 +1,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta charset="utf-8" />
+<title>ä½¿ç”¨è¡¨æ ¼å‚ç›´å±…ä¸­</title>
 <link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <style>
    .test::after{
    	content:"";
 	height:20px;
    }
+   
+   
+   
+    .content{
+            border: 1px solid green;
+            width: 150px;
+            margin: 50vh auto 0;
+            transform: translateY(-50%);
+        }
 </style>
 
-</head>
-<!-- 4¡¢Ê¹ÓÃ±í¸ñ
+ </head>
+<!-- 4ã€ä½¿ç”¨è¡¨æ ¼
 
-Èç¹ûÄãÊ¹ÓÃµÄÊÇ±í¸ñµÄ»°£¬ÄÇÍêÈ«²»ÓÃÎª¸÷ÖÖ¾ÓÖĞÎÊÌâ¶ø·³ÄÕÁË£¬Ö»ÒªÓÃµ½ td(Ò²¿ÉÄÜ»áÓÃµ½ th)ÔªËØµÄ align="center" ÒÔ¼° valign="middle" ÕâÁ½¸öÊôĞÔ¾Í¿ÉÒÔÍêÃÀµÄ´¦ÀíËüÀïÃæÄÚÈİµÄË®Æ½ºÍ´¹Ö±¾ÓÖĞÎÊÌâÁË,¶øÇÒ±í¸ñÄ¬ÈÏµÄ¾Í»á¶ÔËüÀïÃæµÄÄÚÈİ½øĞĞ´¹Ö±¾ÓÖĞ¡£Èç¹ûÏëÔÚcssÖĞ¿ØÖÆ±í¸ñÄÚÈİµÄ¾ÓÖĞ£¬´¹Ö±¾ÓÖĞ¿ÉÒÔÊ¹ÓÃ vertical-align:middle£¬ÖÁÓÚË®Æ½¾ÓÖĞ£¬Ã²ËÆcssÖĞÊÇÃ»ÓĞÏà¶ÔÓ¦µÄÊôĞÔµÄ,µ«ÊÇÔÚIE6¡¢7ÖĞÎÒÃÇ¿ÉÒÔÊ¹ÓÃtext-align:centerÀ´¶Ô±í¸ñÀïµÄÔªËØ½øĞĞË®Æ½¾ÓÖĞ£¬IE8+ÒÔ¼°¹È¸è¡¢»ğºüµÈä¯ÀÀÆ÷µÄtext-align:centerÖ»¶ÔĞĞÄÚÔªËØÆğ×÷ÓÃ£¬¶Ô¿é×´ÔªËØÎŞĞ§¡£--> 
+å¦‚æœä½ ä½¿ç”¨çš„æ˜¯è¡¨æ ¼çš„è¯ï¼Œé‚£å®Œå…¨ä¸ç”¨ä¸ºå„ç§å±…ä¸­é—®é¢˜è€Œçƒ¦æ¼äº†ï¼Œåªè¦ç”¨åˆ° td(ä¹Ÿå¯èƒ½ä¼šç”¨åˆ° th)å…ƒç´ çš„ align="center" ä»¥åŠ valign="middle" è¿™ä¸¤ä¸ªå±æ€§å°±å¯ä»¥å®Œç¾çš„å¤„ç†å®ƒé‡Œé¢å†…å®¹çš„æ°´å¹³å’Œå‚ç›´å±…ä¸­é—®é¢˜äº†,è€Œä¸”è¡¨æ ¼é»˜è®¤çš„å°±ä¼šå¯¹å®ƒé‡Œé¢çš„å†…å®¹è¿›è¡Œå‚ç›´å±…ä¸­ã€‚å¦‚æœæƒ³åœ¨cssä¸­æ§åˆ¶è¡¨æ ¼å†…å®¹çš„å±…ä¸­ï¼Œå‚ç›´å±…ä¸­å¯ä»¥ä½¿ç”¨ vertical-align:middleï¼Œè‡³äºæ°´å¹³å±…ä¸­ï¼Œè²Œä¼¼cssä¸­æ˜¯æ²¡æœ‰ç›¸å¯¹åº”çš„å±æ€§çš„,ä½†æ˜¯åœ¨IE6ã€7ä¸­æˆ‘ä»¬å¯ä»¥ä½¿ç”¨text-align:centeræ¥å¯¹è¡¨æ ¼é‡Œçš„å…ƒç´ è¿›è¡Œæ°´å¹³å±…ä¸­ï¼ŒIE8+ä»¥åŠè°·æ­Œã€ç«ç‹ç­‰æµè§ˆå™¨çš„text-align:centeråªå¯¹è¡Œå†…å…ƒç´ èµ·ä½œç”¨ï¼Œå¯¹å—çŠ¶å…ƒç´ æ— æ•ˆã€‚--> 
 <body>
 
 
 
-<div class="test">
+ <div class="test">
 
 </div>
 
@@ -29,7 +38,7 @@
 
 <table border="1">
    <tr>
-      <!--±í¸ñ×Ô´øµÄÄÚÈİ¾ÓÖĞÁ½¸öÊôĞÔ align="center" valign="middle"-->
+      <!--è¡¨æ ¼è‡ªå¸¦çš„å†…å®¹å±…ä¸­ä¸¤ä¸ªå±æ€§ align="center" valign="middle"-->
       <td height="200px" width="200px"  style=" border:1px solid red; vertical-align:middle; text-align:center;">
 	  	<div style="width:100px; height:100px; background:#000000; display: inline-block;"></div>
 	  </td>
@@ -41,7 +50,7 @@
 	  </td>
    </tr>
    
-    <!--visibility:collapse;µ±ÔÚ±í¸ñÔªËØÖĞÊ¹ÓÃÊ±£¬´ËÖµ¿ÉÉ¾³ıÒ»ĞĞ»òÒ»ÁĞ£¬µ«ÊÇËü²»»áÓ°Ïì±í¸ñµÄ²¼¾Ö¡£±»ĞĞ»òÁĞÕ¼¾İµÄ¿Õ¼ä»áÁô¸øÆäËûÄÚÈİÊ¹ÓÃ(É¾³ıµÄĞĞ»òÁĞµÄ¿Õ¼ä»á±»»ØÊÕ£¬ÈçÍ¬Ê¹ÓÃÁËdisplay:noneÒ»Ñù£¬visibility:hiddenÓ¦ÓÃÔÚÔªËØÉÏÊ±£¬¿Õ¼ä¾Í²»»á±»»ØÊÕ£¬ÒÀÈ»Õ¼¾İÒ³ÃæÒ»²¿·Ö)¡£Èç¹û´ËÖµ±»ÓÃÔÚÆäËûµÄÔªËØÉÏ£¬»á³ÊÏÖÎª "hidden"¡£-->
+    <!--visibility:collapse;å½“åœ¨è¡¨æ ¼å…ƒç´ ä¸­ä½¿ç”¨æ—¶ï¼Œæ­¤å€¼å¯åˆ é™¤ä¸€è¡Œæˆ–ä¸€åˆ—ï¼Œä½†æ˜¯å®ƒä¸ä¼šå½±å“è¡¨æ ¼çš„å¸ƒå±€ã€‚è¢«è¡Œæˆ–åˆ—å æ®çš„ç©ºé—´ä¼šç•™ç»™å…¶ä»–å†…å®¹ä½¿ç”¨(åˆ é™¤çš„è¡Œæˆ–åˆ—çš„ç©ºé—´ä¼šè¢«å›æ”¶ï¼Œå¦‚åŒä½¿ç”¨äº†display:noneä¸€æ ·ï¼Œvisibility:hiddenåº”ç”¨åœ¨å…ƒç´ ä¸Šæ—¶ï¼Œç©ºé—´å°±ä¸ä¼šè¢«å›æ”¶ï¼Œä¾ç„¶å æ®é¡µé¢ä¸€éƒ¨åˆ†)ã€‚å¦‚æœæ­¤å€¼è¢«ç”¨åœ¨å…¶ä»–çš„å…ƒç´ ä¸Šï¼Œä¼šå‘ˆç°ä¸º "hidden"ã€‚-->
     <tr style="visibility:collapse;">
       <!---->
       <td  >
@@ -56,8 +65,8 @@
    </tr>
 </table>
 
-<!--´¹Ö±¾ÓÖĞ£ºÓÃdisplay:table-cellÄ£·Âµ¥Ôª¸ñÈ»ºóÓÃvertical-align:middle;´¹Ö±¾ÓÖĞ-->
-<!--Ë®Æ½¾ÓÖĞ£ºÄÚ²¿divÓÃdisplay:inline-block ±äÎª¿ÉÉèÖÃ¿í¶ÈµÄĞĞÄÚÔªËØ£¬È»ºóÍâ²¿divÓÃtext-align:centerË®Æ½¾ÓÖĞÄÚ²¿div-->
+<!--å‚ç›´å±…ä¸­ï¼šç”¨display:table-cellæ¨¡ä»¿å•å…ƒæ ¼ç„¶åç”¨vertical-align:middle;å‚ç›´å±…ä¸­-->
+<!--æ°´å¹³å±…ä¸­ï¼šå†…éƒ¨divç”¨display:inline-block å˜ä¸ºå¯è®¾ç½®å®½åº¦çš„è¡Œå†…å…ƒç´ ï¼Œç„¶åå¤–éƒ¨divç”¨text-align:centeræ°´å¹³å±…ä¸­å†…éƒ¨div-->
 <div style="width:200px; height:200px; border:1px solid red; text-align:center; display:table-cell; vertical-align:middle;">
 	<div style="width:50px; height:50px; display:inline-block; background:#999999;">
 	  
@@ -65,7 +74,7 @@
 </div>
 
 
- <!--ÀûÓÃĞĞ¸ß´¹Ö±¾ÓÖĞ£¬ÊÊºÏ¸¸ÔªËØ¸ß¶ÈÈ·¶¨Ö»ÓĞÒ»ĞĞÎÄ×ÖµÄÇé¿öÏÂ°Â~-->
+ <!--åˆ©ç”¨è¡Œé«˜å‚ç›´å±…ä¸­ï¼Œé€‚åˆçˆ¶å…ƒç´ é«˜åº¦ç¡®å®šåªæœ‰ä¸€è¡Œæ–‡å­—çš„æƒ…å†µä¸‹å¥¥~-->
  <div style="width:200px; height:200px; border:1px solid red; text-align:center; ">
 	
 	<span  style="line-height:200px;" >hello world</span>
@@ -75,10 +84,10 @@
 
 
 
- <!--¶àĞĞÎÄ±¾´¹Ö±¾ÓÖĞ ÏÈÉèÖÃ display:table-cell ÔÙÉèÖÃ vertical-align:middle£»-->
+ <!--å¤šè¡Œæ–‡æœ¬å‚ç›´å±…ä¸­ å…ˆè®¾ç½® display:table-cell å†è®¾ç½® vertical-align:middleï¼›-->
  <div style="width:200px; height:200px; border:1px solid red; text-align:center; display:table-cell; vertical-align:middle; ">
 	
-	<span>Èç¹ûÄãÊ¹ÓÃµÄÊÇ±í¸ñµÄ»°£¬ÄÇÍêÈ«²»ÓÃÎª¸÷ÖÖ¾ÓÖĞÎÊÌâ¶ø·³ÄÕÁË£¬Ö»ÒªÓÃµ½ td(Ò²¿ÉÄÜ»áÓÃµ½ th)ÔªËØµÄ align="center" ÒÔ¼° 
+	<span>å¦‚æœä½ ä½¿ç”¨çš„æ˜¯è¡¨æ ¼çš„è¯ï¼Œé‚£å®Œå…¨ä¸ç”¨ä¸ºå„ç§å±…ä¸­é—®é¢˜è€Œçƒ¦æ¼äº†ï¼Œåªè¦ç”¨åˆ° td(ä¹Ÿå¯èƒ½ä¼šç”¨åˆ° th)å…ƒç´ çš„ align="center" ä»¥åŠ 
 	</span>
 	
  </div>
@@ -86,9 +95,14 @@
  
  <div style="width:200px; height:200px; border:1px solid red; position:relative; left:50% ">
 	
-	<div style="position:relative; left:50%;">Èç¹ûÄãÊ¹ÓÃµÄÊÇ±í¸ñµÄ»°£¬  
+	<div style="border: 1px solid; padding: 1em 1.5em; width: 18rem; display: inline-block; transform: translateY(-50%); margin: 50vh auto 0px;">å¦‚æœä½ ä½¿ç”¨çš„æ˜¯è¡¨æ ¼çš„è¯ï¼Œ  
 	</div>
 	
- </div>
+ </div> 
+ 
+ 
+  <div class="content">
+        çœ‹ï¼Œæˆ‘å±…ä¸­æ²¡ï¼Ÿ
+    </div>   
 </body>
 </html>
