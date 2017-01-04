@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
+<link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+
+<style>
+  div[data-two]{
+  	color:#0000FF;
+  }
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+   <h5>获取通过HTML的style特性指定的样式信息,但不包含与外部样式表或嵌入样式表层叠而来的样式信息</h5>
+	<div style="width:100px;height:100px; color:pink; background-color:#FFFF99;margin:0 auto;float:left;" data-one  >hello DOM2 DOM3</div>
+	<div style="width:100px;height:100px; background-color:#abcdef;margin:0 auto;" data-two  >hello DOM2 DOM3</div>
+	 
+	 <button type="button" onClick="test()">获取通过HTML的style特性指定的样式信息</button>
+ <script>
+ 
+ 		function test(){
+		
+			var e1=$("[data-one]")[0];
+			var bg1=e1.style.color;
+			var ft=e1.style.cssFloat;//e1.style.float也可以哎，但float是js的保留字，还是用cssFloat吧
+			console.log(bg1);
+			console.log(ft);//float是js的关键字，所以不能直接
+			
+			var e2=$("[data-two]")[0];
+			var bg2=e2.style.color;
+			console.log(bg2);
+			
+			 
+		}
+ </script>
+</body>
+</html>

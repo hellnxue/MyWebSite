@@ -22,3 +22,51 @@ mui发布时的演讲视频：http://v.youku.com/v_show/id_XNzYyOTEyMjcy.html
 
 
 智行：http://pages.ctrip.com/commerce/promote/train/zxty/download.html?channel=zx 
+
+
+webview??
+作为Android开发者，我们都知道在手机中内置了一款高性能 webkit 内核浏览器,在 SDK 中封装为一个叫做 WebView 组件。
+
+
+HTML：理解viewport（视口）：
+http://jingyan.baidu.com/article/7e44095326ce002fc1e2ef40.html
+
+
+如何改变MUI下拉刷新时加载圈的上下位置
+http://jingyan.baidu.com/article/455a99504c3188a166277833.html
+
+
+MUI问题：
+http://ask.dcloud.net.cn/article/122
+
+
+
+
+页面之间的传值 localStorage.setItem() 
+
+html5的 sessionStorage和localStorage 
+
+http://www.cnblogs.com/yuzhongwusan/archive/2011/12/19/2293347.html
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------不错的MUI文章-----------------
+
+一、MUI开发注意事项 
+http://ask.dcloud.net.cn/article/122
+
+
+二、plus初始化原理及plus is not defined，mui is not defined 错误汇总 
+http://ask.dcloud.net.cn/article/165
+
+
+
