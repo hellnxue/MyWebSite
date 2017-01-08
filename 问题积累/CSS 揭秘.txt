@@ -1,0 +1,4 @@
+不为人知的居中方法：
+
+（英文）https://css-tricks.com/centering-in-the-unknown/
+（中文）http://www.bubuko.com/infodetail-1140505.html
