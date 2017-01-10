@@ -219,6 +219,27 @@ function defaultTests(){
   console.log(rlt1);
    console.log(rlt2);
     console.log(rlt3);
+
+
+  
+}
+
+
+function unknow(){
+
+  var temp=$(".unknow");
+  temp.css("color","red");
+
+   console.log(typeof temp);//object
+    console.log(temp[0]);//undefined
+  console.log(temp.html());//undefined
+}
+
+
+function varTemp(){
+  var $sel=$(".tempsel");
+  console.log($sel);
+   console.log($(".tempsel"));
 }
  
 </script>
@@ -287,5 +308,19 @@ function defaultTests(){
 <h3>--------------------默认值判断---------------</h3>
  
 <input type="button" value="默认值判断" onClick="defaultTests()"/></br>
+
+
+<h3>--------------------jQuery选择一个不存在的元素时---------------</h3>
+ 
+<input type="button" value="jQuery选择一个不存在的元素时" onClick="unknow()"/></br>
+
+
+<h3>--------------------jQuery选择器给一个变量---------------</h3>
+ 
+ <div class="tempsel">hello world</div>
+<input type="button" value="jQuery选择器给一个变量" onClick="varTemp()"/></br>
+
+
+<a >hello world</a>
 </body>
 </html>

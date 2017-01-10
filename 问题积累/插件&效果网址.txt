@@ -51,6 +51,9 @@ http://www.cnblogs.com/yuzhongwusan/archive/2011/12/19/2293347.html
 
 
 
+------------------------CSS函数：
+http://www.runoob.com/cssref/css-functions.html
+
 
 
 
@@ -67,6 +70,21 @@ http://ask.dcloud.net.cn/article/122
 
 二、plus初始化原理及plus is not defined，mui is not defined 错误汇总 
 http://ask.dcloud.net.cn/article/165
+
+
+
+
+----------ul上下加边框的另一种该方法：
+.mui-table-view::before {
+    background-color: #c8c7cc;
+    content: "";
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: -1px;
+    transform: scaleY(0.5);
+}
 
 
 
