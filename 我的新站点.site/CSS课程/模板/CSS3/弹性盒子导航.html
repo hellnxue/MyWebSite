@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta charset="utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <link href="../../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <style>
 
-/*Ã¿¸öÒ³ÃæµÄµ¼º½²¿·Ö*/
+/*æ¯ä¸ªé¡µé¢çš„å¯¼èˆªéƒ¨åˆ†*/
 body{
 	margin:0;}
 
-/*µ¼º½ÈİÆ÷*/
+/*å¯¼èˆªå®¹å™¨*/
 .custom-head-line{
 	position:relative;
 	width:100%;
@@ -19,7 +19,7 @@ body{
 	
 }
 
-/*µ¼º½Ïß*/
+/*å¯¼èˆªçº¿*/
  .custom-line {
     background-color: #ccc;
     height: 2px;
@@ -27,19 +27,19 @@ body{
     position: absolute;
     top: 35%;
     width: 80%;
-	z-index:1;/*ÉèÖÃºÃ²ãµÄË³Ğò*/
+	z-index:1;/*è®¾ç½®å¥½å±‚çš„é¡ºåº*/
 } 
 
 
 .custom-head-line ul {
 	position:relative;
-	z-index:10;/*ÈÃul²ãÔÚµ¼º½ÏßµÄÉÏ·½*/
-    display: flex;/*ÉèÖÃulÎªµ¯ĞÔºĞ×ÓÈİÆ÷*/
-    flex-direction: row;/*µ¯ĞÔ×ÓÔªËØµÄÅÅÁĞ·½Ê½--ĞĞÅÅÁĞ*/
-    justify-content: space-around;/*ÉèÖÃµ¯ĞÔºĞ×Ó×ÓÔªËØÔÚÖ÷Öá(ºáÖá)·½ÏòÉÏµÄ¶ÔÆë·½Ê½--ÏîÄ¿Î»ÓÚ¸÷ĞĞÖ®Ç°¡¢Ö®¼ä¡¢Ö®ºó¶¼ÁôÓĞ¿Õ°×µÄÈİÆ÷ÄÚ¡£*/
-	align-items: center;/*ÉèÖÃµ¯ĞÔºĞ×Ó×ÓÔªËØÔÚ²àÖá£¨×İÖá£©·½ÏòÉÏµÄ¶ÔÆë·½Ê½--´¹Ö±¾ÓÖĞ*/
-	flex-wrap:nowrap;/*ÉèÖÃµ¯ĞÔºĞ×ÓµÄ×ÓÔªËØ³¬³ö¸¸ÔªËØÈİÆ÷Ê±ÊÇ·ñ»»ĞĞ--²»»»ĞĞ*/
-	align-content:center;/*ĞŞ¸Ä flex-wrap ÊôĞÔµÄĞĞÎª£¬ÀàËÆ align-items, µ«²»ÊÇÉèÖÃ×ÓÔªËØ¶ÔÆë£¬¶øÊÇÉèÖÃĞĞ¶ÔÆë*/
+	z-index:10;/*è®©ulå±‚åœ¨å¯¼èˆªçº¿çš„ä¸Šæ–¹*/
+    display: flex;/*è®¾ç½®ulä¸ºå¼¹æ€§ç›’å­å®¹å™¨*/
+    flex-direction: row;/*å¼¹æ€§å­å…ƒç´ çš„æ’åˆ—æ–¹å¼--è¡Œæ’åˆ—*/
+    justify-content: space-around;/*è®¾ç½®å¼¹æ€§ç›’å­å­å…ƒç´ åœ¨ä¸»è½´(æ¨ªè½´)æ–¹å‘ä¸Šçš„å¯¹é½æ–¹å¼--é¡¹ç›®ä½äºå„è¡Œä¹‹å‰ã€ä¹‹é—´ã€ä¹‹åéƒ½ç•™æœ‰ç©ºç™½çš„å®¹å™¨å†…ã€‚*/
+	align-items: center;/*è®¾ç½®å¼¹æ€§ç›’å­å­å…ƒç´ åœ¨ä¾§è½´ï¼ˆçºµè½´ï¼‰æ–¹å‘ä¸Šçš„å¯¹é½æ–¹å¼--å‚ç›´å±…ä¸­*/
+	flex-wrap:nowrap;/*è®¾ç½®å¼¹æ€§ç›’å­çš„å­å…ƒç´ è¶…å‡ºçˆ¶å…ƒç´ å®¹å™¨æ—¶æ˜¯å¦æ¢è¡Œ--ä¸æ¢è¡Œ*/
+	align-content:center;/*ä¿®æ”¹ flex-wrap å±æ€§çš„è¡Œä¸ºï¼Œç±»ä¼¼ align-items, ä½†ä¸æ˜¯è®¾ç½®å­å…ƒç´ å¯¹é½ï¼Œè€Œæ˜¯è®¾ç½®è¡Œå¯¹é½*/
 	margin:0;
 	padding:10px 0;
 	 
@@ -47,7 +47,7 @@ body{
 
 .custom-head-line ul li{
 	list-style:none;
-	flex-grow:1;/*flex-growÓÃÓÚ¼ìË÷»òÉèÖÃµ¯ĞÔ×ÓÔªËØµÄÀ©Õ¹±ÈÂÊ£¬ÖµÎªÒ»¸öÊı×Ö»òinitial»òinheri*/
+	flex-grow:1;/*flex-growç”¨äºæ£€ç´¢æˆ–è®¾ç½®å¼¹æ€§å­å…ƒç´ çš„æ‰©å±•æ¯”ç‡ï¼Œå€¼ä¸ºä¸€ä¸ªæ•°å­—æˆ–initialæˆ–inheri*/
 	 
   
 }
@@ -76,7 +76,7 @@ body{
   
 </style>
 
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 
 <body>
@@ -84,10 +84,10 @@ body{
 	<div class="custom-head-line">
 			<div class="custom-line"></div>
 			<ul>
-				<li><a class="active" href="#"><span>1</span><span>¸öÈËĞÅÏ¢</span></a></li>
-				<li><a href="#"><span>2</span><span>ÂÄÀúĞÅÏ¢</span></a></li>
-				<li><a href="#"><span>3</span><span>½ÌÓıĞÅÏ¢</span></a></li>
-				<li><a href="#"><span>4</span><span>Éç»á¹ØÏµ</span></a></li>
+				<li><a class="active" href="#"><span>1</span><span>ä¸ªäººä¿¡æ¯</span></a></li>
+				<li><a href="#"><span>2</span><span>å±¥å†ä¿¡æ¯</span></a></li>
+				<li><a href="#"><span>3</span><span>æ•™è‚²ä¿¡æ¯</span></a></li>
+				<li><a href="#"><span>4</span><span>ç¤¾ä¼šå…³ç³»</span></a></li>
 			</ul>
 		</div>
 

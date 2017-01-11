@@ -709,3 +709,24 @@ ul.type-lists li{
     height: 10px;
     width: 10px;
 }
+
+
+
+/*calc()动态计算函数的用法*/
+.demo {
+	width: 300px;
+	background: #abcdef;
+	padding: 3px 0;
+}
+.box {
+    /*
+	写给不支持calc()函数的浏览器
+    width: 100%;
+    box-sizing:border-box;*/
+    width: calc(100% - (10px + 5px ) * 2);/*当元素的宽度为百分比值时，不太好计算布局的宽度，
+    如果用calc 则简单的多了*/
+	background: #f60;
+	height: 50px;
+	padding: 10px;
+    border: 5px solid green;
+}

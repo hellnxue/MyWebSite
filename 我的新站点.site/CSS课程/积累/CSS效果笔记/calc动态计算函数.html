@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>使用calc()函数设置布局</title>
+<link href="../CSS/citUnknown.css" rel="stylesheet" type="text/css"/>
+<style>
+  body {
+    background: #E8EADD;
+    color: #3C323A;
+    padding: 20px; 
+}
+.wrapper {
+    width: 1024px; /* Fallback for browsers that don't support the calc() function */
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+    margin: auto; 
+}
+#header {
+    background: #f60;
+    padding: 20px;
+    width: 984px;/*Fallback for browsers that don't support the calc() function*/
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+}
+#main {
+    border: 8px solid #B8C172;
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    padding: 20px;
+    width: 704px; /* Fallback for browsers that don't support the calc() function */
+    width: -moz-calc(75% - 20px * 2 - 8px * 2);
+    width: -webkit-calc(75% - 20px * 2 - 8px * 2);
+    width: calc(75% - 20px * 2 - 8px * 2); 
+}
+#accessory {
+    border: 8px solid #B8C172;
+    float: right;
+    padding: 10px;
+    width: 208px; /* Fallback for browsers that don't support the calc() function */
+    width: -moz-calc(25% - 10px * 2 - 8px * 2 - 20px);
+    width: -webkit-calc(25% - 10px * 2 - 8px * 2 - 20px);
+    width: calc(25% - 10px * 2 - 8px * 2 - 20px);
+}
+#footer {
+    clear:both;
+    background: #000;
+    padding: 20px;
+    color: #fff;
+    width: 984px;/* Fallback for browsers that don't support the calc() function */
+    width: -moz-calc(100% - 40px);
+    width: -webkit-calc(100% - 40px);
+    width: calc(100% - 40px);
+}
+
+
+
+
+
+
+
+
+/*calc()函数的另一种用法*/
+ ul#testTube {
+  width:100px;
+  height:300px;
+  list-style:none;
+  border-radius: 0 0 100px 100px;
+  border: 1px solid #033a52;
+}
+li#ingredients01 {
+  background-color: #4dbded;
+}
+li#ingredients02 {
+  background-color: #2f9bc9;
+}
+li#ingredients03 {
+  background-color: #136182;
+}
+li#ingredients04 {
+  background-color: #033a52;
+  border-radius: 0 0 100px 100px;
+}
+li#ingredients04 {
+  height: -moz-calc(300px/2 - 30px);
+  height: -webkit-calc(300px/2 - 30px);
+  height: calc(300px/2 - 30px);    
+/* Gesamtwert von 120px entspricht 40% der Füllmenge */
+}
+li#ingredients03 {
+  height: -moz-calc(300px/10 + 60px);
+  height: -webkit-calc(300px/10 + 60px);
+  height: calc(300px/10 + 60px);
+/* Gesamtwert von 90px entspricht 30% der Füllmenge */
+}
+li#ingredients02 {
+  height: -moz-calc(300px/10*2);
+  height: -webkit-calc(300px/10*2);
+  height: calc(300px/10*2);    
+/* Gesamtwert von 60px entspricht 20% der Füllmenge */
+}
+li#ingredients01 {
+  height: -moz-calc(300px/10);
+  height: -webkit-calc(300px/10);
+  height: calc(300px/10);    
+/* Gesamtwert von 30px entspricht 10% der Füllmenge */
+}
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+
+<!-- 使用动态计算函数calc()布局 -->
+<div class="wrapper">
+    <div id="header">
+        <h1>CSS3 calc() Function</h1>
+    </div>
+    <div id="main">
+        <h1>Far far away…</h1>
+        <p>Far far away, behind the word mountains…</p>
+    </div>
+ 
+    <div id="accessory">
+        <ul>
+            <li><a href="#">Far far away…</a></li>
+            <li><a href="#">Separated they live…</a></li>
+            <li><a href="#">A small river named…</a></li>
+        </ul>
+    </div>
+ 
+    <div id="footer">
+        Visit the article…
+    </div>
+ 
+</div>
+ 
+
+
+ <ul id="testTube"/>
+  <li id="ingredients01">10%</li>
+  <li id="ingredients02">20%</li>
+  <li id="ingredients03">30%</li>
+  <li id="ingredients04">40%</li>
+</ul>
+</body>
+</html>

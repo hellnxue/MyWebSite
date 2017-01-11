@@ -696,6 +696,42 @@ h3{
  
   background-color:#FFFFCC;
   }
+
+
+
+  /*CSS属性值：initial*/
+  .initialTest{
+  	background-color: #abcdef;
+  	margin: 0 30%;
+  	color: yellow;
+  	text-align: center;
+  }
+
+  .initialTest h2{
+  	color: initial;
+  }
+
+
+
+  /*CSS属性值：inherit*/
+  .inheritTest{
+  	background-color: #abcdef;
+  	margin: 0 30%;
+  	 
+  	text-align: center;
+  }
+
+  .inheritTest span{
+  	color: pink;
+  }
+
+  .inheritTest > div{
+  	color: blue;
+  }
+
+  .inheritTest > div span{
+  	color: inherit;
+  }
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
@@ -1029,6 +1065,19 @@ n 可以是数字、关键词或公式。
 	<span class="x-bottom-right"></span></div>
  
 
+<h3 >CSS属性值： initial 用于设置CSS属性为它的的默认值 。initial 关键字可用于任何 HTML 元素上的任何 CSS 属性。</h3>
+<div class="initialTest">
+	<p>DIV 元素内的标题和文本的 color 属性被设置为 "red"。标题元素的 color 属性被另外设置为 "initial"，因此是 "black"。</p>
+	<h2>Initial</h2>
+</div>
+
+<h3 >CSS属性值： inherit 用于设置一个属性应从它的父元素继承它的值 。inherit 关键字可用于任何 HTML 元素上的任何 CSS 属性。</h3>
+<div class="inheritTest">
+	 <span>hello world</span>
+	 <div>
+	 	<span>应用过inherit</span>
+	 </div>
+</div>
 </body>
 
 
