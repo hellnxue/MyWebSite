@@ -730,3 +730,31 @@ ul.type-lists li{
 	padding: 10px;
     border: 5px solid green;
 }
+
+
+/**/
+.petDemo{
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    height: 300px;
+    margin: 0 30%;
+}
+
+
+.petDemo ul{
+    /*align-content: space-around;*/
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: center;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.petDemo ul li{
+   width: 100%;
+}
+

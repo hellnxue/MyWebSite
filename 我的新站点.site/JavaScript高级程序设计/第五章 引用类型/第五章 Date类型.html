@@ -125,14 +125,14 @@ function formatDate(){
 
 function getTimes(){
  
- /*获取的时间戳是把毫秒改成000显示*/
+ /*第一种：获取的时间戳是把毫秒改成000显示*/
 var timestamp1 = Date.parse(new Date());
 
 
-/*第二种和第三种是获取了当前毫秒的时间戳。*/
+/*第二种：第二种和第三种是获取了当前毫秒的时间戳。*/
 var timestamp2 = (new Date()).valueOf();
 
-
+/*第三种*/
 var timestamp3=new Date().getTime();
 
    console.log(   timestamp1);
@@ -217,6 +217,54 @@ function sunornight(){
 		console.log("hello night");
 	}
 }
+
+
+/*
+  判断两个日期的大小
+*/
+function checkDate(){
+	 
+	//方法一：将指定日期转换为毫秒值然后比较(这种比较适合年月日时分秒的日期  按理说getTime()获取的时间戳不是0000结尾的，传参数后就跟Date.parse()的结果有点类似，但又不全相等。。。。。。)
+	 var oldTime = (new Date("2017/2/13")).getTime(); //得到毫秒数    "2017/2/13"能直接传给Date()函数吗，只能是yyyy/mm/dd的格式吗？  
+	  
+	 var assignDate="2017-1-13";
+	 var had=assignDate.replace(new RegExp("-","gm"),"/")
+	
+	 var timestamp=new Date(had).getTime();
+	 
+	 var flag=oldTime>timestamp;
+	 console.log(flag);//true
+	 
+	
+	//方法二：直接用字符串去比较 年月日
+	 console.log("2017-12-13"<"2017-13-14");
+	 
+	 //方法三：年月日去掉多余的字符，比较数字 年月日
+	 var date1="2017-12-13".replace(new RegExp("-","gm"),"");
+	 var date2="2017-04-13".replace(new RegExp("-","gm"),"");
+	 var flag2=parseInt(date1)>parseInt(date2);
+	 console.log(flag2);//true
+	 
+}
+
+
+//获取一段执行了一段代码的时间间隔
+function interval(){
+		
+	var start=+new Date();
+	console.log("hello world")
+	var stops=+new Date();
+	
+	console.log(stops-start);
+	
+	//为啥Date().now是undefined，居然不支持?????????????????/
+	/*var starts=Date().now();
+	console.log("hehehehehe"+Date().now);
+	var stopss=Date().now();
+	
+	console.log(stopss-starts);*/
+
+}
 </script>
 </head>
 
@@ -232,5 +280,9 @@ function sunornight(){
 <input type="button"    value="获取week的中文字符" onclick="tesweek()"/></br>
 
 <input type="button"    value="判断白天和黑夜" onclick="sunornight()"/></br>
+
+<input type="button"    value="判断指定日期大于当前日期" onclick="checkDate()"/></br>
+
+<input type="button"    value="获取一段代码的时间间隔" onclick="interval()"/></br>
 </body>
 </html>
