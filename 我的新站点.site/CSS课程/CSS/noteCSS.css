@@ -752,9 +752,21 @@ ul.type-lists li{
     margin: 0;
     padding: 0;
     text-align: center;
+    position: relative;
 }
 
 .petDemo ul li{
    width: 100%;
+   height: 25%;
+}
+
+.petDemo li:first-child{
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #ccc, rgba(225, 225, 225, 0)) repeat scroll 0 0;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    pointer-events: none; /* z-index: -10000;*/
+    position: absolute;
+    top: 0;
+    
+  
 }
 
