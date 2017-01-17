@@ -819,7 +819,7 @@ ul.type-lists li{
 }
 
 
-/**/
+/*pointer-event:none的应用-----半透明覆盖后，可以穿透透明层操作文字*/
 .petDemo{
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 5px;
@@ -830,11 +830,12 @@ ul.type-lists li{
 
 .petDemo ul{
     /*align-content: space-around;*/
-    align-items: center;
-    display: flex;
-    flex-wrap: wrap;
+   
+    display: flex;/*弹性伸缩盒子布局*/
+    flex-wrap: wrap;/*换行，让每个li为一行*/
     height: 100%;
-    justify-content: center;
+    justify-content: center;/*内容水平居中*/
+    align-items: center;/*内容垂直居中*/
     list-style: outside none none;
     margin: 0;
     padding: 0;
@@ -845,16 +846,24 @@ ul.type-lists li{
 .petDemo ul li{
    width: 100%;
    height: 25%;
+  /* margin:auto; 其实，父元素的justify-content:center和align-items:center可以用margin:auto代替就
+  可以实现弹性子元素在弹性容器中的水平垂直对齐了耶*/
+
+
+  /*让文字在容器中水平垂直居中*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 600;
 }
 
 .petDemo li:first-child{
-    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #ccc, rgba(225, 225, 225, 0)) repeat scroll 0 0;
+    background: rgba(0, 0, 0, 0) -moz-linear-gradient(center top , #fff 30%, rgba(225, 225, 225, 0)) repeat scroll 0 0;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    pointer-events: none; /* z-index: -10000;*/
+    height: 35%;
+    pointer-events: none;
     position: absolute;
     top: 0;
-    
-  
 }
 
 
