@@ -147,6 +147,93 @@ header .ctm-header-title{
 	color:#fff;} 
 
 
+
+
+/*导航栏*/
+ /*---------------自定义导航栏----------- start*/
+.ctm-header-default-1 {
+    background-color: #fd6f19;
+    color:#fff;
+}
+
+.ctm-header-white-1 {
+    background-color: #fff;
+    color:#fe6f1a;
+}
+
+.ctm-header-1 {
+    display: block;
+    height:  86px;
+    line-height:  86px;
+    position: relative;
+    width: 100%;
+}
+
+
+
+.ctm-header-1 .nav-left-icon,.ctm-header-1 .nav-right-icon{
+
+    display: inline-block;
+    position: absolute;    
+    color: #fe6f1a;   
+}
+
+.ctm-header-1 .nav-left-icon {
+    width:  86px;
+    height:  86px;
+    left: 0;
+    padding-left: 20px;
+}
+
+.ctm-header-1 .nav-right-icon {
+
+    width: 180px;
+    height:  86px;
+    padding-right: 20px;
+    right: 0;
+    font-size: 30px; 
+    text-align: right;  
+}
+
+.ctm-header-1 .nav-left-icon em {
+    background-image: url("../images/main/back@2x.png");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    display: inline-block;
+    height:42px;
+    position: absolute;
+    top: 50%;
+    left: 50%;    
+    transform: translate(-50%, -50%);
+    width: 20px;
+}
+
+.ctm-header-default-1 .nav-left-icon em{
+	background-image: url("../img/back@3x.png"); 
+}
+
+.ctm-header-default-1 .nav-right-icon{
+	color:#fff;
+}
+ 
+
+.ctm-header-1 .ctm-header-title-1 {
+    /* color: #fe6f1a; */
+    display: block;
+    font-size:  36px;
+    line-height: 86px;
+    font-weight: 500;
+    margin: 0 30%;
+    overflow: hidden;
+    overflow-wrap: normal;
+    padding: 0;
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+/*--------------------自定义导航栏 --------- end*/	
+
+
 /*评论区域*/
 .cmt-wrapper *{
 	box-sizing: border-box;
@@ -769,4 +856,7 @@ ul.type-lists li{
     
   
 }
+
+
+
 
