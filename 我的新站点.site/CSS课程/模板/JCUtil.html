@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
+<meta charset="utf-8" />
 <title>writer title here</title>
 <link href="../CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <style>
@@ -13,7 +13,7 @@
 	  margin: 20px auto 40px;
 	  border-radius:10px;
 	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
-	  border:none;/*È¥µô°´Å¥Ä¬ÈÏµÄÒõÓ°£¬³¬¼¶ÄÑ¿´µÄÄ¬ÈÏÑùÊ½*/
+	  border:none;/*å»æ‰æŒ‰é’®é»˜è®¤çš„é˜´å½±ï¼Œè¶…çº§éš¾çœ‹çš„é»˜è®¤æ ·å¼*/
 	  box-shadow:0 12px 8px -9px #555;
   }
   #wrap{
@@ -50,7 +50,7 @@ console.log("name==="+name);
      name:1,
 	 age:2
 	 };
-/*----------------ÎŞ¿é¼¶×÷ÓÃÓò---------------------------------*/	 
+/*----------------æ— å—çº§ä½œç”¨åŸŸ---------------------------------*/	 
  
  for(var i in obj){
    var key1=i;
@@ -58,10 +58,10 @@ console.log("name==="+name);
    
  }
  
-console.log("ÎŞ¿é¼¶×÷ÓÃÓò²âÊÔkey1="+key1);//age
-console.log("ÎŞ¿é¼¶×÷ÓÃÓò²âÊÔvalue1="+value1);//2
+console.log("æ— å—çº§ä½œç”¨åŸŸæµ‹è¯•key1="+key1);//age
+console.log("æ— å—çº§ä½œç”¨åŸŸæµ‹è¯•value1="+value1);//2
   
-/*----------------Ä£·Â¿é¼¶×÷ÓÃÓò--Á¢¼´Ö´ĞĞº¯Êı---------------------------------*/  
+/*----------------æ¨¡ä»¿å—çº§ä½œç”¨åŸŸ--ç«‹å³æ‰§è¡Œå‡½æ•°---------------------------------*/  
 (function(){
  for(var i in obj){
    var key=i;
@@ -70,8 +70,8 @@ console.log("ÎŞ¿é¼¶×÷ÓÃÓò²âÊÔvalue1="+value1);//2
  }
 })();
 try{
-  console.log("Ä£Äâ¿é¼¶×÷ÓÃÓò²âÊÔkey="+key);//±¨´í
-console.log("Ä£Äâ¿é¼¶×÷ÓÃÓò²âÊÔvalue="+value);//±¨´í
+  console.log("æ¨¡æ‹Ÿå—çº§ä½œç”¨åŸŸæµ‹è¯•key="+key);//æŠ¥é”™
+console.log("æ¨¡æ‹Ÿå—çº§ä½œç”¨åŸŸæµ‹è¯•value="+value);//æŠ¥é”™
  
 }catch(ex){
   console.log("error:"+ex);
@@ -79,10 +79,10 @@ console.log("Ä£Äâ¿é¼¶×÷ÓÃÓò²âÊÔvalue="+value);//±¨´í
 
 
 
-/*¹«¹²·½·¨-ÏûÏ¢ÏÔÊ¾*/
+/*å…¬å…±æ–¹æ³•-æ¶ˆæ¯æ˜¾ç¤º*/
 function commonShow(msg){
  
-  $("#out").append("<br/>"+String(msg));//²»ÄÜÓÃmsg.toString() ÒòÎªbooleanÀàĞÍÓÃÔÚ´Ë´¦»á±¨´í
+  $("#out").append("<br/>"+String(msg));//ä¸èƒ½ç”¨msg.toString() å› ä¸ºbooleanç±»å‹ç”¨åœ¨æ­¤å¤„ä¼šæŠ¥é”™
 }
 
 function clears(){
@@ -96,7 +96,7 @@ function clears(){
  
 
 </script>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 	<div id="wrap">

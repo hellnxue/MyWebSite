@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>�ޱ����ĵ�</title>
+<meta charset="utf-8" />
+<title>无标题文档</title>
 <link  href="../CSS/CSSUtil.css" type="text/css" rel="stylesheet"/>
 <style>
 /* p{ border-bottom:0.5px solid;}
@@ -57,7 +57,7 @@
  
 </style>
 
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 <p>&nbsp;&nbsp;</p>
@@ -65,9 +65,9 @@
 <span>hellow world</span>
 <div style="border:1px solid yellow;width:200px;"> <img src="../../image/mxx/m6.jpg" width="300px;"/></div>
 
-<!--�������˿��ȵ�Ԫ�������ڱ߾࣬��߾�ͱ߿��ʹ�ÿ��ȱ����-->
+<!--给设置了宽度的元素添加内边距，外边距和边框会使得宽度变宽。-->
 <div style="border:1px solid black;width:200px;">
-	<!--δ���ÿ��ȵ�Ԫ�أ�Ԫ�صĿ��Ȼ�����ӱ߾�ı仯���仯�������ݿ��Ȳ���һ�ɲ���ġ������˿��ȵ�Ԫ�ص����ݿ�����һֱ����ġ�-->
+	<!--未设置宽度的元素，元素的宽度会随盒子边距的变化而变化，及内容宽度不是一成不变的。设置了宽度的元素的内容宽度是一直不变的。-->
 	<div style="border:1px solid pink;margin-left:20px;">span here</div>
 </div>
 
@@ -104,28 +104,28 @@
 </div>
 
  
-<h3>---------����Ԫ�ػ�����������סԪ���е�����-----------</h3>
+<h3>---------行内元素会收缩并包裹住元素中的内容-----------</h3>
 <p style="background-color:yellow;">hello world</p>
-<!--����Ԫ�ػ�����������סԪ���е�����-->
+<!--行内元素会收缩并包裹住元素中的内容-->
 <span style="background-color:yellow;">hello world</span>
 
 <p><span  style="background-color:yellow;">hello world</span></p>
 
 
-<!--�ı�����-->
-<h3>---------�ı�����-----------</h3>
+<!--文本居中-->
+<h3>---------文本居中-----------</h3>
 <div style="border:1px solid yellow;margin:0;padding:0;">
 <p style="border:1px solid pink;">hello sir,hello world</p>
 </div>
 
-<!--������Ԫ�������������clear:left  -->
-<h3>������Ԫ�������������clear:left  �������ɸ�����ֻ���������ܵ���һ������Ԫ�ص��Աߣ�����ͬ�ĵ���һ�����������棬�������Աߵ�û�и�����Ԫ�ػ��ǻ�����������------------</h3>
+<!--给浮动元素添加清除浮动clear:left  -->
+<h3>给浮动元素添加清除浮动clear:left  浮动依旧浮动，只不过不会跑到上一个浮动元素的旁边，还会同文档流一样罗列在下面，但是他旁边的没有浮动的元素还是会向上向左走------------</h3>
 <div style=" width: 100%; background-color:#eee" class="clearfix">
 <img  src="../../image/mxx/m4.jpg" style="float: left;">
-<p>��Сϣ��oneday</p>
-<!--��Ȼ�е��Ť����ȷʵ���Ը�һ��������float:left��Ԫ������clear��left,��������ʹ�������Ԫ��λ�ڵ�һ������Ԫ�ص��·������������Ǹ���Ԫ�ذ£�ֻ�������������ĵ����������˶��ѡ�-->
+<p>萌小希的oneday</p>
+<!--虽然有点别扭，但确实可以给一个设置了float:left的元素设置clear：left,这样做会使这个浮动元素位于第一个浮动元素的下方，本身依旧是浮动元素奥，只不过不在随着文档流往上走了而已。-->
 <img  src="../../image/mxx/m2.jpg" style="float: left; clear:left;">
-<p>��Сϣ��sedondday</p>
+<p>萌小希的sedondday</p>
 </div>
 
 
