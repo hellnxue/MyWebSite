@@ -10,6 +10,7 @@
 body{
 	margin:0;}
 
+
 /*导航容器*/
 .custom-head-line{
 	position:relative;
@@ -30,7 +31,7 @@ body{
 	z-index:1;/*设置好层的顺序*/
 } 
 
-
+/*弹性容器*/
 .custom-head-line ul {
 	position:relative;
 	z-index:10;/*让ul层在导航线的上方*/
@@ -45,13 +46,15 @@ body{
 	 
 }
 
+/*弹性子元素*/
 .custom-head-line ul li{
 	list-style:none;
-	flex-grow:1;/*flex-grow用于检索或设置弹性子元素的扩展比率，值为一个数字或initial或inheri*/
+	flex-grow:1;/*flex-grow用于检索或设置弹性子元素的扩展比率，值为一个数字或initial或inherit*/
 	 
   
 }
 
+/*可点击区域*/
 .custom-head-line ul li a{
 	display:block;
 	width:70%;
@@ -72,7 +75,6 @@ body{
 	margin-top:10px;
   	 
 }
-
   
 </style>
 
