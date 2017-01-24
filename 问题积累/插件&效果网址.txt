@@ -75,6 +75,13 @@ http://ask.dcloud.net.cn/article/165
 三、MUI下拉刷新、上拉加载更多，在有多个tab的情况下的想法-转自 http://ask.dcloud.net.cn/question/10169
 
 
+四、MUI的DIV窗体切换 待研究。。。
+https://segmentfault.com/a/1190000006077506
+
+五、MUI多端发布开发指南(终于把MUI的使用场景说清楚了) 
+http://blog.csdn.net/jiftlixu/article/details/51517834
+
+
 还有就是给正在研究div区域滚动朋友一个想法，mui的区域滚动比很多市面上的都流畅，我研究这个都一个多月了，走了很多弯路，还有一个就是做tab的区域滚动集合的话，不要多所有的tab都init，等切换到当前div的时候再去触发该tab的上下拉init，因为我测试了好久，多加载一个流畅度就会相对降低，我现在的想法就是当要切换到下一个tab 的时候销毁当前的init，这样的话就比较好的实现了流畅滚动，在低端安卓上勉强可以接受，在安卓的chorme上是非常流畅的，同时希望官方参考一下chorme，做成mui的壳，那流畅滚动完全没问题了，html应用前景美好
 
 
