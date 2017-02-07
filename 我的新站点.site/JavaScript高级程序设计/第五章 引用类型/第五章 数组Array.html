@@ -877,6 +877,55 @@ function convertAry(a,b){
 	 
 	 console.log(xry);
  }
+
+ function mapTest(){
+
+ 	var ary1=[
+	     {orderno:1,options:"a"},
+		 {orderno:2,options:"b"},
+		 {orderno:3,options:"c"},
+		  
+	 ];
+
+ 	var ary2=[
+	     {1:"aa"},
+		 {2:"bb"},
+		 {4:"ff"},
+	 ];
+
+
+	 $.map(ary1,function(item,index){
+
+	 	$.map(ary2,function(item1,index1){
+
+	 		if( item.orderno  in item1){
+	 			item.options=item1[item.orderno];
+	 		}
+	 		
+	 	});
+
+	 });
+
+	 console.log(ary1);
+	 //[Object { orderno=1,  options=undefined}, Object { orderno=2,  options="bb"}]
+
+
+
+	 /*jquery的map方法将一组元素转换成其他数组（不论是否是元素数组），
+	 获取的数组是jQuery数组，需要用get()方法转成普通的js数组奥~~*/
+	 var rlt=$("#jqMap input").map(function(){
+	 	return $(this).val();
+	 });
+
+	 console.log(rlt.get());// ["John", "password", "http://ejohn.org/"]
+
+
+
+
+
+
+
+ }
   
 </script>
 
@@ -904,7 +953,13 @@ function convertAry(a,b){
 
 <input type="button" data-filter value="从一组对象数值数组中选出最小值"  onclick="maxAryObj()"/><br />
 
+<input type="button"   value="对象数组处理完后返回本身"  onclick="mapTest()"/><br />
 
 
+<form id="jqMap">
+  <input type="text" name="name" value="John"/>
+  <input type="text" name="password" value="password"/>
+  <input type="text" name="url" value="http://ejohn.org/"/>
+</form>
 </body>
 </html>
