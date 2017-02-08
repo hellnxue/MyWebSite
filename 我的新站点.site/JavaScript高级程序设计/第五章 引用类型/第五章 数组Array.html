@@ -878,6 +878,7 @@ function convertAry(a,b){
 	 console.log(xry);
  }
 
+ //给一组对象数组中的某些对象属性赋值，另一组是值，键是值类型的时候的操作方法
  function mapTest(){
 
  	var ary1=[
@@ -894,32 +895,71 @@ function convertAry(a,b){
 	 ];
 
 
-	 $.map(ary1,function(item,index){
+	 // $.map(ary1,function(item,index){
 
-	 	$.map(ary2,function(item1,index1){
+	 // 	$.map(ary2,function(item1,index1){
 
-	 		if( item.orderno  in item1){
-	 			item.options=item1[item.orderno];
-	 		}
+	 // 		console.log(item1);
+
+	 // 		if( item.orderno  in item1){
+	 // 			item.options=item1[item.orderno];
+	 // 		}
 	 		
-	 	});
+	 // 	});
 
-	 });
+	 // });
+	 // console.log(ary1);
 
-	 console.log(ary1);
+
+	 var ary3={
+	 	1:"aa",
+	 	2:"bb",
+	 	4:"ff"
+	 }
+
+
+	  
+	/* for(var i=0;i<ary1.length;i++){
+	 	console.log("out......");
+	 	for(var j=0;j<ary2.length;j++){
+	 		console.log( ary2[j]);
+	 		if (ary1[i].orderno in ary2[j]) {
+	 			ary1[i].options=ary2[j][ary1[i].orderno];
+	 			break ;
+	 		}
+	 	}
+	 }
+
+	console.log(ary1);*/
+
+
+	for(var i=0;i<ary1.length;i++){
+	 	 
+ 		if (ary1[i].orderno in ary3 ) {
+ 			ary1[i].options=ary3[ary1[i].orderno];
+ 		}
+	 	 
+	 }
+
+	console.log(ary1);
+	// [Object { orderno=1,  options="aa"}, Object { orderno=2,  options="bb"}, Object { orderno=3,  options="c"}]
+
+	 
 	 //[Object { orderno=1,  options=undefined}, Object { orderno=2,  options="bb"}]
 
 
 
 	 /*jquery的map方法将一组元素转换成其他数组（不论是否是元素数组），
 	 获取的数组是jQuery数组，需要用get()方法转成普通的js数组奥~~*/
-	 var rlt=$("#jqMap input").map(function(){
-	 	return $(this).val();
-	 });
+	 // var rlt=$("#jqMap input").map(function(){
+	 // 	return $(this).val();
+	 // });
 
-	 console.log(rlt.get());// ["John", "password", "http://ejohn.org/"]
+	 // console.log(rlt.get());// ["John", "password", "http://ejohn.org/"]
 
 
+   /*???????????*/
+   console.log(JSON.parse({"name":"helln"}));
 
 
 
