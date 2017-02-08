@@ -26,15 +26,84 @@
     margin: auto;
     width: 50%;
 }
+
+
+
+/*多重边框---box-shadow的用法*/
+.muilBorder{
+	width: 100px;
+	height: 100px;
+	margin:0 auto;
+	background:pink;
+	/*用box-shadow的第四个参数-扩张半径实现，扩张半径在容器上是层层叠加的，因此，第二层的扩张半径5px需要加上之前已扩张的10px，即15px*/
 	
+	cursor: pointer;
+
+}
+
+.mb1,.mb2{
+	box-shadow: 0 0 0 10px #acaaff,0 0 0 15px yellow,0 2px 5px 15px rgba(0,0,0,.5); 
+}
+
+.mb1{
+	float: left;
+	margin: 15px;/*去掉可以看到box-shdow不影响容器的布局奥~*/
+}
+
+/*内嵌的box-shadow */
+.mb2{
+	padding:15px;/*利用padding给box-shadow腾出地方，为了不影响容器的点击区域*/
+	box-shadow: 0 0 0 10px #acaaff inset,0 0 0 15px yellow inset;
+}
+
+
+/*若要用双层边框，outline更适合。*/
+.mb3{
+ 
+	border: 10px solid #acaaff;
+    outline: 5px dashed yellow;/*outline还可以加虚线，同样，outline也不影响容器布局*/
+    outline-offset: 10px;/*规定边框边缘之外 10px处的轮廓*/
+    float: left;
+}
+
+/*使用outline的注意点：边框不一定会贴合border-radius属性产生的圆角，因此如果元素是圆角的，它的描边可能还是直角的（未来可能为改善的吧~）*/
+.mb4{
+ 
+	border: 10px solid #acaaff;
+	border-radius: 15px;
+    outline: 5px solid yellow;/*outline还可以加虚线，同样，outline也不影响容器布局*/
+    
+}	
 </style>
 <body>
-<h3>一个背景在容器中的范围</h3>
+<h3>1、背景在容器中的覆盖范围</h3>
 <div class="bgRange" >
 	 <div>
 	 
 	 </div>
 </div>
+
+
+<h3>2、多重边框--用box-shadow实现</h3>
+<div style="overflow: hidden;border: 2px solid yellow;">
+	<div class="muilBorder mb1">外扩的box-shadow</div>
+
+
+    <div class="muilBorder mb2">内嵌的box-shadow</div>
+
+     
+</div>
+
+<h3>2、多重边框--用outline实现</h3>
+<div style=" border: 2px solid yellow;">
+	 
+
+    <div class="muilBorder mb3">outline 双层边框</div>
+
+    <div class="muilBorder mb4">outline 不会贴合圆角</div>
+</div>
+
+
 
 
 

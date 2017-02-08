@@ -879,6 +879,7 @@ function convertAry(a,b){
  }
 
  //给一组对象数组中的某些对象属性赋值，另一组是值，键是值类型的时候的操作方法
+
  function mapTest(){
 
  	var ary1=[
@@ -894,7 +895,7 @@ function convertAry(a,b){
 		 {4:"ff"},
 	 ];
 
-
+/*第一种情况*/
 	 // $.map(ary1,function(item,index){
 
 	 // 	$.map(ary2,function(item1,index1){
@@ -918,7 +919,7 @@ function convertAry(a,b){
 	 }
 
 
-	  
+	
 	/* for(var i=0;i<ary1.length;i++){
 	 	console.log("out......");
 	 	for(var j=0;j<ary2.length;j++){
@@ -932,7 +933,7 @@ function convertAry(a,b){
 
 	console.log(ary1);*/
 
-
+ /*第二种情况*/  
 	for(var i=0;i<ary1.length;i++){
 	 	 
  		if (ary1[i].orderno in ary3 ) {
@@ -958,8 +959,7 @@ function convertAry(a,b){
 	 // console.log(rlt.get());// ["John", "password", "http://ejohn.org/"]
 
 
-   /*???????????*/
-   console.log(JSON.parse({"name":"helln"}));
+  
 
 
 

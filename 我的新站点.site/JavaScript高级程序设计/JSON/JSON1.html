@@ -24,9 +24,10 @@ function test11(){
      };
    var objText=JSON.stringify(obj);//将javascript对象转成json，一般用于向服务器发送数据时传输json格式的数据
    
-   //方法：用JSON.parse()
+   //方法：用JSON.parse()  参数要传入json字符串，不能这样传入对象奥-->JSON.parse({"name":"helln"})
+
    var jsonObject=JSON.parse(objText);
-   console.log(jsonObject);        //将json解析成javascript对象，以便可以很方便的操作对象数据
+   console.log(jsonObject);        //将json字符串解析成javascript对象，以便可以很方便的操作对象数据
    console.log(typeof jsonObject);  
 	
    //函数eval()具体是怎么用的呢？
