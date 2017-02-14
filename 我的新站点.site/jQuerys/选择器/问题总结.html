@@ -244,6 +244,11 @@ function varTemp(){
    console.log($(".hhhh").val());//选择一个没有的元素取val会得到undefined,且是undefined类型奥
     console.log( $(".hhhh").html());//undefined
 }
+
+function removeCSS(){
+     //赋值为别的值也不可以，必须是空，好用，但靠谱性有待考究
+     $(".cssTest").css("background-color","");
+}
  
 </script>
 </head>
@@ -322,6 +327,12 @@ function varTemp(){
  
  <div class="tempsel">hello world</div>
 <input type="button" value="jQuery选择器给一个变量" onClick="varTemp()"/></br>
+
+
+<h3>--------------------jQuery删除css属性---------------</h3>
+ 
+ <div class="cssTest" style="background-color: yellow;color: pink;">hello remove css</div> 
+<input type="button" value="点击删除元素的background-color属性" onClick="removeCSS()"/></br>
 
 
 <a >hello world</a>
