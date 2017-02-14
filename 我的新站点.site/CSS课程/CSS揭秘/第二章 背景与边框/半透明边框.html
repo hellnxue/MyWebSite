@@ -74,6 +74,47 @@
     outline: 5px solid yellow;/*outline还可以加虚线，同样，outline也不影响容器布局*/
     
 }	
+
+
+
+/* 
+	当背景图像的位置与元素的padding的位置相同时，可以使用background-origin:content-box而无需设置background-position;
+	background-origin规定background-position相对于什么位置来定位 
+	默认值：padding-box 背景图像相对于内边距框来定位。
+			border-box 	背景图像相对于边框盒来定位。
+			content-box 	背景图像相对于内容框来定位。
+
+
+	*/
+.bgpn{
+	background: rgba(0,0,0,0)  url(../../../image/mxx/mxx8.png);
+	background-repeat:no-repeat;
+/*	background-position:20px 20px; 为了让背景图片在元素的内容区而不在元素的padding区，这里定义了背景图片的位置，背景图的左上角距离元素的左上角水平20像素，垂直20像素的位置
+	 */
+
+	background-origin: content-box;
+	padding: 20px;
+	width: 300px;
+	height: 150px;
+	margin:0 auto;
+	line-height: 150px;
+	border: 2px solid yellow;
+	
+	text-align: center;
+}
+
+.bgpn2{
+	background: rgba(0,0,0,0)  url(../../../image/mxx/mxx8.png);
+	background-repeat:no-repeat;
+	background-position:calc(100% - 20px) calc(100% - 20px);
+	padding: 20px;
+	width: 300px;
+	height: 150px;
+	margin:0 auto;
+	line-height: 150px;
+	border: 2px solid yellow;
+	text-align: center;
+}
 </style>
 <body>
 <h3>1、背景在容器中的覆盖范围</h3>
@@ -103,9 +144,19 @@
     <div class="muilBorder mb4">outline 不会贴合圆角</div>
 </div>
 
+<h3>3、灵活的背景定位background-position</h3>
+<div class="bgpn">
+	
+	background origin
 
+</div>
 
+<!-- 图片位置位于内容的右下角：运用运算函数calc() -->
+<div class="bgpn2">
+	
+	background use calc()
 
+</div>
 
  
 </body>
