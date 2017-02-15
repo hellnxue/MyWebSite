@@ -15,7 +15,8 @@
   p * { color:red;}
   
   /*匹配非子元素，任何是section 孙子元素，而非子元素的a 标签和span都会被选中。*/
-  section * span,a{color:#FF00FF;}
+  section * span, section * a{color:#FF00FF;}
+  
   
   img[title] {border:2px solid blue;}
   img[title="red flower"] {border:2px solid yellow}
@@ -54,6 +55,11 @@
   p.wys::first-line{ background-color:#FFCC99}
   p.age::before{ content:"Age ";}
   p.age::after{ content:" Year.";}
+
+  p.tests{
+  	border: 2px solid red;
+  }
+  h2{border: 1px solid yellow !important;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
@@ -61,7 +67,7 @@
 	<a href="#show">let's go to....</a>
 	<!--<section>标签：<section> 标签定义文档中的节（section、区段）。比如章节、页眉、页脚或文档中的其他部分。-->
 	<section>
-		<h2>An H2 Heading</h2>
+		<h2 class="tests" style="border: 5px solid pink;">An H2 Heading</h2>
 		<p>This is paragraph 1<span>hello span</span></p>
 		<p>Paragraph 2 has <a href="#">a link</a> in it.</p>
 		<a href="#">Link</a>
