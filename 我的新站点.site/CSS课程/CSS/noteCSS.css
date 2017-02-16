@@ -871,6 +871,14 @@ ul.type-lists li{
 
 	color:red;}
 
+/*rgb百分比值的颜色值*/
+.rgbpercent{
 
+	 
+	height:100px;
+	margin:0 40%;
+	background:rgb(0%,100%,100%);
+	text-align:center;
+	line-height:100px;}
 
 
