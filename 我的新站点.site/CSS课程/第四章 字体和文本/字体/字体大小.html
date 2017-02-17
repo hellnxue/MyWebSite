@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>�����С</title>
+<meta charset="utf-8" />
+<title>字体大小</title>
 <style>
 /*
- �������嵥λ�������趨�����С�ĵ�λ�����֣�һ���Ǿ��Ե�λ��
-�������ػ�㣬��һ������Ե�λ������ٷֱȻ�em��
+ 关于字体单位：用于设定字体大小的单位有两种，一种是绝对单位，
+比如像素或点，另一种是相对单位，比如百分比或em。
 
-�Ծ��Ե�λ�趨�����С��Ԫ�ز����ܸ�Ԫ�������С��Ӱ�죻����Ե�λ��ٷֱ��趨�����С��Ԫ�ػ��ܸ�Ԫ�������С��Ӱ�졣
+以绝对单位设定字体大小的元素不会受父元素字体大小的影响；以相对单位或百分比设定字体大小的元素会受父元素字体大小的影响。
 */
-body{ font-size:16px;}/*ҳ���׼����Ϊ16px,����ĳ����Ԫ�ص�����Ԫ���Ƕ�û�����������С����ô����Ԫ�ص���������С��body��font-sizeΪ��׼��*/
-/*���Ե�λ*/
+body{ font-size:16px;}/*页面基准定义为16px,假如某个子元素的祖先元素们都没有设置字体大小，那么该子元素的相对字体大小以body的font-size为基准。*/
+/*绝对单位*/
 .fontSizePX{ 
           font-size:20px;
 		  border:1px solid yellow;}
-/*��Ե�λ*/
+/*相对单位*/
 .fontSizeEM{ 
           font-size:1.25em;/*20px/16px=1.25em*/
 		  border:1px solid yellow;}
 .medium{ 
-          font-size:x-small;/*x-small(С�������ؼ���),medium(��û����һ��),x-large(��������ؼ���)*/
+          font-size:x-small;/*x-small(小点的字体关键字),medium(跟没设置一样),x-large(大点的字体关键字)*/
 		  border:1px solid yellow;}
-/*��Ե�λ*/
+/*相对单位*/
 .bl{ 
           font-size:1.2em; 
 		  border:1px solid yellow;}
 .bll{ 
-          font-size:1.2em; /*�˴���Ե��Ǹ�Ԫ��P�ģ���Ԫ�ش�ʱ���������ش�Сΰ1.2*16=19.2px;,��˴˴��Ĵ�СΪ19.2*1.2=23.04px;*/
+          font-size:1.2em; /*此处相对的是父元素P的，父元素此时的字体像素大小伟1.2*16=19.2px;,因此此处的大小为19.2*1.2=23.04px;*/
 		  
 		   }
-/*ʹ�ðٷֱȡ�em ��rem����Ԫ�ص������С���趨�����СҪ����һЩ��������
-ĳ��Ԫ���趨����������С�����Ԫ�ص������СҪ���������ġ����趨����
-���С�ġ�����Ԫ����ȷ����*/		   
+/*使用百分比、em 或rem（根元素的字体大小）设定字体大小要复杂一些。如果你给
+某个元素设定了相对字体大小，则该元素的字体大小要相对于最近的“被设定过字
+体大小的”祖先元素来确定。*/		   
 		   
 .fspx{ 
           font-size:16px;; 
 		  border:1px solid yellow;}
 .fsem{ 
-          font-size:1.2em; /*�˴�ʹ����Ե�λ����Ե��Ǹ�Ԫ��P��,��׼����16px��P��16px,��ˣ�1.2em=1.2*16=19.2px;*/
+          font-size:1.2em; /*此处使用相对单位，相对的是父元素P的,基准就是16px，P是16px,因此，1.2em=1.2*16=19.2px;*/
 		   }
-/*�������ӣ�pԪ��û���趨�����С��span�������С��������Ԫ��section�������СΪ�ο����ɱ������š�*/		   
+/*如下例子，p元素没有设定字体大小，span的字体大小会以祖先元素section的字体大小为参考，成比例缩放。*/		   
 	 
 .sct{ border:1px solid pink;
       font-size:20px;}	
 	     
 .fsf{ border:1px solid yellow;}
 .fsz{ 
-      font-size:1.2em; /*�˴�ʹ����Ե�λ����Ե�������Ԫ��section��,��׼����20px��1.2*20=24px;*/
+      font-size:1.2em; /*此处使用相对单位，相对的是祖先元素section的,基准就是20px，1.2*20=24px;*/
 		   }
-/*��em����������ʹ��rem ΪԪ���趨�����Сʱ����Ȼ����Դ�С������Ե�ֻ��HTML ��Ԫ�ء�*/
+/*与em的区别在于使用rem 为元素设定字体大小时，仍然是相对大小，但相对的只是HTML 根元素。*/
 .rem{ font-size:1.5rem;}
 </style>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 body area
-<p class="fontSizePX">���Ե�λ�������С�������Ÿ�Ԫ�صĸı�ɱ����仯��hello font-size</p>
-<p class="fontSizeEM">��Ե�λ���������ܸ�Ԫ�������С��Ӱ��ɱ������ţ�hello font-size</p>
+<p class="fontSizePX">绝对单位，字体大小不会随着父元素的改变成比例变化，hello font-size</p>
+<p class="fontSizeEM">相对单位，字体大会受父元素字体大小的影响成比例缩放，hello font-size</p>
 <p >No font-size set.</p>
 
 <p class="medium">font-size set medium</p>
 
-<!--p���õ������С��1.2em��sapn�������С���õ���1.2em��p��ʵ�������С��1.2*16px=19.2px  span�������С������1.2*1.2*16=23.0333px-->
+<!--p设置的字体大小是1.2em，sapn的字体大小设置的是1.2em，p的实际字体大小是1.2*16px=19.2px  span的字体大小最终是1.2*1.2*16=23.0333px-->
 <p class="bl">hello p<br>
 	<span class="bll">this span</span>
 </p>
@@ -73,7 +73,7 @@ body area
 </p>
 
 
-<!--span�ĸ�Ԫ��Pδ���������С����������Ԫ��section�����������С�����span�������С��section��Ϊ��׼�����section��������Ϊ��λ����ô����section���ش�С�Ļ�׼�����section������Ե�λ����ôsection�ĵ�λҪ������ü��������ش�СΪspan�Ļ�׼��-->
+<!--span的父元素P未设置字体大小，但是祖先元素section设置了字体大小，因此span的字体大小以section的为基准，如果section的是像素为单位，那么就以section像素大小的基准。如果section的是相对单位，那么section的单位要计算后，用计算后的像素大小为span的基准。-->
 <section class="sct">
 	 hello section
 	<p class="fsf">hello p<br>
@@ -81,12 +81,12 @@ body area
 	</p>
 </section>
 
-<p class="rem">��remΪ��λ���õ�����,���ڣ�������ڣ��ĵ����ڵ�html�������С</p>
+<p class="rem">以rem为单位设置的字体,基于（或相对于）文档根节点html的字体大小</p>
 
 
  
-<p>em׼ȷ��˵������ڸ��ڵ���ֺ�������ģ���������������ֺ���ô����������ֺ�������</p>
-<!--����section�еĵ�һ�Σ�ʵ�ʿ���=16px*2em*2em=64px��section�������С��body�����СΪ��׼������P�������С�Ը�Ԫ��sectionΪ��׼;�ڶ��ε�ʵ�ʿ���=10px*2em=20px;-->
+<p>em准确的说是相对于父节点的字号来计算的，如果自身定义了字号那么就相对自身字号来计算</p>
+<!--以下section中的第一段，实际宽度=16px*2em*2em=64px，section的字体大小以body字体大小为基准，段落P的字体大小以父元素section为基准;第二段的实际宽度=10px*2em=20px;-->
 <section style=" font-size:2em;">
   <p style="border:1px solid yellow; width:2em;">hello sir</p>
   <p style="border:1px solid yellow; width:2em; font-size:10px;">hello world</p>
@@ -94,20 +94,20 @@ body area
 
 <p style="width:5em; border:1px solid pink; overflow:hidden;">hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>
  
- <p style="font-size:2em;">�����С��<span>���Լ̳е�</span>�������Ԫ�ز�����font-size����ֱ�ӴӸ�Ԫ�ؼ̳������С�������Ԫ��������font-size������ڸ�Ԫ�ص������СΪ��׼�����¼������������С��</p>
+ <p style="font-size:2em;">字体大小是<span>可以继承的</span>，如果子元素不设置font-size，则直接从父元素继承字体大小，如果子元素设置了font-size，会基于父元素的字体大小为基准，重新计算自身字体大小的</p>
  
  
  
  
- <h1>����section����article��ı���Ԫ��Ĭ�ϵ������С�ᷢ���ı䣬��h1,��ԭ����2em����Ϊ1.5em����ԭ���������Ϊsection��article���������أ�������Ҫ����Щ�仯��</h1>
+ <h1>放在section或者article里的标题元素默认的字体大小会发生改变，如h1,由原来的2em，改为1.5em哎，原因可能是因为section或article定义块的因素，总是需要发生些变化的</h1>
  <section style="border:1px solid yellow;">
-    <h1>����������С�᲻��̳и�Ԫ�ص���</h1>
-    <h2>����������С�᲻��̳и�Ԫ�ص���</h2>
-    <h3>����������С�᲻��̳и�Ԫ�ص���</h3>
-	<h4>����������С�᲻��̳и�Ԫ�ص���</h4>
-	<h5>����������С�᲻��̳и�Ԫ�ص���</h5>
-    <h6>����������С�᲻��̳и�Ԫ�ص���</h6>
-   <code>code��ǩ�������С�᲻��̳и�Ԫ�ص���</code>
+    <h1>标题的字体大小会不会继承父元素的呢</h1>
+    <h2>标题的字体大小会不会继承父元素的呢</h2>
+    <h3>标题的字体大小会不会继承父元素的呢</h3>
+	<h4>标题的字体大小会不会继承父元素的呢</h4>
+	<h5>标题的字体大小会不会继承父元素的呢</h5>
+    <h6>标题的字体大小会不会继承父元素的呢</h6>
+   <code>code标签的字体大小会不会继承父元素的呢</code>
  </section>
 </body>
 </html>
