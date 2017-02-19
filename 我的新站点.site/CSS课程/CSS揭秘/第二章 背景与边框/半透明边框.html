@@ -115,6 +115,29 @@
 	border: 2px solid yellow;
 	text-align: center;
 }
+
+
+/*边框内圆角*/
+.something-meaningful{
+	background: #655;
+	padding: 0.8em;
+	margin:0 30%;
+}
+.something-meaningful > div{
+	background: tan;
+	border-radius: .8em;
+	padding: 1em;
+}
+
+.oneEle{
+	background: tan;
+	margin:1em 30%;
+	padding: 1em;
+	border-radius: .8em;
+	outline:#655 solid .8em; /*描边不会跟着圆角走，但box-shadow却可以，但box-shadow指定的扩张值可以用勾股定理算出来，或者直接取border-radius的一半，这里是0.4em*/
+	box-shadow: 0 0 0 .4em #655;
+}
+
 </style>
 <body>
 <h3>1、背景在容器中的覆盖范围</h3>
@@ -157,6 +180,22 @@
 	background use calc()
 
 </div>
+
+
+
+<h3>3、边框内圆角</h3>
+<div class="something-meaningful">
+   <div>
+   	I have a nice subtle inner rounding,don't i look pretty?
+   </div>
+
+</div>
+
+<div class="oneEle">
+	I have a nice subtle inner rounding,don't i look pretty?
+</div>
+
+ 
 
  
 </body>
