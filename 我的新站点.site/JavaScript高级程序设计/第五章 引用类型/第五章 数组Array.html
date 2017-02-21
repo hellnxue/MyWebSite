@@ -967,6 +967,51 @@ function convertAry(a,b){
 
 
  }
+
+
+ function testss(){
+
+ 	/*求两个数组的差集 方法一：*/
+ // 	var arr1 = [1,3,4,5,6,7,8];   
+	// var arr2 = [1,2,3,4];   
+	// var arr3 = new Array();   
+	  
+	//     for(var i=0; i < arr1.length; i++){   
+	//         var flag = true;   
+	//         for(var j=0; j < arr2.length; j++){   
+	//             if(arr1[i] == arr2[j])   
+	//             flag = false;   
+	//         }   
+	//         if(flag)   
+	//         arr3.push(arr1[i]);   
+	//     }   
+	// console.log("差集："+arr3.toString()); 
+
+/*求两个数组的差集 方法二：*/
+	var a=[
+		{name:1},
+		{name:2},
+		{name:3}
+	];  
+
+	var b=[
+		{name:1},
+		{name:2}
+		 
+	];  
+
+
+
+	$.map(a,function(item,index){
+		var flag=b.some(function(item0,index0){
+			return item.name==item0.name;
+		});
+		if(!flag){
+			console.log(item.name);
+		}
+	});
+	   
+ }
   
 </script>
 
@@ -995,6 +1040,9 @@ function convertAry(a,b){
 <input type="button" data-filter value="从一组对象数值数组中选出最小值"  onclick="maxAryObj()"/><br />
 
 <input type="button"   value="对象数组处理完后返回本身"  onclick="mapTest()"/><br />
+
+<input type="button"   value="对象数组处理"  onclick="testss()"/><br />
+
 
 
 <form id="jqMap">

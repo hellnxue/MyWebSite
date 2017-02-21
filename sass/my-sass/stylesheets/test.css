@@ -1,5 +1,5 @@
-@charset "utf-8";
-/*变量需要先定义后再使用，有前后顺序的*/
+@charset "UTF-8";
+/*变量需要先定义后再使用，右前后顺序的*/
 @import url(../mycss/originalCSS.css);
 /* line 8, ../sass/test.scss */
 p {
