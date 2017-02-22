@@ -985,31 +985,42 @@ function convertAry(a,b){
 	//         if(flag)   
 	//         arr3.push(arr1[i]);   
 	//     }   
-	// console.log("差集："+arr3.toString()); 
+	// console.log("差集："+arr3.toString()); //2？？？
 
 /*求两个数组的差集 方法二：*/
-	var a=[
-		{name:1},
-		{name:2},
-		{name:3}
-	];  
+	// var a=[
+	// 	{name:1},
+	// 	{name:2},
+	// 	{name:3}
+	// ];  
 
-	var b=[
-		{name:1},
-		{name:2}
+	// var b=[
+	// 	{name:1},
+	// 	{name:2}
 		 
-	];  
+	// ];  
 
 
 
-	$.map(a,function(item,index){
-		var flag=b.some(function(item0,index0){
-			return item.name==item0.name;
-		});
-		if(!flag){
-			console.log(item.name);
-		}
-	});
+	// $.map(a,function(item,index){
+	// 	var flag=b.some(function(item0,index0){
+	// 		return item.name==item0.name;
+	// 	});
+	// 	if(!flag){
+	// 		console.log(item.name);
+	// 	}
+	// });
+
+
+	 var hasSelectedProduct=false;
+	 var rmProductAry=['cp005','cp006'];
+	 var productCode='cp001';
+
+	  hasSelectedProduct=rmProductAry.some(function(item,index){
+							
+							return productCode==item;
+						});
+	  console.log(hasSelectedProduct);
 	   
  }
   
