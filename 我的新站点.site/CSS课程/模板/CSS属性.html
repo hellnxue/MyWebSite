@@ -732,6 +732,21 @@ h3{
   .inheritTest > div span{
   	color: inherit;
   }
+
+
+
+  /*table-layout:设置表格单元格、行、列的算法规则*/
+  table.one {
+		table-layout: auto;
+		margin: 0 auto;
+	}
+
+
+  table.two {
+		table-layout: fixed;
+		margin: 15px auto 0 auto;
+		margin-top:15px;
+	}
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
@@ -1078,6 +1093,24 @@ n 可以是数字、关键词或公式。
 	 	<span>应用过inherit</span>
 	 </div>
 </div>
+
+
+<h3 >table-layout:用来设置表格、行、列的算法规则</h3>
+<table class="one" border="1" width="50%">
+	<tr>
+		<td width="20%">1000000000000000000000000000</td>
+		<td width="40%">10000000</td>
+		<td width="40%">100</td>
+	</tr>
+</table>
+
+<table class="two" border="1" width="50%">
+	<tr>
+		<td width="20%">1000000000000000000000000000</td>
+		<td width="40%">10000000</td>
+		<td width="40%">100</td>
+	</tr>
+</table>
 </body>
 
 
