@@ -42,7 +42,7 @@ h3{
 	padding:10px;
  	background-color:#CCCCCC;
 	
-	/*background-clip 属性规定背景的绘制区域。
+	/*background-clip 属性规定背景的绘制区域。(与其说是规定背景的绘制区域，不如说是规定背景色的绘制区域，因为相比背景色，背景图片的默认位置是padding-box，不是border-box哎。)
 	  默认值是border-box 背景被剪裁到边框盒
 	  padding-box 背景被剪裁到内边距框
 	  content-box 背景被剪裁到内容框
@@ -50,6 +50,18 @@ h3{
 	*/
 	background-clip:padding-box;
 	
+	}
+
+	/*background-origin规定background-position相对于什么位置来定位。默认padding-box，这样图像才不会被边框剪裁掉
+	默认值：padding-box 相对于内框定位
+	border-box	相对于边框盒子定位
+	content-box 相对于内容盒子定位*/
+	.bgOrigin {
+	    background: #abcdef url("../img/test.PNG") no-repeat scroll 0 0;
+	    background-origin: content-box;
+	    border: 5px dotted pink;
+	    margin: 0 30%;
+	    padding: 20px;
 	}
 	
 /*------------特指度---------------------------------------------------------*/
@@ -102,7 +114,7 @@ h3{
 	}
 	
 	
-	/*outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。注释：轮廓线不会占据空间，也不一定是矩形。*/
+	/*outline（轮廓）是绘制于元素周围的一条线，位于边框边缘的外围，可起到突出元素的作用。注释：轮廓线不会占据空间，也不一定是矩形。不会贴合border-radius,不过以后可能会贴合吧。*/
 	.outline{
 	width:300px;
 	height:300px;
@@ -752,8 +764,13 @@ h3{
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
-<h3> 背景绘制范围：background-clip </h3>
+<h3> 背景(或叫背景色)绘制范围：background-clip </h3>
 <div class="bgclip">
+   Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
+</div>
+
+<h3> background-origin 设置background-position相对于什么位置定位 默认padding-box  （注：背景的默认绘制范围与背景图像的默认位置不同奥~两者不可混淆）</h3>
+<div class="bgOrigin">
    Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
 </div>
 
