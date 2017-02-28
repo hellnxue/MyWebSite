@@ -265,6 +265,23 @@ function interval(){
 	console.log(stopss-starts);*/
 
 }
+
+function getTomorrowDate(){
+  var currDate=new Date();
+  
+  var tDate=new Date((currDate/1000+86400)*1000);
+
+   var month= tDate.getMonth()+1 +"";
+     if(month.length<2){
+     month="0"+month;
+    }
+     var day= tDate.getDate() +"";
+     if(day.length<2){
+     day="0"+day;
+    }
+
+  console.log(tDate.getFullYear()+"-"+month+"-"+day)
+}
 </script>
 </head>
 
@@ -284,5 +301,7 @@ function interval(){
 <input type="button"    value="判断指定日期大于当前日期" onclick="checkDate()"/></br>
 
 <input type="button"    value="获取一段代码的时间间隔" onclick="interval()"/></br>
+
+<input type="button"    value="获取当前日期对象的加上一天之后的日期对象" onclick="getTomorrowDate()"/></br>
 </body>
 </html>
