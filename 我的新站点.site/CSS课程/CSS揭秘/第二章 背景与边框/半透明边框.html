@@ -138,6 +138,62 @@
 	box-shadow: 0 0 0 .4em #655;
 }
 
+
+.bgstrip,.bgstripcz{
+	   
+	width:100%;     
+	border:1px solid #ccc;     
+	
+	overflow: hidden;
+}
+
+.bgstrip > div,.bgstripcz > div{
+	
+    display: flex;
+    float: left;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+   	color: yellow;
+
+}
+
+.bgstrip .one{
+	background: linear-gradient(#fb3,#58a);
+}
+
+.bgstrip .two{
+	background: linear-gradient(#fb3 20%,#58a 80%);
+}
+
+.bgstrip .three{
+	background: linear-gradient(#fb3 50%,#58a 50%);
+}
+
+.bgstrip .four{
+	background: linear-gradient(#fb3 50%,#58a 50%);
+	background-size: 100% 30px;
+}
+
+.bgstrip .five{
+	background: linear-gradient(#fb3 30%,#58a 30%);
+	background-size: 100% 30px;
+}
+
+/*四个条纹 100/4=25   每两种颜色的25%，25%为一个条纹，75%之后还会有一个单独的条纹，即粉红色*/
+.bgstrip .six{
+	background: linear-gradient(#fb3 25%,#58a 25%, #58a 50%, yellowgreen 50%,yellowgreen 75% ,pink 75%);
+	background-size: 100% 50px;
+}
+
+
+.bgstripcz .one{
+	background: linear-gradient(to right,#fb3 50%, #58a 50%);
+	background-size:30px 100%;
+}
+
 </style>
 <body>
 <h3>1、背景在容器中的覆盖范围</h3>
@@ -196,8 +252,24 @@
 </div>
 
  <h3>4、条纹背景</h3>
+
+ <p>水平条纹</p>
 <div class="bgstrip">
-	
+	<div class="one"></div>
+	<div class="two"></div>
+	<div class="three"></div>
+
+	<div class="four">通过设置background-size来创建条纹背景</div>
+	<div class="five">通过调整色标的位置来创建不等宽条纹</div>
+	<div class="six">超过两种颜色以上的背景条纹</div>
+
+</div>
+
+ <p>垂直条纹</p>
+<div class="bgstripcz">
+	<div class="one"></div>
+	<div class="two"></div>
+	 
 
 </div>
  
