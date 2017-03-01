@@ -147,7 +147,7 @@
 	overflow: hidden;
 }
 
-.bgstrip > div,.bgstripcz > div{
+.bgstrip > div,.bgstripcz > div,.bgstripxx > div{
 	
     display: flex;
     float: left;
@@ -155,6 +155,7 @@
     justify-content: center;
     width: 200px;
     height: 150px;
+    border:1px solid yellow;
     margin: 10px;
    	color: yellow;
 
@@ -189,11 +190,45 @@
 }
 
 
-.bgstripcz .one{
+/*垂直条纹*/
+.bgstripcz .one,.bgstripcz .two{
 	background: linear-gradient(to right,#fb3 50%, #58a 50%);
 	background-size:30px 100%;
 }
 
+.bgstripcz .one{
+ 
+	background-repeat: no-repeat;
+}
+
+
+/*斜向条纹*/
+.bgstripxx .one,.bgstripxx .two,.bgstripxx .three{
+	background: linear-gradient(45deg,#fb3 50%,#58a 50%);
+	background-repeat: no-repeat;
+	background-size: 30px 100%;
+}
+
+.bgstripxx .two{
+	background-repeat: repeat;
+}
+
+.bgstripxx .three{
+	 
+	background-repeat: repeat;
+	background-size: 30px 30px;
+}
+
+.bgstripxx .four,.bgstripxx .five{
+	 
+	 background: linear-gradient(45deg,#fb3 25%,#58a 0,#58a 50%,#fb3 0, #fb3 75%, #58a 0);
+	 background-size: 30px 30px;
+}
+
+.bgstripxx .four{
+	 
+	background-repeat: no-repeat;
+}
 </style>
 <body>
 <h3>1、背景在容器中的覆盖范围</h3>
@@ -267,11 +302,21 @@
 
  <p>垂直条纹</p>
 <div class="bgstripcz">
-	<div class="one"></div>
-	<div class="two"></div>
+	<div class="one">背景不重复时的样子</div>
+	<div class="two">背景重复时会填满整个容器奥~</div>
 	 
 
 </div>
- 
+
+<p>斜向条纹</p>
+<div class="bgstripxx">
+	<div class="one">45deg方向不重复的斜向条纹 </div>
+	<div class="two">45deg方向重复的斜向条纹 </div>
+	<div class="three">45deg方向重复的斜向条纹 尺寸为30px*30px的 </div>
+	<div class="four">斜向条纹贴片 </div>
+	<div class="five">多个斜向条纹贴片组成的斜纹背景 </div>
+	 
+
+</div>
 </body>
 </html>
