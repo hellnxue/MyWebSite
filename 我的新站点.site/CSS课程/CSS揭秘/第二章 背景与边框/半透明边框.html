@@ -139,7 +139,7 @@
 }
 
 
-.bgstrip,.bgstripcz{
+.bgstrip,.bgstripcz,.bgstripxx,.bgstriprpt,.lhbgstrip,.fzbg,.bdrdl,.bgqp{
 	   
 	width:100%;     
 	border:1px solid #ccc;     
@@ -147,7 +147,7 @@
 	overflow: hidden;
 }
 
-.bgstrip > div,.bgstripcz > div,.bgstripxx > div{
+.bgstrip > div,.bgstripcz > div,.bgstripxx > div,.bgstriprpt > div,.lhbgstrip > div,.fzbg > div,.bdrdl > div,.bgqp > div{
 	
     display: flex;
     float: left;
@@ -219,6 +219,8 @@
 	background-size: 30px 30px;
 }
 
+
+/*45deg斜向背景条纹要写6处色标*/
 .bgstripxx .four,.bgstripxx .five{
 	 
 	 background: linear-gradient(45deg,#fb3 25%,#58a 0,#58a 50%,#fb3 0, #fb3 75%, #58a 0);
@@ -228,6 +230,115 @@
 .bgstripxx .four{
 	 
 	background-repeat: no-repeat;
+}
+
+/*通过重复性渐变+背景尺寸相结合的方式，只需要写4处条纹，即贴片的一半，剩余的一半由重复性渐变的特性自动填充即可。*/
+.bgstripxx .six{
+	 
+	background: repeating-linear-gradient(45deg,#fb3,#fb3 25%,#58a 0, #58a 50%);
+	background-size: 42.426px 42.426px; 
+}
+
+
+
+
+/*重复性渐变创建条纹背景时，第一个色标不能指定大小哎，或者说第一个色标值必须0*/
+.bgstriprpt .one{
+	background: repeating-linear-gradient(45deg,#fb3,#58a 30px);
+}
+
+/*重复性渐变 创建的双色条纹时都需要用到四个色标*/
+.bgstriprpt .two{
+	background: repeating-linear-gradient(45deg,#fb3,#fb3 15px,#58a 0,#58a 30px);
+}
+/*两个以上的条纹*/
+.bgstriprpt .three{
+	background: repeating-linear-gradient(45deg,#fb3,#fb3 15px,#58a 0,#58a 30px,yellow 0,yellow 45px);
+}
+
+
+
+/*同色系条纹*/
+.lhbgstrip .one{
+	background: repeating-linear-gradient(30deg,#79b,#79b 15px,#58a 0,#58a 30px);
+}
+
+.lhbgstrip .two{
+	background: #58a;
+	background-image: repeating-linear-gradient(30deg,hsla(0,0%,100%,.1),hsla(0,0%,100%,.1) 15px,transparent 0,transparent 30px);
+}
+
+
+/*网格*/
+.fzbg .one{
+	background: white;
+	background-image: linear-gradient(90deg,rgba(200,0,0,.5) 50%,transparent 0),
+					  linear-gradient(-0deg,rgba(200,0,0,.5) 50%,transparent 0);
+	background-size: 30px 30px;
+}
+
+
+.fzbg .two{
+	background: #58a;
+	background-image: linear-gradient(90deg,white 1px,transparent 0),
+					  linear-gradient(-0deg,white 1px,transparent 0);
+	background-size: 30px 30px;
+}
+
+.fzbg .three{
+	background: #58a;
+	background-image: linear-gradient(90deg,white 1px,transparent 0),
+					  linear-gradient(-0deg,white 1px,transparent 0),
+					  linear-gradient(90deg,pink 4px,transparent 0),
+					  linear-gradient(-0deg,pink 4px,transparent 0);
+	background-size: 30px 30px,30px 30px,75px 75px,75px 75px;
+}
+
+
+/*径向渐变创建的波点*/
+.bdrdl .one{
+	background: #abcdef;
+	background-image: radial-gradient(pink 30%,transparent 0);
+	background-size: 30px 30px;
+}
+
+.bdrdl .two{
+	background: #abcdef;
+	background-image: radial-gradient(pink 30%,transparent 0),radial-gradient(pink 30%,transparent 0);
+	background-size: 30px 30px;
+	background-position: 0 0,15px 15px;
+}
+
+/*棋盘*/
+.bgqp .one{
+	background: #eee;
+	background-image: linear-gradient(45deg,pink 25%,transparent 0),
+					  linear-gradient(45deg,transparent 75%,pink 0),
+					  linear-gradient(45deg,pink 25%,transparent 0),
+					  linear-gradient(45deg,transparent 75%,pink 0);
+	background-size: 30px 30px;
+	background-position: 0 0,15px 15px,15px 15px,30px 30px;
+}
+
+.bgqp .two{
+	background: #eee;
+	background-image: linear-gradient(45deg,#bbb 25%,transparent 0),
+					  linear-gradient(45deg,transparent 75%,#bbb 0),
+					  linear-gradient(45deg,#bbb 25%,transparent 0),
+					  linear-gradient(45deg,transparent 75%,#bbb 0);
+	
+	background-position: 0 0,15px 15px,15px 15px,30px 30px;
+	background-size: 30px 30px;
+}
+
+.bgqp .three{
+	background: #eee;
+	background-image: linear-gradient(45deg,rgba(0,0,0,.25) 25%,transparent 0,transparent 75%, rgba(0,0,0,.25) 0),
+					  linear-gradient(45deg,rgba(0,0,0,.25) 25%,transparent 0,transparent 75%, rgba(0,0,0,.25) 0);
+					   
+	
+	background-position: 0 0,15px 15px;
+	background-size: 30px 30px;
 }
 </style>
 <body>
@@ -313,10 +424,57 @@
 	<div class="one">45deg方向不重复的斜向条纹 </div>
 	<div class="two">45deg方向重复的斜向条纹 </div>
 	<div class="three">45deg方向重复的斜向条纹 尺寸为30px*30px的 </div>
-	<div class="four">斜向条纹贴片 </div>
-	<div class="five">多个斜向条纹贴片组成的斜纹背景 </div>
-	 
+	<div class="four">45deg斜向条纹贴片 </div>
+	<div class="five">多个45deg斜向条纹贴片组成的斜纹背景 </div>
+	<div class="six">用重复性渐变和背景尺寸结合简化45deg条纹背景 </div>
 
 </div>
+
+<p>重复性渐变repeating-linear-gradient。第一个色标的值必须是0哎，why??</p>
+<div class="bgstriprpt">
+	<div class="one"> 	 重复性渐变创建条纹背景时，第一个色标不能指定大小哎，或者说第一个色标值必须0 
+	</div>
+	<div class="two">重复性渐变 创建的双色条纹时都需要用到四个色标</div>
+	<div class="three">重复性渐变背景创建的多个条纹</div>
+	 
+   
+
+</div>
+
+
+<p>灵活的同色系条纹</p>
+<div class="lhbgstrip">
+	<div class="one"> 	
+	 同色系条纹在改动颜色时要改动四处，比较麻烦
+	</div>
+	<div class="two"> 	
+	 灵活的同色系条纹
+	</div>
+</div>	
+
+
+<p>用多个渐变创建的复杂的背景图案</p>
+<div class="fzbg">
+	<div class="one">用多个渐变创建的桌布样式</div>
+	<div class="two">使用像素值作为色标创建的网格，格子的大小可以轻易改变</div>
+	<div class="three">两幅不同线宽、不同颜色的网格图案叠加起来创建的蓝图网格</div>
+</div>
+
+
+<p>波点</p>
+<div class="bdrdl">
+	<div class="one">径向渐变创建的波点背景图案</div>
+	<div class="two">结合background-position创建密集的波点</div>
+	 
+</div>
+
+<p>通过三角形+尺寸+方位拼成的表示透明的棋盘</p>
+<div class="bgqp">
+	<div class="one">棋盘一</div>
+	<div class="two">棋盘二</div>
+	<div class="three">棋盘三</div>
+	 
+</div>
+
 </body>
 </html>

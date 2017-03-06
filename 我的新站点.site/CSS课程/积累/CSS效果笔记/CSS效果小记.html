@@ -17,9 +17,9 @@
 <!--页面导航-->
 <header class="ctm-header border-box ctm-default">
     <a href="#" class="back-icon">
-		<em></em>
-	</a>
-	<h1 class="ctm-header-title">CSS效果小记</h1>
+    <em></em>
+  </a>
+  <h1 class="ctm-header-title">CSS效果小记</h1>
 </header>
 
 
@@ -33,8 +33,8 @@
 <h3>--- 评论栏上部的样式----</h3>
  
 <div  class="cmt-wrapper">
-	<div class="cmt-list-type">
-	
+  <div class="cmt-list-type">
+  
         <ul class="type-lists">
             <li class="type-list active">评论</li>   
         </ul>
@@ -196,7 +196,7 @@ position:absulute哎----</h3>
 
 <h3>---父元素中得子元素有负外边距时，子元素加宽度与不加宽度的区别之子元素宽度自适应，因为没有宽度的子元素，它的宽度总是占满父元素的宽度（指块级元素奥~）----</h3>
 <div class="f-ctr"   >
-	<div >左右都有负外边距的时候</div>
+  <div >左右都有负外边距的时候</div>
 </div>
 
 
@@ -311,6 +311,13 @@ position:absulute哎----</h3>
    
    <h3>rgb百分比颜色值:(注:即使是0，也要加上%,用作0%奥。)</h3>
   <div class="rgbpercent">rgb百分比颜色值</div>
+
+
+  <h3>利用flex弹性盒子平均分配父容器区域大小，弹性子元素需指定flex:1;(弹性容器上用了align-items后会导致弹性子元素的高度缩小化哎)</h3>
+  <div class="flex-container">
+    <div class="flex-item item1">弹性子元素不需要指定宽高，flex:1;可以让子元素平均分配弹性容器的大小</div>
+    <div class="flex-item item2">flex item 2</div>
+  </div>
 
 <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="../../js/myJs.js"></script>
