@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!-- <html lang="en-US"> -->
+<html > 
+<head>
+<meta charset="utf-8" />
+<title>无标题文档</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<link href="../../CSS/CSSSecret/secret.css" rel="stylesheet" type="text/css"/>
+<style>
+     
+     .talign{
+        width: 150px;
+        border: 1px solid pink;
+        margin: 0 auto;
+        text-align: justify;
+     }  
+
+     .talign+.talign{
+        margin-top: 10px;
+     }
+
+
+     
+/*为啥hyphens:auto;没自动加上连字符 - 呢？
+换行的参考资料：http://blog.brain1981.com/706.html*/
+     .talign.three{
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+     }
+
+
+
+/*插入换行符*/
+.lineFeed{
+    margin: 0 30%;
+    
+}     
+</style>
+</head>
+<body>
+<h3>连字符断行  软连字符<script type="text/html" style="display: inline-block;">&shy;</script></h3>
+
+<p class="talign one">The only way to get rid of a tempation is to yield to it.</p>         
+
+<p style="text-align: center;">在单词中手动插入软连字符，浏览器会自动在此处换行，单词之间的间距会小点</p>
+<p class="talign two">The only way to get rid of a te&shy;mpation is to yield to it.</p>         
+ 
+<p class="talign three">The only way to get rid of a tempation is to yield to it.</p>         
+ 
+
+
+ <h3>插入换行符</h3>
+ <div class="lineFeed">
+     <dl>
+        <dt>Name</dt>
+        <dd>Verou</dd>
+        <dt>Email</dt>
+        <dd>lea@mit.edu</dd>
+       <!--  <dd>leaverou@mit.edu</dd> -->
+        <dt>Location</dt>
+        <dd>Earth</dd>
+    </dl>
+ </div>
+
+
+
+</body>
+</html>
