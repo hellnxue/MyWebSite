@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*特制度相同的情况下， link方式的样式的权重 高于@import的权重.
+
+下面换作div.weight特制度就高了，样式会覆盖掉link方式的*/
+ .weight{
+    color: red;
+    background: #abcdef;
+  } 

@@ -35,7 +35,7 @@
   /*围住浮动的另一种方式（原理同clearfix类似，都是用伪元素哎），参考bootstrap框架。 content、display和clear这三个属性是在一块用的*/
   .row::after{
   	content:" ";
-	display:table;/*？？？*/
+	display:table;/*此元素会作为块级表格来显示(类似table),表格前后带有换行符*/
 	clear:both;
   
   }
