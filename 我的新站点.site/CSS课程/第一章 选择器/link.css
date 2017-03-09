@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+/*除了行内样式，内嵌样式，样式表三种可为页面添加样式的方式外，第三种就是在样式表中
+用@import导入另一个样式文件
+要注意的是，@import 指令必须出现在样式表中其他样式之前，否则@import 引用的样式表
+不会被加载。 try了一下，还真是这样。。。。。
+
+页面被加载的时，link方式的样式表会同时被加载，而@import被引用的CSS会等到引用它的CSS文件被加载完
+再加载;
+
+
+*/
+@import url(import.css);
+
+ .weight{
+    background: pink;
+    margin: 0 30%;
+    height: 100px;
+    color: yellow;
+    text-align: center;
+  } 
+
