@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta  charset="gb2312">
+<title>无标题文档</title>
+<style>
+ 
+   div{
+  border:1px solid green;}
+  
+  div:nth-child(1){
+  width:200px;
+  float:left;
+  color:#999;
+  
+  }
+</style>
+</head>
+
+<body>
+ 
+<div>hello helln</div>
+<!--第二个div的上外边距与body的上外边距重叠，给body加上border或者padding就可以了-->
+<div style="margin-top:20px;">hello sir</div>
+</body>
+</html>

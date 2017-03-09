@@ -38,14 +38,21 @@
     margin: 0 30%;
 
 } 
-dd{
+.lineFeed dd{
    margin:0;
    font-weight:bold;
   
 }
 
-dt,dd{
- display:inline;}    
+.lineFeed dt,.lineFeed dd{
+ display:inline;
+
+}    
+
+.lineFeed dd:after{
+    content: "\A";/*直插入换行符只是让html代码结构换行而已，浏览器解析完 后会抛弃掉换行结构的*/
+    white-space: pre;/*保留空白符和换行*/
+}
 </style>
 </head>
 <body>
@@ -61,10 +68,22 @@ dt,dd{
 
 
  <h3>插入换行符</h3>
+
+ <!-- 
+这种写法就是换行符（通过伪元素插入换行符可以创造出下面案例一样的结构，这种结构在浏览器解析代码时会忽略掉换行，为了保留这个换行的格式，需要使用white-space:pre;从而创造出就像用了换行元素<br>的效果，终于弄明白了.....）：
+ <dd>Verou
+ </dd>
+
+ 这种没有换行符：<dd>Verou</dd> 
+
+ -->
  <div class="lineFeed">
      <dl>
         <dt>Name</dt>
-        <dd>Verou</dd>
+        <dd>lea@mit.edu</dd>
+        <!-- 下面换行符的写法 -->
+   <!-- <dd style="white-space:pre;">Verou
+        </dd> -->
         <dt>Email</dt>
         <dd>lea@mit.edu</dd>
        <!--  <dd>leaverou@mit.edu</dd> -->
@@ -72,6 +91,9 @@ dt,dd{
         <dd>Earth</dd>
     </dl>
  </div>
+
+ <p>The only way to get rid of a tempation is to     <br>       
+ yield to it.</p>
 
 
 
