@@ -49,9 +49,37 @@
 
 }    
 
-.lineFeed dd:after{
-    content: "\A";/*直插入换行符只是让html代码结构换行而已，浏览器解析完 后会抛弃掉换行结构的*/
+/*方式一：*/
+/*.lineFeed dd:after{
+ 
+    content: "\A";
+    white-space: pre;
+}*/
+
+/*方式二（优化版）：*/
+.lineFeed dd + dt:before{
+     /*直插入换行符只是让html代码结构换行而已（例如：
+    插入换行符前：
+    <dd>hello</dd>
+    插入换行符后：
+    <dd>hello
+    </dd>
+    ），浏览器解析完 后会抛弃掉换行结构的*/
+    content:"\A";
     white-space: pre;/*保留空白符和换行*/
+
+}
+
+/*给每个dd与dd之间添加分隔符
+ <dd>Earth</dd>
+ <dd>England</dd>
+
+ 当两个dd是以上面这个格式写的，两者之间有空白符，那逗号前会有个空格
+*/
+.lineFeed dd+dd:before{
+    content: ",";
+    margin-left:-.25em;/*去掉逗号前的空白符(不太可靠哎.....不过大多数时候没问题)*/
+    font-weight: normal;/*让逗号不变粗*/
 }
 </style>
 </head>
@@ -89,11 +117,16 @@
        <!--  <dd>leaverou@mit.edu</dd> -->
         <dt>Location</dt>
         <dd>Earth</dd>
+        <dd>England</dd>
     </dl>
  </div>
 
  <p>The only way to get rid of a tempation is to     <br>       
  yield to it.</p>
+
+
+
+  <h3>文本行的斑马条纹</h3>
 
 
 
