@@ -257,42 +257,68 @@ function removeCSS(){
       }
 }
 
+var age=5;
+
 function Person(){
-  this.age=0;
-  setInterval(function growUp() {
-    // 在非严格模式下，growUp() 函数定义了其内部的 `this`
-    // 为全局对象, 不同于构造函数Person()的定义的 `this`
-    this.age++; 
-    console.log(this.age);
-  }, 1000);
+  this.age=0,
+ 
 
   this.sayAge=function(){
      console.log(this.age);
-  }
+  };
+
+   /*setInterval(function() {
+    // 在非严格模式下，growUp() 函数定义了其内部的 `this`
+    // 为全局对象, 不同于构造函数Person()的定义的 `this`
+    this.age++; 
+    console.log(this.age);//值为6，之后递增，此处的this在new Person()时调用，指向的是window对象
+  }, 1000);*/
+
+  setInterval(()=> {
+    
+    this.age++; 
+    console.log(this.age);//值为1,之后一直递增 此处的this指向的是Person对象的this
+  }, 1000);
 }
+
+ 
+ 
 
 function Obj(){
 
-  // var p=new Person();
-  // console.log("age="+p.sayAge());
+  var p=new Person();
+  //p.sayAge()
 
-  var str=new String("");
-  var obj=new Object();
-  console.log(typeof str);//Object
-  console.log(typeof "");//String
+  // var str=new String("");
+  // var obj=new Object();
+  // console.log(typeof str);//Object
+  // console.log(typeof "");//String
 
-  console.log(Boolean(str));
-  console.log(Boolean(""));
-  // console.log(Boolean(obj));//true
+  // console.log(Boolean(str));
+  // console.log(Boolean(""));
+  // // console.log(Boolean(obj));//true
 
 
-  var bObj=new Boolean(true);
-  console.log(typeof true);
+  // var bObj=new Boolean(true);
+  // console.log(typeof true);
 
-  var num=10;
-  console.log(num.toExponential(2));//1.00e+1
+  // var num=10;
+  // console.log(num.toExponential(2));//1.00e+1
 
-  console.log("hello"[4]);//o
+  // console.log("hello"[4]);//o
+
+}
+
+
+
+function foo(){
+  var f=()=>arguments[0];
+  return f(1);
+}
+
+function arrow(){
+   
+   console.log(foo(100,200))
 
 }
  
@@ -382,6 +408,9 @@ function Obj(){
 
 <h3>--------------------this---------------</h3>
  <input type="button" value="this" onClick="Obj()"/></br>
+
+ <input type="button" value="箭头函数不绑定参数arguments" onClick="arrow()"/></br>
+
 
 <a >hello world</a>
 </body>
