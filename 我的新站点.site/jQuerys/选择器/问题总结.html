@@ -249,14 +249,51 @@ function removeCSS(){
      //赋值为别的值也不可以，必须是空，好用，但靠谱性有待考究
      $(".cssTest").css("background-color","");
       
-      console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa".length);
-      
-
+       
       console.log(0.00==0);
 
       if(0.00){
         console.log(123);
       }
+}
+
+function Person(){
+  this.age=0;
+  setInterval(function growUp() {
+    // 在非严格模式下，growUp() 函数定义了其内部的 `this`
+    // 为全局对象, 不同于构造函数Person()的定义的 `this`
+    this.age++; 
+    console.log(this.age);
+  }, 1000);
+
+  this.sayAge=function(){
+     console.log(this.age);
+  }
+}
+
+function Obj(){
+
+  // var p=new Person();
+  // console.log("age="+p.sayAge());
+
+  var str=new String("");
+  var obj=new Object();
+  console.log(typeof str);//Object
+  console.log(typeof "");//String
+
+  console.log(Boolean(str));
+  console.log(Boolean(""));
+  // console.log(Boolean(obj));//true
+
+
+  var bObj=new Boolean(true);
+  console.log(typeof true);
+
+  var num=10;
+  console.log(num.toExponential(2));//1.00e+1
+
+  console.log("hello"[4]);//o
+
 }
  
 </script>
@@ -343,6 +380,8 @@ function removeCSS(){
  <div class="cssTest" style="background-color: yellow;color: pink;">hello remove css</div> 
 <input type="button" value="点击删除元素的background-color属性" onClick="removeCSS()"/></br>
 
+<h3>--------------------this---------------</h3>
+ <input type="button" value="this" onClick="Obj()"/></br>
 
 <a >hello world</a>
 </body>

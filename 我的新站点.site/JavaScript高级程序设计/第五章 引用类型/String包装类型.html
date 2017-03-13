@@ -209,6 +209,14 @@ function testlablebreak(){
   var a=str.substr(str.length-4);
   console.log(a);//orld
 }
+
+function single(){
+  var str="hello world";
+  var s1=str[1];
+  var s2=str.charAt(1);
+  console.log(s1);//e
+  console.log(s2);//e
+}
 </script>
 </head>
 
@@ -236,6 +244,7 @@ function testlablebreak(){
  <h3>--------------------截取任意后四位---------------</h3>
  
 <input type="button" value="截取任意后四位" onClick="substrs()"/></br>
+<input type="button" value="访问字符串中单个字符的方法" onClick="single()"/></br>
 
 </body>
 </html>
