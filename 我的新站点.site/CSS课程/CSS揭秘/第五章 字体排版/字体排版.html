@@ -81,10 +81,24 @@
     margin-left:-.25em;/*去掉逗号前的空白符(不太可靠哎.....不过大多数时候没问题)*/
     font-weight: normal;/*让逗号不变粗*/
 }
+
+
+/*文本行的斑马条纹*/
+.zebra{
+    margin:0 30%;
+    height: 10em;
+    padding: .5em;
+    line-height: 1.5em;
+    background: beige;
+    background-image: linear-gradient(rgba(0,0,0,.2) 50%,transparent 0);
+    background-size: 100% 3em;/*背景的Y轴尺寸设置为文本行高line-height的两倍高*/
+    background-origin: content-box;/*让背景图像background-image以content-box为基准，而不是默认的padding-box为基准*/
+
+}
 </style>
 </head>
 <body>
-<h3>连字符断行  软连字符<script type="text/html" style="display: inline-block;">&shy;</script></h3>
+<h3>20、连字符断行  软连字符<script type="text/html" style="display: inline-block;">&shy;</script></h3>
 
 <p class="talign one">The only way to get rid of a tempation is to yield to it.</p>         
 
@@ -95,7 +109,7 @@
  
 
 
- <h3>插入换行符</h3>
+ <h3>21、插入换行符</h3>
 
  <!-- 
 这种写法就是换行符（通过伪元素插入换行符可以创造出下面案例一样的结构，这种结构在浏览器解析代码时会忽略掉换行，为了保留这个换行的格式，需要使用white-space:pre;从而创造出就像用了换行元素<br>的效果，终于弄明白了.....）：
@@ -126,8 +140,31 @@
 
 
 
-  <h3>文本行的斑马条纹</h3>
-  
+  <h3>22、文本行的斑马条纹</h3>
+  <p class="zebra">
+      Recently, I signed up at Medium, the blogging platform, and can't resist visiting at least a couple of times a day - it's a very addictive experience! Articles come from numerous authors but display in one continuous feed. <!-- 当有类似span这样的行内元素，把行框撑的比常规行高更大，那么通过条纹背景添加的条纹斑马线效果会让人失望喽......<span style="font-size: 2em;">hello world</span> -->
+  </p>
+
+   <h3>23、调整tab的宽度</h3>
+   <!-- <pre><code>
+       while(true){
+        var d=new Date();
+        if(d.getDate()==1&&d.getMonth==3){
+            alert("TROLOLOL");
+        }
+       }
+       </code>
+   </pre> -->
+<pre><code><!-- // Default tab size -->
+while (true) {
+    var d = new Date();
+    if (d.getDate()==1 &amp;&amp;
+        d.getMonth()==3) {
+        alert("TROLOLOL");
+    }
+}</code></pre>
+
+ 
 
 
 </body>
