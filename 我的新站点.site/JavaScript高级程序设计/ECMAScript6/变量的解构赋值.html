@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
+<meta charset="utf-8" />
 <title>writer title here</title>
-<link href="../../CSS¿Î³Ì/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<link href="../../CSSè¯¾ç¨‹/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <style>
   body{
 	  background-color:#eee;}
@@ -15,7 +15,7 @@
 	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
 	  background:-ms-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
 	  background:-webkit-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
-	  border:none;/*È¥µô°´Å¥Ä¬ÈÏµÄÒõÓ°£¬³¬¼¶ÄÑ¿´µÄÄ¬ÈÏÑùÊ½*/
+	  border:none;/*å»æ‰æŒ‰é’®é»˜è®¤çš„é˜´å½±ï¼Œè¶…çº§éš¾çœ‹çš„é»˜è®¤æ ·å¼*/
 	  box-shadow:0 12px 8px -9px #555;
   }
   #wrap{
@@ -30,7 +30,7 @@
 	  width:400px;
 	  min-height:300px;
 	  margin:20px 0px;
-	/*  padding:0;*/
+	  padding:0; 
 	  border: none;
 	  border-right: 3px solid #eee;
 	  background-color:#fff; 
@@ -59,20 +59,20 @@
 	box-sizing:border-box;
 	float: left;
 	width: 100px;
-    margin-top: 20px;
-    min-height: 300px;
-    position: relative;
-    text-align: left;
+  margin-top: 20px;
+  min-height: 300px;
+  position: relative;
+  text-align: left;
 	
 	}
   
- div#btn input{
-   /* display: inline-block;
+ fieldset#btn input{
+   display: inline-block;
     margin: -20px 0 0;
     position: absolute;
     top: 50%;
     width: 100px;
-	height:25px;*/
+	height:25px; 
 	 
 	}
   
@@ -81,10 +81,10 @@
 
 <script>
 
-/*¹«¹²·½·¨-ÏûÏ¢ÏÔÊ¾*/
+/*å…¬å…±æ–¹æ³•-æ¶ˆæ¯æ˜¾ç¤º*/
 function commonShow(msg){
  
-  $("#out").append("<br/>"+String(msg));//²»ÄÜÓÃmsg.toString() ÒòÎªbooleanÀàĞÍÓÃÔÚ´Ë´¦»á±¨´í
+  $("#out").append("<br/>"+String(msg));//ä¸èƒ½ç”¨msg.toString() å› ä¸ºbooleanç±»å‹ç”¨åœ¨æ­¤å¤„ä¼šæŠ¥é”™
 }
 
 function clears(){
@@ -98,14 +98,14 @@ function clears(){
   console.log(window.a);//10  
   
   let b=20;
-  console.log(window.b); //undefined letÉùÃ÷µÄÈ«¾Ö±äÁ¿²»»á³ÉÎªwindow¶ÔÏóµÄÊôĞÔ
+  console.log(window.b); //undefined letå£°æ˜çš„å…¨å±€å˜é‡ä¸ä¼šæˆä¸ºwindowå¯¹è±¡çš„å±æ€§
      
    
   
 
 function test1(){
 
- //Êı×é½â¹¹¸Ä±äÁ¿¸³Öµ
+ //æ•°ç»„è§£æ„æ”¹å˜é‡èµ‹å€¼
  var [a,b,c]=[1,2,3];
  commonShow("------  var [a,b,c]=[1,2,3]----------");
  commonShow(a+"\n"+b+"\n"+c);//1 2 3 
@@ -118,7 +118,7 @@ function test1(){
  
  
    
-  //¶ÔÏó½â¹¹¸ø±äÁ¿¸³Öµ
+  //å¯¹è±¡è§£æ„ç»™å˜é‡èµ‹å€¼
   var { foo, bar } = { foo: "aaa", bar: "bbb" };
    commonShow("------   var { foo, bar } = { foo: \"aaa\", bar: \"bbb\" }----------");
   commonShow(foo);//aaa
@@ -126,18 +126,18 @@ function test1(){
   let [ , , third] = ["foo", "bar", "baz"];
   console.log(third);//baz
   
-  /*±È½Ï¹Å¹ÖµÄ¸³Öµ·½Ê½£¬...tail´ú±í±äÁ¿tailÊÇÒ»¸öÊı×é*/
+  /*æ¯”è¾ƒå¤æ€ªçš„èµ‹å€¼æ–¹å¼ï¼Œ...tailä»£è¡¨å˜é‡tailæ˜¯ä¸€ä¸ªæ•°ç»„*/
 	let [head, ...tail] = [1, 2, 3, 4,5];
 	
 	console.log(head);//1
-	console.log(tail+"\n"+Array.isArray(tail));//2,3,4 true tailÊÇÊı×é£¬Óë×Ö·û´®ÏàÁ¬£¬×Ô¶¯µ÷ÓÃÃ¿Ò»ÏîµÄtoString()·½·¨×ªÎª×Ö·û´®Æ´½Ó½á¹û
+	console.log(tail+"\n"+Array.isArray(tail));//2,3,4 true tailæ˜¯æ•°ç»„ï¼Œä¸å­—ç¬¦ä¸²ç›¸è¿ï¼Œè‡ªåŠ¨è°ƒç”¨æ¯ä¸€é¡¹çš„toString()æ–¹æ³•è½¬ä¸ºå­—ç¬¦ä¸²æ‹¼æ¥ç»“æœ
 	
 	
 	let [x, y, ...z] = ['a'];
     
 	commonShow("------ let  [x, y, ...z] = ['a']----------");
     commonShow("x:"+x+ " y:"+y);//a  undefined
-	console.log(z);//[] ¿ÕÊı×é 
+	console.log(z);//[] ç©ºæ•°ç»„ 
 	
    
   
@@ -150,19 +150,19 @@ function test11(){
     commonShow( foo);//true
 	
 	
-	/*ES6ÄÚ²¿Ê¹ÓÃÑÏ¸ñÏàµÈÔËËã·û£¨===£©£¬ÅĞ¶ÏÒ»¸öÎ»ÖÃÊÇ·ñÓĞÖµ¡£ËùÒÔ£¬Èç¹ûÒ»¸öÊı×é³ÉÔ±²»ÑÏ¸ñµÈÓÚundefined£¬Ä¬ÈÏÖµÊÇ²»»áÉúĞ§µÄ¡£*/
+	/*ES6å†…éƒ¨ä½¿ç”¨ä¸¥æ ¼ç›¸ç­‰è¿ç®—ç¬¦ï¼ˆ===ï¼‰ï¼Œåˆ¤æ–­ä¸€ä¸ªä½ç½®æ˜¯å¦æœ‰å€¼ã€‚æ‰€ä»¥ï¼Œå¦‚æœä¸€ä¸ªæ•°ç»„æˆå‘˜ä¸ä¸¥æ ¼ç­‰äºundefinedï¼Œé»˜è®¤å€¼æ˜¯ä¸ä¼šç”Ÿæ•ˆçš„ã€‚*/
 	var [x = 1] = [undefined];
     commonShow( "var [x = 1] = [undefined]");
     commonShow( x);//1
 	
 	var [y = 1] = [null];
     commonShow( "var [y = 1] = [null]");
-    commonShow( y);//null  yµÄÄ¬ÈÏÖµÎ´ÉúĞ§£¬ÒòÎªnull===undefined È«µÈÎªfalse, µ«null==undefinedÎªtrue°¥
+    commonShow( y);//null  yçš„é»˜è®¤å€¼æœªç”Ÿæ•ˆï¼Œå› ä¸ºnull===undefined å…¨ç­‰ä¸ºfalse, ä½†null==undefinedä¸ºtrueå“
 	
 	function f() {
     return "function";
     }
-	/*Èç¹ûÄ¬ÈÏÖµÊÇÒ»¸ö±í´ïÊ½£¬ÄÇÃ´Õâ¸ö±í´ïÊ½ÊÇ¶èĞÔÇóÖµµÄ£¬¼´Ö»ÓĞÔÚÓÃµ½µÄÊ±ºò£¬²Å»áÇóÖµ¡£ÒòÎªÄ¬ÈÏÖµÖ»ÓĞÊı×éÎ»ÖÃµÄÖµÃ»ÓĞ»òÕßÏÔÊ¾Ö¸Ã÷ÎªundefinedµÄÊ±ºò£¬Ä¬ÈÏÖµ²Å»á¸³Öµ¸ø±äÁ¿*/
+	/*å¦‚æœé»˜è®¤å€¼æ˜¯ä¸€ä¸ªè¡¨è¾¾å¼ï¼Œé‚£ä¹ˆè¿™ä¸ªè¡¨è¾¾å¼æ˜¯æƒ°æ€§æ±‚å€¼çš„ï¼Œå³åªæœ‰åœ¨ç”¨åˆ°çš„æ—¶å€™ï¼Œæ‰ä¼šæ±‚å€¼ã€‚å› ä¸ºé»˜è®¤å€¼åªæœ‰æ•°ç»„ä½ç½®çš„å€¼æ²¡æœ‰æˆ–è€…æ˜¾ç¤ºæŒ‡æ˜ä¸ºundefinedçš„æ—¶å€™ï¼Œé»˜è®¤å€¼æ‰ä¼šèµ‹å€¼ç»™å˜é‡*/
 	 commonShow( "let [xx = f()] = [1]");
 	 let [xx = f()] = [1];
 	 commonShow("xx: "+ xx);//1
@@ -176,12 +176,12 @@ function test11(){
 }
 
 /*
- //??????????µ÷ÓÃÊ±Ã»ÓĞ±¨´í°¥
+ //??????????è°ƒç”¨æ—¶æ²¡æœ‰æŠ¥é”™å“
 function bar(x = y, y = 2) {
   return [x, y];
 }*/
 
-/*IE10.0²»Ö§³Ö²ÎÊıÓĞÄ¬ÈÏÖµ°¥*/
+/*IE10.0ä¸æ”¯æŒå‚æ•°æœ‰é»˜è®¤å€¼å“*/
 function test2(x=2){
   
   commonShow(x);
@@ -199,32 +199,32 @@ function test3(arg){
 }
 
 
-/*Ã»¼û¹ıµÄÎÊÌâ-ºÜĞÂÆæ£¬ºÜ×¨Òµ*/
+/*æ²¡è§è¿‡çš„é—®é¢˜-å¾ˆæ–°å¥‡ï¼Œå¾ˆä¸“ä¸š*/
 var date=new Date();
 function test4(){
 
- commonShow(date);//undefined Ô­ÒòÔÚÓÚº¯ÊıÄÚ²¿£¬ÓÖÉùÃ÷ÁËÒ»´Î±äÁ¿£¬±äÁ¿ÌáÉı£¬ÖµÊÇundefined
+ commonShow(date);//undefined åŸå› åœ¨äºå‡½æ•°å†…éƒ¨ï¼Œåˆå£°æ˜äº†ä¸€æ¬¡å˜é‡ï¼Œå˜é‡æå‡ï¼Œå€¼æ˜¯undefined
  
-  //¼´Ê¹ÓÃÁËfalse¿ØÖÆÓï¾ä£¬±äÁ¿ÉùÃ÷ÒÀÈ»»áÓĞ
+  //å³ä½¿ç”¨äº†falseæ§åˆ¶è¯­å¥ï¼Œå˜é‡å£°æ˜ä¾ç„¶ä¼šæœ‰
   if(false){
     var date="hello world";
   }
 }
 
 function test5(){
-  /*ÉùÃ÷±äÁ¿µÄÍ¬Ê±¸³Öµ*/
+  /*å£°æ˜å˜é‡çš„åŒæ—¶èµ‹å€¼*/
   var {foo,bar}={foo:"hello foo",bar:"hello bar"};
   commonShow(foo);
   commonShow(bar);
   
-  /*ÏÈÉùÃ÷ºó¸³Öµ,ĞèÒªÓÃµ½(),·ñÔò»á±¨Óï·¨´íÎó*/
+  /*å…ˆå£°æ˜åèµ‹å€¼,éœ€è¦ç”¨åˆ°(),å¦åˆ™ä¼šæŠ¥è¯­æ³•é”™è¯¯*/
   var foo,bar;
   ({foo,bar}={foo:"hi foo",bar:"hi bar"});
   commonShow(foo);
   commonShow(bar);
   
   
-  /*Èç¹û±äÁ¿¸úÊôĞÔÃû²»Ò»ÖÂ£¬±äÁ¿±ØĞëĞ´ÔÚÊôĞÔºóÃæ*/
+  /*å¦‚æœå˜é‡è·Ÿå±æ€§åä¸ä¸€è‡´ï¼Œå˜é‡å¿…é¡»å†™åœ¨å±æ€§åé¢*/
   var obj={foo:"hello foo",bar:"hello bar"}
   var {z,o}=obj;
   commonShow(z);//undefined
@@ -235,7 +235,7 @@ function test5(){
   
   
   
-  /*Ç¶Ì×½á¹¹µÄ¶ÔÏóµÄ±äÁ¿¸³Öµ*/
+  /*åµŒå¥—ç»“æ„çš„å¯¹è±¡çš„å˜é‡èµ‹å€¼*/
   
   var obj2 = {
 	  p: [
@@ -246,48 +246,48 @@ function test5(){
    
    var {p:[x,{y:z}]}=obj2;
    
-  /* commonShow("  p:"+p+"  x:"+x+"  z:"+z); ???? ÎªÉ¶p»á±¨´í£¬not defined*/
+  /* commonShow("  p:"+p+"  x:"+x+"  z:"+z); ???? ä¸ºå•¥pä¼šæŠ¥é”™ï¼Œnot defined*/
   commonShow( "  x:"+x+"  z:"+z);
 	 
   /*  var obj3={name:["helln"],age:20};
    var{name:[sname],age}=obj3;
-   console.log(name);//¿Õ×Ö·û´® ÎªÉ¶Õâ¸ö¿ÉÒÔ£¿£¿£¿£¿£¿£¿
+   console.log(name);//ç©ºå­—ç¬¦ä¸² ä¸ºå•¥è¿™ä¸ªå¯ä»¥ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
     console.log(sname);
 	 console.log(age);*/
 	 
 	 
-	/*½â¹¹Ê§°Ü±äÁ¿»á·µ»Øundefined*/
+	/*è§£æ„å¤±è´¥å˜é‡ä¼šè¿”å›undefined*/
    var {foo,bar,kkk}=obj;
    commonShow(kkk);//undefined
    
    
-   /*¶ÔÊı×é*/
+   /*å¯¹æ•°ç»„*/
    var arry=[1,2,3];
    var {0:first,[arry.length-1]:last}=arry;
    commonShow(first);
    commonShow(last);
    
-   /*¶ÔÏóµÄ½â¹¹¸³ÖµÒ²¿ÉÒÔÓĞÄ¬ÈÏÖµ£¬Ìõ¼şÊÇÊôĞÔÑÏ¸ñµÈÓÚundefined*/
+   /*å¯¹è±¡çš„è§£æ„èµ‹å€¼ä¹Ÿå¯ä»¥æœ‰é»˜è®¤å€¼ï¼Œæ¡ä»¶æ˜¯å±æ€§ä¸¥æ ¼ç­‰äºundefined*/
    
    var {x1=0,y1=0}={};
    console.log(x1);//0
    
    var {x=0,y=0}=10;
-   console.log(x);//0 ¶ÔÏó½â¹¹ÓĞÄ¬ÈÏÖµ¡£xÔÚÒª½â¹¹µÄ10ÖĞÕÒ²»µ½xÊôĞÔ£¬x===undefined,¿ÉÒÔÊ¹µÃ½â¹¹µÄÄ¬ÈÏÖµÓĞĞ§
+   console.log(x);//0 å¯¹è±¡è§£æ„æœ‰é»˜è®¤å€¼ã€‚xåœ¨è¦è§£æ„çš„10ä¸­æ‰¾ä¸åˆ°xå±æ€§ï¼Œx===undefined,å¯ä»¥ä½¿å¾—è§£æ„çš„é»˜è®¤å€¼æœ‰æ•ˆ
    
     var {xx ,yy }=10;
    console.log(xx);//undefined
    
    
-  /*¶ÔÓÚ¶ÔÏóµÄ½â¹¹£¬Èç¹ûµÈºÅÓÒ±ß²»ÊÇ¶ÔÏó£¬Ò²²»»áÏñÊı×é½â¹¹ÄÇÑù±¨Óï·¨´íÎó£¬¶øÊÇ·µ»ØundefinedÖµ°Â~~*/
+  /*å¯¹äºå¯¹è±¡çš„è§£æ„ï¼Œå¦‚æœç­‰å·å³è¾¹ä¸æ˜¯å¯¹è±¡ï¼Œä¹Ÿä¸ä¼šåƒæ•°ç»„è§£æ„é‚£æ ·æŠ¥è¯­æ³•é”™è¯¯ï¼Œè€Œæ˜¯è¿”å›undefinedå€¼å¥¥~~*/
   var {j=1,z}="abc";
   console.log(j+"   z:"+z);//1   undefined
   
-  //±¨´í
+  //æŠ¥é”™
  /* let [foz] = 1;
    console.log(foz);*/
    
-   /*¶ÔÏó½â¹¹¸³ÖµÒ²¿ÉÒÔÖ¸¶¨Ä¬ÈÏÖµ,Ä¬ÈÏ¸³ÖµµÄÉúĞ§Ìõ¼şÊÇ ¶ÔÏóµÄÊôĞÔÖµÑÏ¸ñµÈÓÚundefined¡£*/
+   /*å¯¹è±¡è§£æ„èµ‹å€¼ä¹Ÿå¯ä»¥æŒ‡å®šé»˜è®¤å€¼,é»˜è®¤èµ‹å€¼çš„ç”Ÿæ•ˆæ¡ä»¶æ˜¯ å¯¹è±¡çš„å±æ€§å€¼ä¸¥æ ¼ç­‰äºundefinedã€‚*/
    var {a=1,b=2}={};
    var {c=1,d=2}=11;
    var {e=1}={e:null};
@@ -298,8 +298,8 @@ function test5(){
    
 }
 
-/*×Ö·û´®Ò²¿ÉÒÔ½â¹¹¸³Öµ¡£ÕâÊÇÒòÎª´ËÊ±£¬×Ö·û´®±»×ª»»³ÉÁËÒ»¸öÀàËÆÊı×éµÄ¶ÔÏó¡£
-ÀàËÆÊı×éµÄ¶ÔÏó¶¼ÓĞÒ»¸ölengthÊôĞÔ£¬Òò´Ë»¹¿ÉÒÔ¶ÔÕâ¸öÊôĞÔ½â¹¹¸³Öµ¡£*/
+/*å­—ç¬¦ä¸²ä¹Ÿå¯ä»¥è§£æ„èµ‹å€¼ã€‚è¿™æ˜¯å› ä¸ºæ­¤æ—¶ï¼Œå­—ç¬¦ä¸²è¢«è½¬æ¢æˆäº†ä¸€ä¸ªç±»ä¼¼æ•°ç»„çš„å¯¹è±¡ã€‚
+ç±»ä¼¼æ•°ç»„çš„å¯¹è±¡éƒ½æœ‰ä¸€ä¸ªlengthå±æ€§ï¼Œå› æ­¤è¿˜å¯ä»¥å¯¹è¿™ä¸ªå±æ€§è§£æ„èµ‹å€¼ã€‚*/
 function test6(){
    var vb="hello world";
    var [a,b,c,d]=vb;
@@ -309,7 +309,7 @@ function test6(){
    commonShow(len);
 }
 
-/*ÊıÖµºÍ²¼¶ûÖµµÄ½â¹¹¸³Öµ  ²»Ì«¶®¡£¡£¡£¡£¡££¿*/
+/*æ•°å€¼å’Œå¸ƒå°”å€¼çš„è§£æ„èµ‹å€¼  ä¸å¤ªæ‡‚ã€‚ã€‚ã€‚ã€‚ã€‚ï¼Ÿ*/
 function test7(){
   
   let {toString:x}=123;
@@ -321,7 +321,7 @@ function test7(){
  
 function test8(){
   
-  /*¸øº¯Êı´«²ÎÆäÊµÒ²ÊÇ¸ø±äÁ¿¸³ÖµµÄÒ»¸ö¹ı³Ì¡£¡£¡£*/
+  /*ç»™å‡½æ•°ä¼ å‚å…¶å®ä¹Ÿæ˜¯ç»™å˜é‡èµ‹å€¼çš„ä¸€ä¸ªè¿‡ç¨‹ã€‚ã€‚ã€‚*/
   function a([x=0,y=0]){
     return x+y;
   } 
@@ -330,15 +330,15 @@ function test8(){
   console.log(variable1);
   
   
-  /*½â¹¹Ê§°Ü£¬ÒòÎª´«Èëº¯ÊıµÄ²ÎÊı1²»¾ß±¸½â¹¹µÄÌõ¼ş*/
+  /*è§£æ„å¤±è´¥ï¼Œå› ä¸ºä¼ å…¥å‡½æ•°çš„å‚æ•°1ä¸å…·å¤‡è§£æ„çš„æ¡ä»¶*/
  /* var variable2=a(1);//TypeError:  is not iterable
   console.log(variable2);*/
   
-  var variable3=a([]);//Òª½â¹¹µÄÊı×éÎª¿ÕÊ±£¬»á´¥·¢½â¹¹µÄÄ¬ÈÏÖµ
+  var variable3=a([]);//è¦è§£æ„çš„æ•°ç»„ä¸ºç©ºæ—¶ï¼Œä¼šè§¦å‘è§£æ„çš„é»˜è®¤å€¼
   console.log(variable3);//0
   
   
-  /*ES6ÖĞº¯ÊıµÄ²ÎÊı¿ÉÒÔÓĞÄ¬ÈÏÖµ,´¥·¢Ä¬ÈÏ¸³ÖµµÄÌõ¼şÊÇ´«Èë¿Õ»òÕßundefinedµÄÊ±ºò*/
+  /*ES6ä¸­å‡½æ•°çš„å‚æ•°å¯ä»¥æœ‰é»˜è®¤å€¼,è§¦å‘é»˜è®¤èµ‹å€¼çš„æ¡ä»¶æ˜¯ä¼ å…¥ç©ºæˆ–è€…undefinedçš„æ—¶å€™*/
   function b(x=1){
     return x;
   }
@@ -355,9 +355,9 @@ function test8(){
    var v4=b(null);
   console.log(v3);//null
   
-   console.log("º¯Êı²ÎÊı½â¹¹µÄÄ¬ÈÏ¸³Öµ............................");
-  /*º¯Êı²ÎÊı½â¹¹µÄÄ¬ÈÏ¸³Öµ*/
-  //´´½¨Ò»¸ö´«Èë¶ÔÏó½â¹¹²ÎÊıµÄº¯Êı£¬²¢¸øÓèÄ¬ÈÏ¶ÔÏó{}£¬Ä¬ÈÏ½â¹¹¸³Öµx=0,y=0
+   console.log("å‡½æ•°å‚æ•°è§£æ„çš„é»˜è®¤èµ‹å€¼............................");
+  /*å‡½æ•°å‚æ•°è§£æ„çš„é»˜è®¤èµ‹å€¼*/
+  //åˆ›å»ºä¸€ä¸ªä¼ å…¥å¯¹è±¡è§£æ„å‚æ•°çš„å‡½æ•°ï¼Œå¹¶ç»™äºˆé»˜è®¤å¯¹è±¡{}ï¼Œé»˜è®¤è§£æ„èµ‹å€¼x=0,y=0
   function c({x=0,y=0}={}){
      return [x,y];
   }
@@ -380,13 +380,13 @@ function test8(){
   
     console.log("-----------------------");
   
-  /*ÏÂÃæÎ´¸øº¯Êı´«ÈëÈÎºÎ¶ÔÏó²ÎÊı£¬´Ë´¦º¯Êı²ÎÊıµÄ½â¹¹¾Í»á°´ÕÕÄ¬ÈÏ¶ÔÏó½øĞĞ½â¹¹¸³Öµ*/
+  /*ä¸‹é¢æœªç»™å‡½æ•°ä¼ å…¥ä»»ä½•å¯¹è±¡å‚æ•°ï¼Œæ­¤å¤„å‡½æ•°å‚æ•°çš„è§£æ„å°±ä¼šæŒ‰ç…§é»˜è®¤å¯¹è±¡è¿›è¡Œè§£æ„èµ‹å€¼*/
    var c4=c();
   console.log(c4);//[0, 0]
   
-  /*----------------²ÎÊı½â¹¹£¬²ÎÊı±äÁ¿Ã»ÓĞÄ¬ÈÏÖµµÄÇé¿ö----------------------------------------*/
-  console.log("²ÎÊı½â¹¹£¬²ÎÊı±äÁ¿Ã»ÓĞÄ¬ÈÏÖµµÄÇé¿ö............................");
-  /*Ö»Òª²»´«ÈëÈÎºÎ²ÎÊı£¬ÄÇÃ´¾Í»áÖ´ĞĞÄ¬ÈÏµÄ¶ÔÏó½â¹¹²Ù×÷£¬½â¹¹{x:0,y:0}£¬µ«ÊÇÕâ´ÎµÄ²ÎÊı±äÁ¿{x,y}ÊÇÃ»ÓĞÄ¬ÈÏÖµ£¬Òò´Ë´«Èë¿Õ¶ÔÏó{}µÄÊ±ºò£¬{x,y}={}µÃµ½µÄ×îÖÕ½á¹ûÊÇ[undefined, undefined]£¬ÒòÎªÕÒ²»µ½ÊôĞÔxºÍy*/
+  /*----------------å‚æ•°è§£æ„ï¼Œå‚æ•°å˜é‡æ²¡æœ‰é»˜è®¤å€¼çš„æƒ…å†µ----------------------------------------*/
+  console.log("å‚æ•°è§£æ„ï¼Œå‚æ•°å˜é‡æ²¡æœ‰é»˜è®¤å€¼çš„æƒ…å†µ............................");
+  /*åªè¦ä¸ä¼ å…¥ä»»ä½•å‚æ•°ï¼Œé‚£ä¹ˆå°±ä¼šæ‰§è¡Œé»˜è®¤çš„å¯¹è±¡è§£æ„æ“ä½œï¼Œè§£æ„{x:0,y:0}ï¼Œä½†æ˜¯è¿™æ¬¡çš„å‚æ•°å˜é‡{x,y}æ˜¯æ²¡æœ‰é»˜è®¤å€¼ï¼Œå› æ­¤ä¼ å…¥ç©ºå¯¹è±¡{}çš„æ—¶å€™ï¼Œ{x,y}={}å¾—åˆ°çš„æœ€ç»ˆç»“æœæ˜¯[undefined, undefined]ï¼Œå› ä¸ºæ‰¾ä¸åˆ°å±æ€§xå’Œy*/
   function d({x,y}={x:0,y:0}){
      return [x,y];
   }
@@ -400,7 +400,7 @@ function test8(){
   var d3=d({});
   console.log(d3);//[undefined, undefined]
   
-  /*ÏÂÃæÎ´¸øº¯Êı´«ÈëÈÎºÎ¶ÔÏó²ÎÊı£¬´Ë´¦º¯Êı²ÎÊıµÄ½â¹¹¾Í»á°´ÕÕÄ¬ÈÏ¶ÔÏó½øĞĞ½â¹¹¸³Öµ*/
+  /*ä¸‹é¢æœªç»™å‡½æ•°ä¼ å…¥ä»»ä½•å¯¹è±¡å‚æ•°ï¼Œæ­¤å¤„å‡½æ•°å‚æ•°çš„è§£æ„å°±ä¼šæŒ‰ç…§é»˜è®¤å¯¹è±¡è¿›è¡Œè§£æ„èµ‹å€¼*/
    var d4=d();
   console.log(d4);//[0, 0]
   
@@ -424,7 +424,7 @@ function test9(){
     var q1=h([1,2]);
   console.log(q1);//[1,2]
   
-  /*Ö»ÓĞ²»¸øº¯Êıh´«ÈëÈÎºÎÖµµÃÊ±ºò£¬»òÕß´«ÈëundefinedµÄÊ±ºò£¬º¯Êı²ÎÊı²Å»áÄ¬ÈÏÈ¥½â¹¹Êı×é[3,4]µÄ£¬ÒòÎªÕâÊÇº¯ÊıµÄ²ÎÊı£¬´«ÈëÔòÓĞ²Î¿ÉÓÃ£¬·ñÔò²ÎÊıµÄÄ¬ÈÏÖµ²Å»áÉúĞ§µÄ°Â~*/
+  /*åªæœ‰ä¸ç»™å‡½æ•°hä¼ å…¥ä»»ä½•å€¼å¾—æ—¶å€™ï¼Œæˆ–è€…ä¼ å…¥undefinedçš„æ—¶å€™ï¼Œå‡½æ•°å‚æ•°æ‰ä¼šé»˜è®¤å»è§£æ„æ•°ç»„[3,4]çš„ï¼Œå› ä¸ºè¿™æ˜¯å‡½æ•°çš„å‚æ•°ï¼Œä¼ å…¥åˆ™æœ‰å‚å¯ç”¨ï¼Œå¦åˆ™å‚æ•°çš„é»˜è®¤å€¼æ‰ä¼šç”Ÿæ•ˆçš„å¥¥~*/
    var q2=h();
   console.log(q2);//[3,4]
   
@@ -437,7 +437,7 @@ function test9(){
  //var [p,l]=undefined;
 //  console.log(p);
   
-  /*¸øº¯Êı´«Èëundefined»á´¥·¢º¯ÊıµÄÄ¬ÈÏ²ÎÊı¸³ÖµµÄ*/
+  /*ç»™å‡½æ•°ä¼ å…¥undefinedä¼šè§¦å‘å‡½æ•°çš„é»˜è®¤å‚æ•°èµ‹å€¼çš„*/
   var q4=h(undefined);
   console.log(q4);//[3,4]
   
@@ -462,33 +462,33 @@ function test10(){
 
  
 </script>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 	<div id="wrap">
 		<fieldset class="enter">
 		 <legend>try.....</legend>
-			 <input type="button"  value="½â¹¹¸³Öµ²âÊÔ" onClick="test1()"/> 
+			 <input type="button"  value="è§£æ„èµ‹å€¼æµ‹è¯•" onClick="test1()"/> 
 			
-			<input type="button"  value="½â¹¹¸³ÖµÔÊĞíÄ¬ÈÏÖµ" onClick="test11()"/> 
+			<input type="button"  value="è§£æ„èµ‹å€¼å…è®¸é»˜è®¤å€¼" onClick="test11()"/> 
 			
-			<input type="button"  value="º¯Êı²ÎÊıÄ¬ÈÏÖµ" onClick="test2()"/> 
+			<input type="button"  value="å‡½æ•°å‚æ•°é»˜è®¤å€¼" onClick="test2()"/> 
 			
-			<input type="button"  value="ÖØ¸´ÉùÃ÷" onClick="test3(11)"/> 
+			<input type="button"  value="é‡å¤å£°æ˜" onClick="test3(11)"/> 
 			 
-		    <input type="button"  value="ES5±äÁ¿ÌáÉıµ¼ÖÂµÄÎÊÌâ" onClick="test4()"/>
+		    <input type="button"  value="ES5å˜é‡æå‡å¯¼è‡´çš„é—®é¢˜" onClick="test4()"/>
 			
-			 <input type="button"  value="¶ÔÏóµÄ½â¹¹¸³Öµ" onClick="test5()"/>
+			 <input type="button"  value="å¯¹è±¡çš„è§£æ„èµ‹å€¼" onClick="test5()"/>
 			 
-			 <input type="button"  value="×Ö·û´®µÄ½â¹¹¸³Öµ" onClick="test6()"/>
+			 <input type="button"  value="å­—ç¬¦ä¸²çš„è§£æ„èµ‹å€¼" onClick="test6()"/>
 			 
-			  <input type="button"  value="ÊıÖµºÍ²¼¶ûÖµµÄ½â¹¹¸³Öµ" onClick="test7()"/>
+			  <input type="button"  value="æ•°å€¼å’Œå¸ƒå°”å€¼çš„è§£æ„èµ‹å€¼" onClick="test7()"/>
 			  
-			  <input type="button"  value="º¯Êı²ÎÊıµÄ½â¹¹¸³Öµ" onClick="test8()"/>
+			  <input type="button"  value="å‡½æ•°å‚æ•°çš„è§£æ„èµ‹å€¼" onClick="test8()"/>
 			  
-			  <input type="button"  value="º¯Êı²ÎÊıµÄ½â¹¹¸³Öµ-Êı×é²ÎÊı" onClick="test9()"/>
+			  <input type="button"  value="å‡½æ•°å‚æ•°çš„è§£æ„èµ‹å€¼-æ•°ç»„å‚æ•°" onClick="test9()"/>
 			  
-			 <input type="button"  value="½»»»±äÁ¿Öµ" onClick="test10()"/>  
+			 <input type="button"  value="äº¤æ¢å˜é‡å€¼" onClick="test10()"/>  
 			   
 			  
 		</fieldset>
@@ -506,11 +506,12 @@ function test10(){
 		 
 		 
 		 <fieldset id="btn">
-		   <input type="button"  value="clear" onClick="clears()"/> 
+       <legend>clear.....</legend>
+		   <input type="button"    value="clear" onClick="clears()"/> 
 		 </fieldset>	 
 		 
-			
-			
+			   
+			           
 		<!-- <div id="btn">
 		   <input type="button"  value="clear" onClick="clears()"/> 
 		 </div>	 -->

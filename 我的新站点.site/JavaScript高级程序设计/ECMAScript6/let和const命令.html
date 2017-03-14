@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
+<meta charset="utf-8" />
 <title>writer title here</title>
-<link href="../../CSS¿Î³Ì/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<link href="../../CSSè¯¾ç¨‹/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <link href="panel.css" rel="stylesheet" type="text/css"/>
 
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 	<div id="wrap">
 		<fieldset class="enter">
 		 <legend>try.....</legend>
-			 <input type="button"  value="let-¿é¼¶×÷ÓÃÓò" onClick="test1()"/> 
+			 <input type="button"  value="let-å—çº§ä½œç”¨åŸŸ" onClick="test1()"/> 
 			
-			<input type="button"  value="²âÊÔÓï·¨" onClick="test11()"/> 
+			<input type="button"  value="æµ‹è¯•è¯­æ³•" onClick="test11()"/> 
 			
-			<input type="button"  value="º¯Êı²ÎÊıÄ¬ÈÏÖµ" onClick="test2()"/> 
+			<input type="button"  value="å‡½æ•°å‚æ•°é»˜è®¤å€¼" onClick="test2()"/> 
 			
-			<input type="button"  value="ÖØ¸´ÉùÃ÷" onClick="test3(11)"/> 
+			<input type="button"  value="é‡å¤å£°æ˜" onClick="test3(11)"/> 
 			 
-		    <input type="button"  value="ES5±äÁ¿ÌáÉıµ¼ÖÂµÄÎÊÌâ" onClick="test4()"/>
+		    <input type="button"  value="ES5å˜é‡æå‡å¯¼è‡´çš„é—®é¢˜" onClick="test4()"/>
 			
 			  
 		</fieldset>
@@ -50,10 +50,10 @@
 	
 	<script>
 	
-	/*¹«¹²·½·¨-ÏûÏ¢ÏÔÊ¾*/
+	/*å…¬å…±æ–¹æ³•-æ¶ˆæ¯æ˜¾ç¤º*/
 	function commonShow(msg){
 	 
-	  $("#out").append("<br/>"+String(msg));//²»ÄÜÓÃmsg.toString() ÒòÎªbooleanÀàĞÍÓÃÔÚ´Ë´¦»á±¨´í
+	  $("#out").append("<br/>"+String(msg));//ä¸èƒ½ç”¨msg.toString() å› ä¸ºbooleanç±»å‹ç”¨åœ¨æ­¤å¤„ä¼šæŠ¥é”™
 	}
 	
 	function clears(){
@@ -67,14 +67,14 @@
 	  console.log(window.a);//10  
 	  
 	  let b=20;
-	  console.log(window.b); //undefined letÉùÃ÷µÄÈ«¾Ö±äÁ¿²»»á³ÉÎªwindow¶ÔÏóµÄÊôĞÔ
+	  console.log(window.b); //undefined letå£°æ˜çš„å…¨å±€å˜é‡ä¸ä¼šæˆä¸ºwindowå¯¹è±¡çš„å±æ€§
 		 
 	   
 	  
 	
 	function test1(){
 	
-	 //letÖ»ÔÚ´úÂë¿éÖĞÓĞĞ§
+	 //letåªåœ¨ä»£ç å—ä¸­æœ‰æ•ˆ
 	 {
 	   var a="hello";
 	   let b="world";
@@ -84,11 +84,11 @@
 		commonShow(a);
 		//commonShow(b);//ReferenceError: b is not defined
 		
-	  //²»ÄÜÔÚ¶¨ÒåÖ®Ç°Ê¹ÓÃlet
+	  //ä¸èƒ½åœ¨å®šä¹‰ä¹‹å‰ä½¿ç”¨let
 	  /* commonShow(c);//error 
 	   let c="sir"; */
 	   
-	  //TDZ ¼´Ê¹´æÔÚÈ«¾Ö±äÁ¿temp,µ«Ö»ÒªÔÚ´úÂë¿éÀïÓĞletÃüÁî£¬¾Í²»ÄÜÔÚletÖ®Ç°Ê¹ÓÃ¸Ã±äÁ¿ typeofÀàĞÍÅĞ¶Ï±êÊ¶·ûÒ²²»¿ÉÒÔ 
+	  //TDZ å³ä½¿å­˜åœ¨å…¨å±€å˜é‡temp,ä½†åªè¦åœ¨ä»£ç å—é‡Œæœ‰letå‘½ä»¤ï¼Œå°±ä¸èƒ½åœ¨letä¹‹å‰ä½¿ç”¨è¯¥å˜é‡ typeofç±»å‹åˆ¤æ–­æ ‡è¯†ç¬¦ä¹Ÿä¸å¯ä»¥ 
 	   commonShow( temp);
 	   var temp=0;
 	   if(1){
@@ -110,29 +110,29 @@
 	 
 	function test11(){
 		
-		//±äÁ¿Î´±»¶¨ÒåÊ±Ö±½ÓÊ¹ÓÃµ¼ÖÂÓï·¨´íÎó
+		//å˜é‡æœªè¢«å®šä¹‰æ—¶ç›´æ¥ä½¿ç”¨å¯¼è‡´è¯­æ³•é”™è¯¯
 	   /*console.log(variable);*/
-	   //¶ÔÓÚÎ´¶¨ÒåµÄ±äÁ¿£¬Ö»ÓĞÒ»ÖÖÓÃ´¦£¬ÄÇ¾ÍÊÇÊ¹ÓÃtypeofÅĞ¶ÏËüµÄÀàĞÍ£¬ÕâÖÖËµ·¨ÊÇÔÚ³öÏÖletÖ®Ç° £¡
+	   //å¯¹äºæœªå®šä¹‰çš„å˜é‡ï¼Œåªæœ‰ä¸€ç§ç”¨å¤„ï¼Œé‚£å°±æ˜¯ä½¿ç”¨typeofåˆ¤æ–­å®ƒçš„ç±»å‹ï¼Œè¿™ç§è¯´æ³•æ˜¯åœ¨å‡ºç°letä¹‹å‰ ï¼
 	   console.log(typeof variable);//undefined 
 	   
-	   //¶øÔÚ¶¨Òå±äÁ¿Ö®Ç°Ê¹ÓÃ¸Ã±äÁ¿²»»áµ¼ÖÂÓï·¨´íÎó£¬»áÓĞÒ»¸ö±äÁ¿ÌáÉıµÄ¹ı³Ì£¬Ö»ÒªÔÚjsÀï¶¨ÒåÁË£¬ÄÇÃ´¾ÍÄÜÕÒµ½¸Ã±äÁ¿£¬Ö»²»¹ıÔÚ¶¨ÒåÇÒ³õÊ¼»¯Ö®Ç°Ê¹ÓÃ´Ë±äÁ¿£¬´Ë±äÁ¿µÄÖµÊÇundefined£¬ÒòÎªÃ»ÓĞ³õÊ¼»¯¡£
+	   //è€Œåœ¨å®šä¹‰å˜é‡ä¹‹å‰ä½¿ç”¨è¯¥å˜é‡ä¸ä¼šå¯¼è‡´è¯­æ³•é”™è¯¯ï¼Œä¼šæœ‰ä¸€ä¸ªå˜é‡æå‡çš„è¿‡ç¨‹ï¼Œåªè¦åœ¨jsé‡Œå®šä¹‰äº†ï¼Œé‚£ä¹ˆå°±èƒ½æ‰¾åˆ°è¯¥å˜é‡ï¼Œåªä¸è¿‡åœ¨å®šä¹‰ä¸”åˆå§‹åŒ–ä¹‹å‰ä½¿ç”¨æ­¤å˜é‡ï¼Œæ­¤å˜é‡çš„å€¼æ˜¯undefinedï¼Œå› ä¸ºæ²¡æœ‰åˆå§‹åŒ–ã€‚
 	   console.log( temp);//undefined
-	   console.log( typeof temp );//undefined ÊÇ×Ö·û´®ÀàĞÍµÄundefined
-	   var temp=10;//´Ë´¦ÒÑ¾­¶¨ÒåÁË±äÁ¿£¬²¢ÇÒ³õÊ¼»¯ÁË
+	   console.log( typeof temp );//undefined æ˜¯å­—ç¬¦ä¸²ç±»å‹çš„undefined
+	   var temp=10;//æ­¤å¤„å·²ç»å®šä¹‰äº†å˜é‡ï¼Œå¹¶ä¸”åˆå§‹åŒ–äº†
 	   
-	  /* console.log(tempLet);//µ¼ÖÂÓï·¨´íÎó
+	  /* console.log(tempLet);//å¯¼è‡´è¯­æ³•é”™è¯¯
 		 console.log(typeof tempLet);
 	   let tempLet=10;*/
 	   
 	}
 	
 	/*
-	 //??????????µ÷ÓÃÊ±Ã»ÓĞ±¨´í°¥
+	 //??????????è°ƒç”¨æ—¶æ²¡æœ‰æŠ¥é”™å“
 	function bar(x = y, y = 2) {
 	  return [x, y];
 	}*/
 	
-	/*IE10.0²»Ö§³Ö²ÎÊıÓĞÄ¬ÈÏÖµ°¥*/
+	/*IE10.0ä¸æ”¯æŒå‚æ•°æœ‰é»˜è®¤å€¼å“*/
 	function test2(x=2){
 	  
 	  commonShow(x);
@@ -150,11 +150,11 @@
 	}
 	
 	
-	/*Ã»¼û¹ıµÄÎÊÌâ-ºÜĞÂÆæ£¬ºÜ×¨Òµ*/
+	/*æ²¡è§è¿‡çš„é—®é¢˜-å¾ˆæ–°å¥‡ï¼Œå¾ˆä¸“ä¸š*/
 	var date=new Date();
 	function test4(){
 	
-	 commonShow(date);//undefined Ô­ÒòÔÚÓÚº¯ÊıÄÚ²¿£¬ÓÖÉùÃ÷ÁËÒ»´Î±äÁ¿£¬±äÁ¿ÌáÉı£¬ÖµÊÇundefined,¼´Ê¹ÅĞ¶ÏÖĞÊ¹ÓÃµÄÊÇfalse
+	 commonShow(date);//undefined åŸå› åœ¨äºå‡½æ•°å†…éƒ¨ï¼Œåˆå£°æ˜äº†ä¸€æ¬¡å˜é‡ï¼Œå˜é‡æå‡ï¼Œå€¼æ˜¯undefined,å³ä½¿åˆ¤æ–­ä¸­ä½¿ç”¨çš„æ˜¯false
 	 
 	  if(false){
 		var date="hello world";

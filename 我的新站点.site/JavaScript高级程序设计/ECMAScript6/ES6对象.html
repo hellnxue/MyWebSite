@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
+<meta charset="utf-8" />
 <title>writer title here</title>
-<link href="../../CSS¿Î³Ì/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<link href="../../CSSè¯¾ç¨‹/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <link href="../../util/css/panel.css" rel="stylesheet" type="text/css"/>
 
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 	<div id="wrap">
@@ -14,9 +14,9 @@
 		 <legend>try.....</legend>
 			 <input type="button"  value="aa" id="test1" class="btn-info"/> 
 			
-			<input type="button"  value="Àà²»ÄÜÖ±½Óµ÷ÓÃ" id="test2" class="btn-info"/> 
+			<input type="button"  value="ç±»ä¸èƒ½ç›´æ¥è°ƒç”¨" id="test2" class="btn-info"/> 
 			
-			<input type="button"  value="²»´æÔÚ±äÁ¿ÌáÉı" id="test3" class="btn-info"/> 
+			<input type="button"  value="ä¸å­˜åœ¨å˜é‡æå‡" id="test3" class="btn-info"/> 
 			
 			<input type="button"  value="dd" id="test4" class="btn-info"/> 
 			 
@@ -42,10 +42,10 @@
 	<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 	
 	<script>
-		/*¹«¹²·½·¨-ÏûÏ¢ÏÔÊ¾*/
+		/*å…¬å…±æ–¹æ³•-æ¶ˆæ¯æ˜¾ç¤º*/
 		function commonShow(msg){
 		 
-		  $("#out").append("<br/>"+String(msg));//²»ÄÜÓÃmsg.toString() ÒòÎªbooleanÀàĞÍÓÃÔÚ´Ë´¦»á±¨´í
+		  $("#out").append("<br/>"+String(msg));//ä¸èƒ½ç”¨msg.toString() å› ä¸ºbooleanç±»å‹ç”¨åœ¨æ­¤å¤„ä¼šæŠ¥é”™
 		}
 		
 		function clears(){
@@ -63,7 +63,7 @@
 			  Person.prototype={
 			     love:"apple"
 			  };
-			  var p=new Person("Ğ¡ĞÂ",20);
+			  var p=new Person("å°æ–°",20);
 			 
 			  console.log(Person.prototype.isPrototypeOf(p));//true
 			  console.log(Object.getPrototypeOf(p)==Person.prototype);//true
@@ -83,9 +83,9 @@
 				
 			  }
 			 
-			  var p=new Person("Ğ¡ĞÂ",20);
+			  var p=new Person("å°æ–°",20);
 			  
-			  /*assign·½·¨ÏòÔ­ĞÍ¶ÔÏóÌí¼Ó¶à¸ö·½·¨*/
+			  /*assignæ–¹æ³•å‘åŸå‹å¯¹è±¡æ·»åŠ å¤šä¸ªæ–¹æ³•*/
 			   Object.assign(Person.prototype,{
 			    toString(){
 				  console.log("tostring......");
@@ -98,12 +98,12 @@
 			  console.log(Person.prototype.constructor);//Person
 			  console.log(p.constructor);//Person
 			  
-			  //ÀàÖĞµÄËùÓĞ·½·¨¶¼ÊÇ²»¿ÉÃ¶¾ÙµÄ,ES5ÖĞµÃÔ­ĞÍ¶ÔÏóÖĞ×Ô¶¨ÒåµÄ·½·¨ÊÇ¿ÉÒÔÃ¶¾ÙµÄ
-			  console.log(Object.keys(Person.prototype));// ["toString"] ²»ÖªµÀÕâ¸ötoString·½·¨ÎªÊ²Ã´¿ÉÒÔÃ¶¾Ù³öÀ´£¬love·½·¨Ã»ÓĞ
+			  //ç±»ä¸­çš„æ‰€æœ‰æ–¹æ³•éƒ½æ˜¯ä¸å¯æšä¸¾çš„,ES5ä¸­å¾—åŸå‹å¯¹è±¡ä¸­è‡ªå®šä¹‰çš„æ–¹æ³•æ˜¯å¯ä»¥æšä¸¾çš„
+			  console.log(Object.keys(Person.prototype));// ["toString"] ä¸çŸ¥é“è¿™ä¸ªtoStringæ–¹æ³•ä¸ºä»€ä¹ˆå¯ä»¥æšä¸¾å‡ºæ¥ï¼Œloveæ–¹æ³•æ²¡æœ‰
 			  console.log(Object.getOwnPropertyNames(Person.prototype));// ["constructor", "love", "toString"]
 				
 			  console.log("----------------------------------------------------------");
-				/*ÀàµÄÊôĞÔÃû£¬¿ÉÒÔ²ÉÓÃ±í´ïÊ½¡£*/
+				/*ç±»çš„å±æ€§åï¼Œå¯ä»¥é‡‡ç”¨è¡¨è¾¾å¼ã€‚*/
 				let methodName="say";
 				class Squre{
 				  [methodName](){
@@ -137,14 +137,14 @@
 				
 			  }
 			 
-			  var p=new Person("Ğ¡ĞÂ",20);
-			  /*ÀàµÄ¹¹Ôìº¯Êı£¬²»Ê¹ÓÃnewÊÇÃ»·¨µ÷ÓÃµÄ£¬»á±¨´í¡£ÕâÊÇËü¸úÆÕÍ¨¹¹Ôìº¯ÊıµÄÒ»¸öÖ÷ÒªÇø±ğ£¬ºóÕß²»ÓÃnewÒ²¿ÉÒÔÖ´ĞĞ¡£*/
+			  var p=new Person("å°æ–°",20);
+			  /*ç±»çš„æ„é€ å‡½æ•°ï¼Œä¸ä½¿ç”¨newæ˜¯æ²¡æ³•è°ƒç”¨çš„ï¼Œä¼šæŠ¥é”™ã€‚è¿™æ˜¯å®ƒè·Ÿæ™®é€šæ„é€ å‡½æ•°çš„ä¸€ä¸ªä¸»è¦åŒºåˆ«ï¼Œåè€…ä¸ç”¨newä¹Ÿå¯ä»¥æ‰§è¡Œã€‚*/
 			  //Person();//TypeError: class constructors must be invoked with |new|
 		   });
 		   
 		    $("#test3").on("click",function(){
 		     
-			    var p=new Person("Ğ¡ĞÂ",20);
+			    var p=new Person("å°æ–°",20);
 			   class Person{
 			  
 			    constructor(name,age){

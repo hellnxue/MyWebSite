@@ -257,6 +257,9 @@ function removeCSS(){
       }
 }
 
+
+// 测试构造函数与普通函数中this指向
+
 var age=5;
 
 function Person(){
@@ -264,7 +267,7 @@ function Person(){
  
 
   this.sayAge=function(){
-     console.log(this.age);
+     console.log(this.age);//this指向构造函数Person创建的对象
   };
 
    /*setInterval(function() {
@@ -272,7 +275,12 @@ function Person(){
     // 为全局对象, 不同于构造函数Person()的定义的 `this`
     this.age++; 
     console.log(this.age);//值为6，之后递增，此处的this在new Person()时调用，指向的是window对象
-  }, 1000);*/
+  }, 1000);
+   
+   
+
+
+  */
 
   setInterval(()=> {
     

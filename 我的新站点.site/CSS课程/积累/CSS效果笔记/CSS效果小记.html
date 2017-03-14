@@ -328,6 +328,33 @@ position:absulute哎----</h3>
     <article>This is a book</article>
   </script>
 
+   <h3>fieldset标签设置了固定宽度，子元素的宽度超过父容器的宽度时，子元素不会被有固定宽度的fieldset切掉，反而会使得父容器也一块被撑大。这是div或者其它元素所不具备的特性。--来自新发现
+   </h3>
+   <pre>
+     原因：因为它的min-width属性，在CSS的属性的权重中，min-width > width，在chrome里面：
+
+    fieldset { min-width: -webkit-min-content; }
+    改变它的min-width就可以，复写它的值，或者改为inherit（考虑到是手机端开发，inherit是全支持的）都可以。
+
+    fieldset { min-width: inherit; }
+    /*or*/
+    fieldset { min-width: 100px; }
+
+    IE和chrome的相应问题已经解决，但是还剩firefox。
+   </pre>
+
+   <p>div元素示范</p>
+   <div class ="bsbb">
+     <div>test</div>
+   </div>
+
+   <p>fieldset</p>
+   <fieldset class ="bsbb">
+     <div>test</div>
+   </fieldset>
+
+     
+
 <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="../../js/myJs.js"></script>
 </body>
