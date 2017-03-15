@@ -21,8 +21,13 @@
 			<input type="button"  value="重复声明" onClick="test3(11)"/> 
 			 
 		    <input type="button"  value="ES5变量提升导致的问题" onClick="test4()"/>
-			
-			  
+
+		     <input type="button"  value="闭包模拟局部作用域" onClick="test5()"/>
+			 <input type="button"  value="测试" onClick="test6()"/>
+			 
+			 <input type="button"  value="不能在函数内部重新声明参数" onClick="test7()"/>
+
+			  <input type="button"  value="ES6的块级作用域" onClick="test8()"/>
 		</fieldset>
 		
 		<fieldset class="out">
@@ -126,11 +131,8 @@
 	   
 	}
 	
-	/*
-	 //??????????调用时没有报错哎
-	function bar(x = y, y = 2) {
-	  return [x, y];
-	}*/
+	 
+	
 	
 	/*IE10.0不支持参数有默认值哎*/
 	function test2(x=2){
@@ -159,6 +161,48 @@
 	  if(false){
 		var date="hello world";
 	  }
+	}
+
+	// 闭包模拟局部作用域(块级作用域)
+	function test5(){
+		var a = [];
+		for (var i = 0; i < 10; i++) {
+		  a[i] = (function (pm) {
+		  	 
+		  	 return function(){
+		  	 	console.log(pm);
+		  	 }
+		    
+		  })(i);
+		}
+
+		 a[6]();
+	}
+
+ 	/*暂时性死区*/
+	function bar(x = y, y = 2) {
+	  return [x, y];
+	} 
+
+	//变量y不能再定义之前使用如果是bar(x = 2, y = x) 的话没有问题，因为x已经定义了的
+	function test6(){
+		bar();//ReferenceError: can't access lexical declaration `y' before initialization
+	}
+
+	function test7(arg){
+		// let arg=1;//error
+		{
+			let arg=1;//right
+		}
+	}
+
+
+	function test8(){
+		let n=5;
+		if (true) {
+			let n=10;
+		}
+		console.log(n);//5
 	}
 	
 	</script>
