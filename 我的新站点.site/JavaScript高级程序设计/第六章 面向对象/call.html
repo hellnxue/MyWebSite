@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 function Class1(){
-    this.name = 'class1';//Ìí¼ÓnameÖµ
+    this.name = 'class1';//æ·»åŠ nameå€¼
     this.showTxt = function(){console.log(this.name)}
 }
 function Class2(){
@@ -15,7 +15,7 @@ function Class2(){
 
 function test1(){
     var class2 = new Class2();
-	Class1.call(class2);//call»á°Ñº¯ÊıClass1µÄÄÚÈİ´«µ½º¯ÊıClass2µÄÊµÀıÖĞÈ¥£¬»á¸²¸ÇÍ¬ÃûµÄÊôĞÔÖµ
+	Class1.call(class2);//callä¼šæŠŠå‡½æ•°Class1çš„å†…å®¹ä¼ åˆ°å‡½æ•°Class2çš„å®ä¾‹ä¸­å»ï¼Œä¼šè¦†ç›–åŒåçš„å±æ€§å€¼
 	console.log(class2.showTxt);//function(){alert(this.name)}
 	class2.showTxt();//class1
 	
@@ -47,8 +47,8 @@ function test2(){
 </head>
 
 <body>
-<input type="button"  name="d1" id="d1" value="²âÊÔcall" onclick="test1()"/></br>
-<input type="button"  name="d1" id="d1" value="²âÊÔcall" onclick="test2()"/></br>
+<input type="button"  name="d1" id="d1" value="æµ‹è¯•call" onclick="test1()"/></br>
+<input type="button"  name="d1" id="d1" value="æµ‹è¯•call" onclick="test2()"/></br>
 
 </body>
 </html>

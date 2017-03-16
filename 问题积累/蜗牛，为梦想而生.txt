@@ -160,7 +160,7 @@ box-sizing: content-box;？
 -------------在sublime-text中设置浏览器预览--------------------
 先安装插件SideBarEnhancements
 
-Preferences-Key Bindlings打开编辑页User输入下面的内容即可
+Preferences-Key Bindings打开编辑页User输入下面的内容即可
  // chrome
 { "keys": ["ctrl+f12"], "command": "side_bar_files_open_with",
           "args": {
@@ -179,11 +179,20 @@ Preferences-Key Bindlings打开编辑页User输入下面的内容即可
 }
 
 
----------------sublime-text设置字体大小
+---------------sublime-text设置字体大小和背景颜色
 ”preferences” ->”Settings - User”
-输入
-    "font_size":12.0,
-	"default_encoding":"UTF-8"
+ 
+
+{
+	"color_scheme": "Packages/Color Scheme - Default/Mac Classic.tmTheme",
+	"default_encoding": "UTF-8",
+	"font_size": 14.0,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"preview_on_click": false
+}
 	
 ----------------sublime text双击文件打开&在新窗口打开
 ”preferences” ->”Settings - User”
@@ -203,14 +212,14 @@ http://caibaojian.com/sublime-text2-dump.html
 --setting-users配置
 {
 	"color_scheme": "Packages/Color Scheme - Default/Mac Classic.tmTheme",
-	"font_size": 13,
+	"default_encoding": "UTF-8",
+	"font_size": 14.0,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
 	"preview_on_click": false
 }
-
 
 
 ----手机端手滑滚动插件

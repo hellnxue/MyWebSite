@@ -108,6 +108,31 @@ tab-size:0;会禁用tab键产生的缩进奥
 -o-tab-size: 2; /* 针对 Opera 的代码 */
 tab-size: 2;
 }
+
+
+/*处理连字字符*/
+.ligature span+span{
+    margin-left: 10px;
+}
+
+.ligature p{
+     font-family: serif;
+     /*开启所有可能的连字
+
+      font-variant-ligatures: common-ligatures
+                            discretionary-ligatures
+                            historical-ligatures;
+
+      关闭酌情连字，只开启通用连字：
+       font-variant-ligatures: common-ligatures;
+
+       关闭所有可能的连字效果：
+       font-variant-ligatures:normal;
+      */
+     font-variant-ligatures: common-ligatures
+                            discretionary-ligatures
+                            historical-ligatures;
+}
 </style>
 </head>
 <body>
@@ -173,8 +198,14 @@ while (true) {
 }</code></pre>
  
 
- 
+ <h3>24、连字</h3>
+ <div class="ligature">
+    <span style="font-family: sans-serif;">无衬线字体：fi  fl ffi</span>
+    <span style="font-family: serif;">衬线字体：fi  fl ffi</span>
+    <span class="ligature12">Unicode连字字符  &#xfb01;</span> 
 
+    <p>piffle</p>
+ </div>
 
 </body>
 </html>

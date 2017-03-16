@@ -329,6 +329,11 @@ function arrow(){
    console.log(foo(100,200))
 
 }
+
+function node(th){
+  console.log(th.nodeName);//INPUT
+
+}
  
 </script>
 </head>
@@ -419,7 +424,10 @@ function arrow(){
 
  <input type="button" value="箭头函数不绑定参数arguments" onClick="arrow()"/></br>
 
+<input type="button" value="DOM节点名称nodeName" onClick="node(this)"/></br>
 
+
+ 
 <a >hello world</a>
 </body>
 </html>

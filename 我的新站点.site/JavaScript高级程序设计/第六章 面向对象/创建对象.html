@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <style>
   body{
 	  background-color:#eee;}
@@ -12,7 +12,7 @@
 	  margin: 20px auto 40px;
 	  border-radius:10px;
 	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
-	  border:none;/*È¥µô°´Å¥Ä¬ÈÏµÄÒõÓ°£¬³¬¼¶ÄÑ¿´µÄÄ¬ÈÏÑùÊ½*/
+	  border:none;/*å»æ‰æŒ‰é’®é»˜è®¤çš„é˜´å½±ï¼Œè¶…çº§éš¾çœ‹çš„é»˜è®¤æ ·å¼*/
 	  box-shadow:0 12px 8px -9px #555;
   
   
@@ -45,7 +45,7 @@ fieldset.out {
 </style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
-/*¹«¹²·½·¨-ÏûÏ¢ÏÔÊ¾*/
+/*å…¬å…±æ–¹æ³•-æ¶ˆæ¯æ˜¾ç¤º*/
 function commonShow(msg){
   $("#out").html("");
   $("#out").html(msg);
@@ -67,41 +67,41 @@ console.log(c.var1.join(","))
 console.log(c.hasOwnProperty("var1"));
 
 
-//-----------------------Ô­ĞÍ¶ÔÏó----------------------------
-/*Person¹¹Ôìº¯Êı*/
+//-----------------------åŸå‹å¯¹è±¡----------------------------
+/*Personæ„é€ å‡½æ•°*/
 function Person(){
 
 }
 
-/*Ô­ĞÍ¶ÔÏóÓëÊµÀı¶ÔÏóµÄ¹ØÏµ*/
+/*åŸå‹å¯¹è±¡ä¸å®ä¾‹å¯¹è±¡çš„å…³ç³»*/
 function test1(){
   
    
-   Person.prototype.name="Nigola";//¸øÔ­ĞÍ¶ÔÏóÌí¼ÓÊôĞÔ&Öµ
+   Person.prototype.name="Nigola";//ç»™åŸå‹å¯¹è±¡æ·»åŠ å±æ€§&å€¼
    
-   //´´½¨Ò»¸öÊµÀı¶ÔÏó
+   //åˆ›å»ºä¸€ä¸ªå®ä¾‹å¯¹è±¡
    var p1=new Person();
    
    var p2=new Person();
    
    console.log(typeof p1);//object
-   console.log(typeof Person);//function  Ã¿¸öº¯Êı¶¼ÊÇFunctionÀàĞÍµÄ¶ÔÏó£¬Òò´Ë typeof»á·µ»Øfunction
+   console.log(typeof Person);//function  æ¯ä¸ªå‡½æ•°éƒ½æ˜¯Functionç±»å‹çš„å¯¹è±¡ï¼Œå› æ­¤ typeofä¼šè¿”å›function
    
-   console.log(p1);//¹¹Ôìº¯ÊıµÄÊµÀı¶ÔÏó °üº¬Ö¸ÏòÔ­ĞÍ¶ÔÏóµÄÖ¸Õë[[Prototype]]  ÔÚ»ğºüÖĞµÄ½Å±¾ÊÇ½Ğ_proto_
+   console.log(p1);//æ„é€ å‡½æ•°çš„å®ä¾‹å¯¹è±¡ åŒ…å«æŒ‡å‘åŸå‹å¯¹è±¡çš„æŒ‡é’ˆ[[Prototype]]  åœ¨ç«ç‹ä¸­çš„è„šæœ¬æ˜¯å«_proto_
    
-   /*Ô­ĞÍ¶ÔÏó×î³õÖ»°üº¬ constructorÊôĞÔ£¬¸ÃÊôĞÔÒ²ÊÇ¹²ÏíµÄ£¬ËùÒÔÊµÀı¶ÔÏó¿ÉÒÔ·ÃÎÊËü*/
-   console.log(p1.constructor);//Ô­ĞÍ¶ÔÏóµÄconstructorÊôĞÔ Ö¸Ïò¹¹Ôìº¯Êı
+   /*åŸå‹å¯¹è±¡æœ€åˆåªåŒ…å« constructorå±æ€§ï¼Œè¯¥å±æ€§ä¹Ÿæ˜¯å…±äº«çš„ï¼Œæ‰€ä»¥å®ä¾‹å¯¹è±¡å¯ä»¥è®¿é—®å®ƒ*/
+   console.log(p1.constructor);//åŸå‹å¯¹è±¡çš„constructorå±æ€§ æŒ‡å‘æ„é€ å‡½æ•°
    
-   console.log(p1.constructor==Person);//constructorÎªÔ­ĞÍ¶ÔÏóµÄÊôĞÔ£¬Ö¸Ïò¹¹Ôìº¯ÊıÖ¸ÕëPerson
+   console.log(p1.constructor==Person);//constructorä¸ºåŸå‹å¯¹è±¡çš„å±æ€§ï¼ŒæŒ‡å‘æ„é€ å‡½æ•°æŒ‡é’ˆPerson
    
-    /*ÀûÓÃÔ­ĞÍ¶ÔÏóµÄisPrototypeOf()·½·¨£¬¿ÉÒÔÈ·ÈÏÔ­ĞÍ¶ÔÏóÓëÊµÀı¶ÔÏóÖ®¼äµÄ¹ØÏµ£¬ËµÃ÷ÊµÀı¶ÔÏóµÄÖ¸Õë[[Prototype]]ÊÇ·ñÖ¸Ïò¸ÃÔ­ĞÍ¶ÔÏó*/
+    /*åˆ©ç”¨åŸå‹å¯¹è±¡çš„isPrototypeOf()æ–¹æ³•ï¼Œå¯ä»¥ç¡®è®¤åŸå‹å¯¹è±¡ä¸å®ä¾‹å¯¹è±¡ä¹‹é—´çš„å…³ç³»ï¼Œè¯´æ˜å®ä¾‹å¯¹è±¡çš„æŒ‡é’ˆ[[Prototype]]æ˜¯å¦æŒ‡å‘è¯¥åŸå‹å¯¹è±¡*/
    console.log("p1:"+Person.prototype.isPrototypeOf(p1)+"\np2:"+Person.prototype.isPrototypeOf(p2));//true true
    
-    /*ECMAScript 5 ĞÂÔö·½·¨ Object.getPrototypeOf(ÊµÀı¶ÔÏó) ,·µ»ØÊµÀı¶ÔÏóµÄÖ¸Õë[[Prototype]] £¬Ò²¾ÍÊÇÔ­ĞÍ¶ÔÏó*/
-   console.log(Object.getPrototypeOf(p1));//Object.getPrototypeOf()È¡µÃÖ¸¶¨¶ÔÏóµÄÔ­ĞÍ¶ÔÏó
+    /*ECMAScript 5 æ–°å¢æ–¹æ³• Object.getPrototypeOf(å®ä¾‹å¯¹è±¡) ,è¿”å›å®ä¾‹å¯¹è±¡çš„æŒ‡é’ˆ[[Prototype]] ï¼Œä¹Ÿå°±æ˜¯åŸå‹å¯¹è±¡*/
+   console.log(Object.getPrototypeOf(p1));//Object.getPrototypeOf()å–å¾—æŒ‡å®šå¯¹è±¡çš„åŸå‹å¯¹è±¡
    
    console.log(Object.getPrototypeOf(p1)==Person.prototype);//true
-   console.log(Object.getPrototypeOf(p1).name);//"Nigola" À´×ÔÔ­ĞÍ¶ÔÏóÖĞµÄÊôĞÔname
+   console.log(Object.getPrototypeOf(p1).name);//"Nigola" æ¥è‡ªåŸå‹å¯¹è±¡ä¸­çš„å±æ€§name
    
  
    console.log("--------------------------------------------------------------------------------------------------------------------------------");
@@ -110,39 +110,39 @@ function test1(){
      return "hello";
    }
    
-   //ÊµÀıÖĞÌí¼ÓµÄÊôĞÔÃû³ÆÈôÓëÔ­ĞÍ¶ÔÏóµÄÊôĞÔÃû³ÆÏàÍ¬£¬Ç°Õß»á¸²¸ÇºóÕß 
+   //å®ä¾‹ä¸­æ·»åŠ çš„å±æ€§åç§°è‹¥ä¸åŸå‹å¯¹è±¡çš„å±æ€§åç§°ç›¸åŒï¼Œå‰è€…ä¼šè¦†ç›–åè€… 
    console.log("p1.name="+p1.name);//tom 
    
-   console.log("Object.getPrototypeOf(p1).name="+Object.getPrototypeOf(p1).name);//È¡µÃ¶ÔÏóp1Ô­ĞÍ¶ÔÏóÖĞµÄname,¼´Nigola
+   console.log("Object.getPrototypeOf(p1).name="+Object.getPrototypeOf(p1).name);//å–å¾—å¯¹è±¡p1åŸå‹å¯¹è±¡ä¸­çš„name,å³Nigola
    
-   console.log("p2.name="+p2.name);//ÁíÒ»¸öÊµÀı¶ÔÏó·ÃÎÊµÄÈÔÈ»ÊÇÔ­ĞÍ¶ÔÏóÖĞµÄÖµ£¬Nigola
+   console.log("p2.name="+p2.name);//å¦ä¸€ä¸ªå®ä¾‹å¯¹è±¡è®¿é—®çš„ä»ç„¶æ˜¯åŸå‹å¯¹è±¡ä¸­çš„å€¼ï¼ŒNigola
    
-    /*hasOwnPropertype()·½·¨¼ì²âÒ»¸öÊôĞÔÊÇ·ñ´æÔÚÓëÊµÀı»òÔ­ĞÍÖĞ,Õâ¸ö·½·¨Ö»ÓĞÔÚ¸ø¶¨ÊôĞÔ´æÔÚÓÚµ÷ÓÃ´Ë·½·¨µÄ¶ÔÏó£¨ÊµÀı¶ÔÏó»òÕßÔ­ĞÍ¶ÔÏó£©ÖĞÊ±²Å»á·µ»Øtrue*/
+    /*hasOwnPropertype()æ–¹æ³•æ£€æµ‹ä¸€ä¸ªå±æ€§æ˜¯å¦å­˜åœ¨ä¸å®ä¾‹æˆ–åŸå‹ä¸­,è¿™ä¸ªæ–¹æ³•åªæœ‰åœ¨ç»™å®šå±æ€§å­˜åœ¨äºè°ƒç”¨æ­¤æ–¹æ³•çš„å¯¹è±¡ï¼ˆå®ä¾‹å¯¹è±¡æˆ–è€…åŸå‹å¯¹è±¡ï¼‰ä¸­æ—¶æ‰ä¼šè¿”å›true*/
    console.log("p1.hasOwnProperty(\"name\")="+ p1.hasOwnProperty("name"));//true
     
    console.log("delete p1.name start");
    
-   //deleteÉ¾³ıÊµÀıÖĞµÄÊôĞÔ£¬»Ö¸´·ÃÎÊÔ­ĞÍ¶ÔÏóµÄÊôĞÔ£¬¼´Nigola
+   //deleteåˆ é™¤å®ä¾‹ä¸­çš„å±æ€§ï¼Œæ¢å¤è®¿é—®åŸå‹å¯¹è±¡çš„å±æ€§ï¼Œå³Nigola
    delete p1.name;
    
    console.log("delete p1.name end");
    
    console.log("p1.name="+p1.name);
    
-   console.log("p1.hasOwnProperty(\"name\")="+p1.hasOwnProperty("name"));//false ÊµÀıÖĞ
+   console.log("p1.hasOwnProperty(\"name\")="+p1.hasOwnProperty("name"));//false å®ä¾‹ä¸­
    
-   console.log("Person.prototype.hasOwnProperty(\"name\")="+Person.prototype.hasOwnProperty("name"));//true Ô­ĞÍÖĞ
+   console.log("Person.prototype.hasOwnProperty(\"name\")="+Person.prototype.hasOwnProperty("name"));//true åŸå‹ä¸­
    
-   console.log("Person.prototype.hasOwnProperty(\"constructor\")="+Person.prototype.hasOwnProperty("constructor"));//true Ô­ĞÍ¶ÔÏóÖĞÊÇ·ñ´æÔÚconstructorÊôĞÔ
+   console.log("Person.prototype.hasOwnProperty(\"constructor\")="+Person.prototype.hasOwnProperty("constructor"));//true åŸå‹å¯¹è±¡ä¸­æ˜¯å¦å­˜åœ¨constructorå±æ€§
    
-   console.log("Object.getPrototypeOf(p1).hasOwnProperty(\"constructor\")="+Object.getPrototypeOf(p1).hasOwnProperty("constructor"));//true Ô­ĞÍ¶ÔÏóÖĞÊÇ·ñ´æÔÚconstructorÊôĞÔ µ±È»ÓĞÀ²
+   console.log("Object.getPrototypeOf(p1).hasOwnProperty(\"constructor\")="+Object.getPrototypeOf(p1).hasOwnProperty("constructor"));//true åŸå‹å¯¹è±¡ä¸­æ˜¯å¦å­˜åœ¨constructorå±æ€§ å½“ç„¶æœ‰å•¦
    
    console.log("p1.hasOwnProperty(\"getName\")="+p1.hasOwnProperty("getName"));//true
 	
    
 }
 
-/*Ô­ĞÍÓë²Ù×÷·ûin*/
+/*åŸå‹ä¸æ“ä½œç¬¦in*/
 function testIn(){
    
    Person.prototype.name="Nicholas";
@@ -153,7 +153,7 @@ function testIn(){
    var p1=new Person();
    var p2=new Person();
    /*
-     in²Ù×÷·û»áÔÚÍ¨¹ı¶ÔÏóÄÜ¹»·ÃÎÊ¸ø¶¨ÊôĞÔÊ±·µ»Øtrue,ÎŞÂÛ¸ÃÊôĞÔ´æÔÚÓÚÊµÀıÖĞ»¹ÊÇÔ­ĞÍÖĞ
+     inæ“ä½œç¬¦ä¼šåœ¨é€šè¿‡å¯¹è±¡èƒ½å¤Ÿè®¿é—®ç»™å®šå±æ€§æ—¶è¿”å›true,æ— è®ºè¯¥å±æ€§å­˜åœ¨äºå®ä¾‹ä¸­è¿˜æ˜¯åŸå‹ä¸­
    */
    var a="name" in p1;//true
    var b="name" in Person.prototype;//true
@@ -170,30 +170,30 @@ function testIn(){
    var e=hasPrototypeProperty2(p1,"name");
     var f=hasPrototypeProperty2(p2,"name");
    
-   console.log("nameÊÇ·ñÊÇp1¶ÔÏóµÄÔ­ĞÍ¶ÔÏóµÄÊôĞÔ£º"+c);
+   console.log("nameæ˜¯å¦æ˜¯p1å¯¹è±¡çš„åŸå‹å¯¹è±¡çš„å±æ€§ï¼š"+c);
    
-   console.log("nameÊÇ·ñÊÇ¶ÔÏóp2µÄÔ­ĞÍ¶ÔÏóµÄÊôĞÔ£º"+d);
+   console.log("nameæ˜¯å¦æ˜¯å¯¹è±¡p2çš„åŸå‹å¯¹è±¡çš„å±æ€§ï¼š"+d);
    
-   console.log("nameÊÇ·ñÊÇp1¶ÔÏóµÄÔ­ĞÍ¶ÔÏóµÄÊôĞÔ£º"+e);
-    console.log("nameÊÇ·ñÊÇp2¶ÔÏóµÄÔ­ĞÍ¶ÔÏóµÄÊôĞÔ£º"+f);
+   console.log("nameæ˜¯å¦æ˜¯p1å¯¹è±¡çš„åŸå‹å¯¹è±¡çš„å±æ€§ï¼š"+e);
+    console.log("nameæ˜¯å¦æ˜¯p2å¯¹è±¡çš„åŸå‹å¯¹è±¡çš„å±æ€§ï¼š"+f);
    
-   console.log("------------------------Ìæ´úfor-inÑ­»·-------------------------------");
-    /*for-inÑ­»··µ»ØµÄÊÇËùÓĞÄÜ¹»Í¨¹ı¶ÔÏó·ÃÎÊµÄ¡¢¿ÉÃ¶¾ÙµÄÊôĞÔ
-	  ¿ÉÒÔÓÃObject.keys()ºÍObject.getOwnPrototypeNames()ÕâÁ½¸ö·½·¨´úÌæfor-inÑ­»·È¡µÃ¶ÔÏóµÄÊôĞÔ°Â
+   console.log("------------------------æ›¿ä»£for-inå¾ªç¯-------------------------------");
+    /*for-inå¾ªç¯è¿”å›çš„æ˜¯æ‰€æœ‰èƒ½å¤Ÿé€šè¿‡å¯¹è±¡è®¿é—®çš„ã€å¯æšä¸¾çš„å±æ€§
+	  å¯ä»¥ç”¨Object.keys()å’ŒObject.getOwnPrototypeNames()è¿™ä¸¤ä¸ªæ–¹æ³•ä»£æ›¿for-inå¾ªç¯å–å¾—å¯¹è±¡çš„å±æ€§å¥¥
 	*/
 	p1.age=25;
 	
-	/*Object.keys½ÓÊÜÒ»¸ö¶ÔÏó×÷Îª²ÎÊı£¬·µ»ØÒ»¸ö°üº¬ËùÓĞ¿ÉÃ¶¾ÙÊôĞÔµÄ×Ö·û´®Êı×é*/
+	/*Object.keysæ¥å—ä¸€ä¸ªå¯¹è±¡ä½œä¸ºå‚æ•°ï¼Œè¿”å›ä¸€ä¸ªåŒ…å«æ‰€æœ‰å¯æšä¸¾å±æ€§çš„å­—ç¬¦ä¸²æ•°ç»„*/
 	var keys=Object.keys(Person.prototype);
 	var key=Object.keys(p1);
 	console.log("Object.keys(Person.prototype):"+Object.keys(Person.prototype));//name,age,job
 	console.log("Object.keys(p1):"+Object.keys(p1));//name,age
 	
-	/*Object.getOwnPropertyNames() »ñÈ¡ËùÓĞÊµÀıÊôĞÔ£¬ÎŞÂÛËüÊÇ·ñ¿ÉÃ¶¾Ù*/
+	/*Object.getOwnPropertyNames() è·å–æ‰€æœ‰å®ä¾‹å±æ€§ï¼Œæ— è®ºå®ƒæ˜¯å¦å¯æšä¸¾*/
 	
 	var keyss=Object.getOwnPropertyNames(Person.prototype);
 	var keysss=Object.getOwnPropertyNames(p1);
-   console.log("Object.getOwnPropertyNames(Person.prototype):"+Object.getOwnPropertyNames(Person.prototype));//constructor,name,age,job constructorÄ¬ÈÏÊÇ²»¿ÉÃ¶¾ÙµÄ
+   console.log("Object.getOwnPropertyNames(Person.prototype):"+Object.getOwnPropertyNames(Person.prototype));//constructor,name,age,job constructoré»˜è®¤æ˜¯ä¸å¯æšä¸¾çš„
 	console.log("=Object.getOwnPropertyNames(p1):"+Object.getOwnPropertyNames(p1));// name,age 
    
 }
@@ -201,15 +201,15 @@ function testIn(){
 
 
 /*
-  ÅĞ¶ÏÊôĞÔÊÇ·ñÖ»´æÔÚÓÚÔ­ĞÍ¶ÔÏó
-  ÀûÓÃinºÍhasOwnProperty()ÅĞ¶ÏÊôĞÔÊÇ·ñÀ´×ÔÔ­ĞÍ¶ÔÏó,Ö»ÊÇ´æÔÚÓÚÔ­ĞÍ¶ÔÏóÖĞÊ±²ÅÎªtrue
-  ·½·¨Ò»£º
+  åˆ¤æ–­å±æ€§æ˜¯å¦åªå­˜åœ¨äºåŸå‹å¯¹è±¡
+  åˆ©ç”¨inå’ŒhasOwnProperty()åˆ¤æ–­å±æ€§æ˜¯å¦æ¥è‡ªåŸå‹å¯¹è±¡,åªæ˜¯å­˜åœ¨äºåŸå‹å¯¹è±¡ä¸­æ—¶æ‰ä¸ºtrue
+  æ–¹æ³•ä¸€ï¼š
 */
 function hasPrototypeProperty(object,name){
    return !object.hasOwnProperty(name)&&(name in object);
 }
-/* ÅĞ¶ÏÊôĞÔÊÇ·ñÖ»´æÔÚÓÚÔ­ĞÍ¶ÔÏó
-   ·½·¨¶ş£º
+/* åˆ¤æ–­å±æ€§æ˜¯å¦åªå­˜åœ¨äºåŸå‹å¯¹è±¡
+   æ–¹æ³•äºŒï¼š
 */
 function hasPrototypeProperty2(object,name){
 
@@ -226,18 +226,18 @@ function hasPrototypeProperty2(object,name){
 
 
 
-/*¹¹Ôìº¯ÊıPerson1*/
+/*æ„é€ å‡½æ•°Person1*/
 function Person1(){
   
 
 }
 
-/*¸ü¼òµ¥µÄÔ­ĞÍÓï·¨-ÖØĞ´Ô­ĞÍ¶ÔÏó*/
+/*æ›´ç®€å•çš„åŸå‹è¯­æ³•-é‡å†™åŸå‹å¯¹è±¡*/
 function test66(){
 
-   //¼òµ¥µÄÔ­ĞÍÓï·¨ µ«»áÖØĞ´Ô­ĞÍ¶ÔÏó£¬µ¼ÖÂconstructor²»ÔÙÖ¸Ïò¹¹Ôìº¯ÊıÖ¸Õë£¬¶øÊÇÖ¸ÏòÁËObject
+   //ç®€å•çš„åŸå‹è¯­æ³• ä½†ä¼šé‡å†™åŸå‹å¯¹è±¡ï¼Œå¯¼è‡´constructorä¸å†æŒ‡å‘æ„é€ å‡½æ•°æŒ‡é’ˆï¼Œè€Œæ˜¯æŒ‡å‘äº†Object
    Person1.prototype={
-    /* constructor:Person1,*///¿ÉÒÔÖØĞÂÈÃconstructorÊôĞÔÖ¸Ïò¹¹Ôìº¯ÊıµÄÖ¸Õë
+    /* constructor:Person1,*///å¯ä»¥é‡æ–°è®©constructorå±æ€§æŒ‡å‘æ„é€ å‡½æ•°çš„æŒ‡é’ˆ
      name:"Nigola",
 	 age:70,
 	 sayName:function(){
@@ -248,13 +248,13 @@ function test66(){
    var friend=new Person1("Tom"); 
 
    console.log(friend.constructor);//Object
-   console.log(friend.constructor==Person1.prototype.constructor);//true ¶¼ÎªObject
+   console.log(friend.constructor==Person1.prototype.constructor);//true éƒ½ä¸ºObject
    console.log( Person1.prototype.constructor);//Object
    console.log(friend.constructor==Object);//true
    console.log(friend.constructor==Person1);//false
    console.log(friend.name);//Nigola
    
-   console.log(Object.getPrototypeOf(friend)==Person1.prototype);//true ´Ë´¦ÊµÀıµÄÔ­ĞÍ¶ÔÏóÖ¸ÕëÓë¹¹Ôìº¯ÊıµÄÔ­ĞÍ¶ÔÏóÊÇÒ»¸ö
+   console.log(Object.getPrototypeOf(friend)==Person1.prototype);//true æ­¤å¤„å®ä¾‹çš„åŸå‹å¯¹è±¡æŒ‡é’ˆä¸æ„é€ å‡½æ•°çš„åŸå‹å¯¹è±¡æ˜¯ä¸€ä¸ª
  
     console.log(friend.sayName());
 	
@@ -265,19 +265,19 @@ function test66(){
 }
 
 
-/*Ô­ĞÍ¶ÔÏóµÄ¶¯Ì¬ĞÔ--ÓëÖØĞ´ÁËÔ­ĞÍ¶ÔÏóºóµÄÇø±ğ
-   ¹¹Ôìº¯Êı´´½¨ºóÄ¬ÈÏÓĞÒ»¸öprototypeÊôĞÔ£¬Ö¸ÏòËüµÄÔ­ĞÍ¶ÔÏó¡£ÊµÀı¶ÔÏóÖĞ»áÓĞÒ»¸öÖ¸Ïò¹¹Ôìº¯ÊıµÄÔ­ĞÍ¶ÔÏóµÄÖ¸Õë[[Prototype]]£¬ÈôÔÚ´´½¨ÊµÀı¶ÔÏóÖ®ºóÔÙÓÃ¼òµ¥µÄÔ­ĞÍÓï·¨ÖØĞ´ÁË¹¹Ôìº¯ÊıµÄÔ­ĞÍ¶ÔÏó£¬ÄÇÃ´ÊµÀı¶ÔÏóµÄÔ­ĞÍÖ¸Õë»¹ÊÇÖ¸Ïò¹¹Ôìº¯Êı×îÔ­Ê¼µÄÄÇ¸öÔ­ĞÍ¶ÔÏó¡£
-   ×îÔ­Ê¼µÄÄÇ¸öÔ­ĞÍ¶ÔÏó³ıÁËº¬ÓĞÄ¬ÈÏµÄconstructionÊôĞÔÍâ£¬Ã»ÓĞ±ğµÄÊôĞÔÁË£¬ËùÒÔ»áÕÒ²»µ½name¡£
+/*åŸå‹å¯¹è±¡çš„åŠ¨æ€æ€§--ä¸é‡å†™äº†åŸå‹å¯¹è±¡åçš„åŒºåˆ«
+   æ„é€ å‡½æ•°åˆ›å»ºåé»˜è®¤æœ‰ä¸€ä¸ªprototypeå±æ€§ï¼ŒæŒ‡å‘å®ƒçš„åŸå‹å¯¹è±¡ã€‚å®ä¾‹å¯¹è±¡ä¸­ä¼šæœ‰ä¸€ä¸ªæŒ‡å‘æ„é€ å‡½æ•°çš„åŸå‹å¯¹è±¡çš„æŒ‡é’ˆ[[Prototype]]ï¼Œè‹¥åœ¨åˆ›å»ºå®ä¾‹å¯¹è±¡ä¹‹åå†ç”¨ç®€å•çš„åŸå‹è¯­æ³•é‡å†™äº†æ„é€ å‡½æ•°çš„åŸå‹å¯¹è±¡ï¼Œé‚£ä¹ˆå®ä¾‹å¯¹è±¡çš„åŸå‹æŒ‡é’ˆè¿˜æ˜¯æŒ‡å‘æ„é€ å‡½æ•°æœ€åŸå§‹çš„é‚£ä¸ªåŸå‹å¯¹è±¡ã€‚
+   æœ€åŸå§‹çš„é‚£ä¸ªåŸå‹å¯¹è±¡é™¤äº†å«æœ‰é»˜è®¤çš„constructionå±æ€§å¤–ï¼Œæ²¡æœ‰åˆ«çš„å±æ€§äº†ï¼Œæ‰€ä»¥ä¼šæ‰¾ä¸åˆ°nameã€‚
 */
 
 function test2(){
 
-   //ÊµÀı¶ÔÏóÖĞÓĞÒ»¸öÖ¸Õë[[Prototype]],Ö¸Ïò¹¹Ôìº¯ÊıµÄÔ­ĞÍ¶ÔÏó
+   //å®ä¾‹å¯¹è±¡ä¸­æœ‰ä¸€ä¸ªæŒ‡é’ˆ[[Prototype]],æŒ‡å‘æ„é€ å‡½æ•°çš„åŸå‹å¯¹è±¡
    var friend=new Person1(); 
    
-   //ÖØĞ´¹¹Ôìº¯ÊıµÄÔ­ĞÍ¶ÔÏó  
+   //é‡å†™æ„é€ å‡½æ•°çš„åŸå‹å¯¹è±¡  
    Person1.prototype={
-     constructor:Person1, //ÖØĞÂÖ¸¶¨constructorµÄÖ¸Ïò
+     constructor:Person1, //é‡æ–°æŒ‡å®šconstructorçš„æŒ‡å‘
      name:"Nigola",
 	 age:70
    };
@@ -287,15 +287,15 @@ function test2(){
    console.log(friend.name);//undefined
    
    console.log(Object.getPrototypeOf(friend)==Person1.prototype);//false
-   console.log(Object.getPrototypeOf(friend));//friendµÄ[[PrototypeÖ¸ÕëÖ¸ÏòÁË¹¹Ôìº¯ÊıPerson1Ô­Ê¼µÄÔ­ĞÍ¶ÔÏó]]
-   console.log(Person1.prototype);//ĞÂµÄÔ­ĞÍ¶ÔÏó
+   console.log(Object.getPrototypeOf(friend));//friendçš„[[PrototypeæŒ‡é’ˆæŒ‡å‘äº†æ„é€ å‡½æ•°Person1åŸå§‹çš„åŸå‹å¯¹è±¡]]
+   console.log(Person1.prototype);//æ–°çš„åŸå‹å¯¹è±¡
    
    
    
 }
-//-----------------------Ô­ĞÍ¶ÔÏó----------------------------
+//-----------------------åŸå‹å¯¹è±¡----------------------------
 
-//-----------------------Ô­ĞÍ¼Ì³Ğ----------------------------
+//-----------------------åŸå‹ç»§æ‰¿----------------------------
 function SuperType(){
     this.property="father";
 }
@@ -323,12 +323,12 @@ var subtype=new SubType();
 
 console.log(subtype.getSuperValue());
 
-console.log(Object.getPrototypeOf(subtype));//»ñµÃÊµÀı¶ÔÓ¦µÄÔ­ĞÍ,¸ÃÊµÀıµÄÔ­ĞÍÊÇ¸¸ÀàµÄ¹¹Ôìº¯ÊıÖĞµÄÊôĞÔÓë¸¸ÀàµÄÔ­ĞÍÊôĞÔ£¨»ò·½·¨£©£¬»¹ÓĞ¸ÃÊµÀı±¾ÉíÔ­ĞÍÊôĞÔ£¨»ò·½·¨£©µÄ×éºÏ
+console.log(Object.getPrototypeOf(subtype));//è·å¾—å®ä¾‹å¯¹åº”çš„åŸå‹,è¯¥å®ä¾‹çš„åŸå‹æ˜¯çˆ¶ç±»çš„æ„é€ å‡½æ•°ä¸­çš„å±æ€§ä¸çˆ¶ç±»çš„åŸå‹å±æ€§ï¼ˆæˆ–æ–¹æ³•ï¼‰ï¼Œè¿˜æœ‰è¯¥å®ä¾‹æœ¬èº«åŸå‹å±æ€§ï¼ˆæˆ–æ–¹æ³•ï¼‰çš„ç»„åˆ
 
  
 }
 
-//-----------------------¹¹Ôìº¯Êı¼Ì³Ğ----------------------------
+//-----------------------æ„é€ å‡½æ•°ç»§æ‰¿----------------------------
 
 function SuperType1(arguement){
   this.color=["red","black","blue"];
@@ -348,11 +348,11 @@ function test4(){
   console.log(instance.name);
   console.log(instance.age);
   
-  console.log("»ñµÃÊµÀıµÄÔ­ĞÍ");
-  console.log(Object.getPrototypeOf(instance));//¸ÃÊµÀıµÄÔ­ĞÍÓë¸¸ÀàµÄÔ­ĞÍÃ»ÓĞÈÎºÎ¹ØÏµ£¬×ÓÀàµÄ¹¹Ôìº¯ÊıÖ»ÊÇ½èÓÃÁË¸¸Àà¹¹Ôìº¯ÊıÀïµÄÊôĞÔ»ò·½·¨
+  console.log("è·å¾—å®ä¾‹çš„åŸå‹");
+  console.log(Object.getPrototypeOf(instance));//è¯¥å®ä¾‹çš„åŸå‹ä¸çˆ¶ç±»çš„åŸå‹æ²¡æœ‰ä»»ä½•å…³ç³»ï¼Œå­ç±»çš„æ„é€ å‡½æ•°åªæ˜¯å€Ÿç”¨äº†çˆ¶ç±»æ„é€ å‡½æ•°é‡Œçš„å±æ€§æˆ–æ–¹æ³•
   
 }
-//-----------------------¹¹Ôìº¯Êı&Ô­ĞÍ¼Ì³Ğ----------------------------Person.prototype.hasOwnProperty("name")
+//-----------------------æ„é€ å‡½æ•°&åŸå‹ç»§æ‰¿----------------------------Person.prototype.hasOwnProperty("name")
 
 function SuperType11(name){
   this.color=["red","black","blue"];
@@ -360,21 +360,21 @@ function SuperType11(name){
 }
 
 SuperType11.prototype.sayName=function(){
-   console.log("¸¸ÀàÔ­ĞÍÊôĞÔname==="+this.name);
+   console.log("çˆ¶ç±»åŸå‹å±æ€§name==="+this.name);
 };
 
 
 function SubType11(name,age){
-  //¼Ì³ĞÊôĞÔ
+  //ç»§æ‰¿å±æ€§
   SuperType11.call(this,name);
   this.age=age;
 }
 
-//¼Ì³Ğ·½·¨
+//ç»§æ‰¿æ–¹æ³•
 SubType11.prototype=new SuperType11();
 
 SubType11.prototype.sayAge=function(){
-  console.log("×ÓÀàµÄÔ­ĞÍÊôĞÔage=="+this.age);
+  console.log("å­ç±»çš„åŸå‹å±æ€§age=="+this.age);
 
 }
 
@@ -392,24 +392,24 @@ function test5(){
   
   console.log("age="+instance2.age);
   
- console.log("SubType11.prototype.hasOwnProperty(\"color\")="+SubType11.prototype.hasOwnProperty("color"));//SubType11µÄÔ­ĞÍµÈÓÚSuperType11µÄÊµÀı£¬ËùÒÔ£¬ÄÇÃ´ÊôÓÚSubType11µÄÔ­ĞÍÊôĞÔ£¬Ö»²»¹ıºóÀ´colorµÄÖµÔÚ¶ÔÏóÊµÀı»¯µÄÊ±ºò±»¹¹Ôìº¯Êı¼Ì³Ğ·¨¸ø¸²¸ÇµôÁË
+ console.log("SubType11.prototype.hasOwnProperty(\"color\")="+SubType11.prototype.hasOwnProperty("color"));//SubType11çš„åŸå‹ç­‰äºSuperType11çš„å®ä¾‹ï¼Œæ‰€ä»¥ï¼Œé‚£ä¹ˆå±äºSubType11çš„åŸå‹å±æ€§ï¼Œåªä¸è¿‡åæ¥colorçš„å€¼åœ¨å¯¹è±¡å®ä¾‹åŒ–çš„æ—¶å€™è¢«æ„é€ å‡½æ•°ç»§æ‰¿æ³•ç»™è¦†ç›–æ‰äº†
  
  
   console.log("SubType11.prototype.hasOwnProperty(\"name\")="+SubType11.prototype.hasOwnProperty("name"));//true
-  console.log("SuperType11.prototype.hasOwnProperty(\"name\")="+SuperType11.prototype.hasOwnProperty("name"));//false  nameÊÇSuperType11µÄÊµÀıÊôĞÔ
+  console.log("SuperType11.prototype.hasOwnProperty(\"name\")="+SuperType11.prototype.hasOwnProperty("name"));//false  nameæ˜¯SuperType11çš„å®ä¾‹å±æ€§
   
   console.log("instance1.hasOwnProperty(\"name\")="+instance1.hasOwnProperty("name"));//true
   
-  console.log("SubType11.prototype.hasOwnProperty(\"sayName\")="+SubType11.prototype.hasOwnProperty("sayName"));//false sayNameÊÇ¸¸ÀàµÄÔ­ĞÍÊôĞÔ£¬SubType11.prototype=new SuperType11(); SubTypeµÄÔ­ĞÍÊÇ¸¸ÀàµÄÊµÀı£¬Ö»°üº¬¸¸ÀàµÄÊµÀıÊôĞÔ£¬²»°üÀ¨¸¸ÀàµÄÔ­ĞÍÊôĞÔ£¬Á½ÕßÒªÇø·Ö¿ªÀ´
+  console.log("SubType11.prototype.hasOwnProperty(\"sayName\")="+SubType11.prototype.hasOwnProperty("sayName"));//false sayNameæ˜¯çˆ¶ç±»çš„åŸå‹å±æ€§ï¼ŒSubType11.prototype=new SuperType11(); SubTypeçš„åŸå‹æ˜¯çˆ¶ç±»çš„å®ä¾‹ï¼ŒåªåŒ…å«çˆ¶ç±»çš„å®ä¾‹å±æ€§ï¼Œä¸åŒ…æ‹¬çˆ¶ç±»çš„åŸå‹å±æ€§ï¼Œä¸¤è€…è¦åŒºåˆ†å¼€æ¥
   
   console.log("SubType11.prototype.hasOwnProperty(\"age\")="+SubType11.prototype.hasOwnProperty("age"));//false
   console.log("instance1.hasOwnProperty(\"age\")="+instance1.hasOwnProperty("age"));//true
   
-  console.log("»ñµÃinstance1µÄÊµÀıµÄÔ­ĞÍ¶ÔÏó");
+  console.log("è·å¾—instance1çš„å®ä¾‹çš„åŸå‹å¯¹è±¡");
   console.log(Object.getPrototypeOf(instance1));  
   
   
-  /*Í¨¹ı¹¹Ôìº¯ÊıºÍÔ­ĞÍ¼Ì³Ğ×éºÏµÄ·½·½Ê½¼Ì³ĞµÄ·½·¨£¬¸¸¹¹Ôìº¯ÊıµÄÊôĞÔÍ¬Ê±´æÔÚÓÚ×ÓÀàµÄÊµÀıÖĞºÍ×ÓÀàµÄÔ­ĞÍÖĞ */
+  /*é€šè¿‡æ„é€ å‡½æ•°å’ŒåŸå‹ç»§æ‰¿ç»„åˆçš„æ–¹æ–¹å¼ç»§æ‰¿çš„æ–¹æ³•ï¼Œçˆ¶æ„é€ å‡½æ•°çš„å±æ€§åŒæ—¶å­˜åœ¨äºå­ç±»çš„å®ä¾‹ä¸­å’Œå­ç±»çš„åŸå‹ä¸­ */
   var icolor=instance1.hasOwnProperty("color");//true
   var scolor=SubType11.prototype.hasOwnProperty("color");//true
   
@@ -422,7 +422,7 @@ function test5(){
    
 }
 
-/*Ô­ĞÍ¶ÔÏóµÄÎÊÌâ--¶Ô°üº¬ÒıÓÃÀàĞÍÖµµÄÊôĞÔ*/
+/*åŸå‹å¯¹è±¡çš„é—®é¢˜--å¯¹åŒ…å«å¼•ç”¨ç±»å‹å€¼çš„å±æ€§*/
 function prototypePro(){
   Person1.prototype={
       constructor:Person1,
@@ -450,7 +450,7 @@ function prototypePro(){
 }
 
 
-/*-------------------×éºÏÊ¹ÓÃ¹¹Ôìº¯ÊıÄ£Ê½ºÍÔ­ĞÍÄ£Ê½:ÓÃÀ´¶¨ÒåÒıÓÃÀàĞÍµÄÒ»ÖÖÄ¬ÈÏÄ£Ê½°Â~-------------------------------*/
+/*-------------------ç»„åˆä½¿ç”¨æ„é€ å‡½æ•°æ¨¡å¼å’ŒåŸå‹æ¨¡å¼:ç”¨æ¥å®šä¹‰å¼•ç”¨ç±»å‹çš„ä¸€ç§é»˜è®¤æ¨¡å¼å¥¥~-------------------------------*/
 
 function Student(name,age){
 	this.name=name;
@@ -474,14 +474,14 @@ function group(){
    
 }
 
-/*-------------------×éºÏÊ¹ÓÃ¹¹Ôìº¯ÊıÄ£Ê½ºÍÔ­ĞÍÄ£Ê½end-------------------------------*/ 
+/*-------------------ç»„åˆä½¿ç”¨æ„é€ å‡½æ•°æ¨¡å¼å’ŒåŸå‹æ¨¡å¼end-------------------------------*/ 
 function Tree(name,age){
 	this.name=name;
 	this.age=age;
 	/*this.sayName=function(){
 	     alert(123);
 	   }*/
-	if(typeof this.sayName!="function"){//¸ù¾İÅĞ¶ÏµÄÊôĞÔ²»´æÔÚ£¬ÔÙ³õÊ¼»¯Ô­ĞÍ¶ÔÏó
+	if(typeof this.sayName!="function"){//æ ¹æ®åˆ¤æ–­çš„å±æ€§ä¸å­˜åœ¨ï¼Œå†åˆå§‹åŒ–åŸå‹å¯¹è±¡
 	   Tree.prototype.sayName=function(){
 	     alert(this.name);
 	   }
@@ -499,11 +499,11 @@ function dynamic(){
 function test6(){
    var obj={
       name:"helln",
-	  age:"20",
-	  love:"apple",
-	  sayName:function(){
-	     console.log(this.name);
-	  }
+  	  age:"20",
+  	  love:"apple",
+  	  sayName:function(){
+  	     console.log(this.name);
+  	  }
    };
    
    var arry=Object.keys(obj);
@@ -511,25 +511,25 @@ function test6(){
 }
 
 
-/*Ã¿¸öº¯Êı¶¼ÊÇFunctionÀàĞÍµÄÊµÀı¶ÔÏó£¬Òò´Ëº¯ÊıÒ²ÓĞÊôĞÔºÍ·½·¨£¬±ÈÈçTree.length*/
+/*æ¯ä¸ªå‡½æ•°éƒ½æ˜¯Functionç±»å‹çš„å®ä¾‹å¯¹è±¡ï¼Œå› æ­¤å‡½æ•°ä¹Ÿæœ‰å±æ€§å’Œæ–¹æ³•ï¼Œæ¯”å¦‚Tree.length*/
 function Tree(name,height){
    this.name=name;
    this.height=height;
 }
 function test7(){
     
-	//ÊµÀı¶ÔÏó
-	var yangshu=new Tree("ÑîÊ÷",100);
-    console.log("º¯ÊıµÄlengthÊôĞÔ£º"+Tree.length); 
+	//å®ä¾‹å¯¹è±¡
+	var yangshu=new Tree("æ¨æ ‘",100);
+    console.log("å‡½æ•°çš„lengthå±æ€§ï¼š"+Tree.length); 
 	
-	Tree("ÁøÊ÷",200);
-	console.log(window.name+"Éí¸ß"+window.height+"cm");//ÁøÊ÷
+	Tree("æŸ³æ ‘",200);
+	console.log(window.name+"èº«é«˜"+window.height+"cm");//æŸ³æ ‘
 	
 	var o=new Object();
-	/*½«¹¹Ôìº¯ÊıTreeÖĞµÄÊôĞÔºÍ·½·¨Ìí¼Óµ½ÁË¶ÔÏóoÖĞ*/
-	Tree.call(o,"ÑîÁøÇàÇà",300);
+	/*å°†æ„é€ å‡½æ•°Treeä¸­çš„å±æ€§å’Œæ–¹æ³•æ·»åŠ åˆ°äº†å¯¹è±¡oä¸­*/
+	Tree.call(o,"æ¨æŸ³é’é’",300);
 	
-	console.log(o.name);//ÑîÁøÇàÇà 
+	console.log(o.name);//æ¨æŸ³é’é’ 
 	
 	
 }
@@ -537,10 +537,10 @@ function test7(){
 function test8(){
    var obj={
       name:"helln",
-	  age:"20"
-   };
-   var enumerKeys=Object.keys(obj);//È¡µÃÖ¸¶¨¶ÔÏóÉÏËùÓĞ¿ÉÃ¶¾ÙµÄÊôĞÔÃû³Æ£¬·µ»ØÒ»¸ö¶ÔÏó
-   var instanceEnumerKeys=Object.getOwnPropertyNames(obj);//È¡µÃÊµÀı¶ÔÏóÉÏËùÓĞµÄÊôĞÔ£¬ÎŞÂÛÊÇ·ñ¿ÉÃ¶¾Ù
+  	  age:"20"
+     };
+   var enumerKeys=Object.keys(obj);//å–å¾—æŒ‡å®šå¯¹è±¡ä¸Šæ‰€æœ‰å¯æšä¸¾çš„å±æ€§åç§°ï¼Œè¿”å›ä¸€ä¸ªå¯¹è±¡
+   var instanceEnumerKeys=Object.getOwnPropertyNames(obj);//å–å¾—å®ä¾‹å¯¹è±¡ä¸Šæ‰€æœ‰çš„å±æ€§ï¼Œæ— è®ºæ˜¯å¦å¯æšä¸¾
   
 //   console.log(Object.keys(obj));
     
@@ -549,18 +549,18 @@ function test8(){
     for(var v in obj){
 		  console.log(v);
 	   }
-	//Object.defineProperty¿ÉÒÔĞŞ¸Ä¶ÔÏóÊôĞÔÄ¬ÈÏµÄÌØĞÔ£¬±ÈÈçenumerableÄ¬ÈÏÖµÎªtrue£¬ÔÊĞíÊ¹ÓÃfor-inÑ­»·±éÀúÊôĞÔÃû³Æ£¬ÉèÖÃÎªfalseºó¾Í²»¿ÉÒÔÁË
+	//Object.definePropertyå¯ä»¥ä¿®æ”¹å¯¹è±¡å±æ€§é»˜è®¤çš„ç‰¹æ€§ï¼Œæ¯”å¦‚enumerableé»˜è®¤å€¼ä¸ºtrueï¼Œå…è®¸ä½¿ç”¨for-inå¾ªç¯éå†å±æ€§åç§°ï¼Œè®¾ç½®ä¸ºfalseåå°±ä¸å¯ä»¥äº†
     Object.defineProperty(obj,"age",{
      enumerable:false
     });
 	   for(var v in obj){
 		  console.log(v);
 	   }
-   //deleteÒ²¿ÉÒÔÉ¾³ı¹¹Ôìº¯ÊıÔ­ĞÍÉÏ¶¨ÒåµÄÊôĞÔ£¬Ö±½ÓÍ¨¹ıÊµÀı¶ÔÏóÊÇÉ¾³ı²»ÁËµÄ
+   //deleteä¹Ÿå¯ä»¥åˆ é™¤æ„é€ å‡½æ•°åŸå‹ä¸Šå®šä¹‰çš„å±æ€§ï¼Œç›´æ¥é€šè¿‡å®ä¾‹å¯¹è±¡æ˜¯åˆ é™¤ä¸äº†çš„
    function Oh(){
-     this.name="À¯±ÊĞ¡ĞÂ"
+     this.name="èœ¡ç¬”å°æ–°"
    };  
-   Oh.prototype.address="ÖĞ¹ú";
+   Oh.prototype.address="ä¸­å›½";
    Oh.prototype.age="20";
    Oh.prototype.say=function(){
      console.log(123);
@@ -576,7 +576,7 @@ function test8(){
    
    console.log(Object.keys( is ));//["name"]
     console.log(Object.keys(Object.getPrototypeOf(is)));//["name","age"]
-	/*ÊµÀıµÄÄÚ²¿ÊôĞÔ__proto__Ò²¿ÉÒÔÌí¼ÓÔ­ĞÍ·½·¨*/
+	/*å®ä¾‹çš„å†…éƒ¨å±æ€§__proto__ä¹Ÿå¯ä»¥æ·»åŠ åŸå‹æ–¹æ³•*/
    is.__proto__.say();
     is.__proto__.eat=function(){
 	  console.log("eat......");
@@ -585,6 +585,14 @@ function test8(){
 	is.eat();
   
 }
+
+
+function test9(){
+  let arry=[1,2,3,4];
+  for(var i in arry){
+    console.log(arry[i]);
+  }
+}
 </script>
 </head>
 
@@ -592,34 +600,35 @@ function test8(){
 	<div id="wrap">
 		<fieldset class="enter">
 		 <legend>try.....</legend>
-			 <input type="button"  value="Ô­ĞÍ¶ÔÏóÓëÊµÀı¶ÔÏóµÄ¹ØÏµ" onclick="test1()"/> 
+			 <input type="button"  value="åŸå‹å¯¹è±¡ä¸å®ä¾‹å¯¹è±¡çš„å…³ç³»" onclick="test1()"/> 
 			
-			<input type="button"  value="Ô­ĞÍÓëin²Ù×÷·û" onclick="testIn()"/> 
+			<input type="button"  value="åŸå‹ä¸inæ“ä½œç¬¦" onclick="testIn()"/> 
 			
-			<input type="button"  value="¸ü¼òµ¥µÄÔ­ĞÍÓï·¨-ÖØĞ´Ô­ĞÍ¶ÔÏó" onclick="test66()"/> 
+			<input type="button"  value="æ›´ç®€å•çš„åŸå‹è¯­æ³•-é‡å†™åŸå‹å¯¹è±¡" onclick="test66()"/> 
 			
-			<input type="button"  value="¸ü¼òµ¥µÄÔ­ĞÍÓï·¨-Ô­ĞÍµÄ¶¯Ì¬ĞÔ" onclick="test2()"/> 
+			<input type="button"  value="æ›´ç®€å•çš„åŸå‹è¯­æ³•-åŸå‹çš„åŠ¨æ€æ€§" onclick="test2()"/> 
 			
-			<input type="button"  value="Ô­ĞÍ¶ÔÏóµÄÎÊÌâ" onclick="prototypePro()"/>
+			<input type="button"  value="åŸå‹å¯¹è±¡çš„é—®é¢˜" onclick="prototypePro()"/>
 			
-			<input type="button"  value="×éºÏÊ¹ÓÃ¹¹Ôìº¯ÊıÄ£Ê½ºÍÔ­ĞÍÄ£Ê½" onclick="group()"/>
+			<input type="button"  value="ç»„åˆä½¿ç”¨æ„é€ å‡½æ•°æ¨¡å¼å’ŒåŸå‹æ¨¡å¼" onclick="group()"/>
 			
-			<input type="button"  value="¶¯Ì¬Ô­ĞÍÄ£Ê½" onclick="dynamic()"/>
+			<input type="button"  value="åŠ¨æ€åŸå‹æ¨¡å¼" onclick="dynamic()"/>
 			
-			<input type="button"  value="Ô­ĞÍ¼Ì³Ğ" onclick="test3()"/> 
+			<input type="button"  value="åŸå‹ç»§æ‰¿" onclick="test3()"/> 
 			
-			<input type="button"  value="¹¹Ôìº¯Êı¼Ì³Ğ" onclick="test4()"/> 
+			<input type="button"  value="æ„é€ å‡½æ•°ç»§æ‰¿" onclick="test4()"/> 
 			
-			<input type="button"  value="¹¹Ôìº¯Êı&Ô­ĞÍ¼Ì³Ğ" onclick="test5()"/> 
+			<input type="button"  value="æ„é€ å‡½æ•°&åŸå‹ç»§æ‰¿" onclick="test5()"/> 
 			
-			<input type="button"  value="Object.keys()´úÌæfor-in±éÀú¶ÔÏókey" onclick="test6()"/> 
+			<input type="button"  value="Object.keys()ä»£æ›¿for-inéå†å¯¹è±¡key" onclick="test6()"/> 
 		 
-		    <input type="button"  value="º¯ÊıµÄÊôĞÔºÍ·½·¨" onclick="test7()"/> 
+		    <input type="button"  value="å‡½æ•°çš„å±æ€§å’Œæ–¹æ³•" onclick="test7()"/> 
 			
-			 <input type="button"  value="½«¹¹Ôìº¯Êıµ±×öº¯ÊıÊ¹ÓÃ" onclick="test7()"/> 
+			 <input type="button"  value="å°†æ„é€ å‡½æ•°å½“åšå‡½æ•°ä½¿ç”¨" onclick="test7()"/> 
 			 
-			  <input type="button"  value="for-in±éÀú¶ÔÏóÊôĞÔÃû³Æ" onclick="test8()"/> 
+			  <input type="button"  value="for-inéå†å¯¹è±¡å±æ€§åç§°" onclick="test8()"/> 
 			  
+        <input type="button"  value="for-inéå†æ•°ç»„" onclick="test9()"/> 
 		</fieldset>
 		
 		<fieldset class="out">

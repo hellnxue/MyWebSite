@@ -28,6 +28,10 @@
 			 <input type="button"  value="不能在函数内部重新声明参数" onClick="test7()"/>
 
 			  <input type="button"  value="ES6的块级作用域" onClick="test8()"/>
+
+			  <input type="button"  value="ES5没有块级作用域" onClick="test9()"/>
+
+			  <input type="button"  value="do表达式" onClick="test10()"/>
 		</fieldset>
 		
 		<fieldset class="out">
@@ -196,13 +200,40 @@
 		}
 	}
 
-
+	/*ES6块级作用域  if语句块的外层区域不受if语句块的影响哎*/
 	function test8(){
 		let n=5;
 		if (true) {
 			let n=10;
 		}
 		console.log(n);//5
+	}
+ 
+ 	// ES5没有块级作用域，只有全局作用域和函数作用域 
+ 	//if语句块影响了if语句块外的作用域，
+    var tmp=123;
+	function test9(){
+		
+		 if (false) {
+		 	var tmp=321;
+		 }
+
+		 console.log(name);//undefined 输出结果为undefined，原因在于变量提升，导致内层的tmp变量覆盖了外层的tmp变量。
+		 
+	}
+	/*do表达式*/
+	
+	function test10(){
+		/*let x = do {
+		  let t =  t * t + 1;
+		};
+
+
+		console.log(x);//没输出哎.....?*/
+
+
+
+
 	}
 	
 	</script>

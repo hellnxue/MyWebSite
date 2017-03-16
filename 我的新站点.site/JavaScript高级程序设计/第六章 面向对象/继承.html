@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
+<meta charset="utf-8" />
 <title>writer title here</title>
-<link href="../../CSS¿Î³Ì/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<link href="../../CSSè¯¾ç¨‹/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <style>
   body{
 	  background-color:#eee;}
@@ -13,7 +13,7 @@
 	  margin: 20px auto 40px;
 	  border-radius:10px;
 	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
-	  border:none;/*È¥µô°´Å¥Ä¬ÈÏµÄÒõÓ°£¬³¬¼¶ÄÑ¿´µÄÄ¬ÈÏÑùÊ½*/
+	  border:none;/*å»æ‰æŒ‰é’®é»˜è®¤çš„é˜´å½±ï¼Œè¶…çº§éš¾çœ‹çš„é»˜è®¤æ ·å¼*/
 	  box-shadow:0 12px 8px -9px #555;
   }
   #wrap{
@@ -78,17 +78,17 @@
 
 <script>
 
-/*¹«¹²·½·¨-ÏûÏ¢ÏÔÊ¾*/
+/*å…¬å…±æ–¹æ³•-æ¶ˆæ¯æ˜¾ç¤º*/
 function commonShow(msg){
  
-  $("#out").append(String(msg));//²»ÄÜÓÃmsg.toString() ÒòÎªbooleanÀàĞÍÓÃÔÚ´Ë´¦»á±¨´í
+  $("#out").append(String(msg));//ä¸èƒ½ç”¨msg.toString() å› ä¸ºbooleanç±»å‹ç”¨åœ¨æ­¤å¤„ä¼šæŠ¥é”™
 }
 
 function clears(){
    $("#out").html("");
 }
 
-/*--------------------- Ô­ĞÍ ----------------------------------*/
+/*--------------------- åŸå‹ ----------------------------------*/
 function Person(name){
    this.name=name;
 }
@@ -98,27 +98,27 @@ Person.prototype.sayName=function(){
 }
 
 
-/*---------------------¼Ì³Ğ-Ô­ĞÍÁ´----------------------------------*/
+/*---------------------ç»§æ‰¿-åŸå‹é“¾----------------------------------*/
 
-  //¸¸Àà
+  //çˆ¶ç±»
   function SuperType(){
       this.property=true;
   }
   
-  //¸øSuperTypeµÄÔ­ĞÍÌí¼Ó·½·¨
+  //ç»™SuperTypeçš„åŸå‹æ·»åŠ æ–¹æ³•
   SuperType.prototype.getSuperValues=function(){
   	  return this.property;
   }
   
-  //×ÓÀà
+  //å­ç±»
   function SubType(){
     this.subproperty=false;
   }
   
-  //¼Ì³Ğ
+  //ç»§æ‰¿
   SubType.prototype=new SuperType();
   
-  //×ÓÀàµÄÔ­ĞÍÌí¼Ó·½·¨£¬Ò²¾ÍÊÇ¸ønew SuperType()´´½¨³öÀ´µÄÊµÀıÌí¼Ó·½·¨
+  //å­ç±»çš„åŸå‹æ·»åŠ æ–¹æ³•ï¼Œä¹Ÿå°±æ˜¯ç»™new SuperType()åˆ›å»ºå‡ºæ¥çš„å®ä¾‹æ·»åŠ æ–¹æ³•
   SubType.prototype.getSubValue=function(){
   	return this.subproperty;
   }
@@ -145,7 +145,7 @@ function test1(){
 }
 
 function testPrototype(){
-   var person=new Person("Ğ¡ĞÂ");
+   var person=new Person("å°æ–°");
    console.log(person);
    console.log(person.name);
    person.sayName();
@@ -157,15 +157,15 @@ function testPrototype(){
  
 
 </script>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 	<div id="wrap">
 		<fieldset class="enter">
 		 <legend>try.....</legend>
-			 <input type="button"  value="¼Ì³Ğ»ù´¡" onClick="test1()"/> 
+			 <input type="button"  value="ç»§æ‰¿åŸºç¡€" onClick="test1()"/> 
 			
-			<input type="button"  value="Ô­ĞÍ²âÊÔ" onClick="testPrototype()"/> 
+			<input type="button"  value="åŸå‹æµ‹è¯•" onClick="testPrototype()"/> 
 			
 			<input type="button"  value="test3" onClick="test2()"/> 
 			

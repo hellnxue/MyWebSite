@@ -1023,6 +1023,15 @@ function convertAry(a,b){
 	  console.log(hasSelectedProduct);
 	   
  }
+
+/*利用数组反转，可以将文字顺序改变的*/
+ function reverseTest(){
+ 	var str="hello world!";
+ 	var reverseStr=str.split('').reverse().join('');
+ 	console.log(reverseStr);//!dlrow olleh
+
+ 	console.log(str.split(''));
+ }
   
 </script>
 
@@ -1061,5 +1070,9 @@ function convertAry(a,b){
   <input type="text" name="password" value="password"/>
   <input type="text" name="url" value="http://ejohn.org/"/>
 </form>
+
+
+<input type="button"   value="数组反转方法reverse()"  onclick="reverseTest()"/><br />
+
 </body>
 </html>

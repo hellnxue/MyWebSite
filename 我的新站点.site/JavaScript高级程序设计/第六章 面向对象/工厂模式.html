@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 
-//´´½¨¶ÔÏó--¹¤³§Ä£Ê½
+//åˆ›å»ºå¯¹è±¡--å·¥å‚æ¨¡å¼
 function Person(name,age){
    var o=new Object();
    o.name=name;
@@ -18,7 +18,7 @@ function Person(name,age){
 }
 
 
-//´´½¨¶ÔÏó--¹¹Ôìº¯ÊıÄ£Ê½
+//åˆ›å»ºå¯¹è±¡--æ„é€ å‡½æ•°æ¨¡å¼
 function Persons(name,age){
     
    this.name=name;
@@ -29,17 +29,17 @@ function Persons(name,age){
     
 }
 
-¡¡function Cat(name,color){
+ã€€function Cat(name,color){
 
-¡¡¡¡¡¡¡¡return {
+ã€€ã€€ã€€ã€€return {
 
-¡¡¡¡¡¡¡¡¡¡¡¡name:name,
+ã€€ã€€ã€€ã€€ã€€ã€€name:name,
 
-¡¡¡¡¡¡¡¡¡¡¡¡color:color
+ã€€ã€€ã€€ã€€ã€€ã€€color:color
 
-¡¡¡¡¡¡¡¡}
+ã€€ã€€ã€€ã€€}
 
-¡¡¡¡} 
+ã€€ã€€} 
 
 $(function(){
 	$("#d1").on("click",function(){
@@ -59,9 +59,9 @@ $(function(){
  
 	$("#d3").on("click",function(){
 	 
-	  ¡¡var cat1 = Cat("´óÃ«","»ÆÉ«");
+	  ã€€var cat1 = Cat("å¤§æ¯›","é»„è‰²");
 
-¡¡	  ¡¡var cat2 = Cat("¶şÃ«","ºÚÉ«");
+ã€€	  ã€€var cat2 = Cat("äºŒæ¯›","é»‘è‰²");
 
 		console.log(cat1 instanceof Cat);
 		
@@ -71,13 +71,13 @@ $(function(){
 
 });
 function testtype(){
- var person1=Person("Ğ¡ĞÂ",10);//¹¤³§Ä£Ê½´´½¨µÄ¶ÔÏó²»ÄÜ³ÉÎªÒ»ÖÖÌØ¶¨ÀàĞÍµÄ¶ÔÏó£¬¹¹Ôìº¯ÊıÊµÀı»¯´´½¨µÄ¶ÔÏó¿ÉÒÔ
+ var person1=Person("å°æ–°",10);//å·¥å‚æ¨¡å¼åˆ›å»ºçš„å¯¹è±¡ä¸èƒ½æˆä¸ºä¸€ç§ç‰¹å®šç±»å‹çš„å¯¹è±¡ï¼Œæ„é€ å‡½æ•°å®ä¾‹åŒ–åˆ›å»ºçš„å¯¹è±¡å¯ä»¥
  
- var persons=new Persons("ÊµÀıĞ¡ĞÂ",10);
+ var persons=new Persons("å®ä¾‹å°æ–°",10);
  
- console.log("¹¤³§Ä£Ê½´´½¨µÄ¶ÔÏó="+person1 instanceof Person);
+ console.log("å·¥å‚æ¨¡å¼åˆ›å»ºçš„å¯¹è±¡="+person1 instanceof Person);
 
- console.log("¹¹Ôìº¯Êı´´½¨µÄ¶ÔÏó="+persons instanceof Persons);
+ console.log("æ„é€ å‡½æ•°åˆ›å»ºçš„å¯¹è±¡="+persons instanceof Persons);
  
  console.log(Persons.prototype);
 }
@@ -85,9 +85,9 @@ function testtype(){
 </head>
 
 <body>
-<input type="button"  name="d1" id="d1" value="¹¤³§Ä£Ê½"/></br>
-<input type="button"  name="d2" id="d2" value="¹¹Ôìº¯ÊıÄ£Ê½"/></br>
-<input type="button"  name="d2" id="d4" value="²âÊÔ´´½¨µÄ¶ÔÏóµÄÀàĞÍ" onClick="testtype()"/></br>
+<input type="button"  name="d1" id="d1" value="å·¥å‚æ¨¡å¼"/></br>
+<input type="button"  name="d2" id="d2" value="æ„é€ å‡½æ•°æ¨¡å¼"/></br>
+<input type="button"  name="d2" id="d4" value="æµ‹è¯•åˆ›å»ºçš„å¯¹è±¡çš„ç±»å‹" onClick="testtype()"/></br>
 
 <input type="button"  name="d2" id="d3" value="1111111111111111"/></br>
 </body>

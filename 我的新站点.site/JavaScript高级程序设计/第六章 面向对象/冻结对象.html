@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
+<meta charset="utf-8" />
 <title>writer title here</title>
-<link href="../../CSS¿Î³Ì/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<link href="../../CSSè¯¾ç¨‹/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
 <style>
   body{
 	  background-color:#eee;}
@@ -15,7 +15,7 @@
 	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
 	  background:-ms-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
 	  background:-webkit-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
-	  border:none;/*È¥µô°´Å¥Ä¬ÈÏµÄÒõÓ°£¬³¬¼¶ÄÑ¿´µÄÄ¬ÈÏÑùÊ½*/
+	  border:none;/*å»æ‰æŒ‰é’®é»˜è®¤çš„é˜´å½±ï¼Œè¶…çº§éš¾çœ‹çš„é»˜è®¤æ ·å¼*/
 	  box-shadow:0 12px 8px -9px #555;
   }
   #wrap{
@@ -81,10 +81,10 @@
 
 <script>
 
-/*¹«¹²·½·¨-ÏûÏ¢ÏÔÊ¾*/
+/*å…¬å…±æ–¹æ³•-æ¶ˆæ¯æ˜¾ç¤º*/
 function commonShow(msg){
  
-  $("#out").append("<br/>"+String(msg));//²»ÄÜÓÃmsg.toString() ÒòÎªbooleanÀàĞÍÓÃÔÚ´Ë´¦»á±¨´í
+  $("#out").append("<br/>"+String(msg));//ä¸èƒ½ç”¨msg.toString() å› ä¸ºbooleanç±»å‹ç”¨åœ¨æ­¤å¤„ä¼šæŠ¥é”™
 }
 
 function clears(){
@@ -94,20 +94,24 @@ function clears(){
  
  
   
-/*Object.freeze(obj),°ÑÒ»¸ö¶ÔÏóÉèÖÃ³ÉÖ»¶Á×´Ì¬£¬ÔöÉ¾¸Ä¶ÔÏóµÄÊôĞÔ¶¼²»¿ÉÒÔ(ÔöÉ¾¸ÄÔÚÑÏ¸ñÄ£Ê½ÏÂ»áÊ¹js±¨´í)*/
+/*Object.freeze(obj),æŠŠä¸€ä¸ªå¯¹è±¡è®¾ç½®æˆåªè¯»çŠ¶æ€ï¼Œå¢åˆ æ”¹å¯¹è±¡çš„å±æ€§éƒ½ä¸å¯ä»¥(å¢åˆ æ”¹åœ¨ä¸¥æ ¼æ¨¡å¼ä¸‹ä¼šä½¿jsæŠ¥é”™)*/
 function test1(){
-  "use strict";//ÑÏ¸ñÄ£Ê½
+  "use strict";//ä¸¥æ ¼æ¨¡å¼
    var obj={
       name:"helln",
-	  age:20
+	  age:20,
+	  friends:{
+	  	a:1,
+	  	b:2
+	  }
    };
-   commonShow("-----------¶³½áÖ®Ç°------------------");
+   commonShow("-----------å†»ç»“ä¹‹å‰------------------");
    obj.age=10;
    commonShow(obj.name+":"+obj.age);
-   commonShow("-----------¶³½áÖ®ºó------------------");
+   commonShow("-----------å†»ç»“ä¹‹å------------------");
    var nboj=  Object.freeze(obj);
    
-   //ÑÏ¸ñÄ£Ê½ÏÂ¸øÒÑ¶³½áµÄ¶ÔÏóĞŞ¸ÄÊôĞÔÊÇ·¸·¨µÄ
+   //ä¸¥æ ¼æ¨¡å¼ä¸‹ç»™å·²å†»ç»“çš„å¯¹è±¡ä¿®æ”¹å±æ€§æ˜¯çŠ¯æ³•çš„
    try{
    
 	 obj.name="rose";
@@ -115,21 +119,22 @@ function test1(){
       commonShow(e);//TypeError: "name" is read-only
    }
 	
+	obj.friends.b=3;
     commonShow(obj.name+":"+obj.age);//helln:10
- 
+ 	console.log(Object.keys(obj.friends));
  }
  	
 	
 </script>
-</head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 	<div id="wrap">
 		<fieldset class="enter">
 		 <legend>try.....</legend>
-			 <input type="button"  value="¶³½áÒ»¸ö¶ÔÏó" onClick="test1()"/> 
+			 <input type="button"  value="å†»ç»“ä¸€ä¸ªå¯¹è±¡" onClick="test1()"/> 
 			
-			<input type="button"  value="²âÊÔÓï·¨" onClick="test11()"/> 
+			<input type="button"  value="å½»åº•å†»ç»“ä¸€ä¸ªå¯¹è±¡" onClick="test11()"/> 
 			
 			 
 			

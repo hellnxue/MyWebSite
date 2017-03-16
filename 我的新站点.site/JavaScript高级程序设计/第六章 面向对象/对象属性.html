@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>ÊôĞÔÀàĞÍºÍ·ÃÎÊÆ÷ÊôĞÔ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>å±æ€§ç±»å‹å’Œè®¿é—®å™¨å±æ€§</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 $(function(){
@@ -15,7 +15,7 @@ $(function(){
 	  console.log("name1="+pp.name);
 	  
 	  Object.defineProperty(pp,"name",{
-	     writable:false //false´ú±í²»¿ÉĞ´
+	     writable:false //falseä»£è¡¨ä¸å¯å†™
 		 
 		 
 	  })
@@ -40,7 +40,7 @@ $(function(){
 	
 	$(":input:eq(1)").on("click",function(){
 	   var book={
-	      _year:2004,//Ç°ÃæµÄÏÂ»®ÏßÊÇÒ»ÖÖ³£ÓÃ¼ÇºÅ£¬ÓÃÓÚ±íÊ¾Ö»ÄÜÍ¨¹ı¶ÔÏó·½·¨·ÃÎÊµÄÊôĞÔ°¥
+	      _year:2004,//å‰é¢çš„ä¸‹åˆ’çº¿æ˜¯ä¸€ç§å¸¸ç”¨è®°å·ï¼Œç”¨äºè¡¨ç¤ºåªèƒ½é€šè¿‡å¯¹è±¡æ–¹æ³•è®¿é—®çš„å±æ€§å“
 		  edition:1
 	   };
 	   
@@ -55,7 +55,7 @@ $(function(){
 	   });
 	   book.year=2005;
 	   console.log(book.edition);//2
-	   console.log(book._year);//2005  Ê¹ÓÃ·ÃÎÊÆ÷ÊôĞÔµÄ³£¼û·½Ê½£¬¼´ÉèÖÃÒ»¸öÊôĞÔµÄÖµ»áµ¼ÖÂÆäËûÊôĞÔ·¢Éú±ä»¯
+	   console.log(book._year);//2005  ä½¿ç”¨è®¿é—®å™¨å±æ€§çš„å¸¸è§æ–¹å¼ï¼Œå³è®¾ç½®ä¸€ä¸ªå±æ€§çš„å€¼ä¼šå¯¼è‡´å…¶ä»–å±æ€§å‘ç”Ÿå˜åŒ–
 	   
 	  
 	   
@@ -69,7 +69,7 @@ $(function(){
 </head>
 
 <body>
-<input type="button"  name="d1" id="d1" value="Êı¾İÊôĞÔ"/></br>
-<input type="button" value="·ÃÎÊÆ÷ÊôĞÔ"/></br>
+<input type="button"  name="d1" id="d1" value="æ•°æ®å±æ€§"/></br>
+<input type="button" value="è®¿é—®å™¨å±æ€§"/></br>
 </body>
 </html>
