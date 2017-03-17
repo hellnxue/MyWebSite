@@ -1032,6 +1032,12 @@ function convertAry(a,b){
 
  	console.log(str.split(''));
  }
+
+ function spliceTest(){
+ 	var items=[1,2,3,4,5];
+ 	let rl=items.splice(2);
+ 	console.log(rl);//[3,4,5]
+ }
   
 </script>
 
@@ -1073,6 +1079,9 @@ function convertAry(a,b){
 
 
 <input type="button"   value="数组反转方法reverse()"  onclick="reverseTest()"/><br />
+
+
+<input type="button"   value="splice方法只传入一个参数时会从该位置截取到最后哎"  onclick="spliceTest()"/><br />
 
 </body>
 </html>
