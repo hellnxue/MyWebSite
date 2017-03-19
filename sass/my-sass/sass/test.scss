@@ -1,10 +1,10 @@
 
-/*变量需要先定义后再使用，右前后顺序的*/ 
+/*变量需要先定义后再使用，有前后顺序的*/ 
 $color:#999;
 $border-color:black;
-$bgColors:yellow;
 
-@import  "_abc";
+
+
 p{
 	$width:200px;
 	width:$width;
@@ -134,9 +134,12 @@ ul{
 }
 
 /*-----------默认变量值--------------------*/
+@import  "abc";/*嵌套导入局部sass文件*/
 
- $test-color:red;
+$test-color:red;
 $text-color2:blue;
+$bgColors:yellow;
+
 div[data-vb="dfvb"]{
   background-color:$bgColors;
   @import "abd";/*嵌套导入局部sass文件*/
