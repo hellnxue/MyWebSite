@@ -21,7 +21,7 @@
 //    |        #footer         |
 //    +--------+---------------+
 
-$imgUrl:image-url("grid.png");
+$imgUrl:image-url("grid.png");  //url("../images/grid.png?1489918046")
 body.two-col {
  .container {
     @include container;

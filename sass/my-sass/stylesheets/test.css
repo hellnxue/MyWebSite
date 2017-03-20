@@ -1,51 +1,42 @@
 @charset "UTF-8";
 /*变量需要先定义后再使用，有前后顺序的*/
 @import url(../mycss/originalCSS.css);
-/* line 8, ../sass/test.scss */
 p {
   width: 200px;
   color: #999;
   border: 1px solid black;
 }
 
-/* line 17, ../sass/test.scss */
 #content article h1 {
   color: #333;
 }
-/* line 20, ../sass/test.scss */
 #content article p {
   border: 1px solid black;
   transition: border 0.25s ease-in-out 0s,background-color 0.15s ease-in-out 0s;
   background-color: #eee;
 }
-/* line 24, ../sass/test.scss */
 #content article p:hover {
   cursor: pointer;
   background-color: #ddd;
   border: 1px solid yellow;
 }
-/* line 33, ../sass/test.scss */
 #content aside {
   background-color: #eee;
 }
-/* line 35, ../sass/test.scss */
 body.ctt #content aside {
   color: pink;
 }
 
 /*群组选择器*/
-/* line 42, ../sass/test.scss */
 #content h1, #content h2 {
   background-color: #abcdef;
 }
 
-/* line 49, ../sass/test.scss */
 nav a, aside a {
   text-decoration: none;
 }
 
 /*-----------子组合选择器和同层组合选择器：>、+和~ 这类的也可以应用嵌套规则，sass会把嵌套的一个个连起来----------*/
-/* line 56, ../sass/test.scss */
 div#ultt {
    /*
      结果
@@ -71,25 +62,20 @@ div#ultt {
   }
   */
 }
-/* line 65, ../sass/test.scss */
 div#ultt li + li {
   font-weight: 600;
 }
-/* line 79, ../sass/test.scss */
 div#ultt > ul > li {
   text-decoration: underline;
 }
-/* line 96, ../sass/test.scss */
 div#ultt ul {
   text-decoration: underline;
 }
-/* line 98, ../sass/test.scss */
 li + div#ultt ul {
   border: 2px solid yellow;
 }
 
 /*  -------------------------------------------嵌套属性----------------------------------- */
-/* line 118, ../sass/test.scss */
 .propertyNest {
   border: 2px solid #ddd;
   border-top-color: yellow;
@@ -97,15 +83,18 @@ li + div#ultt ul {
   border-bottom-color: blue;
   border-bottom-width: 4px;
 }
-/* line 119, ../sass/test.scss */
 .propertyNest p {
   border: none;
   width: auto;
 }
 
-/*-----------默认变量值--------------------*/
+/*-----------默 认变 量 值--------------------*/
 /*嵌套导入局部sass文件*/
-/* line 143, ../sass/test.scss */
+body {
+  background: #f5f5f5;
+  font-style: 14px;
+}
+
 div[data-vb="dfvb"] {
   background-color: yellow;
   /*嵌套导入局部sass文件*/
@@ -118,7 +107,6 @@ div[data-vb="dfvb"] {
 }
 
 /*导入原生的CSS文件*/
-/* line 186, ../sass/test.scss */
 [name=helln] {
   display: block;
   width: 100%;
@@ -134,13 +122,11 @@ div[data-vb="dfvb"] {
   line-height: 1.4;
   transition: border-color 0.15s ease-in-out 0s,box-shadow 0.15s ease-in-out 0s;
 }
-/* line 178, ../sass/test.scss */
 [name=helln]:focus {
   border-color: #66afe9;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
 }
 
-/* line 191, ../sass/test.scss */
 [name=favorite] {
   display: block;
   width: 100%;
@@ -156,21 +142,17 @@ div[data-vb="dfvb"] {
   line-height: 1.4;
   transition: border-color 0.15s ease-in-out 0s,box-shadow 0.15s ease-in-out 0s;
 }
-/* line 178, ../sass/test.scss */
 [name=favorite]:focus {
   border-color: #66afe9;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(102, 175, 233, 0.6);
 }
 
-/* line 208, ../sass/test.scss */
 a.hi {
   color: black;
 }
-/* line 199, ../sass/test.scss */
 a.hi:hover {
   color: pink;
 }
-/* line 202, ../sass/test.scss */
 a.hi:active {
   color: black;
 }
@@ -185,7 +167,6 @@ a.hi:active {
 	
 	并且，继承了.error后，与.seriousError的其它选择器组合会与.error一样的效果
 */
-/* line 230, ../sass/test.scss */
 .error, .seriousError {
   margin-top: 5px;
   border: 1px solid red;
@@ -198,7 +179,6 @@ a.hi:active {
 		border-radius: 5px;
 	}
 */
-/* line 243, ../sass/test.scss */
 div.error, div.seriousError {
   border-radius: 5px;
 }
@@ -212,7 +192,6 @@ div.error, div.seriousError {
 		width: auto;
 	}
 */
-/* line 259, ../sass/test.scss */
 .error p, .seriousError p {
   width: auto;
   color: #000;
@@ -229,18 +208,15 @@ div.error, div.seriousError {
 		margin-top: 5px;
 	}
 */
-/* line 275, ../sass/test.scss */
 .seriousError {
   border-width: 3px;
 }
 
 /*继承元素选择器的CSS样式规则*/
-/* line 280, ../sass/test.scss */
 font, .disabled {
   font-size: 19px;
 }
 
-/* line 283, ../sass/test.scss */
 .disabled {
   color: gray;
 }
@@ -251,17 +227,14 @@ font, .disabled {
 应用的样式
 如下面的.complex继承了.a.b的样式color:#aca  而不是单独的.a的样式或.b的样式
 */
-/* line 310, ../sass/test.scss */
 .a {
   border: 1px solid yellow;
 }
 
-/* line 314, ../sass/test.scss */
 .b {
   background-color: #ccc;
 }
 
-/* line 317, ../sass/test.scss */
 body .a.b, body .complex {
   color: #aca;
 }
@@ -275,7 +248,8 @@ body .a.b, body .complex {
 		font-size: 20px;
 	}
 */
-/* line 329, ../sass/test.scss */
 .complex {
   font-size: 20px;
 }
+
+/*# sourceMappingURL=test.css.map */
