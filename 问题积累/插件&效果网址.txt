@@ -1,3 +1,7 @@
+
+微信小程序资料：appid:wx4ecf7909de83b42b
+
+
 日期滚动选择插件：https://demo.mobiscroll.com/v3/datetime#demo=date&lang=zh
 
 
