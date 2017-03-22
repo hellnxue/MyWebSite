@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,CAAC;EAAC,MAAM,EAAC,CAAC;EAAC,OAAO,EAAC,CAAC;;;ACyGlB,IAAK;EACH,SAAS,EATK,IAAgD;EAe5D,WAAW,EClC8B,KAA8B;;;AFvE7E,IAAI;EACH,WAAW,EAAC,4BAA4B;ECgIrC,UAAU,EAAE,yCAAe;;;AD3H/B,EAAE;EC8EE,SAAY,EAHC,GAAqB;EAGlC,WAAY,EAHC,KAAqB;;;ADtEtC,EAAE;ECyEE,SAAY,EAHC,MAAqB;EAGlC,WAAY,EAHC,SAAqB;;;ADjEtC,EAAE;ECoEE,SAAY,EAHC,KAAqB;EAGlC,WAAY,EAHC,GAAqB;EAGlC,UAAY,EAHC,KAAqB;EAGlC,aAAY,EAHC,KAAqB;;;AD3DtC,EAAE;EC8DE,SAAY,EAHC,MAAqB;EAGlC,WAAY,EAHC,KAAqB;;;ADtDtC,EAAE;ECyDE,SAAY,EAHC,MAAqB;EAGlC,WAAY,EAHC,GAAqB;;;ADjDtC,CAAC;ECoDG,UAAY,EAHC,KAAqB;EAGlC,aAAY,EAHC,KAAqB",
-"sources": ["../sass/text_layout.scss","file:///C:/Program%20Files/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/typography/_vertical_rhythm.scss","file:///C:/Program%20Files/Ruby23-x64/lib/ruby/gems/2.3.0/gems/compass-core-1.0.3/stylesheets/compass/typography/_units.scss"],
-"names": [],
-"file": "text_layout.css"
-}

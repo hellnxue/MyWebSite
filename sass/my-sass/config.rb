@@ -14,7 +14,7 @@ javascripts_dir = "javascripts"
 cache=false
 
 #在浏览器调试
-sourcemap = true
+#sourcemap = true
 
 
 # You can select your preferred output style here (can be overridden via the command line):

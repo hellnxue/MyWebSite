@@ -1,4 +1,31 @@
 
+/*引入Compass的重置模块 ，保持样式表现一致   start*/ 
+/*  @import "compass/reset";  */
+/*引入Compass的重置模块 ，保持样式表现一致   end*/ 
+
+
+/*通过在你的Sass文件中添加@include reset-html5命令，
+输出文件中会生成额外的CSS规则来对HTML5的元素进行基本的样式修改 ----------start*/
+
+/*  @include  reset-html5; */
+
+/*html5重置样式--------------end*/
+
+
+
+
+/*处理CSS3厂商前缀*/
+@import "compass/css3";
+
+
+h3{
+	background:hsla(135,50%,50%,.3);
+	text-align:center;
+	@include border-radius(5px);
+}
+
+
+
 /*变量需要先定义后再使用，有前后顺序的*/ 
 $color:#999;
 $border-color:black;
@@ -337,4 +364,49 @@ body .a.b{
 
 
 
+
+
+/*处理CSS3厂商前缀 要在文件头部引入 @import "compass/css3";*/
+
+.border-radius-handler{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin:0 30%;
+	height:100px;
+	background:hsla(305,50%,50%,.3);	 
+	@include border-radius(5px);
+}
+
+.border-radius-handler1{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	margin:10px 30%;
+	height:100px;
+	background:hsla(305,50%,50%,.3);	 
+	@include border-corner-radius(top,left,10px);
+}
+
+a.mao{
+  display:block;
+  margin:0 30%;
+  font-size:20px;
+  color:#333;
+  text-align:center;
+}
+
+a.mao:visited{
+	color:#555;
+}
+a.mao:focus{
+	color:#f00;
+}
+a.mao:hover{
+	color:#00f;
+}
+a.mao:active{
+	color:#f00;
+}
+  
 
