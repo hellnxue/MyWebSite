@@ -12,6 +12,9 @@
 /*html5重置样式--------------end*/
 
 
+@import "compass/typography";
+
+
 
 
 /*处理CSS3厂商前缀*/
@@ -388,14 +391,15 @@ body .a.b{
 	@include border-corner-radius(top,left,10px);
 }
 
-a.mao{
+a.link{
   display:block;
-  margin:0 30%;
+  margin:0 40%;
   font-size:20px;
   color:#333;
   text-align:center;
 }
 
+/*
 a.mao:visited{
 	color:#555;
 }
@@ -407,6 +411,52 @@ a.mao:hover{
 }
 a.mao:active{
 	color:#f00;
+}*/
+
+
+
+
+a.mao{
+
+	/*用link-colors为链接配色*/
+	@include link-colors(
+	#333,
+	$hover:#00f,
+	$active:#f00,
+	$visited:yellow,
+	$focus:#f00
+	);
+
+	/*hover-link设置悬停和获得焦点时的样式*/
+	@include hover-link;
+	
+	 
 }
-  
+
+/*通过unstyled-link设置隐性的链接*/
+a.nostyle{
+	@include unstyled-link;
+}
+
+
+
+/*列表*/
+.list{
+	
+	background:hsla(305,50%,50%,.1) ;
+	margin:0 30%;
+	border-radius:10px;
+
+}
+
+.list ul li{
+	list-style-type:none;
+	background:image_url("arrow.png") no-repeat scroll 5px 7px / 8px 10px;
+ 
+	
+	background-repeat:no-repeat;
+	
+	padding-left:20px;
+}
+
 
