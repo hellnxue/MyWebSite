@@ -379,4 +379,42 @@ a.nostyle:active, a.nostyle:focus {
   background-size: 8px 10px;
 }
 
+.list ul.nobullet li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.list ul.nobullets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+.list ul.nobullets li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+.list ul.nobullets li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+  white-space: nowrap;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+.list ul.nobullets li:first-child {
+  padding-left: 0;
+}
+.list ul.nobullets li:last-child {
+  padding-right: 0;
+}
+.list ul.nobullets li.last {
+  padding-right: 0;
+}
+
 /*# sourceMappingURL=test.css.map */

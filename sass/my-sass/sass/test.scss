@@ -483,4 +483,11 @@ a.nostyle{
 	
 }
 
+.list ul.nobullet li{
+	@include no-bullet;
+}
 
+.list ul.nobullets{
+	@include no-bullets;
+	@include horizontal-list;
+}
