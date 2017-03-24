@@ -353,12 +353,30 @@ a.nostyle:active, a.nostyle:focus {
   border-radius: 10px;
 }
 
- 
-.list ul li {
-  list-style-type: none;
-  background: url('../images/arrow.png?1479697093') no-repeat scroll 5px 7px/8px 10px;
-  background-repeat: no-repeat;
+.list ul.simple li {
+  /*基于图片的列表符号 
+    图片位置background-position的计算方式为
+    x=(padding-image width)/2
+    y=(line-height-image width)/2
+  */
+  background: transparent url('../images/arrow.png?1479697093') no-repeat scroll 6px 15px/8px 10px;
   padding-left: 20px;
+  line-height: 40px;
+  list-style-type: none;
+}
+
+/*利用混合器制造图片列表符号*/
+.list ul.feature {
+  margin-left: 0;
+}
+.list ul.feature li {
+  padding-left: 20px;
+  background: url('../images/arrow.png?1479697093') no-repeat 6px 15px;
+  list-style-type: none;
+}
+.list ul.feature li {
+  line-height: 40px;
+  background-size: 8px 10px;
 }
 
 /*# sourceMappingURL=test.css.map */
