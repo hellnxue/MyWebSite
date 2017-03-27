@@ -39,33 +39,59 @@
 	clear:both;
   
   }
+
+
+/*围住浮动的另一种方式,将父元素设置为行内块级元素，不是行内元素奥（第七章遇到的，累积一下）*/
+  .inlineBlock{
+  	 display: inline-block;/*行内块级元素*/
+  	 width: 100%;
+  }
+
+
+
+  h3{
+  	margin:30px 20%;
+  	background-color: hsla(305,50%,50%,.2);
+  	border-radius: 10px;
+  	box-shadow: 1px 1px 2px rgba(0,0,0,.5);
+  	text-align: center;
+  	line-height: 2em;
+  }
  
 </style>
  
 <body>
-  
-<section class="clearfix">
-	<img src="../../image/mxx/m3.jpg" alt="sorry" title="小希"/>
-	<p>It's fun to float.</p>
-</section>
+    <h3>-----------1、围住浮动-父元素添加类 clearfix-----------</h3>
+	<section class="clearfix">
+		<img src="../../image/mxx/m3.jpg" alt="sorry" title="小希"/>
+		<p>It's fun to float.</p>
+	</section>
 
-<footer>
-	 Here is the footer element that runs across the bottom of the page.
-</footer>
+	<footer>
+		 Here is the footer element that runs across the bottom of the page.
+	</footer>
 
 
-<h3>--------------------------围住浮动的另一种方式 -------------------------------------------</h3>
-<section class="row">
-	<img src="../../image/mxx/m3.jpg" alt="sorry" title="小希"/>
-	<p>It's fun to float.</p>
-</section>
+	<h3>----------2、围住浮动的另一种方式 display:table-----------</h3>
+	<section class="row">
+		<img src="../../image/mxx/m3.jpg" alt="sorry" title="小希"/>
+		<p>It's fun to float.</p>
+	</section>
 
-<footer>
-	 Here is the footer element that runs across the bottom of the page.
-</footer>
-<footer>
-	 Here is the footer element that runs across the bottom of the page.
-</footer>  
-  
+	<footer>
+		 Here is the footer element that runs across the bottom of the page.
+	</footer>
+	 
+
+	 <h3>----------3、围住浮动的一种方式 行内块级设置 display:inline-block;------------</h3>
+	  
+	<section class="inlineBlock">
+		<img src="../../image/mxx/m3.jpg" alt="sorry" title="小希"/>
+		<p>It's fun to float.</p>
+	</section>
+
+	<footer>
+		 Here is the footer element that runs across the bottom of the page.
+	</footer>
 </body>
 </html>

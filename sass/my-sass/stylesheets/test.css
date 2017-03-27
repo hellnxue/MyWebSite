@@ -6,7 +6,9 @@
 输出文件中会生成额外的CSS规则来对HTML5的元素进行基本的样式修改 ----------start*/
 /*  @include  reset-html5; */
 /*html5重置样式--------------end*/
+/*排版工具*/
 /*处理CSS3厂商前缀*/
+/*布局模块*/
 @import url(../mycss/originalCSS.css);
 h3 {
   background: rgba(64, 191, 96, 0.3);
@@ -379,6 +381,7 @@ a.nostyle:active, a.nostyle:focus {
   background-size: 8px 10px;
 }
 
+/*利用混合器制造水平列表 */
 .list ul.nobullet li {
   list-style-image: none;
   list-style-type: none;
@@ -387,34 +390,95 @@ a.nostyle:active, a.nostyle:focus {
 
 .list ul.nobullets {
   list-style: none;
+}
+.list ul.nobullets li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+
+/*水平列表*/
+ul.hztlist {
   margin: 0;
   padding: 0;
   border: 0;
   overflow: hidden;
   *zoom: 1;
 }
-.list ul.nobullets li {
-  list-style-image: none;
-  list-style-type: none;
-  margin-left: 0;
-}
-.list ul.nobullets li {
+ul.hztlist li {
   list-style-image: none;
   list-style-type: none;
   margin-left: 0;
   white-space: nowrap;
-  float: left;
-  padding-left: 4px;
-  padding-right: 4px;
+  float: right;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-.list ul.nobullets li:first-child {
+ul.hztlist li:first-child {
+  padding-right: 0;
+}
+ul.hztlist li:last-child {
   padding-left: 0;
 }
-.list ul.nobullets li:last-child {
-  padding-right: 0;
+ul.hztlist li.last {
+  padding-left: 0;
 }
-.list ul.nobullets li.last {
-  padding-right: 0;
+
+/*用省略号代表截断内容*/
+.wtsp {
+  background: rgba(191, 64, 181, 0.1) none repeat scroll 0 0;
+  width: auto;
+  height: 50px;
+  margin: 10px 30%;
+}
+
+p.wtsp1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+p.wtsp2 {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+/*文字替换为图片*/
+.replace {
+  height: 100px;
+  border: 5px solid rgba(191, 64, 181, 0.2);
+  border-radius: 10px;
+  background-size: 250px auto;
+}
+
+h1.rp1 {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url("../images/coffee.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+h1.rp2 {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+  background-image: url('../images/coffee.png?1490597947');
+  background-repeat: no-repeat;
+  background-position: 30% 30%;
+}
+
+.stretch div {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 5px;
+  right: 5px;
 }
 
 /*# sourceMappingURL=test.css.map */

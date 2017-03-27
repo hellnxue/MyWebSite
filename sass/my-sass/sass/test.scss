@@ -12,6 +12,7 @@
 /*html5重置样式--------------end*/
 
 
+/*排版工具*/
 @import "compass/typography";
 
 
@@ -19,6 +20,9 @@
 
 /*处理CSS3厂商前缀*/
 @import "compass/css3";
+
+/*布局模块*/
+@import "compass/layout";
 
 
 h3{
@@ -483,11 +487,79 @@ a.nostyle{
 	
 }
 
+
+/*利用混合器制造水平列表 */
+
 .list ul.nobullet li{
 	@include no-bullet;
 }
 
 .list ul.nobullets{
 	@include no-bullets;
-	@include horizontal-list;
+	
+}
+
+
+/*水平列表*/
+ul.hztlist{
+	@include horizontal-list(10px,right);
+}
+
+
+
+/*用省略号代表截断内容*/
+.wtsp{
+  background: rgba(191, 64, 181, 0.1) none repeat scroll 0 0;
+  width: auto;
+  height: 50px;
+  margin: 10px 30%;
+}
+
+
+p.wtsp1{
+	 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+p.wtsp2{
+	 
+    @include ellipsis;
+
+}
+
+
+/*文字替换为图片*/
+.replace{
+	height:100px;
+	border:5px solid hsla(305,50%,50%,.2);
+	border-radius:10px;
+	background-size:250px auto;
+}
+
+h1.rp1{
+	
+	text-indent:-119988px;
+	overflow:hidden;
+	text-align:left;
+	background-image:url("../images/coffee.png");
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	
+}
+
+h1.rp2{
+	
+	 @include replace-text("coffee.png",30%,30%);
+	
+}
+
+
+
+
+.stretch div{
+	@include stretch(10px,5px,10px,5px);
 }
