@@ -9,6 +9,8 @@
 /*排版工具*/
 /*处理CSS3厂商前缀*/
 /*布局模块*/
+/*这个变量不管用哎
+$experimental-support-for-microsoft:false;*/
 @import url(../mycss/originalCSS.css);
 h3 {
   background: rgba(64, 191, 96, 0.3);
@@ -479,6 +481,12 @@ h1.rp2 {
   bottom: 10px;
   left: 5px;
   right: 5px;
+}
+
+.shadow {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 30%;
+  height: 40px;
 }
 
 /*# sourceMappingURL=test.css.map */

@@ -25,6 +25,10 @@
 @import "compass/layout";
 
 
+/*这个变量不管用哎
+$experimental-support-for-microsoft:false;*/
+
+
 h3{
 	background:hsla(135,50%,50%,.3);
 	text-align:center;
@@ -375,6 +379,8 @@ body .a.b{
 
 /*处理CSS3厂商前缀 要在文件头部引入 @import "compass/css3";*/
 
+
+
 .border-radius-handler{
 	display:flex;
 	justify-content:center;
@@ -562,4 +568,12 @@ h1.rp2{
 
 .stretch div{
 	@include stretch(10px,5px,10px,5px);
+}
+
+
+
+.shadow{
+	box-shadow:3px 3px 5px rgba(0,0,0,.2);
+	margin:0 30%;
+	height:40px;
 }
