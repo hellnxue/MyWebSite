@@ -334,6 +334,14 @@ function node(th){
   console.log(th.nodeName);//INPUT
 
 }
+
+
+
+function dataTestss(){
+  console.log($("p[data-value]").data("value"));
+  $("p[data-value]").data("value",3000);
+  console.log($("p[data-value]").data("value"));
+}
  
 </script>
 </head>
@@ -429,5 +437,13 @@ function node(th){
 
  
 <a >hello world</a>
+
+
+
+<h3>--------------------data---------------</h3>
+<p data-value="100">hello data</p>
+<button type="button" onclick="dataTestss();">data属性测试</button>
+
+
 </body>
 </html>
