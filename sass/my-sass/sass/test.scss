@@ -641,6 +641,31 @@ h1.rp2{
 
 }
 
+
+
+/*CSS3线性渐变*/
+
+.lgt{
+
+	width:200px;
+	height:200px;
+	margin:0 auto;
+	/*background:linear-gradient(90deg,
+	pink 25%,yellow 25%,yellow 50%,green 50%,green 75%,blue 75%,blue 100%);*/
+
+	@include background( 
+		linear-gradient(
+		  90deg, pink 25%,yellow 25%,yellow 50%,green 50%,green 75%,blue 75%,blue 100%
+		) 
+	)
+	
+}
+
+
+/*字体包*/
+
+
+
  
 
 

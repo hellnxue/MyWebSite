@@ -527,4 +527,35 @@ h1.rp2 {
   box-shadow: black 0 0 0 25px, red 0 -50px 0, blue 50px 0 0, yellow 0 50px 0, lime -50px 0 0;
 }
 
+/*CSS3线性渐变*/
+.lgt {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  /*background:linear-gradient(90deg,
+  pink 25%,yellow 25%,yellow 50%,green 50%,green 75%,blue 75%,blue 100%);*/
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIyNSUiIHN0b3AtY29sb3I9IiNmZmMwY2IiLz48c3RvcCBvZmZzZXQ9IjI1JSIgc3RvcC1jb2xvcj0iI2ZmZmYwMCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZjAwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwMDgwMDAiLz48c3RvcCBvZmZzZXQ9Ijc1JSIgc3RvcC1jb2xvcj0iIzAwODAwMCIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMDAwMGZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMGZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(0deg, #ffc0cb 25%, #ffff00 25%, #ffff00 50%, #008000 50%, #008000 75%, #0000ff 75%, #0000ff 100%);
+  background: -webkit-linear-gradient(0deg, #ffc0cb 25%, #ffff00 25%, #ffff00 50%, #008000 50%, #008000 75%, #0000ff 75%, #0000ff 100%);
+  background: linear-gradient(90deg, #ffc0cb 25%, #ffff00 25%, #ffff00 50%, #008000 50%, #008000 75%, #0000ff 75%, #0000ff 100%);
+}
+
+/*字体包*/
+
 /*# sourceMappingURL=test.css.map */
+@font-face {
+    font-family: 'kaushan_scriptregular';
+    src: url('kaushanscript-regular-webfont.woff2') format('woff2'),
+         url('kaushanscript-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.fontface{
+    font-family:"kaushan_scriptregular";
+  text-align:center;
+  width:auto;
+  border:none;
+  color:currentColor;
+  
+}

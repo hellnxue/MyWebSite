@@ -336,11 +336,35 @@ function node(th){
 }
 
 
-
+/*
+   "name":"余额提现",
+            "date":"20170330180451",
+            "money":"25.00"
+*/
 function dataTestss(){
-  console.log($("p[data-value]").data("value"));
-  $("p[data-value]").data("value",3000);
-  console.log($("p[data-value]").data("value"));
+  // console.log($("p[data-value]").data("value"));
+  // $("p[data-value]").data("value",3000);
+  // console.log($("p[data-value]").data("value"));
+
+   var detail_list="充值^20170330174917^+^445.00^1589.00|充值^20170330174827^+^144.00^1144.00|充值^20170330161856^+^1000.00^1000.00";
+   var resultAry=detail_list.split("|");
+           
+   var ary=$.map(resultAry,function(item,index){
+     var orderAry=item.split("^");
+     
+     var obj={
+         name:orderAry[0],
+         date:orderAry[1],
+         money:orderAry[3]
+          
+         
+     }
+     
+     return obj;
+     
+   });
+
+   console.log(ary);
 }
  
 </script>
