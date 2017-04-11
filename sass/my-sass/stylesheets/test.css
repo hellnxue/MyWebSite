@@ -6,7 +6,11 @@
 输出文件中会生成额外的CSS规则来对HTML5的元素进行基本的样式修改 ----------start*/
 /*  @include  reset-html5; */
 /*html5重置样式--------------end*/
+/*排版工具*/
 /*处理CSS3厂商前缀*/
+/*布局模块*/
+/*这个变量不管用哎
+$experimental-support-for-microsoft:false;*/
 @import url(../mycss/originalCSS.css);
 h3 {
   background: rgba(64, 191, 96, 0.3);
@@ -379,6 +383,7 @@ a.nostyle:active, a.nostyle:focus {
   background-size: 8px 10px;
 }
 
+/*利用混合器制造水平列表 */
 .list ul.nobullet li {
   list-style-image: none;
   list-style-type: none;
@@ -388,34 +393,170 @@ a.nostyle:active, a.nostyle:focus {
 /*轻松横向排布    ..*/
 .list ul.nobullets {
   list-style: none;
+}
+.list ul.nobullets li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0;
+}
+
+/*水平列表*/
+ul.hztlist {
   margin: 0;
   padding: 0;
   border: 0;
   overflow: hidden;
   *zoom: 1;
 }
-.list ul.nobullets li {
-  list-style-image: none;
-  list-style-type: none;
-  margin-left: 0;
-}
-.list ul.nobullets li {
+ul.hztlist li {
   list-style-image: none;
   list-style-type: none;
   margin-left: 0;
   white-space: nowrap;
-  float: left;
-  padding-left: 4px;
-  padding-right: 4px;
+  float: right;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-.list ul.nobullets li:first-child {
+ul.hztlist li:first-child {
+  padding-right: 0;
+}
+ul.hztlist li:last-child {
   padding-left: 0;
 }
-.list ul.nobullets li:last-child {
-  padding-right: 0;
-}
-.list ul.nobullets li.last {
-  padding-right: 0;
+ul.hztlist li.last {
+  padding-left: 0;
 }
 
+/*用省略号代表截断内容*/
+.wtsp {
+  background: rgba(191, 64, 181, 0.1) none repeat scroll 0 0;
+  width: auto;
+  height: 50px;
+  margin: 10px 30%;
+}
+
+p.wtsp1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+p.wtsp2 {
+  white-space: nowrap;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+/*文字替换为图片*/
+.replace {
+  height: 100px;
+  border: 5px solid rgba(191, 64, 181, 0.2);
+  border-radius: 10px;
+  background-size: 250px auto;
+}
+
+h1.rp1 {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url("../images/coffee.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+h1.rp2 {
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  text-transform: capitalize;
+  background-image: url('../images/coffee.png?1490597947');
+  background-repeat: no-repeat;
+  background-position: 30% 30%;
+}
+
+.stretch div {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 5px;
+  right: 5px;
+}
+
+.shadow {
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+  margin: 0 10%;
+  min-height: 40px;
+}
+.shadow p:first-child {
+  width: 100%;
+  font-style: italic;
+  text-align: right;
+  /*text-shadow:
+  	 rgba(0,0,0,.5) -200px 0 0,
+  	 rgba(0,0,0,.4) -400px 0 0,
+  	 rgba(0,0,0,.3) -600px 0 0,
+  	 rgba(0,0,0,.1) -800px 0 0;*/
+  text-shadow: rgba(0, 0, 0, 0.5) -200px 0 0, rgba(0, 0, 0, 0.4) -400px 0 0, rgba(0, 0, 0, 0.3) -600px 0 0, rgba(0, 0, 0, 0.2) -800px 0 0;
+  border: none;
+  color: currentColor;
+}
+.shadow p:last-child {
+  display: inline-block;
+  height: 50px;
+  left: 50%;
+  margin-bottom: 100px;
+  margin-right: auto;
+  margin-top: 100px;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  transform: translateX(-50%);
+  width: 50px;
+  background-color: #999;
+  color: #fff;
+  border-radius: 100px;
+    /*box-shadow:
+	    black 0 0 0 25px,
+	    red 0 -50px 0,
+	    blue 50px 0 0,
+	    yellow 0 50px 0,
+	    lime -50px 0 0;*/
+  -moz-box-shadow: black 0 0 0 25px, red 0 -50px 0, blue 50px 0 0, yellow 0 50px 0, lime -50px 0 0;
+  -webkit-box-shadow: black 0 0 0 25px, red 0 -50px 0, blue 50px 0 0, yellow 0 50px 0, lime -50px 0 0;
+  box-shadow: black 0 0 0 25px, red 0 -50px 0, blue 50px 0 0, yellow 0 50px 0, lime -50px 0 0;
+}
+
+/*CSS3线性渐变*/
+.lgt {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  /*background:linear-gradient(90deg,
+  pink 25%,yellow 25%,yellow 50%,green 50%,green 75%,blue 75%,blue 100%);*/
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuMCIgeTE9IjAuNSIgeDI9IjEuMCIgeTI9IjAuNSI+PHN0b3Agb2Zmc2V0PSIyNSUiIHN0b3AtY29sb3I9IiNmZmMwY2IiLz48c3RvcCBvZmZzZXQ9IjI1JSIgc3RvcC1jb2xvcj0iI2ZmZmYwMCIvPjxzdG9wIG9mZnNldD0iNTAlIiBzdG9wLWNvbG9yPSIjZmZmZjAwIi8+PHN0b3Agb2Zmc2V0PSI1MCUiIHN0b3AtY29sb3I9IiMwMDgwMDAiLz48c3RvcCBvZmZzZXQ9Ijc1JSIgc3RvcC1jb2xvcj0iIzAwODAwMCIvPjxzdG9wIG9mZnNldD0iNzUlIiBzdG9wLWNvbG9yPSIjMDAwMGZmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMGZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -moz-linear-gradient(0deg, #ffc0cb 25%, #ffff00 25%, #ffff00 50%, #008000 50%, #008000 75%, #0000ff 75%, #0000ff 100%);
+  background: -webkit-linear-gradient(0deg, #ffc0cb 25%, #ffff00 25%, #ffff00 50%, #008000 50%, #008000 75%, #0000ff 75%, #0000ff 100%);
+  background: linear-gradient(90deg, #ffc0cb 25%, #ffff00 25%, #ffff00 50%, #008000 50%, #008000 75%, #0000ff 75%, #0000ff 100%);
+}
+
+/*字体包*/
+
 /*# sourceMappingURL=test.css.map */
+@font-face {
+    font-family: 'kaushan_scriptregular';
+    src: url('kaushanscript-regular-webfont.woff2') format('woff2'),
+         url('kaushanscript-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+.fontface{
+    font-family:"kaushan_scriptregular";
+  text-align:center;
+  width:auto;
+  border:none;
+  color:currentColor;
+  
+}
