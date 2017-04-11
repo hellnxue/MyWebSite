@@ -29,7 +29,7 @@ h3{
 
 
 
-/*变量需要先定义后再使用，有前后顺序的*/ 
+/*变量需要先定义后再使用，有前后顺序的 */ 
 $color:#999;
 $border-color:black;
 
@@ -487,6 +487,7 @@ a.nostyle{
 	@include no-bullet;
 }
 
+/*轻松横向排布    ..*/
 .list ul.nobullets{
 	@include no-bullets;
 	@include horizontal-list;
