@@ -318,10 +318,17 @@ function Obj(){
 }
 
 
-
+// 箭头函数中没有arguments对象
 function foo(){
-  var f=()=>arguments[0];
+
+  var f=()=>arguments[0];//100
+ /* 
+  //1
+  function f(){
+    return arguments[0];
+  }*/
   return f(1);
+  
 }
 
 function arrow(){
@@ -365,6 +372,31 @@ function dataTestss(){
    });
 
    console.log(ary);
+}
+
+
+function ObjTestDef(){
+
+    var data={
+      name:"helln",
+      getName:function(){
+        //return data.name; /*还可以这么用啊，直接在定义对象的里面调用对象的属性*/
+        return this.name;
+      }
+    }
+
+    console.log(data.getName());
+}
+
+
+function ullu(){
+     $("#ullu li").each(function(index,ele){
+         var $this= $(this);
+        
+         alert($this.html());
+         return false;
+        
+    });
 }
  
 </script>
@@ -468,6 +500,21 @@ function dataTestss(){
 <p data-value="100">hello data</p>
 <button type="button" onclick="dataTestss();">data属性测试</button>
 
+
+
+<h3>--------------------对象---------------</h3>
+ 
+<button type="button" onclick="ObjTestDef();">对象用法测试</button>
+
+
+<h3>-------------------用 return false 终止each循环---------------</h3>
+<ul id="ullu">
+  <li>1</li>
+  <li>2</li>
+</ul>
+<button type="button" onclick="ullu();">对象用法测试</button>
+
+ 
 
 </body>
 </html>
