@@ -398,7 +398,51 @@ function ullu(){
         
     });
 }
+
+
+
+//计时器
+
+var wait=5;
+var timeoutId=null;
+
+function timer(elm){
+  
+  if (wait==0) {
+    
+    
+    elm.onclick=timerTest;
+    $("#timer").html('重获验证码');
+    wait=5;
+
+  }else{
+   
+    elm.onclick=null;
+    $("#timer").html(wait+'秒');
+    $("#timer").addClass(".tests");
+    wait--;
+    
+    timeoutId=setTimeout(function(){
+        timer(elm);
+      },1000);
+  }
+
  
+}
+
+
+
+function timerTest(){
+
+     console.log(121);
+     timer($("#timer")[0]);
+     
+
+}
+
+
+ 
+
 </script>
 </head>
 
@@ -514,6 +558,8 @@ function ullu(){
 </ul>
 <button type="button" onclick="ullu();">对象用法测试</button>
 
+ <h3>-------------------超时调用的计时器---------------</h3>
+ <button type="button" onclick="timerTest(this);" id="timer">获取验证码</button>
  
 
 </body>
