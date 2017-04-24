@@ -487,6 +487,7 @@ a.nostyle{
 	@include no-bullet;
 }
 
+/*轻松横向排布*/
 .list ul.nobullets{
 	@include no-bullets;
 	@include horizontal-list;
