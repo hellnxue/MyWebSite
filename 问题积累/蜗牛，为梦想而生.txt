@@ -1,3 +1,30 @@
+
+
+
+[
+
+ 
+{ "keys": ["f12"], "command": "side_bar_files_open_with",
+            "args": {
+                "paths": [],
+                "application": "C://Program Files (x86)//Mozilla Firefox//firefox.exe",
+                "extensions":".*"
+          } 
+},
+{
+ 
+	"preview_on_click": false,
+	"word_wrap": "true"
+}
+
+]
+
+
+
+
+
+
+
 1.手机不支持点击option的click事件吗？
  $("select option").on("click",function(){
 		       

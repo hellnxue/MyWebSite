@@ -318,10 +318,17 @@ function Obj(){
 }
 
 
-
+// 箭头函数中没有arguments对象
 function foo(){
-  var f=()=>arguments[0];
+
+  var f=()=>arguments[0];//100
+ /* 
+  //1
+  function f(){
+    return arguments[0];
+  }*/
   return f(1);
+  
 }
 
 function arrow(){
@@ -334,7 +341,108 @@ function node(th){
   console.log(th.nodeName);//INPUT
 
 }
+
+
+/*
+   "name":"余额提现",
+            "date":"20170330180451",
+            "money":"25.00"
+*/
+function dataTestss(){
+  // console.log($("p[data-value]").data("value"));
+  // $("p[data-value]").data("value",3000);
+  // console.log($("p[data-value]").data("value"));
+
+   var detail_list="充值^20170330174917^+^445.00^1589.00|充值^20170330174827^+^144.00^1144.00|充值^20170330161856^+^1000.00^1000.00";
+   var resultAry=detail_list.split("|");
+           
+   var ary=$.map(resultAry,function(item,index){
+     var orderAry=item.split("^");
+     
+     var obj={
+         name:orderAry[0],
+         date:orderAry[1],
+         money:orderAry[3]
+          
+         
+     }
+     
+     return obj;
+     
+   });
+
+   console.log(ary);
+}
+
+
+function ObjTestDef(){
+
+    var data={
+      name:"helln",
+      getName:function(){
+        //return data.name; /*还可以这么用啊，直接在定义对象的里面调用对象的属性*/
+        return this.name;
+      }
+    }
+
+    console.log(data.getName());
+}
+
+
+function ullu(){
+     $("#ullu li").each(function(index,ele){
+         var $this= $(this);
+        
+         alert($this.html());
+         return false;
+        
+    });
+}
+
+
+
+//计时器
+
+var wait=5;
+var timeoutId=null;
+
+function timer(elm){
+  
+  if (wait==0) {
+    
+    
+    elm.onclick=timerTest;
+    $("#timer").html('重获验证码');
+    wait=5;
+
+  }else{
+   
+    elm.onclick=null;
+    $("#timer").html(wait+'秒');
+    $("#timer").addClass(".tests");
+    wait--;
+    
+    timeoutId=setTimeout(function(){
+        timer(elm);
+      },1000);
+  }
+
  
+}
+
+
+
+function timerTest(){
+
+     console.log(121);
+     timer($("#timer")[0]);
+     
+
+}
+
+
+ 
+
 </script>
 </head>
 
@@ -429,5 +537,30 @@ function node(th){
 
  
 <a >hello world</a>
+
+
+
+<h3>--------------------data---------------</h3>
+<p data-value="100">hello data</p>
+<button type="button" onclick="dataTestss();">data属性测试</button>
+
+
+
+<h3>--------------------对象---------------</h3>
+ 
+<button type="button" onclick="ObjTestDef();">对象用法测试</button>
+
+
+<h3>-------------------用 return false 终止each循环---------------</h3>
+<ul id="ullu">
+  <li>1</li>
+  <li>2</li>
+</ul>
+<button type="button" onclick="ullu();">对象用法测试</button>
+
+ <h3>-------------------超时调用的计时器---------------</h3>
+ <button type="button" onclick="timerTest(this);" id="timer">获取验证码</button>
+ 
+
 </body>
 </html>

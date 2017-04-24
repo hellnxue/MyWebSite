@@ -12,6 +12,7 @@
 /*html5重置样式--------------end*/
 
 
+/*排版工具*/
 @import "compass/typography";
 
 
@@ -19,6 +20,13 @@
 
 /*处理CSS3厂商前缀*/
 @import "compass/css3";
+
+/*布局模块*/
+@import "compass/layout";
+
+
+/*这个变量不管用哎
+$experimental-support-for-microsoft:false;*/
 
 
 h3{
@@ -29,7 +37,7 @@ h3{
 
 
 
-/*变量需要先定义后再使用，有前后顺序的*/ 
+/*变量需要先定义后再使用，有前后顺序的 */ 
 $color:#999;
 $border-color:black;
 
@@ -371,6 +379,8 @@ body .a.b{
 
 /*处理CSS3厂商前缀 要在文件头部引入 @import "compass/css3";*/
 
+
+
 .border-radius-handler{
 	display:flex;
 	justify-content:center;
@@ -483,12 +493,183 @@ a.nostyle{
 	
 }
 
+
+/*利用混合器制造水平列表 */
+
 .list ul.nobullet li{
 	@include no-bullet;
 }
 
+ 
 /*轻松横向排布*/
+ 
 .list ul.nobullets{
 	@include no-bullets;
-	@include horizontal-list;
+	
 }
+
+
+/*水平列表*/
+ul.hztlist{
+	@include horizontal-list(10px,right);
+}
+
+
+
+/*用省略号代表截断内容*/
+.wtsp{
+  background: rgba(191, 64, 181, 0.1) none repeat scroll 0 0;
+  width: auto;
+  height: 50px;
+  margin: 10px 30%;
+}
+
+
+p.wtsp1{
+	 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+}
+
+
+p.wtsp2{
+	 
+    @include ellipsis;
+
+}
+
+
+/*文字替换为图片*/
+.replace{
+	height:100px;
+	border:5px solid hsla(305,50%,50%,.2);
+	border-radius:10px;
+	background-size:250px auto;
+}
+
+h1.rp1{
+	
+	text-indent:-119988px;
+	overflow:hidden;
+	text-align:left;
+	background-image:url("../images/coffee.png");
+	background-repeat:no-repeat;
+	background-position:50% 50%;
+	
+}
+
+h1.rp2{
+	
+	 @include replace-text("coffee.png",30%,30%);
+	
+}
+
+
+
+
+.stretch div{
+	@include stretch(10px,5px,10px,5px);
+}
+
+
+
+.shadow{
+	box-shadow:3px 3px 5px rgba(0,0,0,.2);
+	margin:0 10%;
+	min-height:40px;
+
+	p:first-child{
+	
+		$text-shadow1: rgba(#000,.5) -200px 0 0;
+		$text-shadow2: rgba(#000,.4) -400px 0 0;
+		$text-shadow3: rgba(#000,.2) -600px 0 0;
+		$text-shadow4: rgba(#000,.2) -800px 0 0;
+
+	
+		width:100%;
+		font-style:italic;
+		text-align:right;
+		/*text-shadow:
+			 rgba(0,0,0,.5) -200px 0 0,
+			 rgba(0,0,0,.4) -400px 0 0,
+			 rgba(0,0,0,.3) -600px 0 0,
+			 rgba(0,0,0,.1) -800px 0 0;*/
+		@include text-shadow(
+		 	 rgba(#000,.5) -200px 0 0,
+			 rgba(#000,.4) -400px 0 0,
+			 rgba(#000,.3) -600px 0 0,
+			 $text-shadow4
+		);
+		border:none;
+		color:currentColor;
+	}
+
+	p:last-child{
+
+
+
+		display: inline-block;
+	    height: 50px;
+	    left: 50%;
+	    margin-bottom: 100px;
+	    margin-right: auto;
+	    margin-top: 100px;
+	    padding: 40px;
+	    position: relative;
+	    text-align: center;
+	    transform: translateX(-50%);
+	    width: 50px;
+
+	    background-color:#999;
+	    color:#fff;
+	    border-radius:100px;
+	    /*box-shadow:
+		    black 0 0 0 25px,
+		    red 0 -50px 0,
+		    blue 50px 0 0,
+		    yellow 0 50px 0,
+		    lime -50px 0 0;*/
+
+		@include box-shadow(
+			black 0 0 0 25px,
+		    red 0 -50px 0,
+		    blue 50px 0 0,
+		    yellow 0 50px 0,
+		    lime -50px 0 0
+		);    
+		 
+	}
+
+}
+
+
+
+/*CSS3线性渐变*/
+
+.lgt{
+
+	width:200px;
+	height:200px;
+	margin:0 auto;
+	/*background:linear-gradient(90deg,
+	pink 25%,yellow 25%,yellow 50%,green 50%,green 75%,blue 75%,blue 100%);*/
+
+	@include background( 
+		linear-gradient(
+		  90deg, pink 25%,yellow 25%,yellow 50%,green 50%,green 75%,blue 75%,blue 100%
+		) 
+	)
+	
+}
+
+
+/*字体包*/
+
+
+
+ 
+
+
+
