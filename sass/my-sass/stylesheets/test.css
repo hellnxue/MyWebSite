@@ -1,4 +1,4 @@
-﻿@charset "UTF-8";
+@charset "UTF-8";
 /*引入Compass的重置模块 ，保持样式表现一致   start*/
 /*  @import "compass/reset";  */
 /*引入Compass的重置模块 ，保持样式表现一致   end*/
@@ -390,10 +390,7 @@ a.nostyle:active, a.nostyle:focus {
   margin-left: 0;
 }
 
- 
- 
-/*轻松横向排布    ..*/
- 
+/*轻松横向排布*/
 .list ul.nobullets {
   list-style: none;
 }
@@ -474,7 +471,7 @@ h1.rp2 {
   overflow: hidden;
   text-align: left;
   text-transform: capitalize;
-  background-image: url('../images/coffee.png?1490597947');
+  background-image: url('../images/coffee.png?1493042547');
   background-repeat: no-repeat;
   background-position: 30% 30%;
 }
@@ -547,19 +544,3 @@ h1.rp2 {
 /*字体包*/
 
 /*# sourceMappingURL=test.css.map */
-@font-face {
-    font-family: 'kaushan_scriptregular';
-    src: url('kaushanscript-regular-webfont.woff2') format('woff2'),
-         url('kaushanscript-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-.fontface{
-    font-family:"kaushan_scriptregular";
-  text-align:center;
-  width:auto;
-  border:none;
-  color:currentColor;
-  
-}
