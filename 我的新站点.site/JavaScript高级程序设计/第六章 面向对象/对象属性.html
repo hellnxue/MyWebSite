@@ -47,7 +47,8 @@ $(function(){
 	   Object.defineProperty(book,"year",{
 	     get:function(){
 		   return "hello world";
-		 } 
+		 } ,
+		 /*若只定义get不定义set方法，代表访问器属性year 是只读的，不可写*/
 		 set:function(newValue){
 		    this._year=newValue;
 			this.edition+=newValue-2004;
@@ -57,13 +58,57 @@ $(function(){
 	   console.log(book.edition);//2
 	   console.log(book._year);//2005  使用访问器属性的常见方式，即设置一个属性的值会导致其他属性发生变化
 	   
-	  
-	   
 	   
 	});
 
 
 });
+
+/*构造函数*/
+function Person(){
+	this.idol='me';
+}
+Person.prototype.name='helln';
+Person.prototype.age=20;
+Person.prototype.sayName=function(){
+	console.log(this.name);
+}
+
+// Person.prototype.idol='you';
+Person.prototype.getIdol=function(){
+
+	console.log(this.idol);//me  this指向构造函数的实例对象
+}
+
+
+/*此处的this根据调用方法的对象的不用而不同，若是构造函数的实例对象调用getThis ,this指向实例对象。若是构造函数的原型对象直接调用getThis()，this指向构造函数的原型对象*/
+Person.prototype.getThis=function(){
+
+	console.log(this);  //实例对象or原型对象 
+}
+
+
+/*可以用delete删除构造函数的原型对象上的属性*/
+function test(){
+
+	var p1=new Person();
+	console.log(p1.name);
+    delete Object.getPrototypeOf(p1).name;  //or delete Person.prototype.name; 
+	console.log(p1.name);//undefined
+
+}
+
+function testThis(){
+	 var p1=new Person();
+	 p1.getIdol();//me
+	 p1.idol='you';
+	 p1.getIdol();//you
+
+	p1.getThis();
+	Person.prototype.getThis();
+	
+}
+
 
 </script>
 </head>
@@ -71,5 +116,8 @@ $(function(){
 <body>
 <input type="button"  name="d1" id="d1" value="数据属性"/></br>
 <input type="button" value="访问器属性"/></br>
+<input type="button" value="用delete删除原型对象上的属性" onclick="test()" /></br>
+
+<input type="button" value="原型对象的方法里的this指向" onclick="testThis()" /></br>
 </body>
 </html>
