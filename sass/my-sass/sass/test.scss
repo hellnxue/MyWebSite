@@ -667,6 +667,28 @@ h1.rp2{
 
 
 
+/*字符串拼接*/
+@mixin testStr($v){
+	
+	color:$v+'e';
+
+}
+
+.pj{
+	@include testStr(blu);
+}
+
+
+/*图片路径 image_url(name)*/
+.bgimg{
+	margin:0 30%;
+	height:50px;
+	background:image_url('icon/bulesky.png' );
+	background-repeat:no-repeat;
+}
+
+
+
  
 
 

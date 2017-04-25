@@ -37,6 +37,16 @@ relative_assets = true
 
 
 
+# Increment the deploy_version before every
+# release to force cache busting.
+#将版本号作为请求资源的缓存清理参数
+asset_cache_buster do |http_path, real_path|
+"v=1"
+end
+
+#关闭缓存清理
+#asset_cache_buster:none
+
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:
