@@ -390,7 +390,7 @@ a.nostyle:active, a.nostyle:focus {
   margin-left: 0;
 }
 
-/*轻松横向排布    ..*/
+/*轻松横向排布*/
 .list ul.nobullets {
   list-style: none;
 }
@@ -471,7 +471,11 @@ h1.rp2 {
   overflow: hidden;
   text-align: left;
   text-transform: capitalize;
+<<<<<<< HEAD
   background-image: url('../images/coffee.png');
+=======
+  background-image: url('../images/coffee.png?1493042547');
+>>>>>>> 57235352da4311e198949ed6bc02a3a78ce50390
   background-repeat: no-repeat;
   background-position: 30% 30%;
 }
