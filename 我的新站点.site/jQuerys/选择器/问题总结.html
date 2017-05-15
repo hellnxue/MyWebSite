@@ -343,35 +343,60 @@ function node(th){
 }
 
 
-/*
-   "name":"余额提现",
-            "date":"20170330180451",
-            "money":"25.00"
-*/
+//HTML5的data属性或者jQuery的data()方法可以设置任意类型的数据，对象和数组也可以哒
 function dataTestss(){
-  // console.log($("p[data-value]").data("value"));
-  // $("p[data-value]").data("value",3000);
-  // console.log($("p[data-value]").data("value"));
 
-   var detail_list="充值^20170330174917^+^445.00^1589.00|充值^20170330174827^+^144.00^1144.00|充值^20170330161856^+^1000.00^1000.00";
+  // var dataType=$("p[data-value]")[0].dataset.value;
+  //dtdTest
+
+  var dataType=document.getElementById("dtdTest").dataset.value;
+
+    var domData=document.getElementById("dtdTest");
+
+  /*  
+  //js里设置值和获取值得时候,原生的DOM方法与Jquery方法不能混用
+    $("p[data-value]").data("value",3000);
+    domData.dataset.value=1000;
+    dataType=domData.dataset.value;
+    console.log(dataType); //1000
+
+    */
+
+   console.log(dataType); [1,2,3];
+   $("p[data-value]").data("value",['a','b','c']);//data方法可以放入任意类型的值奥
+   dataType= $("p[data-value]").data("value");//['a','b','c']
+   console.log(dataType); 
+
+   
+}
+
+
+/*
+  用jQuery的map工具方法遍历数组并返回新的对象数组
+    "name":"余额提现",
+    "date":"20170330180451",
+    "money":"25.00"
+*/
+function handelMap(){
+
+  var detail_list="充值^20170330174917^+^445.00^1589.00|充值^20170330174827^+^144.00^1144.00|充值^20170330161856^+^1000.00^1000.00";
    var resultAry=detail_list.split("|");
            
    var ary=$.map(resultAry,function(item,index){
-     var orderAry=item.split("^");
+   var orderAry=item.split("^");
      
-     var obj={
+   var obj={
          name:orderAry[0],
          date:orderAry[1],
          money:orderAry[3]
-          
-         
      }
      
      return obj;
      
    });
 
-   console.log(ary);
+   console.log(JSON.stringify(ary));//[{"name":"充值","date":"20170330174917","money":"445.00"},{"name":"充值","date":"20170330174827","money":"144.00"},{"name":"充值","date":"20170330161856","money":"1000.00"}]
+
 }
 
 
@@ -541,9 +566,14 @@ function timerTest(){
 
 
 <h3>--------------------data---------------</h3>
-<p data-value="100">hello data</p>
+<p data-value="[1,2,3]" id="dtdTest">hello data</p>
 <button type="button" onclick="dataTestss();">data属性测试</button>
 
+
+
+<h3>--------------------用jQuery的map工具方法遍历数组并返回新的数组---------------</h3>
+ 
+<button type="button" onclick="handelMap();">$.map()</button>
 
 
 <h3>--------------------对象---------------</h3>
@@ -561,9 +591,6 @@ function timerTest(){
  <h3>-------------------超时调用的计时器---------------</h3>
  <button type="button" onclick="timerTest(this);" id="timer">获取验证码</button>
  
-
-  <h3>-------------------data 可以放入其它类型的值,但是不能设置对象，数组呢？？---------------</h3>
- <button type="button" onclick="dataTypeTest();" id="data1" >用data()设置不同类型的值</button>
 
   <h3>-------------------对象的属性名称是区分大小写的---------------</h3>
  <button type="button" onclick="objProtoType();" id="data1" >用data()设置不同类型的值</button>
@@ -592,16 +619,6 @@ function timerTest(){
    <button type="button" onclick="async()">逻辑测试</button>
 <script type="text/javascript">
   
-  function dataTypeTest(){
-    $('#data1').attr('data-test',true);
-    var test=$('#data1').data('test');
-    console.log(typeof test);//boolean
-
-
-   
-      
-  
-    }
 
     function objProtoType(){
        var obj={Name:'hello'};
