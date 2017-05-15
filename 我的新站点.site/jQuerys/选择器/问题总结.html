@@ -562,5 +562,89 @@ function timerTest(){
  <button type="button" onclick="timerTest(this);" id="timer">获取验证码</button>
  
 
+  <h3>-------------------data 可以放入其它类型的值,但是不能设置对象，数组呢？？---------------</h3>
+ <button type="button" onclick="dataTypeTest();" id="data1" >用data()设置不同类型的值</button>
+
+  <h3>-------------------对象的属性名称是区分大小写的---------------</h3>
+ <button type="button" onclick="objProtoType();" id="data1" >用data()设置不同类型的值</button>
+
+ <h3>-------------------变量声明时---------------</h3>
+ <button type="button" onclick="variablesm();" id="data1" >用data()设置不同类型的值</button>
+
+
+  <!-- 1、设置value为pxx的项选中
+
+     $(".selector").val("pxx");  try.................. -->
+    <select   id="sysType"   value="ios">
+      <option value="all">all</option>
+      <option value="ios">ios</option>
+      <option value="android">android</option>
+    </select>
+   <button type="button" onclick="sysTypeTest();" id="data1" >给select赋值</button>
+
+
+       <input name="pro" value="单期贷" type="checkbox"  > 单期贷
+      <input name="pro" value="闪电贷" type="checkbox"  > 闪电贷
+   <button type="button" onclick="ckb();" id="data1" >aaa</button>
+
+   <button type="button" onclick="parseJson()">解析json字符串</button>
+
+   <button type="button" onclick="async()">逻辑测试</button>
+<script type="text/javascript">
+  
+  function dataTypeTest(){
+    $('#data1').attr('data-test',true);
+    var test=$('#data1').data('test');
+    console.log(typeof test);//boolean
+
+
+   
+      
+  
+    }
+
+    function objProtoType(){
+       var obj={Name:'hello'};
+       console.log(obj.name);//undefined
+       console.log(obj.Name);//hello
+
+      
+    }
+   function variablesm(){
+       var a=10,b=a+10;
+       console.log(b)
+    }
+
+  function sysTypeTest(){
+    // var x=$("#sysType").val("android");//jQuery动态给select赋值，单独写在select上 value="android"是不起作用的
+    // console.log(x);
+
+    $("#sysType option:first").prop("selected", "selected");
+  }
+
+  function ckb(){
+      $(":checkbox[name='pro']").filter("input[value='闪电贷']").prop('checked', 'checked');
+  }
+
+
+  function parseJson(){
+   var str=[{key:"jyfqll",value:"教育分期-对外H5合作-雷龙"},{key:"zffq",value:"租房分期"},{key:"yhscfq",value:"应花商城分期"},{key:"sfq",value:"对外API合作-奢分期"},{key:"hejdfq",value:"对外API合作-海尔家电分期"}];
+
+    // var temp=JSON.parse(str);
+
+    console.log(JSON.stringify(str));
+    // console.log(temp[0].key);
+  }
+
+
+  function async(){
+    var asyncs="he";
+    console.log(asyncs || true)
+  }
+
+
+
+
+</script>
 </body>
 </html>
