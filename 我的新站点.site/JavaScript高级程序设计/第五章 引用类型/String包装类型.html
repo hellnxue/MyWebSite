@@ -217,6 +217,42 @@ function single(){
   console.log(s1);//e
   console.log(s2);//e
 }
+
+function xsdTest(){
+  // var str='100..00';
+  var str='100..'
+  var strAry=str.split('.');
+  console.log(strAry.length)
+
+  console.log(str.substr(0,Number(str.indexOf("."))+1))
+
+  console.log( str.substr(0,Number(str.indexOf("."))+1)+"00")
+
+}
+
+
+//待测试，数字输入，保留小数点后两位
+function numberCheck(e){
+
+        var balanceInput= $(e.currentTarget);
+        var balanceVal=balanceInput.val();
+         
+        balanceInput.val(balanceVal.replace(/[^1234567890.]+/g,''));
+
+        if (balanceVal.indexOf(".")) {
+          var temp=balanceVal.split(".");
+          if (temp.length>2) {
+            var hval=balanceVal.substr(0,Number(balanceVal.indexOf("."))+1);
+            balanceInput.val(hval+'00');
+            
+          }if (balanceVal.split(".").length==2) {
+            var temp1=temp[1].replace(/[^1234567890.]+/g,'');
+            balanceInput.val(temp[0]+"."+(temp1.substr(0,2)));
+          }
+
+        }
+
+      }
 </script>
 </head>
 
@@ -245,6 +281,8 @@ function single(){
  
 <input type="button" value="截取任意后四位" onClick="substrs()"/></br>
 <input type="button" value="访问字符串中单个字符的方法" onClick="single()"/></br>
+
+<button type="button" onclick="xsdTest()">小数点测试</button>
 
 </body>
 </html>
