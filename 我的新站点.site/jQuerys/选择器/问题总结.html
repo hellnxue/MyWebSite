@@ -617,6 +617,8 @@ function timerTest(){
    <button type="button" onclick="parseJson()">解析json字符串</button>
 
    <button type="button" onclick="async()">逻辑测试</button>
+
+    <button type="button" onclick="testIndexOf()">indexOf大小写区别</button>
 <script type="text/javascript">
   
 
@@ -657,6 +659,16 @@ function timerTest(){
   function async(){
     var asyncs="he";
     console.log(asyncs || true)
+  }
+
+  function testIndexOf(){
+    var str1="ABCDEF";
+    var str2="abcdef";
+    console.log(str1.indexOf('a'))
+
+    var a="a";
+    var A="A";
+    
   }
 
 
