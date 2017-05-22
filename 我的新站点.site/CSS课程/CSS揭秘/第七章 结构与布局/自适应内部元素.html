@@ -1,0 +1,32 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset="utf-8" />
+<title>自适应内部元素</title>
+<style>
+   figure{
+    border: 1px dotted pink;
+    padding: 10px;
+     width: 200px;
+     width:min-content; 
+    margin:auto;
+   }
+
+   img{
+     width: inherit;
+   }
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+<p>让figure包围住图片，宽度为内部元素的(此处是图片)宽度</p>
+<figure>
+  <img src="../../../image/mxx/m4.jpg">
+  <figcaption>
+    The great Sir Adam Catlace was named after Countess Ada Lovelace,thie first programmer.
+  </figcaption>
+</figure>
+  
+  
+</body>
+</html>
