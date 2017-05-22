@@ -34,6 +34,17 @@ $(function(){
 	  
 	  console.log(pp.age);//20
 	  
+	 
+	/* 
+	//将configurable设置为false之后，再配置除writable属性之外的特性都会导致报错奥~~
+	Object.defineProperty(pp,"age",{
+	    enumerable:false
+	  });
+	  
+	  for (var vb in emObj) {
+	  	console.log(vb);//age
+	  }*/
+
 	  
 	  
 	});
@@ -63,6 +74,29 @@ $(function(){
 
 
 });
+
+/*枚举对象属性，可用enumerable特性配置属性是否可枚举*/
+function enumer(){
+	 var emObj={
+	     name:"jack",
+		 age:20
+	  };
+
+
+	  for (var vb in emObj) {
+	  	console.log(vb);//name age
+	  }
+
+	 console.log('----------------------------------')
+	  Object.defineProperty(emObj,'name',{
+	  	enumerable:false
+	  });
+
+	  for (var vb in emObj) {
+	  	console.log(vb);//age
+	  }
+
+}
 
 /*构造函数*/
 function Person(){
@@ -115,6 +149,7 @@ function testThis(){
 
 <body>
 <input type="button"  name="d1" id="d1" value="数据属性"/></br>
+<input type="button"  value="数据属性Enumerable" onclick="enumer()" /></br>
 <input type="button" value="访问器属性"/></br>
 <input type="button" value="用delete删除原型对象上的属性" onclick="test()" /></br>
 
