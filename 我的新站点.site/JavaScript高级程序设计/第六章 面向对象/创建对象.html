@@ -597,6 +597,61 @@ function test9(){
     console.log(arry[i]);
   }
 }
+
+
+/*利用原型实现对象继承*/
+
+function Fruit(){
+  this.name='fruit';
+}
+Fruit.prototype.sayName=function(){
+  console.log(this.name);
+}
+
+
+function Apple(){
+  this.kind='apple'
+}
+
+Apple.prototype=new Fruit();
+
+Apple.prototype.sayMe=function(){
+  console.log(this.kind);
+}
+
+function test10(){
+
+  // var ft=new Fruit();
+  // ft.sayName();
+  // ft.name="hello apple";
+  // ft.sayName();
+
+  var apple=new Apple();
+  apple.name='this is set from Apple';//此处的值会覆盖掉父类中的name属性
+  apple.sayName();//this is set from Apple
+
+  apple.size=100;//可以为实例对象添加其它属性或方法（是实例对象的构造函数中没有的属性和方法奥）
+  console.log(apple.size);
+
+ 
+
+}
+
+
+function test11(){
+  var obj=new Object({
+    name:'helln1',
+    love:'eat'
+  });
+
+  console.log(obj.name);
+
+
+   var obj=new Object();
+   obj.name='helln2';
+    console.log(obj.name);
+
+}
 </script>
 </head>
 
@@ -633,6 +688,10 @@ function test9(){
 			  <input type="button"  value="for-in遍历对象属性名称" onclick="test8()"/> 
 			  
         <input type="button"  value="for-in遍历数组" onclick="test9()"/> 
+
+        <input type="button"  value="使用原型链实现的继承" onclick="test10()"/> 
+
+        <input type="button"  value="利用Object创建对象" onclick="test11()"/> 
 		</fieldset>
 		
 		<fieldset class="out">

@@ -3,6 +3,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
 <title>无标题文档</title>
+
+</head>
+
+<body>
+<input type="text" name="integer" value="" id="dd"  onblur="test(this)" /><br>
+
+<label>只能输入数字</label>
+<input onkeyup="value=value.replace(/[^1234567890.]+/g,'')"> <br>
+  <!-- <input onkeyup="value=value.replace(/^\d+(\.\d{2})?$/g,'')"> <br>  -->
+<label>只能输入中文</label>
+<input onkeyup="value=value.replace(/[ -~]/g,'')"><br>
+
+
+
+<label>验证金额(复制的时候不行哎...........)</label>
+<input onkeyup="numberCheck(event)"> <br>
+
+<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
 <script>
 
 //验证数字（只能是数字,可以有小数）
@@ -22,16 +40,26 @@
 	       }
 	   }
   }
+
+  function numberCheck(e){
+  	  var balanceInput= $(e.currentTarget);
+        var balanceVal=balanceInput.val();
+         
+        balanceInput.val(balanceVal.replace(/[^1234567890.]+/g,''));
+
+        if (balanceVal.indexOf(".")) {
+          var temp=balanceVal.split(".");
+          if (temp.length>2) {
+            var hval=balanceVal.substr(0,Number(balanceVal.indexOf("."))+1);
+            balanceInput.val(hval+'00');
+            
+          }if (balanceVal.split(".").length==2) {
+            var temp1=temp[1].replace(/[^1234567890.]+/g,'');
+            balanceInput.val(temp[0]+"."+(temp1.substr(0,2)));
+          }
+
+        }
+  }
 </script>
-</head>
-
-<body>
-<input type="text" name="integer" value="" id="dd"  onblur="test(this)" /><br>
-
-<label>只能输入数字</label>
-<input onkeyup="value=value.replace(/[^1234567890.]+/g,'')"> <br>
-  <!-- <input onkeyup="value=value.replace(/^\d+(\.\d{2})?$/g,'')"> <br>  -->
-<label>只能输入中文</label>
-<input onkeyup="value=value.replace(/[ -~]/g,'')">
 </body>
 </html>
