@@ -5,15 +5,65 @@
 <title>无标题文档</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
+
+
+/*构造函数*/
+function Person(){
+  this.name='helln';
+  this.love='music';
+  this.sayMe=function(){
+    console.log(this.name);
+  }
+}
+
+Person.prototype.eat='apple';
+
+function Student(){
+  this.course='softwear';
+  this.grade='two';
+  this.didiao=function(){
+    console.log("grade====="+this.grade)
+  }
+}
+
+
+Student.prototype=new Person();
+Student.prototype.constructor=Student;
+Student.prototype.stu=function(){
+  console.log("student=="+this.grade);
+}
+
 function test1(){
+   console.log('--------------------------简单对象------------------------------------')
    var obj={
 		 name:"helln",
 		 age:20
     };
    var objText=JSON.stringify(obj);//将javascript对象转成json，一般用于向服务器发送数据时传输json格式的数据
-   console.log(objText);
-   console.log(typeof objText);
 
+   console.log(objText);//{"name":"helln","age":20}
+   console.log(typeof objText);//string
+
+
+   console.log('--------------------------传入实例对象------------------------------------')
+   //传入实例对象会怎样呢 
+   var stu=new Student();
+   stu.sayMe();//helln
+   stu.name='Tom';
+   stu.sayMe()//tom
+
+   /*除了实例的原型添加的属性外(对象中的方法不会被JSON.stringify转换到json串结果中)，实例的属性是会被转换成json串的。*/
+   var instanceStr=JSON.stringify(stu);
+   console.log(stu);        //{ course: "softwear", grade: "two", didiao: Student/this.didiao(), name: "Tom" }
+   console.log(instanceStr);//{"course":"softwear","grade":"two","name":"Tom"}
+
+   console.log('--------------------------传入实例对象 formdata------------------------------------')
+  //所以把formdata的实例传入JSON.stringify()中是没有结果的，实例的方法都在formdata的原型中
+  var formdata = new FormData();
+  formdata.append("name", "呵呵");
+  formdata.append("url", "http://www.baidu.com/");
+
+  console.log(JSON.stringify(formdata));//{}
 }
 
 

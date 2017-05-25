@@ -3,6 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>String包装类型</title>
+<style type="text/css">
+  
+   button{
+    display: block;
+   }
+</style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
 function test1(){
@@ -253,6 +259,12 @@ function numberCheck(e){
         }
 
       }
+
+  function testIndexOf(){
+    var str1="ABCDEF";
+    console.log(str1.indexOf('a'))//-1
+    
+  }
 </script>
 </head>
 
@@ -283,6 +295,9 @@ function numberCheck(e){
 <input type="button" value="访问字符串中单个字符的方法" onClick="single()"/></br>
 
 <button type="button" onclick="xsdTest()">小数点测试</button>
+
+ <h3>--------------------'ABCDEF'.indexOf('a')方法是区分大小写的---------------</h3>
+<button type="button" onclick="testIndexOf()">indexOf大小写区别</button>
 
 </body>
 </html>
