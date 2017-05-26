@@ -935,3 +935,11 @@ ul.type-lists li{
 }
 
 
+.reflect{
+    opacity:0.7;  
+    font:40px/50px 'Microsoft yahei';  
+    -webkit-box-reflect: below 5px -webkit-gradient(linear, center top, center bottom, from(transparent),color-stop(0.2, transparent), to(white));  
+   
+}
+
+
