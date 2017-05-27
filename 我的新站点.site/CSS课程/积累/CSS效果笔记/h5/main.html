@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 
+	<style type="text/css">
+		.reflect{
+			display: block;
+		    opacity:0.7;  
+		    font:50px/60px 'Microsoft yahei';  
+		   /* -webkit-box-reflect: below 5px -webkit-gradient(linear, center top, center bottom, from(transparent),color-stop(0.2, transparent), to(white)); */ 
+
+		     -webkit-box-reflect:below 0 -webkit-linear-gradient(transparent,transparent 50%,rgba(255,255,255,.3))
+			   
+			}
+	</style>
+</head>
+<body>
+    <span id="renderContaint" class="reflect"></span>
+	<script src="jquery.min.js"></script>
+	<!-- <script src="zepto.min.js"></script>  -->
+	<script>
+
+	// console.log(Math.ceil(8000).toString().split('.').join("."));
+	function numberWithCommas(x) {
+	    if (x == null) {
+	        return '';
+	    } else {
+	        var parts = x.toString().split('.');
+	        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	        return parts.join('.');
+	    }
+	}
+	/*$({numberValue: 0}).animate({numberValue: 8000}, {
+	    duration: 2500,
+	    easing: 'linear',
+	    progress: function () {
+	        $('#renderContaint').html(numberWithCommas(Math.ceil(this.numberValue)));
+	    }
+	});*/
+
+//计时器
+
+var num=1000;
+
+var wait=10;
+var numberValue= 0;
+var section=num/wait;
+
+console.log(section);
+
+function timer( ){
+
+  var calee= arguments.callee;
+  
+  if (wait==0) {
+    
+    wait=10;
+    numberValue=num;
+    $('#renderContaint').html(numberWithCommas(num));
+  }else{
+	numberValue+=section;
+ 	wait--;
+   // console.log(numberWithCommas(Math.ceil(numberValue)));
+   $('#renderContaint').html(numberWithCommas(Math.ceil(numberValue)));
+   
+    setTimeout(function(){
+        calee();
+      },100);
+
+  	}
+ 
+}
+
+
+
+function timerTest(){
+
+     timer( );
+     
+
+}
+
+ timer( ) 
+
+
+	</script>
+</body>
+</html>

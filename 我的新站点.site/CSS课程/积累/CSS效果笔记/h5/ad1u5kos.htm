@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <style>
+          *{
+             margin:0;
+             padding:0;
+          }
+          ul{
+            text-align: center;
+            margin: 100px auto;
+            overflow: hidden;
+          }
+          ul li{
+             width:40px;
+             height:20px;
+             overflow: hidden;
+             background: #ff00ff;
+             text-align: center;
+             line-height: 20px;
+             display: inline-block;
+             margin:0 20px;
+             color: #fff;
+             position: relative;
+          }
+          dl{
+            position: absolute;
+            top: 0;
+            left:0;
+            width:40px;
+            height:20px;
+          }
+          dd{
+            display: block;
+            width:40px;
+            height:20px;
+
+          }
+          .btn{
+            background: #333;
+            text-align: center;
+            color: #ff00ff;
+            margin: 0 auto;
+            display: block;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+          }
+          .panel{
+            text-align: center;
+            margin: 50px auto;
+          }
+          .reset{
+            -webkit-animation:flip 1s .2s ease both;
+            display: none;
+          }
+          .flash{
+            -webkit-animation:flash 1s .2s ease both;
+          }
+          .contant{
+            -webkit-animation:wobble 3s .2s ease  both;
+          }
+          @-webkit-keyframes wobble{
+            0%{-webkit-transform:translateX(0%)}
+            15%{-webkit-transform:translateX(-25%) rotate(-5deg)}
+            30%{-webkit-transform:translateX(20%) rotate(3deg)}
+            45%{-webkit-transform:translateX(-15%) rotate(-3deg)}
+            60%{-webkit-transform:translateX(10%) rotate(2deg)}
+            75%{-webkit-transform:translateX(-5%) rotate(-1deg)}
+            100%{-webkit-transform:translateX(0%)}
+          }
+          @-webkit-keyframes flip{
+            0%{-webkit-transform:perspective(400px) rotateY(0);
+            -webkit-animation-timing-function:ease-out}
+            40%{-webkit-transform:perspective(400px) translateZ(150px) rotateY(170deg);
+            -webkit-animation-timing-function:ease-out}
+            50%{-webkit-transform:perspective(400px) translateZ(150px) rotateY(190deg) scale(1);
+            -webkit-animation-timing-function:ease-in}
+            80%{-webkit-transform:perspective(400px) rotateY(360deg) scale(.95);
+            -webkit-animation-timing-function:ease-in}
+            100%{-webkit-transform:perspective(400px) scale(1);
+            -webkit-animation-timing-function:ease-in}
+           }
+          @-webkit-keyframes flash{
+            0%,50%,100%{opacity: 1;}
+            25%,75%{opacity: 0;}
+          }
+
+          
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li value="8">
+                <dl class="dl" style="top: -760px;">
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               </dl>
+            </li>
+            <li value="2">
+                <dl class="dl" style="top: -640px;">
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               </dl>
+            </li>
+            <li value="0">
+                <dl class="dl" style="top: -600px;">
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               </dl>
+            </li>
+            <li value="8">
+                <dl class="dl" style="top: -760px;">
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               </dl>
+            </li>
+            <li value="2">
+               <dl class="dl" style="top: -640px;">
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+                    <dd>0</dd>
+                    <dd>1</dd>
+                    <dd>2</dd>
+                    <dd>3</dd>
+                    <dd>4</dd>
+                    <dd>5</dd>
+                    <dd>6</dd>
+                    <dd>7</dd>
+                    <dd>8</dd>
+                    <dd>9</dd>
+               </dl>
+            </li>
+        </ul>
+        <button class="btn">点击老虎机</button>
+        <div class="panel">
+            <p class="reset" style="display: block;">上公交，一定记得买票！！</p>
+        </div>
+        
+        <audio preload="load" loop="loop" id="audio1">
+          <source src="ad1u5kos_files/style.htm">
+        </audio>
+    
+    <script> 
+     var oli=document.getElementsByTagName("li"),
+         reset=document.querySelector(".reset"),
+         btn=document.querySelector(".btn"),
+         odl=document.querySelectorAll(".dl"),
+         Let=10,H=20,first=3,second=5,
+         third=8,cf=cs=ct=0,timer=null,str="";
+         document.getElementById("audio1").play();
+        function getStyle(obj,name){
+           return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj,false)[name];
+        }
+        function starmove(obj,json,funEnd){
+            clearInterval(obj.timer);
+            var Bstop=true;
+            obj.timer=setInterval(function(){
+                for(var attr in json){
+                   var speed=0;
+                   if(attr=="opacity"){
+                       var cur=Math.round(parseFloat(getStyle(obj,attr)*100));
+                   }else{
+                       var cur=parseInt(getStyle(obj,attr));
+                   }
+                   speed=(json[attr]-cur)/20;
+                   speed=speed>0?Math.ceil(speed):Math.floor(speed); 
+                   if(cur!=json[attr]){
+                        Bstop=false;
+                   }else{
+                        Bstop=true;
+                   }
+
+                   if(attr=="opacity"){
+                       obj.style.opacity=(cur+speed)/100;
+                   }else{
+                       obj.style[attr]=cur+speed+"px";
+                   }
+                }
+              
+                if(Bstop){
+                      clearInterval(obj.timer);
+                      if(funEnd)funEnd();
+                }
+            },30)
+         }
+         function run(){
+            for (var i = 0; i < oli.length; i++) {
+
+                    oli[i].value=Math.floor(Math.random()*10);
+                    var Num=parseInt(oli[i].value),
+                    odl=oli[i].getElementsByTagName("dl")[0],
+                    odd=odl.getElementsByTagName("dd"),
+                    size=odd.length,
+                    height=odl.offsetHeight,
+                    tops=odd[Num+(size-Let)].offsetTop;
+                    odl.style.top=0;
+                    str+=Num; 
+                    starmove(odl,{"top":-(tops)},function(){
+                        var Result=parseInt(str);
+                            console.log(Result);
+                            reset.innerText="";
+                             
+                            reset.style.display="block";
+                            btn.className="btn";
+                    });  
+              
+
+           };
+            
+         }
+         btn.onclick=function(){
+            str="";
+            reset.style.display="none";
+            this.className="flash btn";
+            run(); 
+         }
+    </script>
+
+
+    	<style></style>
+	    		<script></script>
+	
+<!-- Generated by RunJS (Sat May 27 16:48:22 CST 2017) 1ms --></body></html>

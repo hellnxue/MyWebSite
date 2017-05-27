@@ -1,0 +1,18 @@
+{
+    "data": {
+        "loanList":[{
+                    "payDate": "2017-07-17",
+                    "loanAmt": 12000.00,
+                    "contNo": "HT2017031599887766",
+                    "dueDay": "15",
+                    "psAmt": 1230.00,
+                    "seltAmt": 500.00,
+                    "seltInd": 1,
+                    "loanNo": "HT2017031599887766001"
+                }]
+    },
+    "reqResult": {
+        "code": 1,
+        "msg": "查询还款计划列表成功"
+    }
+}
