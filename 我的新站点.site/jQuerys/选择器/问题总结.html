@@ -620,6 +620,9 @@ function timerTest(){
  <input name="pro" value="闪电贷" type="checkbox"  > 闪电贷
  <button type="button" onclick="ckb();" id="data1" >复选框筛选赋值</button>
 
+
+ <h3>----------------获取元素样式---Window.getComputedStyle()---------------</h3>
+ <div style="margin: 0 30%;height: 50px;background: pink;border: 1px solid yellow;" onclick="getComputedStyleTest(this)">hello</div>
 <script type="text/javascript">
   
 
@@ -644,6 +647,15 @@ function timerTest(){
 
   function ckb(){
       $(":checkbox[name='pro']").filter("input[value='闪电贷']").prop('checked', 'checked');
+  }
+
+
+  function getComputedStyleTest(elm){
+    var CSSStyleDeclaration =window.getComputedStyle(elm,null);
+    // var temp=CSSStyleDeclaration.getPropertyValue("height");
+    var cssText=elm.currentStyle["height"];
+    // alert(temp);
+    alert(cssText);
   }
 
 </script>
