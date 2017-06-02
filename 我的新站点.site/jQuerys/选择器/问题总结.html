@@ -432,30 +432,28 @@ function ullu(){
 
 //计时器
 
-var wait=5;
-var timeoutId=null;
 
-function timer(elm){
+
+function timer(elm,wait){
+
 
   var calee= arguments.callee;
   
   if (wait==0) {
     
-    
     elm.onclick=timerTest;
-    $("#timer").html('重获验证码');
+    $(elm).html('重获验证码');
     wait=5;
 
   }else{
    
     elm.onclick=null;
-    $("#timer").html(wait+'秒');
-    $("#timer").addClass(".tests");
+    $(elm).html(wait+'秒');
+    $(elm).addClass(".tests");
     wait--;
-
     
-    timeoutId=setTimeout(function(){
-        calee(elm);
+    setTimeout(function(){
+        calee(elm,wait);
       },1000);
   }
 
@@ -464,10 +462,17 @@ function timer(elm){
 
 
 
+
+
+
+
 function timerTest(){
 
-     console.log(121);
-     timer($("#timer")[0]);
+    var wait1=5;
+    var wait2=6;
+
+    timer($("#timer")[0],wait1);
+    timer($("#timer1")[0],wait2);
      
 
 }
@@ -597,7 +602,7 @@ function timerTest(){
 
  <h3>-------------------超时调用的计时器---------------</h3>
  <button type="button" onclick="timerTest(this);" id="timer">获取验证码</button>
- 
+  <button type="button"  " id="timer1">获取验证码</button>
 
   <h3>-------------------对象的属性名称是区分大小写的---------------</h3>
  <button type="button" onclick="objProtoType();" id="data1" >用data()设置不同类型的值</button>
