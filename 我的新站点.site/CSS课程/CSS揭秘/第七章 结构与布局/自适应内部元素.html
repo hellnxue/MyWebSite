@@ -7,13 +7,13 @@
    figure{
     border: 1px dotted pink;
     padding: 10px;
-     width: 200px;
-     width:min-content; 
+    max-width: 200px;/*为不支持min-content属性值的浏览器设置的而平稳退化样式，结合下面的img的max=width:inherit。此处的max-width设置为width也可以的。。。。*/
+    max-width:min-content; /*min-content关键字将解析为这个容器内部最大的不可断行的元素的宽度(即最宽的单词、图片或具有固定宽度的盒元素)*/
     margin:auto;
    }
 
    img{
-     width: inherit;
+    max-width: inherit;
    }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
