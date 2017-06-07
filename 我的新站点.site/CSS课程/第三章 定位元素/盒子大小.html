@@ -22,7 +22,8 @@
  /*盒模型结论一：没有（就是没有设置 width 的）宽度的元素始终会扩展到填满其父 元素的宽度为止。添加水平边框、内边距和外边距，会导致内容宽度减少，减少量 等于水平边框、内边距和外边距的和。(盒子宽度=内容宽度。实际上，这种盒子才是真正要用的盒子，因为内容宽度不会自私到一直不变的样子。)*/ 
  p.nowidth {
        
-       background-color:#fff;
+       background-color:yellow;
+       background-clip: content-box;/*背景剪裁到内容盒子  另外还有padding-box、border-box(默认是border-box)*/
 	   border:2px solid pink;
 	   padding:0 20px;
 	   margin:0 30px;

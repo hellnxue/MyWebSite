@@ -48,7 +48,7 @@
   }
 
 
-
+/*围住浮动的另一种方式,将父元素设置为绝对定位，新发现++~~*/
   h3{
   	margin:30px 20%;
   	background-color: hsla(305,50%,50%,.2);
@@ -56,6 +56,35 @@
   	box-shadow: 1px 1px 2px rgba(0,0,0,.5);
   	text-align: center;
   	line-height: 2em;
+  }
+
+
+  .positionClear{
+  	position: relative;
+  	height: 300px;
+  	margin: 0 30%;
+  	border: 1px solid;
+
+  }
+
+   .positionClear section{
+  	position: absolute;
+  	left: 50%;
+  	top:  50% ;
+  	transform: translate(-50%,-50%);
+  	width: 350px;
+  	border: 2px solid yellow;
+  	
+  }
+
+   .positionClear img{
+  	float: left;
+  	
+  }
+
+  .positionClear p{
+  	clear: both;
+  	
   }
  
 </style>
@@ -93,5 +122,17 @@
 	<footer>
 		 Here is the footer element that runs across the bottom of the page.
 	</footer>
+
+
+	<h3>----------4、围住浮动的一种方式  ------------</h3>
+	<div class="positionClear">
+
+		<section>
+			<img src="../../image/mxx/m3.jpg" alt="sorry" title="小希"/>
+			<p>It's fun to float.</p>
+		</section>
+
+	</div>
+	
 </body>
 </html>

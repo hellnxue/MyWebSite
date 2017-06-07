@@ -650,10 +650,9 @@ h3{
   .testssdiv div{
   position: absolute;/*设置div为绝对定位后，能包裹住浮动的子元素 p 哎，一大发现，有空翻翻包裹浮动的子元素*/
   top: 50%;
-  margin-top:-21px;
+  transform: translateY(-50%);
   border:1px solid #0000FF;
-  
-  overflow:hidden;
+ /* overflow:hidden;*/ /*有了position:absolute就不需要overflow包围住浮动的子元素了*/
   }
   
   /*设置p元素的样式*/
@@ -676,7 +675,7 @@ h3{
   .testssdiv div p:hover{
   cursor:pointer;
   -moz-transform:rotate(0deg) scale(1.2);/*利用转换，当鼠标移动到p元素上的时候，p整体变为原来的1.2倍，并且不影响p原来的宽度哎*/
-  left:13px;/*因为p元素是相对定位，相对定位在设置left或者right时不影响父元素div的子元素p的总宽度，因此，这才是正解*/
+  left:13px;/*因为p元素是相对定位，相对定位在设置left或者right时不影响父元素div的子元素p的总宽度(可以换成margin-left就可以看得出，设置了margin-left之后，会导致浮动元素因为父元素宽度空间不够使得布局错乱，相对定位不影响父元素的宽度布局的)*/
   z-index:1;}
   
   /*鼠标移到p元素上的时候，控制p之后的的同辈元素p之间的间隙*/
