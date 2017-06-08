@@ -12,17 +12,29 @@
 	  而段落P肯定会包含非浮动的内容，因此布局不会错乱。
 	 在段落中的最后加入一个div元素，并清除浮动也会使页面的整体布局变好。因为段落会包含清除了浮动的元素(以及未清除浮动的元素)，所以非浮动元素会在浮动图片的底部位置留下，因此第三部分的段落和图片就会正常布局啦。有点绕奥 -_-'
    */
-    section {width:400px; border:1px solid red;}
-	img {float:left;  margin:0 4px 4px 0;}
-	p {margin:0 0 5px 0;}
-	/*h3{ clear:both;}*/
+     section {width:400px; border:1px solid red;}
+     img {margin:0 4px 4px 0;}
+	 .not-parent img {float:left;  margin:0 4px 4px 0;}
+	  p {margin:0 0 5px 0;}
+	 
     .hehe{
       border:1px solid yellow;} 
+
+
+    .floatClear section{
+    	overflow: hidden;
+    }
+
+    .floatClear img {float:left;  }
+
+    .floatClear .clear{
+    	clear: both;
+    }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
-	<section>
+	<section class="not-parent">
 		<img src="../../image/mxx/m5.jpg">
 		<p class="clearfix">
 			Fisrst:This text sits next to the image and because the…This text sits next to the image and because the…This text sits next to the image and because the…This text sits next to the image and because and becauseimage and because and because  the…
@@ -35,6 +47,25 @@
 		</p>
 		<img src="../../image/mxx/m7.jpg">
 		<p class="clearfix">
+			Three:Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…
+		</p>
+	</section>
+
+
+	<h3>给浮动元素添加clear:both当前情况:会让浮动元素不会跑到它前面的浮动元素的旁边，但它自己下面紧挨的非浮动元素p还是会在第二段段落空间允许的情况下跑到第二段文字的位置~~所以单纯的给浮动元素添加清除浮动是不可靠的</h3>
+	<section class="floatClear">
+		<img src="../../image/mxx/m5.jpg">
+		<p >
+			Fisrst:This text sits next to the image and because the…This text sits next to the image and because the…This text sits next to the image and because the…This text sits next to the image and because and becauseimage and because and because  the…
+		
+		 </p>
+		<img src="../../image/mxx/m6.jpg" style="border: 2px solid green;">
+		<p style="border: 2px solid green;">
+			Second:This text is short, so the next image can float up…
+			<!--<h3>hehe</h3>-->
+		</p>
+		<img src="../../image/mxx/m7.jpg" class="clear" style="border: 2px solid yellow;">
+		<p style="border: 2px solid yellow;">
 			Three:Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…Because the previous image’s text does not…
 		</p>
 	</section>
