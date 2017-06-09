@@ -106,6 +106,31 @@
 		background-position:50px 50px;/*像素之类的绝对单位数值就不一样了。要是用像素单位来设定位置，那么图片的左上角会被放 在距离元素左上角指定位置的地方。 例如，可以设置为0 0 背景图片会与元素的左上角对齐哎*/
 		line-height:150px; 
 		text-align:center; }
+
+	/*使用关键字*/
+	div.bgposition4 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/wn.png);     
+		background-repeat:no-repeat;   
+		/* 同background-position:right center;，left&right是水平位置的方向，只用left或者right，垂直方向默认是center*/  
+		background-position:right;
+		line-height:150px; 
+		text-align:center; }
+
+	div.bgposition5 {     
+		height:150px;     
+		width:250px;     
+		border:2px solid #aaa;     
+		margin:20px auto;     
+		background-image:url(../../../image/wn.png);     
+		background-repeat:no-repeat;     
+		background-position:bottom;
+		/*background-position:bottom center;，top&bottom是垂直位置的方向，只用top或者bottom，水平方向默认是center*/
+		line-height:150px; 
+		text-align:center; }				
 	  
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
@@ -126,7 +151,8 @@
 <div class="bgposition1">A centered background image!</div>
 <div class="bgposition2">A centered background image!</div>
 <div class="bgposition3">A centered background image!</div>
- 
+<div class="bgposition4">A centered background image!</div> 
+<div class="bgposition5">A centered background image!</div> 
 
  
 </body>
