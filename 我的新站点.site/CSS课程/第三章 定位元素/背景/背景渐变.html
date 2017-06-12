@@ -18,16 +18,17 @@
 		 }
 	/*例 2：从左到右*/	
 	.gradient2 { 
-	    background:linear-gradient(left, #64d1dd, #fff);/*W3C标准语法*/
+	    
 		background:-moz-linear-gradient(left, #64d1dd, #fff); /* Firefox */
 		background:-ms-linear-gradient(left, #64d1dd, #fff);   /* 微软 Internet Explorer */  
 		background:-webkit-linear-gradient(left, #64d1dd, #fff);  /* Safari 和 Chrome */ 
 		background:-o-linear-gradient(left, #64d1dd, #fff); /* Opera */
+		background:linear-gradient(to right, #64d1dd, #fff);/*W3C标准语法*/
 	} 
 	/*例 3：左上到右下*/ 
 	 .gradient3 {     
+	 	background:-moz-linear-gradient(-45deg, #e86a43, #fff); /*火狐专用-moz-*/
 		background:linear-gradient(-45deg, #e86a43, #fff);/*-45deg是角度的写法。可以换成一组关键字 top left或left top，关键字的顺序不影响，都是左上位置*/
-		background:-moz-linear-gradient(-45deg, #e86a43, #fff); /*火狐专用-moz-*/
 		
 		} 
 	p{
