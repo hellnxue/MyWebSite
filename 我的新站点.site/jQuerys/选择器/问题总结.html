@@ -477,8 +477,27 @@ function timerTest(){
 
 }
 
+//获取查询字符串
+ function lSearch(){
+    var qs=(location.search.length>0?location.search.substring(1):""),
+      args={},
+      items=qs.length?ql.split("&"):[],
+      item=null
+      value=null,
+      i=0,
+      len=items.length;
 
- 
+      for ( i = 0; i <len; i++) {
+         item=items.split("=");
+         name=item[0];
+         value=item[1];
+         if (name.length) {
+          args[name]=value;
+         }
+      }
+
+      return args;
+    }
 
 </script>
 </head>
@@ -628,6 +647,11 @@ function timerTest(){
 
  <h3>----------------获取元素样式---Window.getComputedStyle()---------------</h3>
  <div style="margin: 0 30%;height: 50px;background: pink;border: 1px solid yellow;" onclick="getComputedStyleTest(this)">hello</div>
+
+
+ <h3>获取查询字符串location.search</h3>
+ <button type="button" onclick="lSearch">测试</button>
+ 
 <script type="text/javascript">
   
 
