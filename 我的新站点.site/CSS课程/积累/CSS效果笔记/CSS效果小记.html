@@ -149,8 +149,8 @@ position:absulute哎----</h3>
       <img src="../../img/bill_bg@2x.png">
 </div>
 
-<!--图片的宽高比不一致时，作为背景图就有问题了，不能很好的控制背景图全部覆盖背景的同时还要保持宽高比-->
-<h3>--- 一张图片作为容器中width:100%的子元素，与作为背景图的区别：作为容器的背景时----</h3>
+<!--图片的宽高比不一致时，作为背景图就有问题了，不能很好的控制背景图全部覆盖背景的同时还要保持宽高比  -->
+<h3>--- 一张图片作为容器中width:100%的子元素，与作为背景图的区别：作为容器的背景时 【已解决，背景图片的尺寸用相对单位~~】----</h3>
 <div class="bgImg-wrapper">
 </div>
 
@@ -233,6 +233,16 @@ position:absulute哎----</h3>
 <h3>行内元素在一行，其中某个用了position:absolute;的时候.......</h3>
 <div   class="discover-pos">
     <label>hello inline element</label><label> world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world </label>
+</div>
+
+<h3>行内块级元素与纯文本在一排的情况1.......</h3>
+<div  class="discover-pos">
+    <span style="background:  yellow;display:inline-block;margin-bottom: 30px;">hello inline element</span>  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  
+</div>
+
+<h3>行内元素与纯文本在一排的情况2.......让纯文本绕排span，浮动+margin|padding</h3>
+<div  class="discover-pos">
+    <span style="background:  yellow;display:inline-block;margin-bottom: 30px;float: left;">hello inline element</span>  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  world world  
 </div>
 
 <h3>line-height可以使固定高度元素内的行内元素垂直居中</h3>
