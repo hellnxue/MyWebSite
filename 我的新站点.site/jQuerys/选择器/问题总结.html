@@ -651,6 +651,11 @@ function timerTest(){
 
  <h3>获取查询字符串location.search</h3>
  <button type="button" onclick="lSearch">测试</button>
+
+ <h3>对象的key为数字的情况---添加带有数字的对象属性</h3>
+ <button type="button" onclick="numberKey();">测试</button>
+
+
  
 <script type="text/javascript">
   
@@ -685,6 +690,19 @@ function timerTest(){
     var cssText=elm.currentStyle["height"];
     // alert(temp);
     alert(cssText);
+  }
+
+
+  function numberKey() {
+      var obj={
+        1:'hello',
+        2:'world'
+      }
+
+      obj['name'+1]='hello world';
+
+      console.log(obj[1]);//'hello'
+      console.log(obj['name1'])//'hello world'
   }
 
 </script>
