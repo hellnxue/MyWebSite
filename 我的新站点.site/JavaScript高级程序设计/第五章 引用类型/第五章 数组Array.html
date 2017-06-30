@@ -45,30 +45,32 @@ $("#ta1").on("click",function(){
 	console.log(cl);
 	console.log(colors);
 	
-	//取得最后添加的一项
+	//取得最后添加的一项并删除
 	var lc=colors.pop();
-	console.log(lc);
-	console.log(colors);
+	console.log(lc);	//blue
+	console.log(colors);//red,black,blue
   });
-  
+ 
+ /*测试队列*/ 
 $("#ta2").on("click",function(){
-     var colors=["red","black"];
+
+    var colors=["red","black"];
 	var cl= colors.push("blue");
-	console.log(cl);
-	console.log(colors);
+	console.log(cl);	//3 push()方法返回执行后数组的长度
+	console.log(colors);//red,black,blue
 	
 	//取得第一项
 	var lc=colors.shift();//获得最前端的一项并删除
-	console.log(lc);
-	console.log(colors);
+	console.log(lc);	//red
+	console.log(colors);//black,blue
 	
 	var lu=colors.unshift("pinck");//在最前端添加一项
-	console.log(lu);
-	console.log(colors);
+	console.log(lu);	//3
+	console.log(colors);//pinck,black,blue
 	
 	var ll=colors.pop();//获得最后一项并删除
-	console.log(ll);
-	console.log(colors);
+	console.log(ll);	//blue
+	console.log(colors);//pinck,black
 	
   });
   $("#ta3").on("click",function(){
@@ -534,11 +536,11 @@ test empty():</br>
 	    console.log("name="+array[i].name+" date="+array[i].date)
 	 }
 	 
-	  console.log("指定字段name排序：");
-	 array.sort(createComparisonFunction("name"));
-	  for(var i in array){
-	    console.log("name="+array[i].name+" date="+array[i].date)
-	 }
+	 //  console.log("指定字段name排序：");
+	 // array.sort(createComparisonFunction("name"));
+	 //  for(var i in array){
+	 //    console.log("name="+array[i].name+" date="+array[i].date)
+	 // }
 	 
 	 
 	 
@@ -1037,6 +1039,7 @@ function convertAry(a,b){
  	var items=[1,2,3,4,5];
  	let rl=items.splice(2);
  	console.log(rl);//[3,4,5]
+ 	console.log(rl.length)
  }
   
 </script>

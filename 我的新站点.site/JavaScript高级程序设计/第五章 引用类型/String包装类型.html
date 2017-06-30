@@ -265,6 +265,18 @@ function numberCheck(e){
     console.log(str1.indexOf('a'))//-1
     
   }
+
+  function testBoolean(){
+    var booleanObj=new Boolean(false);
+    console.log(  booleanObj.valueOf())
+    console.log(typeof booleanObj.toString())
+  }
+
+  function mobileReplace(){
+    var mobile='13671889898';
+    var rpMobile=mobile.replace(mobile.substr(3,4),'****');
+    console.log(rpMobile)
+  }
 </script>
 </head>
 
@@ -299,5 +311,9 @@ function numberCheck(e){
  <h3>--------------------'ABCDEF'.indexOf('a')方法是区分大小写的---------------</h3>
 <button type="button" onclick="testIndexOf()">indexOf大小写区别</button>
 
+
+<button type="button" onclick="testBoolean()">boolean基本类型的实例测试</button>
+
+<button type="button" onclick="mobileReplace()">手机号码用*代替</button>
 </body>
 </html>

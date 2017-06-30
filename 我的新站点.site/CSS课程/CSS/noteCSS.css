@@ -947,3 +947,8 @@ ul.type-lists li{
 }
 
 
+.entity:after{
+	content: '\E434';
+}
+
+

@@ -214,6 +214,27 @@ function parseTest(){
    console.log(handelParse);
    console.log(handelParse.releaseDate.getFullYear());/*正是因为releaseDate用parse()方法的第二个参数-函数处理后，由字符串转为了Date对象，此处才可以直接调用getFullYear()方法呢*/
 }
+
+function xieTest(){
+
+  var obj={
+    name:'xiaoxin',
+    age:10
+  }
+
+
+  var a=JSON.stringify(obj);
+  console.log(a);
+
+  var b=JSON.stringify(a);
+  console.log(b)
+
+
+  var c=JSON.parse(JSON.stringify(JSON.stringify(b)))
+  console.log(JSON.parse(c))
+
+   
+}
 </script>
 </head>
 
@@ -235,5 +256,8 @@ function parseTest(){
 <h3>---------------解析选项：JSON.parse()方法也可以传入第二个参数-一个函数------------------</h3>
 <input type="button"    value="parse解析定义" onclick="parseTest()"/></br>
 
+
+<h3>---------------斜杠------------------</h3>
+<input type="button"    value="ajax返回的数据带有斜杠的问题" onclick="xieTest()"/></br>
 </body>
 </html>
