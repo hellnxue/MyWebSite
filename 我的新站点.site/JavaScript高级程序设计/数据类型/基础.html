@@ -39,6 +39,30 @@ function addsx(){
 	console.log(obj.data);
 	console.log(obj.name);
 }
+
+
+function numFun(num){
+  num++;
+}
+
+function citeFun(obj){
+  obj.age++;
+}
+
+function citeType(){
+  var  i=10;
+  var obj={
+    age:10
+  };
+
+  numFun(i);
+
+  citeFun(obj)
+
+  console.log(i);
+
+  console.log(obj.age);
+}
 </script>
 </head>
 
@@ -46,5 +70,6 @@ function addsx(){
 <input type="button" value="测试let"  onclick="btnfushu()"/>
 <input type="button" value="测试类型"  onclick="dataTypeBtn()"/>
 <input type="button" value="对象添加属性"  onclick="addsx()"/>
+<input type="button" value="当引用类型作为参数传递时"  onclick="citeType()"/>
 </body>
 </html>

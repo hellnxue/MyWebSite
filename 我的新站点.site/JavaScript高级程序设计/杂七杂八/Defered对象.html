@@ -186,6 +186,34 @@ function pwhenTest(){
    ws(dtd);
    
  }
+
+ 
+  var wait2=function(dtd){
+     
+
+    setTimeout(function(){
+      console.log('执行完毕！')
+      dtd.resolve();
+    },5000);
+
+    console.log('异步操作执行期间................')
+
+　　return dtd;
+  }
+
+
+
+ function deferredTest1(){
+
+  var dtd=$.Deferred();
+
+  $.when(wait2(dtd)).done(function(){
+    console.log("执行完了。。。");
+  }).fail(function(){
+    console.log("失败了。。。");
+  });
+
+ }
  
  
 </script>
@@ -203,10 +231,11 @@ function pwhenTest(){
 <input type="button" value="when()"  onClick="whenTest();"/><br>
 <div id="target">thanks</div>
 
+<input type="button" value="利用when()方法可以给普通耗时的方法加上回调函数奥11"  onClick="deferredTest1();"/><br>
 
-<input type="button" value="利用when()方法可以给普通耗时的方法加上回调函数奥"  onClick="pwhenTest();"/><br>
+<input type="button" value="利用when()方法可以给普通耗时的方法加上回调函数奥22"  onClick="pwhenTest();"/><br>
 
-
+ 
 <input type="button" value="将耗时函数传入$.Deferred(）中"  onClick="deferred();"/><br>
 
 
