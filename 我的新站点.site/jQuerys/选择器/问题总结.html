@@ -655,7 +655,8 @@ function timerTest(){
  <h3>对象的key为数字的情况---添加带有数字的对象属性</h3>
  <button type="button" onclick="numberKey();">测试</button>
 
-
+ <h3>localSotrage的存取</h3>
+ <button type="button" onclick="lstg();">测试</button>
  
 <script type="text/javascript">
   
@@ -703,6 +704,14 @@ function timerTest(){
 
       console.log(obj[1]);//'hello'
       console.log(obj['name1'])//'hello world'
+  }
+
+  function lstg(){
+    localStorage.setItem('name','helln');
+    var rel=localStorage.getItem('name')
+    var p=JSON.parse(rel);
+    console.log(rel)
+     console.log(p)
   }
 
 </script>
