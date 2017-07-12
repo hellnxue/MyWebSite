@@ -4,7 +4,24 @@
 <meta charset="utf-8" />
 <title>自适应内部元素</title>
 <style>
-   figure{
+
+
+
+  /*公共部分*/
+  h3{
+    margin:30px;
+    background-color:#FFFF99;
+    border-radius:10px;
+    text-align: center;
+    color:#FF66FF;
+    background:-moz-linear-gradient(left,#64d1dd, #FFF 50%, #64d1dd);
+    font-size:1.2em;
+    
+  }
+
+
+  /*自适应内部元素*/
+   figure.adaptiveWidth {
     border: 1px dotted pink;
     padding: 10px;
     max-width: 200px;/*为不支持min-content属性值的浏览器设置的而平稳退化样式，结合下面的img的max=width:inherit。此处的max-width设置为width也可以的。。。。*/
@@ -12,20 +29,38 @@
     margin:auto;
    }
 
-   img{
+   .adaptiveWidth img{
+    display: block;/*让图片与容器的底边对其，行内元素默认与文字的基线对其，因此会在容器底部空出来一段距离*/
     max-width: inherit;
+   }
+
+
+   /*再有背景的基础上居中一些文字*/
+   .bgWrapper{
+    background: transparent url('../../../image/flowerlogo.png') no-repeat;
+   }
+
+   .bgWrapper div{
+      max-width: 900px;
+      margin: 0 auto;
    }
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
-<p>让figure包围住图片，宽度为内部元素的(此处是图片)宽度</p>
-<figure>
+<h3>一、自适应内部元素：让figure包围住图片，宽度为内部元素的(此处是图片)宽度（让宽度由内部元素的内容决定）</h3>
+<figure class="adaptiveWidth">
   <img src="../../../image/mxx/m4.jpg">
   <figcaption>
     The great Sir Adam Catlace was named after Countess Ada Lovelace,thie first programmer.
   </figcaption>
 </figure>
+
+
+<h3>满幅的背景，定宽的内容:在一块有背景的区域中居中内容</h3>
+<footer class="bgWrapper">
+  <div>位于背景容器中的居中的文字</div>
+</footer>
   
   
 </body>

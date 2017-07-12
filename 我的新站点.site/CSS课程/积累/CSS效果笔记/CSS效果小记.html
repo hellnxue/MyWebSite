@@ -372,6 +372,12 @@ position:absulute哎----</h3>
   <h3>空的div</h3>
   <div class="empty"></div>
   <div style="border: 2px solid blue;" class="entity">hello</div>
+
+  <h3>满幅的背景，定宽的内容 用calc代替margin:0 auto;中的auto，父元素用padding:0 calc;可以代替有固定宽的企且通过margin:0 auto设置了水平居中的子元素奥~~</h3>
+  <div style="padding: 0 calc(50% - 450px);background: yellow;text-align: center;background-clip: content-box;">
+       <div style="/*! max-width: 900px; *//*! background: yellow; *//*! margin: 0 calc(50% - 450px); *//*! text-align: center; */">hello</div
+  ></div>
+
      
 
 <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
