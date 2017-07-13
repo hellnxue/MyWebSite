@@ -35,15 +35,32 @@
    }
 
 
-   /*再有背景的基础上居中一些文字*/
-   .bgWrapper{
-    background: transparent url('../../../image/flowerlogo.png') no-repeat;
+   /*在有背景的容器上居中一些文字*/
+   .bgWrapper1{
+    background: transparent url('../../img/mouse.png') no-repeat;
+    background-size: cover;
    }
 
-   .bgWrapper div{
+   .bgWrapper1 div{
       max-width: 900px;
-      margin: 0 auto;
+      margin: 0 auto;/*居中有宽度的元素   auto实际上为(视口宽度-内容宽度900px)/2,即calc((100% - 900px) / 2),然后分居内容元素的左右两侧*/
+      color: yellow;
+      text-shadow: 1px 1px green;
    }
+
+
+
+.bgWrapper2 {
+    background: transparent url("../../img/mouse.png") no-repeat scroll 0 0 / cover ;
+    color: yellow;
+   /* max-width: 900px;*/   /*可以去掉width,因为calc(50% - 450px)已经计算出内容宽度为900px*/
+    padding: 0 calc(50% - 450px);
+    text-shadow: 1px 1px green;
+}
+
+
+
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
@@ -57,9 +74,15 @@
 </figure>
 
 
-<h3>满幅的背景，定宽的内容:在一块有背景的区域中居中内容</h3>
-<footer class="bgWrapper">
-  <div>位于背景容器中的居中的文字</div>
+<h3>满幅的背景，定宽的内容一:在一块宽度与视口同款的有背景的容器中居中内容</h3>
+<footer class="bgWrapper1">
+  <div>位于背景容器中的居中的文字 位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字</div>
+</footer>
+
+
+<h3>满幅的背景，定宽的内容二:通过计算函数calc(),可以省略掉多余的布局和CSS属性（注：前提是没用box-sizing:border-box;属性，这样在给父元素应padding时才能实现同容器中子元素利用了margin:0 auto;似的居中效果奥~~）</h3>
+<footer class="bgWrapper2">
+   位于背景容器中的居中的文字 位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字 
 </footer>
   
   
