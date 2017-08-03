@@ -5,16 +5,17 @@
 <title>无标题文档</title>
 <script>
 
+
+function testNumber(which){
+     
+	 if(/^\d+$/.test(which.value)==false){
+	     console.log("只能填数字！");
+	     which.value=which.value.replace(/^\d+$/g,'');
+	 }
+}
+
 //验证数字（只能是数字）
   function test(which){
-      
-	 // alert(/^\d+$/.test(which.value));
-	 // if(/^\d+$/.test(which.value)==false){
-	 //     // alert("只能填数字！");
-	 //     which.value=which.value.replace(/^\d+$/g,'');
-	 // }
-
-	  
 
 	  if (which.value.length<=17) {
 
@@ -22,24 +23,26 @@
 	  	console.log('1')
 	  }else  if(which.value.length==18 ) {
 
-	  	var a=which.value.substring(17).replace(/[^0-9xX]/g,'');  
-	  	// which.value=which.value+a;
+	  	var ary=which.value.split('');
+	  	// console.log(ary+'');
+	  	var arys=ary.map(function(item,index){
+           if (index==17) {
+             item=item.replace(/[^0-9xX]/g,'');
+             if (item=='x') {
+             	item=item.toUpperCase();
+             }
+           }else{
+           	  item=item.replace(/[^0-9]/g,'');
+           }
 
+           return item;
 
-	  	// which.value=which.value.substring(0,17)+which.value
+        }) 
 
-	  	console.log(a);
+       console.log(arys+'');
 
-	  	// console.log(which.value.substring(0,17)+a);
+       which.value=arys.join('')
 
-	  	if (a=='x') {
-	  		a=a.toUpperCase();
-	  	}
-
-	  	which.value=which.value.substring(0,17)+a;
-
-
-	     // console.log(which.value.substring(17))
 	  }
 
 
@@ -50,6 +53,10 @@
 <body>
 <label>18位身份证，最后一位允许输入x，其它全部必须是数字，包括15位的（15位的身份证也必须是数字）</label>
 <input type="text" name="integer" value="" id="dd"  onkeyup="test(this)" maxlength="18" />
+
+
+<label>验证只能输入数字</label>
+<input type="text" name="integer" value="" id="dd"  onkeyup="testNumber(this)"  />
 
 <div>&nbsp;</div>
 </body>
