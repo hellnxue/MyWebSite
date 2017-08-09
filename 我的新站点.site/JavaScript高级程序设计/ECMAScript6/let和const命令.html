@@ -34,6 +34,8 @@
 			 <input type="button"  value="do表达式" onClick="test10()"/>
 
 			 <input type="button"  value="测试" onClick="test11()"/>
+
+			 <input type="button"  value="暂时性死区" onClick="test12()"/>
 		</fieldset>
 		
 		<fieldset class="out">
@@ -265,6 +267,16 @@
 		b[2]();//2
 
 
+	}
+
+	function test12()  {
+		try{
+			let temp=temp;
+			console.log(temp);
+		}catch(e){
+			console.log(e);
+		}
+		
 	}
 	
 	</script>
