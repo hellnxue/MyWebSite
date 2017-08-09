@@ -657,8 +657,35 @@ function timerTest(){
 
  <h3>localSotrage的存取</h3>
  <button type="button" onclick="lstg();">测试</button>
+
+ <h3>----------------模拟进行中的不间断的省略号----------------------</h3>
+ <h3 class="load">查询中 <i></i></h3>
+ <button type="button" onclick="loading();">启动进行中模式</button>
+ <button type="button" onclick="stop();">进行中</button>
+
+
+ <h3>----------------数组可以添加属性吗----------------------</h3>
+<button type="button" onclick="ArrayObjTest()">Array</button>
  
 <script type="text/javascript">
+  var tim=0,
+  i=1;
+
+  function loading(){
+    stop();
+   tim=setInterval(function(){
+      $('.load i').append('。');
+      if (i%6==0) {
+         $('.load i').html('')
+      }
+      i++;
+    },500)
+ 
+  }
+
+  function stop(){
+     clearInterval(tim);
+  }
   
 
     function objProtoType(){
@@ -712,6 +739,14 @@ function timerTest(){
     var p=JSON.parse(rel);
     console.log(rel)
      console.log(p)
+  }
+
+
+
+  function ArrayObjTest(){
+    var ary=[1,2,3];
+    ary.item='hello world';
+    console.log(ary.item)//hello world  ??数组可以添加属性？？好奇怪
   }
 
 </script>

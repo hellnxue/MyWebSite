@@ -31,7 +31,9 @@
 
 			  <input type="button"  value="ES5没有块级作用域" onClick="test9()"/>
 
-			  <input type="button"  value="do表达式" onClick="test10()"/>
+			 <input type="button"  value="do表达式" onClick="test10()"/>
+
+			 <input type="button"  value="测试" onClick="test11()"/>
 		</fieldset>
 		
 		<fieldset class="out">
@@ -232,6 +234,35 @@
 		console.log(x);//没输出哎.....?*/
 
 
+
+
+	}
+
+	function test11(){
+		var a=[];
+		for(var i=0;i<5;i++){
+			a[i]=function(){
+				var temp=i;
+				console.log(temp);
+			}
+		}
+
+		i=100;
+
+		 
+		a[2]();//100
+
+		var b=[];
+		for(let j=0;j<5;j++){
+			b[j]=function(){
+				console.log(j);
+			}
+		}
+
+		j=200;
+		console.log(j);//200 此处居然还能读到let变量哎...... 
+
+		b[2]();//2
 
 
 	}

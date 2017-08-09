@@ -106,6 +106,27 @@ function opentest3(){
 	 
 	location="mxxm.html";
 }
+
+
+function setLen(){
+  var len=window.history.length;
+  console.log("浏览器历史记录的长度=="+len);
+
+  localStorage.setItem("len",len);
+}
+
+function historyLenTest(){
+  
+  var len=window.history.length;
+  console.log("浏览器历史记录的长度=="+len);
+
+  var num=localStorage.getItem("len");
+  if (num) {
+    var dif=len-Number(num);
+    window.history.go(-dif);
+  }
+
+}
 </script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
@@ -141,6 +162,12 @@ function opentest3(){
  window.open()方法测2试：<input type="button" onClick="opentest2()"  value=" window.open()"/><br/>
  location方法测试：<input type="button" onClick="opentest3()"  value=" location"/><br/>
  <a href="mxxm.html">超链接</a>
+
+
+ <h3 style="background: yellow;color: red;">通过history.length的长度返回到最初的页面</h3>
+ <button type="button" onclick="setLen();">Sept.1:设置history.length初始长度</button>
+ <button type="button" onclick="historyLenTest();">Sept.2:从此页面地址开始，跳转N个其它第三方网站地址后，点击此处返回到最初的位置</button>
+
 
 </body>
 </html>

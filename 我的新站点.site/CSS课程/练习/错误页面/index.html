@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>卡代偿</title>
+		<meta name="description" content="卡代偿">
+		<meta name="keywords" content="卡代偿">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<style type="text/css">
+			html,
+			body {
+			  width: 100%;
+			  height: 100%;
+			  background-color: #f5f5f6;
+			}
+			body {
+			    font-size: 16px;
+			}
+			@media screen and (min-width: 375px) {
+			    body {
+			        /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */
+			        font-size: calc(100% + 2 * (100vw - 375px) / 39);
+			        font-size: calc(16px + 2 * (100vw - 375px) / 39);
+			    }
+			}
+			@media screen and (min-width: 414px) {
+			    body {
+			        /* 414px-1000px每100像素宽字体增加1px(18px-22px) */
+			        font-size: calc(112.5% + 4 * (100vw - 414px) / 586);
+			        font-size: calc(18px + 4 * (100vw - 414px) / 586);
+			    }
+			}
+			@media screen and (min-width: 600px) {
+			    body {
+			        /* 600px-1000px每100像素宽字体增加1px(20px-24px) */
+			        font-size: calc(125% + 4 * (100vw - 600px) / 400);
+			        font-size: calc(20px + 4 * (100vw - 600px) / 400);
+			    }
+			}
+			@media screen and (min-width: 1000px) {
+			    body {
+			        /* 1000px往后是每100像素0.5px增加 */
+			        font-size: calc(137.5% + 6 * (100vw - 1000px) / 1000);
+			        font-size: calc(22px + 6 * (100vw - 1000px) / 1000);
+			    }
+			}
+
+			.ql-page{
+				text-align: center;
+			}
+
+			.ql-page img{
+				width: 2.7rem;
+				margin-top: 2.4rem;
+				margin-bottom: 0.2rem;
+			}
+
+			.ql-page p{
+				margin:0;
+				line-height: 1.5;
+			}
+
+			.ql-page .title{
+				margin-bottom: 0.4rem;
+				font-size:1.125em;
+				font-weight: 600;
+				color: #1a8fff;
+			}
+
+			.ql-page .msg{
+				
+				font-size:0.75em;
+				color: #88888e;
+			}
+
+			.ql-page .msg+.msg{
+				margin-top: 0.2rem;
+				margin-bottom: 0.3rem;
+				 
+			}
+
+			.ql-page .ql-btn{
+				background: #ff9f39;
+				display: inline-block;
+				padding: 0.3rem 0.94rem;
+				border: 0;
+				outline: none;
+				border-radius: 10px;
+				font-size: 0.875em;
+				letter-spacing: 0.1em;
+				color: #fff;
+
+				 
+			}
+
+		</style> 
+		
+	</head>
+  	<body>
+    	<section class="ql-page">
+    		<img  src="icons.png">
+    		<p class="title">糟糕！加载失败！</p>
+    		<p class="msg">无法显示当前页面，请检查您的网络环境</p>
+    		<p class="msg">点击按钮重新加载页面</p>
+    		<button class="ql-btn" type="button">戳我重试</button>
+    	</section>
+
+    	<script>
+		 
+		/* 动态改变根节点html的fontSize */
+		(function() {
+		  rootFontSize();
+		  //改变窗口大小
+		  window.onresize = function() {
+		    rootFontSize();
+		  }
+		  function rootFontSize() {
+		    var deviceWidth = document.documentElement.clientWidth;
+		    if(deviceWidth > 750) deviceWidth = 750;
+		    document.documentElement.style.fontSize = deviceWidth / 7.5 + 'px';
+		  }
+		})();
+
+		var backForNative = function () {
+		    if(window.history.length == 1){
+				return 1;
+			}else {
+                window.history.back();
+			}
+        }
+
+        
+		</script>
+  	</body>
+</html>
