@@ -59,6 +59,34 @@
 }
 
 
+/*
+选择：当一个列表正好有四个列表项时，选中所有列表项
+:nth-last-child(n) 从最后一个子元素开始倒数第几个元素*/
+.nthChild{
+
+  margin: 0;
+  list-style: outside none none;
+  overflow: hidden;
+}
+
+.nthChild li{
+ background: yellow;
+ float: left;
+ width: 50px;
+ height: 50px;
+ line-height: 50px;
+ border-radius: 6px;
+ text-align: center;
+}
+
+.nthChild li +li{
+ margin-left: 20px;
+}
+
+/*当一个正好有四个列表项的列表中的第一个列表项和它所有的兄弟元素*/
+.nthChild li:first-child:nth-last-child(4),.nthChild li:first-child:nth-last-child(4) ~ li{
+  background: pink;
+}
 
 
 </style>
@@ -84,7 +112,16 @@
 <footer class="bgWrapper2">
    位于背景容器中的居中的文字 位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字位于背景容器中的居中的文字 
 </footer>
-  
+
+
+<h3>根据兄弟元素的数量来设置样式</h3>
+  <ul class="nthChild">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+   <!--  <li>5</li> -->
+  </ul>
   
 </body>
 </html>
