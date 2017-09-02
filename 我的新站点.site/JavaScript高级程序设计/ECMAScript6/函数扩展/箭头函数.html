@@ -13,16 +13,18 @@
 <body>
 <button type="button" onclick="rtnObj();">返回对象的语法</button>
 <button type="button" onclick="abtArrow();">this指定是固定的</button>
+<button type="button" onclick="jgArrow();">箭头函数可以与变量解构结合使用</button>
+<button type="button" onclick="thisArrow();">箭头函数中的this对象</button>
 
-
+<button type="button" onclick="cabArrow();">箭头函数不能用call()、apply()和bind()方法zhidingthis</button>
  <script type="text/javascript">
     function rtnObj(){
 
         // 方式一
-        // var arrow=()=>{
-        //     console.log("箭头函数");
-        //     return {name:"helln"}
-        // };
+       /* var arrow=()=>{
+            console.log("箭头函数");
+            return {name:"helln"}
+        };*/
 
         //方式二
         var arrow=()=>({name:"helln"});
@@ -54,6 +56,99 @@
     setTimeout(() => console.log('s2: ', timer.s2), 3100);//0  timer.s2是不变的
     setTimeout(() => console.log('s2: ',  s2), 3100);//103
     
+    /*
+      当对象作为一个参数传入箭头函数时，函数的参数定义可以用结构赋值的语法哎
+    */
+     function jgArrow(){
+ 
+        var obj={name:'helln',age:10};
+
+        const full = ({ name, age }) => name + ' is ' + age;
+        console.log(full({name:'helln',age:10}))
+
+    }
+
+
+    function testThis(){
+      this.num1=1;
+      this.num2=2;
+
+      this.say=function(){
+        console.log(this.num2)
+      }
+
+      this.say2=()=>{
+        console.log(this.num2)
+      }
+    }
+
+
+    function thisArrow(){
+       
+      // var obj={
+      //   names:'helln',
+      //   age:20,
+      //   say:(pm)=>{
+      //     console.log(this.names)
+      //   }
+      // }
+
+
+      // obj.say();
+
+
+      var tobj=new testThis();
+      tobj.say();
+      tobj.say2();
+    }
+
+
+
+    /*关于：箭头函数中的this绑定*/
+    /*点击页面，触发click事件*/
+    var handler = {
+        id: '123456',
+
+        init: function() {
+          document.addEventListener('click',
+            event => this.doSomething(event.type), false);//此处的this指向click函数定义所在的环境，即init函数的环境（其实就是对象handler的环境）,doSomething函数是在handler环境下执行的，因此函数中的this指向的是handler对象
+        },
+        init2: function() {
+          document.addEventListener('click',function(event){
+            this.doSomething(event.type)
+          },false); 
+          
+        },
+        doSomething: function(type) {
+          console.log('Handling ' + type  + ' for ' + this.id);
+        }
+      };
+
+    /* 
+     查看时打开多行注释即可
+     handler.init();*///Handling click for 123456
+      // handler.init2();//TypeError: this.doSomething is not a function
+
+
+    /*由于箭头函数没有自己的this，所以当然也就不能用call()、apply()、bind()这些方法去改变this的指向*/
+    function cabArrow(){
+      var ary=(function(){
+        //此处的this指向箭头函数定义所在的作用域，即用call方法执行的函数的作用于，指向{x:'outer'}
+        return [(()=>this.x).bind({x:'inner'})()];
+      }).call({x:'outer'});
+
+      var ary1=(function(){
+        //普通函数中的this指向了bind函数传入的对象{x:'pinner'}
+        return [((function(){return this.x}).bind({x:'pinner'}))()]
+      }).call({x:'pouter'})
+
+      console.log(ary+'');//outer
+
+       console.log(ary1+''); //pinner
+    }
+
+
+
  </script>
 </body>
 </html>

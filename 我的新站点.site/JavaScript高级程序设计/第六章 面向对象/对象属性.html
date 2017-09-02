@@ -144,6 +144,16 @@ function testThis(){
 }
 
 
+function definedObj(){
+	var obj={
+		name:'helln'
+	};
+
+	Object.defineProperty(obj,"age",{value:"20"});//用属性描述器定义的属性是默认只读的
+	age=30;
+	console.log(obj.age)//20
+
+}
 </script>
 </head>
 
@@ -154,5 +164,10 @@ function testThis(){
 <input type="button" value="用delete删除原型对象上的属性" onclick="test()" /></br>
 
 <input type="button" value="原型对象的方法里的this指向" onclick="testThis()" /></br>
+
+
+
+<input type="button"    value="用属性描述器定义的属性是默认只读的" onclick="definedObj()" /></br>
+
 </body>
 </html>

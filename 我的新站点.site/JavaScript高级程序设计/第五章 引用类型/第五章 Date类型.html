@@ -282,6 +282,116 @@ function getTomorrowDate(){
 
   console.log(tDate.getFullYear()+"-"+month+"-"+day)
 }
+
+/*获取当前月份向前推N个月*/
+function dateNow(){
+  // console.log(Date.now());
+  // console.log(new Date().getTime());
+
+    var date=new Date(),
+        month=date.getMonth(),
+        n=3,
+        rt=0;
+
+    if (month==0) {
+      month=1;
+    }else{
+      month=month+1;
+    }
+
+    month=12;
+
+    if (month==n) {
+      rt=12;
+    }else if (month>n) {
+      rt=month-n;
+    }else{
+      var j=month-n;
+      rt=12+j;
+    }
+
+    console.log("向前推"+n+"个月后的月份是："+rt);
+
+}
+
+
+
+
+/*获取当前月份向后推N个月*/
+function dateNow2(){
+  // console.log(Date.now());
+  // console.log(new Date().getTime());
+
+    var date=new Date(),
+        month=date.getMonth(),
+        n=1,
+        rt=0;
+
+    if (month==0) {
+      month=1;
+    }else{
+      month=month+1;
+    }
+
+    if (n<12) {
+
+      if (month==12) {
+        rt=0+n;
+      }else if (month+n>12) {
+        rt=(month+n)-12;
+      }else{
+        rt=month+n;
+      }
+
+    }else{
+
+      if (n-12<12) {
+        rt=n-12+month;
+        
+      }else{
+
+        if (n%12==0) {
+          rt=month;
+          
+        }else{
+          rt=n%12+month;
+        }
+        
+      }
+
+    }
+
+    console.log("向后推"+n+"个月后的月份是："+rt);
+
+}
+
+
+
+function get3MonthBefor(){
+    var resultDate,year,month,date,hms;
+    var currDate = new Date();
+    year = currDate.getFullYear();
+    month = currDate.getMonth()+1;
+    date = currDate.getDate();
+    hms = currDate.getHours() + ':' + currDate.getMinutes() + ':' + (currDate.getSeconds() < 10 ? '0'+currDate.getSeconds() : currDate.getSeconds());
+    switch(month)
+    {
+      case 1:
+      case 2:
+      case 3:
+        month += 9;
+        year--;
+        break;
+      default:
+        month -= 3;
+        break;
+    }
+    month = (month < 10) ? ('0' + month) : month;
+    resultDate = year + '-'+month+'-'+date+' ' + hms;
+
+    console.log(resultDate)
+  // return resultDate;
+}
 </script>
 </head>
 
@@ -303,5 +413,15 @@ function getTomorrowDate(){
 <input type="button"    value="获取一段代码的时间间隔" onclick="interval()"/></br>
 
 <input type="button"    value="获取当前日期对象的加上一天之后的日期对象" onclick="getTomorrowDate()"/></br>
+
+<input type="button"    value="Date.now()" onclick="dateNow()"/></br>
+
+<input type="button"    value="Date.now()" onclick="dateNow2()"/></br>
+
+
+<input type="button"    value="Date.now()" onclick="get3MonthBefor()"/></br>
+
+
+
 </body>
 </html>

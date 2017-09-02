@@ -1063,6 +1063,20 @@ function convertAry(a,b){
  	console.log(rl);//[3,4,5]
  	console.log(rl.length)
  }
+
+ function objArycl(){
+ 	var oa=[{name:'helln',status:1},{name:'hello',status:2}];
+ 	oa.map(function(item,index){
+ 		if (item.status==1) {
+ 			item.status='正常';
+ 		}else{
+ 			item.status='暂停';
+ 		}
+ 		return item;
+ 	});
+
+ 	console.log(oa );
+ }
   
 </script>
 
@@ -1108,5 +1122,6 @@ function convertAry(a,b){
 
 <input type="button"   value="splice方法只传入一个参数时会从该位置截取到最后哎"  onclick="spliceTest()"/><br />
 
+<button type="button" onclick="objArycl()">对象数组处理</button>
 </body>
 </html>
