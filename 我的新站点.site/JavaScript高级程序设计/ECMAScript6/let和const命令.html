@@ -34,6 +34,8 @@
 			 <input type="button"  value="do表达式" onClick="test10()"/>
 
 			 <input type="button"  value="测试" onClick="test11()"/>
+
+			 <input type="button"  value="暂时性死区" onClick="test12()"/>
 		</fieldset>
 		
 		<fieldset class="out">
@@ -231,7 +233,7 @@
 		};
 
 
-		console.log(x);//没输出哎.....?*/
+		console.log(x);//没输出哎.....浏览器不认识do耶?*/
 
 
 
@@ -265,6 +267,35 @@
 		b[2]();//2
 
 
+	}
+	
+	let lt=123;
+	function test13(){
+		
+		if (false) {
+			let lt=234;
+		}
+
+		console.log(lt);//123  如果变量lt换做为var声明的，那次出结果为undefined 原因在于变量提升，导致内层的lt变量覆盖了外层的lt变量。
+	}
+
+
+	
+	function test12()  {
+
+		// test13();
+		// function ff() { console.log('I am outside!'); }
+		// (function () {
+		//   if (false) {
+		//     // 重复声明一次函数f
+		//     function ff() { console.log('I am inside!'); }
+		//   }
+
+		//   ff();//ff is not a function
+		// }());
+
+		 
+		
 	}
 	
 	</script>
