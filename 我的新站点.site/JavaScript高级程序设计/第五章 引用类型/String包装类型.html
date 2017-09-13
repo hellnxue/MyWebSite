@@ -197,6 +197,17 @@ function testlablebreak(){
  
  }
 
+/*用正则表达式作为replace()的第一个参数，替换字符串中所有匹配的子字符串*/
+var replaceAllTest1=()=>{
+   let str='hello world';
+
+   let rlt=str.replace(/o/g,'e');
+   
+   console.log(rlt)
+}
+
+
+
  /*用正则替换子字符串中所有匹配的项*/
  function replaceAllTest(){
      var str="hello world world";
@@ -299,6 +310,7 @@ function numberCheck(e){
 
 <input type="button" value="字符串的模式匹配方法" onclick="matchTest()"  style="display:block;"/>
 
+ <input type="button" value="替换方法replace 参数为正则表达式可以替换所有项" onclick="replaceAllTest1()"  style="display:block;"/>
  <input type="button" value="替换方法replace的参数为变量时替换所有匹配的项" onclick="replaceAllTest()"  style="display:block;"/>
 
  <h3>--------------------截取任意后四位---------------</h3>

@@ -1077,6 +1077,45 @@ function convertAry(a,b){
 
  	console.log(oa );
  }
+
+
+/*将数组处理成两个为一组的组合，例：[1000,2000 ]处理为 1000-2000,2000 */
+ function intervalTest(){
+ 	var ary=[1000,2000 ];
+ 	var rlt=[];
+ 	
+
+ 	var x='';
+
+ 	//方法一
+ 	/*for(var i=0;i<ary.length;i++){
+ 	  for(var j=i+1;j<ary.length;j++){
+ 	  	rlt.push(ary[i]+"-"+ary[j]);
+ 	  	break;
+ 	  }
+ 	 
+ 	}
+
+ 	rlt.push(ary[ary.length-1]);*/
+
+ 	//方法二（这个简单）
+ 	for(let i=0;i<ary.length;i++){
+ 	   let j=i+1;
+ 	   if (j<ary.length) {
+ 	   	rlt.push(ary[i]+"-"+ary[j])
+ 	   }
+ 	 
+ 	}
+
+ 	rlt.push(ary[ary.length-1]);
+
+ 	console.log(rlt+"")//1000-2000,2000 
+ }
+
+ function splitTest(){
+ 	var num='1000';
+ 	console.log(num.split(',').length)
+ }
   
 </script>
 
@@ -1122,6 +1161,10 @@ function convertAry(a,b){
 
 <input type="button"   value="splice方法只传入一个参数时会从该位置截取到最后哎"  onclick="spliceTest()"/><br />
 
-<button type="button" onclick="objArycl()">对象数组处理</button>
+<button type="button" onclick="objArycl()">对象数组处理</button><br />
+
+<button type="button" onclick="intervalTest()">将数组两个为一组分组处理</button>
+
+<button type="button" onclick="splitTest()">splitTest</button>
 </body>
 </html>

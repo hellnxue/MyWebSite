@@ -290,7 +290,7 @@ function dateNow(){
 
     var date=new Date(),
         month=date.getMonth(),
-        n=3,
+        n=1,
         rt=0;
 
     if (month==0) {
@@ -392,6 +392,19 @@ function get3MonthBefor(){
     console.log(resultDate)
   // return resultDate;
 }
+
+
+function setMonthTest(){
+  var date=new Date();
+
+
+  console.log(date.getMonth())
+
+  date.setMonth(0)//设置月份
+
+
+  console.log(date.getMonth())//0
+}
 </script>
 </head>
 
@@ -414,13 +427,15 @@ function get3MonthBefor(){
 
 <input type="button"    value="获取当前日期对象的加上一天之后的日期对象" onclick="getTomorrowDate()"/></br>
 
-<input type="button"    value="Date.now()" onclick="dateNow()"/></br>
+<input type="button"    value="获取当前月份向后推N个月" onclick="dateNow()"/></br>
 
-<input type="button"    value="Date.now()" onclick="dateNow2()"/></br>
+<input type="button"    value="获取当前月份向前推N个月" onclick="dateNow2()"/></br>
 
 
-<input type="button"    value="Date.now()" onclick="get3MonthBefor()"/></br>
+<input type="button"    value="日期向前" onclick="get3MonthBefor()"/></br>
 
+
+<input type="button"    value="设置月份" onclick="setMonthTest()"/></br>
 
 
 </body>
