@@ -499,6 +499,11 @@ function timerTest(){
       return args;
     }
 
+//jquery设置文本框禁用
+    function disableTest(){
+      $("#disabled").attr({'disabled':true})
+    }
+
 </script>
 </head>
 
@@ -666,6 +671,11 @@ function timerTest(){
 
  <h3>----------------数组可以添加属性吗----------------------</h3>
 <button type="button" onclick="ArrayObjTest()">Array</button>
+
+
+ <h3>----------------jquery设置文本框禁用----------------------</h3>
+ <input type="text" name="" id="disabled" value="hehe">
+<button type="button" onclick="disableTest()">disabled</button>
  
 <script type="text/javascript">
   var tim=0,
