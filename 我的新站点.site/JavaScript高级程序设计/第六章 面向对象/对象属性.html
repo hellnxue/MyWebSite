@@ -154,6 +154,22 @@ function definedObj(){
 	console.log(obj.age)//20
 
 }
+
+/*访问对象中的属性有两种方法奥~*/
+function objFun(){
+	var obj={
+		name:'test',
+		fun:function(){
+			console.log('hello');
+		}
+	}
+	//方法一：用.
+	console.log(obj.name);
+	//方法二：用类似访问数组的方式，传入字符串
+	console.log(obj['name']);
+	//访问对象中的方法可以这样。。。同最简单的obj.fun()哎
+	obj['fun']();
+}
 </script>
 </head>
 
@@ -168,6 +184,9 @@ function definedObj(){
 
 
 <input type="button"    value="用属性描述器定义的属性是默认只读的" onclick="definedObj()" /></br>
+
+
+<input type="button"    value="对象中的方法调用" onclick="objFun()" /></br>
 
 </body>
 </html>
