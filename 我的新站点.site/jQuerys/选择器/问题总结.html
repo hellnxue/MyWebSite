@@ -676,7 +676,16 @@ function timerTest(){
  <h3>----------------jquery设置文本框禁用----------------------</h3>
  <input type="text" name="" id="disabled" value="hehe">
 <button type="button" onclick="disableTest()">disabled</button>
+
+
+
+<button type="button" onclick="arysplitTest()">split分隔字符串</button>
  
+<input name="file" class="el-upload__input" type="file" id="upload">
+<button type="button" onclick="uploadTest()">上传测试</button>
+
+
+<button type="button" onclick="breaks()">断点测试</button>
 <script type="text/javascript">
   var tim=0,
   i=1;
@@ -757,6 +766,25 @@ function timerTest(){
     var ary=[1,2,3];
     ary.item='hello world';
     console.log(ary.item)//hello world  ??数组可以添加属性？？好奇怪
+  }
+
+
+  function arysplitTest(){
+    var str="000000";
+    var ary=str.split('');
+    console.log(ary+'')
+  }
+
+
+  function breaks(){
+    console.log('11111111111')
+     var str="000000";
+    var ary=str.split('');
+    console.log(ary+'')
+  }
+
+  function uploadTest(){
+    console.log($("#upload").val())
   }
 
 </script>

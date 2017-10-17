@@ -288,6 +288,26 @@ function numberCheck(e){
     var rpMobile=mobile.replace(mobile.substr(3,4),'****');
     console.log(rpMobile)
   }
+
+  /*利用正则一次替换多种规则的字符串*/
+  function strTestsss(){
+    let str='2017-10-16 13:55:17a';
+    let str1='2017-10-16 13:55:17A';
+    console.log(str==str1);//false
+
+    let rlt=str.replace(new RegExp(/[- :]/,'gm'),'');//利用正则，将字符串中的-、空格和:一次全部替换掉
+    console.log(rlt) //20171016135517a
+  }
+
+  function dxTestsss(){
+    let str='2017-10-17 13:55:17';
+    let str1='2017-10-16 14:55:17';
+
+    let d1=new Date(str);
+    let d2=new Date(str1);
+
+    console.log(d1.getTime()<d2.getTime())
+  }
 </script>
 </head>
 
@@ -327,5 +347,9 @@ function numberCheck(e){
 <button type="button" onclick="testBoolean()">boolean基本类型的实例测试</button>
 
 <button type="button" onclick="mobileReplace()">手机号码用*代替</button>
+
+<button type="button" onclick="strTestsss()">判断两个字符串是否相等</button>
+
+<button type="button" onclick="dxTestsss()">判断两个日期的大小</button>
 </body>
 </html>

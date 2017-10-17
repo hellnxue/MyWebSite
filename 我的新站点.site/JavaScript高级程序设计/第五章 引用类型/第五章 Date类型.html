@@ -242,8 +242,14 @@ function checkDate(){
 	 //方法三：年月日去掉多余的字符，比较数字 年月日
 	 var date1="2017-12-13".replace(new RegExp("-","gm"),"");
 	 var date2="2017-04-13".replace(new RegExp("-","gm"),"");
+
 	 var flag2=parseInt(date1)>parseInt(date2);
 	 console.log(flag2);//true
+
+   //番外：利用正则，将字符串中的-、空格和:一次全部替换掉
+   let str='2017-10-16 13:55:17';
+   let rlt=str.replace(new RegExp(/[- :]/,'gm'),'');
+   console.log(rlt);//20171016135517
 	 
 }
 
@@ -405,6 +411,24 @@ function setMonthTest(){
 
   console.log(date.getMonth())//0
 }
+
+
+function setDayTest(){
+
+  var date=new Date();
+  /*date.getDate()根据本地时间，返回一个指定的日期对象为一个月中的第几天*/
+  console.log(date.getDate())
+  /*setDate() 方法根据本地时间来指定一个日期对象的天数。*/
+  date.setDate(1);
+  console.log(date )
+
+  /*获取字符串日期的时间戳*/
+  var date1=new Date('2017-10-12');
+  var time=date1.getTime();
+  console.log("时间戳="+time);//1507766400000
+
+
+}
 </script>
 </head>
 
@@ -436,6 +460,8 @@ function setMonthTest(){
 
 
 <input type="button"    value="设置月份" onclick="setMonthTest()"/></br>
+
+<input type="button"    value="设置天数" onclick="setDayTest()"/></br>
 
 
 </body>
