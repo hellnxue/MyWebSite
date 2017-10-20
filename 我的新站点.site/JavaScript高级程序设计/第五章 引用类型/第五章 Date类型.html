@@ -423,11 +423,28 @@ function setDayTest(){
   console.log(date )
 
   /*获取字符串日期的时间戳*/
-  var date1=new Date('2017-10-12');
+  var date1=new Date('2017-10-20');
   var time=date1.getTime();
   console.log("时间戳="+time);//1507766400000
+  console.log(new Date().getTime())
+
+  setTimeout(function(){
+     console.log(new Date().getTime())
+  },5000)
 
 
+}
+
+//？？？？
+function isToday(){
+var date1=new Date('2017-10-20');
+  var time=date1.getTime();
+  console.log("时间戳="+time);//1507766400000
+  console.log(new Date().getTime())
+
+  setTimeout(function(){
+     console.log(new Date().getTime())
+  },5000)
 }
 </script>
 </head>
@@ -463,6 +480,7 @@ function setDayTest(){
 
 <input type="button"    value="设置天数" onclick="setDayTest()"/></br>
 
+<input type="button"    value="判断一个日期是否是当天" onclick="isToday()"/></br>
 
 </body>
 </html>
