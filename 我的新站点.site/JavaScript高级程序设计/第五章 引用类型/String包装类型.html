@@ -308,6 +308,13 @@ function numberCheck(e){
 
     console.log(d1.getTime()<d2.getTime())
   }
+
+  function substrChar(){
+    var str='lo/#/releaseAnnouncement?entryFlag=update';
+
+    console.log(str.substring(Number(str.indexOf("#/"))+2,str.indexOf("?"))); 
+    console.log(str.indexOf('#/'))
+  }
 </script>
 </head>
 
@@ -351,5 +358,7 @@ function numberCheck(e){
 <button type="button" onclick="strTestsss()">判断两个字符串是否相等</button>
 
 <button type="button" onclick="dxTestsss()">判断两个日期的大小</button>
+
+<button type="button" onclick="substrChar()">截取字符串位置处的字符串</button>
 </body>
 </html>

@@ -161,6 +161,7 @@
 	function decodeURIEvent(event){
 	   var $btn=$(event.currentTarget);
 	   var encodeURL=$btn.siblings(":text").val();
+	   console.log(encodeURIComponent(encodeURL))
 	   
 	   $btn.siblings("div").append("<span style='color:gold; font-size:20px;'>"+decodeURIComponent(encodeURL)+"</span>");
 	   

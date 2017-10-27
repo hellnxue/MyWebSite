@@ -797,13 +797,13 @@ button,[type='button']{
  	height: 119px;
  	margin: 0 auto;
  	background: url('../img/redPacket .png') no-repeat scroll 50% 50% / 114px 119px;
- 	 transform: translateY(-50%);  
+ 	 /*transform: translateY(-50%);  */
     animation:redPacket  1s linear  infinite running; 
  }
 
 /*红包左右摇摆动画*/
  @keyframes redPacket{
-        0%{
+        /*0%{
          transform:rotate(0deg); 
          transform-origin:center; 
          }
@@ -827,9 +827,40 @@ button,[type='button']{
          45%{
         transform:rotate(0deg);
         transform-origin:center;
+         } */
+
+
+         0%{
+         transform:rotate(0deg); 
+         transform-origin:center; 
+         }
+
+       15%{
+         transform:rotate(15deg); 
+         transform-origin:center; 
+         }
+         
+       25%{
+        transform:rotate(-15deg);
+        transform-origin:center;
+         }
+      
+         
+       35%{
+        transform:rotate(15deg);
+        transform-origin:center;
+         }
+
+         45%{
+        transform:rotate(0deg);
+        transform-origin:center;
          } 
 
      }
+
+
+
+
 
 
 </style>
@@ -1216,6 +1247,9 @@ n 可以是数字、关键词或公式。
 
 <h3>左右晃动的动画效果</h3>
 <div  class="swingEffect"></div>
+
+
+
 
 <script>
 	function transitionTest(){

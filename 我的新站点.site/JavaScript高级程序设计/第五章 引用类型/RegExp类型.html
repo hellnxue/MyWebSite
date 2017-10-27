@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -170,6 +170,51 @@ function regTest2(th){
     
   
 }
+
+
+/*匹配三个为一组的数字，中间用','号隔开奥~~*/
+function regTest3(){
+	 // var reg=/[0-9]{3}[,][0-9]/;
+	 // var reg=/^[0-9]{3}+[,]?$/g;
+
+	 var reg=/^[0-9]{3}([.]*[0-9]{3})$/g;
+
+
+	 var pattern=/^(([0-9]{3}[,])*)([0-9]{3})$/;//这个是以正确的
+
+	 var str='100,120,120';
+	     // str='100';
+
+	 var rlt=pattern.test(str);
+	 console.log(rlt)
+
+
+	 var matches=str.match(pattern);    
+	 console.log(matches)
+
+
+	 var re = /(\w+)\s(\w+)/;
+	 var restr = "John Smith";
+	 console.log(restr.match(re))
+
+	 var r=/abc/;
+	 var s= "Hi, do you know your abc's?";
+
+	 console.log(s.match(r))
+	 s=s.replace(r,'=');
+	 console.log(s)
+
+	 var t=/wo/;
+	 var rr='hello world'
+	 console.log(t.test(rr))//true
+
+
+	 var ts=/ab*c/;
+	 var strts='habbbbbbcs';
+	 console.log(strts.match(ts))
+
+
+}
 </script>
 </head>
 
@@ -193,6 +238,10 @@ function regTest2(th){
 
  
  <input type="button"    value="模式匹配方法exec()，全局的"   onclick="regTest2(this)"/>
+
+<input type="button"    value="匹配一组数据"   onclick="regTest3(this)"/>
+
+
  
 </body>
 </html>
