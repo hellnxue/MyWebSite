@@ -180,7 +180,7 @@ function regTest3(){
 	 var reg=/^[0-9]{3}([.]*[0-9]{3})$/g;
 
 
-	 var pattern=/^(([0-9]{3}[,])*)([0-9]{3})$/;//这个是以正确的
+	 var pattern=/^(([0-9]{3}[,])*)([0-9]{3})$/;//这个是正确的
 
 	 var str='100,120,120';
 	     // str='100';
@@ -215,6 +215,26 @@ function regTest3(){
 
 
 }
+
+
+//replace替换时，用正则一次匹配多个字符
+function regTest4(){
+	let reg=/-|:| /g;
+	let str="2017-10-30 14:03:55";
+	let rlt=str.match(reg)
+
+	let rrlt=str.replace(reg,'')
+
+	console.log(rlt)
+	console.log(rrlt)//20171030140355
+
+	
+
+	var ss=new Date(new Date('2017-10-31T06:23:21.000Z').getTime()).toLocaleString('chinese',{hour12:false}).replace(/\//g,"-")
+
+	console.log(ss)
+	 
+}
 </script>
 </head>
 
@@ -241,6 +261,7 @@ function regTest3(){
 
 <input type="button"    value="匹配一组数据"   onclick="regTest3(this)"/>
 
+<input type="button"    value="匹配多个字符"   onclick="regTest4(this)"/>
 
  
 </body>

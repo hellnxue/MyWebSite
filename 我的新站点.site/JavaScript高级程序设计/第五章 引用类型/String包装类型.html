@@ -315,6 +315,17 @@ function numberCheck(e){
     console.log(str.substring(Number(str.indexOf("#/"))+2,str.indexOf("?"))); 
     console.log(str.indexOf('#/'))
   }
+
+  function belongs(){
+    var obj={
+      name:'hello',
+      age:20
+    };
+
+    console.log( "ages" in obj)
+
+    console.log('hello'.indexOf('l1l')!=-1)
+  }
 </script>
 </head>
 
@@ -360,5 +371,7 @@ function numberCheck(e){
 <button type="button" onclick="dxTestsss()">判断两个日期的大小</button>
 
 <button type="button" onclick="substrChar()">截取字符串位置处的字符串</button>
+
+<button type="button" onclick="belongs()">判断一个属性是否在一个对象中</button>
 </body>
 </html>

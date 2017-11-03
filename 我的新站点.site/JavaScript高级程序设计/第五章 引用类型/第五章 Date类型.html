@@ -446,6 +446,85 @@ var date1=new Date('2017-10-20');
      console.log(new Date().getTime())
   },5000)
 }
+
+
+/*根据指定日期或毫秒值创建日期对象*/
+function newDateByAssignDate(){
+  
+
+  //方法一：根据指定格式的日期
+  var str="2017-10-30 13:39:04";//可以
+  var dt=new Date(str);
+  console.log(dt.getFullYear()+"-"+dt.getMonth()+"-"+dt.getDate()+" "+dt.getHours()+":"+dt.getMinutes()+":"+dt.getSeconds() )
+
+  //方法二：根据时间的毫秒值
+  var dt1=new Date(new Date().getTime());//可以
+
+  console.log(dt1.getFullYear()+"-"+dt1.getMonth()+"-"+dt1.getDate()+" "+dt1.getHours()+":"+dt1.getMinutes()+":"+dt1.getSeconds())
+
+  /*其它格式测试*/
+  var str2="2017/10/30 13:39:04";//可以
+  var dt2=new Date(str2);
+   console.log(dt2.getFullYear()+"-"+dt2.getMonth()+"-"+dt2.getDate()+" "+dt2.getHours()+":"+dt2.getMinutes()+":"+dt2.getSeconds())
+
+  var str3="2017/10/30 13/39/04";//NO 不可以，时间要用冒号隔开奥~~
+  var dt3=new Date(str3);
+   console.log(dt3.getFullYear()+"-"+dt3.getMonth()+"-"+dt3.getDate()+" "+dt3.getHours()+":"+dt3.getMinutes()+":"+dt3.getSeconds())//NaN-NaN-NaN NaN:NaN:NaN
+
+  var str4="10/30/2017"; //可以
+  var dt4=new Date(str4);
+   console.log(dt4.getFullYear()+"-"+dt4.getMonth()+"-"+dt4.getDate()+" "+dt4.getHours()+":"+dt4.getMinutes()+":"+dt4.getSeconds())//2017-9-30 0:0:0
+}
+
+/*toLocaleStrig()方法的具体用法
+  toLocaleString() 方法返回该日期对象的字符串，该字符串格式因不同语言而不同。新增的参数 locales 和 options 使程序能够指定使用哪种语言格式化规则，允许定制该方法的表现（behavior）。在旧版本浏览器中， locales 和 options 参数被忽略，使用的语言环境和返回的字符串格式是各自独立实现的。
+
+  语法：
+  dateObj.toLocaleString([locales [, options]])
+
+*/
+function localStringTest(){
+  var date=new Date().toLocaleString();
+  var date1=new Date().toLocaleString('chinese',{hour12:false}) // hour12:false  时间24小时制
+  console.log(date)//2017/11/2 下午2:03:53
+  console.log(date1)//2017/11/2 14:03:53
+
+
+  var date2=new Date().toLocaleString('chinese',{formatMatcher:'year'})
+  console.log(date2)
+
+  
+}
+
+function dxTest(){
+  // var d1=new Date('Fri Nov 25 2017 03:57:04 GMT+0800');
+  // var d2=new Date('Fri Nov 17 2017 17:60:04 GMT+0800');
+
+  // console.log(d2>d1)//false;
+
+
+  // var date=new Date(new Date('Fri Nov 03 2017 03:57:04 GMT+0800').getTime()).toLocaleString('chinese',{hour12:false}).replace(/\//g,"-") 
+
+  // var data1=new Date('Fri Nov 03 2017 03:57:04 GMT+0800').toLocaleString('chinese',{hour12:false}).replace(/\//g,"-") 
+
+  // console.log(data1)
+
+  // var date=new Date('Fri Nov 03 2017 03:57:04 GMT+0800');
+
+
+
+ var d1=new Date('Fri Nov 25 2017 03:57:04 GMT+0800').getTime();
+  var d2=new Date('Fri Nov 17 2017 17:60:04 GMT+0800').getTime();
+
+  console.log(d2<d1)//false;
+
+
+
+
+
+
+
+}
 </script>
 </head>
 
@@ -480,7 +559,16 @@ var date1=new Date('2017-10-20');
 
 <input type="button"    value="设置天数" onclick="setDayTest()"/></br>
 
-<input type="button"    value="判断一个日期是否是当天" onclick="isToday()"/></br>
+<input type="button"    value="判断一个日期是否是当天？？？" onclick="isToday()"/></br>
 
+
+<button type="button" onclick="newDateByAssignDate()">根据指定的日期或毫秒值new Date()对象</button>
+
+
+<h3>Date类型的toLocalString()方法会按照与浏览器设置的地区相适应的格式返回日期和时间</h3>
+<button type="button" onclick="localStringTest()">toLocaleString()方法的具体用法</button>
+
+
+<button type="button" onclick="dxTest()">日期大小判断</button>
 </body>
 </html>
