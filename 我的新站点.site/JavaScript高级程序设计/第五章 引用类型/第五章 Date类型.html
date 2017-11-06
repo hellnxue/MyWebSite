@@ -224,7 +224,7 @@ function sunornight(){
 */
 function checkDate(){
 	 
-	//方法一：将指定日期转换为毫秒值然后比较(这种比较适合年月日时分秒的日期  按理说getTime()获取的时间戳不是0000结尾的，传参数后就跟Date.parse()的结果有点类似，但又不全相等。。。。。。)
+	//方法一（推荐方法一，其它方法在月份或者日期为单个数字时，前面的0有可能会被处理掉，如2017-11-06会处理为2017-11-6，最终数字会如此：2017116）：将指定日期转换为毫秒值然后比较(这种比较适合年月日时分秒的日期  按理说getTime()获取的时间戳不是0000结尾的，传参数后就跟Date.parse()的结果有点类似，但又不全相等。。。。。。)
 	 var oldTime = (new Date("2017/2/13")).getTime(); //得到毫秒数    "2017/2/13"能直接传给Date()函数吗，只能是yyyy/mm/dd的格式吗？  
 	  
 	 var assignDate="2017-1-13";
@@ -484,41 +484,30 @@ function newDateByAssignDate(){
 
 */
 function localStringTest(){
-  var date=new Date().toLocaleString();
-  var date1=new Date().toLocaleString('chinese',{hour12:false}) // hour12:false  时间24小时制
-  console.log(date)//2017/11/2 下午2:03:53
-  console.log(date1)//2017/11/2 14:03:53
+  var date=new Date("2017-09-07 09:42:06").toLocaleString();
+  var date1=new Date("2017-09-07 09:42:06").toLocaleString('chinese',{hour12:false}) // hour12:false  时间24小时制
+  console.log(date)//  2017/9/7 上午9:42:06   toLocaleString()方法会把日期前面的0忽略掉，所以不能拿这个方法判断日期大小
+  console.log(date1)// 2017/9/7 09:42:06
 
-
-  var date2=new Date().toLocaleString('chinese',{formatMatcher:'year'})
-  console.log(date2)
+  // invalid value year for option formatMatcher
+  /*var date2=new Date().toLocaleString('chinese',{formatMatcher:'year'})
+  console.log(date2)*/
 
   
 }
 
+
+//判断两个日期的大小
 function dxTest(){
-  // var d1=new Date('Fri Nov 25 2017 03:57:04 GMT+0800');
-  // var d2=new Date('Fri Nov 17 2017 17:60:04 GMT+0800');
 
-  // console.log(d2>d1)//false;
+ var d1=new Date('Fri Nov 25 2017 03:57:04 GMT+0800');
+ var d2=new Date('Fri Nov 17 2017 17:60:04 GMT+0800');
 
+ //方法一：创建Date对象直接比较
+ console.log(d2<d1)//true;
 
-  // var date=new Date(new Date('Fri Nov 03 2017 03:57:04 GMT+0800').getTime()).toLocaleString('chinese',{hour12:false}).replace(/\//g,"-") 
-
-  // var data1=new Date('Fri Nov 03 2017 03:57:04 GMT+0800').toLocaleString('chinese',{hour12:false}).replace(/\//g,"-") 
-
-  // console.log(data1)
-
-  // var date=new Date('Fri Nov 03 2017 03:57:04 GMT+0800');
-
-
-
- var d1=new Date('Fri Nov 25 2017 03:57:04 GMT+0800').getTime();
-  var d2=new Date('Fri Nov 17 2017 17:60:04 GMT+0800').getTime();
-
-  console.log(d2<d1)//false;
-
-
+//方法二：用创建完的Date对象的getTime()获得的时间戳比较
+ console.log(d2.getTime()<d1.getTime())//true;
 
 
 
