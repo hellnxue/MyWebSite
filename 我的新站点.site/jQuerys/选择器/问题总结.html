@@ -1005,6 +1005,19 @@ function timerTest(){
   $loading.hasClass('show')?$loading.removeClass('show'):$loading.addClass('show');
  }
 
+ function triggerClick1(){
+   document.getElementById('kk').click()
+ }
+
+  function triggerClick2(){
+   console.log('trigger me now....')
+
+   var str='xls';
+   if (str!='xls'&&str!='xlsx') {
+    console.log('nononono')
+   }
+ }
+
 </script>
 
  <h3>压缩图片为base64放入img的src预览</h3>
@@ -1023,5 +1036,8 @@ function timerTest(){
     <p class="el-loading-text">拼命加载中</p>
   </div>
 </div>
+
+<button type="button" onclick="triggerClick1()">测试点击触发另个一按钮的click事件</button>
+<button type="button" id="kk" onclick="triggerClick2()">others</button>
 </body>
 </html>
