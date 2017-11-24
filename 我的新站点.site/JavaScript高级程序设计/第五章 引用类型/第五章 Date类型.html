@@ -493,7 +493,8 @@ function localStringTest(){
   /*var date2=new Date().toLocaleString('chinese',{formatMatcher:'year'})
   console.log(date2)*/
 
-  
+   var date3=new Date().toLocaleString('chinese',{hour12:false}).replace(/\//g,"-");
+   console.log(date3)
 }
 
 
