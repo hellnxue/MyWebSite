@@ -14,7 +14,7 @@
   方式二：
       应用样式规则
 	  .clearfix:after {
-		content:".";
+		content:".";      用content:''也可以哎~~;
 		display:block;    呈现块级的样式
 		height:0;		 
 		visibility:hidden;隐藏
@@ -22,7 +22,7 @@
 		}
 	  备注:它只添加了一个清除的包含句
 点作为非浮动元素（必须得有内容，而句点是最小的内容）①。规则中的其他声明是
-为了确保这个伪元素没有高度，而且在页面上不可见。
+为了确保这个伪元素没有高度，而且在页面上不可见。(注：若此时用绝对定位属性，会破坏掉父元素包围浮动的子元素的布局。try here:position:absolute;)
   */
   section{ border:2px solid blue; margin:0 0 10px 0;  }
   img{ border:1px solid yellow; float:left; }

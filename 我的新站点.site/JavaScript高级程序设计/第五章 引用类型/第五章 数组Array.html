@@ -1116,6 +1116,18 @@ function convertAry(a,b){
  	var num='1000';
  	console.log(num.split(',').length)
  }
+
+ function newArrayTest(){
+ 	var a=new Array(1,2,3);
+
+ 	var obj={name:a};
+
+ 	 console.log(JSON.stringify(obj))
+ 	 // a=new Array(4,5,6);
+ 	 a.push(7)
+
+ 	  console.log(JSON.stringify(obj))
+ }
   
 </script>
 
@@ -1166,5 +1178,7 @@ function convertAry(a,b){
 <button type="button" onclick="intervalTest()">将数组两个为一组分组处理</button>
 
 <button type="button" onclick="splitTest()">splitTest</button>
+
+<button type="button" onclick="newArrayTest()">数组测试</button>
 </body>
 </html>

@@ -767,9 +767,9 @@ color:#737373;}
     position: absolute;
 /*	margin: 0 auto;*//* position: absolute;绝对定位会使得用外边距让元素在父容器中居中失效哎*/
     top: 10px;
-	bottom: 0;/*同时设置了top和bottom:0,定位元素的底部会与相对容器（这里是pmtb-wrapper容器）的底部对齐，拉大了高度，这样定位元素的高度就能随着相对定位容器的高度走了*/
-	width: 80%;
-	height: auto;
+	  bottom: 0;/*同时设置了top和bottom:0,定位元素的底部会与相对容器（这里是pmtb-wrapper容器）的底部对齐，拉大了高度，这样定位元素的高度就能随着相对定位容器的高度走了*/
+	  width: 80%;
+	  height: auto;
     background-color: #abcdef;
 	
 	/*番外:绝对定位的元素用display:table-cell + vertical-align:middle;让子元素垂直居中也不好用了哎*/
@@ -777,6 +777,30 @@ color:#737373;}
 	vertical-align:middle;*/
    
  
+}
+
+
+/*绝对定位问题*/
+
+.pos-wrapper{
+  position: relative;
+  margin: 0 35%;
+  height: 150px;
+  border: 2px solid pink;
+  padding: 20px;
+
+}
+
+.pos-wrapper div{
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  border: 2px solid yellow;
+
+  /*不设置top等绝对位置的属性，绝对定位的元素会受padding的影响有间隔的*/
+  top: 0;
+  left: 0;
+
 }
 
 
@@ -881,10 +905,10 @@ color:#737373;}
 <h3 style="margin-top:200px;">dl标签 定义一个描述列表。dl标签与 dt （定义项目/名字）和 dd （描述每一个项目/名字）一起使用。</h3>
 <div   id="dltd" class="bootstrap-well">
   <dl>
-  <dt >水果的种类有很多种，比如以下的这些</dt>
+  <dt title="水果的种类有很多种，比如以下的这些">水果的种类有很多种，比如以下的这些</dt>
   <dd >苹果</dd><!--默认有40px的左外边距，可以重写样式去掉默认样式-->
   <dd>香蕉</dd>
-  <dt>果汁是水果炸到最后的结果</dt>
+  <dt title="果汁是水果炸到最后的结果">果汁是水果炸到最后的结果</dt>
   <dd>苹果汁</dd>
   <dd>香蕉汁</dd> 
 </dl>
@@ -1281,6 +1305,15 @@ color:#737373;}
 	</div>
 </div>
 
+<h3>--- 绝对定位元素不设置位置的情况下会受父元素padding的影响----</h3>
+ 
+<div  class="pos-wrapper">
+ 
+  <div>
+      <p style="text-align:center;">定位元素中的内容</p>
+  </div>
+</div>
+
 <h3>--- 包围浮动元素的假象，父元素包围浮动元素的一种：当父容器的其它内容比父容器里的浮动元素高时----</h3>
  
 <div  class="pmfloat-wrapper">
@@ -1315,6 +1348,23 @@ color:#737373;}
 
  
 
+<h3>--- 有些行内元素即使设置了设置display:block，元素自身虽已成为块级元素，但元素自身不会被拉伸(前提：未设置width的元素奥~~),比如button元素、图片---</h3>
+
+<span style="background:pink;">行内元素</span><span style="background:yellow;display: block;">设置成块级的span</span><button type="button" style="display: block;">设置为块级的按钮</button><span style="background:pink;">行内元素</span>
+
+
+<h3>--- 模拟超链接----label为什么没有小手图标呢？？？</h3>
+<div style="margin: 0 30%;background: pink;cursor: pointer;height: 200px;">
+  <div style="margin: 0 30%;background: yellow;height: 100px;"></div>
+  <label style="display: block;background: gold;height: 20px;">label element</label>
+</div>
+
+<h3>鼠标移上显示全部文字,都有哪些元素可以设置title属性的呢？？？</h3>
+
+
+
+
+<img src="../../image/mxx/m2.jpg" style="display: block;"><span style="background:pink;">行内元素</span>
  <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
  <script>
    $(function(){
