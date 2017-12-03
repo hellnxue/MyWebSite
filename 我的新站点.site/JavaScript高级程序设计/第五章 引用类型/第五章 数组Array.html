@@ -7,7 +7,7 @@
 	button,[type='button']{
 		background: #abcdef;	
 	    border: 0;
-	    display: inline-block;
+	    display:  block;
 	    height: 3em;
 	    line-height: 3em;
 	    padding: 0 2em;
@@ -1118,15 +1118,78 @@ function convertAry(a,b){
  }
 
  function newArrayTest(){
- 	var a=new Array(1,2,3);
+ 	// var a=new Array(1,2,3);
 
- 	var obj={name:a};
+ 	// var obj={name:a};
 
- 	 console.log(JSON.stringify(obj))
- 	 // a=new Array(4,5,6);
- 	 a.push(7)
+ 	//  console.log(JSON.stringify(obj))
+ 	//  // a=new Array(4,5,6);
+ 	//  a.push(7)
 
- 	  console.log(JSON.stringify(obj))
+ 	//   console.log(JSON.stringify(obj))
+
+      /*let lg=5;
+      let init=3;
+      let num=0;
+      if (init<=lg) {
+      	num=3;
+      }else{
+      	num=lg%3==0?3:lg%3;
+      }
+ 	  
+
+ 	 
+
+ 	  console.log(num)*/
+
+ 	  var a=[1,2,3];
+ 	  a.length=a.length-1;
+ 	  console.log(a)
+ }
+
+/*把一个一维数组转为二维数组*/
+ function ewArray() {
+ 	 var a=[ {name:'小希0',age:20},
+		 	 {name:'小希1',age:20},
+		 	 {name:'小希2',age:20},
+		 	 {name:'小希3',age:20},
+		 	 {name:'小希4',age:20},
+		 	  
+		 	  ];
+
+ 	 var b=[];
+ 	 var c=[];
+ 	 let step=4;//二维数组的步长
+ 	 let len=a.length,
+ 	 	 num=step;
+
+ 	 let temp=num<=len;	 
+ 	 if (!temp) {
+      	num=len%step==0?step:len%step;
+      }
+
+ 	 for(let i=0;i<a.length;i=0){
+ 	  
+ 	 	let item=a.shift();
+ 	 	 
+ 	 		c.push(item);
+
+ 	 		num--;
+	 	 	if (num==0) {
+	 	 	  num=step;
+		 	  if (!(num<=a.length)) {
+		      	num=a.length%step==0?step:a.length%step;
+		       }
+	 	 		b.push(c);
+	 	 		c=new Array();
+	 	 	}  
+
+ 	 };
+
+ 	 console.log(JSON.stringify(b));
+ 	 //[[{"name":"小希0","age":20},{"name":"小希1","age":20}],[{"name":"小希2","age":20},{"name":"小希3","age":20}],[{"name":"小希4","age":20}]]
+
+
  }
   
 </script>
@@ -1180,5 +1243,45 @@ function convertAry(a,b){
 <button type="button" onclick="splitTest()">splitTest</button>
 
 <button type="button" onclick="newArrayTest()">数组测试</button>
+
+<button type="button" onclick="ewArray()">一维数组转为二维数组</button>
+<script type="text/javascript">
+(function(){
+var ab=[ {name:'小希0',age:20},
+		 	 {name:'小希1',age:20},
+		 	 {name:'小希2',age:20},
+		 	 {name:'小希3',age:20},
+		 	 {name:'小希4',age:20},
+		 {name:'小希5',age:20},
+		 {name:'小希6',age:20},
+		 {name:'小希7',age:20},
+		 {name:'小希8',age:20},
+		 {name:'小希9',age:20},
+		 	  ];
+	var main = []
+	//console.log(ab.slice(2,3))
+	var num =4
+	var temp =[]
+	var p = 0
+	for(var i=0;i<ab.length;i++){
+		if(p !== parseInt(i/num)){
+			main.push(temp)
+			temp =[]
+			p =parseInt(i/num)
+		}
+		parseInt((i/num)) ==p && temp.push(ab[i])//?????
+		
+	}
+	main.push(temp)
+	console.log(main)
+	var main2 = []
+	var num =6
+	for(var i=0;i<ab.length;i=i+num){
+		main2.push(ab.slice(i,i+num))
+		
+	}
+	console.log(main2)
+})()
+</script>
 </body>
 </html>
