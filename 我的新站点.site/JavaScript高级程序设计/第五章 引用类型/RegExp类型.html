@@ -235,6 +235,25 @@ function regTest4(){
 	console.log(ss)
 	 
 }
+
+
+
+	var record={ 
+		num:"" 
+	} 
+	var checkDecimal=function(n){ 
+
+		//var decimalReg=/^\d{0,8}\.{0,1}(\d{1,2})?$/;
+		var decimalReg=/^[-\+]?\d{0,8}\.{0,1}(\d{1,2})?$/;
+
+			if(n.value!=""&&decimalReg.test(n.value)){ 
+				record.num=n.value; 
+			}else{ 
+				if(n.value!=""){ 
+					n.value=record.num; 
+				} 
+		} 
+	} 
 </script>
 </head>
 
@@ -263,6 +282,7 @@ function regTest4(){
 
 <input type="button"    value="匹配多个字符"   onclick="regTest4(this)"/>
 
- 
+<h3>实用技巧：用正则表达式控制价格输入</h3> 
+销售价<input maxlength="10" size="18" type="text" name="price" value="" onkeyup='checkDecimal(this)'/> 
 </body>
 </html>

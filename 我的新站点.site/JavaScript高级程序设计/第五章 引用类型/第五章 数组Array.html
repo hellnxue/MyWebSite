@@ -777,7 +777,7 @@ function interreaction(){
   console.log( newObje);
 }
 
-/*删除数组中的指定元素*/
+/*删除数组中的指定元素  如果元素是对象呢？？？*/
 function  removeElement (){
    var ary= [1159, 1676, 1693];
   
@@ -1282,6 +1282,25 @@ var ab=[ {name:'小希0',age:20},
 	}
 	console.log(main2)
 })()
+
+function removeArray(){
+	var ary=[1,2,3,4,5,6,7,8];
+	 ary.splice(0,3);
+
+	console.log(JSON.stringify(ary));
+}
+
+function aryIndexOf(){
+	var ary=[{a:1,b:2},{a:2,b:2},{a:3,b:2}];
+
+	console.log(ary.indexOf({a:1,b:2}))
+}
 </script>
+
+
+
+<button type="button" onclick="removeArray()">删除数组指定长度</button>
+
+<button type="button" onclick="aryIndexOf()">指定元素在数组中的位置</button>
 </body>
 </html>
