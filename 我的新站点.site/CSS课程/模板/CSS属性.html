@@ -414,13 +414,47 @@ button,[type='button']{
 	   
 	   /*---------图片边框-----------*/
 	   [ data-border-img="borderImg" ]{
-	     width:300px;
+	     width:400px;
 		 margin:0 auto;
 		 border:15px solid transparent;
 		 padding:10px 20px;
-		 -moz-border-image:url(../../image/mxx/m2.jpg) 30 0   30 0 stretch;
+		 -moz-border-image:url(../../image/mxx/m2.jpg) 30 30 stretch;
+		 box-sizing: border-box;
 	   }
-	   
+
+
+	   .something-meaningful{
+			background: url(../../image/mxx/m2.jpg);
+			padding: 1em;
+			background-size: cover;
+			width: 400px;
+			height: 100px;
+			margin: 20px auto;
+			box-sizing: border-box;
+		}
+
+		.something-meaningful > div{
+			background: white;
+			padding: 1em;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+		}
+
+
+		.something-meaningful1{
+			box-sizing: border-box;
+			width: 400px;
+			height: 100px;
+			padding: 1em;
+			background: linear-gradient(#fff,#fff), url(../../image/mxx/m2.jpg);
+			background-size: cover;
+			background-clip: padding-box ,border-box;
+			border: 1em solid transparent;
+			background-origin: border-box;
+			margin: 20px auto;
+		}
+
 	    /*---------多个背景图片 css规定先列出的图片在上层-----------*/
 	   [data-background-img="img"]{
 	    width:500px;
@@ -1038,10 +1072,25 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 
 
 
-<h3 style="margin-top:250px;">border-img</h3>
+<h3 style="margin-top:250px;">border-image</h3>
 <div  data-border-img="borderImg"  >
 
    想出去玩，可是外面有个超大的太阳
+
+</div>
+
+
+<h3 style="margin-top:250px;">case:border-image会让图片的四个角的部分固定在拐角处，出现在拐角处的图片区域不会随着元素宽高和边框厚度的变化而变化的。可以像下面这样布局且使用背景元素实现这种效果</h3>
+<div class="something-meaningful"  >
+
+   <div>想出去玩，可是外面有个超大的太阳</div>
+
+</div>
+
+
+<div class="something-meaningful1"  >
+
+   想出去玩，可是外面有个超大的太阳 
 
 </div>
 

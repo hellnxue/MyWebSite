@@ -652,6 +652,20 @@ function test11(){
     console.log(obj.name);
 
 }
+
+/*清空一个对象的属性值*/
+function test12(){
+  var obj={
+    name:'小希',
+    age:20
+  }
+
+  for(var pro in obj){
+     obj[pro]='';
+  }
+
+  console.log(JSON.stringify(obj))
+}
 </script>
 </head>
 
@@ -692,6 +706,8 @@ function test11(){
         <input type="button"  value="使用原型链实现的继承" onclick="test10()"/> 
 
         <input type="button"  value="利用Object创建对象" onclick="test11()"/> 
+
+        <input type="button"  value="清空一个对象的属性值" onclick="test12()"/> 
 		</fieldset>
 		
 		<fieldset class="out">
