@@ -423,6 +423,28 @@ button,[type='button']{
 	   }
 
 
+
+	   /*图片边框问题*/
+	   .borderImg11,
+	   .borderImg22{
+
+	   		box-sizing: border-box;
+			width: 600px;
+			height: 100px;
+			padding: 1em;
+			background: url(../../image/mxx/m2.jpg);
+			background-size: cover;
+			border: 1em solid hsla(0,0%,100%,.5);
+			margin: 20px auto;
+	   }
+
+
+	   .borderImg22{
+
+	   		background-origin: border-box;
+	   }
+
+
 	   .something-meaningful{
 			background: url(../../image/mxx/m2.jpg);
 			padding: 1em;
@@ -1078,6 +1100,23 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
    想出去玩，可是外面有个超大的太阳
 
 </div>
+<h3 style="margin-top:250px;">虽然背景图像(图片)的默认绘制区域是padding区域，但是，background-size:cover;会把背景图像绘制到元素的border边框下哎。这时，background-clip会对背景图像的绘制区域产生影响(下面的例子中可以使用background-clip:padding-box;或者background-clip:content-box; try一下。正常情况下background-clip只对背景颜色的绘制区域有作用)。
+
+虽然background-size:cover;会将背景图像绘制到元素的border边框下，但是，由于background-orign属性对于图像来说，默认是设置到元素的padding区域，所以，多出来的border边框区域下的图像实际上是背景图片以平铺方式(即重复)蔓延到border-box区域的效果。因此，设置background-origin:border-box;让图像绘制到border区域就可以解决这个问题。（总结这个挺不容易的，background-size:cover；对背景图像绘制区域带来的影响还是第一次看到过，很新颖，要多发现问题，才能解决问题。）
+</h3>
+
+<div class="borderImg11"  >
+
+   想出去玩，可是外面有个超大的太阳 
+
+</div>
+
+<div class="borderImg22"  >
+
+   想出去玩，可是外面有个超大的太阳 
+
+</div>
+
 
 
 <h3 style="margin-top:250px;">case:border-image会让图片的四个角的部分固定在拐角处，出现在拐角处的图片区域不会随着元素宽高和边框厚度的变化而变化的。可以像下面这样布局且使用背景元素实现这种效果</h3>
