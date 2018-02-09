@@ -917,7 +917,103 @@ button,[type='button']{
 
 
 
+     .line-vertical{
+     	background: #abcdef;
+     	margin: 0 30%;
+     	height: 100px;
+     	line-height: 100px;
+     }
 
+     .line-vertical div{
+     	background: yellow;
+     	display: inline-block;
+     	width: 30px;
+     	height: 30px;
+     }
+
+
+     /*定位元素重叠-是仅限于同辈元素吗？是的，父元素设置成定位层，子元素也同时设置的话，父子不会出现分层的，都在同一层*/
+
+     .stack{
+
+     	height: 200px;
+		margin: 0 30%;
+		border: 1px solid yellow;
+		display: flex;/*让元素在父元素中水平垂直居中   子元素设置margin:auto;*/
+		/*justify-content: center;
+		align-items: center;*/
+		 
+     	 
+
+     }
+
+     .stack p{
+     	background: #abcdef;
+		width: 50%;
+		height: 50%;
+		text-align: center;
+		margin: auto;/*让元素在父元素中水平垂直居中*/
+		/*让元素的文本水平垂直居中*/
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: relative;
+		z-index: 100;
+
+     }
+
+
+     .stack p::after{
+     	position: absolute;
+     	background:green;
+     	content: '';
+     	width: 100%;
+     	height: 1px;
+     	bottom: 50%;
+     	z-index: 10;
+     }
+
+
+
+
+	/*想让定位的两个元素出现重叠需要，这两个元素必须是同辈元素奥*/
+
+     .stack2{
+
+     	height: 200px;
+		margin: 0 30%;
+		border: 1px solid yellow;
+		display: flex;/*让元素在父元素中水平垂直居中   子元素设置margin:auto;*/
+		/*justify-content: center;
+		align-items: center;*/
+		position: relative;
+     	 
+
+     }
+
+     .stack2 p{
+     	background: #abcdef;
+		width: 50%;
+		height: 50%;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: auto;
+		position: relative;
+		z-index: 10;
+
+     }
+
+     .stack2::after{
+     	content: '';
+     	background: #ddd;
+     	position: absolute;
+     	top: 50%;
+     	width: 100%;
+     	height: 1px;
+     	z-index: 1;
+     }
 
 </style>
 
@@ -1337,7 +1433,25 @@ n 可以是数字、关键词或公式。
 <div  class="swingEffect"></div>
 
 
+<h3>line-height让行内块级元素垂直居中,如果子元素的高度只要有1px还好，子元素的宽高增大之后，这个技巧就有问题，想让有固定宽高的子元素在父元素中垂直居中，用绝对定位垂直居中吧,NO!用弹性盒子很方便</h3>
+<div class="line-vertical">
+	<div></div>
+</div>
 
+
+<div class="line-vertical" style="margin-top:20px;display: flex;">
+	<div style="margin: auto;"></div>
+</div>
+
+<h3>定位堆叠：定位元素重叠-是仅限于同辈元素吗？是的，父元素设置成定位层，子元素也同时设置的话，父子不会出现分层的，都在同一层</h3>
+<div class="stack">
+	<p>hello world</p>
+</div>
+
+<h3>想让定位的两个元素出现重叠需要，这两个元素必须是同辈元素奥</h3>
+<div class="stack2">
+	<p>hello world</p>
+</div>
 
 <script>
 	function transitionTest(){

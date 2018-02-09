@@ -1191,6 +1191,14 @@ function convertAry(a,b){
 
 
  }
+
+ function jq(){
+ 	var ary=[1,2,2,2]
+
+ 	console.log(ary.slice(0,3))
+
+ 	console.log(ary)
+ }
   
 </script>
 
@@ -1305,6 +1313,33 @@ function aryIndexOf(){
 
 	console.log(JSON.stringify(ary));[{"a":1,"b":2},{"a":3,"b":2}]
 }
+
+function compares(){
+	var a=[3,2,1,5];
+	var b=[2,1];
+
+
+	for(var i=a.length-1;i>=0;i--){
+
+		console.log("第"+i);
+
+		console.log(a[i]);
+
+		for(var j=b.length-1;j>=0;j--){
+
+			console.log('b==='+b)
+
+			if (a[i]==b[j]) {
+				a.splice(i,1);
+				break;
+			} 
+			
+		}
+	}
+
+	console.log(a)
+
+}
 </script>
 
 
@@ -1312,5 +1347,11 @@ function aryIndexOf(){
 <button type="button" onclick="removeArray()">删除数组指定长度</button>
 
 <button type="button" onclick="aryIndexOf()">指定元素在数组中的位置</button>
+
+<button type="button" onclick="jq()">截取数组元素</button>
+
+
+
+<button type="button" onclick="compares()">比较数组的不同项</button>
 </body>
 </html>
