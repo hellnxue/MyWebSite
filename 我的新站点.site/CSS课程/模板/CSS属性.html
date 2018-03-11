@@ -1453,6 +1453,28 @@ n 可以是数字、关键词或公式。
 	<p>hello world</p>
 </div>
 
+<h3>margin-bottom的问题：父元素中包含的子元素(父元素没设置高度)，在父元素没设置border或者padding的情况下，子元素设置的border-bottom会越过父元素的底部，同单独给父元素的margin-bottom效果类似。如果想让子元素设置的margin-bottom作用于子元素底部至父元素底部，父元素需要设置border或者padding,margin-top同margin-bottom一样有这样的问题存在。</h3>
+
+<h3>margin-bottom 2:父元素没有border和padding，给子元素设置margin-bottom</h3>
+<div style="margin: 0 30%;background: pink;">
+	<div style="width: 50%;background: #ddd;margin-bottom: 50px;">hello world</div>
+</div>
+<div style="background:yellow;margin: 0 30%;">Hello,neighbor~,welcome to new york.</div>
+
+
+<h3>margin-bottom 1：父元素设置了border</h3>
+<div style="margin: 0 30%;border: 1px solid green;background: pink;">
+	<div style="width: 50%;background: #ddd;margin-bottom: 50px;">hello world</div>
+</div>
+<div style="background:yellow;margin: 0 30%;">Hello,neighbor~,welcome to new york.</div>
+
+<h3>margin-bottom 3：父元素设置了padding</h3>
+<div style="margin: 0 30%;padding:10px;background: pink;">
+	<div style="width: 50%;background: #ddd;margin-bottom: 50px;">hello world</div>
+</div>
+<div style="background:yellow;margin: 0 30%;">Hello,neighbor~,welcome to new york.</div>
+
+
 <script>
 	function transitionTest(){
 		$('.transitionTest').css('width','200px')

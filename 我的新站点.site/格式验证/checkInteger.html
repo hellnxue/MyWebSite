@@ -10,7 +10,10 @@ function testNumber(which){
      
 	 if(/^\d+$/.test(which.value)==false){
 	     console.log("Ö»ÄÜÌîÊý×Ö£¡");
-	     which.value=which.value.replace(/^\d+$/g,'');
+	     // which.value=which.value.replace(/^\d+$/g,'');
+       which.value=which.value.replace(/[^\d]/g,'');
+       
+       console.log(which.value)
 	 }
 }
 
