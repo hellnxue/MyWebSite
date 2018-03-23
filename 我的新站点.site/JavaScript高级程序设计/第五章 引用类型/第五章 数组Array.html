@@ -1314,6 +1314,18 @@ function aryIndexOf(){
 	console.log(JSON.stringify(ary));[{"a":1,"b":2},{"a":3,"b":2}]
 }
 
+
+
+/*如果是数字数组*/
+function aryIndexOf1(){
+	  var isChinaMobile= [134,135,136,137,138,139,147,150,151,152,157,158,159,178,182,183,184,187,188];
+	  var str='13071832769'.substr(0,3);
+
+	  var index=isChinaMobile.indexOf(Number(str))
+	  console.log(index)
+
+}
+
 function compares(){
 	var a=[3,2,1,5];
 	var b=[2,1];
@@ -1346,7 +1358,8 @@ function compares(){
 
 <button type="button" onclick="removeArray()">删除数组指定长度</button>
 
-<button type="button" onclick="aryIndexOf()">指定元素在数组中的位置</button>
+<button type="button" onclick="aryIndexOf()">指定元素在数组中的位置-对象数组</button>
+<button type="button" onclick="aryIndexOf1()">指定元素在数组中的位置-普通数组</button>
 
 <button type="button" onclick="jq()">截取数组元素</button>
 
