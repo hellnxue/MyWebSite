@@ -59,7 +59,10 @@ function getDistrictnum(uppervalue,lowervalue){
 }
 
 function test4(){
-  console.log(Number("0"));//0
+ console.log(Number("1234hello"));//NaN
+ console.log(parseInt("1234hello"));//1234 
+ console.log(parseFloat("1234hello"));//1234
+ console.log(Number("0"));//0
  console.log(Number("100.00"));//100
  console.log(Number("02.20"))//2.2 会忽略前导的0
  console.log(parseFloat("02.20"));//2.2  会忽略前导的0
@@ -74,6 +77,17 @@ function test4(){
  var pInt=parseInt("");//NaN
  var pFloat=parseFloat("");//NaN
  $("#nift").html("Number(\"\"):"+number+"\n   parseInt(\"\"):"+pInt+"\n   parseFloat(\"\"):"+pFloat);
+
+ var nbNull=Number(null);//0
+ var ptNull=parseInt(null);//NaN
+ var pfNull=parseFloat(null);//NaN
+ 
+ console.log('数值转换，转换null......')
+ console.log(nbNull)
+ console.log(ptNull)
+ console.log(pfNull)
+
+
 /*console.log("1000">2000);
  console.log(parseInt(10.01));
   var s=10.00+10.00;
@@ -106,6 +120,20 @@ function test6(){
   console.log("toPrecision(2)="+nu.toPrecision(2));
   console.log("toPrecision(3)="+nu.toPrecision(3))
 }
+
+
+/*浮点数值的最高精度时17位小数，但在进行算术计算时，其精确度远远不如整数，0.1+0.3的结果不是0.3，而是0.30000000000000004 。*/
+function floatCompare(){
+  var a=0.1+0.2,
+      b=0.3,
+      c=a==b;
+
+  var d=0.5+0.5,
+      e=1,
+      f=d==e;
+  console.log(c);//false;
+  console.log(f);//true; 
+}
 </script>
 </head>
 
@@ -118,5 +146,7 @@ function test6(){
 <input type="button" value="toExponential()" onClick="test5()"/></br>
 <input type="button" value="toPrecision()" onClick="test6()"/></br>
 <h3>input:</h3><div id="nift"></div>
+
+<input type="button" value="floatCompare()" onClick="floatCompare()"/></br>
 </body>
 </html>
