@@ -17,7 +17,9 @@
    
   <input type="button" value="random" onClick="rdmTest()"/>
   <input type="button" value="从两个整数范围内获取一个随机整数" onClick="selectFromTest()"/>
-   <input type="button" value="取出传入math方法的一组参数的最大值，或者从数组中取出的最大值" onClick="maxTest()" style="display:block;"/>
+   <input type="button" value="取出传入math方法的一组参数的最大值，或者从数组中取出的最大值" onClick="maxTest()" style="display:block;"/><br/>
+  <button onclick="rounds()" type="button">四舍五入</button>
+  <button onclick="rounds1()" type="button">保留的小数位数，四舍五入</button>
 </form>
 <script>
   
@@ -64,6 +66,29 @@ function selectFrom(lowerValue,upperValue){
 	return Math.floor(Math.random()*choices+lowerValue);
 }
  
+/*Math.round()  将数值四舍五入为标准的整数*/
+function rounds(){
+	var num=Math.round(1.4456);//1
+	var num1=Math.round(1.5456);//2
+	 
+	console.log(num+"  "+num1)
+}
+
+function rounds1(){
+	console.log(ForDight(1.2496,2)) 
+}
+
+/*Javascript设置要保留的小数位数，四舍五入。
+*ForDight(Dight,How):数值格式化函数，Dight要格式化的 数字，How要保留的小数位数。
+*这里的方法是先乘以10的倍数，然后去掉小数，最后再除以10的倍数。
+
+
+	Math.pow(a,b)//返回a的b次幂
+*/
+function ForDight(Dight,How){
+	Dight = Math.round(Dight*Math.pow(10,How))/Math.pow(10,How);
+	return Dight;
+} 
 </script>
 
 </body>

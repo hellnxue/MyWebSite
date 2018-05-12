@@ -206,7 +206,16 @@ function testlablebreak(){
     // console.log(str.search("flip"));
 
     var str="cat,bat,hat,fat";
-    console.log(str.match(/f/));
+    // console.log(str.match(/f/));
+
+    var rlt=str.match(/.at/g);
+
+    console.log(rlt=='cat');//true
+     console.log(  rlt.toString());
+
+
+
+
  
  }
 

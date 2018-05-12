@@ -235,6 +235,22 @@ function xieTest(){
 
    
 }
+
+/*单个值也可以用JSON方法处理，stringify()方法统一转为字符串，parse()方法解析为变量值原来的类型*/
+function testNormal(){
+  var num=100;
+  var rlt=JSON.stringify(100);
+  console.log(rlt); //100 typeof rlt =string
+
+  var plt=JSON.parse(rlt)
+  console.log(typeof plt)//100 typeof rlt=number
+
+
+  sessionStorage.setItem('age',100);
+  var slt=sessionStorage.getItem('age');
+
+  console.log(typeof slt)//string
+}
 </script>
 </head>
 
@@ -259,5 +275,7 @@ function xieTest(){
 
 <h3>---------------斜杠------------------</h3>
 <input type="button"    value="ajax返回的数据带有斜杠的问题" onclick="xieTest()"/></br>
+
+<button onclick="testNormal()">普通值通过JSON对象的方法进行处理</button>
 </body>
 </html>
