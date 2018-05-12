@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>箭头函数</title>
+ 
+<style>
+    .arrow{
+        margin: 0 30%;
+        background: linear-gradient(90deg,pink,yellow);
+        text-align: center;
+        border-radius: 10px 0;
+        height: 50px;
+        line-height: 50px;
+     }     
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+ <h2 class="arrow">hello Arrow Function，Please look console......</h2>
+ <script type="text/javascript">
+   
+ 
+function timeoutThis(){
+  
+  this.timeo=10;
+
+  console.log('一个函数在全局环境中执行，和通过new执行之后this指向的区别');
+  console.log(this)//timeoutThis {timeo: 10}
+ 
+ //超时方法中的普通回调函数
+  setTimeout(function(){
+    console.log("超时方法中的普通回调函数")
+    console.log(this)//this指向window
+    console.log("hello ggg:"+this.timeo);//10
+  },2000)
+
+  //超时方法中的箭头回调函数
+  setTimeout(()=>{
+    console.log("超时方法中的箭头回调函数")
+    console.log(this)//this指向new timeoutThis()的环境
+    console.log("hello arrow:"+this.timeo);//10
+  },2000)
+}
+
+
+/*
+timeoutThis测试一：
+
+timeoutThis(); 
+var timeo=100;
+
+system.out:
+
+      一个函数在全局环境中执行，和通过new执行之后this指向的区别
+      Window {…}
+
+      超时方法中的普通回调函数
+      Window {…}
+      hello ggg:100
+
+
+      超时方法中的箭头回调函数
+      Window {…}
+      hello arrow:100
+
+*/
+
+
+/*
+  timeoutThis测试二：
+
+  system.out:
+
+      一个函数在全局环境中执行，和通过new执行之后this指向的区别
+      timeoutThis {timeo: 10}
+
+      超时方法中的普通回调函数
+      Window {…}
+      hello ggg:undefined
+
+
+      超时方法中的箭头回调函数
+      timeoutThis {timeo: 10}
+      hello arrow:10
+
+*/
+ var timeot=new timeoutThis();
+
+ </script>
+
+</body>
+</html>
