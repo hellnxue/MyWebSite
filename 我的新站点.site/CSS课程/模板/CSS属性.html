@@ -1038,6 +1038,47 @@ button,[type='button']{
 		box-sizing: border-box; 
      }
 
+
+
+  .boxs {
+        width: 280px;
+        height: 100px;
+        overflow: hidden;
+        border: 1px solid #ccc;
+    }
+    .scroll-box {
+        width: 300px;
+        height: 100px;
+        overflow-y: scroll;
+    }
+
+
+
+
+
+    .outer-container,.content {
+	    width: 200px; height: 200px;
+	}
+	.outer-container {
+	    position: relative;
+	    overflow: hidden;
+	    border: 1px solid black;
+	}
+	.inner-container {
+	    position: absolute; left: 0;
+	    overflow-x: hidden;
+	    overflow-y: scroll;
+	    border: 1px solid red;
+	}
+	.content{
+		border: 1px solid yellow;
+	}
+
+	 /* for Chrome */
+	.inner-container::-webkit-scrollbar {
+	    display: none;
+	}
+
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
@@ -1509,6 +1550,62 @@ n 可以是数字、关键词或公式。
 	 <div style="margin-bottom: 10px;">2</div>
 	 <div style="margin-top: 10px;">3</div>
 </div>
+
+<div style="margin: 10px 30%;height: 100px;background: pink;border-radius: 8px;">
+	<div style="background: #fff;width: 100%;height: 100%;">
+		<p>hello </p>
+	</div>
+</div>
+
+
+
+
+
+<h3>CSS 实现隐藏滚动条同时又可以滚动</h3>
+
+<!-- 方法一，比较lower ，在不同浏览器效果有差异 -->
+<div class="boxs">
+        <div class="scroll-box">
+            <ul class="scroll">
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+            </ul>
+        </div>
+    </div>
+
+<!-- 方法一，兼容所有浏览器~，原理呢.....?-->
+<div class="outer-container">
+     <div class="inner-container">
+        <div class="content">
+             <ul class=" ">
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+            </ul>
+        </div>
+     </div>
+ </div>
 
 <script>
 	function transitionTest(){

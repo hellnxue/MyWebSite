@@ -622,13 +622,14 @@ function emptyArray(){
     var a=[1,2];
 	var v1=a.toString();
 	console.log(v1);//1,2
+	console.log(typeof v1)
 	console.log(typeof a);//object
 	
 	var b=[];
 	var v2=b.toString();
 	console.log(b);//[]
 	console.log(v2);//空字符串哎
-	 
+	console.log(typeof v2);
 	 
 	 
 }
@@ -762,11 +763,11 @@ console.log(tipPerson);
 
 /*字符串与数组的互相转换*/
 
-function interreaction(){
+function interaction(){
 
  var temp="11868,265";
  
- var tempAry=temp.split(",");
+ var tempAry=temp.split(",");//将字符串转换为数组
  
  console.log(tempAry);//["11868", "265"]
  
@@ -775,6 +776,11 @@ function interreaction(){
    });
    
   console.log( newObje);
+
+  var str=tempAry.toString();//将数组转换为字符串
+  console.log(str)//11868,265
+  console.log(tempAry)//[11868,265]
+
 }
 
 /*删除数组中的指定元素  如果元素是对象呢？？？*/
@@ -1214,7 +1220,7 @@ function convertAry(a,b){
 
 <input type="button" data-filter value="$.each筛选测试"  onclick="testProperty()"/><br />
 
-<input type="button" data-filter value="数组和字符串的互相转换"  onclick="interreaction()"/><br />
+<input type="button" data-filter value="数组和字符串的互相转换"  onclick="interaction()"/><br />
 
 <input type="button" data-filter value="删除数组中的指定元素"  onclick="removeElement()"/><br />
 
@@ -1352,6 +1358,14 @@ function compares(){
 	 
 
 }
+
+function spliceLen(){
+	var ary=[1,2,3,4,5];
+	ary.splice(4);//传入一个参数时，代表设置的数组长度哎
+
+	console.log(ary.length)
+	console.log(ary)
+}
 </script>
 
 
@@ -1366,5 +1380,8 @@ function compares(){
 
 
 <button type="button" onclick="compares()">比较数组的不同项</button>
+
+
+<button type="button" onclick="spliceLen()">用splice()设置数组长度</button>
 </body>
 </html>

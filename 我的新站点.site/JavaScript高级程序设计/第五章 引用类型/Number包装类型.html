@@ -59,14 +59,13 @@ function getDistrictnum(uppervalue,lowervalue){
 }
 
 function test4(){
+ console.log(Number(".00"));//0
+ console.log(Number("0"));//0
  console.log(Number("1234hello"));//NaN
  console.log(parseInt("1234hello"));//1234 
  console.log(parseFloat("1234hello"));//1234
- console.log(Number("0"));//0
  console.log(Number("100.00"));//100
  console.log(Number("02.20"))//2.2 会忽略前导的0
- console.log(parseFloat("02.20"));//2.2  会忽略前导的0
- console.log(parseInt("02.20"));//2
  console.log(Number("0.20"));//0.2
  console.log(Number("020"));//20   会忽略前导的0
  console.log(parseInt("070"));//70
