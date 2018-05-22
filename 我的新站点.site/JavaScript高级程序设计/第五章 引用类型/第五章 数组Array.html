@@ -1326,30 +1326,30 @@ function aryIndexOf1(){
 
 }
 
+
+/*两个数组，获取相同部分，不相同部分*/
 function compares(){
 	var a=[3,2,1,5];
-	var b=[2,1];
-
+	var b=[2,1,4];
+	var c=[];
 
 	for(var i=a.length-1;i>=0;i--){
 
-		console.log("第"+i);
+			for(var j=b.length-1;j>=0;j--){
 
-		console.log(a[i]);
-
-		for(var j=b.length-1;j>=0;j--){
-
-			console.log('b==='+b)
-
-			if (a[i]==b[j]) {
-				a.splice(i,1);
-				break;
-			} 
-			
+				if (a[i]==b[j]) {
+					c.push(a[i]);//相同元素单独放入一个数组容器
+					a.splice(i,1);//分别删除两个数据的相同元素，删除完后剩余的就是不同元素
+					b.splice(j,1);
+					break;
+				}
+ 
+			}
 		}
-	}
 
-	console.log(a)
+	console.log("两个数组相同的元素："+c);//1,2 
+	console.log("两个数组不同的元素："+a.concat(b));//3,5,4
+	 
 
 }
 </script>
