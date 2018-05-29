@@ -787,7 +787,7 @@ function interaction(){
 function  removeElement (){
    var ary= [1159, 1676, 1693];
   
-  var index=ary.indexOf(1676);//指定元素的位置
+  var index=ary.indexOf(1676);//指定元素的位置  (indexOf(a,n)在比较参数a与数组的每一项时，使用全等===比较)
    
   var delItem=ary.splice(index,1);//splice(a,b)方法返回删除的项组成的数组(a是要删除的数组元素的位置，b是要删除的项数)，如果没有删除任何一项则返回空数组
   
@@ -1308,16 +1308,19 @@ function removeArray(){
 /*如果是对象数组*/
 function aryIndexOf(){
 	var ary=[{a:1,b:2},{a:2,b:2},{a:3,b:2}];
+	var index=0;
 
 	for(var i=0;i<ary.length;i++){
 
 		if (ary[i].a==2) {
 			ary.splice(i,1);
+			index=i;
 			break;
 		}
 	}
 
-	console.log(JSON.stringify(ary));[{"a":1,"b":2},{"a":3,"b":2}]
+	console.log(index)
+	console.log(JSON.stringify(ary));//[{"a":1,"b":2},{"a":3,"b":2}]
 }
 
 
@@ -1366,6 +1369,49 @@ function spliceLen(){
 	console.log(ary.length)
 	console.log(ary)
 }
+
+function findElementInAry(){
+
+	/*在Set中，两个对象总是不相等*/
+	var ary=[{a:1,b:2},{a:2,b:2},{a:3,b:2}];
+	const i=new Set(ary);
+
+
+	let rlt=i.has({a:3,b:2});//false
+	console.log(rlt);//false
+
+
+	/*在Set内部，两个NaN是相等的*/
+	var ary1=[1,2,3,4,NaN,NaN];
+
+	var set=new Set(ary1);
+	console.log(set);//[ 1, 2, 3, 4, NaN ]
+
+	/*has()方法判断一个元素时，同indexOf()一样用全等===*/
+	var rlt1=set.has('4');
+	console.log(rlt1);
+
+
+	/* Array.from方法可以将 Set 结构转为数组。*/
+	let otherSet=new Set([1,2,3,4]);
+	let ary2=Array.prototype.slice.call(otherSet,0);
+	console.log(ary2)//空数组......why,Set结构也是类数组哎。。。。。
+
+	let ary3=Array.from(otherSet);
+	console.log(ary3);//Array [ 1, 2, 3, 4 ]
+
+
+	/*数据去重复*/
+
+	let aryNotRepeat=Array.from(new Set([1,2,2,3,3]));
+	console.log(aryNotRepeat);Array [ 1, 2, 3 ]	
+
+
+
+
+
+	 
+}
 </script>
 
 
@@ -1383,5 +1429,9 @@ function spliceLen(){
 
 
 <button type="button" onclick="spliceLen()">用splice()设置数组长度</button>
+
+<button type="button" onclick="findElementInAry()">查找数组元素</button>
+
+
 </body>
 </html>
