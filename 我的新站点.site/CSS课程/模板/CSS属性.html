@@ -1088,7 +1088,7 @@ button,[type='button']{
 		height: 300px;
 		margin: 0 auto;
 		background: #fff;
-		animation: testa 2s linear infinite running;
+		/*animation: testa 2s linear infinite running;*/
 	}
 
 	.rotate div{
@@ -1171,7 +1171,7 @@ button,[type='button']{
 	}
 
 	@keyframes my-animationss1{
-		0%{
+		/*0%{
 			transform: rotate(-90deg);
 			width: 100px;
 			height: 100px;
@@ -1190,11 +1190,28 @@ button,[type='button']{
 			transform: rotate(270deg);
 			width: 0px;
 			height: 0px;
-		}
+		}*/
 
 		/*100%{
 			transform: rotate(-90deg);
 		}*/
+
+
+		0%{
+
+			transform: translate(-20%,0);
+			width: 100px;
+			height: 100px;
+
+		}
+
+
+		100%{
+			left: 50%;
+			transform: translate(-50%,0);
+			width: 0px;
+			height: 0px;
+		}
 	}
 
 	/*@keyframes my-animationss2{
@@ -1211,13 +1228,28 @@ button,[type='button']{
 		 
 	}*/
 
+
+	.scrollDy{
+		position: fixed;
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		background: yellow;
+		opacity: .6;
+		height: 80px;
+		line-height: 80px;
+		font-size: 50px;
+		border: 5px solid;
+		border-radius: 20px;
+	}
+
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
 
-<h3>luoxuan</h3>
+<h3 id="scrollDy">luoxuan</h3>
 <div class="rotate">
 	<div>1</div>
 	<div>2</div>
@@ -1754,6 +1786,47 @@ n 可以是数字、关键词或公式。
 	function transitionTest(){
 		$('.transitionTest').css('width','200px')
 	}
+
+
+
+	//根据滚动条滚动的位置，动态改变元素的定位样式，使元素在某个时候是fixed定位的
+	//方法一  原生js通过window.onscroll监听
+	/*window.onscroll=function(){
+        var scrollPos;  
+        if (window.pageYOffset) {  
+
+            scrollPos = window.pageYOffset; 
+
+        }  else if (document.compatMode && document.compatMode != 'BackCompat'){ 
+
+            scrollPos = document.documentElement.scrollTop; 
+        }else if (document.body) {
+
+            scrollPos = document.body.scrollTop; 
+        } 
+
+        if(scrollPos >= 200){
+          console.log('11大于两百啦=='+$(window).scrollTop())
+          $("#scrollDy").addClass('scrollDy')  
+        } else{
+           
+          console.log('11小于两百')
+          $("#scrollDy").removeClass('scrollDy')  
+        }
+
+        
+    }*/
+
+
+    //方法二 Jquery通过$(window).scroll()监听
+      $(window).scroll(function(){
+	    if($(window).scrollTop() >= 200){
+          $("#scrollDy").addClass('scrollDy')  
+        } else{
+           
+          $("#scrollDy").removeClass('scrollDy')  
+        }
+    });
 </script>
 </body>
 
