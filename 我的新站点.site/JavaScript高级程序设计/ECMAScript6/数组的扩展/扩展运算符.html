@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>数组的扩展-扩展运算符</title>
+ 
+<style>
+
+
+  body{
+    background: radial-gradient(#bbd5e0, #3ab7ef);
+    height: 960px;
+  }
+
+
+
+
+
+    button,[type='button']{
+      background: #abcdef;  
+      border: 0;
+      display:  block;
+      height: 3em;
+      line-height: 3em;
+      padding: 0 2em;
+      margin-bottom: 20px;
+      border-radius: .5em;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 0 20px #fff;      
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body >
+<button type="button" onclick="ellipsis();">扩展运算符</button>
+<button type="button" onclick="ellipsisExpression();">扩展运算符后可以放置表达式</button>
+<button type="button" onclick="mergeAry();">可以利用扩展运算符合并一个数组</button>
+ 
+ <script type="text/javascript">
+    
+
+/* 扩展运算符会将一个数组转为用逗号分隔的参数序列 */
+function ellipsis(){
+  let ary=['a','b','c'];
+  let ary1=[1,2,3,4];
+   
+  /* 同  console.log('a','b','c')  */
+  console.log( ...ary);//a b c  
+
+  /* 同 push(ary1,1,2,3,4)  */
+  push(ary1,...ary1);
+
+  console.log(ary1); // Array [ 1, 2, 3, 4, 1, 2, 3, 4 ]
+
+  console.log(...ary,...ary);//a b c a b c
+
+
+
+}
+
+
+function push(ary,...items){
+  ary.push(...items);//数组的push()方法可以一次传多个值，用逗号隔开，例如：push('helln','jack')
+}
+
+
+function ellipsisExpression(){
+  let x=1;
+  const ary=[...(x>0?[1]:[]),6];
+
+  console.log(ary);//Array [ 1, 6 ]
+}
+
+
+/* 合并一个数组 */
+function mergeAry(){
+  let ary1=[10,20,30];
+  let ary2=[1,2,3];
+
+  /*方法一：用es6扩展运算符*/
+  let ary3=[...ary1,...ary2];
+  console.log(ary3)//Array [ 10, 20, 30, 1, 2, 3 ]
+
+  /*方法二：用es5的concat()方法,concat()不会影响原始数组哎~*/
+  let ary33=[].concat(ary1,ary2);
+  console.log(ary33)//Array [ 10, 20, 30, 1, 2, 3 ]
+}
+
+ </script>
+
+
+ 
+</body>
+</html>
