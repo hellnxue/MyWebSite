@@ -60,7 +60,9 @@ function testpoint(){
   }
 }
 
-
+function testKey(val){
+  console.log('hello'+val)
+}
 
  </script>
 </head>
@@ -71,6 +73,8 @@ function testpoint(){
 <input type="text" value="10.0.0.218" id="t2"> <input type="button" value="IP地址验证"  onclick="test()"><br/>
 
 <input type="text" value="10.0.0.218" id="t3"> <input type="button" value="验证小数点"  onclick="testpoint()"><br/>
+
+<input type='text' onkeyup="testKey(value)">
  
 
 </body>
