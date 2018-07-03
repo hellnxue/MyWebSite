@@ -23,7 +23,8 @@
       border-radius: .5em;
       color: #fff;
       font-size: 18px;
-      box-shadow: 0 0 20px #fff;      
+      box-shadow: 0 0 20px #fff;   
+    }   
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
@@ -143,8 +144,8 @@
         const client=new XMLHttpRequest();
         client.open('GET',url);
         client.onreadystatechange=handler;
-        client.responseType='text';
-        client.setRequestHeader('Accept','application/json');
+        client.responseType='json';
+        // client.setRequestHeader('Accept','application/json');
         client.send();
 
       });
@@ -156,7 +157,7 @@
     function AjaxTest(){
       getJSON('package.json').then(function(response){
         console.log('成功啦')
-        console.log(typeof response )
+        console.log(JSON.stringify(response))
         
       },function(error){
         console.log( error)
