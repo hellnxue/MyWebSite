@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+  button,[type='button']{
+    background: #abcdef;  
+      border: 0;
+      display:  block;
+      height: 3em;
+      line-height: 3em;
+      padding: 0 2em;
+      margin-bottom: 20px;
+      border-radius: .5em;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.2);
+     
+    
+}
+
+/*用[type='button'] + [type='button']居然选不中紧邻按钮下的按钮哎~~~*/
+/*[type='button'] + [type='button']{
+  margin-bottom: 20px;
+}*/
+</style>
+ 
+<script type="text/javascript">
+function forof(){
+  var ary=[1,2,4,3];
+  var objAry={name:'helln',age:20}
+
+  ary.love='sun';
+
+  /*for in 遍历数组时，temp是索引*/
+  for(let temp in ary){
+    console.log(temp)//0 1 2 3 love   并且键名是string类型的哎
+    console.log(ary[temp]);//1 2 4 3 sun
+  }
+  
+
+  console.log('..............我是萌萌哒分割线.......................')
+
+  for(let temp of ary){
+    console.log(temp)//1 2 4 3
+  }
+
+  /*for in 遍历对象时，temp是对象的键
+  for(let temp in objAry){
+    console.log(temp);//name age
+    console.log(objAry[temp]);//helln 20
+  }
+
+  */
+
+  //TypeError: objAry is not iterable
+  /*for(let temp of objAry){
+    console.log(temp)
+  }*/
+
+
+/*将类数组对象转成数组*/
+
+console.log('。。。。。。。。。。。。将类数组对象转成数组。。。。。。。。。。。。。')
+let arrayLike = { length: 2, 0: 'a', 1: 'b' };
+
+console.log(Array.from(arrayLike));//Array [ "a", "b" ]
+
+for (let x of Array.from(arrayLike)) {
+  console.log(x);//a b
+}
+
+
+
+
+
+ 
+
+
+
+
+}
+
+
+function forofBreak(){
+  var ary=[10,20,100,30];
+
+  for(let temp of ary){
+    console.log(temp)//10 20 100
+    if (temp>20) { 
+      break;
+    }
+  }
+}
+ 
+</script>
+
+
+
+ 
+
+<body>
+
+
+<button type="button" onclick="forof()">for...of遍历数组</button>
+
+<button type="button" onclick="forofBreak()">for...of可以与break一块使用</button>
+
+
+
+</body>
+</html>

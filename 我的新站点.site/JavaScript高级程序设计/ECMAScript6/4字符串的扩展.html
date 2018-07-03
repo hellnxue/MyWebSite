@@ -129,7 +129,7 @@ function test1(){
   console.log(usually1); 
   console.log(usually1);
   
-  /*在模板字符串中需要使用反引号，需要用反斜杠转移奥*/
+  /*在模板字符串中需要使用反引号，需要用反斜杠转义奥*/
   var ts=`This is \`me\` `;
   console.log(ts);//This is `me` 
   
@@ -151,6 +151,7 @@ function test11(){
    
     var fx=function(){
       console.log( "world");
+      return `fx world`;
    };
    
    var temp=`hello ${fn()}`;
@@ -158,6 +159,30 @@ function test11(){
    
    var temx=`hello ${fx()}`;
    console.log(temx);//会先执行fx函数，然后输出字符串
+
+
+
+
+  }
+
+
+function templateStrTest(){
+  //模板字符串中嵌入变量
+
+   var a=1;
+   var b=2;
+   var rlt=`${a+b}`;
+   console.log(rlt);//3
+
+   //模板字符串中可以访问对象属性
+   var obj={
+    name:'hello',
+    age:100
+   }
+
+   var objStr=`${obj.name +""+obj.age}`;
+   
+   console.log(objStr);//hello 100
 }
 
  
@@ -172,14 +197,12 @@ function test22( ){
   console.log(c);//long long ago
   
   
-  /*执行函数时的嵌套，赶脚好复杂。。。*/
+  /*执行函数时的嵌套，赶脚好复杂。。。  熟悉了就觉得很简单了^3^*/
   var arry=[{a:"hello",b:"apple"},{a:"hi",b:"banana"}];
   var temp=array=>` ${array.map(obj=> `${obj.a+':'+obj.b}`).join(',') } `;
   console.log(temp(arry));// hello:apple,hi:banana
   
-  
-  
-  
+
  }  
 
 
@@ -218,7 +241,7 @@ function test3(arg){
    var s = 'Hello world!';
     
 	var s1=s.startsWith('world', 6) // true
-	var s2=s.endsWith('Hell', 5) // true  s.endsWith('Hell', 5) 为false
+	var s2=s.endsWith('Hell', 4) // true  s.endsWith('Hell', 5) 为false
 	var s3=s.includes('Hello', 6) // false
 	
 	commonShow(s1);
@@ -226,7 +249,7 @@ function test3(arg){
     commonShow(s3);
 }
 
-/* */
+/*repeat方法返回一个新字符串，表示将原字符串重复n次 */
  function test4(){
   var a= 'x'.repeat(3) // "xxx"
   var b= 'hello'.repeat(2) // "hellohello"
@@ -235,8 +258,6 @@ function test3(arg){
   var f='ok'.repeat("3");//"okokok"
   var g='ok'.repeat("hh");//""
    
-    console.log(g);
-	 
       
 }
 
@@ -261,6 +282,8 @@ function test5(){
 			 <input type="button"  value="认识模板字符串" onClick="test1()"/> 
 			
 			<input type="button"  value="模板字符串中可以调用函数" onClick="test11()"/> 
+
+      <input type="button"  value="模板字符串中可以嵌入变量" onClick="templateStrTest()"/> 
 			
 			 <input type="button"  value="模板字符串可以嵌套使用" onClick="test22()"/> 
 			
