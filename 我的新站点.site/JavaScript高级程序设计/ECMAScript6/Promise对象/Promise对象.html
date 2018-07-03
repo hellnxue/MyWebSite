@@ -46,14 +46,16 @@
     }
 
     function testThen(){
-      // timeout(3000).then((value)=>{
-      //   console.log(value);
-      // });
+       timeout(3000).then((value)=>{
+         console.log(value);
+        });
 
 
+      /* 
+      setTimeout可以传三个参数，第三个参数会作为第一个参数的的方法参数传入
       setTimeout((msg)=>{
         console.log(msg)
-      },1000,'hello world sir')
+      },1000,'hello world sir') */
     }
 
 
@@ -69,7 +71,8 @@
 
 
       Promise 新建后立即执行，所以首先输出的是Promise。
-      然后，then方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行，所以resolved最后输出。
+      然后，then方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行，
+      所以 promise param最后输出。
 
     */
     function immdTest(){
@@ -114,7 +117,7 @@
       });
 
       promise.then((img)=>{
-        console.log(img)
+        console.log(img); //<img src="../../../image/mxx.jpg">
       })
     }
 
@@ -129,6 +132,7 @@
           }
 
           if (this.status===200) {
+            console.log(this)
             resove(this.response);
           }else{
             reject(new Error(this.statusText))
@@ -139,7 +143,7 @@
         const client=new XMLHttpRequest();
         client.open('GET',url);
         client.onreadystatechange=handler;
-        client.responseType='json';
+        client.responseType='text';
         client.setRequestHeader('Accept','application/json');
         client.send();
 
@@ -152,8 +156,8 @@
     function AjaxTest(){
       getJSON('package.json').then(function(response){
         console.log('成功啦')
-        console.log(response)
-        console.log(JSON.stringify(response));
+        console.log(typeof response )
+        
       },function(error){
         console.log( error)
       }) 
