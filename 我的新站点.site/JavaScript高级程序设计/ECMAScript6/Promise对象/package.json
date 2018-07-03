@@ -1,0 +1,6 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "手机端公共模板",
+  "main": "main.js",
+}

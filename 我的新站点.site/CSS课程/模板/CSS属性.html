@@ -1053,7 +1053,9 @@ button,[type='button']{
     }
 
 
-
+    .outer-container,.outer-container *{
+    	box-sizing: border-box;
+    }
 
 
     .outer-container,.content {
@@ -1075,8 +1077,188 @@ button,[type='button']{
 	}
 
 	 /* for Chrome */
-	.inner-container::-webkit-scrollbar {
+	/*.inner-container::-webkit-scrollbar {
 	    display: none;
+	}*/
+
+
+	.rotate{
+		position: relative;
+		width: 300px;
+		height: 300px;
+		margin: 0 auto;
+		background: #fff;
+		/*animation: testa 2s linear infinite running;*/
+	}
+
+	.rotate div{
+		background: rgba(128, 0, 128, 0.5);
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		left: 30%;
+		top: 30%;
+		border: 2px solid yellow;
+		border-radius: 50%;
+		border-right: none;
+		transform: scale(1);
+		/*animation: my-animationss1 2s linear 1 running,
+				   my-animationss2 1s linear 1 running;*/
+	   /*animation: my-animationss1 2s linear infinite running;*/
+	}
+
+	.rotate div:first-child{
+		background: rgba(255, 0, 255, 0.5);
+		left: 60%;
+		top: 10%;
+		border: 2px solid pink;
+		border-left: none;
+		
+	}
+
+	.rotate div:nth-of-type(3){
+		background: rgba(155, 0, 255, 0.5);
+		left: 20%;
+		top: 30%;
+		border: 2px solid pink;
+		border-top: none;
+		
+	}
+
+	.rotate div:nth-of-type(4){
+		background: rgba(255, 0, 215, 0.5);
+		left: 40%;
+		top: 40%;
+		border: 2px solid pink;
+		border-right: none;
+		
+	}
+
+	.rotate div:nth-of-type(5){
+		background: rgba(255, 0, 205, 0.5);
+		left: 100%;
+			transform: translate(100%);
+		top: 0;
+		border: 2px solid pink;
+		border-bottom:  none;
+		animation: five 2s linear 1 running;
+	}
+
+
+
+	@keyframes five{
+		0%{
+			/*left: 0;*/
+			transform: translate(10%);
+			/*transform:scale(.8);*/
+
+		}
+
+		100%{
+			/*left: 100%;*/
+			transform: translate(100%);
+			/*transform:scale(.1);*/
+
+			 
+		}
+	}
+
+
+
+
+	@keyframes testa{
+		0%{
+			transform: scale(1); 
+			 
+
+		}
+
+		50%{
+			transform: scale(0.5); 
+			 
+
+		}
+
+
+		100%{
+			transform: scale(0.1); 
+			 
+		}
+
+		 
+	}
+
+	@keyframes my-animationss1{
+		/*0%{
+			transform: rotate(-90deg);
+			width: 100px;
+			height: 100px;
+
+		}
+
+		50%{
+			transform: rotate(90deg);
+			width: 50px;
+			height: 50px;
+
+		}
+
+
+		100%{
+			transform: rotate(270deg);
+			width: 0px;
+			height: 0px;
+		}*/
+
+		/*100%{
+			transform: rotate(-90deg);
+		}*/
+
+
+		0%{
+
+			transform: translate(-20%,0);
+			width: 100px;
+			height: 100px;
+
+		}
+
+
+		100%{
+			left: 50%;
+			transform: translate(-50%,0);
+			width: 0px;
+			height: 0px;
+		}
+	}
+
+	/*@keyframes my-animationss2{
+		0%{
+			transform: scale(1); 
+
+		}
+
+		100%{
+			transform: scale(0.2);
+
+		}
+
+		 
+	}*/
+
+
+	.scrollDy{
+		position: fixed;
+		width: 80%;
+		left: 50%;
+		transform: translateX(-50%);
+		background: yellow;
+		opacity: .6;
+		height: 80px;
+		line-height: 80px;
+		font-size: 50px;
+		border: 5px solid;
+		border-radius: 20px;
 	}
 
 </style>
@@ -1084,6 +1266,37 @@ button,[type='button']{
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
+
+<h3 id="scrollDy">luoxuan</h3>
+<div class="rotate">
+	<div>1</div>
+	<div>2</div>
+	<div>3</div>
+	<div>4</div>
+	<div>5</div>
+</div>
+<!-- 方法一，兼容所有浏览器~，原理呢.....?-->
+<div class="outer-container">
+     <div class="inner-container">
+        <div class="content">
+             <ul class=" ">
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+                <li>章鱼不丸子</li>
+            </ul>
+        </div>
+     </div>
+ </div>
 <h3> 背景(或叫背景色)绘制范围：background-clip </h3>
 <div class="bgclip">
    Who Moved My Cheese? is an amusing and enlightening story of four characters who live in a maze and look for cheese to nourish them and make them happy. Cheese is a metaphor for what you want to have in life - whether it is a good job, a loving relationship, money or a possession, health or spirital peace of mind.And the maze is where you look for what you want - the organisation you work in, or the family or community you live in.
@@ -1584,33 +1797,54 @@ n 可以是数字、关键词或公式。
         </div>
     </div>
 
-<!-- 方法一，兼容所有浏览器~，原理呢.....?-->
-<div class="outer-container">
-     <div class="inner-container">
-        <div class="content">
-             <ul class=" ">
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-                <li>章鱼不丸子</li>
-            </ul>
-        </div>
-     </div>
- </div>
+
+
 
 <script>
 	function transitionTest(){
 		$('.transitionTest').css('width','200px')
 	}
+
+
+
+	//根据滚动条滚动的位置，动态改变元素的定位样式，使元素在某个时候是fixed定位的
+	//方法一  原生js通过window.onscroll监听
+	/*window.onscroll=function(){
+        var scrollPos;  
+        if (window.pageYOffset) {  
+
+            scrollPos = window.pageYOffset; 
+
+        }  else if (document.compatMode && document.compatMode != 'BackCompat'){ 
+
+            scrollPos = document.documentElement.scrollTop; 
+        }else if (document.body) {
+
+            scrollPos = document.body.scrollTop; 
+        } 
+
+        if(scrollPos >= 200){
+          console.log('11大于两百啦=='+$(window).scrollTop())
+          $("#scrollDy").addClass('scrollDy')  
+        } else{
+           
+          console.log('11小于两百')
+          $("#scrollDy").removeClass('scrollDy')  
+        }
+
+        
+    }*/
+
+
+    //方法二 Jquery通过$(window).scroll()监听
+      $(window).scroll(function(){
+	    if($(window).scrollTop() >= 200){
+          $("#scrollDy").addClass('scrollDy')  
+        } else{
+           
+          $("#scrollDy").removeClass('scrollDy')  
+        }
+    });
 </script>
 </body>
 

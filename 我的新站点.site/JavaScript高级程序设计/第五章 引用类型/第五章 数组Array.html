@@ -787,7 +787,7 @@ function interaction(){
 function  removeElement (){
    var ary= [1159, 1676, 1693];
   
-  var index=ary.indexOf(1676);//指定元素的位置
+  var index=ary.indexOf(1676);//指定元素的位置  (indexOf(a,n)在比较参数a与数组的每一项时，使用全等===比较)
    
   var delItem=ary.splice(index,1);//splice(a,b)方法返回删除的项组成的数组(a是要删除的数组元素的位置，b是要删除的项数)，如果没有删除任何一项则返回空数组
   
@@ -1308,16 +1308,19 @@ function removeArray(){
 /*如果是对象数组*/
 function aryIndexOf(){
 	var ary=[{a:1,b:2},{a:2,b:2},{a:3,b:2}];
+	var index=0;
 
 	for(var i=0;i<ary.length;i++){
 
 		if (ary[i].a==2) {
 			ary.splice(i,1);
+			index=i;
 			break;
 		}
 	}
 
-	console.log(JSON.stringify(ary));[{"a":1,"b":2},{"a":3,"b":2}]
+	console.log(index)
+	console.log(JSON.stringify(ary));//[{"a":1,"b":2},{"a":3,"b":2}]
 }
 
 
@@ -1366,6 +1369,44 @@ function spliceLen(){
 	console.log(ary.length)
 	console.log(ary)
 }
+
+
+
+function hebingAry(){
+
+	let a=[{
+			id:'222',
+			name:'tom'
+		},
+		{
+			id:'111',
+			name:'helln'
+		}],
+		b=[{
+			id:'111',
+			status:'1',
+		},{
+			id:'222',
+			status:'2'
+		}];
+
+	for(let i=0;i<a.length;i++){
+
+		for(let j=0;j<b.length;j++){
+
+			if (a[i].id==b[j].id) {
+				a[i].status=b[j].status;
+				b.splice(j,1);
+				break;
+			}
+		
+		}
+
+	}	
+
+	console.log(JSON.stringify(a))//[{"id":"222","name":"tom","status":"2"},{"id":"111","name":"helln","status":"1"}]
+
+}
 </script>
 
 
@@ -1383,5 +1424,11 @@ function spliceLen(){
 
 
 <button type="button" onclick="spliceLen()">用splice()设置数组长度</button>
+
+
+
+<button type="button" onclick="hebingAry()">两个数组合并</button>
+
+
 </body>
 </html>

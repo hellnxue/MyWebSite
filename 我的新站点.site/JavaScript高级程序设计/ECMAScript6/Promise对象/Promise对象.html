@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Promise</title>
+ 
+<style>
+
+  body{
+    /*background: radial-gradient(#bbd5e0, #3ab7ef);*/
+    height: 960px;
+  }
+
+
+    button,[type='button']{
+      background: #abcdef;  
+      border: 0;
+      display:  block;
+      height: 3em;
+      line-height: 3em;
+      padding: 0 2em;
+      margin-bottom: 20px;
+      border-radius: .5em;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 0 20px #fff;      
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body >
+
+<button type="button" onclick="testThen()">Promise的实例方法then()</button>
+ 
+<button type="button" onclick="immdTest()">Promise新建后立即执行</button>
+
+<button type="button" onclick="loadImageTest()">Promise加载图片案例</button>
+
+<button type="button" onclick="AjaxTest()">Promise对象实现ajax</button>
+
+ <script type="text/javascript">
+    function timeout(ms){
+      return new Promise((resove,reject)=>{
+        setTimeout(resove,ms,'done');
+      })
+    }
+
+    function testThen(){
+      // timeout(3000).then((value)=>{
+      //   console.log(value);
+      // });
+
+
+      setTimeout((msg)=>{
+        console.log(msg)
+      },1000,'hello world sir')
+    }
+
+
+    /*
+
+      welcome...   
+      other script......1
+      other script......2
+      other script......3
+      other script......4   
+      promise param......  
+      延迟执行方法。。。。。。
+
+
+      Promise 新建后立即执行，所以首先输出的是Promise。
+      然后，then方法指定的回调函数，将在当前脚本所有同步任务执行完才会执行，所以resolved最后输出。
+
+    */
+    function immdTest(){
+      var promise=new Promise(function(resove,reject){
+        console.log('welcome...');
+        resove('resove param......');
+      })
+
+      promise.then((prm)=>{
+        console.log(prm)
+      });
+
+      console.log('other script......1')
+      console.log('other script......2')
+      console.log('other script......3')
+      console.log('other script......4')
+
+      // setTimeout(()=>{
+      //   console.log('延迟执行方法。。。。。。')
+      // },2000)
+    }
+
+
+    function loadImageTest(){
+      let url='../../../image/mxx.jpg';
+
+      let promise=new Promise(function(resove,reject){
+
+         let img=new Image();
+
+         img.onload=function(){
+           resove(img);
+         }
+
+        img.onerror = function() {
+            reject(new Error('Could not load image at ' + url));
+          };
+
+        img.src = url;
+
+
+      });
+
+      promise.then((img)=>{
+        console.log(img)
+      })
+    }
+
+
+
+    const getJSON=function(url){
+      const promise=new Promise((resove,reject)=>{
+
+        const handler=function(ret){
+          if (this.readyState!=4) {
+            return;
+          }
+
+          if (this.status===200) {
+            resove(this.response);
+          }else{
+            reject(new Error(this.statusText))
+          }
+
+        };
+
+        const client=new XMLHttpRequest();
+        client.open('GET',url);
+        client.onreadystatechange=handler;
+        client.responseType='json';
+        client.setRequestHeader('Accept','application/json');
+        client.send();
+
+      });
+
+       return promise;
+    }
+
+
+    function AjaxTest(){
+      getJSON('package.json').then(function(response){
+        console.log('成功啦')
+        console.log(response)
+        console.log(JSON.stringify(response));
+      },function(error){
+        console.log( error)
+      }) 
+    }
+   
+ 
+
+ </script>
+
+
+ 
+</body>
+</html>
