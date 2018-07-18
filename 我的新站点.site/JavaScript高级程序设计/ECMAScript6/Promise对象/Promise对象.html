@@ -39,6 +39,10 @@
 
 <button type="button" onclick="AjaxTest()">Promise对象实现ajax</button>
 
+<button type="button" onclick="catchTest()">Promise捕获异常catch</button>
+
+<button type="button" onclick="codeAfterTest()">Promise的resolve()之后最好不写语句，放在then()方法中</button>
+
  <script type="text/javascript">
     function timeout(ms){
       return new Promise((resove,reject)=>{
@@ -67,7 +71,7 @@
       other script......2
       other script......3
       other script......4   
-      promise param......  
+      resove param......  
       延迟执行方法。。。。。。
 
 
@@ -91,9 +95,9 @@
       console.log('other script......3')
       console.log('other script......4')
 
-      // setTimeout(()=>{
-      //   console.log('延迟执行方法。。。。。。')
-      // },2000)
+      setTimeout(()=>{
+        console.log('延迟执行方法。。。。。。')
+      },2000)
     }
 
 
@@ -103,7 +107,8 @@
       let promise=new Promise(function(resove,reject){
 
          let img=new Image();
-
+        
+         // 监测图片加载img.src = url是否成功
          img.onload=function(){
            resove(img);
          }
@@ -119,6 +124,8 @@
 
       promise.then((img)=>{
         console.log(img); //<img src="../../../image/mxx.jpg">
+      }).catch((error)=>{
+        console.log(error)
       })
     }
 
@@ -133,7 +140,7 @@
           }
 
           if (this.status===200) {
-            console.log(this)
+            // console.log(this)
             resove(this.response);
           }else{
             reject(new Error(this.statusText))
@@ -155,13 +162,63 @@
 
 
     function AjaxTest(){
+      // getJSON('package.json').then(function(response){
+      //   console.log('成功啦')
+      //   console.log(JSON.stringify(response));
+      //   return response.version;
+        
+      // },function(error){
+      //   console.log( error)
+      // }).then((data)=>{
+      //   console.log(data)
+      // })
+
+      //then()方法的链式调用，then方法的函数参数中的参数，是上一步(可能是promise，也可能是then())返回的值
       getJSON('package.json').then(function(response){
         console.log('成功啦')
-        console.log(JSON.stringify(response))
+        console.log(JSON.stringify(response));//{"name":"app","version":"1.0.0","description":"json文件","main":"main.js"}
+        return  getJSON('package.json');
         
-      },function(error){
-        console.log( error)
+      }).then((data)=>{
+        console.log('链式调用。。。。。。')
+        console.log(JSON.stringify(data))//{"name":"app","version":"1.0.0","description":"json文件","main":"main.js"}
+      }).catch((err)=>{//捕获错误
+        console.log(err);
       }) 
+
+
+
+    }
+
+    /*
+      ok   
+      Error: test   
+    */
+    function catchTest(){
+      const promise=new Promise((resolve,reject)=>{
+        resolve('ok');
+        setTimeout(()=>{
+          throw new Error('test')
+        },0)
+      });
+
+      promise.then((value)=>{
+        console.log(value);
+      })
+    }
+
+    //此处resolve之后的代码不会再执行
+    function codeAfterTest(){
+      const promise=new Promise((resolve,reject)=>{
+        return resolve('ok');
+        setTimeout(()=>{
+          throw new Error('test')
+        },0)
+      });
+
+      promise.then((value)=>{
+        console.log(value);
+      })
     }
    
  
