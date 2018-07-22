@@ -23,7 +23,7 @@
       border-radius: .5em;
       color: #fff;
       font-size: 18px;
-      box-shadow: 0 0 20px #fff;      
+      box-shadow: 0 0 20px #fff; }     
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
@@ -37,6 +37,9 @@
 <button type="button" onclick="loadImageTest()">Promise加载图片案例</button>
 
 <button type="button" onclick="AjaxTest()">Promise对象实现ajax</button>
+<button type="button" onclick="paramTest()">Promise的实例作为resolve的参数</button>
+
+<button type="button" onclick="catchErrorTest()">捕获错误</button>
 
  <script type="text/javascript">
     function timeout(ms){
@@ -143,7 +146,7 @@
         const client=new XMLHttpRequest();
         client.open('GET',url);
         client.onreadystatechange=handler;
-        client.responseType='text';
+        client.responseType='json';
         client.setRequestHeader('Accept','application/json');
         client.send();
 
@@ -156,14 +159,63 @@
     function AjaxTest(){
       getJSON('package.json').then(function(response){
         console.log('成功啦')
-        console.log(typeof response )
+        console.log( response )
         
       },function(error){
+        console.log('fail....')
         console.log( error)
       }) 
     }
    
- 
+  /*
+  from p2.......... Promise对象.html:179:10
+  from p1.......... Promise对象.html:172:10
+  Error: "fail"
+  */
+ function paramTest(){
+   const p1=new Promise((resolve,reject)=>{
+     setTimeout(()=>{
+         console.log('from p1..........')
+         reject(new Error('fail'));
+     }, 3000);
+   });
+
+   const p2=new Promise((resolve,reject)=>{
+     setTimeout(()=>{
+         console.log('from p2..........')
+         resolve(p1);
+     }, 1000);
+   });
+
+   p2.then(result => {
+    console.log('hello world');
+    console.log(result);
+   }).catch(error => console.log(error));
+ }
+
+/*
+  first 
+  carry on...... 
+  ok  
+  Error: test
+*/
+ function catchErrorTest(){
+   const promise=new Promise((resolve,reject)=>{
+     resolve('ok');
+     setTimeout(()=>{throw new Error('test')},0);//错误会在Promise函数体外抛出，即使setTimeout设置了0s
+    // throw new Error('test')
+    console.log('first')
+
+   })
+
+   promise.then((value)=>{
+     console.log(value);
+   }).catch((error)=>{
+     console.log(error)
+   })
+
+   console.log('carry on......')
+ }
 
  </script>
 
