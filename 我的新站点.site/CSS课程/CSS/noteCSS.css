@@ -1046,4 +1046,40 @@ ul.type-lists li{
 
 
 
+.through{
+    background: #abcdef;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .through::after{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ccc;
+  }
+
+  .through span{
+    background: #fff;
+    width: 20%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    text-align: center;
+    line-height: 5px;
+  }
+
+
+
+
+
+
+
+
 

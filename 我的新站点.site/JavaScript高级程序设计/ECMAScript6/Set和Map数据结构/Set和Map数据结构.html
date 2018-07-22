@@ -7,7 +7,7 @@
 <style>
 
   body{
-    background: radial-gradient(#bbd5e0, #3ab7ef);
+    /* background: radial-gradient(#bbd5e0, #3ab7ef); */
     height: 960px;
   }
 
@@ -23,7 +23,7 @@
       border-radius: .5em;
       color: #fff;
       font-size: 18px;
-      box-shadow: 0 0 20px #fff;      
+      box-shadow: 0 0 20px #fff; }     
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
@@ -31,6 +31,8 @@
 <body >
 
 <button type="button" onclick="findElementInAry()">Set数据结构</button>
+
+<button type="button" onclick="setBL()">Set数据结构的遍历</button>
 <button type="button" onclick="MapTest()">Map数据结构</button>
 
 <button type="button" onclick="setData()">立即执行函数给对象赋值</button>
@@ -56,7 +58,7 @@
 
     /*has()方法判断一个元素时，同indexOf()一样用全等===*/
     var rlt1=set.has('4');
-    console.log(rlt1);
+    console.log(rlt1);//false
 
 
     /* Array.from方法可以将 Set 结构转为数组。*/
@@ -66,6 +68,12 @@
 
     let ary3=Array.from(otherSet);
     console.log(ary3);//Array [ 1, 2, 3, 4 ]
+    
+    //利用扩展运算符也可以将Set数据结构转为数组
+    //扩展运算符(...)内部使用for...of循环，所以也可用于set结构
+     
+    let ary4=[...otherSet];
+    console.log(ary4)//Array [ 1, 2, 3, 4 ]
 
 
     /*数据去重复*/
@@ -85,11 +93,46 @@
     let b=new Object();
 
     let c={};
-
+    //对象的key都是字符串，就算不是，也会转成字符串
     c[a]='hello';
     c[b]='hello1'
+    console.log(c[a])//hello1
+    console.log(c[b])//hello1
 
-    console.log(c[b])
+
+    let ary=[1,2,3,4];
+    ary.forEach((item,index)=>{
+      console.log(item+": "+index)
+    })
+
+
+
+    //Map构造函数接受一个二维数组作为参数
+    var tary=[['name','Darcy'],['love','lucy']];
+    const map=new Map(tary);
+    console.log(map)
+
+
+    //二维数组作为Map参数时所执行的算法，forEach的函数参数用的应该是解构赋值吧.....?
+    const map1=new Map();
+    tary.forEach(([item,index])=>{
+      map1.set(item,index);
+    });
+    console.log(map1);
+    console.log(typeof map1.get('haohao'))//undefined
+    
+    map1.set('123',123);
+    // map1.set(123,321);
+    console.log(map1.has(123))//false
+
+    console.log(map1.keys());//MapIterator {"name", "love", "123"}
+    console.log('map的遍历方法ForEach................')
+    map1.forEach((value,key,map)=>{
+      console.log('Key:%s, Vlaue:%s', key,value)
+    })
+
+
+    console.log(null==undefined)//true
   }
 
   function setData(){
@@ -108,6 +151,45 @@
     }catch(e){
       console.log(e)
     }
+  }
+
+
+  function setBL(){
+     
+    let a=[1,2,3,4];
+    let b=[2,4,6];
+
+    let c=[...a,...b];
+    console.log(c)//[1,2,3,4,2,4,6]
+
+    //去重复-取并集
+    let d=[...new Set([...a,...b])];
+    console.log(d)
+
+
+
+    //两个存有简单类型数据的数组，取交集和差集的算法，利用indexOf()方法。。。
+
+    //取交集
+    let rlt=a.filter((item,index)=>{
+      return b.indexOf(item)!=-1;
+    });
+    console.log(rlt);//[2,4]
+
+
+    //取差集
+    let cj=a.filter((item,index)=>{
+      return b.indexOf(item)==-1;
+    })
+    console.log(cj)//[1,3]
+
+
+
+    //Array.from
+    let set=new Set([1,2,3]);
+    let tary=Array.from(set,(val)=>val*2);
+    console.log(tary)//[2,4,6];
+     
   }
  
 
