@@ -3,31 +3,24 @@
 <head>
 <meta charset="utf-8" />
 <title>数组的扩展-扩展运算符</title>
- 
 <style>
 
-
   body{
-    background: radial-gradient(#bbd5e0, #3ab7ef);
+    /* background: radial-gradient(#bbd5e0, #3ab7ef); */
     height: 960px;
   }
-
-
-
-
-
-    button,[type='button']{
-      background: #abcdef;  
-      border: 0;
-      display:  block;
-      height: 3em;
-      line-height: 3em;
-      padding: 0 2em;
-      margin-bottom: 20px;
-      border-radius: .5em;
-      color: #fff;
-      font-size: 18px;
-      box-shadow: 0 0 20px #fff;      
+  button,[type='button']{
+    background: #abcdef;  
+    border: 0;
+    display:  block;
+    height: 3em;
+    line-height: 3em;
+    padding: 0 2em;
+    margin-bottom: 20px;
+    border-radius: .5em;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 0 20px #fff; }     
 </style>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
@@ -36,7 +29,8 @@
 <button type="button" onclick="ellipsis();">扩展运算符</button>
 <button type="button" onclick="ellipsisExpression();">扩展运算符后可以放置表达式</button>
 <button type="button" onclick="mergeAry();">可以利用扩展运算符合并一个数组</button>
- 
+<button type="button" onclick="jgkz();">与结构赋值结合</button>
+  
  <script type="text/javascript">
     
 
@@ -83,8 +77,30 @@ function mergeAry(){
   console.log(ary3)//Array [ 10, 20, 30, 1, 2, 3 ]
 
   /*方法二：用es5的concat()方法,concat()不会影响原始数组哎~*/
-  let ary33=[].concat(ary1,ary2);
-  console.log(ary33)//Array [ 10, 20, 30, 1, 2, 3 ]
+  let ary33=ary1.concat(ary2,ary2);
+  console.log(ary33)//Array [ 10, 20, 30, 1, 2, 3, 1, 2, 3 ]
+
+    
+}
+
+
+function jgkz(){
+  const [first,...rest]=[1,2,3,4,5];
+  console.log(first);//1
+  console.log(rest)//[2, 3, 4, 5]
+
+  const [first1,...rest1]=[1];
+  console.log(first1);//1
+  console.log(rest1 )//[]
+
+  const [first2,...rest2]=[];
+  console.log(first2);//undefined
+  console.log(rest2 )//[]
+
+  //如果扩展运算符用于数组赋值，则只能将其放在参数的最后一位，否则会报错
+  //For example：const [...rest4,first4]=[1,2,3,4,5];
+
+   
 }
 
  </script>
