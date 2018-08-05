@@ -30,7 +30,23 @@
 <button type="button" onclick="ellipsisExpression();">扩展运算符后可以放置表达式</button>
 <button type="button" onclick="mergeAry();">可以利用扩展运算符合并一个数组</button>
 <button type="button" onclick="jgkz();">与结构赋值结合</button>
-  
+<button type="button" onclick="spreadSymbol();">任何Iterator接口的对象，都可以用扩展运算符转为真正的数组</button>
+
+
+<h5>Array.from可以类似数组的对象和可遍历(iterable)对象转为真正的数组</h5>
+<button type="button" onclick="aryFrom();">Array.from</button>
+<button type="button" onclick="aryOf();">Array创建数组的新方式Array.of</button>
+
+<button type="button" onclick="aryFind();">Array实例的find()和findIndex()方法</button>
+
+<button type="button" onclick="aryFill();">Array实例的fill()方法</button>
+
+<button type="button" onclick="aryBl();">Array实例的entries()、keys()、values()方法</button>
+
+<button type="button" onclick="aryInclude();">Array实例的includes()方法</button>
+
+<button type="button" onclick="aryIn();">in运算符判断数组</button>
+
  <script type="text/javascript">
     
 
@@ -102,6 +118,188 @@ function jgkz(){
 
    
 }
+
+function spreadSymbol(){
+  let ary=[1,2,3,4];
+  let obj={
+    0:'helln',
+    1:'apple',
+    length:2
+  };
+
+  let arySp=[...ary];
+  console.log(arySp);
+
+  try{
+    
+    let objSp=[...obj];
+   
+    console.log(objSp)
+  }catch(err){
+    console.log(err)
+  }
+  
+}
+
+//Array.from()方法
+function aryFrom(){
+  let aryLobj={
+    0:'helln',
+    1:'apple',
+    length:2
+  };
+
+  let rlt=Array.from(aryLobj);
+  console.log(rlt);//['helln','apple']
+  console.log(Array.isArray(rlt));//true
+
+  //es5写法  有报错
+  /*let rlt1=[].slice().call(aryLobj);
+  console.log(rlt1);//['helln','apple']
+  console.log(Array.isArray(rlt1));//true*/
+
+  //将arguments转为数组
+  foo(1,2,3);//[1,2,3]
+
+
+  //Array.from()可以传入第二个参数，处理函数
+  let rltPm=Array.from([1,2,,3,4,,5],(pm)=>{
+    return typeof pm;
+  });
+  console.log(rltPm);
+
+  //Array.from()可以将各种值转为数组，进而继续使用各种数据方法
+  let rltAf=Array.from({length:2},()=>{
+    return 'darcy';
+  });
+  console.log(rltAf);//['darcy','darcy']
+
+
+  //将字符串转为数据
+  let strAry1=[...'hello'];
+  let strAry2=Array.from('hello');
+
+  console.log(strAry1);//["h", "e", "l", "l", "o"]
+  console.log(strAry2);//["h", "e", "l", "l", "o"]
+  
+
+
+
+}
+
+//Array.from()和扩展运算符...都可以将某些数据结构(对于扩展运算符来说是必须实现了Iterator接口，而
+//Array.from()可以转换类数组对象和实现了Iterator接口的数据结构)转为真正的数组
+function foo(param){
+  var agrs1=Array.from(arguments);
+  var agrs2=[...arguments];
+  console.log(agrs1);
+  console.log(agrs2);
+}
+
+//Array.of()总是返回参数值组成的数组。如果没有参数，就返回一个空数组。
+function aryOf(){
+  let ary1=new Array(2);
+  let ary2=Array.of(2);
+  console.log(ary1);//[]
+  console.log(ary2);//[2]
+}
+
+//数组实例的fill()方法用于找出第一个符合条件的数组成员，参数是一个回调函数，没有找到会返回undefined
+//。。。。。fillIndex()方法用于找出第一个符合条件的数组成员的索引值，参数是一个回调函数，没有找到会返回-1
+function aryFind(){
+  let ary=[1,4,-2,10,NaN];
+
+  var rlt=ary.find((item)=>{
+    return item<0;
+  });
+
+  var rltIndex=ary.findIndex((item)=>{
+    return item<0;
+  });
+
+  console.log(rlt)//-2
+  console.log(rltIndex)//2
+
+  //findIndex()方法可以找到NaN
+  var nan1=ary.indexOf(NaN);
+  console.log(nan1);//-1
+
+  var nan2=ary.findIndex((item)=>{
+    return Object.is(NaN,item);
+  });
+  console.log(nan2);//4
+
+
+
+}
+
+//实例的fill()方法用于数组的填充
+function aryFill(){
+  let ary=[1,2,3];
+  ary.fill('love');
+  console.log(ary);//["love", "love", "love"]
+
+  //fill方法的第二个和第三个参数代表填充的起始位置和结束位置
+  let ary1=['a','b','c'];
+  ary1.fill('love',1,2);
+  console.log(ary1);//["a", "love", "c"]
+}
+
+//es6提供了三个新的方法--keys(),values(),entries()用于遍历数组
+function aryBl(){
+  let ary=['banana','apple','shirmp','garlic'];
+
+  for(let x of ary.keys()){
+     console.log(x);//0 1 2 3
+  }
+
+ /*报错嘞，难道不支持values()方法吗？？
+ Uncaught TypeError: ary.values(...)[Symbol.iterator] is not a function
+  for(let y of ary.values()){
+     console.log(y); 
+  }*/
+
+ /*
+    0 "banana"
+    1 "apple"
+    2 "shirmp"
+    3 "garlic"
+
+   */
+  for(let [index,elem] of ary.entries()){
+     console.log(index,elem); 
+  }
+
+ 
+}
+
+ //Array.prototype.includes方法返回一个布尔值，表示某个数组是否包含给定的值，与字符串的includes方法类似。
+ //可判断出数组中是否包含NaN
+  function aryInclude(){
+    let ary=[1,2,3,NaN];
+    var rlt1=ary.includes(2);
+    var nan=ary.includes(NaN);//es6的includes()方法可以判断出数组包含NaN
+    var nan1=ary.indexOf(NaN);//es5中的indexOf()方法判断不出是否包含NaN
+    
+    console.log(rlt1);//true
+    console.log(nan,nan1);//true,-1
+
+    console.log(ary.includes(NaN,-1));//true  同ary.includes(NaN,4+(-1))
+
+
+    console.log(new Array(3))
+  }
+
+  //in用在数组上，用来判断某个索引位置是否有值
+  function aryIn(){
+    let ary=['a','b','c'];
+    
+    var rlt1=0 in ary;
+    var rlt2=2 in ary;
+    var rlt3=4 in ary;
+    console.log(rlt1,rlt2,rlt3);//true true false
+
+  }
 
  </script>
 

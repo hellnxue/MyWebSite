@@ -835,6 +835,12 @@ function copyAry(){
 	
 	console.log("原始数组："+original);//1159,1676,1693
 	console.log("变量数组:"+concatArray);//1676,1693
+
+	//3.ES6拼接数组
+	var e6=[...original];
+	e6.splice(0,1);
+	console.log("原始数组6："+original);//1159,1676,1693
+	console.log("变量数组6:"+e6);//1676,1693
 	
 	console.log("------------------slice()-------------------------------");
 	
@@ -858,6 +864,13 @@ function maxAry(){
 	var minValue=Math.min.apply(Math,ary);//1
 	console.log(maxValue);
 	console.log(minValue);
+
+	//es6语法
+	var mv=Math.max(...ary),
+		miv=Math.min(...ary);
+	console.log('最大值：'+mv);
+	console.log('最小值：'+miv)
+	
 }
 
 /*将类数组对象arguments用Arry.prototype.slice.call转换成数组,我怎么没看到过这个使用方法奥....*/
