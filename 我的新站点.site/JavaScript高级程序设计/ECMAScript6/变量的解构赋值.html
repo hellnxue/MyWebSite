@@ -496,6 +496,9 @@ function test10(){
 			  <input type="button"  value="函数参数的解构赋值-数组参数" onClick="test9()"/>
 			  
 			 <input type="button"  value="交换变量值" onClick="test10()"/>  
+
+
+        <input type="button"  value="函数参数的解构赋值使用默认值" onClick="objMyTest()"/>  
 			   
 			  
 		</fieldset>
@@ -525,6 +528,59 @@ function test10(){
 		   
 		 
 	</div>
+
+  <script type="text/javascript">
+    
+    function objMyTest(){
+      // var {name:vname}={name:'helln'}
+      // console.log(vname)
+
+      // console.log(null==undefined)
+
+      // var {x:x=3}={x:undefined};
+      // var {y:y=3}={y:null};
+
+      // console.log(x,y)
+
+      // let z='';
+      // ({z}={z:'hello'});//  {z}={z:'hello'}
+      // console.log(z)
+
+      // let ary=[1,2,3,4];
+      // let {[0]:first,[ary.length-1]:last}=ary;
+      // console.log(first,last)
+
+      // var str='hello';
+      // var [a,b,d]=str;
+      // var {length:len}=str;
+      // console.log(a,b,d,len)
+
+      // // let { prop: x } = undefined; // TypeError
+      // // let { prop: y } = null; // TypeError
+
+      move({x: 3, y: 8}); // [3, 8]
+      move({x: 3}); // [3, 0]
+      move({}); // [0, 0]
+      move(); // [0, 0]
+
+      console.log('-------------move2--------------------');
+
+      move2({x: 3, y: 8}); // [3, 8]
+      move2({x: 3}); // [3, undefined]
+      move2({}); // [undefined, undefined]
+      move2(); // [0, 0]
+    }
+
+    //对函数参数的解构使用默认值
+    function move({x = 0, y = 0} = {}) {
+      console.log([x, y]) ;
+    }
+
+    //下面只是普通的解构奥~~，只不过为函数参数指定默认值
+    function move2({x , y } = {x:0,y:0}) {
+      console.log([x, y]) ;
+    }
+  </script>
 	
 
 </body>
