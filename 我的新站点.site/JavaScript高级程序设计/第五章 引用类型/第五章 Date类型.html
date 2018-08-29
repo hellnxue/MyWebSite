@@ -3,8 +3,72 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+<style>
+
+  body{
+    /* background: radial-gradient(#bbd5e0, #3ab7ef); */
+    height: 960px;
+  }
+
+
+    button,[type='button']{
+      background: #abcdef;  
+      border: 0;
+      display:  block;
+      height: 3em;
+      line-height: 3em;
+      padding: 0 2em;
+      margin-bottom: 20px;
+      border-radius: .5em;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 0 20px #fff; }     
+</style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
+
+    /*时间处理工具*/
+    var date_={
+        dateTo : function(r) {  //秒转换成日期
+            var q,p,o,n,m,l,k,j;
+            return r = 1000 * r,
+            q = new Date(),
+            q.setTime(r),
+            p = "" + q.getFullYear(),
+            o = q.getMonth() + 1,
+            n = q.getDate(),
+            m = q.getHours(),
+            l = q.getMinutes(),
+            k = q.getSeconds(),
+            p + "-" + (o > 9 ? o : "0" + o) + "-" + (n > 9 ? n : "0" + n) +" "+ (m > 9 ? m : "0" + m) +":"+ (l > 9 ? l : "0" + l) +":"+ (k > 9 ? k : "0" + k)
+        },
+        toDate : function (b) { //日期转换成秒
+            var t = new Date(b.replace(/-/g, "/")).getTime();
+            return t
+        },
+        add0:function(m){
+          return m<10?'0'+m:m 
+        },
+
+        timeFormat:function(time){
+          var time = new Date(time);
+          var year = time.getFullYear();
+          var month = time.getMonth()+1;
+          var date = time.getDate();
+          var hours = time.getHours();
+          var minutes = time.getMinutes();
+          var seconds = time.getSeconds();
+          return year+'-'+this.add0(month)+'-'+this.add0(date)+' '+this.add0(hours)+':'+this.add0(minutes)+':'+this.add0(seconds);
+        },
+
+        //获取yyyyMMddHHmmssSS 精确到毫秒
+        timeFormatToGetMilliseconds:function(){
+              var myDate = new Date();
+              var finalString = myDate.getFullYear().toString()+ (myDate.getMonth()+1).toString()+myDate.getDate().toString()+myDate.getHours().toString()+myDate.getMinutes().toString()+myDate.getSeconds().toString()+myDate.getMilliseconds().toString();
+              return finalString;
+        },
+    };
+
 $(function(){
 $("#d1").on("click",function(){
   var date=new Date();
@@ -289,6 +353,13 @@ function getTomorrowDate(){
   console.log(tDate.getFullYear()+"-"+month+"-"+day)
 }
 
+function getDatePlus(){
+    var date=  date_.timeFormat(new Date(new Date('2018-08-17 11:16:12').getTime() + 2 * 3600 * 1000).getTime());
+    console.log('2018-08-17 11:16:12' );
+    console.log( date);
+
+}
+
 /*获取当前月份向前推N个月*/
 function dateNow(){
   // console.log(Date.now());
@@ -437,14 +508,21 @@ function setDayTest(){
 
 //？？？？
 function isToday(){
-var date1=new Date('2017-10-20');
-  var time=date1.getTime();
-  console.log("时间戳="+time);//1507766400000
-  console.log(new Date().getTime())
+// var date1=new Date('2017-10-20');
+//   var time=date1.getTime();
+//   console.log("时间戳="+time);//1507766400000
+//   console.log(new Date().getTime())
 
-  setTimeout(function(){
-     console.log(new Date().getTime())
-  },5000)
+//   setTimeout(function(){
+//      console.log(new Date().getTime())
+//   },5000)
+
+  var date1=new Date('2018-08-17 11:16:12').getTime();
+  var date2=new Date('2018-08-17 11:16:12').getTime();
+
+  console.log(date1==date2);
+
+
 }
 
 
@@ -536,6 +614,7 @@ function dxTest(){
 <input type="button"    value="获取一段代码的时间间隔" onclick="interval()"/></br>
 
 <input type="button"    value="获取当前日期对象的加上一天之后的日期对象" onclick="getTomorrowDate()"/></br>
+<input type="button"    value="获取当前日期加上N个小时候的日期" onclick="getDatePlus()"/></br>
 
 <input type="button"    value="获取当前月份向后推N个月" onclick="dateNow()"/></br>
 
