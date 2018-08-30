@@ -1420,6 +1420,35 @@ function hebingAry(){
 	console.log(JSON.stringify(a))//[{"id":"222","name":"tom","status":"2"},{"id":"111","name":"helln","status":"1"}]
 
 }
+
+function sliceAry(){
+
+	//对于简单数组
+	let ary1=[1,2,3,4],
+		arySlice=ary1.slice(0);
+
+	console.log(ary1);//[1, 2, 3, 4]
+	arySlice[0]=100;
+	console.log(ary1);//[1, 2, 3, 4]
+
+
+	//对于对象数组:修改原始数组中的对象，或者拷贝出来的数组里的对象，会影响到两个数组。
+	/*slice浅拷贝的原因：由于数组内部属性值为引用对象，因此使用slice和concat对对象数组的拷贝，整个拷贝还是浅拷贝，拷贝之后数组各个值的指针还是指向相同的存储地址。 因此，slice和concat这两个方法，仅适用于对不包含引用对象的一维数组的深拷贝*/
+	let aryObj=[{a:1,b:2,c:3,d:4}],
+		aryObjSlice=aryObj.slice(0),
+		aryJson=JSON.parse(JSON.stringify(aryObj));
+
+
+	console.log(aryObj);//[{a:100,b:2,c:3,d:4}]
+	aryObjSlice[0].a=100;
+	console.log(aryObj);//[{a:100,b:2,c:3,d:4}]
+
+	console.log(aryJson);//[{a:1,b:2,c:3,d:4}]
+
+
+
+
+}
 </script>
 
 
@@ -1442,6 +1471,7 @@ function hebingAry(){
 
 <button type="button" onclick="hebingAry()">两个数组合并</button>
 
+<button type="button" onclick="sliceAry()">数组的slice()、concat()方法的局限性--浅拷贝</button>
 
 </body>
 </html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>箭头函数</title>
+ 
+<style>
+
+    button,[type='button']{
+      background: #abcdef;  
+      border: 0;
+      display:  block;
+      height: 3em;
+      line-height: 3em;
+      padding: 0 2em;
+      margin-bottom: 20px;
+      border-radius: .5em;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 0 20px #fff; }    
+          
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+<button type="button" onclick="defaultValue();">函数参数的默认值</button>
+<button type="button" onclick="defaultValue1();">函数内部的作用域</button>
+<button type="button" onclick="defaultValue2();">函数参数的作用域测试1</button> 
+<button type="button" onclick="defaultValue3();">函数参数的作用域测试2</button>
+<button type="button" onclick="restpm();">rest 参数 (rest参数是一个数组。)</button>
+
+ 
+ 
+
+ <script type="text/javascript">
+
+   function log(x, y = 'hello') {
+    console.log(x, y);
+  }
+
+/*  function test1(x,x,y=1){
+    console.log(x,x,y)
+  } */
+
+
+   function foo({x,y=5}={}){
+    console.log(x,y)
+   }
+
+
+  /*两种写法都对函数的参数设定了默认值，区别是写法一函数参数的默认值是空对象，但是设置了对象解构赋值的默认值；
+  写法二函数参数的默认值是一个有具体属性的对象，但是没有设置对象解构赋值的默认值。*/
+
+   // 写法一
+  function m1({x = 0, y = 0} = {}) {
+    return [x, y];
+  }
+
+  // 写法二
+  function m2({x, y} = { x: 0, y: 0 }) {
+    return [x, y];
+  }
+
+  /*如果传入undefined，将触发该参数等于默认值，null则没有这个效果*/
+  function m3(x=1,y=2) {
+    console.log(x,y)
+  }
+ 
+
+
+    function defaultValue(){
+
+        /*log('hello');
+        log('hello','sir');
+        // log('hello','');
+        log('hello',0);
+        console.log(''===0)*/
+
+        // foo({});
+
+        // 函数没有参数的情况
+        m1() // [0, 0]
+        m2() // [0, 0]
+
+        // x 和 y 都有值的情况
+        m1({x: 3, y: 8}) // [3, 8]
+        m2({x: 3, y: 8}) // [3, 8]
+
+        // x 有值，y 无值的情况
+        m1({x: 3}) // [3, 0]
+        m2({x: 3}) // [3, undefined]
+
+        // x 和 y 都无值的情况
+        m1({}) // [0, 0];
+        m2({}) // [undefined, undefined]
+
+        m1({z: 3}) // [0, 0]
+        m2({z: 3}) // [undefined, undefined]
+         
+
+        m3(undefined,undefined);//1 2
+        m3(undefined,null);//1 null
+
+
+        console.log('分割线~~~~~~~~~~~~~~~~~~~~');
+        var a=function (a) {};
+        console.log(a.length) // 1
+        console.log((function (a = 5) {}).length) // 0
+        console.log( (function (a, b, c = 5) {}).length) // 2
+        console.log( (function (a, b=2, c) {}).length) // 1
+        console.log( (function (...x) {}).length)//0
+
+    }
+
+    var y=1;
+
+    function test2(){
+      y=2;
+    }
+
+    //函数test2的作用域指向全局，内部y=2修改的是全局中的y
+    function defaultValue1(){
+      /*var y=1;
+      test2();
+      console.log(y);//1  y指向defaultValue1函数内部的 var y=1;
+
+      */
+
+       
+      test2();
+      console.log(y);//2   此处输出的y会先从函数defaultValue1内部作用域中取，当内部作用域找不到时，会去全局中找，而函数test2
+      // 中的y也是全局作用域的，因此会改写全局的y  
+
+    }
+
+
+
+    var x = 1;
+    function zoo(x=100, y = function() {console.log(x); x = 4;  }) {
+
+      var x = 3;
+      y();//zoo函数的参数y是个匿名函数，内部的x指向zoo的第一个参数x
+      console.log(x);//3
+    }
+
+    function defaultValue2(){
+
+      //分别输出100 3 1
+      zoo(); 
+      console.log(x)  
+    }
+
+
+
+
+    var b = 1;
+    function coo(b=100, y = function() {console.log(b); b = 4;}) {
+
+      // var b = 3;
+      y();//zoo函数的参数b是个匿名函数，内部的b指向zoo的第一个参数b
+      console.log(b);//4
+    }
+
+    function defaultValue3(){
+     /* 
+      defaultValue1();//2
+      console.log(y);//2
+      */
+
+      //100 4 1
+      coo(); 
+      console.log(b); 
+
+    }
+
+    function rtpm(...pm){
+      console.log(Array.isArray(pm))
+      console.log(pm)
+    }
+
+    function restpm(){
+      rtpm(1,2,3,4,5);
+    }
+
+  
+
+
+
+
+    
+
+
+
+
+    
+
+ </script>
+
+ 
+</body>
+</html>
