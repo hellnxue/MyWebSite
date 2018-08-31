@@ -33,7 +33,7 @@ function timeoutThis(){
   setTimeout(function(){
     console.log("超时方法中的普通回调函数")
     console.log(this)//this指向window
-    console.log("hello ggg:"+this.timeo);//10
+    console.log("hello ggg:"+this.timeo);//undefined
   },2000)
 
   //超时方法中的箭头回调函数

@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>箭头函数</title>
+<title>函数扩展</title>
  
 <style>
 
@@ -29,6 +29,8 @@
 <button type="button" onclick="defaultValue2();">函数参数的作用域测试1</button> 
 <button type="button" onclick="defaultValue3();">函数参数的作用域测试2</button>
 <button type="button" onclick="restpm();">rest 参数 (rest参数是一个数组。)</button>
+<button type="button" onclick="arrowFn();">箭头函数1-this</button>
+<button type="button" onclick="arrowFn1();">箭头函数2-this</button>
 
  
  
@@ -175,12 +177,91 @@
     }
 
     function rtpm(...pm){
-      console.log(Array.isArray(pm))
-      console.log(pm)
+      // 'use strict'  用rest接受参数，严格模式会报错
+      console.log(Array.isArray(pm));//true
+      console.log(pm);//[1,2,3,4,5]
+    }
+
+    var f=function fzz(){
+      return 'hello name';
     }
 
     function restpm(){
-      rtpm(1,2,3,4,5);
+      var ary=[1,2,3,4,5];
+
+      rtpm(...ary);
+
+      console.log(rtpm.name);
+      console.log(f.name)
+    }
+
+
+
+    var tObj={
+      fish:'helln',
+      love:'eat',
+      sayHi:function(){
+        console.log(this)
+        console.log(this.fish)
+      },
+      sayHello:()=>{
+        console.log(this)
+        console.log(this.fish)
+      }
+    }
+
+
+    function sayHi(){
+        console.log(this)
+        console.log(this.fish)
+      }
+
+    var sayHello=()=>{
+      console.log(this)
+      console.log(this.fish)
+    }
+
+    var sayHo=function(){
+      return ()=>{
+        console.log(this.fish)
+      }
+    }
+
+    function arrowFn(){
+      // tObj.sayHi();
+      // tObj.sayHello();
+
+  /*    tObj.sayHi.call({fish:'call-fish'});
+      tObj.sayHello.call({fish:'call-fish'});
+*/
+      sayHi.call({fish:'call-fish'});
+      sayHello.call({fish:'call-fish'});
+      sayHo.call({fish:'call-fish'})()
+    }
+
+
+    function arrowThis1(){
+       console.log(this)
+     
+    }
+
+    function arrowThis2(){
+       
+      setTimeout(()=>{
+        console.log(this)
+      },1000)
+    }
+
+     
+
+    function arrowFn1(){
+     /* arrowThis1()
+      arrowThis1.call({a:1,b:2})*/
+
+      arrowThis2()
+      arrowThis2.call({a:1,b:2})
+
+
     }
 
   

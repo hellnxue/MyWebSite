@@ -34,7 +34,7 @@
 
 <button type="button" onclick="LookThis()">普通函数中的this指向</button>
 
-<button onclick="zmlObj">番外：对象字面量中定义的函数中的this指向</button>
+<button onclick="zmlObj()">番外：对象字面量中定义的函数中的this指向</button>
  <script type="text/javascript">
     function rtnObj(){
 
@@ -196,11 +196,14 @@ var ids=21;
 
 
 function zmlObj(){
+    let names='haha'
        
     var obj={
       names:'helln',
       age:20,
       say:(pm)=>{
+        console.log(this)//window
+
         console.log(this.names)
       }
     }
