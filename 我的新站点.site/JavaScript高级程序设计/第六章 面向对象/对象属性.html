@@ -170,6 +170,32 @@ function objFun(){
 	//访问对象中的方法可以这样。。。同最简单的obj.fun()哎
 	obj['fun']();
 }
+
+function descriptor(){
+	 
+	var obj=Object.defineProperty({name:'helln'},"age",{value:"20",enumerable: false});
+	var temp=Object.getOwnPropertyDescriptor(obj,'age');
+	console.log(temp)
+
+
+	
+
+}
+
+function objjiegou(){
+
+	var jobj={a:1,b:2};
+
+	//对于已定义的对象变量赋值
+	(jobj={a:11	,b:22});
+
+	console.log(jobj)
+
+	//对象解构指定默认值
+	var {a=1,b=2}={a:100,b:200};
+
+	console.log(a,b)
+}
 </script>
 </head>
 
@@ -187,6 +213,7 @@ function objFun(){
 
 
 <input type="button"    value="对象中的方法调用" onclick="objFun()" /></br>
-
+<input type="button"    value="对象属性的描述对象getOwnPropertyDescriptor" onclick="descriptor()" /></br>
+<input type="button"    value="es6解构赋值对于已定义变量的赋值" onclick="objjiegou()" /></br>
 </body>
 </html>
