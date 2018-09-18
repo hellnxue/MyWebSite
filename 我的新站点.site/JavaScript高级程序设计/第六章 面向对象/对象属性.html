@@ -189,12 +189,37 @@ function objjiegou(){
 	//对于已定义的对象变量赋值
 	(jobj={a:11	,b:22});
 
-	console.log(jobj)
+	console.log(jobj);//{ a: 11, b: 22 }
 
 	//对象解构指定默认值
 	var {a=1,b=2}={a:100,b:200};
 
-	console.log(a,b)
+	console.log(a,b);//100 200
+}
+
+
+
+/*访问器属性*/
+function accessor(){
+	var book={
+		_year:2004,
+		editor:1
+	}
+
+	Object.defineProperty(book,"year",{
+		get:function(){
+			return this._year;
+		},
+		set:function(value){
+			if (value>2004) {
+				this._year=value;
+				this.editor+=value-2004;
+			}
+		}
+	});
+
+	book.year=2005;
+	console.log(book._year)
 }
 </script>
 </head>
@@ -202,7 +227,7 @@ function objjiegou(){
 <body>
 <input type="button"  name="d1" id="d1" value="数据属性"/></br>
 <input type="button"  value="数据属性Enumerable" onclick="enumer()" /></br>
-<input type="button" value="访问器属性"/></br>
+<input type="button" value="访问器属性" onclick="accessor()" /></br>
 <input type="button" value="用delete删除原型对象上的属性" onclick="test()" /></br>
 
 <input type="button" value="原型对象的方法里的this指向" onclick="testThis()" /></br>

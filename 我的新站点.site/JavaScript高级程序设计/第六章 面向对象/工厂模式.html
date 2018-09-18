@@ -90,5 +90,129 @@ function testtype(){
 <input type="button"  name="d2" id="d4" value="测试创建的对象的类型" onClick="testtype()"/></br>
 
 <input type="button"  name="d2" id="d3" value="1111111111111111"/></br>
+
+
+
+
+
+
+
+
+
+
+<input type="button"   value="原型对象" onclick="proObj()" /></br>
+<input type="button"   value="重写原型对象-构造函数实例之前" onclick="rewriteBefore()" /></br>
+<input type="button"   value="重写原型对象-构造函数实例之后" onclick="rewriteAfter()" /></br>
+<script type="text/javascript">
+    function Person(){
+
+    }
+
+    var protObj=Person.prototype;
+    protObj.name='Tom';
+    protObj.sayName=function(){
+    	console.log(this.name)
+    }
+
+	function proObj(){
+		let p1=new Person();
+		let p2=new Person();
+		p1.sayName();
+		p2.sayName();
+	 /* p2.name='Nicholas'
+		p1.sayName();//Tom    
+		p2.sayName();//Nicholas */
+
+		Person.prototype.name='Nicholas';
+		p1.sayName();
+		p2.sayName();
+
+		var rlt=p1.sayName==p2.sayName;
+
+		console.log(rlt)
+
+
+		console.log(p1)
+
+		var obj={
+			name:'helln'
+		}
+
+		console.log(typeof Person)//function 
+		console.log(typeof p1) //object
+
+		let relation=Person.prototype.isPrototypeOf(p1)
+		console.log(relation);//true
+
+		let prot=Object.getPrototypeOf(p1)==Person.prototype;
+		console.log(prot);//true
+
+		let cott=p1.constructor==p2.constructor;
+		console.log(cott);//true
+
+
+		p1.name='Darcy';
+		console.log(p1.name,Person.prototype.name)//Darcy Nicholas
+
+		let hopt=Person.prototype.hasOwnProperty("name");
+		let hoptp1=p1.hasOwnProperty("name");
+		console.log(hopt,hoptp1);//true true
+
+
+		let keys=Object.keys({a:1,b:2,c:3});
+		let [aa,cc,bb]=keys;
+		console.log(keys);
+		console.log(aa,cc ,bb)
+
+
+		Person.prototype.love='blue';
+		console.log(p1.love,p2.love)
+       
+	}
+
+
+
+
+
+
+	function Person1(){
+
+    }
+
+
+	function rewriteBefore(){
+		Person1.prototype={
+		 constructor:Person1,
+    	 name:'Tom',
+         sayName:function(){
+	    	console.log(this.name)
+	     }
+        }
+
+		let p1=new Person1();
+		
+     	console.log(p1.name) ;//'Tom'  
+	}
+
+	function Person2(){
+
+    }
+
+
+	function rewriteAfter(){
+		
+
+		let p1=new Person1();
+		Person2.prototype={
+		 constructor:Person1,
+    	 name:'Tom',
+         sayName:function(){
+	    	console.log(this.name)
+	     }
+        }
+		
+     	console.log(p1.name)  //undefined   
+	}
+</script>
 </body>
 </html>
