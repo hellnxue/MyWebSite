@@ -3,8 +3,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
-<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
+// function testLoad(){
+// 		alert('I am ok.')
+// 	}
+
+ 
+
+
+</script>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js" id='helloworld'  ></script>
+<script type="text/javascript">
+
+ var dom = document.getElementById('helloworld');
+	 console.log(dom)
+	 dom.addEventListener('load',function(){
+	 	 alert('I am ok.')
+	 })  
+
+
 
 //创建对象--工厂模式
 function Person(name,age){
@@ -99,11 +116,45 @@ function testtype(){
 
 
 
-
+<input type="button"   value="Object.assign()" onclick="objAssign()" /></br>
 <input type="button"   value="原型对象" onclick="proObj()" /></br>
 <input type="button"   value="重写原型对象-构造函数实例之前" onclick="rewriteBefore()" /></br>
 <input type="button"   value="重写原型对象-构造函数实例之后" onclick="rewriteAfter()" /></br>
-<script type="text/javascript">
+
+<input type="button"   value="es6-类" onclick="classTest()" /></br>
+<script type="text/javascript"  >
+	
+	function loadJs(path,callback){
+	    var header=document.getElementsByTagName("head")[0];
+	    var script=document.createElement('script');
+	    script.setAttribute('src',path);
+	    header.appendChild(script);
+	    //对于浏览器的判断是ie还是其他
+	    if(!/*@cc_on!@*/false){
+	        script.onload=function(){
+	            console.log("非ie");
+	            callback();
+	        }
+	    }else{
+	        script.onreadystatechange=function(){
+	            if(script.readystate=="loaded" ||script.readState=='complate'){
+	                console.log("ie");
+	                callback();
+	            }
+	        }
+	    }
+	}
+
+console.log("first test");
+loadJs("http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js",function(){
+    console.log("已经加载完成")
+});
+console.log("second test");
+</script>
+<script type="text/javascript" >
+
+
+
     function Person(){
 
     }
@@ -212,6 +263,56 @@ function testtype(){
         }
 		
      	console.log(p1.name)  //undefined   
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+	function objAssign(){
+		let obj1={
+			name:'tom',
+			love:'apple',
+			move:[1]
+		},
+		obj2={
+			name:'jack',
+			move:[1,2],
+			age:100
+		};
+
+		Object.assign(obj1,obj2);
+		console.log(obj1)
+	}
+
+	class Foo {
+	  constructor(name,love) {
+	    this.names=name;
+	    this.loves=love;
+	  }
+	}
+
+
+	function say(){
+		var name='helln';
+		return name='hello'
+	}
+
+	function classTest(){
+		var foo1=new Foo('darcy1','ludi');
+		var foo2=new Foo('darcy2','ludi');
+		console.log(foo1.__proto__==foo2.__proto__)
+
+		console.log(say())
+		 
 	}
 </script>
 </body>
