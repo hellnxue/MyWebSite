@@ -593,6 +593,15 @@ function dxTest(){
 
 
 }
+
+
+function monthTest(){
+  var d=new Date('2018/12/10');
+  console.log(d.getMonth());//11
+  d.setMonth(d.getMonth()+1);
+  console.log(d.getMonth());//12
+  console.log(date_.timeFormat(d.getTime()));//2019-01-10 00:00:00
+}
 </script>
 </head>
 
@@ -639,5 +648,7 @@ function dxTest(){
 
 
 <button type="button" onclick="dxTest()">日期大小判断</button>
+
+<button type="button" onclick="monthTest()">月份加一月</button>
 </body>
 </html>

@@ -208,6 +208,25 @@ function accessor(){
 	book.year=2005;
 	console.log(book._year)
 }
+
+function observeProto(){
+	var book={};
+
+	Object.defineProperty(book,"year",{
+	     get(){
+	       console.log('监测到year了')
+		   return this._year;
+		 } ,
+	 
+		 set(newValue){
+		 	console.log('year赋值')
+		    this._year=newValue;
+			 
+		 } 
+	   });
+	   book.year=2005;
+	   console.log(book.year)
+}
 </script>
 </head>
 
@@ -226,5 +245,7 @@ function accessor(){
 
 <input type="button"    value="对象中的方法调用" onclick="objFun()" /></br>
 <input type="button"    value="对象属性的描述对象getOwnPropertyDescriptor" onclick="descriptor()" /></br>
+
+<input type="button" value="对象属性检测" onclick="observeProto();">
 </body>
 </html>

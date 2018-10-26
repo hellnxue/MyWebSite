@@ -46,6 +46,41 @@
 
 <button type="button" onclick="codeAfterTest()">Promise的resolve()之后最好不写语句，放在then()方法中</button>
 
+<button type="button" onclick="returnPromise()">Promise返回另一个promise</button>
+
+<script type="text/javascript">
+  function returnPromise(){
+
+    var p1=new Promise((resove,reject)=>{
+      setTimeout(()=>{
+        reject(new Error('fail...'))
+      },3000)
+    })
+
+
+    var p2=new Promise((resove,reject)=>{
+      setTimeout(()=>{
+        console.log('p2 success')
+        reject(p1)
+      },1000)
+    })
+
+    p2.then((data)=>{
+      console.log('then ....data')
+      console.log(data)
+    }).catch((error)=>{
+      console.log('catch ....data')
+      console.log(error)
+    })
+
+    setTimeout(()=>{
+        console.log('hello ')
+        
+      },4000)
+
+  }
+
+</script>
  <script type="text/javascript">
     function timeout(ms){
       return new Promise((resove,reject)=>{
