@@ -473,13 +473,9 @@ function get3MonthBefor(){
 
 function setMonthTest(){
   var date=new Date();
-
-
   console.log(date.getMonth())
 
   date.setMonth(0)//设置月份
-
-
   console.log(date.getMonth())//0
 }
 
@@ -602,6 +598,22 @@ function monthTest(){
   console.log(d.getMonth());//12
   console.log(date_.timeFormat(d.getTime()));//2019-01-10 00:00:00
 }
+
+function dateIntervalTest(){
+
+  var d1=new Date('2018/11/23 10:10:00').getTime();
+  var d2=new Date().getTime();
+
+  var intervalDays=Math.floor((d2-d1)  / (1000 * 60 * 60 * 24));
+
+  if (interval<=2) {
+    console.log('在两天范围内...');
+  }else{
+    console.log('时间超出2天范围了')
+  }
+
+
+}
 </script>
 </head>
 
@@ -650,5 +662,7 @@ function monthTest(){
 <button type="button" onclick="dxTest()">日期大小判断</button>
 
 <button type="button" onclick="monthTest()">月份加一月</button>
+
+<button type="button" onclick="dateIntervalTest()">日期间隔大于某个范围（天）</button>
 </body>
 </html>
