@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>writer title here</title>
+<link href="../../CSS课程/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<style>
+  body{
+	  background-color:#eee;}
+  input{
+   	  display: block;     
+	  width:200px;
+	  margin: 20px auto 40px;
+	  border-radius:10px;
+	  background:-moz-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  background:-ms-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  background:-webkit-linear-gradient(#CCFFCC, #fff 50%,#CCFFCC);
+	  border:none;/*去掉按钮默认的阴影，超级难看的默认样式*/
+	  box-shadow:0 12px 8px -9px #555;
+  }
+  #wrap{
+	  overflow:hidden;
+	  width:1000px;
+	  margin:20px auto;
+	   box-sizing:border-box;
+	  }
+  
+  fieldset{
+	  float:left;
+	  width:400px;
+	  min-height:300px;
+	  margin:20px 0px;
+	  padding:0; 
+	  border: none;
+	  border-right: 3px solid #eee;
+	  background-color:#fff; 
+	  border-radius: 10px 0;
+	  box-shadow: 0 12px 8px -9px #ccc;
+	  box-sizing:border-box;
+	  text-align:center;
+  }
+  
+  fieldset:nth-child(1){
+  	width:200px;}
+  
+  fieldset:nth-child(2){
+  	width:660px;
+	text-align:left;
+  
+  }
+
+  fieldset.out div{
+    display:inline-block;
+  	margin-top:20px;
+	color:#999;}
+	
+  #btn {
+  	 
+	box-sizing:border-box;
+	float: left;
+	width: 100px;
+  margin-top: 20px;
+  min-height: 300px;
+  position: relative;
+  text-align: left;
+	
+	}
+  
+ fieldset#btn input{
+   display: inline-block;
+    margin: -20px 0 0;
+    position: absolute;
+    top: 50%;
+    width: 100px;
+	height:25px; 
+	 
+	}
+  
+</style>
+<script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+
+<script>
+
+/*公共方法-消息显示*/
+function commonShow(msg){
+ 
+  $("#out").append("<br/>"+String(msg));//不能用msg.toString() 因为boolean类型用在此处会报错
+}
+
+function clears(){
+   $("#out").html("");
+}
+
+ 
+ //-------------------------------------------------------------------
+ 
+  var a=10;
+  console.log(window.a);//10  
+  
+  let b=20;
+  console.log(window.b); //undefined let声明的全局变量不会成为window对象的属性
+     
+   
+  
+
+function test1(){
+
+ //数组解构给变量赋值
+ var [a,b,c]=[1,2,3];
+ commonShow("------  var [a,b,c]=[1,2,3]----------");
+ commonShow(a+"\n"+b+"\n"+c);//1 2 3 
+ 
+ 
+ commonShow("------ let [c1,[c2],c3]=[\"a\",[[3]],\"hihi\"]----------");
+ let [c1,[c2],c3]=["a",[[3]],"hihi"];
+  commonShow(c1+"\n"+c2+"\n"+c3);
+ 
+ 
+ 
+   
+  //对象解构给变量赋值
+  var { foo, bar } = { foo: "aaa", bar: "bbb" };
+   commonShow("------   var { foo, bar } = { foo: \"aaa\", bar: \"bbb\" }----------");
+  commonShow(foo);//aaa
+  
+  let [ , , third] = ["foo", "bar", "baz"];
+  console.log(third);//baz
+  
+  /*比较古怪的赋值方式，...tail代表变量tail是一个数组*/
+	let [head, ...tail] = [1, 2, 3, 4,5];
+	
+	console.log(head);//1
+	console.log(tail+"\n"+Array.isArray(tail));//2,3,4 true tail是数组，与字符串相连，自动调用每一项的toString()方法转为字符串拼接结果
+	
+	
+	let [x, y, ...z] = ['a'];
+    
+	commonShow("------ let  [x, y, ...z] = ['a']----------");
+    commonShow("x:"+x+ " y:"+y);//a  undefined
+	console.log(z);//[] 空数组 
+	
+   
+  
+}
+ 
+function test11(){
+	
+ 	 var [foo = true] = [];
+ 	 commonShow( "var [foo = true] = []");
+    commonShow( foo);//true
+	
+	
+	/*ES6内部使用严格相等运算符（===），判断一个位置是否有值。所以，如果一个数组成员不严格等于undefined，默认值是不会生效的。*/
+	var [x = 1] = [undefined];
+    commonShow( "var [x = 1] = [undefined]");
+    commonShow( x);//1
+	
+	var [y = 1] = [null];
+    commonShow( "var [y = 1] = [null]");
+    commonShow( y);//null  y的默认值未生效，因为null===undefined 全等为false, 但null==undefined为true哎
+	
+	function f() {
+    return "function";
+    }
+	/*如果默认值是一个表达式，那么这个表达式是惰性求值的，即只有在用到的时候，才会求值。因为默认值只有数组位置的值没有或者显示指明为undefined的时候，默认值才会赋值给变量*/
+	 commonShow( "let [xx = f()] = [1]");
+	 let [xx = f()] = [1];
+	 commonShow("xx: "+ xx);//1
+	 commonShow( "let [yy = f()] = []");	
+	 let [yy = f()] = [];
+	 commonShow( "yy: "+yy);//1
+	 
+	 
+	 
+   
+}
+
+/*
+ //??????????调用时没有报错哎
+function bar(x = y, y = 2) {
+  return [x, y];
+}*/
+
+/*IE10.0不支持参数有默认值哎*/
+function test2(x=2){
+  
+  commonShow(x);
+ }  
+ 
+function test3(arg){
+
+   //error
+   /* let arg=1;*/
+
+   {
+     let arg=1;
+	 commonShow(arg);
+   }
+}
+
+
+/*没见过的问题-很新奇，很专业*/
+var date=new Date();
+function test4(){
+
+ commonShow(date);//undefined 原因在于函数内部，又声明了一次变量，变量提升，值是undefined
+ 
+  //即使用了false控制语句，变量声明依然会有
+  if(false){
+    var date="hello world";
+  }
+}
+
+function test5(){
+  /*声明变量的同时赋值*/
+  var {foo,bar}={foo:"hello foo",bar:"hello bar"};
+  commonShow(foo);
+  commonShow(bar);
+  
+  /*先声明后赋值,需要用到(),否则会报语法错误*/
+  var foo,bar;
+  ({foo,bar}={foo:"hi foo",bar:"hi bar"});
+  commonShow(foo);
+  commonShow(bar);
+  
+  
+  /*如果变量跟属性名不一致，变量必须写在属性后面*/
+  var obj={foo:"hello foo",bar:"hello bar"}
+  var {z,o}=obj;
+  commonShow(z);//undefined
+  
+  var {foo:z,baa:o}=obj;
+  commonShow(z);//hello foo
+  commonShow(o);//undefined
+  
+  
+  
+  /*嵌套结构的对象的变量赋值*/
+  
+  var obj2 = {
+	  p: [
+		'Hello',
+		{ y: 'World' }
+	  ]
+   };
+   
+   var {p:[x,{y:z}]}=obj2;
+   
+  /* commonShow("  p:"+p+"  x:"+x+"  z:"+z); ???? 为啥p会报错，not defined*/
+  commonShow( "  x:"+x+"  z:"+z);
+	 
+  /*  var obj3={name:["helln"],age:20};
+   var{name:[sname],age}=obj3;
+   console.log(name);//空字符串 为啥这个可以？？？？？？
+    console.log(sname);
+	 console.log(age);*/
+	 
+	 
+	/*解构失败变量会返回undefined*/
+   var {foo,bar,kkk}=obj;
+   commonShow(kkk);//undefined
+   
+   
+   /*对数组*/
+   var arry=[1,2,3];
+   var {0:first,[arry.length-1]:last}=arry;
+   commonShow(first);
+   commonShow(last);
+   
+   /*对象的解构赋值也可以有默认值，条件是属性严格等于undefined*/
+   
+   var {x1=0,y1=0}={};
+   console.log(x1);//0
+   
+   var {x=0,y=0}=10;
+   console.log(x);//0 对象解构有默认值。x在要解构的10中找不到x属性，x===undefined,可以使得解构的默认值有效
+   
+    var {xx ,yy }=10;
+   console.log(xx);//undefined
+   
+   
+  /*对于对象的解构，如果等号右边不是对象，也不会像数组解构那样报语法错误，而是返回undefined值奥~~*/
+  var {j=1,z}="abc";
+  console.log(j+"   z:"+z);//1   undefined
+  
+  //报错
+ /* let [foz] = 1;
+   console.log(foz);*/
+   
+   /*对象解构赋值也可以指定默认值,默认赋值的生效条件是 对象的属性值严格等于undefined。*/
+   var {a=1,b=2}={};
+   var {c=1,d=2}=11;
+   var {e=1}={e:null};
+   console.log(a,b);//1,2
+   console.log(c,d);//1,2
+    console.log(e);//null
+   
+   
+}
+
+/*字符串也可以解构赋值。这是因为此时，字符串被转换成了一个类似数组的对象。
+类似数组的对象都有一个length属性，因此还可以对这个属性解构赋值。*/
+function test6(){
+   var vb="hello world";
+   var [a,b,c,d]=vb;
+   commonShow(a+"</br> "+b+"</br> "+c+" </br>"+d);//h e l l 
+   
+   var {length:len}=vb;//11
+   commonShow(len);
+
+
+   let [bar, foo] = [1];
+
+   console.log(bar);
+   console.log("foo=="+foo)
+
+}
+
+/*数值和布尔值的解构赋值  不太懂。。。。。？*/
+function test7(){
+  
+  let {toString:x}=123;
+  console.log(x);//toString()
+  console.log(x === Number.prototype.toString);//true
+}
+
+ 
+ 
+function test8(){
+  
+  /*给函数传参其实也是给变量赋值的一个过程。。。*/
+  function a([x=0,y=0]){
+    return x+y;
+  } 
+  var ary=[1,2,3];
+  var variable1=a(ary);
+  console.log(variable1);
+  
+  
+  /*解构失败，因为传入函数的参数1不具备解构的条件*/
+ /* var variable2=a(1);//TypeError:  is not iterable
+  console.log(variable2);*/
+  
+  var variable3=a([]);//要解构的数组为空时，会触发解构的默认值
+  console.log(variable3);//0
+  
+  
+  /*ES6中函数的参数可以有默认值,触发默认赋值的条件是传入空或者undefined的时候*/
+  function b(x=1){
+    return x;
+  }
+  
+  var v1=b(2);
+  console.log(v1);//2
+  
+  var v2=b();
+  console.log(v2);//1
+  
+   var v3=b(undefined);
+  console.log(v3);//1
+  
+   var v4=b(null);
+  console.log(v3);//null
+  
+   console.log("函数参数解构的默认赋值............................");
+  /*函数参数解构的默认赋值*/
+  //创建一个传入对象解构参数的函数，并给予默认对象{}，默认解构赋值x=0,y=0
+  function c({x=0,y=0}={}){
+     return [x,y];
+  }
+  
+  var c1=c({x:3,y:4});
+  console.log(c1);//[3,4]
+  
+  var c2=c({x:3});
+  console.log(c2);//[3, 0]
+  
+  var c3=c({});
+  console.log(c3);//[0, 0]
+  
+   console.log("-----------------------");
+   var c4=c();
+  console.log(c4);//[0, 0]
+  
+   var c5=c(1);
+  console.log(c5);//[0, 0]
+  
+    console.log("-----------------------");
+  
+  /*下面未给函数传入任何对象参数，此处函数参数的解构就会按照默认对象进行解构赋值*/
+   var c4=c();
+  console.log(c4);//[0, 0]
+  
+  /*----------------参数解构，参数变量没有默认值的情况----------------------------------------*/
+  console.log("参数解构，参数变量没有默认值的情况............................");
+  /*只要不传入任何参数，那么就会执行默认的对象解构操作，解构{x:0,y:0}，但是这次的参数变量{x,y}是没有默认值，因此传入空对象{}的时候，{x,y}={}得到的最终结果是[undefined, undefined]，因为找不到属性x和y*/
+  function d({x,y}={x:0,y:0}){
+     return [x,y];
+  }
+  
+  var d1=d({x:3,y:4});
+  console.log(d1);//[3,4]
+  
+  var d2=d({x:3});
+  console.log(d2);//[3, undefined]
+  
+  var d3=d({});
+  console.log(d3);//[undefined, undefined]
+  
+  /*下面未给函数传入任何对象参数，此处函数参数的解构就会按照默认对象进行解构赋值*/
+   var d4=d();
+  console.log(d4);//[0, 0]
+  
+   console.log("=================================");
+  var d5=d("abc");
+  console.log(d5);
+  
+  
+   
+   
+  
+   
+  
+}
+
+function test9(){
+  function h([o,p]=[3,4]){
+      return [o,p];
+   }
+   
+    var q1=h([1,2]);
+  console.log(q1);//[1,2]
+  
+  /*只有不给函数h传入任何值得时候，或者传入undefined的时候，函数参数才会默认去解构数组[3,4]的，因为这是函数的参数，传入则有参可用，否则参数的默认值才会生效的奥~*/
+   var q2=h();
+  console.log(q2);//[3,4]
+  
+  
+  /*TypeError:  is not iterable*/
+ // var q3=h(true);
+//  console.log(q3);
+
+/*TypeError: undefined has no properties*/
+ //var [p,l]=undefined;
+//  console.log(p);
+  
+  /*给函数传入undefined会触发函数的默认参数赋值的*/
+  var q4=h(undefined);
+  console.log(q4);//[3,4]
+  
+ 
+   
+
+}
+
+
+function test10(){
+   var x=1;
+   var y=2;
+   
+   [x,y]=[y,x];
+   
+   console.log(x,y);
+   
+   
+   
+}
+
+
+ 
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+	<div id="wrap">
+		<fieldset class="enter">
+		 <legend>try.....</legend>
+			 <input type="button"  value="解构赋值测试" onClick="test1()"/> 
+			
+			<input type="button"  value="解构赋值允许默认值" onClick="test11()"/> 
+			
+			<input type="button"  value="函数参数默认值" onClick="test2()"/> 
+			
+			<input type="button"  value="重复声明" onClick="test3(11)"/> 
+			 
+		    <input type="button"  value="ES5变量提升导致的问题" onClick="test4()"/>
+			
+			 <input type="button"  value="对象的解构赋值" onClick="test5()"/>
+			 
+			 <input type="button"  value="字符串的解构赋值" onClick="test6()"/>
+			 
+			  <input type="button"  value="数值和布尔值的解构赋值" onClick="test7()"/>
+			  
+			  <input type="button"  value="函数参数的解构赋值" onClick="test8()"/>
+			  
+			  <input type="button"  value="函数参数的解构赋值-数组参数" onClick="test9()"/>
+			  
+			 <input type="button"  value="交换变量值" onClick="test10()"/>  
+			   
+			  
+		</fieldset>
+		
+		<fieldset class="out">
+		 <legend>out.....</legend>
+		 <div id="out">
+		   result here......
+		 </div>	 
+		 
+			
+			  
+		</fieldset>
+		
+		 
+		 
+		 <fieldset id="btn">
+       <legend>clear.....</legend>
+		   <input type="button"    value="clear" onClick="clears()"/> 
+		 </fieldset>	 
+		 
+			   
+			           
+		<!-- <div id="btn">
+		   <input type="button"  value="clear" onClick="clears()"/> 
+		 </div>	 -->
+		   
+		 
+	</div>
+	
+
+</body>
+</html>

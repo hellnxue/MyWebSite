@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Module语法</title>
+ 
+<style>
+
+  body{
+    /*background: radial-gradient(#bbd5e0, #3ab7ef);*/
+    height: 960px;
+  }
+
+
+    button,[type='button']{
+      background: #abcdef;  
+      border: 0;
+      display:  block;
+      height: 3em;
+      line-height: 3em;
+      padding: 0 2em;
+      margin-bottom: 20px;
+      border-radius: .5em;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 0 20px #fff;   
+    }   
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+<body >
+
+<button type="button" onclick="testImport()">import命令</button>
+ 
+ 
+
+<script type="text/javascript">
+  console.log(tempName);
+  import {tempName} from 'myExport';
+
+  function testImport(){
+      
+  }
+
+
+  
+
+</script>
+
+
+ 
+</body>
+</html>

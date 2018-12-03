@@ -1,0 +1,1 @@
+export var tempName='helln';

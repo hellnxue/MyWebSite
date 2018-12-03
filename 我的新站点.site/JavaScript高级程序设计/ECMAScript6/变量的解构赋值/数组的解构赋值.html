@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>数组的扩展-扩展运算符</title>
+<style>
+
+  body{
+    /* background: radial-gradient(#bbd5e0, #3ab7ef); */
+    height: 960px;
+  }
+  button,[type='button']{
+    background: #abcdef;  
+    border: 0;
+    display:  block;
+    height: 3em;
+    line-height: 3em;
+    padding: 0 2em;
+    margin-bottom: 20px;
+    border-radius: .5em;
+    color: #fff;
+    font-size: 18px;
+    box-shadow: 0 0 20px #fff; }     
+</style>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body >
+<button type="button" onclick="aryjg();">数组的解构赋值</button>
+ 
+
+ <script type="text/javascript">
+    
+
+/* 数组的解构赋值*/
+function aryjg(){
+   let [a,b,c]=[1,2,3];
+   console.log(a,b,c);//1 2 3
+
+    let [aa,bb,cc]=[,,'hello'];
+    console.log(aa,bb,cc);//undefined undefined "hello"
+
+    let [a1,b1,c1]=['helln',,'hello'];
+    console.log(a1,b1,c1);//helln undefined hello
+
+    let [head,...tail]=[1,2,3,4];
+    console.log(head,tail);1 [2, 3, 4]
+
+    let [x,y,...z]=[1];
+    console.log(x,y,z);//1 undefined []
+
+    let [foo]=[];
+    let [bar,foo1]=[1];
+    console.log(foo,foo1);//undefined undefined
+
+    //只要某种数据结构具有Iterator接口，都可以采用数组形式的解构赋值。
+    let [d,e,f]=new Set([1,2,3]);
+    console.log(d,e,f);//1 2 3
+
+
+
+
+
+
+}
+ 
+
+ </script>
+
+
+ 
+</body>
+</html>
