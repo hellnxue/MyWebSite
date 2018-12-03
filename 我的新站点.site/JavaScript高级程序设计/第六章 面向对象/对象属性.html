@@ -170,13 +170,70 @@ function objFun(){
 	//访问对象中的方法可以这样。。。同最简单的obj.fun()哎
 	obj['fun']();
 }
+
+function descriptor(){
+	 
+	var obj=Object.defineProperty({name:'helln'},"age",{value:"20",enumerable: false});
+	var temp=Object.getOwnPropertyDescriptor(obj,'age');
+	console.log(temp)
+
+
+	
+
+}
+
+ 
+
+
+
+/*访问器属性*/
+function accessor(){
+	var book={
+		_year:2004,
+		editor:1
+	}
+
+	Object.defineProperty(book,"year",{
+		get:function(){
+			return this._year;
+		},
+		set:function(value){
+			if (value>2004) {
+				this._year=value;
+				this.editor+=value-2004;
+			}
+		}
+	});
+
+	book.year=2005;
+	console.log(book._year)
+}
+
+function observeProto(){
+	var book={};
+
+	Object.defineProperty(book,"year",{
+	     get(){
+	       console.log('监测到year了')
+		   return this._year;
+		 } ,
+	 
+		 set(newValue){
+		 	console.log('year赋值')
+		    this._year=newValue;
+			 
+		 } 
+	   });
+	   book.year=2005;
+	   console.log(book.year)
+}
 </script>
 </head>
 
 <body>
 <input type="button"  name="d1" id="d1" value="数据属性"/></br>
 <input type="button"  value="数据属性Enumerable" onclick="enumer()" /></br>
-<input type="button" value="访问器属性"/></br>
+<input type="button" value="访问器属性" onclick="accessor()" /></br>
 <input type="button" value="用delete删除原型对象上的属性" onclick="test()" /></br>
 
 <input type="button" value="原型对象的方法里的this指向" onclick="testThis()" /></br>
@@ -187,6 +244,8 @@ function objFun(){
 
 
 <input type="button"    value="对象中的方法调用" onclick="objFun()" /></br>
+<input type="button"    value="对象属性的描述对象getOwnPropertyDescriptor" onclick="descriptor()" /></br>
 
+<input type="button" value="对象属性检测" onclick="observeProto();">
 </body>
 </html>

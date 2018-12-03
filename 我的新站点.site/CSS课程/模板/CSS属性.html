@@ -1347,7 +1347,7 @@ https://www.baidu.com/s?wd=box-sizin&rsv_spt=1&rsv_iqid=0xcc78f40f0000340d&issp=
 </div>
 
 <h3> transition：过度属性 </h3>
-<div class="transition">
+<div class="transition" id='transitionend'>
 	  hello world
 </div>
 
@@ -1837,14 +1837,20 @@ n 可以是数字、关键词或公式。
 
 
     //方法二 Jquery通过$(window).scroll()监听
-      $(window).scroll(function(){
-	    if($(window).scrollTop() >= 200){
-          $("#scrollDy").addClass('scrollDy')  
-        } else{
+    //   $(window).scroll(function(){
+	   //  if($(window).scrollTop() >= 200){
+    //       $("#scrollDy").addClass('scrollDy')  
+    //     } else{
            
-          $("#scrollDy").removeClass('scrollDy')  
-        }
-    });
+    //       $("#scrollDy").removeClass('scrollDy')  
+    //     }
+    // });
+
+    //transitionend 事件在 CSS 完成过渡后触发
+    var div=document.getElementById('transitionend');
+    div.addEventListener('transitionend',function(){
+    	console.log('over,sir~')
+    })
 </script>
 </body>
 

@@ -5,8 +5,8 @@
 <title>无标题文档</title>
 <style type="text/css">
 	button,[type='button']{
-		background: #abcdef;	
-	    border: 0;
+		background: #409eff;	
+	    border:1px solid #dcdfe6;
 	    display:  block;
 	    height: 3em;
 	    line-height: 3em;
@@ -18,12 +18,35 @@
 	    box-shadow: 0 1px 2px rgba(0,0,0,.2);
 	   
     
-}
+	}
+
+
 
 /*用[type='button'] + [type='button']居然选不中紧邻按钮下的按钮哎~~~*/
 /*[type='button'] + [type='button']{
 	margin-bottom: 20px;
 }*/
+
+
+	.pager{
+		margin: 0 30%;
+		text-align: center;
+		border: 1px solid #abcdef;
+	}
+	.pager ul{
+		display: inline-block;
+		list-style: none;
+		overflow: hidden;
+		margin: 0;
+		padding: 0;
+	}
+	.pager ul li{
+		float: left;
+		margin: 0 20px;
+		padding: 4px 17px;
+		text-align: center;
+		color: #409eff;
+	}
 </style>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript" src="../pin.js"></script>
@@ -1340,11 +1363,15 @@ function aryIndexOf(){
 
 /*如果是数字数组*/
 function aryIndexOf1(){
-	  var isChinaMobile= [134,135,136,137,138,139,147,150,151,152,157,158,159,178,182,183,184,187,188];
-	  var str='13071832769'.substr(0,3);
+	  var isChinaMobile= [134,135,136,137,138,139,147,150,151,152,157,158,159,178,182,183,184,187,188],
+	      str='13071832769'.substr(0,3),
+	      index=isChinaMobile.indexOf(Number(str));
+	  console.log(index);//-1
 
-	  var index=isChinaMobile.indexOf(Number(str))
-	  console.log(index)
+	  var ary=[1,2,NaN];
+
+	  console.log(ary.includes(NaN));//true  --es6
+	  console.log(ary.indexOf(NaN));//-1
 
 }
 
@@ -1420,6 +1447,59 @@ function hebingAry(){
 	console.log(JSON.stringify(a))//[{"id":"222","name":"tom","status":"2"},{"id":"111","name":"helln","status":"1"}]
 
 }
+
+function sliceAry(){
+
+	//对于简单数组
+	let ary1=[1,2,3,4],
+		arySlice=ary1.slice(0);
+
+	console.log(ary1);//[1, 2, 3, 4]
+	arySlice[0]=100;
+	console.log(ary1);//[1, 2, 3, 4]
+
+
+	//对于对象数组:修改原始数组中的对象，或者拷贝出来的数组里的对象，会影响到两个数组。
+	/*slice浅拷贝的原因：由于数组内部属性值为引用对象，因此使用slice和concat对对象数组的拷贝，整个拷贝还是浅拷贝，拷贝之后数组各个值的指针还是指向相同的存储地址。 因此，slice和concat这两个方法，仅适用于对不包含引用对象的一维数组的深拷贝*/
+	let aryObj=[{a:1,b:2,c:3,d:4}],
+		aryObjSlice=aryObj.slice(0),
+		aryJson=JSON.parse(JSON.stringify(aryObj));
+
+
+	console.log(aryObj);//[{a:100,b:2,c:3,d:4}]
+	aryObjSlice[0].a=100;
+	console.log(aryObj);//[{a:100,b:2,c:3,d:4}]
+
+	console.log(aryJson);//[{a:1,b:2,c:3,d:4}]
+
+}
+
+
+function sliceAryPaging(index){
+   let baseAry=[1,2,3,4,5,6,7,8,9,10,11,12,13,14],
+       pager={
+        pageNo : index?index:0,     //第几页
+        pageSize : 5,  //每页多少条
+        pageTotal : 0,  // 共多少条
+        start:0,        //起始位置
+        end:2,          //结束位置
+      },
+      pageAry=[];
+
+      if(pager.pageNo==0){
+      	pager.start=0;
+      	pager.end=pager.pageSize;
+      }else{
+      	pager.end=pager.pageNo*pager.pageSize;
+      	pager.start=pager.end-pager.pageSize;
+      }
+
+      pager.pageTotal=baseAry.length;
+      pageAry=baseAry.slice(pager.start,pager.end);
+
+      console.log(pageAry)
+
+}
 </script>
 
 
@@ -1442,6 +1522,18 @@ function hebingAry(){
 
 <button type="button" onclick="hebingAry()">两个数组合并</button>
 
+<button type="button" onclick="sliceAry()">数组的slice()、concat()方法的局限性--浅拷贝</button>
+
+
+
+<button type="button" onclick="sliceAryPaging()">通过截取数组模拟分页数据</button>
+<div class="pager">
+	<ul>
+		<li onclick="sliceAryPaging(1)">1</li>
+		<li onclick="sliceAryPaging(2)">2</li>
+		<li onclick="sliceAryPaging(3)">3</li>
+	</ul>
+</div>
 
 </body>
 </html>

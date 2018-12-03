@@ -5,6 +5,19 @@
 <title>箭头函数</title>
  
 <style>
+
+    button,[type='button']{
+      background: #abcdef;  
+      border: 0;
+      display:  block;
+      height: 3em;
+      line-height: 3em;
+      padding: 0 2em;
+      margin-bottom: 20px;
+      border-radius: .5em;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 0 20px #fff; }    
           
 </style>
 
@@ -21,7 +34,7 @@
 
 <button type="button" onclick="LookThis()">普通函数中的this指向</button>
 
-<button onclick="zmlObj">番外：对象字面量中定义的函数中的this指向</button>
+<button onclick="zmlObj()">番外：对象字面量中定义的函数中的this指向</button>
  <script type="text/javascript">
     function rtnObj(){
 
@@ -183,11 +196,14 @@ var ids=21;
 
 
 function zmlObj(){
+    let names='haha'
        
     var obj={
       names:'helln',
       age:20,
       say:(pm)=>{
+        console.log(this)//window
+
         console.log(this.names)
       }
     }

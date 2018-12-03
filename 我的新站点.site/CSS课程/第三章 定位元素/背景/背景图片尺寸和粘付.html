@@ -100,5 +100,64 @@
 <p style="text-align:center">text align</p>
 
 
+<h3>--------------------------------------------js等比例修改图片大小------------------------------</h3>
+<div style="text-align: center;">
+	<img src="../../img/small_dog.jpg" onload="changeImg(this);" >
+</div>
+
+<div style="text-align: center; margin-top: 30px;">
+	<img src="../../img/small_dog.jpg" onload="changeImg1(this);" >
+</div>
+
+<script type="text/javascript">
+	function changeImg(objImg)
+	 {
+	 	 //等比例缩放图片一、等比例设置宽度
+	     var most = 690;        //设置最大宽度
+	     if(objImg.width > most)
+	     {
+	         var scaling = 1-(objImg.width-most)/objImg.width;   
+	         //计算缩小比例
+	         objImg.width = objImg.width*scaling;
+	         objImg.height = objImg.height;            //img元素没有设置高度时将自动等比例缩小
+
+	         //objImg.height = objImg.height*scaling;    //img元素设置高度时需进行等比例缩小
+	     }
+
+	 }
+
+	 function changeImg1(objImg)
+	 {
+	 	//等比例缩放图片二、等比例设置高度
+	     /*var most = 690;        //设置最大宽度
+	     if(objImg.height > most)
+	     {
+	         var scaling = 1-(objImg.height-most)/objImg.height;   
+	         //计算缩小比例
+	        
+	         objImg.height = objImg.height*scaling;    //img元素设置高度时需进行等比例缩小
+	         objImg.width = objImg.width;
+
+	     }*/
+
+
+	     //等比例缩放图片三、高度固定，等比例压缩宽度
+	    /* var twidth=objImg.width;
+	     var theight=objImg.height;
+
+	     objImg.width = twidth*500/theight;
+         objImg.height = 500;*/
+
+
+         //等比例缩放图片四、宽度固定，等比例压缩高度
+         var twidth=objImg.width;
+	     var theight=objImg.height;
+
+	     objImg.height = theight*690/twidth;
+         objImg.width = 690;
+
+	 }
+
+</script>
 </body>
 </html>
