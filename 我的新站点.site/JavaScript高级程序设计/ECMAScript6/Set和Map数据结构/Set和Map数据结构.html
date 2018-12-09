@@ -36,8 +36,94 @@
 <button type="button" onclick="MapTest()">Map数据结构</button>
 
 <button type="button" onclick="setData()">立即执行函数给对象赋值</button>
+
+
+<button type="button" onclick="kzTest()">扩展运算符</button>
+<div>
+  <div id="weakNode">测试用DOM节点作为WeakMap的键名</div>
+</div>
+
+<button type="button" onclick="weakMapTest()">WeakMap</button>
+
+<script type="text/javascript">
+
+
+function weakMapTest(){
+
  
- <script type="text/javascript">
+  console.log('=============DOM节点作为WeakMap的键名=============')
+  let el=document.querySelector('#weakNode');
+  let wmap=new WeakMap();
+  wmap.set(el,'helln');
+  console.log(wmap.get(el));//测试用DOM节点作为WeakMap的键名
+  //删除DOM节点
+  el.parentNode.removeChild(el);
+  el=document.querySelector('#weakNode');
+  console.log( el,wmap.get(el));//null undefined
+
+
+
+
+  console.log('=============对象作为WeakMap的键名=============')
+  let omap=new WeakMap();
+  let obj={a:1};
+  omap.set(obj,'hello');
+  console.log(omap.get(obj));
+  obj=null;
+  console.log(omap.get(obj));
+
+}
+
+
+
+ let mmap=new Map();
+ let obj={a:1};
+  mmap.set(obj,'this is object');
+  console.log(mmap.get(obj))
+ function  kzTest(){
+  // let obj={b:2}
+  // mmap.set(obj,'helln');
+   
+  //  for(let map of mmap){
+  //    console.log('hello==',map)
+  //  }
+
+
+  //  console.log(mmap[Symbol.iterator] === mmap.entries)
+
+
+
+
+
+   const map = new Map()
+  .set(1, 'a')
+  .set(2, 'b')
+  .set(3, 'c');
+
+
+  let arry=[1,2,3,4,5,6]
+  let arryb=[];
+  arryb.push(...arry)
+  console.log(...arryb )
+
+  let obj = Object.create(null);
+  console.log('obj',JSON.stringify(obj))
+
+
+  let myMap = new Map().set('yes', true).set('no', false);
+
+  let rl=JSON.stringify(myMap);
+  console.log(JSON.stringify(rl))
+
+
+  let kmap=new Map();
+  let objss={a:2,b:[1,2,3],c:{cc:11}};
+
+  kmap.set(1,objss);
+  console.log(kmap.get(1))
+  objss=null;
+  console.log(kmap.get(1))
+ }
     
   function findElementInAry(){
 
