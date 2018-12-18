@@ -1,8 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+<style>
+
+    button,[type='button']{
+      background: #abcdef;  
+      border: 0;
+      display:  block;
+      height: 3em;
+      line-height: 3em;
+      padding: 0 2em;
+      margin-bottom: 20px;
+      border-radius: .5em;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 0 20px #fff; }    
+          
+</style>
 <script>
     function f() { console.log('I am outside!'); }
 	
@@ -29,5 +45,54 @@
 </head>
 
 <body>
+<button type="button" onclick="aryToString();">数组的toString()结果</button>
+<button type="button" onclick="toStringDeff();">Object原型的toString()与被各种对象类型重写后的toString()</button>
+<button type="button" onclick="objExt();">对象的扩展运算符...</button>
+<button type="button" onclick="lxTest();">va a=b=123;</button>
+<script>
+	function aryToString(){
+		let ary=[1,2,3];
+		    aryStr=ary.toString();
+		console.log('toString',aryStr)
+		console.log(toString.call(ary))
+		console.log(toString.call(aryToString))
+		console.log(toString.call({}))
+	}
+
+	function toStringDeff(){
+		let ary=[1,2,3];
+		
+		console.log(Array.prototype.hasOwnProperty('toString'));
+		// console.log(ary.toString());
+		delete Array.prototype.toString;
+		console.log(Array.prototype.hasOwnProperty('toString'));
+		console.log(ary.toString());
+
+	}
+
+	function objExt(){
+		let stu={a:1,b:2,c:{ca:1,cb:2}};
+		let {...stub}=stu;
+
+		console.log(stub);//{a:1,b:2,c:{ca:1000,cb:2}}
+		stu.a=100;
+		stu.c.ca=1000;
+		console.log(stub)//{a:1,b:2,c:{ca:1000,cb:2}}  只扩展一层对象时是深拷贝，对象中又包含对象时，是浅拷贝。。。
+
+
+
+	}
+
+	function lxTest(){
+		 // "use strict";  严格模式下会报错： assignment to undeclared variable b 
+		 (function(){  
+		    let a = b = 3;
+		})();
+		 
+		console.log( b);//3  b=3; var a=b;   所以b是全局变量奥~
+		console.log( a);//a is not defined
+	}
+</script>
+
 </body>
 </html>
