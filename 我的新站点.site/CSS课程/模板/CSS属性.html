@@ -1798,7 +1798,11 @@ n 可以是数字、关键词或公式。
     </div>
 
 
+<h3>两个一样大的盒子，外层盒子设置边框会被内层盒子覆盖吗？外层设置border-bottom或border-right时会被内层一样大小的盒子覆盖，而外层盒子设置border-right或者border-right没关系,因为当子元素比父元素大时，是从右边和下边溢出的，所以外层的top和right的边框会对子元素产生移动的影响，外层的bottom和right的边框改变不会对子元素产生影响。</h3>
 
+<div style="width: 300px;height: 300px;background: purple; box-sizing: border-box;border:10px solid red;">
+  <div style="width: 300px;height: 300px;background:#abcdef  ; box-sizing: border-box;">hello world</div>
+</div>
 
 <script>
 	function transitionTest(){
