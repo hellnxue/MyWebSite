@@ -1,0 +1,44 @@
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset="utf-8" />
+<title>紧贴底部的页脚</title>
+<style>
+
+.radius{
+  width: 100px;
+  height: 100px;
+  background: pink;
+  border-radius: 0 50% 50% 0;
+}
+
+ .pie{
+  width: 100px;
+  height: 100px;
+  margin: 300px 0 0 300px;
+  border-radius: 50%;
+  background: yellowgreen;
+  background-image: linear-gradient(to right,transparent 50%, #655 0);
+ }
+
+ .pie::before{
+   content: '';
+   display: block;
+   margin-left: 50%;
+   height: 100%;
+   border-radius: 0 100% 100% 0 / 50%;
+   background-color: inherit;
+   transform-origin: left;
+ }
+
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+   <div class="pie"></div>
+
+   <div class="radius"></div>
+
+</body>
+</html>
