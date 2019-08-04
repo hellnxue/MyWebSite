@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>左边固定右侧自适应的布局</title>
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+	}
+   .box{
+	   	width: 100%;
+	   	height: 100px;
+	   	/*border: 1px solid blue;*/
+    }
+
+    h5{
+    	width: 70%;
+    	height: 50px;
+    	margin: 40px auto;
+    	line-height: 50px;
+    	border: 2px solid orange;
+    	border-radius: 20px;
+    	font-size: 18px;
+    	text-align: center;
+    }
+
+    .note{
+    	border: none;
+    	font-size: 20px;
+    	line-height: normal;
+    	text-align: left;
+    	color: purple;
+    }
+
+    .note::first-letter{
+    	font-size: 26px;
+    }
+
+
+
+   /*-------------------------方法一 伸缩盒子-----------------*/
+   .box1{
+   	  display: flex;
+   }
+
+   .box1 .left{
+		background: pink;
+		width: 200px;
+   }
+
+   .box1 .right{
+   		background: #abcdef;
+   		flex: 1;
+   }
+
+   /*-------------------------方法二 表格布局-----------------*/
+
+   .box2{
+   	  display: table;
+   }
+
+   .box2 .left{
+		background: pink;
+		width: 200px;
+		display: table-cell;
+   }
+
+   .box2 .right{
+   		background: #abcdef;
+   		display: table-cell;
+   }
+
+
+   /*-------------------------方法三 绝对定位布局-----------------*/
+
+   .box3{
+   	  position: relative;
+   }
+
+   .box3 .left{
+		background: pink;
+		width: 200px;
+		position: absolute;
+		height: 100%;
+   }
+
+   .box3 .right{
+   		background: #abcdef;
+   		box-sizing: border-box; /*绝对定位和浮动，右边盒子都需要设置盒模型为border-box，弹性盒子和表格布局都不需要，他们默认的盒模型就是border-box,并且他们元素的高度默认占满父元素高度*/
+   		padding-left: 200px;
+		height: 100%;
+
+   }
+
+
+   /*-------------------------方法四 浮动实现-----------------*/
+
+   .box4{
+   	  /*position: relative;*/
+   }
+
+   .box4 .left{
+		background: pink;
+		width: 200px;
+		float: left;
+		height: 100%;
+   }
+
+   .box4 .right{
+   		background: #abcdef;
+   		box-sizing: border-box;
+		height: 100%;
+
+   }
+  
+   .right{
+   	padding-left: 200px;
+   }
+  
+</style>
+</head>
+<body>
+	 <h5>方法一：flex</h5>
+
+	 <div class="box box1">
+	 	<div class="left">左边区域......</div>
+	 	<div class="right">右边区域......</div>
+	 </div>
+	
+	<h5>方法二：table与table-cell布局</h5>
+
+	 <div class="box box2">
+	 	<div class="left">左边区域......</div>
+	 	<div class="right">右边区域......</div>
+	 </div>
+
+
+	<h5>方法二：position:absolute;绝对定位</h5>
+
+	 <div class="box box3">
+	 	<div class="left">左边区域......</div>
+	 	<div class="right">右边区域......</div>
+	 </div>
+
+	<h5>方法二：float:left;浮动</h5>
+
+	 <div class="box box4">
+	 	<div class="left">左边区域......</div>
+	 	<div class="right">右边区域......</div>
+	 </div>
+
+	 <h5 class="note">注：绝对定位和浮动，右边盒子都需要设置盒模型为border-box，弹性盒子和表格布局都不需要，他们默认的盒模型就是border-box,并且他们元素的高度默认占满父元素高度</h5>
+
+</body>
+</html>
