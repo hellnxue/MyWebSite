@@ -18,6 +18,7 @@
     window.addEventListener('message', function(e) {
         console.log('data from localhost ---> ' + e.data);
 		console.log(e)
+		//判断来源，安全策略
 		if(e.origin!=='http://localhost:8081'){
 			return;
 		}

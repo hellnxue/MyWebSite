@@ -15,7 +15,10 @@
 
 <body>
 <iframe id="iframe" src="http://127.0.0.1:8081/bb.html" style="display:none;"></iframe>
-<h3 class="h1">hello aa.html  用http://localhost:8081访问页面，测试跨域信息请求</h3>
+<h3 class="h1">hello aa.html  用http://localhost:8081访问页面，测试跨域信息请求
+	<p>domain1:http://localhost:8081</p>
+	<p>domain2:http://127.0.0.1:8081</p>
+</h3>
 <script>       
     var iframe = document.getElementById('iframe');
     iframe.onload = function() {
@@ -30,7 +33,7 @@
     window.addEventListener('message', function(e) {
 		console.log('ee');
 		console.log(e);
-		
+		//判断来源，安全策略
 		if(e.origin!=='http://127.0.0.1:8081'){
 			return;
 		}
