@@ -1,28 +1,65 @@
 <!DOCTYPE html >
 <html  >
 <head>
-<meta   charset="gb2312" />
-<title>�ޱ����ĵ�</title>
+<meta   charset="utf-8" />
+<title>无标题文档</title>
 <script type="text/javascript" src="../../js/jquery-1.8.2.min.js"></script>
+<style type="text/css">
+  #div{
+    width: 50%;
+    height: 50px;
+    border: 1px solid yellow;
+    display: flex;
+    margin: auto;
+    background: #abcdef;
+  }
 
+  #div button{
+    margin: auto;
+  }
+</style>
 </head>
 
 <body>
-<p>-----------------------�¼�����DOM�е��¼�����event.stopPropagation() ȡ����һ�����¼������ð��--------------------</p>
+<p>-----------------------事件对象 ：event.eventPhase:调用事件处理程序的阶段：1 捕获 2 "处于目标"  3 冒泡阶段--------------------</p>
 <input type="button" value="aaaaaaaa" id="eventBtn"/>
+
+
+<!-- 事件冒泡测试 -->
+<h3 style="margin: 20px 0;font-size: 18px;color: purple;text-align: center;">事件冒泡测试</h3>
+<div id="div" >
+    <button id="btn">按钮</button>
+</div>
+
+
 <script>
   var dombtn=$("#eventBtn")[0];
   dombtn.onclick=function(event){
-    alert(this.value);
-	console.log(event.bubbles);//trueΪ�¼���ð��
-	//event.stopPropagation();//��ֹ��body�󶨵�click�¼��������� alert("Body clicked");�ķ���
-	 
+    console.log("dombtn.onclick="+event.eventPhase);//2 处于目标阶段，触发的元素注册了事件的元素
   }
   
-  document.body.onclick=function(){
-    alert("Body clicked");
-  }
+  document.body.addEventListener("click",function(event){
+    
+    console.log("document.body.addEventListener="+event.eventPhase);//1 捕获阶段的
+  },true)
   
+  document.body.onclick=function(event){
+    console.log("document.body.onclick="+event.eventPhase);//3 冒泡阶段
+  }
+
+
+
+  // 事件冒泡测试
+  document.getElementById("btn").addEventListener("click",showType);
+  document.getElementById("div").addEventListener("click",showDiv);
+  function showType(event){
+      console.log('按钮被点击。。。。。'+event.type);
+      event.stopPropagation();//阻止事件冒泡至包含按钮的div中
+  }
+
+  function showDiv(){
+      console.log("点击事件冒泡至div");
+  }
   
 </script>
 
