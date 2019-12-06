@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>元素大小</title>
+<style>
+  body{
+    margin: 0;
+  }
+ .myArea{
+    width: 300px;
+    height: 300px;
+    border: 5px solid purple;
+    padding: 30px;
+    margin: 20px;
+    box-sizing: border-box;
+    overflow-y: scroll;
+ 
+ }
+
+ .two{
+  overflow: auto;
+ }
+  
+</style>
+</head>
+<body>
+  <div class="myArea"  onclick="test(event)" >
+    He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty-four days now without taking a fish. In the first forty days a boy had been with him. But after forty days without a fish the boy’s parents had told him that the old man was now definitely and finally salao, which is the worst form of unlucky, and the boy had gone at their orders in another boat which caught three good fish the first week. It made the boy sad to see the old man come in each day with his skiff empty and he always went down to help him carry either the coiled lines or the gaff and harpoon and the sail that was furled around the mast. The sail was patched with flour sacks and, furled, it looked like the flag of permanent defeat.
+  </div>
+  <div class="myArea two"  onclick="test(event)" >
+    He was an old man who fished alone in a skiff in the Gulf Stream and he had gone eighty-four days now without taking a fish. In the first forty days a boy had been with him. But after forty days without a fish the boy’s parents had told him that the old man was  
+  </div>
+  
+
+
+<div class="htmledit_views" id="content_views" style="margin-left: 40px;">
+    <p>
+        <span style="color:#333333;">
+            <span style="font-size:18px;background-color:rgb(255,255,255);">
+                转载自：
+            </span>
+            <span style="color:rgb(28,31,33);font-family:'PingFang SC', '微软雅黑', 'Microsoft YaHei', Helvetica, 'Helvetica Neue', Tahoma, Arial, sans-serif;background-color:rgb(255,255,255);">
+                <span style="font-size:16px;">
+                    https://www.imooc.com/article/17571
+                </span>
+            </span>
+        </span>
+    </p>
+    <p>
+        <span style="color:#333333;">
+            <span style="color:rgb(28,31,33);font-family:'PingFang SC', '微软雅黑', 'Microsoft YaHei', Helvetica, 'Helvetica Neue', Tahoma, Arial, sans-serif;background-color:rgb(255,255,255);">
+                <span style="font-size:16px;">
+                    <br>
+                </span>
+            </span>
+        </span>
+    </p>
+    <p>
+        <span style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+            网页可见区域高：document.body.clientHeight
+        </span>
+    </p>
+    <span style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+        网页正文全文高：document.body.scrollHeight
+    </span>
+    <br style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+    <span style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+        网页可见区域高（包括边线的高）：document.body.offsetHeight
+    </span>
+    <br style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+    <span style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+        网页被卷去的高：document.body.scrollTop
+    </span>
+    <br style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+    <p>
+        <span style="color:rgb(51,51,51);font-size:18px;background-color:rgb(255,255,255);">
+            屏幕分辨率高：window.screen.height
+        </span>
+    </p>
+    <p>
+        <span style="color:rgb(51,51,51);font-size:18px;">
+        </span>
+    </p>
+    <p style="margin-bottom:0px;color:rgb(28,31,33);font-family:'PingFang SC', '微软雅黑', 'Microsoft YaHei', Helvetica, 'Helvetica Neue', Tahoma, Arial, sans-serif;font-size:14px;">
+        <span style="background-color:rgb(255,255,255);">
+            每个HTML元素都具有clientHeight offsetHeight scrollHeight offsetTop scrollTop
+            这5个和元素高度、滚动、位置相关的属性，单凭单词很难搞清楚分别代表什么意思之间有什么区别。通过阅读它们的文档总结出规律如下：
+            <br>
+            clientHeight和offsetHeight属性和元素的滚动、位置没有关系它代表元素的高度，其中：
+            <br>
+            clientHeight：包括padding但不包括border、水平滚动条、margin的元素的高度。对于inline的元素这个属性一直是0，单位px，只读元素。
+            <br>
+            <span>
+                <img title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                src="image/58f5b2fa00012ea604110247.jpg" alt="图片描述"
+                style="border:0px;">
+            </span>
+            <br>
+            offsetHeight：包括padding、border、水平滚动条，但不包括margin的元素的高度。对于inline的元素这个属性一直是0，单位px，只读元素。
+            <br>
+            <span>
+                <img title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                src="image/58f5b32e0001a2fa04110247.jpg" alt="图片描述"
+                style="border:0px;">
+            </span>
+            <br>
+            接下来讨论出现有滚动条时的情况：
+            <br>
+            当本元素的子元素比本元素高且overflow=scroll时，本元素会scroll，这时：
+            <br>
+            scrollHeight: 因为子元素比父元素高，父元素不想被子元素撑的一样高就显示出了滚动条，在滚动的过程中本元素有部分被隐藏了，scrollHeight代表包括当前不可见部分的元素的高度。而可见部分的高度其实就是clientHeight，也就是scrollHeight&gt;=clientHeight恒成立。在有滚动条时讨论scrollHeight才有意义，在没有滚动条时scrollHeight==clientHeight恒成立。单位px，只读元素。
+            <br>
+            <span>
+                <img title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                src="image/58f5b3700001627d05110413.jpg" alt="图片描述"
+                style="border:0px;">
+            </span>
+            <br>
+            scrollTop: 代表在有滚动条时，滚动条向下滚动的距离也就是元素顶部被遮住部分的高度。在没有滚动条时scrollTop==0恒成立。单位px，可读可设置。
+            <br>
+            offsetTop: 当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。
+            <br>
+            <span>
+                <img title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+                src="image/58f5b3e80001873105110413.jpg" alt="图片描述"
+                style="border:0px;">
+            </span>
+        </span>
+    </p>
+    <p style="margin-bottom:0px;color:rgb(28,31,33);font-family:'PingFang SC', '微软雅黑', 'Microsoft YaHei', Helvetica, 'Helvetica Neue', Tahoma, Arial, sans-serif;font-size:14px;">
+        <span style="background-color:rgb(255,255,255);">
+            offsetTop: 当前元素顶部距离最近父元素顶部的距离,和有没有滚动条没有关系。单位px，只读元素。
+            <br>
+            <img title="搞清clientHeight、offsetHeight、scrollHeight、offsetTop、scrollTop_"
+            src="image/58f5b4050001e99204480302.jpg" alt="图片描述"
+            style="border:0px;">
+        </span>
+    </p>
+    <br>
+</div>
+
+  <script type="text/javascript">
+    function test(e) {
+      // console.log(e)
+      let target=e.target;
+      let react=target.getBoundingClientRect();
+      console.log(react) 
+
+      console.log('offsetHeight==',target.offsetHeight) 
+      console.log('clientHeight==',target.clientHeight) 
+
+      console.log('offsetTop==',target.offsetTop) 
+
+      console.log('scrollHeight==',target.scrollHeight) 
+
+
+    }
+  </script>
+</body>
+</html>
