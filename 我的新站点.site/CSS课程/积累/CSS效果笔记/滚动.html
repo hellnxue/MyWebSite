@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>返回顶部</title>
+    <style>
+        #outer { height: 100px; width: 100px; padding: 10px 50px; border: 1px solid; overflow: auto; }
+    </style>
+</head>
+<body>
+    <div id="outer">
+        <div id="inner"></div>
+    </div>
+    <button onclick="toTop(outer)">返回顶部</button>
+    <script>
+        function toTop(ele) {
+        	console.log(outer)
+            // ele.scrollTop = 0;
+            let dy = ele.scrollTop / 4; // 每次更新scrollTop改变的大小
+            if (ele.scrollTop > 0) {
+                ele.scrollTop -= Math.max(dy, 10);
+                setTimeout(() => {
+                    toTop(ele, dy);
+                }, 30);
+            }
+        }
+        // 初始化
+        window.onload = () => {
+            for (let i = 0; i < 263; i++) inner.innerText += `第${i}行\n`;
+        }
+    </script>
+</body>
+</html>

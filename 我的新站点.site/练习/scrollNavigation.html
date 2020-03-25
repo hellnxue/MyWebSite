@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<title>跳转滚动</title>
+	<style>
+
+	body{
+		padding-top: 200px;
+		padding-bottom: 900px;
+	}
+
+	.btn{
+			position:fixed;
+			right:10%;
+			top:20%;
+		}
+	.btn a{
+		display:block;
+		width:80px;
+		font-size: 30px;
+		text-align:center;
+		color:#dfdfdf;
+	}
+	.btn .active{
+		color:#fff;
+	}
+
+	.btn .test{
+		color: purple;
+	}
+	</style>
+
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+<div id='a' style="height:100vh;background:red"></div>	
+<div id='b' style="height:50vh;background:yellow"></div>	
+<div id='c' style="height:100vh;background:pink"></div>	
+<div id='d' style="height:50vh;background:blue"></div>	
+<div class='btn'>
+	<a href="#a">跳转a</a>
+	<a href="#b">跳转b</a>
+	<a href="#c">跳转c</a>
+	<a href="#d">跳转d</a>
+</div>
+
+<script type="text/javascript">
+	
+	window.onload=function(){
+
+		
+	    var NodePos = [$('#a').offset().top,$('#b').offset().top,$('#c').offset().top,$('#d').offset().top],//提前获取好元素位置
+	        length = NodePos .length; 
+		 
+		$(window).scroll(function(event){
+		    checkscroll( NodePos,length)
+		  });
+		  function checkscroll( NodePos,length){
+		   var winPos = $(window).scrollTop(); //屏幕位置
+		   console.log(winPos,NodePos)
+		    if(winPos<=NodePos[1]){
+		      $('.btn a').removeClass('active');
+		      $('.btn a:nth-child(1)').addClass('active') ;
+		    }else if(winPos>=NodePos[3]){
+		      $('.btn a').removeClass('active');
+		      $('.btn a:nth-child(4)').addClass('active');
+		    }else{
+		      for(var i = 1;i<length; i++){
+		        if(winPos<=NodePos[i+1]&&winPos>NodePos[i]){
+		          $('.btn a').removeClass('active');
+		          $('.btn a:nth-child('+(i+1)+')').addClass('active');
+		          break;
+		        }
+		      }
+		    }
+		  }
+	}
+</script>
+ 
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ÎÞ±êÌâÎÄµµ</title>
+</head>
+
+<body>
+<form>
+<input type="text" id="clock" size="35" />
+<script language=javascript>
+var int=window.self.setInterval("clock()",50);
+function clock(){
+var t=new Date();
+document.getElementById("clock").value=t;
+}
+
+
+function sleep(interval) {
+    return new Promise(resolve => {
+        setTimeout(resolve, interval);
+    })
+}
+async function omniPoller(queryStatus,successCallback) {
+    let time=1000;
+    for(let i = 0; i <= 3; i++) {
+       
+       if(i==0){
+          await sleep(time);
+          console.log('1111111111111111')
+       }else if(i==1){
+          await sleep(time*3);
+           console.log('22222222222')
+       }else{
+          await sleep(time*5);
+          console.log('333333333333333')
+       }
+        
+
+    }
+}
+
+function test(){
+	omniPoller()
+}
+</script>
+</form>
+<div id="clock" onclick="test()">ddddddddd</div>
+<button onclick="int=window.clearInterval(int)" value="²âÊÔ">Stop interval</button>
+
+<div style="background-color: rgb(200, 170, 250);">hello world</div>
+
+
+<button onclick="test"  >await</button>
+
+</body>
+</html>

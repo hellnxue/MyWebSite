@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="gb2312" />
-<title>ÎŞ±êÌâÎÄµµ</title>
+<meta charset="utf-8" />
+<title>æ— æ ‡é¢˜æ–‡æ¡£</title>
  
 
 <style>
@@ -32,27 +32,27 @@
 <div draggable="true" id="org">draggable</div>
 <div id="imgTarget" class="wrap">
 	<img src="../../image/mxx/m1.jpg" id="draggableImg" />
-	<p id="draggableP" draggable="true" style="background-color:#FFFFCC;">hello,ÃÈĞ¡Ï£</p>
+	<p id="draggableP" draggable="true" style="background-color:#FFFFCC;">hello,èŒå°å¸Œ</p>
 
 </div>
 
 <div class="wrap" id="dragTarget">
-  ·ÅÖÃÇøÓò
+  æ”¾ç½®åŒºåŸŸ
   
 </div>
 
- <p>ÎÒÊÇÀ´´ò½´ÓÍµÄ</p>
-        <p>ÎÒÊÇÀ´´ò½´ÓÍµÄ</p>
-        <p>ÎÒÊÇÀ´´ò½´ÓÍµÄ</p>
-        <p>ÎÒÊÇÀ´´ò½´ÓÍµÄ</p>
-        <p>ÎÒÊÇÀ´´ò½´ÓÍµÄ</p>
-        <p>ÎÒÊÇÀ´´ò½´ÓÍµÄ</p>
-        <p>ÎÒÊÇÀ´´ò½´ÓÍµÄ</p>
-        <p>ÎÒÊÇÀ´´ò½´ÓÍµÄ</p>
+ <p>æˆ‘æ˜¯æ¥æ‰“é…±æ²¹çš„</p>
+        <p>æˆ‘æ˜¯æ¥æ‰“é…±æ²¹çš„</p>
+        <p>æˆ‘æ˜¯æ¥æ‰“é…±æ²¹çš„</p>
+        <p>æˆ‘æ˜¯æ¥æ‰“é…±æ²¹çš„</p>
+        <p>æˆ‘æ˜¯æ¥æ‰“é…±æ²¹çš„</p>
+        <p>æˆ‘æ˜¯æ¥æ‰“é…±æ²¹çš„</p>
+        <p>æˆ‘æ˜¯æ¥æ‰“é…±æ²¹çš„</p>
+        <p>æˆ‘æ˜¯æ¥æ‰“é…±æ²¹çš„</p>
 
 <script>
 
-   //±»ÍÏ¶¯ÔªËØÍÏ¶¯Ê±µÄ´¥·¢ÊÂ¼ş
+   //è¢«æ‹–åŠ¨å…ƒç´ æ‹–åŠ¨æ—¶çš„è§¦å‘äº‹ä»¶
    var dgbDOM=$("#draggableImg")[0];
    dgbDOM.addEventListener("dragstart",function(ev){
       
@@ -69,13 +69,13 @@
    });
    
      
-	/*-----------±»ÍÏ¶¯ÔªËØµÄ·ÅÖÃÄ¿±êÊÂ¼şÉèÖÃ------------------------------*/
+	/*-----------è¢«æ‹–åŠ¨å…ƒç´ çš„æ”¾ç½®ç›®æ ‡äº‹ä»¶è®¾ç½®------------------------------*/
 	
 	
 	
 	var dtDOM=$("#dragTarget")[0];
 	
-	//dragenterÊÂ¼ş£¬ÔÚ°Ñ±»ÍÏ¶¯ÔªËØ·ÅÖÃµ½·ÅÖÃÄ¿±êÉÏ¾Í»á´¥·¢dragenterÊÂ¼ş
+	//dragenteräº‹ä»¶ï¼Œåœ¨æŠŠè¢«æ‹–åŠ¨å…ƒç´ æ”¾ç½®åˆ°æ”¾ç½®ç›®æ ‡ä¸Šå°±ä¼šè§¦å‘dragenteräº‹ä»¶
 	/* dtDOM.addEventListener("dragenter",function(event){
 	   
 	   event.preventDefault();
@@ -83,7 +83,7 @@
 	  console.log( event.dataTransfer.dropEffect);
 	}); */
 	
-	/*±»ÍÏ¶¯ÔªËØ»¹ÔÚ·ÅÖÃÄ¿±êÄÚÒÆ¶¯Ê±£¬»á´¥·¢dragoverÊÂ¼ş*/
+	/*è¢«æ‹–åŠ¨å…ƒç´ è¿˜åœ¨æ”¾ç½®ç›®æ ‡å†…ç§»åŠ¨æ—¶ï¼Œä¼šè§¦å‘dragoveräº‹ä»¶*/
 	dtDOM.addEventListener("dragover",function(event){
 	  //console.log(123);
 	  event.preventDefault();
@@ -91,7 +91,7 @@
 	});
 	
 	 
-    /*Èç¹ûÔªËØ±»·Åµ½ÁË·ÅÖÃÄ¿±êÖĞ£¬»á´¥·¢dropÊÂ¼ş*/
+    /*å¦‚æœå…ƒç´ è¢«æ”¾åˆ°äº†æ”¾ç½®ç›®æ ‡ä¸­ï¼Œä¼šè§¦å‘dropäº‹ä»¶*/
 	dtDOM.addEventListener("drop",function(event){
 	   event.preventDefault();
 	   var data=event.dataTransfer.getData("Text");
@@ -103,7 +103,7 @@
 	});
 	
 	
-	/*±»ÍÏ×ßµÄÍ¼Æ¬¿ÉÒÔÔÙÍÏ»Øµ½Ô­À´µÄdivÖĞ°Â*/
+	/*è¢«æ‹–èµ°çš„å›¾ç‰‡å¯ä»¥å†æ‹–å›åˆ°åŸæ¥çš„divä¸­å¥¥*/
 	var itDOM=$("#imgTarget")[0];
 	itDOM.addEventListener("dragover",function(e){
 	   e.preventDefault();
@@ -113,7 +113,7 @@
 	itDOM.addEventListener("drop",function(e){
 	  e.preventDefault();
 	  var data=e.dataTransfer.getData("TEXT");
-	  $( e.target).append($("#"+data).clone() );//¸´ÖÆ
+	  $( e.target).append($("#"+data).clone() );//å¤åˆ¶
 	 e.stopPropagation();
 	
 	});
