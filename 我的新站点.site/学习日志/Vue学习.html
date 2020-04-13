@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Vue学习</title>
+<style>
+    button{
+      display:  block;
+      width: 40%;
+      min-height: 30px;
+      border: none;
+      margin: 20px;
+      border-radius: 10px;
+  
+  
+    }
+  </style>
+</head>
+
+<body>
+  <input type="text" value="" id="test" oninput="inputTest(event)" />
+
+  <button type="button" onclick="test()"> Vue响应原理</button>
+  <script type="text/javascript">
+    let obj={};
+    function test(){
+      
+      Object.defineProperty(obj,'name',{
+        get(){
+          return this.value;
+        },
+        set(val){
+          console.log('hehe',val)
+          document.getElementById('test').value=val;
+        }
+      })
+
+      obj.name='tom';
+    }
+
+    function inputTest(event){
+      obj.name=event.target.value;
+    }
+    
+  </script>
+
+ 
+</body>
+</html>

@@ -87,7 +87,7 @@
 
    .box3 .right{
    		background: #abcdef;
-   		box-sizing: border-box; /*绝对定位和浮动，右边盒子都需要设置盒模型为border-box，弹性盒子和表格布局都不需要，他们默认的盒模型就是border-box,并且他们元素的高度默认占满父元素高度*/
+   		box-sizing: border-box; /*绝对定位和浮动，右边盒子都需要设置盒模型为border-box(此处若未设置width,可不设置border-box)，弹性盒子和表格布局都不需要，他们默认的盒模型就是border-box,并且他们元素的高度默认占满父元素高度*/
    		padding-left: 200px;
 		height: 100%;
 
@@ -124,8 +124,8 @@
 	 <h5>方法一：flex</h5>
 
 	 <div class="box box1">
-	 	<div class="left">左边区域......</div>
-	 	<div class="right">右边区域......</div>
+	 	<div class="left">左边&lt;区域&gt; ......&lt;span&gt;hello&lt;/span&gt;</div>
+	 	<div class="right">右边&nbsp;区域......</div>
 	 </div>
 	
 	<h5>方法二：table与table-cell布局</h5>

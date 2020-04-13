@@ -1,0 +1,147 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>算法学习</title>
+<style>
+  button{
+    display:  block;
+    width: 40%;
+    min-height: 30px;
+    border: none;
+    margin: 20px;
+    border-radius: 10px;
+
+
+  }
+</style>
+</head>
+
+<body>
+
+  <button type="button" onclick="deepTest()">对象深拷贝</button>
+   
+  <script>
+      function deepTest(){
+
+        let obj={
+          a:1,
+          b:null,
+          c:function(){
+            console.log('hello')
+          }
+        }
+
+        let test=deepObj(obj);
+        obj.a=100;
+        console.log(obj,test)
+
+      }
+
+      function deepObj(obj){
+        let cloneObj=Array.isArray(obj)?[]:{};
+        if(obj&&typeof obj=='object'){
+          for(let key in obj){
+            if(obj.hasOwnProperty(key)){
+              if(obj[key]&&typeof obj[key]=='object'){
+                cloneObj[key]=deepObj(obj[key])
+              }else{
+                cloneObj[key]=obj[key]
+              }
+            }
+          }
+        }
+        return cloneObj;
+      }
+  </script>
+
+  <button type="button" onclick="formatObj()">格式化对象中的各种空值</button>
+  <p>去掉一个对象中的null、[]、{}、""、" " 等的空值</p>
+  <script>
+    function formatObj(){
+      let obj={
+        a:'hello',
+        b:{
+          aa:1,
+          bb:null,
+          cc:[] ,
+          dd:"" ,
+          ee:{},
+          ff:" "
+        },
+      }
+      console.log(deepFormatObj(obj)) 
+    }
+
+    function deepFormatObj(obj){
+      let tempObj={};
+      let objClone=Array.isArray(obj)?[]:{};
+
+      if(obj&&typeof obj==='object'){
+        for(let key in obj){
+          if(obj.hasOwnProperty(key)){
+            if(obj[key]&&typeof obj[key]==='object'){
+            
+              if( (Array.isArray(obj[key])&&obj[key].length!=0)
+              ||Object.keys(obj[key]).length!=0){
+                objClone[key]=deepFormatObj(obj[key])
+              }
+            }else{
+              let tempVar=obj[key];
+              if( typeof tempVar!='string'&&tempVar!=null||  typeof tempVar=='string'&&tempVar.replace(/(^\s*)|(\s*$)/g, "")!=="" ){
+                objClone[key]=tempVar
+              } 
+            }
+          }
+        }
+      }
+
+      return objClone;
+
+    }
+  </script>
+  <button type="button" onclick="formatObjTree()">扁平化对象数组树状组装</button>
+  <script>
+    function formatObjTree(){
+      let list=[
+        {
+        'parent':'女装',
+        'name':'连衣裙1',
+        },
+        {
+        'parent':'女装',
+        'name':'连衣裙2',
+        },
+        {
+        'name':'女装',
+        },
+        {
+        'parent':'数码',
+        'name':'电脑配件',
+        },
+        {
+        'parent':'电脑配件',
+        'name':'内存',
+        },
+        {
+        'name':'数码',
+        },
+      ]
+
+    //  格式化：{"女装":{"连衣裙1":{},"连衣裙2":{}},"数码":{"电脑配件":{"内存":{}}}}
+      console.log(JSON.stringify(format(list )))
+    }
+
+    function formatTree(list,parentId){
+      let obj={};
+      let len=list.length;
+      for(let i=0;i<len;i++){
+        if(list[i].parent==parentId ){
+          let key=list[i].name
+          obj[key]=this.formatTree(list,key)
+        } 
+      }
+      return obj;
+    }
+  </script>
+</body>
+</html>
