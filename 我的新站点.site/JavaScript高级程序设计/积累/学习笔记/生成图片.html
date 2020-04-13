@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>html2canvas example</title>
+    <!-- <script type="text/javascript" src="html2canvas.js"></script> -->
+    <script src="https://cdn.bootcss.com/html2canvas/0.4.1/html2canvas.js"></script>
+    <style type="text/css">
+        #view{
+          /*position: absolute;
+          top: -500px; */
+          background:url(image/test.jpg) 50%; 
+          width: 700px; 
+          height: 500px;  
+        }
+        .text{
+            font-size: 28px;
+            font-weight: 600;
+            color: purple;
+            text-align: center;
+            line-height: 500px;
+            margin: 0;
+
+        }
+    </style>
+</head>
+<script type="text/javascript">
+function takeScreenshot() {
+           html2canvas( document.querySelector("#view"),{
+                    allowTaint: true,
+　　　　　　　　　　onrendered: function(canvas){
+    　　　　　　　　　　let imgBlob = canvas.toDataURL('image/jpeg', 1.0); //将图片转为base64
+                        // imgBlob = imgBlob.toString().substring(imgBlob.indexOf(",") + 1);　
+                        　　
+    　　　　　　　　}
+　　　　　　} )
+
+    
+/*
+    html2canvas(
+        document.querySelector("#view"),
+        {
+            useCORS: true,
+            allowTaint: false
+       }
+    ).then(canvas => {
+        document.querySelector("#picture").appendChild(canvas);
+        let url = canvas.toDataURL() ;　　
+        // document.querySelector("#img").src=url　　
+    });*/
+
+
+}
+</script>
+<body  >
+    <div id="view" crossorigin="anonymous"  >
+        <input type="button" value="截图" onclick="takeScreenshot()">
+        <p class="text">1.The old man and the sea......</p>
+    </div>
+
+    <div id="picture" >
+      
+    </div>
+
+    <!-- <img id="img" src="" crossorigin="anonymous"> -->
+</body>
+
+</html>
