@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Vue学习</title>
+<style>
+    button{
+      display:  block;
+      width: 40%;
+      min-height: 30px;
+      border: none;
+      margin: 20px;
+      border-radius: 10px;
+  
+  
+    }
+  </style>
+</head>
+
+<body>
+
+  <button type="button" onclick="test()"> 引用对象</button>
+  <script type="text/javascript">
+    
+    function handel(obj){
+      
+      let copyObj={...obj};
+      // obj=null;
+
+      copyObj.a=1000;
+      copyObj.c.name='rose'
+      console.log('copyObj',copyObj)
+
+    }
+
+    function test(){
+      
+      let obj={
+            a:10,
+            b:20,
+            c:{
+              name:'tom'
+            }
+          };
+
+       handel(obj);
+       
+       console.log('obj',obj)   
+    }
+
+
+
+    /**
+    
+      //两个变量指向同一个对象，后来一个变量指向了别的对象，对原来的就不会产生影响了
+      用代码解释 ：
+      let obj={
+        a:10
+      };
+      let obj1=obj;
+
+      obj1.a=20;
+      obj1={
+        b:1000
+      }
+      console.log(obj,obj1)
+     */
+    function objectReference(){
+
+      let obj={
+        a:10
+      };
+
+      function handel(pm){
+        pm.a=20;
+        pm={
+          b:10
+        };
+        return pm;
+      }
+
+      let rlt=handel(obj);
+
+     console.log(obj,rlt);//{a:20}  {b:10}
+    }
+
+
+
+     
+    
+  </script>
+
+ 
+</body>
+</html>
