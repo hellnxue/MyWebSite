@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+   <meta  charset="UTF-8">
+   <meta  name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+   <meta  http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>验证码示例-智能无感知bind模式</title>
+</head>
+<body>
+
+<form action="/login" method="post">
+   <input  type="text" name="username" placeholder="用户名">
+   <input  type="password" name="password" placeholder="密码">
+   <input  type="hidden" name="captchaId" value="a609c415aa024c55bc9a1793fa4daf99">
+   <div id="captcha"></div> <!-- 验证码容器元素 -->
+   <button type="submit" id="submit-btn">登录</button>
+</form>
+
+<script charset="UTF-8" type="text/javascript" src="http://cstaticdun.126.net/load.min.js?t=201903281201"></script>
+<!-- 地址中的t参数强烈建议设置为分钟级别时间戳，避免该文件被浏览器长时间缓存 -->
+<script>
+
+    var captchaIns;
+    initNECaptcha({
+        element: '#captcha',
+        captchaId: 'a609c415aa024c55bc9a1793fa4daf99',
+        mode: 'bind', // 仅智能无感知验证码时，mode 才能设置为 bind
+        width: '320px',
+        // enableClose: true, // 由业务方控制验证码弹框关闭
+        // feedbackEnable: false, // 业务方关闭反馈入口  
+        onVerify: function(err){
+            // 用户验证码验证成功后，进行实际的提交行为
+            // todo
+            // if (!err) {
+              // 验证成功后，调用close方法关闭弹框（enableClose为true时调用）
+              //captchaIns.close()
+            //}
+        }
+    }, function (instance) {
+        // 初始化成功后得到验证实例instance，可以调用实例的方法
+  // 禁止在初始化后立即调用instance.verify，详情参见常见问题-前端接入问题
+        captchaIns = instance
+    }, function (err) {
+        // 初始化失败后触发该函数，err对象描述当前错误信息
+    })
+    // 监听需要绑定的 button 的点击事件，手动调用实例的verify方法来验证
+    document.getElementById('submit-btn').addEventListener('click', function (e) {
+      e.preventDefault()
+      //  if (doSomething()) {               // 在验证之前做一些自定义
+            captchaIns && captchaIns.verify ()  // 手动调用verify方法
+       // }
+    })
+</script>
+</body>
+</html>

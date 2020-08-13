@@ -1,0 +1,138 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>es6</title>
+<style>
+    button{
+      display:  block;
+      width: 40%;
+      min-height: 30px;
+      border: none;
+      margin: 20px;
+      border-radius: 10px;
+  
+  
+    }
+  </style>
+ 
+</head>
+
+<body>
+  <button class="btn"  onclick="test11()">
+    data 格式化---加key
+ </button>
+
+  <button class="btn"  onclick="test1()">
+    data 格式化
+ </button>
+   
+  <script type="text/javascript">
+
+    function test11(){
+       let str=`创建ASN
+已预约
+已取消
+ASN信息
+您已成功预订了*仓库的送货时间，时间为：*
+柜信息
+入库单
+箱数
+SKU种类数
+SKU总数量
+是否确定取消ASN？
+不取消
+取消
+InboundOrder 已上架完成，不能取消
+系统繁忙，请稍后再试
+取消成功
+ASN取消失败，请稍后再试
+修改
+系统繁忙，请稍后再试
+更新成功
+`
+        // console.log(str.split(/[(\r\n)\r\n]+/))
+        let ary=str.split(/[(\r\n)\r\n]+/);
+        let namStr='name';
+        let tempObj={};
+        ary=ary.map((item,index)=>{
+          tempObj[namStr+index]=item.trim()
+          // return {[namStr+index]:item.trim()}
+        })
+        console.log(ary.length,JSON.stringify(tempObj))
+    }
+
+    let ary1= {
+   "CreateASN":"Create ASN",
+    "Booked":"Booked",
+    "Canceled":"Canceled",
+    "ASNInfo":"ASN Information",
+    "bookedTips":"You have booked delivery time with our Germany fulfillment center , delivery time is * to *.",
+    "containerInfo":"Container Information",
+    "INBOUNDORDER":"INBOUND ORDER",
+    "CARTONQUANTITY":"CARTON QUANTITY",
+    "SKUCATEGORYQUANTITY":"SKU CATEGORY QUANTITY",
+    "SKUQUANTITY":"SKU QUANTITY",
+    "cancelASNTips":"Are you sure to cancel the ASN.",
+    "NoCancel":'No Cancel',
+    "ContinueCancel":'No Cancel',
+    "canNotBeCanceled":"InboundOrder status is put away,can not be canceled!",
+    "name12":"The system is busy, please try again later.",
+    "CancelSuccess":"Cancel success !",
+    "failTryLater":"The ASN cancel fail,please try later",
+    "Update":"Update",
+    "UpdateSuccess":"Update success!",
+    }
+
+    let ary2={
+    "name0":"创建ASN",
+    "name1":"已预约",
+    "name2":"已取消",
+    "name3":"ASN信息",
+    "name4":"您已成功预订了*仓库的送货时间，时间为：*",
+    "name5":"柜信息",
+    "name6":"入库单",
+    "name7":"箱数",
+    "name8":"SKU种类数",
+    "name9":"SKU总数量",
+    "name10":"是否确定取消ASN？",
+    "name11":"不取消",
+    "name12":"取消",
+    "name13":"InboundOrder 已上架完成，不能取消",
+    "name14":"系统繁忙，请稍后再试",
+    "name15":"取消成功",
+    "name16":"ASN取消失败，请稍后再试",
+    "name17":"修改",
+    "name19":"更新成功",
+}
+
+    let obj3={}
+
+    function test1(){
+
+      let i=0;
+      for(let key1 in ary1){
+        i++;
+
+        let j=0;
+
+        for(let key2 in ary2){
+          j++;
+
+          if(i==j){
+            console.log(key1,key2)
+            obj3[key1]=ary2[key2]
+            break;
+          }
+        }
+       
+     }
+
+     console.log(JSON.stringify(obj3))
+   }
+    
+  </script>
+
+  
+ 
+</body>
+</html>
