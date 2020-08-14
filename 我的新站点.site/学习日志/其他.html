@@ -1,0 +1,137 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>算法学习</title>
+<style>
+  button{
+    display:  block;
+    width: 40%;
+    min-height: 30px;
+    border: none;
+    margin: 20px;
+    border-radius: 10px;
+
+  }
+</style>
+</head>
+
+<body>
+
+  <button type="button" onclick="test()">for of配合Object.keys()遍历对象值</button>
+   
+  <script>
+      function test(){
+        let obj={
+          a:10,
+          b:20
+        }
+        for(let key of Object.keys(obj)){
+          console.log(key)
+        }
+
+      }
+
+  </script>
+  <button type="button" onclick="test2()">promise错误处理</button>
+   
+  <script>
+    async function test2(){
+      try{
+        // getData().then((data)=>{
+        //   console.log(data)
+        // })
+
+        let temp=await getData();
+        console.log(temp)
+       
+      }catch(err){
+        console.log('err',err)
+      }
+
+    }
+
+    function getData(){
+      // return new Promise((resolve,reject)=>{
+      //     let obj={}
+      //     obj.a()
+      //     resolve(obj)
+      //   })
+
+      return 123
+    }
+
+  </script>
+ <button type="button" onclick="test3()">async函数</button>
+   
+ <script>
+   function test3(){
+    const foo = async () => {
+      return { name: '芬达' }
+    }
+    console.log(foo())
+   }
+  
+ </script>
+
+<button type="button" onclick="test4()">["1", "2", "3"].map(parseInt)</button>
+<button type="button" onclick="test5()">const常量值在立即执行函数中</button>
+<button type="button" onclick="test6()">求一个字符串的字节长度</button>
+   
+<script>
+  function test4(){
+   let rlt= ["1", "2", "3"].map(parseInt) 
+  
+   console.log(rlt);
+
+   console.log(parseInt("1",1))
+
+  }
+
+   function test5(){
+
+      const foo=100;
+      (function(){
+          foo=200;
+        console.log(foo)
+      })()
+
+    }
+
+    function test6(){
+
+      console.log(tests1('abc'))
+
+      }
+
+    function GetBytes(str){
+
+        var len = str.length;
+
+        var bytes = len;
+
+        for(var i=0; i<len; i++){
+
+            if (str.charCodeAt(i) > 255) bytes++;
+
+        }
+
+        return bytes;
+
+      }
+
+    function tests1(str) {  
+      var len = str.length;  
+      let bytes=str.length;
+      for (var i=0; i<len; i++) {  
+        if (str.charCodeAt(i)>127 || str.charCodeAt(i)==94) {  
+          bytes += 2;  
+        } else {  
+          bytes ++;  
+        }  
+      }  
+      return bytes;  
+    }
+
+</script>
+</body>
+</html>

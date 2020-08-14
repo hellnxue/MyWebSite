@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>writer title here</title>
+<link href="../../CSS课程/CSS/CSSUtil.css" rel="stylesheet" type="text/css"/>
+<link href="../../util/css/panel.css" rel="stylesheet" type="text/css"/>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+
+
+<button type="button" onclick="test()">js执行顺序</button>
+
+<button type="button" onclick="test1()">setInterval</button>
+
+<button type="button" onclick="test2()">setTimeout</button>
+
+<button type="button" onclick="test3()">setTimeout</button>
+
+
+
+ 
+<script type="text/javascript">
+
+  function test(){
+    
+
+    new Promise(function(resolve){
+        console.log('马上执行for循环啦');
+        for(var i = 0; i < 10000; i++){
+            i == 99 && resolve();
+        }
+    }).then(function(){
+        console.log('执行then函数啦')
+    });
+
+    setTimeout(function(){
+     console.log('定时器开始啦')
+    });
+
+    console.log('代码执行结束');
+  }
+
+  function test1(){
+
+    let x=1;
+    let stop=0;
+    stop=setInterval(()=>{
+      ++x;
+      console.log('hello world...'+x)
+      for(let i=0;i<10000000000;i++){
+
+      }
+    },1000)
+
+     
+  }
+
+  function test2(){
+    /*
+      for(let i=0;i<3;i++){
+          setTimeout(()=>{
+          console.log('hello 1'+new Date())
+         },1000)
+      }
+
+      同下,过一秒后，三个回调函数会一起执行
+    */
+    setTimeout(()=>{
+      console.log('hello 1'+new Date())
+    },1000)
+
+    setTimeout(()=>{
+      console.log('hello 1'+new Date())
+    },1000)
+
+    setTimeout(()=>{
+      console.log('hello 1'+new Date())
+    },1000)
+
+    
+  }
+
+  function test3(){
+    
+    setTimeout(()=>{
+      console.log('hello 1'+new Date())
+    },1000)
+
+    setTimeout(()=>{
+      console.log('hello 2'+new Date())
+      for(let i=0;i<10000000000;i++){
+
+      }
+    },1000)
+
+    setTimeout(()=>{
+      console.log('hello 3'+new Date())
+    },1000)
+
+    
+  }
+
+</script>
+
+</body>
+</html>
