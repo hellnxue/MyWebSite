@@ -26,6 +26,24 @@
 		text-align: right; 
 		font-size: 20pt;
 	}
+
+  .center-test{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 1px solid purple;
+  }
+
+  .center-test div{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100px;
+    height: 100px;
+    border: 1px solid purple;
+  }
+
 </style>
 <script  src="../js/jquery-1.8.2.min.js"></script>
 <script>
@@ -90,5 +108,17 @@ This paragraph will also be center-aligned.
   <h1>PRC</h1>
   <p>The People's Republic of China was born in 1949...</p>
 </section>
+
+<section class="center-test">
+  <div>hello ball</div>
+</section>
+
+<script type="text/javascript">
+  new Promise((resolve,reject)=>{
+    reject('fail')
+  }).catch((pm)=>{
+    console.log('pm===',pm)
+  })
+</script>
 </body>
 </html>
