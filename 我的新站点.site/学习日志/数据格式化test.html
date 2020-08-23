@@ -1,0 +1,94 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>es6</title>
+<style>
+    button{
+      display:  block;
+      width: 40%;
+      min-height: 30px;
+      border: none;
+      margin: 20px;
+      border-radius: 10px;
+  
+  
+    }
+  </style>
+ 
+</head>
+
+<body>
+  <button class="btn"  onclick="test11()">
+    data 格式化---给每一行的值加key
+ </button>
+
+  <button class="btn"  onclick="test1()">
+    英文对象比对中文对象，给中文对象添加英文对应的可以，并且data 格式化
+ </button>
+   
+  <script type="text/javascript">
+
+    function test11(){
+       let str=`创建ASN
+已预约
+已取消
+ASN信息
+`
+        // console.log(str.split(/[(\r\n)\r\n]+/))
+        let ary=str.split(/[(\r\n)\r\n]+/);
+        let namStr='name';
+        let tempObj={};
+        ary=ary.map((item,index)=>{
+          tempObj[namStr+index]=item.trim()
+          // return {[namStr+index]:item.trim()}
+        })
+        console.log(ary.length,JSON.stringify(tempObj))
+    }
+
+    let ary1= {
+   "CreateASN":"Create ASN",
+    "Booked":"Booked",
+    "Canceled":"Canceled",
+    "ASNInfo":"ASN Information",
+     
+    }
+
+    let ary2={
+    "name0":"创建ASN",
+    "name1":"已预约",
+    "name2":"已取消",
+    "name3":"ASN信息",
+     
+}
+
+    let obj3={}
+
+    function test1(){
+
+      let i=0;
+      for(let key1 in ary1){
+        i++;
+
+        let j=0;
+
+        for(let key2 in ary2){
+          j++;
+
+          if(i==j){
+            console.log(key1,key2)
+            obj3[key1]=ary2[key2]
+            break;
+          }
+        }
+       
+     }
+
+     console.log(JSON.stringify(obj3))
+   }
+    
+  </script>
+
+  
+ 
+</body>
+</html>
