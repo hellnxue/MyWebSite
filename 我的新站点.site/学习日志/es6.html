@@ -52,7 +52,120 @@
     
   </script>
 
-  
+  <!-- reduce -->
+
+  <button type="button" onclick="repeatNum()"> 计算数组中每个元素出现的次数</button>
+  <script type="text/javascript">
+ 
+    function repeatNum(){
+        // var names = ['Alice','Tiff', 'Bob', 'Tiff', 'Bruce','Tiff', 'Alice'];
+        var names=[...'afjghdfraaaasdenas']
+        var countName=names.reduce((allNames, name)=>{
+          if (name in allNames){
+            allNames[name]++;
+          } else{
+            allNames[name]=1;
+          }
+          return allNames
+        }, {})
+
+        console.log(JSON.stringify(countName)) //{Alice: 2, Bob: 1, Tiff: 1, Bruce: 1}
+
+        let maxValue=0;
+        let maxChar='';
+        for(let key in countName){
+          let value=countName[key];
+          if(value>maxValue){
+            maxValue=value;
+            maxChar=key;
+          }
+        }
+
+        console.log(maxChar,maxValue)
+
+    }
+    
+  </script>
+
+
+  <button type="button" onclick="promiseRun()"> reduce按顺序运行promise</button>
+  <script type="text/javascript">
+ 
+    function promiseRun(){
+      
+        function runPromiseInSequence(arr, input) {
+          return arr.reduce(
+            (promiseChain, currentFunction) => promiseChain.then(currentFunction),
+            Promise.resolve(input)
+          );
+        }
+
+        // promise function 1
+        function p1(a) {
+          return new Promise((resolve, reject) => {
+
+            resolve(a * 5);
+          });
+        }
+
+        // promise function 2
+        function p2(a) {
+          return new Promise((resolve, reject) => {
+            resolve(a * 2);
+          });
+        }
+
+        // function 3  - will be wrapped in a resolved promise by .then()
+        function f3(a) {
+         return a * 3;
+        }
+
+        // promise function 4
+        function p4(a) {
+          return new Promise((resolve, reject) => {
+            resolve(a * 4);
+          });
+        }
+
+        // const promiseArr = [p1, p2, f3, p4];
+        // runPromiseInSequence(promiseArr, 10)
+        //   .then(console.log);   // 1200
+
+
+         Promise.resolve(10).then(p1).then((num)=>{
+          console.log(num)
+         })
+
+    }
+    
+  </script>
+
+  <button type="button" onclick="testThis()"> 深拷贝</button>
+  <script type="text/javascript">
+    function testThis(){
+     let  obj = {
+        a: 10,
+        c: function () {
+          b = function()  {
+            //指向window  
+            console.log(this)         //指向window  
+          }
+          b()
+        },
+        d: function () {
+          b =  ()=>  {
+            console.log(this)           //指向obj
+          }
+          b()
+        }
+      }
+      obj.c.call({name:'jack'})
+      obj.d.call({name:'jack'})
+ 
+    }
+
+      
+  </script>
  
 </body>
 </html>
