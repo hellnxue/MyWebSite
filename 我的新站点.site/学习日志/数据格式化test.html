@@ -23,19 +23,19 @@
  </button>
 
   <button class="btn"  onclick="test1()">
-    英文对象比对中文对象，给中文对象添加英文对应的可以，并且data 格式化
+    英文对象比对中文对象，给中文对象添加英文对应的key，并且data 格式化
  </button>
    
   <script type="text/javascript">
 
     function test11(){
        let str=`创建ASN
-已预约
-已取消
-ASN信息
-`
+                已预约
+                已取消
+                ASN信息
+                `
         // console.log(str.split(/[(\r\n)\r\n]+/))
-        let ary=str.split(/[(\r\n)\r\n]+/);
+        let ary=str.split(/[(\r\n)\r\n]+/);// \r 回车符   \n 换行符
         let namStr='name';
         let tempObj={};
         ary=ary.map((item,index)=>{
