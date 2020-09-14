@@ -17,11 +17,26 @@
   #div button{
     margin: auto;
   }
+
+  .bubble{
+    padding: 20px;
+  }
+
+  #bubble1{
+    background-color: #abcdef;
+    margin-top: 30px;
+  }
+  #bubble2{
+    background-color: pink;
+  }
+  #bubble3{
+    background-color: gold;
+  }
 </style>
 </head>
 
 <body>
-<p>-----------------------事件对象 ：event.eventPhase:调用事件处理程序的阶段：1 捕获 2 "处于目标"  3 冒泡阶段--------------------</p>
+<p>------事件对象 ：event.eventPhase:调用事件处理程序的阶段：1 捕获 2 "处于目标"  3 冒泡阶段--------------------</p>
 <input type="button" value="aaaaaaaa" id="eventBtn"/>
 
 
@@ -32,35 +47,71 @@
 </div>
 
 
+<div id="bubble1" class="bubble">
+  <div id="bubble2" class="bubble">
+    <div id="bubble3" class="bubble">inner</div>
+  </div>
+</div>
+
+
 <script>
   var dombtn=$("#eventBtn")[0];
-  dombtn.onclick=function(event){
-    console.log("dombtn.onclick="+event.eventPhase);//2 处于目标阶段，触发的元素注册了事件的元素
-  }
+  // dombtn.onclick=function(event){
+  //   console.log("dombtn.onclick="+event.eventPhase);//2 处于目标阶段，触发的元素注册了事件的元素
+  // }
   
-  document.body.addEventListener("click",function(event){
+  // document.body.addEventListener("click",function(event){
     
-    console.log("document.body.addEventListener="+event.eventPhase);//1 捕获阶段的
-  },true)
+  //   console.log("document.body.addEventListener="+event.eventPhase);//1 捕获阶段的
+  // },true)
   
-  document.body.onclick=function(event){
-    console.log("document.body.onclick="+event.eventPhase);//3 冒泡阶段
-  }
+  // document.body.onclick=function(event){
+  //   console.log("document.body.onclick="+event.eventPhase);//3 冒泡阶段
+  // }
 
 
 
   // 事件冒泡测试
-  document.getElementById("btn").addEventListener("click",showType);
-  document.getElementById("div").addEventListener("click",showDiv);
+  document.getElementById("btn").addEventListener("click",showType,false);
+  document.getElementById("div").addEventListener("click",showDiv,false);
+
+
   function showType(event){
       console.log('按钮被点击。。。。。'+event.type);
-      event.stopPropagation();//阻止事件冒泡至包含按钮的div中
+      // event.stopPropagation();//阻止事件冒泡至包含按钮的div中
   }
 
-  function showDiv(){
-      console.log("点击事件冒泡至div");
+  function showDiv(event){
+      console.log("点击事件冒泡至div",event.type);
+      console.log(event.target)
   }
   
+//-----------让触发事件的元素等于绑定事件的元素，也可以阻止事件冒泡；
+  var ele3=document.getElementById("bubble3");
+  var ele2=document.getElementById("bubble2");
+  var ele1=document.getElementById("bubble1");
+
+  ele3.onclick=function(event){
+    console.log('所处阶段'+event.eventPhase, '3')
+    // if(event.target==event.currentTarget){
+    //   console.log('tag', '3')
+    // }
+  }
+
+  ele2.onclick=function(event){
+    console.log('所处阶段'+event.eventPhase, '2')
+    // if(event.target==event.currentTarget){
+    // console.log('tag', '2')
+    // }
+  }
+
+  ele1.onclick=function(event){
+    console.log('所处阶段'+event.eventPhase, '1')
+    // if(event.target==event.currentTarget){
+    // console.log('tag', '1')
+    // }
+  }
+
 </script>
 
 
