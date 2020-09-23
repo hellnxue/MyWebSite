@@ -1,0 +1,111 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>防抖和节流</title>
+<style>
+    button{
+      display:  block;
+      width: 40%;
+      min-height: 30px;
+      border: none;
+      margin: 20px;
+      border-radius: 10px;
+  
+  
+    }
+  </style>
+ 
+</head>
+
+<body>
+  
+
+  <h5>给滚动事件处理函数添加节流处理</h5>
+  <p>Holmes stretched out his hand for the manuscript and flattened it upon
+  his knee. &ldquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;You will observe, Watson, the alternative use of the
+  long s and the short. It is one of several indications which enabled me
+  to fix the date.&rdquo; At the head was written: &ldquo;;Baskerville
+  Hall,&rdquo; and below in large, scrawling figures: &ldquo;;1742.&rdquo;</p>
+
+  <script type="text/javascript">
+
+
+    /*
+     为添加节流函数处理的效果，不停地打印内容
+    window.onscroll=function(){
+      console.log('hello world')
+    }*/
+
+    
+
+    /*
+      获取第一次触发事件的时间戳
+      获取第二次触发事件的时间戳
+      时间差如果大于某个阈值就执行函数，然后重置第一个时间
+
+
+      这里的delay就是调用函数的时间间隔，无论多么频繁的调用fn，只有remaining>=delay时fn才能被执行。
+    */
+    function throlltt(fn,delay){
+      let previous=null;
+
+      return function(){
+        if(!previous){
+          previous=0;
+        }
+        let now=new Date();
+        let context=this;
+        let args=arguments;
+
+        let remating=now-previous;
+        if(delay&&remating>=delay){
+          fn.apply(context,arguments)
+          previous=now
+        }
+
+      }
+    }
+    let scrollFn=function(e){
+      console.log('hello e.type=',e.type)
+    }
+
+    window.onscroll=throlltt(scrollFn,1000);
+
+    
+  </script>
+ 
+</body>
+</html>
