@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>左边固定右侧自适应的布局</title>
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+	}
+   .box{
+	   	width: 100%;
+	   	height: 100px;
+	   	/*border: 1px solid blue;*/
+    }
+
+    h5{
+    	width: 70%;
+    	height: 50px;
+    	margin: 40px auto;
+    	line-height: 50px;
+    	border: 2px solid orange;
+    	border-radius: 20px;
+    	font-size: 18px;
+    	text-align: center;
+    }
+
+    /*统一样式...................start*/
+    .box{
+      overflow: hidden;
+      border: 1px solid green;
+      box-sizing: border-box;
+
+    }
+
+    .box .left,
+    .box .right,
+    .box .center{
+      height: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .box .left{
+       background: pink;
+       width: 100px;  
+    }  
+
+    .box .right{
+       background: gold;
+       width: 100px;  
+    } 
+
+    .box .center{
+       background: peachpuff;
+       border: 2px solid yellow;
+    }   
+
+    /*统一样式...................end*/
+
+
+  /*方法一........利用float布局...........start*/
+    .box1 .left{
+      float: left;
+
+    }  
+
+    .box1 .right{
+      float: right;
+
+    } 
+
+    .box1 .center{
+      width: calc( 100% - 200px);
+      display: inline-block;
+    }
+
+  /*方法一...................end*/
+
+ 
+  /*方法二........利用flex布局...........start*/
+
+    .box2{
+      display: flex;
+
+    }
+
+    .box2 .center{
+      flex: 1;  /*设置flex值使元素获得可伸缩特性*/
+    }
+
+
+  /*方法三........利用flex布局...........start*/
+
+  .box3{
+    position: relative;
+
+  }
+
+  .box3 .left,
+  .box3 .right{
+    position: absolute;
+  }
+
+  .box3 .left{
+    left: 0
+  }
+
+  .box3 .right{
+    right: 0;
+    top: 0;  /*浏览器的默认行为会让right元素待在center下面，用top:0;让right跟center并排*/
+  }
+
+  .box3 .center{
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+
+
+  /*方法四........ ...........start*/
+  .box4{
+    display: table;
+  }
+
+  .box4 .left,
+  .box4 .right,
+  .box4 .center{
+    display: table-cell;
+  }
+  
+</style>
+</head>
+<body>
+	 <h5>方法一：float布局  左右大小固定，左边float:left  右边：float:right  中间：display:inline-block;
+    如果中间不设置inline-block，默认是block元素，会把右边的浮动元素挤下去，因为即使block的元素设置了很小的宽度，它依旧是块级元素，默认占满一行。而设置成inline-block后则只占一行的一部分，与浮动元素并排在一行。</h5>
+
+	 <div class="box box1">
+  	 	<div class="left">left</div>
+      <div class="center">center</div>
+  	 	<div class="right">right</div>
+	 </div>
+
+
+   <h5>方法二：flex布局 最佳方法  三个元素不用设置box-sizing:border-box都可以，且高度默认占满父元素的高度</h5>
+   <div class="box box2">
+      <div class="left">left</div>
+      <div class="center">center</div>
+      <div class="right">right</div>
+   </div>
+
+
+   <h5>方法三：position布局</h5>
+   <div class="box box3">
+      <div class="left">left</div>
+      <div class="center">center</div>
+      <div class="right">right</div>
+   </div>
+
+
+   <h5>方法四：display:table布局？</h5>
+   <div class="box box4">
+      <div class="left">left</div>
+      <div class="center">center</div>
+      <div class="right">right</div>
+   </div>
+	 
+</body>
+</html>
