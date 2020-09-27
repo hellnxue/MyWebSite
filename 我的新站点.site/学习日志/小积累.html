@@ -1,0 +1,132 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>日积月累-小积累</title>
+<style>
+    button{
+      display:  block;
+      width: 40%;
+      min-height: 30px;
+      border: none;
+      margin: 20px;
+      border-radius: 10px;
+  
+  
+    }
+  </style>
+ 
+</head>
+
+<body>
+  <button class="btn"  onclick="test11()">
+    data 格式化---给每一行的值加key
+ </button>
+ 
+   
+  <script type="text/javascript">
+
+    let foo=function (){
+       
+    };
+
+    (function test11(){
+      foo='hello sir';
+      console.log('foo',foo)
+    })()
+
+     
+    
+  </script>
+
+  <h5 onclick="test22()">对象中的方法中执行方法，this指向问题</h5>
+  <script type="text/javascript">
+      function test22(){
+        let obj={
+          aa:100,
+          fn1:function(){
+            console.log('fn1===',this)
+            function fninner(){
+              console.log('fn1 fninner=',this)
+            }
+
+            fninner()
+          },
+
+          fn2:()=>{
+            console.log('fn2===',this)
+            function fninner(){
+              console.log('fn2 fninner=',this)
+            }
+
+            fninner()
+          }
+        }
+
+        obj.fn1()
+
+        obj.fn2()
+
+      }
+  </script>
+
+  <h5 onclick="bubble()">冒泡</h5>
+
+  <script type="text/javascript">
+    function bubble(){
+      let ary=[3,2,6,1,7,8,9,10];
+      let x=0
+      let lastIndex=0;
+      let sortedBoder=ary.length-1;
+
+      for(let i=0;i<ary.length;i++){
+
+
+        let flag=true;
+
+        for(let j=0;j<sortedBoder;j++){
+        console.log(' 循环===='+x++,ary[j]);
+
+          if(ary[j]>ary[j+1]){
+            let temp=ary[j];
+            ary[j]=ary[j+1];
+            ary[j+1]=temp;
+            flag=false;
+            lastIndex=j
+
+          }
+        }
+
+        sortedBoder=lastIndex  
+        if(flag){
+          break;
+        }
+      }
+
+      console.log('ary=========',ary)
+    }
+  </script>
+
+  <h5 onclick="aryQC()">数组乱序</h5>
+  <script type="text/javascript">
+    
+    function aryQC(){
+      let arr=[1,2,3,4,5];
+
+      for (let i=arr.length-1; i>=0; i--) {
+          let rIndex = Math.floor(Math.random()*(i+1));
+          console.log(rIndex)
+          // 打印交换值
+          let temp = arr[rIndex];
+          arr[rIndex] = arr[i];
+          arr[i] = temp;
+        }
+
+      // console.log(arr)
+    }
+  </script> 
+
+
+
+ 
+</body>
+</html>
