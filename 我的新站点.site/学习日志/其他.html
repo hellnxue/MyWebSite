@@ -133,5 +133,53 @@
     }
 
 </script>
+
+<button type="button" onclick="test7()">事件循环</button>
+<script type="text/javascript">
+  function test7(){
+      setTimeout(function(){
+          console.log('定时器开始啦')
+      });
+
+      new Promise(function(resolve){
+          console.log('马上执行for循环啦');
+          for(var i = 0; i < 10000; i++){
+              i == 99 && resolve();
+          }
+      }).then(function(){
+          console.log('执行then函数啦')
+      });
+
+      console.log('代码执行结束');
+  }
+</script>
+
+<button type="button" onclick="test8()">闭包接收参数</button>
+<script type="text/javascript">
+
+  function bb(a,b){
+
+    return function(){
+      console.log('闭包',Array.from(arguments))
+    }
+  }
+  function test8(){
+      let fn=bb(1,2)
+      fn(1,2,3)
+  }
+</script>
+
+<button type="button" onclick="test9()">arguments接收函数参数，即使函数在定义时未在括号中声明，在函数执行时，也可以通过arguments接收执行时获取的参数</button>
+<script type="text/javascript">
+
+  function fnArgs(){
+
+    console.log('函数参数',Array.from(arguments))
+  }
+  function test9(){
+      fnArgs(100,200,300)
+  }
+</script>
+
 </body>
 </html>
