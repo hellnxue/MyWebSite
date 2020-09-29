@@ -125,6 +125,55 @@
     }
   </script> 
 
+  <h5 onclick="qianfen()">数字千分位格式化，德文的千分位分隔符是 .   小数分隔符是 , </h5>
+  <script type="text/javascript">
+     
+     
+    function formatNumber({
+      nStr=0,
+      decimals=2,
+      decimal='.',
+      separator=',',
+      useGrouping=true,
+      lang=''
+    }={}) {
+
+       if(lang==='de-DE'){
+          decimal=',';
+          separator='.'
+       }
+        nStr = nStr.toFixed(decimals);
+        nStr += '';
+        var x, x1, x2, rgx;
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? decimal + x[1] : '';
+        rgx = /(\d+)(\d{3})/;
+        if (useGrouping) {
+            while (rgx.test(x1)) {
+                x1 = x1.replace(rgx, '$1' + separator + '$2');
+            }
+        }
+        return   x1 + x2  ;
+    };
+    
+    function qianfen(){
+      
+      let num=2100000006.6666;
+      // let num=2100000006;
+
+      // console.log(numFormat(num))
+
+      // console.log(formatNumber(num,3,',','.',true))
+      let rlt=formatNumber({ nStr:num, useGrouping:true,lang:'de-DE'})
+
+      console.log(typeof rlt,rlt)
+
+       
+    }
+  </script> 
+  <h5
+
 
 
  
