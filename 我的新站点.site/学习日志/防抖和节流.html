@@ -72,6 +72,8 @@
     
 
     /*
+     节流：所谓的函数节流，也就是让一个函数不要执行的太频繁，减少一些过快的调用来节流。
+     
       获取第一次触发事件的时间戳
       获取第二次触发事件的时间戳
       时间差如果大于某个阈值就执行函数，然后重置第一个时间
@@ -79,7 +81,7 @@
 
       这里的delay就是调用函数的时间间隔，无论多么频繁的调用fn，只有remaining>=delay时fn才能被执行。
     */
-    function throlltt(fn,delay){
+   /* function throlltt(fn,delay){
       let previous=null;
 
       return function(){
@@ -102,9 +104,29 @@
       console.log('hello e.type=',e.type)
     }
 
-    window.onscroll=throlltt(scrollFn,1000);
+    window.onscroll=throlltt(scrollFn,1000);*/
 
-    
+    //节流：对于短时间内连续触发的函数，如滚动事件，防抖的含义就是让某个时间期限内(如1s)，事件处理函数值执行一次。
+
+    function debounce(fn,delay){
+        let timer = null //借助闭包
+        return function() {
+            if(timer){
+                clearTimeout(timer) 
+            }
+            timer = setTimeout(()=>{
+
+              fn.apply(this,arguments)
+
+            },delay) // 简化写法
+        }
+    }
+
+     let scrollFn=function(e){
+        console.log('hello e.type=',e.type )
+      }
+
+      window.onscroll=debounce(scrollFn,1000);
   </script>
  
 </body>
