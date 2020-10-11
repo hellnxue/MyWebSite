@@ -64,7 +64,7 @@
 
 
     /*
-     为添加节流函数处理的效果，不停地打印内容
+     未添加节流函数处理的效果，不停地打印内容
     window.onscroll=function(){
       console.log('hello world')
     }*/
@@ -106,7 +106,7 @@
 
     window.onscroll=throlltt(scrollFn,1000);*/
 
-    //节流：对于短时间内连续触发的函数，如滚动事件，防抖的含义就是让某个时间期限内(如1s)，事件处理函数值执行一次。
+    //防抖：对于短时间内连续触发的函数，如滚动事件，防抖的含义就是让某个时间期限内(如1s)，事件处理函数值执行一次。
 
     function debounce(fn,delay){
         let timer = null //借助闭包

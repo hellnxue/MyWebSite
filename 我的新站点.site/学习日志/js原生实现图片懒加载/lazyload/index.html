@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>lazyload</title>
+  <link rel="stylesheet" href="./normalize.css" />
+  <link rel="stylesheet" href="./index.css" />
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <nav>原文：https://juejin.im/post/6844903498350329870</nav>
+  <div class="container">
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img1.png">
+    </div>
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img2.png">
+    </div>
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img3.png">
+    </div>
+    <div class="img-area" id="my-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img4.png">
+    </div>
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img5.png">
+    </div>
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img6.png">
+    </div>
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img7.png">
+    </div>
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img8.png">
+    </div>
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img9.png">
+    </div>
+    <div class="img-area">
+      <img class="my-photo" alt="loading" data-src="http://axuebin.com/lazyload/img/img10.png">
+    </div>
+  </div>
+  <script>
+    window.onload=checkImgs;
+    window.onscroll = throttle(checkImgs);
+  </script>
+</body>
+
+</html>

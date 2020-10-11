@@ -8,14 +8,30 @@
 .radius{
   width: 100px;
   height: 100px;
+  margin-left: 50px;
   background: pink;
-  border-radius: 0 50% 50% 0;
+  
+}
+
+.radius::before {
+    content: '';
+    display: block;
+    background: yellow;
+    margin-left: 50%;
+    height: 100%;
+    border-radius: 0 100% 100% 0 / 50%;/*相当于 0 100% 100% 0 / 50% 50% 50% 50%;
+      也就是：
+      border-top-left-radius:0 50%;
+      border-top-right-radius:100% 50%;
+      border-bottom-right-radius:100% 50%;
+      border-bottom-left-radius:0 50%;
+    */
 }
 
  .pie{
   width: 100px;
   height: 100px;
-  margin: 300px 0 0 300px;
+  margin: 100px 50px 50px ;
   border-radius: 50%;
   background: yellowgreen;
   background-image: linear-gradient(to right,transparent 50%, #655 0);
@@ -32,6 +48,77 @@
  }
 
 
+
+ .my-pie{
+    width: 100px;
+    height: 100px;
+    margin: 100px;
+    border-radius: 50%;
+    background: yellowgreen;
+    background-image: linear-gradient(to right,transparent 50%,pink 0);
+
+ }
+
+
+ /*.my-pie::before{
+    content: '';
+    height: 100%;
+    display: block;
+    margin-left: 50%;
+    background-color: purple;
+    border-radius: 0 100% 100% 0 / 50%;
+    transform-origin: left;
+    transform: rotate(0deg);
+    animation:  spin 3s linear infinite,
+                bg 6s step-end infinite;
+  
+ }
+
+
+ @keyframes spin{
+  to { transform: rotate(.5turn); }
+ }
+
+ @keyframes bg{
+  0% { background: black; }
+
+  20% { background: green; }
+
+  50% { background: gold; }
+
+  100% { background: red; }
+ }*/
+
+ .my-pie::before{
+    content: '';
+    height: 100%;
+    display: block;
+    margin-left: 50%;
+    background-color: purple;
+    border-radius: 0 100% 100% 0 / 50%;
+    transform-origin: left;
+    transform: rotate(0deg);
+    animation:  spin 3s linear infinite,
+                bg 6s step-end infinite;
+  
+ }
+
+
+ @keyframes spin{
+  to { transform: rotate(.5turn); }
+ }
+
+ @keyframes bg{
+
+  /*0% { background: red; }*/
+
+  50% { background: gold; }
+
+ }
+
+ 
+
+
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
@@ -39,6 +126,10 @@
    <div class="pie"></div>
 
    <div class="radius"></div>
+
+   <div class="my-pie"></div>
+
+  
 
 </body>
 </html>
