@@ -128,7 +128,18 @@
   <h5 onclick="qianfen()">数字千分位格式化，德文的千分位分隔符是 .   小数分隔符是 , </h5>
   <script type="text/javascript">
      
-     
+  /**
+   * 
+   * @param {*} param0 
+   * 
+   * 
+    nStr=0,         //格式化数值
+    decimals=2,     //小数后几位
+    decimal='.',    //小数分隔符
+    separator=',',  //千分位分隔符
+    useGrouping=true//是否分组
+    lang            //语言类型，用于区分德语环境下千分位为'.'   小数点分隔符为','
+    */
     function formatNumber({
       nStr=0,
       decimals=2,
@@ -137,11 +148,18 @@
       useGrouping=true,
       lang=''
     }={}) {
-
-       if(lang==='de-DE'){
+        let noChangeNstr=nStr;
+        if(typeof nStr!=='number'){
+          nStr=parseFloat(nStr);
+          if(isNaN(nStr)){
+            return noChangeNstr;
+          }
+        }
+       
+        if(lang==='de-DE'){
           decimal=',';
           separator='.'
-       }
+        }
         nStr = nStr.toFixed(decimals);
         nStr += '';
         var x, x1, x2, rgx;
