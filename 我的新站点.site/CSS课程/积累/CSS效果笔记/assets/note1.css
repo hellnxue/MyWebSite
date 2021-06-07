@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* CSS Document */
+ .block-vs-inline{
+ 	background: #abcdef;
+ 	border: 1px solid green;
+ 	width: 50%;
+ 	margin: 0 auto;
+ }
+
+  .block-vs-inline p{
+  	 background: pink;
+ 	 width: 300px;
+ }
+
+
+ /**/
+ .m-position{
+ 	background: #abcdef;
+	background-clip: content-box;
+ 	width: 500px;
+	margin: 0 auto;
+	border: 11px solid pink;
+	height: 100px;
+	position: relative;
+	padding: 30px;
+	
+ }
+
+ .m-position .inner{
+	background: gold;
+ 	width: 50px;
+	height: 50px;
+ 	position: absolute;
+	left: 0;
+	top: 0;
+ }
+
+
+ .none{
+ 	display: none;
+ }
+
+
+ .position-test{
+ 	position: relative;
+ 	height: 300px;
+ }
+
+
+ .position-test .inner{
+ 	background: #abcdef;
+ 	width: 200px;
+ 	height: 200px;
+ 	margin: auto;
+
+ 	position: absolute;
+ 	left: 0;
+ 	right:0;
+ 	top: 0;
+ 	bottom: 0;
+ 	text-align: center;
+ 	line-height: 200px;
+ }
+
+
+
+/*-------------------*/
+.bg-selected{
+	display: flex;
+	justify-content: center;
+}
+
+.bg-selected .label{
+	width: 80px;
+    height: 30px;
+    margin: 10px;
+    background-position: right bottom;
+    background-image: linear-gradient(135deg, #fff 55%, #358EFE 55%);
+    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    border: 1px solid #358EFE;
+    color: #358EFE;
+    text-align: center;
+    line-height: 30px;
+
+}
+
+
+
+/*------------*/
+.f-wrap{
+	display: flex;
+	flex-direction: row;
+	width: 60%;
+	height: 100vh;
+	margin: 0 auto;
+	border: 1px solid green;
+}
+
+
+.f-wrap .left{
+	width: 200px;
+	border: 1px solid pink;
+	display: flex;
+    flex-direction: column;
+	 
+}
+.f-wrap .left .top{
+	border:1px solid orange;
+	height: 30px;
+}
+
+.f-wrap .left .bottom{
+	border: 1px solid blue;
+    flex: 1;
+    height: calc(100% - 30px);
+    overflow-y: scroll;
+}
+
+.f-wrap .right{
+	border: 1px solid purple;
+	flex: 1;
+	 
+}
+
+
+/*border-radius制作半椭圆*/
+.bdrd{
+	width: 100px;
+	height: 200px;
+	margin: 0 auto;
+	background: pink;
+	/*border-radius: 50%/ 100% 100% 0 0;*/ /*四个角按照顺时针分别是  50% 100%; 50% 100%; 0 0 ; 0 0 ; 头顶为半圆*/
+
+	border-radius: 100% 0 0 100%/ 50% 0 0 50%; /*左边为半圆*/
+}
+
+
+
+.text-color-gradient{
+		font-size: 26px;
+        background: linear-gradient(90deg, yellow 0%, green 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+        text-align: center;
+}

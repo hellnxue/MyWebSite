@@ -53,5 +53,104 @@ function test(){
 
 <button onclick="test"  >await</button>
 
+
+<button onclick="handelData()"  >数据格式化</button>
+<button onclick="suanfa()"  >算法（计算一组复选框当中，有纯复选框，有复选框+输入框，只要选择了第二种，输入框的值必须不为空时才验证必填项通过.....）</button>
+
+
+<button onclick="reduceTest()"  >数组reduce的使用</button>
+
+
+
+<script type="text/javascript">
+  function handelData(){
+    let data=[
+            {
+                text: '壳牌',
+                checked: false
+            },
+            {
+                text: '克鲁勃',
+                checked: false
+            },
+            {
+                text: '邦克',
+                checked: false
+            },
+            {
+                text: '特国',
+                checked: false
+            },
+            {
+                text: '其他',
+                checked: false,
+                input: true,
+                inputValue: '',
+                placeholder: ''
+            }
+        ]
+
+      data.map(item=>{
+        item.class='w33'
+        // item.class='w50'
+        if(item.text==='其他'){
+          item.class='flex-start'
+        }
+
+      })
+
+      console.log(JSON.stringify(data))
+
+
+  }
+
+
+  function suanfa(){
+    let data=[
+            { text: '易特斯', checked: false },
+            { text: '其他', checked: false, input: true, inputValue: '444' }, 
+
+            { text: '天成', checked: true  },
+            { text: '其他', checked: true, input: true, inputValue: '' },
+            { text: '其他', checked: true, input: true, inputValue: '111' }, 
+
+
+            ]
+
+
+    
+    let other = false
+    let otherIn = 0
+    let rlt2=data.filter(item=>{
+      if (item.input && item.checked) {
+        other = true
+        otherIn ++
+      }
+      return item.input && item.checked && item.inputValue
+    })
+    let rlt3=data.some(item=>{
+      return !item.input && item.checked
+    })
+
+    let rlt=other ? rlt2.length === otherIn : rlt3
+    console.log(rlt)
+
+   
+    
+  }
+
+
+  //reduce
+  function reduceTest(){
+    let ary=[1,2,3,4]
+    let rlt=ary.reduce(((accm,currentValue)=>accm+currentValue),10)
+    console.log(rlt)
+
+    let aryObj=[{a:1},{a:2},{a:3},{a:4}]
+    //accm是累加器  当提供了初始值时(此处是0),currentValue才从数组的第一个元素算起，否则从数组下标为1的元素算起
+    let rlt1=aryObj.reduce(((accm,currentValue)=>accm+currentValue.a),0)
+    console.log(rlt1)
+
+
 </body>
 </html>
