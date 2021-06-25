@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: lxp
+ * @Date: 2020-10-26 17:47:17
+ * @LastEditTime: 2021-06-11 11:07:23
+ * @LastEditors: lxp
+-->
 <!DOCTYPE html  >
 <html >
 <head>
@@ -18,8 +25,9 @@
     window.addEventListener('message', function(e) {
         console.log('data from localhost ---> ' + e.data);
 		console.log(e)
+         
 		//判断来源，安全策略
-		if(e.origin!=='http://localhost:8081'){
+		if(e.origin!=='http://localhost:8080'){
 			return;
 		}
         var data = JSON.parse(e.data);

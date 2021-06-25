@@ -1,0 +1,50 @@
+<!--
+ * @Description: 
+ * @Author: lxp
+ * @Date: 2021-06-10 11:26:23
+ * @LastEditTime: 2021-06-10 14:17:36
+ * @LastEditors: lxp
+-->
+ 
+<!DOCTYPE html >
+<html  >
+<head>
+<meta charset="utf-8" />
+<title>flex:1</title>
+<style>
+  .container {display:flex;width:200px;height:100px;}
+  .one{ flex:2 1 100px;}
+  .two{ flex:2 2 100px;}
+  .three{ flex:1 2 100px;}
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+  <a href="https://www.cnblogs.com/0314dxj/p/14705398.html" >here</a>
+   <div  class="container">
+     <div class="one" onclick="test()">one</div>
+     <div class="two">two</div>
+     <div class="three">three</div>
+   </ul>
+   <script>
+       let timer=()=>{
+           return new Promise((resolve,reject)=>{
+               setTimeout(()=>{
+                   console.log('执行完毕.....')
+                   resolve('over')
+               },3000)
+           })
+       }
+      async function test(){
+        //  let tm=await timer()
+        //  console.log(tm)
+                                                                                                     
+        let tm=timer()
+        Promise.all([tm]).then(result=>{
+            console.log(result) //['over']
+        })
+
+       }
+   </script>
+</body>
+</html>

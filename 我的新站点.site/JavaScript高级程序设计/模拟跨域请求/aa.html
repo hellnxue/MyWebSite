@@ -1,3 +1,10 @@
+<!--
+ * @Description: 
+ * @Author: lxp
+ * @Date: 2020-10-26 17:47:17
+ * @LastEditTime: 2021-06-17 13:45:23
+ * @LastEditors: lxp
+-->
 <!DOCTYPE html  >
 <html >
 <head>
@@ -14,7 +21,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
 
 <body>
-<iframe id="iframe" src="http://127.0.0.1:8081/bb.html" style="display:none;"></iframe>
+<!-- <iframe id="iframe" src="http://127.0.0.1:8080/bb.html" style="display:none;"></iframe> -->
+<iframe id="iframe" src="http://127.0.0.1:8080/bb.html"  ></iframe>
+
 <h3 class="h1">hello aa.html  用http://localhost:8081访问页面，测试跨域信息请求
 	<p>domain1:http://localhost:8081</p>
 	<p>domain2:http://127.0.0.1:8081</p>
@@ -26,15 +35,17 @@
             name: 'aym'
         };
         // 向domain2传送跨域数据
-        iframe.contentWindow.postMessage(JSON.stringify(data), 'http://127.0.0.1:8081');
+        iframe.contentWindow.postMessage(JSON.stringify(data), 'http://127.0.0.1:8080');
     };
 
     // 接受domain2返回数据
     window.addEventListener('message', function(e) {
 		console.log('ee');
 		console.log(e);
+        
+        console.log('e.origin11',e.origin)
 		//判断来源，安全策略
-		if(e.origin!=='http://127.0.0.1:8081'){
+		if(e.origin!=='http://127.0.0.1:8080'){
 			return;
 		}
         console.log('data from 127.0.0.1 ---> ' + e.data);
