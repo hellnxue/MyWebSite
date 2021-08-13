@@ -1,0 +1,52 @@
+<!--
+ * @Description: 
+ * @Author: lxp
+ * @Date: 2021-06-25 11:10:35
+ * @LastEditTime: 2021-08-12 10:39:23
+ * @LastEditors: lxp
+-->
+ 
+<!DOCTYPE html  >
+<html >
+<head>
+<meta  charset="utf-8" />
+<title>链表</title>
+<style>
+  .div{
+    overflow: hidden;
+    height: 118px;
+}
+.box{
+    background: #eee;
+    padding: 10px 0;
+    white-space: nowrap;/*文本不会换行，文本会在在同一行上继续*/
+    overflow-y:auto;/*可滑动*/
+}
+/*自定义滚动条的伪对象选择器, CSS 可以隐藏滚动条*/
+/*.box::-webkit-scrollbar{
+    display: none;
+}*/
+.box1{
+    width: 49%;
+    margin-left: 3%;
+    height: 100px;
+    background: #fff;
+    display: inline-block;/*行内块元素*/
+}
+   
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>
+
+<body>
+  <!--外部嵌套层-->
+<!-- <div class="div"> -->
+    <div class="box">
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+        <div class="box1"></div>
+    </div>
+<!-- </div> -->
+</body>
+</html>
