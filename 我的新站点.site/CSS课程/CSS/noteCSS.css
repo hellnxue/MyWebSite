@@ -5,12 +5,13 @@
 h3{
 	margin:30px;
 	background-color:#FFFF99;
+    border: 1px solid pink;
+    padding: 6px 10px;
 	border-radius:10px;
 	text-align: center;
 	color:#FF66FF;
 	background:-moz-linear-gradient(left,#64d1dd, #FFF 50%, #64d1dd);
 	font-size:1.2em;
-	
 }
 
 .yellow_gradient{
@@ -1134,18 +1135,58 @@ ul.type-lists li{
     height: 200px;
     background-color: pink;
     border-bottom-left-radius: 50%;/*设置左下角圆角样式*/
-    border-bottom-right-radius: 50%;/*设置右下角圆角样式*/
-    
+    border-bottom-right-radius: 50%;/*设置右下角圆角样式*/  
 
 }
 
 
 
 
+.flex-margin{
+    width: 500px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid purple;
+     
+}
+
+.flex-margin.flex{
+    display: flex;
+
+}
+
+.flex-margin>div{
+    border: 1px solid green;
+}
+
+.flex-margin .one{
+    background-color: orange;
+    height: 200px;
+}
+
+.flex-margin .two{
+    background-color: yellow;
+    margin-bottom: 50px;
 
 
+}
+
+.flex-margin .three{
+    background-color: pink;
+    margin-top: 50px;
+
+}
+
+.flex-margin .four{
+    background-color: purple;
+}
 
 
+.no-border{
+    background: #dcf1c4;
+    border: none;
+}
 
 
 

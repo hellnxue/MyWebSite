@@ -422,6 +422,22 @@ position:absulute哎----</h3>
   </div>
 
 
+  <h3>弹性盒子布局与margin：弹性子元素设置margin后不会越过父元素与父元素的margin重叠，跟普通盒子布局父元素设置了border，子元素设置margin-top或margin-bottom的效果一致</h3>
+  <div class="flex-margin flex">
+    <div class="one">设置了高度</div>
+    <div class="two">未设置高度，设置margin-bottom:50px</div>
+    <div class="three">未设置高度，设置margin-top:50px</div>
+    <div class="four">未设置高度与margin</div>
+  </div>
+
+  <div class="flex-margin no-border " style="margin-top: 20px;height: 200px;">
+    <div class="three"> 处在父元素中的子元素，设置margin-top:50px;后会与父元素的margin-top重叠</div>
+  </div>
+
+  <div class="flex-margin   " style="margin-top: 20px;height: 200px;">
+    <div class="three"> 当父元素设置了border后再看下效果：处在父元素中的子元素，设置margin-top:50px;后不会会与父元素的margin-top重叠</div>
+  </div>
+
 <script type="text/javascript" src="../../js/jquery-2.0.0.min.js"></script>
 <script type="text/javascript" src="../../js/myJs.js"></script>
 </body>
