@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: lxp
  * @Date: 2021-08-04 20:56:35
- * @LastEditTime: 2021-08-13 19:28:29
+ * @LastEditTime: 2021-08-20 15:03:30
  * @LastEditors: lxp
 -->
  
@@ -49,6 +49,26 @@
      <div class="box3">设置了固定宽度，未设置固定高度，子元素自适应高度</div>
  </div>
 <script>       
+
+    let timer=null
+    timer=setTimeout(()=>{
+        console.log('执行.........................')
+
+    },1000)
+
+
+    setTimeout(()=>{
+        console.log('取消执行.........................')
+
+        clearTimeout(timer)
+
+    },1000)
+
+    setTimeout(()=>{
+        console.log('hello world........................')
+
+
+    },1000)
       function defaultCompare(a, b) {
         if (a === b) {
             return Compare.EQUALS;

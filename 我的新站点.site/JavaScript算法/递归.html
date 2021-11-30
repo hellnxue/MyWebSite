@@ -2,7 +2,7 @@
  * @Description: 
  * @Author: lxp
  * @Date: 2021-08-04 20:56:35
- * @LastEditTime: 2021-08-05 22:03:41
+ * @LastEditTime: 2021-11-30 09:35:51
  * @LastEditors: lxp
 -->
  
@@ -10,7 +10,7 @@
 <html >
 <head>
 <meta  charset="utf-8" />
-<title>链表</title>
+<title>递归</title>
 <style>
   h3{ 
    	font-size: 30px;
@@ -24,46 +24,15 @@
 <body>
  
 <script>       
-    function fibonacciIterative(n){
-        if(n<1) return 0
-        if(n<=2) return 1
-
-        let fibMin2=1
-        let fibMin1=1
-        let fibN=n
-        for(let i=3;i<=n;i++){
-            fibN=fibMin1+fibMin2
-            fibMin2=fibMin1
-            fibMin1=fibN
-
-        }
-        return fibN
-    }
-
-    // console.log('hello',fibonacciIterative(6));
-
-    function fibonacciRcv(n){
-        if(n<1) return 0
-        if(n<=2) return 1
-        return fibonacciRcv(n-1)+fibonacciRcv(n-2)
-    }
-    // console.log('fibonacciRcv(n)',fibonacciRcv(6));
-
-
-
-    function fibonacciMemoization(n) { 
-         
-        const memo = [0, 1]; // {1} 
-        const fibonacci = (n) => { 
-            console.log('n====='+n,memo);
-            if (memo[n] != null) return memo[n]; // {2} 
-            return memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo); // {3} 
-        }; 
-        return fibonacci; 
-    }
-
-    let rlt=fibonacciMemoization(5)(5) 
-    console.log(rlt);
+     function ddg(val){
+         debugger
+         if(val>3){
+             val--;
+             ddg(val)
+         }
+         console.log(val);
+     }
+     ddg(4)
 </script> 
 </body>
 </html>
